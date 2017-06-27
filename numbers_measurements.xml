@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="numbers-measurements">
+    <title>Numbers and Measurements</title>
+
+    <subsection>
+    <title>Overview</title>
+    
+    <p>Numbers play a fundamental role in science because they allow us to quantify observations. That is, instead of saying things are big or small, we can assign numbers to measurements. Standards of measurement allow us to have confidence that repeated measurements will result in the same values, albeit with some variation due to measurement error. Science in large part has progressed because of our ability to determine mathematical relationships between different measurements that make prediction possible.</p>
+    
+    <p>Mathematics admittedly takes a different view of numbers than just their ability to serve as measurements. A measurement can only be determined to some degree of accuracy. But for a mathematician, a number is an exact entity and other numbers, regardless of how close, are different. In addition, mathematicians are concerned with how a number is defined. So mathematicians classify different numbers according to the complexity of their definition.</p>
+    
+    <p>An appendix (<xref ref="appendix-numbers-arithmetic"/>) reviews more details on the development of different number sets. This section introduces basic ideas of number classification and how basic formulas represent exact numerical values. Once this introduction is complete, we look at measurement, which requires introducing ideas of precision and error.</p> 
+    </subsection>
+    
+    <subsection>
+    <title>Numbers in Mathematics</title>
+
+    <p>In mathematics, numbers have precise meanings and classifications. Here, we review the basic <term>sets</term> of numbers. The <term>natural numbers</term> are the positive integers <me>\mathbb{N} = \{1, 2, 3, \ldots\}.</me> Including the number zero gives us all <term>counting numbers</term> <me>\mathbb{N}_0 = \{0, 1, 2, 3, \ldots\}.</me> The set of all integers is written <me>\mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}.</me> The <term>rational numbers</term> are all numbers that can be represented as a ratio of integers <me>\mathbb{Q} = \{ \frac{p}{q} : p \in \mathbb{Z}, q \in \mathbb{N} \}.</me></p>
+    
+    <p>When we think of the real numbers geometrically using the number line, the integers are equally spaced by a unit length. Subdividing the unit length into a whole number of equal parts generates additional points that are rational numbers. However, even when all rational numbers are included, there are infinitely many points on the line that are never covered. These are the <term>irrational numbers</term>, which include algebraic numbers like <m>\sqrt{2}</m> or <m>\sqrt{3}</m> as well as transcendental numbers like <m>\pi</m> and <m>e</m>. The set of <term>real numbers</term> is written <m>\mathbb{R}</m> and consists of both rational and irrational numbers.</p>
+    
+    <p>Every mathematical expression represents a specific point on the number line. Mathematics expects exactness. To replace an expression with a number that is not exactly the same is to say that two different points are the same. Calculators give decimal approximations for numbers. Because many numbers of interest are irrational and can not be represented exactly using decimals, you should not replace an expression with a decimal value unless the application represents a measurement where an approximation would be adequate.</p>
+    
+    <p>Simplification of numbers corresponds to finding a new representation of a number in a reduced form. For example, a rational number has many different representations of the form <m>p/q</m> with <m>p \in \mathbb{Z}</m> and <m>q \in \mathbb{N}</m>, but only one where <m>p</m> and <m>q</m> have no common factors. Canceling the common factors would be simplification, as would be simplifying a root or rationalizing a denominator.</p>
+    
+    <example>
+        <p>The fraction <m>\frac{126}{24}</m> is not simplified. If we find the prime factorization of the numerator and denominator, we find <md>
+            <mrow>126 = 6 \cdot 21 = 2 \cdot 3^2 \cdot 7, </mrow>
+            <mrow>24 = 3 \cdot 8 = 2^3 \cdot 3. </mrow>
+        </md> The fraction simplifies by canceling all common factors: <me>\frac{126}{24} = \frac{2 \cdot 3^2 \cdot 7}{2^3 \cdot 3} = \frac{3 \cdot 7}{2^2} = \frac{21}{4}.</me></p>
+        <p>In practice, we don't usually find the prime factorization. Instead, we just find common factors one-at-a-time. For example, since 126 and 24 are both even, we would write <me>\frac{126}{24} = \frac{63}{12}.</me> Then, we look at 63 and 12 and recognize that they are both divisible by 3, allowing us to rewrite the fraction as <me>\frac{126}{24} = \frac{63}{12} = \frac{21}{4}.</me> Because <m>21=3 \cdot 7</m> and <m>4=2^2</m> do not have common factors, we know this is simplified.</p>
+    </example>
+    
+    <example>
+        <p>The square root <m>\sqrt{126}</m> is not simplified. A square root is the inverse operation of squaring numbers (for non-negative numbers) so that <m>\sqrt{3^2} = 3</m>. Because <m>\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}</m> (for <m>a,b \ge 0</m>), we can simplify as <me>\sqrt{126} = \sqrt{2 \cdot 3^2 \cdot 7} = \sqrt{9} \cdot \sqrt{14} = 3 \sqrt{14}.</me></p>
+    </example>
+    
+    <example>
+        <p>The cube root <m>\sqrt[3]{48}</m> is not simplified. We start by factoring: <me>48=2 \cdot 24 = 2 \cdot 3 \cdot 8 = 2^4 \cdot 3.</me> A cube root is the inverse operation of cubing numbers so that for every perfect cube, we can simplify <m>\sqrt[3]{a^3} = a</m>. We have <me> \sqrt[3]{48} = \sqrt[3]{2^4 \cdot 3} = \sqrt[3]{2^3 \cdot 2 \cdot 3} = 2 \sqrt[3]{6}.</me></p>
+    </example>
+    
+    <example>
+        <statement>
+        <p>Thanks to Pythagorus, the ancient Greeks knew that <m>\sqrt{2}</m> was a number that represented the hypotenuse of an isosceles right triangle with legs of unit length. However, they originally thought that all numbers would ultimately be rational numbers. Realizing that <m>\sqrt{2}</m> was irrational was so shocking that according to legend, the discoverer of this fact was drowned at sea.</p>
+        <p>The basic argument is to consider a rational number that <em>might</em> represent <m>\sqrt{2}</m> and then proceed to show that such a representation doesn't make sense. The detailed argument is shown below.</p>
+        </statement>
+        <solution>
+        <p>Suppose that <m>\sqrt{2}</m> is a rational number. Then it can be written as the ratio of two integers <m>\sqrt{2} = \frac{p}{q}</m> in reduced form, meaning <m>p</m> and <m>q</m> do not have common factors. By definition of square roots, we must have <m>\frac{p^2}{q^2} = 2</m> which implies <me>p^2 = 2 q^2</me> so that <m>p^2</m> is an even number. The only way that <m>p^2</m> can be even is if <m>p</m> itself is even, since the product of two odd numbers is always odd.</p>
+        <p>Once we know <m>p</m> is even, we can factor out 2 and write <m>p=2k</m> where <m>k</m> is also an integer. Now <m>p^2 = 4k^2</m> which implies <m>4k^2=2q^2</m> or <me>q^2 = 2k^2.</me> This means <m>q</m> would also be an even number. This is where the contradiction occurs<mdash/>since <m>p</m> and <m>q</m> were to have had no common factors, they couldn't both be even. This means that <m>\sqrt{2}</m> can be written as a reduced fraction, which means it is not a rational number.</p>
+        </solution>
+    </example>
+
+    <p>When answering mathematical questions, leave your answers in a simplified mathematical form rather than use your calculator to get a decimal approximation. This is especially true if you use a calculator to find just part of an answer and then continue the problem with a decimal approximation. This introduces unnecessary errors in your calculation. Avoid the bad habit of relying on a calculator's feature that converts decimal values back to fractions.</p>
+    </subsection>
+    
+    <subsection xml:id="section-numbers-as-measurements">
+    <title>Numbers as Measurements</title>
+
+    <p>In science, numbers often arise from measurements. The most elementary physical measurement is a measurement of length. In fact a ruler and a number line have many similar features. A ruler has a standard unit, such as an inch or centimeter, with fractional marks. Measurements that are on the actual units correspond to numbers that are integers. Measurements that are on exact subdivisions of the unit correspond to rational numbers. However, there is always uncertainty in measurement. A length can not be measured to an exact value. Given a ruler, the observer must choose a length based on the existing rulings. Consequently, there is a distinction between the actual length and the measured length. The difference between these lengths is called an <term>error</term>.</p>
+    
+    <definition xml:id="definition-error">
+        <statement>
+        <p>Given any quantity with an actual value <m>Q</m> and a measured value <m>\widehat{Q}</m>, the <term>error</term> or <term>residual</term> is a value, say <m>E</m>, that measures the difference between the actual and measured values, <me>E = Q - \widehat{Q}.</me> Equivalently, <m>E</m> is that quantity such that the actual value is equal to the measured value plus the error, <me>Q = \widehat{Q} + E.</me></p>
+        </statement>
+    </definition>
+    
+    <p>In science, the precision of a measurement is often described using <term>significant digits</term>. Significant digits are those digits which represent the value measured up to the accuracy of the measurement. For example, consider an object with a length of 15.2772 <quantity><unit prefix="centi" base="meter"/></quantity>, which is a measurement accurate to the nearest micron (micrometer). (We never really know exact lengths of physical objects.) If that object was measured using a ruler showing only centimeters, we would see that the length was between 15 and 16 <quantity><unit prefix="centi" base="meter"/></quantity> but closer to 15. Our measurement would be written as 15 <quantity><unit prefix="centi" base="meter"/></quantity>, and we would have two significant digits. If the ruler showed millimeters, then our measurement would be 15.3 <quantity><unit prefix="centi" base="meter"/></quantity> with three significant digits.</p>
+    
+    <p>Significant digits with zeros have some trickier rules. For example, in the previous example, if the length were reported in microns instead of centimeters, the two significant digit result would be 150,000 microns. The zeros following the 5 are only present as placeholders to maintain the appropriate  magnitude. To avoid any confusion, <term>scientific notation</term> would be best, writing this as <m>1.5 \times 10^5</m> microns. Zeros following the decimal point are considered significant. So a measurement of <m>2.530 \times 10^4</m> would have four significant digits but <m>2.53 \times 10^4</m> would only have three significant digits.</p>
+    
+    <p>An alternative to using significant digits is to state explicitly a <term>margin of error</term>. A measurement 15.3 <quantity><unit prefix="centi" base="meter"/></quantity> with three significant digits means that the true value is somewhere between 15.25 <quantity><unit prefix="centi" base="meter"/></quantity> and 15.35 <quantity><unit prefix="centi" base="meter"/></quantity>. Using a margin of error, this would be written as <m>15.3 \pm 0.05</m> <quantity><unit prefix="centi" base="meter"/></quantity>. A margin of error is more precise than significant digits.  For example, if we wanted to say that a measurement was somewhere between 15.2 <quantity><unit prefix="centi" base="meter"/></quantity> and 15.4 <quantity><unit prefix="centi" base="meter"/></quantity>, then we would write <m>15.3 \pm 0.1</m> <quantity><unit prefix="centi" base="meter"/></quantity>. The value 15.3 was used as a central value and the margin of error gives a distance in either direction to reach the extreme values. The true value must be between the extremes.</p>
+    
+    <p>We can write a statement about the margin of error using absolute values. Suppose that a quantity <m>Q</m> is being measured and we have a margin of error measurement <m>Q = 15.3 \pm 0.1</m>. This is not a true equation. Rather, it is saying that we have an approximate measurement <m>\widehat{Q}=15.3</m> and that the margin of error is between <m>\pm 0.1</m>. Writing the error as <m>Q-\widehat{Q} = Q-15.3</m>, the margin of error statement can be written <me> -0.1 \lt Q - 15.3 \lt 0.1.</me> This says that <m>Q</m> is within a margin of error 0.1 of the measurement 15.3. Absolute values measure the magnitude of numbers. A margin of error gives the largest magnitude of the error, so we would say <me>|Q-15.3| \lt 0.1.</me></p>
+    
+    <example>
+        <statement>
+        <p>The length of the hypotenuse of a right triangle with legs of lengths 4 <quantity><unit prefix="centi" base="meter"/></quantity> and 6 <quantity><unit prefix="centi" base="meter"/></quantity> is <m>H = \sqrt{4^2+6^2} = \sqrt{52} = 2 \sqrt{13}</m> <quantity><unit prefix="centi" base="meter"/></quantity>. Using a ruler showing millimeters, the length is measured as being between 7.2 and 7.3 <quantity><unit prefix="centi" base="meter"/></quantity>. A more careful look shows that the length is less than 7.25. <ul>
+            <li>Write <m>H</m> using a margin of error showing <m>7.2 \lt H \lt 7.3</m>. Then write this as an inequality involving absolute values.</li>
+            <li>Write <m>H</m> using a margin of error showing <m>7.2 \lt H \lt 7.25</m>. Then write this as an inequality involving absolute values.</li>
+        </ul></p>
+        </statement>
+        <solution>
+            <p>First, we work with the range <m>7.2 \lt H \lt 7.3</m>. We find the mid-point of this interval as our center <me> \widehat{H} = \frac{7.2+7.3}{2} = 7.25.</me> Then we measure the distance from the center to the edge to find the margin of error 0.05 <quantity><unit prefix="centi" base="meter"/></quantity>. As a margin-of-error measurement, we have <m>H = 7.25 \pm 0.05</m> <quantity><unit prefix="centi" base="meter"/></quantity>. As an inequality involving absolute values, we have <m>|E| \lt 0.05</m> which results in <me> |H-7.25| \lt 0.05. </me></p>
+            <p>We repeat this process with the range <m>7.2 \lt H \lt 7.25</m>. The mid-point gives <me> \widehat{H} = \frac{7.2+7.25}{2} = 7.225.</me> The margin of error is 0.025 so that our new approximate measurement with a margin of error is written <m>H = 7.25 \pm 0.05</m> <quantity><unit prefix="centi" base="meter"/></quantity>. As an inequality involving absolute values, we have <me> |H-7.225| \lt 0.025. </me></p>
+        </solution>
+    </example>
+    
+    </subsection>
+
+    <conclusion>
+        <title>Summary</title>
+        <ul>
+            <li><p>In mathematics, numbers represent specific points on the number line. Real numbers (<m>\mathbb{R}</m>) can be classified as natural numbers (<m>\mathbb{N}</m>), integers (<m>\mathbb{Z}</m>), rational numbers (<m>\mathbb{Q}</m>), and irrational numbers.</p></li>
+            <li><p>To simplify an expression is to find an expression representing the same value in a simpler form. For fractions, there should be no common factors. For roots, the power of prime factors inside should be less than the root.</p></li>
+            <li><p>In a physical context, numbers represent measurements that have limited precision. This precision might be characterized by significant digits or by a margin of error.</p></li>
+            <li><p>The error of approximation <m>E</m> for a quantity <m>Q</m> and an approximation <m>\widehat{Q}</m> is defined by <me>E = Q-\widehat{Q}.</me> A symmetrical error bound <m>-\epsilon \lt E \lt \epsilon</m> corresponds to the absolute value inequality <m>|Q-\widehat{Q}| \lt \epsilon</m> for a range of values <me>\widehat{Q}-\epsilon \lt Q \lt \widehat{Q}+\epsilon.</me></p></li>
+        </ul>
+    </conclusion>
+    
+    <exercises xml:id="exercises-numbers-measurements">
+        <title>Exercises</title>
+
+        <exercisegroup xml:id="eg-simplify-arithmetic">
+
+            <introduction>
+                <p>Simplify the following values.</p>
+            </introduction>
+
+            <exercise>
+                <statement><p><m>\frac{42}{12}</m></p></statement>
+            </exercise>
+            <exercise>
+                <statement><p><m>\frac{210}{28}</m></p></statement>
+            </exercise>
+            <exercise>
+                <statement><p><m>\sqrt{75}</m></p></statement>
+            </exercise>
+            <exercise>
+                <statement><p><m>\sqrt{160}</m></p></statement>
+            </exercise>
+            <exercise>
+                <statement><p><m>\sqrt[3]{160}</m></p></statement>
+            </exercise>
+            <exercise>
+                <statement><p><m>\sqrt[4]{160}</m></p></statement>
+            </exercise>
+            <exercise>
+                <statement><p><m>\frac{\sqrt{72}}{4}</m></p></statement>
+            </exercise>
+            <exercise>
+                <statement><p><m>\frac{\sqrt{864}}{15}</m></p></statement>
+            </exercise>
+        </exercisegroup>
+        <exercise>
+            <statement>
+                <p>A right triangle is formed with legs measuring 5 <quantity><unit prefix="centi" base="meter"/></quantity> and 8 <quantity><unit prefix="centi" base="meter"/></quantity>. Express the length of the hypotenuse <m>H</m> to the nearest millimeter, stating the margin of error based on a ruler showing millimeters. Rewrite your statement about margin of error as an inequality involving absolute values.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>A right triangle is formed with one leg measuring 10 <quantity><unit prefix="centi" base="meter"/></quantity> and the hypotenuse measuring 18 <quantity><unit prefix="centi" base="meter"/></quantity>. Express the length of the other leg <m>L</m> to the nearest millimeter, stating the margin of error based on a ruler showing millimeters. Rewrite your statement about margin of error as an inequality involving absolute values.</p>
+            </statement>
+        </exercise>        
+        <exercise>
+            <statement>
+                <p>The circumference of a tree trunk, with margin of error, is recorded as <m>C = 138.4 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>. What is corresponding estimate for the diameter of the tree <m>D</m> with its corresponding margin of error? (Round the margin of error to the nearest hundredth of a centimeter.)</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>A rectangle is formed with a width <m>W=20 \pm 0.1</m> <quantity><unit prefix="centi" base="meter"/></quantity> and a height <m>H=15 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>. What range of areas are possible for this rectangle? Using the approximations <m>\widehat{W}=20</m> <quantity><unit prefix="centi" base="meter"/></quantity> and <m>\widehat{H}=15</m> <quantity><unit prefix="centi" base="meter"/></quantity>, the approximated area would be <m>\widehat{A}=300</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>. Can the range of possible areas be expressed using a symmetric margin of error <m>|A-\widehat{A}| \lt \epsilon</m>? Explain.</p>
+            </statement>
+        </exercise>
+    </exercises>
+</section>

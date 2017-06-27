@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="continuity">
+    <title>Continuity of Functions</title>
+
+    <subsection>
+        <title>Review of Function Domain</title>
+        
+        <p>Recall that a function is a rule that takes every input value from a domain set and assigns a corresponding output value. In some cases, the domain is stated explicitly. Other times, the domain is understood implicitly based on when the rule (usually a formula) makes sense.</p>
+        
+ 
+        <p>A domain is stated explicitly if the domain is included as a part of the definition of the function. When a function is defined using mapping notation, the domain <m>D</m> and target set <m>R</m> are indicated with an arrow, as in <m>f : D \to R</m>. For example, <me> f:(0,1) \to \mathbb{R}; x \mapsto 3x-4 </me> is a function with domain <m>D=(0,1)</m> and the output value for an input <m>x</m> is a real number defined by <m>3x-4</m>. Another way to write this is by including a domain inequality, <me> f(x) = 3x-4, \quad 0 \lt x \lt 1. </me></p>
+        
+        <p>If the domain is not explicitly given, either by mapping notation or by a domain inequality, then the domain is implicitly defined as the set of all numbers for which the function provides a valid output. For example, the function <me> f(x) = \frac{1}{(x-3)(x+2)} </me> did not provide an explicit domain. The formula will provide a valid output for all <m>x</m> except for <m>x=3</m> and <m>x=-2</m>. The implicit domain is the set of all real numbers except -2 and 3, <me> D = \{ x : x \ne -2 \hbox{ and } x \ne 3\} = (-\infty,-2) \cup (-2,3) \cup (3,\infty).</me></p>
+        
+        <p>A value <m>x=a</m> is in the domain if the graph includes a point <m>(a,f(a))</m> in the graph of <m>y=f(x)</m>. (And because it is a function, there can be at most one such point.) A hole or gap in the domain means that the graph has no corresponding point in the graph. For our earlier example, <me> f(x) = \frac{1}{(x-3)(x+2)}, </me> there is no defined point for <m>x=-2</m> or for <m>x=3</m>. If we look at the graph <m>y=f(x)</m>, we see that this is because that graph has a vertical asymptote with no defined point at those locations.</p>
+        
+        <figure>
+            <image>
+                <description>Graph of y=1/((x-3)(x+2)).</description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-5,xmax=5,
+                        ymin=-10,ymax=10,
+                        xlabel={$x$},
+                        ylabel={$y=f(x)$},
+                    ]
+
+                    \addplot[blue, domain=-5:-2.001, thick, samples=100]
+                        ({x}, {1/(x-3)/(x+2)});
+                    \addplot[blue, domain=-1.999:2.999, thick, samples=100]
+                        ({x}, {1/(x-3)/(x+2)});
+                    \addplot[blue, domain=3.001:5, thick, samples=100]
+                        ({x}, {1/(x-3)/(x+2)});
+                    \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+    </subsection>
+    
+    <subsection>
+    <title>Intuition about Continuous Functions</title>
+    
+    <p>As an academic field of study, mathematics explores the idea of continuous functions at a very deep level. We are not prepared to jump into such deep waters at this point. Instead, we will remain in the world of simple algebraic formulas where the ideas of continuity are more closely related to the ideas of connectedness. Once we have this intuition, we will revisit the idea of continuity.</p>
+    
+    <p>The intuitive idea of a continuous function is a function whose graph is connected. Sometimes, this is thought of as being able to draw the graph without lifting the pen. Any time a function has a break, it has a discontinuity at that location. A break can be a simple hole, a jump between values, or an infinite discontinuity associated with a vertical asymptote.</p>
+    
+    <p>A function with a hole has a <term>removable discontinuity</term>. This is because it is possible to create a new function that fills the hole with whatever value it should have had and result in a continuous function. In effect, you just draw over the hole. For simple algebraic functions, removing a hole is accomplished by finding and canceling common factors that add the point back to the domain.</p>
+    
+    <example>
+        <statement>
+            <p>The function <m>\displaystyle f(x) = \frac{3x^2-x-2}{x-1}</m> has a removable discontinuity at <m>x=1</m>. What is the continuous function equivalent to <m>f(x)</m>?</p>
+        </statement>
+    <solution>
+        <p>A polynomial, like <m>3x^2-x-2</m>, will have a factor of <m>x-1</m> if and only if that polynomial has a value of 0 when <m>x=1</m>. So we can see if it will cancel a factor by checking <m>3(1)^2-(1)-2 = 0</m>. Knowing this factor, we can soon find <m>3x^2-x-2 = (x-1)(3x+2)</m>. For all <m>x \ne 1</m>, we have <me> f(x) = \frac{3x^2-x-2}{x-1} = \frac{(x-1)(3x+2)}{x-1} = 3x+2. </me> We can only say this for <m>x \ne 1</m> since the domain of <m>f</m> is <m>(-\infty,1) \cup (1,\infty)</m>. That is, <me> f(x) = 3x+2, \quad x \ne 1. </me></p>
+        <p>This new formula for <m>f(x)</m> requires an explicit domain in order to have the same domain as the original. This new formula with explicit domain makes it clear why we say <m>f</m> has a hole at <m>x=1</m>. Our function <m>f(x)</m> has the same graph as <m>y=3x+2</m> except it has a hole at <m>x=1</m>.</p>
+        
+        <figure>
+            <image>
+                <description>Graph of y=3x+2 with a hole at x=1.</description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-5,xmax=5,
+                        xlabel={$x$},
+                        ylabel={$y=f(x)$},
+                    ]
+
+                    \addplot[red, domain=-5:5, thick, samples=100]
+                        ({x}, {3*x+2});
+                    \addplot[mark=*, red, fill=white] coordinates {(1,5)};
+                    \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+    </solution>
+    </example>
+    
+    <p>The previous example illustrates a basic feature of <term>rational functions</term> (i.e., a ratio or quotient of two polynomials). That is that there will be a canceling factor if the numerator and denominator have a common zero.</p>
+    
+    <theorem>
+        <statement>
+            <p>A rational function <m>\displaystyle f(x) = \frac{p(x)}{q(x)}</m> where <m>p</m> and <m>q</m> are polynomial functions has a domain defined by <me> D = \{ x : q(x)\ne 0 \}. </me> Further, <m>p</m> and <m>q</m> will have canceling common factors of the form <m>(x-a)</m> where <m>a</m> is some number if and only if <m>p(a)=0</m> and <m>q(a)=0</m>.</p>
+        </statement>
+    </theorem>
+    
+    <p>Basic algebraic functions (pretty much anything with a formula involving a finite number of elementary calculations) are continuous whenever they are defined. For rational functions, the only possible discontinuities are holes and infinite discontinuities at vertical asymptotes. Holes  correspond to points that are not in the domain but can be removed by canceling common factors.</p>
+    
+    <example>
+    <statement>
+        <p>Describe the discontinuities of the function <me>f(x) = \frac{x^3-5x^2+6x}{x^2+x-6}. </me></p>
+    </statement>
+    <solution>
+        <p>The discontinuities are determined for a rational function by finding the zeros of the polynomial in the denominator, <m>q(x)=x^2+x-6</m>. We solve this by factoring: <me> q(x) = (x+3)(x-2). </me> There are discontinuities (breaks in the graph) at <m>x=-3</m> and at <m>x=2</m> since we can't divide by zero.</p>
+        <p> We decide what type of discontinuity by seeing if we can fix them through canceling common factors. The numerator <m>p(x)=x^3-5x^2+6x</m> can be tested even before factoring. At <m>x=-3</m>, we have <m>p(-3) = -27-5(9)+6(-3) = -90</m> so that <m>x+3</m> is not going to be a common factor. There must be a vertical asymptote at <m>x=-3</m>. At <m>x=2</m>, we have <m>p(2) = 8-5(4)+6(2) = 0</m> so that there will be a common factor that cancels. <md>
+            <mrow> f(x) &amp;= \frac{x^3-5x^2+6x}{x^2+x-6} </mrow>
+            <mrow> &amp;= \frac{x(x^2-5x+6)}{(x+3)(x-2)} </mrow>
+            <mrow> &amp;= \frac{x(x-2)(x-3)}{(x+3)(x-2)} </mrow>
+            <mrow> &amp;= \frac{x(x-3)}{x+3}, \quad x \ne 2. </mrow>
+        </md> Because the new formula has an implicit domain involving only <m>x=-3</m>, the discontinuity at <m>x=2</m> was removable. The graph has a hole at <m>x=2</m> and a vertical asymptote at <m>x=-3</m>. (Notice the addition of an explicit domain on the last step when we canceled, corresponding  to the hole.)</p>
+
+        <figure>
+            <image>
+                <description>Graph of y=(x^3-5x^2+6x)/(x^2+x-6).</description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-10,xmax=8,
+                        ymin=-50,ymax=50,
+                        xlabel={$x$},
+                        ylabel={$y=f(x)$},
+                    ]
+
+                    \addplot[red, domain=-10:-3.1, thick, samples=100]
+                        ({x}, {x*(x-3)/(x+3)});
+                    \addplot[red, domain=-2.9:8, thick, samples=100]
+                        ({x}, {x*(x-3)/(x+3)});
+                    \addplot[mark=*, red, fill=white] coordinates {(2,-0.4)};
+                    \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+    </solution>
+    </example>
+    </subsection>
+    
+    <subsection>
+    <title>Introducing Limits of Functions</title>
+    
+    <p>When we later work with functions that are not defined using simple algebraic formulas, we will need to identify the essence of continuity more precisely. Using the idea that continuity captures the idea that the graph is supposed to be connected, we must consider what that takes. Continuity is a property or attribute of a function at individual points. We wish to say a function is continuous if the graph immediately to the left is connected to the graph immediately to the right of the point.</p>
+    
+    <p>To evaluate a function is to find the output at a single point. We need a different type of operation to talk about where a graph is going to each side of the point. This operation is called a limit. Imagine thinking of the graph near a point <m>x=a</m> as consisting of three components: (1) the point itself, which is the value of <m>f(a)</m>, (2) the arc of the graph immediately to the left of the point, and (3) the arc of the graph immediately to the right of the point. For the function to be continuous, the arcs on the left and the right both need to match up with the actual value of the function, otherwise there is a break.</p>
+    
+    <p>The figure below represents the typical picture we should think about. The graph is illustrated with the three components related to a particular point <m>x=a</m> using different colors. The actual value of the function corresponds to the point <m>(a,3)</m> with <me>f(a)=3.</me> The two sides of the graph each lead to a point corresponding to <m>x=a</m>. In the figure, the side to the left of <m>a</m> leads to the point at <m>(a,5)</m> while the side to the right of <m>a</m> leads to the point at <m>(a,2)</m>. The values 5 and 2 are called the one-sided limits of the function at <m>a</m>, which are mathematically written<md>
+        <mrow> \lim_{x \to a^{-}} f(x) = 5, </mrow>
+        <mrow> \lim_{x \to a^{+}} f(x) = 2. </mrow>
+    </md></p>
+    
+    <figure>
+        <image>
+            <description>Graph of a function showing a discontinuity.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+                \draw (-3,0) -- (3,0) node[right] {$x$};
+                \draw (0,-1) -- (0,4) node[above] {$y$};
+                \draw (1,0.1) -- (1,-0.1) node[below] {$a$};
+                \draw (-0.1,1) -- (0.1,1) node[right] {2};
+                \draw (-0.1,1.5) -- (0.1,1.5) node[right] {3};
+                \draw (-0.1,2.5) -- (0.1,2.5) node[right] {5};
+                \draw[blue,thick] (-3,1) -- (1,2.5);
+                \draw[white,fill] (1,2.5) circle[radius=0.1];
+                \draw[blue,thick] (1,2.5) circle[radius=0.1];
+                \draw[red,fill] (1,1.5) circle[radius=0.1];
+                \draw[orange,thick] (1,1) -- (3,-1);
+                \draw[white,fill] (1,1) circle[radius=0.1];
+                \draw[orange,thick] (1,1) circle[radius=0.1];
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+
+    <definition>
+        <title>Intuitive Definition of a Function Limit</title>
+        <statement>
+            <p>The <term>left limit</term> of a function at a value <m>a</m> is the value the function should have to be connected to the branch on the left of the point, say <m>L_{-}</m>, and is written <me> \lim_{x \to a^{-}} f(x) = L_{-}. </me> The <term>right limit</term> of a function at <m>a</m> is the value the function should have to be connected to the branch on the right of the point, say <m>L_{+}</m>, and is written <me> \lim_{x \to a^{+}} f(x) = L_{+}.</me> If both sides would connect to the same point (<m>L_{-}=L_{+}=L</m>) then we say the limit at <m>a</m> exists and equals <m>L</m> <me> \lim_{x \to a} f(x) = L. </me></p>
+        </statement>
+    </definition>
+
+    <p>The definition of limits allow us to establish a precise definition of a function being continuous.</p>
+        
+    <definition xml:id='defn-continuity-original'>
+        <title>Definition of Continuity</title>
+        <statement>
+        <p>A function <m>f</m> is continuous at <m>a</m> if all of the following are satisfied:<ul>
+            <li>The limit of <m>f</m> at <m>a</m> exists.</li>
+            <li>The value <m>a</m> is in the domain of <m>f</m>, so that <m>f(a)</m> exists.</li>
+            <li><m>\displaystyle \lim_{x \to a}f(x) = f(a)</m>.</li>
+        </ul></p>
+        </statement>
+    </definition>
+    
+    <p>If the definition of continuity is true for either the left or right limit individually, then we say the function is left- or right-continuous at the point. A function that is continuous at a point is both left- and right-continuous.</p>
+    
+    <example>
+    <statement>
+        <p>For the function whose graph is shown below, determine the limits and whether the function is continuous at each of the points, <m>x \in \{-1, 0, 2, 3, 4\}</m>.</p>
+        <figure>
+            <image>
+                <description>
+                Graph of a function.
+                </description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-5,xmax=5,
+                        ymin=-5,ymax=5,
+                        xlabel={$x$},
+                        ylabel={$y=f(x)$},
+                    ]
+
+                    \addplot[red, domain=-5:-1, thick, samples=100]
+                        ({x}, {-2*(x+2)^3});
+                    \addplot[red, domain=-1:2, thick, samples=100]
+                        ({x}, {2-x^2});
+                    \addplot[red, domain=2:5, thick, samples=100]
+                        ({x}, {-4+x});
+                    \addplot[mark=*, red, fill=white] coordinates {(-1,-2)};
+                    \addplot[mark=*, red, fill] coordinates {(-1,1)};
+                    \addplot[mark=*, red, fill=white] coordinates {(4,0)};
+                    \addplot[mark=*, red, fill] coordinates {(4,2)};
+                    \addplot[mark=*, red, fill=white] coordinates {(2,-2)};
+                    \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+    </statement>
+    <solution>
+        <ul>
+        <li>
+            <p>We start with <m>x=-1</m>. This is the location of the first break in the graph. The branch to the left of -1 goes to the point <m>(-1,-2)</m> while the branch to the right goes to <m>(-1,1)</m>. These observations correspond to the limit statements: <md>
+                <mrow> \lim_{x \to -1^{-}} f(x) = -2, </mrow>
+                <mrow> \lim_{x \to -1^{+}} f(x) = 1. </mrow>
+            </md> Because these are different values, <m>\displaystyle \lim_{x \to -1} f(x)</m> does not exist.</p>
+            <p>The function itself has a value <m>f(-1)=1</m> which is equal to the right limit. So <m>f</m> is right-continuous at <m>x=-1</m>. But it is not left-continuous or continuous. This is called a jump discontinuity.</p>
+        </li>
+        <li>
+            <p>Next, we consider <m>x=0</m>. The graph of the function isconnected at this point. So both sides of the graph lead directly to the actual value of the function, <m>f(0)=2</m>. This gives the left- and right-limits: <md>
+                <mrow> \lim_{x \to 0^{-}} f(x) = 2, </mrow>
+                <mrow> \lim_{x \to 0^{+}} f(x) = 2. </mrow>
+            </md> Because the one-sided limits agree, we also have <me>\lim_{x \to 0} f(x) = 2.</me> With the limits equaling the function value, <m>f</m> is continuous at <m>x=0</m>.</p>
+        </li>
+        <li> 
+            <p>We now consider <m>x=2</m>, which is where the graph comes to a corner. The graph to the left and to the right of 2 both lead to the point <m>(2,-2)</m>. We can write this as a single limit statement, <me> \lim_{x \to 2} f(x) = -2, </me> which implies both of the statements <md>
+                <mrow> \lim_{x \to 2^{-}} f(x) = -2, </mrow>
+                <mrow> \lim_{x \to 2^{+}} f(x) = -2. </mrow>
+            </md></p>
+            <p>Because the graph has a hole at <m>x=2</m>, <m>f(2)</m> does not exist, which means the function is not continuous at 2. Be sure to remember that a limit existing means something different from being continuous. The limit simply means that the two sides lead to the same point. Being continuous means that the function has a value at the common point.</p>
+        </li>
+        <li> 
+            <p>The point at <m>x=3</m> is another point where the function  is continuous. The point on the graph is <m>(3,-1)</m> so that the value of the function is <m>f(3)=-1</m>. Because both sides lead to that point, we have <me> \lim_{x \to 3} f(x) = -1. </me></p>
+        </li>
+        <li> 
+            <p>The final point to consider, <m>x=4</m>, has a break in the graph. The value of the function is defined by the point <m>(4,2)</m> so that <m>f(4)=2</m>. The limits are defined by the point where the graph to either side leads, which is <m>(4,0)</m>, which is written <me> \lim_{x \to 4} f(x) = 0. </me></p>
+            <p>In this example, the limit exists and the value of the function exists. However, since those values are not equal, the function is not continuous at <m>x=4</m>.</p>
+        </li>
+        </ul>
+    </solution>
+    </example>
+    </subsection>
+
+    <subsection>
+    <title>Piecewise Functions</title>
+    
+    <p>The examples used to illustrate the ideas of limits and continuity were based on graphical representations of functions. In order to see an algebraic representation of this type of function, we need to use what are called piecewise functions. In these functions, a different formula is used for different pieces of the domain.</p>
+
+    <example>
+    <statement>
+        <p>Consider the following piecewise function. <me>f(x) = \begin{cases} 
+            2x-5, &amp; x \lt 2, \\ 
+            4, &amp; x=2, \\ 
+            4-3x, &amp; x \gt 2
+            \end{cases} </me> Evaluate the limits of <m>f(x)</m> at each of the points <m>x \in \{0, 2, 4\}</m> and determine if the function is continuous.</p>
+    </statement>
+    <solution>
+        <p>The domain is given explicitly for each of three distinct formulas. For an input value <m>x</m> satisfying <m>x \lt 2</m>, which is a domain <m>(-\infty,2)</m>, the output is given by <m>2x-5</m>. When the input is <m>x=2</m>, which is a domain with a single value <m>\{2\}</m> and not an interval, the output is 4. And when the input value <m>x</m> satisfies <m>x \gt 2</m>, which is a domain <m>(2,\infty)</m>, the output is given by <m>4-3x</m>.</p>
+        <p>The input value <m>x=0</m> is in the first explicit domain <m>(-\infty, 2)</m>. The output uses the formula <m>f(x)=2x-5</m> to give a value <m>f(0) = 2(0)-5=-5</m>. For <m>x</m> immediately to the left of 0, we also have <m>x \in (-\infty,2)</m> so that the left limit of <m>f(x)</m> will use <m>2x-5</m>: <me> \lim_{x \to 0^{-}} f(x) = \lim_{x \to 0^{-}} 2x-5 = 2(0)-5 = -5.</me> Similarly, for <m>x</m> immediately to the right of 0 (at least for <m>0 \lt x \lt 2</m>), <m>f(x)=2x-5</m> so that the right limit is <me> \lim_{x \to 0^{+}} f(x) = \lim_{x \to 0^{+}} 2x-5 = 2(0)-5 = -5.</me> Because the one-sided limits have the same value, we write <me> \lim_{x \to 0} f(x) = -5. </me> (In an example like this, where the point of interest is not at the boundary of a domain's specification, since both sides use the same formula, we usually just write the two-sided limit.)</p>
+        
+        <p>The input value <m>x=2</m> is in the middle explicit domain, <m>x=2</m>. This means that the value of the function uses the formula <m>f(x)=4</m> so that <m>f(2)=4</m>. However, when doing limits, we see that input values immediately to the left of 2 belong to the first domain where <m>f(x)=2x-5</m> so that <me> \lim_{x \to 2^{-}} f(x) = \lim_{x \to 2^{-}} 2x-5 = 2(2)-5 = -1. </me> Input values immediately to the right of 2 belong to the last domain where <m>f(x) = 4-3x</m> so that the right limit is <me> \lim_{x \to 2^{+}} f(x) = \lim_{x \to 2^{+}} 4-3x = 4-3(2) = -2. </me> This time, the one-sided limits are not equal, which means <m>\displaystyle \lim_{x \to 2}f(x)</m> does not exist. Whenever the left- and right-limits exist but are not equal, the function has a jump discontinuity.</p>
+        
+        <p>The input value <m>x=4</m> is in the interior of the third domain <m>(2,\infty)</m> so the function and the limits will use <m>f(x)=4-3x</m>: <md>
+            <mrow>f(4) = 4-3(4) = -8, </mrow>
+            <mrow>\lim_{x \to 4} f(x) = \lim_{x \to 4} 4-3x = 4-3(4) = -8,</mrow>
+        </md> and the function is continuous at <m>x=4</m>.</p>
+    </solution>
+    </example>
+    </subsection>
+</section>

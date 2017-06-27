@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="power-exponential">
+    <title>Power Functions and Exponential Functions</title>
+
+    <!-- Fundamental properties of powers/exponents -->
+    <subsection>
+        <title>Review Properties of Exponents</title>
+        
+        <p>
+        When we first learned about multiplication, we thought of the process as
+        repeatedly adding one of the factors and count with the other factor.
+        For example, the numerical expression <m>7 \cdot 4</m> means to add
+        four 7's,
+        <me>7 \cdot 4 \equiv 7+7+7+7 = 28,</me>
+        while the different numerical expression <m>4 \cdot 7</m> means to add
+        seven 4's,
+        <me>4 \cdot 7 \equiv 4+4+4+4+4+4+4=28.</me>
+        The properties of multiplication are consequences of thinking about multiplication
+        in such away, such as the commutative property illustrated in this example.
+        When dealing with non-integer values, we can't really use the idea of
+        repeated addition so different interpretations (e.g., multiplication represents an area)
+        are required. But we insist that the rules that we found for integer values
+        still need to be true for any number.
+        </p>
+        
+        <p>
+        In a similar way, the idea of powers or exponents is based originally on
+        the idea of repeated multiplication and then generalized to satisfy basic
+        properties. When the power or exponent is a positive integer, we interpret
+        this as repeated multiplication with the base multiplied by itself as many
+        times as the power indicates:
+        <md>
+            <mrow> 3^4 = 3 \cdot 3 \cdot 3 \cdot 3 = 81 </mrow>
+            <mrow> 4^3 = 4 \cdot 4 \cdot 4 = 64 </mrow>
+        </md>
+        The properties of exponents can be illustrated using the idea of repeated multiplication.
+        </p>
+        
+        <theorem>
+        <statement>
+            Let <m>a</m> and <m>b</m> be any numbers and let <m>n</m> and <m>p</m>
+            be positive integers. Then exponents defined by repeated multiplication
+            satisfy the following properties.
+            <md>
+                <mrow> a^n \cdot a^p &amp;= a^{n+p} </mrow>
+                <mrow> \frac{a^n}{a^p} &amp;= a^{n-p} </mrow>
+                <mrow> (ab)^n = a^n \cdot b^n </mrow>
+                <mrow> (a^n)^p = a^{n \cdot p} </mrow>
+            </md>
+        </statement>
+        <proof>
+        <ul>
+            <li> <m>a^n \cdot a^p = a^{n+p}</m>
+            <p>
+            <m>a^n</m> means multiply <m>n</m> copies of <m>a</m> and <m>a^p</m>
+            means multiply <m>p</m> more copies of <m>a</m>. Combined, there are 
+            <m>n+p</m> copies of <m>a</m> being multiplied together.
+            </p>
+            
+            <p>Example: <m>a^3 \cdot a^5 = (a \cdot a \cdot a) \cdot (a \cdot a \cdot a \cdot a \cdot a) = a^8</m>
+            </p>
+            </li>
+
+            <li> <m>\frac{a^n}{a^p} = a^{n-p}</m>
+            <p>
+            Until we define negative powers, this only makes sense when <m>p \lt n</m>.
+            In this case, the division allows <m>p</m> copies of <m>a</m> to cancel in the 
+            fraction leaving <m>n-p</m> remaining.
+            </p>
+            
+            <p>Example: <m>{a^5 \cdot a^3} = \frac{a \cdot a \cdot \cancel{a} \cdot \cancel{a} \cdot \cancel{a}}
+            {\cancel{a} \cdot \cancel{a} \cdot \cancel{a}} = a^2</m>
+            </p>
+            </li>
+
+            <li> <m>(ab)^n = a^{n}b^{n}</m>
+            <p>
+            The definition of <m>(ab)^n</m> is to have a product of <m>n</m> copies of <m>ab</m>.
+            By rearranging the factors to group all <m>a</m>'s and <m>b</m>'s together, we
+            see there are <m>n</m> copies of each.
+            </p>
+            
+            <p>Example: <m>(ab)^{4} = (ab)\cdot(ab)\cdot (ab)\cdot (ab) 
+            = (a \cdot a \cdot a \cdot a) \cdot (b \cdot b \cdot b \cdot b) = a^4 b^4
+            </m>
+            </p>
+            </li>
+        </ul>
+        </proof>
+        </theorem>
+
+        <p>
+        In consequence of these properties of exponents when interpreted as repeating 
+        multiplication, we will insist on any interpretation as obeying the same rules,
+        including negative or non-integer powers. In particular, the rule for division
+        gives us an interpretation of negative powers as reciprocals (or multiplicative
+        inverses) of the corresponding positive powers.
+        </p>
+        
+        <theorem>
+        <statement>
+            <p>
+            Let <m>a \gt 0</m> and let <m>p</m> be any number, and let <m>n</m> be any positive integer.
+            <md>
+                <mrow> a^0 = 1</mrow>
+                <mrow> a^{-p} = \div a^{p} = \frac{1}{a^p} </mrow>
+                <mrow> a^{1/n} = \sqrt[n]{a} </mrow>
+            </md>
+            </p>
+        </statement>
+        <proof>
+        <ul>
+            <li>
+            For any non-zero number <m>p</m>, we know 
+            <me>a^0=a^{p-p} = \frac{a^p}{a^p} = 1. </me>
+            </li>
+            
+            <li>
+            For any number <m>p</m>, since <m>-p = 0-p</m>, we know
+            <me>a^{-p} = \frac{a^0}{a^p} = \frac{1}{a^p}. </me>
+            </li>
+            
+            <li>
+            For any positive integer <m>n</m>, the mathematical expression
+            <m>\sqrt[n]{a}</m> represents the <m>n</m>th root of <m>a</m>,
+            which is that number which when raised to the <m>n</m>th power
+            equals <m>a</m>. That is exactly what happens to <m>a^{1/n}</m>,
+            using the multiplication rule of powers:
+            <me>
+            (a^{1/n})^n = a^{\frac{1}{n} \cdot n} = a^{1} = a.
+            </me>
+            </li>
+        </ul>
+        </proof>
+        </theorem>
+
+    </subsection>
+
+    <subsection>
+    <title>
+    Power Functions and Exponential Functions
+    </title>
+    
+    <p>
+    The rules we have discussed for powers provide a constructive way to
+    compute powers, first defined for integer powers as repeated multiplication,
+    then defined for reciprocals of integers as roots. Combining these two
+    methods, computing a power <m>p</m> involving any rational number (ratio of two integers
+    <m>k</m> and <m>m \ge 0</m>, <m>p=k/m</m>) as a product power involving roots:
+    <me> a^{p/q} = (a^p)^{1/q} = \sqrt[q]{a^p}. </me>
+    If we think of this as a function of the base where the power is held
+    constant, this defines a family of functions called <term>power functions</term>.
+    </p>
+    
+    <definition>
+    <statement>
+    An elementary <term>power function</term> is a function where the independent
+    variable is raised to a given rational power, <m>p \in \mathbb{Q}</m>.
+    <me> \mathrm{pow}_{p}(x) = x^{p} </me>
+    A general power function is a constant multiple of an elementary power function,
+    <me> f(x) = A x^{p} </me>
+    for some constant <m>A</m>.
+    </statement>
+    </definition>
+    
+    <example>
+        <ol>
+        <li>
+        <m>f(x) = x^2</m> is an elementary power function with <m>p=2</m>.
+        </li>
+        
+        <li>
+        <m>f(x) = \sqrt{8x}</m> is a general power function since we
+        can rewrite <m>\sqrt{8x} = \sqrt{8} \sqrt{x} = 2 \sqrt 2 \cdot x^{1/2}</m>.
+        Thus <m>f</m> is a constant multiple of the elementary
+        power function with <m>p=1/2</m>.
+        </li>
+        
+        <li>
+        <m>f(x) = \frac{3}{x}</m> is a general power function since
+        <m>\frac{3}{x} = 3\cdot x^{-1}</m> so that we have a constant multiple
+        of the elementary power function with <m>p=-1</m>.
+        </li>
+        
+        <li>
+        <m>f(x) = x^{\pi}</m> is not technically an elementary power function because the
+        power is an irrational number. However, calculus allows us to show that it
+        behaves in the same way as a power function in spite of having an irrational
+        power.
+        </li>
+        </ol>
+    </example>
+
+    <p>
+    On the other hand, it is also possible to consider a function where 
+    the independent variable is the power and the base is constant.
+    These functions are <term>exponential functions</term>. We do not
+    have a constructive way to find these powers for irrational values
+    of the independent variable, but calculus (using logarithms) provides a way for us to know
+    that the values exist and how to get arbitrarily close to those values.
+    </p>
+    
+    <definition>
+    <statement>
+    An elementary <term>exponential function</term> is a function where a 
+    constant positive base <m>b>0</m> is raised to the power of the independent
+    variable.
+    <me> \exp_{b}(x) = b^{x} </me>
+    A general exponential function is a constant multiple of an elementary exponential function,
+    <me> f(x) = A b^{x} </me>
+    for some constant <m>A</m>.
+    </statement>
+    </definition>
+
+    <example>
+        <ol>
+        <li>
+        <m>f(x) = 2^x</m> is the elementary exponential function
+        <m>\exp_2(x)</m> with base <m>b=2</m>.
+        At integer values of <m>x</m>, this function gives the powers of 2.
+        <me>f(0)=2^0=1, \: f(1)=2^1=2, \: f(2)=2^2=4, \: f(3)=2^3=8, \: f(4)=2^4=16 </me>
+        </li>
+        
+        <li>
+        <m>f(x) = 3^{2x+1}</m> is a general exponential function, although it does
+        not yet look like it because the power is not just the variable <m>x</m>.
+        We have to apply the properties of powers to rewrite the formula.
+        <me>f(x) = 3^{2x+1} = 3^{2x} \cdot 3^{1} = (3^2)^{x} \cdot 3 = 3 \cdot 9^x</me>
+        So <m>f(x)</m> is a general exponential function with base <m>b=9</m>
+        and a constant multiple of <m>A=3</m>.
+        </li>
+        
+        <li>
+        <m>f(x) = 5^{x^2}</m> is not an exponential function because the
+        power is not just the variable <m>x</m> and the rules of powers 
+        do not allow it to be rewritten in an exponential form.
+        </li>
+        </ol>
+    </example>
+
+    </subsection>
+    
+    <subsection>
+    <title>Finding Models for Data</title>
+    
+        <subsubsection>
+        <title>Power Function Models</title>
+        
+        <p>
+        A general principle of modeling is that each model parameter typically requires
+        one independent equation to specify that value. In the case of a power function,
+        <me>y=Ax^p</me>
+        there are two model parameters, the scaling multiple <m>A</m> and the power <m>p</m>.
+        If the power is known in advance, then you only need one equation and that usually
+        comes from a single known data point.
+        </p>
+        
+        <example>
+        <statement>
+            What is the equation of a quadratic power function passing through
+            the point <m>(x,y)=(3,12)</m>?
+        </statement>
+        <solution>
+            <p>
+            Always start with the model equation, which this time involves a power <m>p=2</m>:
+            <me>y=Ax^2</me>
+            We then create an equation using our data point with <m>x=3</m> and <m>y=12</m>:
+            <me>12 = A \cdot 3^2</me>
+            If we solve this equation to find <m>A</m>, then we have our model.
+            <me>A = \frac{12}{9} \quad \Rightarrow \quad y = \frac{12}{9} x^2</me>
+            Note that just finding <m>A</m> did not finish the problem.
+            We needed to write down the resulting model for our equation using that value.
+            </p>
+        </solution>
+        </example>
+        
+        <p>
+        If we do not know the power in advance, then we need two equations
+        which will necessarily come from two different data points. We will use
+        logarithms to determine the power. Although the notation below uses the
+        common logarithm, in fact the answer is the same regardless of whether 
+        you use the common logarithm or the natural logarithm.
+        </p>
+        
+        
+        <example>
+        <statement>
+            What is the equation of a power function passing through
+            the points <m>(x,y)=(3,12)</m> and <m>(x,y)=(1,2)</m>?
+        </statement>
+        <solution>
+            <p>
+            Always start with the model equation with unknown model parameters:
+            <me>y=Ax^p</me>
+            Each data point results in one equation:
+            <me> 2 = A \cdot 1^p \qquad 12 = A \cdot 3^p </me>
+            Because 1 to any power is 1, the first equation tells us <m>A=2</m>.
+            Using the strategy of substitution, we can use this value in the
+            other equation to find a second equation,
+            <me> 12 = A \cdot 3^p \quad \Rightarrow \quad 12 = 2 \cdot 3^p. </me>
+            If we isolate the exponential <m>3^p</m>, then we can use properties of logarithms
+            <me> 6 = 3^p \quad \Rightarrow \quad \log(6) = p \log(3) \quad \Rightarrow \quad p = \frac{\log(6)}{\log(3)}. </me>
+            The exact model is given by
+            <me> y= 2 \cdot x^{(\textstyle \frac{\log(6)}{\log(3)})}. </me>
+            Using a calculator, we can approximate <m>p=\frac{\log(6)}{\log(3)} \approx 1.6309</m>
+            so that our power function is approximated by
+            <me> y \approx 2 \cdot x^{1.6309}.</me>
+            </p>
+        </solution>
+        </example>
+        
+        <p>
+        The previous example was kept simple because one data point was at <m>x=1</m>.
+        If that data point is not included, then the calculation is a little more complex.
+        However, using the log-log transformation means it is really the same as finding
+        the equation of a line and apply logarithm rules.
+        </p>
+        
+        <example>
+        <statement>
+            What is the equation of a power function passing through
+            the points <m>(x,y)=(3,12)</m> and <m>(x,y)=(6,4)</m>?
+        </statement>
+        <solution>
+            <p>
+            Always start with the model equation with unknown model parameters:
+            <me>y=Ax^p</me>
+            The log-log transformation of data corresponds to computing the logarithm
+            of this model and applying properties:
+            <me>\log(y)=\log(Ax^p) = \log(A) + p \log(x).</me>
+            In other words, if we compute transformed data with <m>u=\log(x)</m> and
+            <m>v=\log(y)</m>, then we only need to find the equation of the line
+            <me>v = \log(A) + p \cdot u</me>
+            and the slope will give us the power and the intercept will be the logarithm
+            of the scaling multiple.
+            </p>
+            
+            <p>
+            Our two data points become transformed to <m>(u,v) = (\log(3),\log(12))</m>
+            and <m>(\log(6), \log(4))</m>. The line has slope
+            <me> p = \frac{\Delta v}{\Delta u} = \frac{\log(12)-\log(4)}{\log(3)-\log(6)},</me>
+            which we can simplify by using properties of logarithms:
+            <me> p = \frac{\log(12/4)}{\log(3/6)} = \frac{\log(3)}{\log(\frac{1}{2})} \approx -1.58496.</me>
+            </p>
+            
+            <p>
+            To find the intercept (and therefore <m>A</m>), we will continue to use the symbol <m>p</m>
+            for the power that we just found since that formula is too complex to repeat many times.
+            We use the point-slope form of a line to find an equation
+            <me> v-\log(12) = p (u-\log(3)) \quad \Rightarrow \quad v = p \cdot u - p \log(3) + \log(12) </me>
+            Again using the properties of logarithms, we can combine the last two terms:
+            <me> v = p \cdot u + \log(\frac{12}{3^p}) \quad \Rightarrow \quad A = \frac{12}{3^p}</me>
+            This means that our final model (using the original equation)is given by
+            <me> y = \frac{12}{3^p} \cdot x^p = 12 \left(\frac{x}{3}\right)^{\log(3)/\log(1/2)} \approx 12 \left(\frac{x}{3}\right)^{-1.58496}.</me>
+            </p>
+        </solution>
+        </example>
+        
+        </subsubsection>
+        
+        <subsection>
+        <title>Exponential Models</title>
+        
+        <p>
+        Exponential models have a special property that a linear formula in the power
+        can always be rewritten in an exponential form by using properties of powers.
+        <me> b^{ax+c} = b^{ax} \cdot b^{c} = (b^a)^{x} \cdot b^{c}</me>
+        In this new equation, the value <m>b^a</m> becomes the new base and the constant <m>b^c</m>
+        becomes the new scaling multiple.
+        Consequently, we have an exponential model if we can make it almost look exponential
+        but with a linear formula in the exponent. This is often much easier to accomplish.
+        </p>
+        
+        <example>
+        <statement>
+        Find an exponential model passing through <m>(x,y)=(0,4)</m> and <m>(x,y)=(3,1)</m>.
+        </statement>
+        <solution>
+            <p>
+            Start with the model equation:
+            <me>y=A b^x</me>
+            Use the data points to find equations involving the model parameters <m>A</m> and <m>b</m>.
+            <md>
+                <mrow>4 &amp;= A b^0 \: \Leftrightarrow \: 4=A\cdot 1 \: \Leftrightarrow \: A=4 </mrow>
+                <mrow>1 &amp;= A b^{3} \: \Leftrightarrow \: 1 = 4 b^3 \: \Leftrightarrow \: b^3=\frac{1}{4} 
+                 \: \Leftrightarrow \: b=\sqrt[3]{\frac{1}{4}} </mrow> 
+            </md>
+            Now that we know the model parameters, we can write our model equation:
+            <me> y = 4 \cdot \left(\sqrt[3]{\frac{1}{4}}\right)^{x}</me>
+            </p>
+        </solution>
+        </example>
+        
+        <p>
+        The previous example was easy because <m>x=0</m> was given for one of the data points.
+        If this is not provided, then the calculation is a little trickier.
+        </p>
+
+        <example>
+        <statement>
+        Find an exponential model passing through <m>(x,y)=(2,4)</m> and <m>(x,y)=(6,12)</m>.
+        </statement>
+        <solution>
+            <p>
+            Start with the model equation:
+            <me>y=A b^x</me>
+            Use the data points to find equations involving the model parameters <m>A</m> and <m>b</m>.
+            <me> 4 = A b^2 \qquad 12=A b^6 </me>
+            One strategy is to use substitution, solving for <m>A</m> in one of the equations
+            and substituting the formula into the other equation:
+            <me> 4=Ab^2 \quad \Rightarrow \quad A = \frac{4}{b^2} \qquad \Rightarrow \qquad
+            12 = (\frac{4}{b^2}) b^6 </me>
+            Simplifying this formula, and solving for <m>b</m> we find:
+            <me> 12 = 4b^4 \quad \Rightarrow \quad b^4=3 \quad \Rightarrow \quad b = 3^{1/4} </me>
+            We have to back-substitute this value of <m>b</m> to find <m>A</m>:
+            <me> A = \frac{4}{b^2} = \frac{4}{(3^{1/4})^2} = \frac{4}{3^{2/4}} </me>
+            I could have simplified that last fraction, but I want to leave it alone for comparison below.
+            Our final model is given by
+            <me> y = \frac{4}{3^{2/4}} (3^{1/4})^x. </me>
+            </p>
+            
+            <p>
+            An alternative method for this problem is to recall that exponential models
+            appear linear in a semi-log plot. So we can transform our model using a logarithm:
+            <me> y = A b^x \quad \Rightarrow \quad \log(y) = \log(A b^x) = \log(A) + x \log(b). </me>
+            That is, the slope is the logarithm of the base and the intercept is the logarithm of
+            the scaling multiple. Because the variable <m>x</m> is not in a logarithm, we only 
+            transform the coordinates <m>v=\log(y)</m>.
+            </p>
+            
+            <p>
+            Our data points become <m>(x,v) = (2, \log(4))</m> and <m>(x,v)=(6,\log(12))</m>.
+            The slope of these transformed data is
+            <md>
+                <mrow> \log(b) = \frac{\Delta v}{\Delta x} &amp;= \frac{\log(12)-\log(4)}{6-2} = \frac{\log(12/4)}{4}  </mrow>
+                <mrow> &amp;= \frac{1}{4} \log(3) </mrow>
+            </md>
+            Consequently, our model equation for <m>(x,v)</m> (using point<ndash />slope) is given by
+            <me> v-\log(4) = \frac{1}{4} \log(3) (x-2) = \frac{x-2}{4} \log(3). </me>
+            Isolating the <m>v</m> and using properties of logarithms to combine terms, we find
+            <me> v= \frac{x-2}{4} \log(3) + \log(4) = \log(3^{(x-2)/4}) + \log(4) = \log(4 \cdot 3^{(x-2)/4}). </me>
+            Recalling that <m>v = \log(y)</m> and comparing our formula, we have
+            <me> y = 4 \cdot 3^{(x-2)/4} </me>
+            </p>
+            
+            <p>
+            The second formula is much cleaner looking because we have expressed our model
+            as an exponential involving a convenient linear formula in the exponent.
+            Notice that if we were to expand out the terms in the exponent and use properties
+            of powers, we actually have the same model in both formulas.
+            More significantly, notice that the second formula is a simple transformation
+            of the graph <m>y=3^x</m> where the vertical transformation is a scaling by factor 4
+            and the horizontal transformation involves a horizontal shift of 2 and another
+            scaling by factor 4.
+            </p>
+        </solution>
+        </example>
+        </subsection>
+    </subsection>
+</section>

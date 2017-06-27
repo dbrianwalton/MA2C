@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="continuous-functions">
+    <title>Continuous Functions</title>
+
+    <subsection>
+    <title>Continuity</title>
+    
+    <p>Recall our <xref ref='defn-continuity-original' autoname='title'>definition of continuity</xref> for a function at a single point.</p>
+    
+    <definition xml:id='defn-continuity-simplified'>
+        <title>Continuity at a Point</title>
+        <statement>
+            <p>A function <m>f</m> is <term>continuous</term> at <m>a</m> if <me>\lim_{x \to a} f(x) = f(a).</me></p>
+        </statement>
+    </definition>
+    
+    <p>The single equation captures the full definition because for the equation to be true, the limit must exist and the value of the function must exist. Also, recall that the function is <term>right-continuous</term> if the limit comes from the right (<m>x \to a^+</m>) and <term>left-continuous</term> if the limit comes from the left (<m>x \to a^-</m>).</p>
+    
+    <p>These ideas allow us to define what we mean by saying that a function is continuous on an interval.</p>
+    <definition xml:id='defn-continuity-interval'>
+        <title>Continuity on an Interval</title>
+        <statement>
+            <p>A function <m>f</m> is <term>continuous on an interval</term> <m>(a,b)</m> if <m>f</m> is continuous at every point <m>x \in (a,b)</m>. We can include an endpoint if the limit statement is true coming from within the interval. That is, we include <m>a</m> if <me>\lim_{x \to a^+}f(x)=f(a)</me> and we include <m>b</m> if <me>\lim_{x \to b^-}f(x)=f(b).</me></p>
+        </statement>
+    </definition>
+    
+    <p>There are two important theorems that describe what we know about functions that are continuous on an interval. The Extreme Value Theorem guarantees that any function that is continuous on a closed interval has a highest and lowest point within that interval. The Intermediate Value Theorem guarantees that a function that is continuous on a closed interval can not skip over any values between its values at the endpoints. The proofs for both of these theorems require advanced methods not taught at this level. We treat them essentially as axioms, statements that are true without proof.</p>
+    
+    <theorem xml:id='extreme-value-theorem'>
+        <title>Extreme Value Theorem</title>
+        <statement>
+            <p>Suppose <m>f</m> is a function that is continuous on <m>[a,b]</m>. Then there must exist values <m>c_m, c_M \in [a,b]</m> so that for any <m>x \in [a,b]</m> we have <me>f(c_m) \le f(x) \le f(c_M).</me> The values <m>f(c_m)</m> and <m>f(c_M)</m> are the minimum and maximum values, respectively, of the function <m>f</m> on <m>[a,b]</m>.</p>
+        </statement>
+    </theorem>
+    
+    <p>If a function is not continuous on <m>[a,b]</m>, then it does not necessarily have a maximum or minimum value. One way that this might happen is if <m>f</m> has a vertical asymptote within the interval. In that case, the values of <m>f</m> would be unbounded. Another way that this might happen is that <m>f</m> is bounded by what would be a maximum (or minimum) value but just doesn't reach it because of a sudden jump.</p>
+    
+    <example>
+        <p>Consider the function defined piecewise as <me>f(x) = \begin{cases} \frac{1}{x^2}, &amp; x \ne 0, \\ 0, &amp; x=0. \end{cases}</me> This function has a non-removable discontinuity at <m>x=0</m>, corresponding to a vertical asymptote. Because the formula has <m>x^2</m> in the denominator (always positive), we have <me>\lim_{x \to 0} f(x) = +\infty.</me> This function is unbounded on the interval <m>[-1,1]</m> and has no maximum. It does have a minimum at <m>f(0)=0</m> since that is below the rest of the graph.</p>
+        <figure>
+            <image>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-2, xmax=2, ymin=-1, ymax=5 ]
+                \addplot[domain=.25:5, samples=51] (1/sqrt(x), x);
+                \addplot[domain=.25:5, samples=51] (-1/sqrt(x), x);
+                \addplot[only marks] coordinates { (0,0) };
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+    </example>
+    
+    <example>
+        <p>Consider the function defined piecewise as <me>f(x) = \begin{cases} x^2, &amp; -1 \lt x \lt 1, \\ \frac{1}{2}, &amp; x = \pm 1. \end{cases}</me> This function has a removable discontinuities at <m>x=\pm 1</m>, where the limits are 1 but the values are <m>\frac{1}{2}</m>. In this case, <m>f</m> is continuous on <m>(-1,1)</m> but not on <m>[-1,1]</m>. The maximum value should have been <m>y=1</m>, but the graph never reaches that value because of the discontinuity. The function does have a minimum value at <m>f(0)=0</m>.</p>
+        <figure>
+            <image>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-1.5, xmax=1.5, ymin=-0.5, ymax=1.5 ]
+                \addplot[domain=-1:1, samples=51] (x, x^2);
+                \addplot[only marks] coordinates { (-1,0.5) (1,0.5) };
+                \addplot[only marks, mark=o] coordinates { (-1,1) (1,1) };
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+    </example>
+    
+    <example>
+        <p>Consider the function defined piecewise as <me>f(x) = \begin{cases} x^2, &amp; -1 \lt x \le 1, \\ 2, &amp; x = -1. \end{cases}</me> This function has a removable discontinuity at <m>x=-1</m>. In this case, <m>f</m> is continuous on <m>(-1,1]</m> but not on <m>[-1,1]</m>. In spite of the discontinuity at <m>x=-1</m>, this function has a maximum value <m>f(-1)=2</m> because that value is above every other point in the interval.</p>
+        <figure>
+            <image>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-1.5, xmax=1.5, ymin=-0.5, ymax=2.5 ]
+                \addplot[domain=-1:1, samples=51] (x, x^2);
+                \addplot[only marks] coordinates { (-1,2) (1,1) };
+                \addplot[only marks, mark=o] coordinates { (-1,1) };
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+    </example>
+    
+    <p>The previous example is included to emphasize that a theorem gives conditions that guarantee something is true. But those conditions are not always required. The extreme value theorem gives conditions that guarantee a function will have a maximum value. There are no exceptions for a continuous function on a closed interval to have both maximum and minimum values. But there are discontinuous functions that have them as well. It is just that there are also discontinuous functions that do not have extreme values.</p>
+    
+    <theorem xml:id='intermediate-value-theorem'>
+        <title>Intermediate Value Theorem</title>
+        <statement>
+            <p>Suppose <m>f</m> is a function that is continuous on <m>[a,b]</m>. Then for every <m>y</m> between <m>f(a)</m> and <m>f(b)</m>, there exists some <m>x \in (a,b)</m> so that <m>f(x)=y</m>.</p>
+        </statement>
+    </theorem>
+    
+    <p>The Intermediate Value Theorem guarantees that the graph of <m>y=f(x)</m> intersects every horizontal line between <m>y=f(a)</m> and <m>y=f(b)</m> at least once for values of <m>x</m> between <m>a</m> and <m>b</m>. Because continuity is essentially connectedness, the only way for the graph to go from <m>y=f(a)</m> to <m>y=f(b)</m> is to cross through all intermediate values. A discontinuous function has the ability to jump across values without touching them.</p>
+    
+    <example>
+        <p>Consider the function defined piecewise as <me>f(x) = \begin{cases} -1, &amp; x \lt 0, \\ 0, &amp; x = 0, \\ 1, &amp; x \gt 0. \end{cases}</me> This function has a jump discontinuity at <m>x=0</m>, and is otherwise constant. If we consider the interval <m>[-1,1]</m>, the values at the endpoints are <m>f(-1)=-1</m> and <m>f(1)=1</m>. Except for <m>y=0</m>, the function <m>y=f(x)</m> has no solutions for <m>-1 \lt y \lt 1</m> because of the jump.</p>
+        <figure>
+            <image>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5 ]
+                \addplot[domain=-2:0, samples=5] (x, -1);
+                \addplot[domain=0:2, samples=5] (x, 1);
+                \addplot[only marks] coordinates { (0,0) };
+                \addplot[only marks, mark=o] coordinates { (0,-1) (0,1) };
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+    </example>
+    
+    <p>The Intermediate Value Theorem allows us to know that a continuous function has a solution to an equation within a particular interval. If the interval is small, we have an approximation to the value of the solution. We say that the interval <term>brackets</term> the solution. Finding successively smaller bracketing intervals allows us to approximate the root to any needed precision. The Intermediate Value Theorem guarantees this works for continuous functions.</p>
+    
+    <example>
+        <p>The function <m>f(x)=x^3-x-3</m> is continuous because it is a polynomial. Because <m>f(1)=-3</m> and <m>f(2)=3</m>, we know that <m>f(x)</m> must pass through every <m>y</m>-value between -3 and 3 for at least one value of <m>x</m> in the interval <m>(1,2)</m>. In particular, if we are solving <m>f(x)=0</m>, since <m>y=0</m> is between <m>f(1)=-3</m> and <m>f(2)=3</m>, we know that there is a solution <m>x</m> bracketed by the interval <m>[1,2]</m>.</p>
+        <figure>
+            <image>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-3, xmax=3, ymin=-6, ymax=6 ]
+                \addplot[domain=-3:3, samples=101] (x, x^3-x-3);
+                \addplot[domain=-3:3, samples=101] (x, 0);
+                \addplot[only marks] coordinates { (1,-3) (2,3) };
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+        <p>If we find a smaller interval, then we can know more precisely where the root occurs. In particular, since <m>f(1.6)=-0.504</m> and <m>f(1.7)=0.213</m> and <m>y=0</m> is between those values, the Intermediate Value Theorem guarantees that our continuous function has a root bracketed by the interval <m>[1.6, 1.7]</m>.</p>
+    </example>
+    
+    </subsection>
+    
+    <subsection xml:id='section-integral-mvt'>
+        <title>Definite Integrals and Average Value</title>
+        
+        <p>When we studied the definite integral, we learned that <xref ref='thm-continuous-integrable' autoname='title'>continuity implies integrability</xref>. However, a discontinuous function might still be integrable. For example, the definite integral of a piecewise continuous function with a finite number of jump discontinuities can be computed using <xref ref='thm-definite-integral-splitting' autoname='title'>the splitting property</xref>. The total definite integral would be equal to the sum of the definite integrals on each of the subintervals.</p>
+        
+        <p>Continuity does guarantee something stronger than integrability. It guarantees that the function attains its average value over an interval. To make this precise, we first need to define the average value.</p>
+        
+        <definition xml:id='defn-average-value'>
+            <title>Average Value of a Function</title>
+            <statement>
+                <p>The <term>average value</term> of a function <m>f</m> on an interval <m>[a,b]</m>, denoted <m>\langle f \rangle_{[a,b]}</m>, is defined as <me> \langle f \rangle_{[a,b]} = \frac{1}{b-a} \int_{a}^{b} f(x) \, dx, </me> so long as <m>f</m> is integrable on <m>[a,b]</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>The average value is defined as the value of a constant function that has the same definite integral over the interval: <me> \int_{a}^{b} \langle f \rangle_{[a,b]} \, dx = \langle f \rangle_{[a,b]} \cdot (b-a) = \int_{a}^{b} f(x)\, dx. </me>.</p>
+        
+        <example>
+            <p>The figure below illustrates a simple function <m>f(x)</m> defined on the interval <m>[0,5]</m>, <me>f(x) = \begin{cases} 
+                3, &amp; 0 \le x \lt 1, \\ 
+                5, &amp; 1 \le x \lt 3, \\
+                -1, &amp; 3 \le x \le 5.
+            \end{cases}</me></p>
+            <figure>
+                <image>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [ xmin=-1, xmax=6, ymin=-3, ymax=7 ]
+                    \addplot[-] coordinates { (0,3) (1,3) };
+                    \addplot[-] coordinates { (1,5) (3,5) };
+                    \addplot[-] coordinates { (3,-1) (5,-1) };
+                    \addplot[only marks] coordinates { (0,3) (1,5) (3,-1) (5,-1) };
+                    \addplot[only marks, mark=o] coordinates { (1,3) (3,5)};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            <p>The definite integral equals the sum of the signed areas, <me>\int_0^5 f(x) \, dx = 3 \cdot 1 + 5 \cdot 2 + -1 \cdot 2 = 11.</me> The average value is equal to this definite integral divided by the width of the interval, <me>\langle f \rangle_{[0,5]} = \frac{1}{5} \int_{0}^5 f(x)\,dx = \frac{11}{5}.</me></p>
+            <figure>
+                <image>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [ xmin=-1, xmax=6, ymin=-3, ymax=7 ]
+                    \addplot[-] coordinates { (0,3) (1,3) };
+                    \fill [opacity=0.25, red] (axis cs:0,0) -- (axis cs:0,3)
+                        -- (axis cs: 1,3) -- (axis cs: 1,0) -- cycle;
+                    \addplot[-] coordinates { (1,5) (3,5) };
+                    \fill [opacity=0.25, red] (axis cs:1,0) -- (axis cs: 1,5)
+                        -- (axis cs: 3,5) -- (axis cs: 3,0) -- cycle;
+                    \addplot[-] coordinates { (3,-1) (5,-1) };
+                    \fill [opacity=0.25, red] (axis cs:3,0) -- (axis cs:3,-1)
+                        -- (axis cs: 5,-1) -- (axis cs: 5,0) -- cycle;
+                    \addplot[only marks] coordinates { (0,3) (1,5) (3,-1) (5,-1) };
+                    \addplot[only marks, mark=o] coordinates { (1,3) (3,5)};
+                    
+                    \addplot[-,blue] coordinates {(0,2.2) (5,2.2)};
+                    \fill [opacity=0.25, blue] (axis cs:0,0) -- (axis cs:0,2.2)
+                        -- (axis cs: 5,2.2) -- (axis cs: 5,0) -- cycle;
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+        </example>
+        
+        <theorem xml:id='mean-value-theorem-integral'>
+            <title>Mean Value Theorem for Integrals</title>
+            <statement>
+                <p>Given a function <m>f</m> that is continuous on <m>[a,b]</m>, there must exist a value <m>c \in (a,b)</m> such that <me>f(c) = \langle f \rangle_{[a,b]} = \frac{1}{b-a} \int_{a}^{b} f(x)\, dx,</me> or equivalently, <m>\displaystyle \int_{a}^{b} f(x)\, dx = f(c) \cdot (b-a)</m>.</p>
+            </statement>
+            <proof>
+                <p>Because <m>f</m> is continuous on <m>[a,b]</m>, the <xref ref='extreme-value-theorem' autoname='title'>Extreme Value Theorem</xref> guarantees that <m>f</m> attains a minimum value <m>f(x_{\min})</m> and a maximum value <m>f(x_{\max})</m> so that <m>f(x_{\min}) \le f(x) \le f(x_{\max})</m> for all <m>x \in [a,b]</m>.</p>
+                <p>The average value <m>\langle f \rangle_{[a,b]}</m> must be between the minimum and maximum values. The <xref ref='thm-integral-inequality' autoname='title'>Integral Bounds theorem</xref> guarantees <me>f(x_{\min}) (b-a) \le \int_{a}^{b} f(x) \, dx \le f(x_{\max}) (b-a) </me> which then implies <me> f(x_{\min}) \le \langle f \rangle_{[a,b]} \le f(x_{\max}).</me></p>
+                <p>By the <xref ref='intermediate-value-theorem' autoname='title'>Intermediate Value Theorem</xref> with the interval with end points <m>x_{\min}</m> and <m>x_{\max}</m> (we don't know which is on the left/right), there must be some value <m>c</m> between these points, and so <m>c \in (a,b)</m>, for which <me>f(c) = \langle f \rangle_{[a,b]}.</me></p>
+            </proof>
+        </theorem>
+        
+        <p>In the previous example, <m>f</m> was not continuous and we can see that the graph <m>y=f(x)</m> did not intersect the constant value <m>\langle f \rangle_{[0,5]}</m>. The Mean Value Theorem for Integrals guarantees that when the function is continuous, the constant function using the average value must intersect the graph <m>y=f(x)</m>.</p>
+        
+        <example>
+            <p>The function <m>f(x)=x^2</m> is continuous everywhere. The average value on the interval <m>[-1,2]</m> can be found using the <xref ref='thm-elementary-definite-integrals' autoname='title'>elementary accumulation formula</xref> for a quadratic rate and the splitting property. <md>
+                <mrow> \langle f \rangle_{[-1,2]} &amp;= \frac{1}{2--1} \int_{-1}^{2} x^2 \, dx </mrow>
+                <mrow> &amp;= \frac{1}{3} \Big( \int_0^2 x^2 \, dx - \int_0^{-1} x^2 \, dx \Big) </mrow>
+                <mrow> &amp;= \frac{1}{3} \Big( \frac{1}{3}(2^3) - \frac{1}{3}(-1)^3 \Big) = \frac{1}{3}\Big(\frac{8}{3} + \frac{1}{3}\Big) = 1</mrow>
+            </md> A figure showing the graphs <m>y=f(x)=x^2</m> and <m>y=\langle f \rangle_{[-1,2]} = 1</m> is shown below. The Mean Value Theorem predicted the existence of a point <m>c \in (-1,2)</m> where <m>f(c)=\langle f \rangle_{[-1,2]}=1</m>, which we can see occurs at <m>c=1</m>.</p>
+            <figure>
+                <image>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [ xmin=-2, xmax=3, ymin=-2, ymax=6 ]
+                    \addplot[-, name path=axis] coordinates { (-2,0) (3,0) };
+                    \addplot[name path=theFcn,blue,domain=-2:3,samples=100]
+                        {x^2};
+                    \addplot[blue,opacity=0.25] fill between[
+                        of=axis and theFcn,
+                        soft clip={domain=-1:2},
+                    ];
+                    \addplot[-, name path=aveValue, red] coordinates { (-1,1) (2,1)};
+                    \addplot[red,opacity=0.25] fill between[
+                        of=axis and aveValue,
+                        soft clip={domain=-1:2},
+                    ];
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+        </example>
+        
+        <p>The Mean Value Theorem for Integrals also provides the justification for the <xref ref='thm-monotonicity-from-rate' autoname='title'>Monotonicity Test for Accumulation Functions</xref>.</p>
+        
+        <theorem xml:id="thm-monotonicity-from-rate-repeat">
+            <title>Monotonicity Test for Accumulation Functions</title>
+            <statement>
+            <p>Suppose that <m>A(x)</m> is an accumulation function with corresponding rate function <m>f(x)</m>, and suppose that <m>f(x)</m> is continuous on <m>[a,b]</m>.</p>
+            <ul>
+                <li><p>If <m>f(x) \gt 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is increasing on <m>[a,b]</m>.</p></li>
+                <li><p>If <m>f(x) \lt 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is decreasing on <m>[a,b]</m>.</p></li>
+                <li><p>If <m>f(x) = 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is constant on <m>[a,b]</m>.</p></li>
+            </ul>
+            </statement>
+            <proof>
+                <p>Consider any two points <m>c_1, c_2 \in [a,b]</m> with <m>c_1 \lt c_2</m>. Because <m>A(x)</m> is an accumulation function, by the splitting property of definite integrals, <me>A(c_2) - A(c_1) = \int_{c_1}^{c_2} f(x) \, dx.</me> On the other hand, because <m>f</m> is continuous, the Mean Value Theorem guarantees the existence of a point <m>c \in (c_1,c_2)</m> such that <me>A(c_2)-A(c_1) = \int_{c_1}^{c_2} f(x)\, dx = f(c)\cdot(c_2-c_1).</me></p>
+                <p>Now assume that <m>f(x) \gt 0</m> for all <m>x \in (a,b)</m>. Then <m>f(c) \gt 0</m> and <m>c_2-c_1 \gt 0</m>, guaranteeing that <m>A(c_2)-A(c_1) \gt 0</m>. That is, <m>A(c_2) \gt A(c_1)</m>. This is what is needed to show that <m>A</m> is increasing.</p>
+                <p>Next assume that <m>f(x) \lt 0</m> for all <m>x \in (a,b)</m>. Then <m>f(c) \lt 0</m> while <m>c_2-c_1 \gt 0</m>, guaranteeing that <m>A(c_2)-A(c_1) \lt 0</m>. That is, <m>A(c_2) \lt A(c_1)</m>, which shows that <m>A</m> is decreasing.</p>
+                <p>Finally assume that <m>f(x) = 0</m> for all <m>x \in (a,b)</m>. Then <m>f(c) = 0</m>, implying that <m>A(c_2)-A(c_1) = 0</m>. That is, <m>A(c_2) = A(c_1)</m>, which shows that <m>A</m> is constant.</p>
+            </proof>
+        </theorem>
+
+    </subsection>
+
+</section>

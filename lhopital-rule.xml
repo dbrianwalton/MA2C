@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="lhopital-rule">
+    <title>L'H&#x00f4;pital's Rule</title>
+    
+    <p>Limits involving combinations of continuous functions are generally computed by evaluating the values of the functions. Arithmetic involving infinity will follow elementary rules. Suppose <m>L \gt 0</m> is a positive number. Then when performing arithmetic, the following rules will hold. <md>
+        <mrow> \infty \pm L = \infty </mrow>
+        <mrow> \infty + \infty = \infty </mrow>
+        <mrow> -\infty + -\infty = -\infty </mrow>
+        <mrow> L \cdot \infty = \infty </mrow>
+        <mrow> -L \cdot \infty = -\infty </mrow>
+        <mrow> \infty \cdot \infty = \infty </mrow>
+        <mrow> \infty \cdot -\infty = -\infty </mrow>
+        <mrow> -\infty \cdot -\infty = \infty </mrow>
+    </md></p>
+    
+    <p>However, when calculations would result that attempt to cancel away an infinite quantity (or zero), the limit has an indeterminate form. That is, calculations involving any of the following arithmetic are in an indeterminate form, <me>\frac{\infty}{\infty} \qquad \infty - \infty \qquad \frac{0}{0} \qquad 0 \cdot \infty.</me> The general strategy for evaluating indeterminate limits involves rewriting the limit in a different form, or finding another limit that is known to be equivalent.</p>
+    
+    <p>L'H&#x00f4;pital's rule is a theorem that allows us to rewrite a limit which has an indeterminate form <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m> using derivatives.</p>
+    
+    <theorem xml:id='thm-l-hopitals-rule'>
+        <title>L'H&#x00f4;pital's Rule</title>
+        <statement>
+            <p>Suppose <m>f(x)</m> and <m>g(x)</m> are functions so that <me>\lim_{x \to a} \frac{f(x)}{g(x)} \to \frac{0}{0} \quad \hbox{or} \quad \lim_{x \to a} \frac{f(x)}{g(x)} \to \frac{\infty}{\infty}. </me> If <m>\displaystyle \lim_{x \to a} \frac{f'(x)}{g'(x)}</m> exists, then <me> \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}. </me></p>
+        </statement>
+        <proof>
+            <p>Consider the case where <m>f(x) \to 0</m> and <m>g(x) \to 0</m> as <m>x \to a</m> but <m>f'(x) \to L</m> and <m>g'(x) \to M \ne 0</m> as <m>x \to 0</m>. If the functions <m>f</m> and <m>g</m> are continuous, then we must have <m>f(a)=0</m> and <m>g(a)=0</m>. If not, the discontinuity is removable and we can modify <m>f</m> and <m>g</m> so that this is true without changing the limit. Since <m>f'(x)</m> and <m>g'(x)</m> both have limits, <m>f</m> and <m>g</m> must both be differentiable (and continuous) in a neighborhood of <m>x=a</m>.</p>
+            <p>The <xref ref='mean-value-theorem' autoname='title'>Mean Value Theorem</xref> implies that for each <m>x</m>, <m>f(x) = f(x)-f(a) = f'(\xi)\cdot(x-a)</m> for some value <m>\xi</m> between <m>x</m> and <m>a</m>. Similarly, <m>g(x)=g(x)-g(a)=g'(\zeta)\cdot(x-a)</m> for some <m>\zeta</m> between <m>x</m> and <m>a</m>. Then, the ratio becomes <me>\frac{f(x)}{g(x)} = \frac{f'(\xi) \cdot (x-a)}{g'(\zeta)\cdot(x-a)} = \frac{f'(\xi)}{g'(\zeta)}.</me> Using the limits of <m>f'(x) \to L</m> and <m>g'(x) \to M</m>, we obtain <me>\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(\xi)}{g'(\zeta)} = \frac{L}{M} = \lim_{x \to a} \frac{f'(x)}{g'(x)}</me> since <m>M \ne 0</m>.</p>
+            <p>A more general proof requires a more general statement of the mean value theorem. The problem with the current proof is that <m>\xi</m> and <m>\zeta</m> are unrelated. The more general mean value theorem, called Cauchy's Mean Value Theorem, allows us to choose a single point <m>\xi</m> between <m>x</m> and <m>a</m> where <me>\frac{f(x)-f(a)}{g(x)-g(a)} = \frac{f'(\xi)}{g'(\xi)}.</me> Then the limit follows. </p>
+        </proof>
+    </theorem>
+    
+    <p>It is essential that you verify that the hypotheses of L'H&#x00f4;pital's rule apply before replacing the derivative. Limits and derivatives are not the same. Computing a limit does not always mean we are computing a derivative.</p>
+    
+    <p>In addition, make note that changing the limit using L'H&#x00f4;pital's rule is not computing the derivative of a quotient. It is replacing the limit of a quotient with the limit of a new quotient involving two derivatives.</p>
+    
+    <p>Our first few examples will illustrate that L'H&#x00f4;pital's rule gives the same result as methods we learned earlier involving factoring.</p>
+    
+    <example>
+        <statement>
+            <p>Evaluate the limit <m>\displaystyle \lim_{x \to 2} \frac{x^2-3x+2}{x^2+x-6}</m> using factoring and using L'H&#x00f4;pital's rule.</p>
+        </statement>
+        <solution>
+            <p>If we try to use the value directly, we find an indeterminate form, <me>\lim_{x \to 2} \frac{x^2-3x+2}{x^2+x-6} \to \frac{2^2-3(2)+2}{2^2+2-6} = \frac{0}{0}.</me> We must find alternative representations of this limit to determine its value.</p>
+            <p>Using factoring, we rewrite the limit by canceling common factors. <md>
+                <mrow> \lim_{x \to 2} \frac{x^2-3x+2}{x^2+x-6} &amp;= \lim_{x \to 2} \frac{(x-2)(x-1)}{(x+3)(x-2)} </mrow>
+                <mrow> &amp;= \lim_{x \to 2} \frac{x-1}{x+3} = \frac{2-1}{2+3} = \frac{1}{5}</mrow>
+            </md></p>
+            <p>Because the original limit had indeterminate form <m>\frac{0}{0}</m>, L'H&#x00f4;pital's rule will apply with <m>f(x)=x^2-3x+2</m> and <m>g(x)=x^2+x-6</m>. We replace the limit of <m>f(x)/g(x)</m> with the limit of <m>f'(x)/g'(x)</m>, assuming that limit exists. <me>\lim_{x \to 2} \frac{x^2-3x+2}{x^2+x-6} = \lim_{x \to 2} \frac{2x-3}{2x+1} = \frac{2(2)-3}{2(2)+1} = \frac{1}{5}</me></p>
+            <p>We see that both approaches give the same limit, exactly as predicted by L'H&#x00f4;pital's rule.</p>
+        </solution>
+    </example>
+    
+    <p>Sometimes, we need to apply L'H&#x00f4;pital's rule more than once when the modified limit is still in indeterminate form.</p>
+    
+    <example>
+        <statement>
+            <p>Evaluate the limit <m>\displaystyle \lim_{x \to \infty} \frac{2x^2+x-3}{x^2-x-5}</m> using factoring and using L'H&#x00f4;pital's rule.</p>
+        </statement>
+        <solution>
+            <p>Limits at infinity generally require factoring out the fastest growing terms. <me>\lim_{x \to \infty} \frac{2x^2+x-3}{x^2-x-5} = \lim_{x \to \infty} \frac{x^2(2+\frac{1}{x}-\frac{3}{x^2})}{x^2(1-\frac{1}{x}-\frac{5}{x^2})} </me> In this form, we see that the limit has form <m>\frac{\infty}{\infty}</m>. By canceling the common factor <m>x^2</m>, we find <me> \lim_{x \to \infty} \frac{2x^2+x-3}{x^2-x-5} = \lim_{x \to \infty} \frac{2+\frac{1}{x}-\frac{3}{x^2}}{1-\frac{1}{x}-\frac{5}{x^2}} = \frac{2+0-0}{1-0-0} = 2.</me></p>
+            <p>Because the limit had form <m>\frac{\infty}{\infty}</m>, we can use L'H&#x00f4;pital's rule to rewrite the limit in a new form, <me>\lim_{x \to \infty} \frac{2x^2+x-3}{x^2-x-5} = \lim_{x \to \infty} \frac{4x+1}{2x-1}.</me> This limit is still of form <m>\frac{\infty}{\infty}</m>, so we can use L'H&#x00f4;pital's rule again to get yet another equivalent form, <me>\lim_{x \to \infty} \frac{2x^2+x-3}{x^2-x-5} = \lim_{x \to \infty} \frac{4}{2} = 2.</me></p>
+            <p>Again, either approach will give the same value.</p>
+        </solution>
+    </example>
+    
+    <p>One of the advantages of L'H&#x00f4;pital's rule is that it allows us to evaluate limits where factoring does not help.</p>
+    
+    <example>
+        <statement>
+            <p>Compute <m>\displaystyle \lim_{x \to 3} \frac{2^x-8}{x^2+x-12}</m>.</p>
+        </statement>
+        <solution>
+            <p>The first step is always to try evaluating directly. <me>\lim_{x \to 3} \frac{2^x-8}{x^2+x-12} \to \frac{2^3-8}{3^2+3-12} = \frac{0}{0}</me> The limit has indeterminate form <m>\frac{0}{0}</m> so that we can use L'H&#x00f4;pital's rule. In this case, note that the numerator <m>2^x-8</m> does not factor. L'H&#x00f4;pital's rule is the preferred approach.</p>
+            <p>A typical solution would be written as follows. <md>
+                <mrow> \lim_{x \to 3} &amp;\frac{2^x-8}{x^2+x-12} \to \frac{2^3-8}{3^2+3-12} = \frac{0}{0} </mrow>
+                <mrow> &amp;\overset{\hbox{L'H}}{=} \lim_{x \to 3} \frac{2^x \ln(2)}{2x+1} = \frac{2^3 \ln(2)}{2(3)+1} = \frac{8 \ln(2)}{7}</mrow>
+            </md> The first line shows that the original limit is an indeterminate form. Writing <q>L'H</q> over the equal sign shows that we are using L'H&#x00f4;pital's rule to replace the original limit with the modified limit involving derivatives. Also, we used the derivative of an exponential, <m>\frac{d}{dx}[b^x] = b^x \ln(b)</m>.</p>
+        </solution>
+    </example>
+    
+    <p>Indeterminate limits that are not fractions of the form <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m> do not directly apply L'H&#x00f4;pital's rule. You must first use algebra to rewrite them in a way that they do have the appropriate form.</p>
+    
+    <example>
+        <statement>
+            <p>Evaluate <m>\displaystyle \lim_{x \to 0^+} x \ln(x)</m>.</p>
+        </statement>
+        <solution>
+            <p>When <m>x \to 0^+</m>, we have <m>ln(x) \to -\infty</m>. As written, the limit has the indeterminate form <m>\displaystyle \lim_{x \to 0^+} x \ln(x) \to 0 \cdot -\infty</m>. This is indeterminate because multiplying <m>\infty</m> by zero would be a form of trying to cancel the infinite. Instead, we need to rewrite the formula so that it is a fraction.</p>
+            <p>There are two approaches: <me> x \ln(x) = \frac{\ln(x)}{x^{-1}} = \frac{x}{(\ln(x))^{-1}}. </me> When choosing which approach will be better, you should ask yourself which formula will lead to simpler derivatives. For this problem, we use the first expression, knowing that <m>x^{-1} \to +\infty</m> as <m>x \to 0^+</m>. <md>
+                <mrow> \lim_{x \to 0^+} x \ln(x) &amp;= \lim_{x \to 0^+} \frac{\ln(x)}{x^{-1}} \to \frac{-\infty}{\infty} </mrow>
+                <mrow> &amp; \overset{\hbox{L'H}}{=} \lim_{x \to 0^+} \frac{x^{-1}}{-1x^{-2}} = \lim_{x \to 0^+} \frac{x^{-1} x^2}{-x^{-2}x^2}</mrow>
+                <mrow> &amp;= \lim_{x \to 0^+} -x = 0.</mrow>
+            </md></p>
+        </solution>
+    </example>
+    
+    <example>
+        <statement>
+            <p>Evaluate <m>\displaystyle \lim_{x \to \infty} x^2e^{-3x}</m>.</p>
+        </statement>
+        <solution>
+            <p>We know limit values for the exponential: <m>e^{\infty} = \infty</m> and <m>e^{-\infty}=0</m>. The given limit will be an indeterminate form <m>\infty \cdot 0</m>. So we rewrite it in quotient form and then use L'H&#x00f4;pital's rule. <md>
+                <mrow>\lim_{x \to \infty} x^2e^{-3x} &amp;= \lim_{x \to \infty} \frac{x^2}{e^{3x}} \to \frac{\infty}{\infty} </mrow>
+                <mrow> &amp; \overset{\hbox{L'H}}{=} \lim_{x \to \infty} \frac{2x}{3e^{3x}} \to \frac{\infty}{\infty} </mrow>
+                <mrow> &amp; \overset{\hbox{L'H}}{=} \lim_{x \to \infty} \frac{2}{9e^{3x}} \to \frac{2}{\infty} = 0 </mrow>
+            </md> Notice that we used L'H&#x00f4;pital's rule twice when the first time resulted in another indeterminate form.</p>
+        </solution>
+    </example>
+    
+    <p>We end with an example involving powers. When both the base and the exponent are variable, we must interpret a power in terms of composition with the exponential function, <me> u^v = \exp( \ln(u^v)) = \exp(v \ln(u)) = e^{v \ln(u)}.</me> Because the natural exponential function is continuous, we only need to evaluate the limit of <m>v \ln(u)</m> and then evaluate the exponential function at the corresponding limit. This is a consequence of Theorem <xref ref='LC-Continuous-Composition'/>.</p>
+    
+    <example>
+        <statement>
+            <p>Evaluate <m>\displaystyle \lim_{x \to \infty} (1 + \frac{r}{x})^{xt}</m>, where <m>r</m> and <m>t</m> are constant values.</p>
+        </statement>
+        <solution>
+            <p>The function for which we compute a limit can be rewritten as a composition with the natural exponential function: <md>
+                <mrow>f(x) &amp;= (1+\frac{r}{x})^{xt} </mrow>
+                <mrow> &amp;= \exp\big(\ln\big( ({\textstyle 1+rx^{-1}})^{xt} \big)\big) </mrow>
+                <mrow> &amp;= \exp\big(xt \ln(1+rx^{-1})\big). </mrow>
+            </md> So we start by evaluating the limit of the expression inside the exponential. <me> \lim_{x \to \infty} xt \ln(1+rx^{-1}) \to \infty \cdot \ln(1+0) = \infty \cdot 0</me> This limit has an indeterminate form.</p>
+            <p>We rewrite the indeterminate limit as a fraction so that we can use L'H&#x00f4;pital's rule. From our earlier experience, we will leave the logarithm in the numerator. <md>
+                <mrow> \lim_{x \to \infty} xt \ln(1+rx^{-1}) &amp;= \lim_{x \to \infty} \frac{t \ln({\textstyle 1+rx^{-1}})}{x^{-1}} \to \frac{t \cdot \ln(1)}{0} = \frac{0}{0} </mrow>
+                <mrow> &amp;\overset{\hbox{L'H}}{=} \lim_{x \to \infty} \frac{t \cdot \frac{1}{1+rx^{-1}} \cdot \frac{d}{dx}[1+rx^{-1}]}{-x^{-2}} </mrow>
+                <mrow> &amp;= \lim_{x \to \infty} \frac{t \cdot \frac{1}{1+rx^{-1}} \cdot (-rx^{-2})}{-x^{-2}} </mrow>
+                <mrow> &amp;= \lim_{x \to \infty} t \cdot \frac{1}{1+rx^{-1}} \cdot (r) \to t \cdot \frac{1}{1+0} \cdot r = rt</mrow>
+            </md> Using the <xref ref='LC-Continuous-Composition' autoname='title'>Limit of a Continuous Composition</xref>, we conclude <md>
+                <mrow> \lim_{x \to \infty} \exp\big(xt \ln(1+rx^{-1})\big) &amp;= \exp\big( \lim_{x \to \infty} xt \ln(1+rx^{-1})\big) </mrow>
+                <mrow> &amp;= \exp(rt) = e^{rt}.</mrow>
+            </md></p>
+        </solution>
+    </example>
+</section>

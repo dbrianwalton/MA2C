@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="chain-rule">
+    <title>The Chain Rule</title>
+
+    <subsection>
+    <title>Review: Rate of Change and Composition</title>
+    <p>We start by reminding ourselves that a rate of change is a ratio of changes for two variables. If <m>y</m> is a function of <m>x</m>, say <m>y=f(x)</m>, then the rate of change <m>\left.\frac{dy}{dx}\right|_a=f'(a)</m> is the rate of change of <m>y</m> with respect to <m>x</m> at the value <m>x=a</m>. This measures the instantaneous ratio of changes in <m>y</m> from <m>f(a)</m> to changes in <m>x</m> from <m>a</m>. At any value <m>x</m> close to <m>a</m>, this means that <me> y-f(a) \approx \left.\frac{dy}{dx}\right|_{a} \cdot (x-a). </me> Changes in the value of <m>y</m> are approximately proportional to changes in <m>x</m> from <m>a</m> and the derivative <m>f'(a)</m> is the proportionality constant.</p>
+    
+    <p>Second, we remind ourselves that compositions correspond to chains of dependent variables. Suppose that <m>u</m> is a function of <m>x</m>, say <m>u=g(x)</m>, and <m>y</m> is subsequently a function of <m>u</m>, say <m>y=f(u)</m>. We would write this chain as <me> \left\{ \begin{matrix} u=g(x) \\ y=f(u) \end{matrix} \right..</me> Using substitution, we could also just write that <m>y</m> is a function of <m>x</m> using composition. <me> y=f(g(x)) = f \circ g(x). </me></p>
+    
+    <p>Now, let us consider a particular value for <m>x</m> and ask how would we determine the rate of change of <m>y</m> with respect to <m>x</m> when it is defined with such a composition? A change in <m>x</m> from <m>a</m>, <m>\Delta x = x-a</m>, would lead to a change in <m>u</m> from <m>g(a)</m> using the rate of change <me> \Delta u = u-g(a) \approx \left.\frac{du}{dx}\right|_{a} \cdot (x-a) = g'(a) \cdot \Delta x. </me> In a similar way, a change in <m>u</m> from its starting value <m>g(a)</m> would lead to a change in <m>y</m> from <m>f(g(a))</m> using the rate of change <me> \Delta y = y - f(g(a)) \approx \left. \frac{dy}{du}\right|_{g(a)} \cdot (u-g(a)) = f'(g(a))\cdot \Delta u. </me> Putting these two results of the chain together, we find that <me> \Delta y \approx \left. \frac{dy}{du} \right|_{g(a)} \cdot \left. \frac{du}{dx} \right|_{a} \cdot \Delta x = f'(g(a)) \cdot g'(a) \cdot \Delta x. </me></p>
+    
+    <p>Graphically, this is illustrated in the figure below. The inputs and outputs of the functions for <m>g</m> and <m>f</m> are illustrated as number lines. The input <m>a</m> to the function <m>g</m> is mapped to the output <m>g(a)</m>. A nearby input <m>x</m> is mapped to an output <m>g(x)</m> that is not too far from <m>g(a)</m>. The differences are the values <m>\Delta x = x-a</m> and <m>\Delta u = g(x)-g(a)</m>. In composition, the outputs <m>g(a)</m> and <m>g(x)</m> act as inputs to <m>f</m>.</p>
+    
+    <figure>
+        <image>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw[<->] (-2,4) -- (4,4) node[right] {$x$};
+            \draw (0,4.1) -- (0,3.9) node[below] {$a$};
+            \draw (0.4,4.1) -- (0.4,3.9) node[below] {$x$};
+            \draw (0.2,4) node[above] {$\Delta x$};
+            \draw[->] (0,3.4) -- (2,2.2) node[left,pos=0.5] {$g$};
+            \draw[->] (0.4,3.4) -- (2.7,2.2) node[right,pos=0.5] {$g$};
+            \draw[<->] (-2,2) -- (4,2) node[right] {$u$};
+            \draw (2,2.1) -- (2,1.9) node[below] {$g(a)$};
+            \draw (2.35,2) node[above] {$\Delta u$};
+            \draw (2.7,2.1) -- (2.7,1.9) node[below] {$g(x)$};
+            \draw[->] (2,1.4) -- (1,0.2) node[left,pos=0.5] {$f$};
+            \draw[->] (2.7,1.4) -- (2,0.2) node[right,pos=0.5] {$f$};
+            \draw[<->] (-2,0) -- (4,0) node[right] {$y$};
+            \draw (1,0.1) -- (1,-0.1) node[below left] {$f(g(a))$};
+            \draw (2,0.1) -- (2,-0.1) node[below] {$f(g(x))$};
+            \draw (1.5,0) node[above] {$\Delta y$};
+            
+            \draw (3.5,3) node[right] {$\displaystyle \Delta u \approx g'(a) \cdot \Delta x$};
+            \draw (3.5,1) node[right] {$\displaystyle \Delta y \approx f'(g(a)) \cdot \Delta u$};
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    
+    <p>The derivative provides an approximate ratio in the changes of output values to the changes of input values. The smaller the input, the closer the approximation. (This is why the derivative must be defined as a limit of the average rate of change.) When functions are in composition, each function effectively amplifies the difference in output by the factor of the derivative. So the overall change in the output is a result of the product of the derivatives.</p>
+    
+    </subsection>
+    
+    <subsection>
+    <title>The Chain Rule for Derivatives</title>
+    
+    <p>The chain rule formalizes the ideas in the previous paragraphs. It states that the derivative of a composition <m>f(g(x))</m> has a derivative given by <me> \frac{d}{dx} [ f(g(x)) ] = f'(g(x)) \cdot g'(x). </me> Pay close attention to the inputs of <m>f'</m> and <m>g'</m>. Compare those values to what we had to do in the previous paragraphs. The inputs are different because the functions <m>f</m> and <m>g</m> have different inputs in the composition.</p>
+    
+    <theorem xml:id='thm-chain-rule'>
+    <statement>
+    <p>If we have an explicit chain representation, <me> \left\{ \begin{matrix} u=g(x) \\ y=f(u) \end{matrix} \right.,</me> then the chain rule can be rewritten: <md>
+        <mrow> \frac{dy}{dx} &amp;= \frac{d}{dx}[f(g(x))] </mrow>
+        <mrow> &amp; = f'(g(x)) \cdot g'(x) </mrow>
+        <mrow> &amp; = \left.\frac{dy}{du}\right|_{u=g(x)} \cdot \left. \frac{du}{dx} \right|_{x}. </mrow>
+    </md></p>
+    </statement>
+    </theorem>
+    
+    <p>This is often abbreviated as <me> \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}. </me> Notice that this form almost looks like an algebraic simplification where the symbol <m>du</m> on the right would cancel to give the formula on the left.</p>
+
+    <example>
+    <statement>
+    <p>Find the derivative of <m>f(x)=(2x+1)^2</m> using the chain rule and compare the result to what you get if you expand <m>f(x)</m> before differentiation.</p>
+    </statement>
+    <solution>
+    <p>To use the chain rule, we must identify the chain/composition that is involved. (This is why we need to learn to recognize compositions.) The chain can be found by recognizing that we need to square <m>2x+1</m>, so this is our first step, <m>u=2x+1</m>. Then <m>y=f(x)</m> can be rewritten <m>y=u^2</m>. We can also find the derivatives of each step in the chain: <me> \left\{ \begin{matrix} u=2x+1 \\ y=u^2 \end{matrix} \right. \quad \Rightarrow \quad \left\{ \begin{matrix} \frac{du}{dx} = 2 \\ \frac{dy}{du} = 2u \end{matrix} \right.. </me> Consequently, we have <me> \frac{dy}{dx} = \left. \frac{dy}{du} \right|_{u=2x+1} \cdot \frac{du}{dx}. </me> The notation <m>u=2x+1</m> is simply a reminder that when writing the derivative <m>\frac{dy}{du}=2u</m> we will also need to replace <m>u=2x+1</m>. <me> f'(x) = \frac{dy}{dx} = (2u) \cdot (2) = 2(2x+1) \cdot 2 = 4(2x+1) </me></p>
+    
+    <p>The other approach is to expand <m>f(x)</m> to a form that is easier to differentiate. <me> f(x) = (2x+1)^2 = (2x+1)(2x+1) = 4x^2 + 4x+ 1</me> This is a simple polynomial form that has a simple derivative: <me> f'(x) = 8x+4. </me> We can see that this is actually the same as our earlier derivative if we factor out the common factor of 4.</p>
+    </solution>
+    </example>
+
+    <example>
+    <statement>
+        <p>Find the derivative of <m>f(x) = 3(x^2+3x)^7</m>.</p>
+    </statement>
+    <solution>
+        <p>Our function has an intermediate formula <m>u=x^2+3x</m> that is then raised to the 7th power and multiplied by 3. That is, if <m>y=f(x)</m> then <m>y=3u^7</m>. We would write this as a chain, along with their derivatives: <me> \left\{ \begin{matrix} u=x^2+3x \\ y=3u^7 \end{matrix} \right. \quad \Rightarrow \quad \left\{ \begin{matrix} \frac{du}{dx} = 2x+3 \\ \frac{dy}{du} = 21u^6 \end{matrix} \right.. </me> The chain rule implies <md>
+            <mrow> f'(x) = \frac{dy}{dx} &amp;= \frac{dy}{du} \frac{du}{dx} </mrow>
+            <mrow> &amp;= 21 u^6 \cdot (2x+3) </mrow>
+            <mrow> &amp;= 21(x^2+3x)^6 (2x+3) </mrow>
+        </md></p>
+        
+        <p>In the language of functions often given in texts, we could instead do this by writing <m>f(x)</m> as a composition <m>f(x) = g(h(x))</m>: <md>
+            <mrow> u = x^2+3x \qquad &amp; h(x) = x^2+3x \qquad h'(x) = 2x+3 </mrow>
+            <mrow> y = 3u^7 \qquad &amp; g(u) = 3u^7 \qquad g'(u) = 21u^6 </mrow> 
+        </md> The chain rule would be written: <md>
+            <mrow> f'(x) &amp;= g'(h(x)) \cdot h'(x) </mrow>
+            <mrow> &amp;= g'(x^2+3x) \cdot (2x+3) </mrow>
+            <mrow> &amp;= 21(x^2+3x)^6 (2x+3) </mrow>
+        </md></p>
+    </solution>
+    </example>
+    
+    </subsection>
+</section>

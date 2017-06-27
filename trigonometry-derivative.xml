@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="trigonometry-derivative">
+    <title>The Derivatives of Trigonometric Functions</title>
+    
+    <subsection>
+    <title>Essential Trigonometric Identities</title>
+
+    <p>When we found the derivative of elementary exponential functions, we found that we needed to use a rule to rewrite <m>b^{x+h}=b^x \cdot b^h</m>. This type of rule is called an identity. Identities provide rules to rewrite a formula in another form without changing the value of the formula. Trigonometric functions are all defined in terms of the elementary sine and cosine functions. Consequently, we need the basic identities of sine and cosine.</p>
+    
+    <p>We start with the sum identities.</p>
+    
+    <theorem xml:id='thm-trig-sum-identity'>
+        <title>Sum Identities of Sine and Cosine</title>
+        <statement>
+            <p>Given any <m>\alpha, \beta \in \mathbb{R}</m>, <md>
+                <mrow>\sin(\alpha+\beta) = \sin(\alpha) \cos(\beta) + \cos(\alpha) \sin(\beta),</mrow>
+                <mrow>\cos(\alpha+\beta) = \cos(\alpha) \cos(\beta) - \sin(\alpha) \sin(\beta).</mrow>
+            </md></p> 
+        </statement>
+        <proof>
+            <p>The following geometric proof is valid for acute angles, <m>0 \lt \alpha,\beta \lt \frac{\pi}{2}</m>. Consider the location of the angle <m>\alpha</m> and <m>\alpha+\beta</m> on the unit circle, illustrated as points <m>A</m> and <m>B</m>, respectively. The origin at <m>(0,0)</m> will be the point <m>O</m> and the point <m>(1,0)</m> will be the point <m>P</m>. Construct a line segment from <m>B</m> to intersect <m>\overline{OA}</m> at a right angle; call the point of intersection <m>C</m>. Draw a vertical line from <m>C</m> which intersects <m>OP</m> at a point <m>Q</m>. Finally draw a horizontal line through <m>C</m> and a vertical line through <m>B</m>, which intersect at a point <m>D</m>.</p>
+            
+            <p><image xml:id="fig-angle-sum">
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[auto, thick]
+                \pgfmathsetmacro{\rad}{2.5}
+                \pgfmathsetmacro{\angleA}{30}
+                \pgfmathsetmacro{\angleB}{45}
+                \pgfmathsetmacro{\angleAB}{75}
+            
+                \coordinate (c1) at (0,0) node[left] {$O$};
+                \draw [dotted] (c1) circle (\rad);
+                \draw (c1) -- ($ (c1) + (\rad, 0) $) 
+                    node [pos=1, right] {$P$};
+                \draw ($ (c1) + (\rad,0) $)
+                        arc (0:\angleA:\rad) 
+                        node [above] {$A$}
+                        -- (c1);
+                \draw ($ (c1) + (\rad,0) $)
+                        arc (0:\angleAB:\rad) 
+                        node [above] {$B$}
+                        -- (c1);
+                \fill ($ (c1) + (\angleA:\rad) $) circle [radius=2pt];
+                \fill ($ (c1) + (\angleAB:\rad) $) circle [radius=2pt];
+                \draw ($ (c1) + (0:0.2*\rad) $) arc (0:\angleA:0.2*\rad)
+                    node [pos=0.85, right] {$\alpha$};
+                \draw ($ (c1) + (\angleA:0.2*\rad) $) arc (\angleA:\angleAB:0.2*\rad)
+                    node [pos=0.5, above right] {$\beta$};
+
+                \coordinate (c2) at (\angleA:\rad);
+                \coordinate (c2c) at (-\angleA:\rad);
+                \coordinate (c3) at ($ (c2)!0.5!(c2c) $);
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image></p>
+                        
+            <p>By construction, we know <m>m \angle POA = \alpha</m> and <m>m \angle AOB = \beta</m>. Because <m>OB=1</m>, we know that <m>OC=\cos(\beta)</m> and <m>BC=\sin(\beta)</m>. By geometry, we can prove that triangle <m>BDC</m> is a right triangle with <m>m \angle DBC = \alpha</m>. Consequently, <md>
+                <mrow>BD = BC \cos(\alpha) = \cos(\alpha) \sin(\beta),</mrow>
+                <mrow>DC = BC \sin(\alpha) = \sin(\alpha) \sin(\beta).</mrow>
+            </md> Similarly, triangle <m>OQC</m> is a right triangle with <m>m \angle COQ = \alpha</m>. Since <m>OC = \cos(\beta)</m>, we know <md>
+                <mrow>OQ = OC \cos(\alpha) = \cos(\alpha) \cos(\beta),</mrow>
+                <mrow>CQ = OC \sin(\alpha) = \sin(\alpha) \cos(\beta).</mrow>
+            </md></p>
+            
+            <p>The <m>x</m>-coordinate of <m>B</m> is <m>\cos(\alpha+\beta)</m> so that <me>\cos(\alpha+\beta) = OQ - CD = \cos(\alpha) \cos(\beta) - \sin(\alpha) \sin(\beta).</me> The <m>y</m>-coordinate of <m>B</m> is <m>\sin(\alpha+\beta)</m> so that <me>\sin(\alpha+\beta) = CQ + DB = \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta).</me></p>
+        </proof>
+    </theorem>
+    
+    <p>Next, we state the symmetries of sine and cosine.</p>
+    
+    <theorem xml:id='thm-trig-even-odd'>
+        <title>Sum Identities of Sine and Cosine</title>
+        <statement>
+            <p>Sine is an odd function. Cosine is an even function. That is, for any <m>\alpha \in \mathbb{R}</m>, <md>
+                <mrow>\sin(-\alpha) = - \sin(\alpha),</mrow>
+                <mrow>\cos(-\alpha) = \cos(\alpha).</mrow>
+            </md></p> 
+        </statement>
+        <proof>
+            <p>An angle <m>-\alpha</m> goes in the opposite direction as the angle <m>\alpha</m>. Consequently, the points on the unit circle have the same horizontal coordinate, <me>\cos(-\alpha) = \cos(\alpha),</me> and opposite vertical coordinates, <me>\sin(-\alpha) = - \sin(\alpha).</me></p>
+        </proof>
+    </theorem>
+    
+    <p>Finally, because the sine and cosine are defined on a unit circle (with radius 1), we have a Pythagorean identity regarding the sum of the squared values.</p>
+    
+    <theorem xml:id='thm-pythagorean-identity'>
+        <title>The Pythagorean Identity</title>
+        <statement>
+            <p>For any <m>\alpha \in \mathbb{R}</m>, <md>
+                <mrow>\sin^2(\alpha) + \cos^2(\alpha) = 1,</mrow>
+                <mrow>\tan^2(\alpha) + 1 = \sec^2(\alpha),</mrow>
+                <mrow>1 + \cot^2(\alpha) = \csc^2(\alpha).</mrow>
+            </md></p>
+        </statement>
+        <proof>
+            <p>By definition, the point <m>(x,y) = (\cos(\alpha), \sin(\alpha))</m> is on the unit circle <m>x^2+y^2=1</m>. By substitution, <m>x=\cos(\alpha)</m> and <m>y=\sin(\alpha)</m>, we get the identity <m>\cos^2(\alpha) + \sin^2(\alpha) = 1</m>. If we divide both sides of the equation by <m>\cos^2(\alpha)</m>, we obtain <me>\frac{\cos^2(\alpha)}{\cos^2(\alpha)} + \frac{\sin^2(\alpha)}{\cos^2(\alpha)} = \frac{1}{\cos^2(\alpha)} \quad \Leftrightarrow \quad 1 + \tan^2(\alpha) = \sec^2(\alpha).</me> The last identity comes from dividing both sides of the equation by <m>\sin^2(\alpha)</m>.</p>
+        </proof>
+    </theorem>
+    </subsection>
+    
+    <subsection>
+        <title>Differentiation of Sine and Cosine</title>
+        
+        <p>We start by computing the derivatives for sine and cosine at the origin, <m>\sin'(0)</m> and <m>\cos'(0)</m>. Once we know those values, we will be able to find the derivatives as functions.</p>
+        
+        <theorem xml:id='thm-sine-deriv-zero'>
+            <statement>
+                <p><me>\sin'(0) = \lim_{x \to 0} \frac{\sin(x)}{x} = 1</me></p>
+            </statement>
+            <proof>
+                <p>By definition, <me>\displaystyle \sin'(0) = \lim_{h \to 0} \frac{\sin(0+h) - \sin(0)}{h}.</me> Since <m>\sin(0) = 0</m>, we can rewrite <me>\lim_{h \to 0} \frac{\sin(h)}{h} = \lim_{x \to 0}\frac{\sin(x)}{x},</me> since the variable name does not affect the value of the limit.</p>
+                <p>Consider the figure below with angle <m>x \gt 0</m>. The point <m>A</m> is on the unit circle and has coordinates <m>(\cos(x),\sin(x))</m>. Consequently, triangle <m>OBA</m> has area <m>\frac{1}{2} \sin(x) \cos(x)</m>. The point <m>Q</m> has coordinates <m>(1, \tan(x))</m>, so triangle <m>OPQ</m> has area <m>\frac{1}{2} \tan(x)</m>. If we consider the sector of the circle <m>OAP</m>, it has an area that is the corresponding fraction  <m>\frac{x}{2\pi}</m> of the area of the unit circle, <m>\pi</m>, which has the value <m>\frac{x}{2}</m>.</p>
+                <figure>
+                    <image xml:id="fig-angle-area-compare">
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[auto, thick]
+                        \pgfmathsetmacro{\rad}{2}
+                        \pgfmathsetmacro{\angleA}{30}
+                        \coordinate (c1) at (0,0) node[left] {$O$};
+                        \coordinate (c2) at ($ (c1) + (\angleA:\rad) $);
+                        \coordinate (c3) at ($ (c1) + (\angleA:{\rad/cos(\angleA)}) $);
+                        \draw ($ (c1) + (0:0.2*\rad) $) arc (0:\angleA:0.2*\rad)
+                            node[pos=0.6, right] {$x$};
+                        \draw [dotted] (c1) circle (\rad);
+                        \draw (c1) -- ($ (c1) + (\rad, 0) $);
+                        \draw ($ (c1) + (\rad,0) $)
+                                arc (0:\angleA:\rad);
+                        \draw (c1) -- (c3) node[right] {$Q$} -- (\rad,0) node[below right] {$P$} -- (c1);
+                        \draw (c2) node[above] {$A$} -- ({\rad*cos(\angleA)},0) node[below] {$B$};
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+                <p>Comparing the areas leads to the inequality, <me>\frac{1}{2} \sin(x) \cos(x) \lt \frac{1}{2} x \lt \frac{1}{2} \tan(x).</me> Multiplying by 2 and dividing by <m>\sin(x)</m>, we have another inequality <me> \cos(x) \lt \frac{x}{\sin(x)} \lt \frac{1}{\cos(x)}.</me> Since <m>\cos(x)</m> is continuous at <m>x=0</m>, we know <md>
+                    <mrow>\lim_{x \to 0} \cos(x) = \cos(0) = 1,</mrow>
+                    <mrow>\lim_{x \to 0} \frac{1}{\cos(x)} = 1.</mrow>
+                </md> Using the <xref ref='thm-limit-squeeze' autoname='title'>Limit Squeeze Theorem</xref> and the <xref ref='LC-Reciprocal' autoname='title'>Limit of a Reciprocal</xref>, we then know <me>\lim_{x \to 0} \frac{x}{\sin(x)} = 1 \qquad \Rightarrow \qquad \sin'(0) = \lim_{x \to 0}\frac{\sin(x)}{x} = 1.</me></p>
+            </proof>
+        </theorem>
+        
+        <p>It is important to note that getting the value for this limit to be the value 1 was a consequence of measuring angles in radians. For any other way that we might measure angles, the fraction of the circles area would be a ratio of the value <m>x</m> to the measurement of the angle to complete a full circle. For example, if we measured angles in degrees, we would have instead found <m>\sin_{\mathrm{deg}}'(0) = \frac{2\pi}{360}</m>. Mathematically, one justification for measuring angles in radians is simply in order to guarantee that this <m>\sin'(0)=1</m>.</p>
+        
+        <theorem xml:id='thm-cosine-deriv-zero'>
+            <statement>
+                <p><me>\cos'(0) = \lim_{x \to 0} \frac{\cos(x)-1}{x} = 0</me></p>
+            </statement>
+            <proof>
+                <p>By definition, <me>\displaystyle \cos'(0) = \lim_{h \to 0} \frac{\cos(0+h) - \cos(0)}{h}.</me> Since <m>\cos(0) = 1</m>, we can rewrite <me>\cos'(0)=\lim_{h \to 0} \frac{\cos(h)-1}{h} = \lim_{x \to 0}\frac{\cos(x)-1}{x}.</me> Multiplying the numerator and denominator by <m>\cos(x)+1</m>, we find <me>\cos'(0) = \lim_{x \to 0}\frac{(\cos(x)-1)(\cos(x)+1)}{x(\cos(x)+1)} = \lim_{x \to 0} \frac{\cos^2(x)-1}{x(\cos(x)+1)}.</me> By the <xref ref='thm-pythagorean-identity' autoname='title'>Pythagorean identity</xref>, we know <m>\cos^2(x)-1=-\sin^2(x)</m> so that we can rewrite <me>\cos'(0) = \lim_{x \to 0}\frac{\sin(x)}{x}\frac{-\sin(x)}{\cos(x)+1}.</me> Since <m>\displaystyle \lim_{x \to 0}\frac{\sin(x)}{x} = \sin'(0) = 1</m> and <me>\displaystyle \lim_{x \to 0}\frac{-\sin(x)}{\cos(x)+1} = \frac{-\sin(0)}{\cos(0)+1} = \frac{0}{2} = 0,</me> the limit rule for a product guarantees <m>\cos'(0) = 0</m>.</p>
+            </proof>
+        </theorem>
+        
+        <p>Knowing the instantaneous rates of change of sine and cosine at <m>x=0</m> allows us to compute the derivative at any input value. The proofs for these differentiation rules rely on the sum identities for trigonometric functions.</p>
+        
+        <theorem xml:id='thm-sine-derivative'>
+            <statement>
+                <p><me>\frac{d}{dx}[\sin(x)] = \sin'(x) = \cos(x)</me></p>
+            </statement>
+            <proof>
+                <p>Using the definition of the derivative, we write <me>\sin'(x) = \lim_{h \to 0} \frac{\sin(x+h)-\sin(x)}{h}.</me> The sum identity for sine allows us to rewrite <m>\sin(x+h) = \sin(x)\cos(h)+\cos(x)\sin(h)</m>, so that the derivative can be rewritten <md>
+                    <mrow>\sin'(x) &amp;= \lim_{h \to 0} \frac{\sin(x)\cos(h) + \cos(x) \sin(h) - \sin(x)}{h}</mrow>
+                    <mrow> &amp;= \lim_{h \to 0} \frac{\sin(x) \cdot (\cos(h) - 1) + \cos(x) \cdot \sin(h)}{h} </mrow>
+                    <mrow> &amp;= \lim_{h \to 0} \sin(x) \cdot \frac{\cos(h)-1}{h} + \cos(x) \frac{\sin(h)}{h}.</mrow>
+                </md> Because <m>\sin(x)</m> and <m>\cos(x)</m> do not depend on <m>h</m>, they play the role of a constant multiple. By the rules for a limit of a sum and the limit of a constant multiple, we can write <me>\sin'(x) = \sin(x) \cos'(0) + \cos(x) \sin'(0) = 0 \cdot \sin(x) + 1 \cdot \cos(x) = \cos(x).</me></p>
+            </proof>
+        </theorem>
+        
+        <theorem xml:id='thm-cosine-derivative'>
+            <statement>
+                <p><me>\frac{d}{dx}[\cos(x)] = \cos'(x) = -\sin(x)</me></p>
+            </statement>
+            <proof>
+                <p>Using the definition of the derivative, we write <me>\cos'(x) = \lim_{h \to 0} \frac{\cos(x+h)-\cos(x)}{h}.</me> The sum identity for cosine allows us to rewrite <m>\cos(x+h) = \cos(x)\cos(h)-\sin(x)\sin(h)</m>, so that the derivative can be rewritten <md>
+                    <mrow>\cos'(x) &amp;= \lim_{h \to 0} \frac{\cos(x)\cos(h) - \sin(x) \sin(h) - \cos(x)}{h}</mrow>
+                    <mrow> &amp;= \lim_{h \to 0} \frac{\cos(x) \cdot (\cos(h) - 1) - \sin(x) \cdot \sin(h)}{h} </mrow>
+                    <mrow> &amp;= \lim_{h \to 0} \cos(x) \cdot \frac{\cos(h)-1}{h} - \sin(x) \frac{\sin(h)}{h}.</mrow>
+                </md> We can therefore write <me>\cos'(x) = \cos(x) \cos'(0) - \sin(x) \sin'(0) = 0 \cdot \cos(x) - 1 \cdot \sin(x) = -\sin(x).</me></p>
+            </proof>
+        </theorem>
+    </subsection>
+    
+    <subsection>
+        <title>Derivatives of Other Trigonometric Functions</title>
+        <p>All other trigonometric functions are defined in terms of the sine and cosine functions. Knowing the derivatives of sine and cosine allow us to compute the derivative rules for each of the other trigonometric functions.</p>
+        
+        <theorem xml:id='thm-other-trig-derivatives'>
+            <statement>
+                <p><md>
+                    <mrow> &amp;\frac{d}{dx}[\tan(x)] = \tan'(x) = \sec^2(x) </mrow>
+                    <mrow> &amp;\frac{d}{dx}[\sec(x)] = \sec'(x) = \sec(x) \tan(x) </mrow>
+                    <mrow> &amp;\frac{d}{dx}[\cot(x)] = \cot'(x) = -\csc^2(x) </mrow>
+                    <mrow> &amp;\frac{d}{dx}[\csc(x)] = \csc'(x) = -\csc(x) \cot(x) </mrow>
+                </md></p>
+            </statement>
+            <proof>
+                <p>The proofs for these rules are all based on the definitions of these trigonometric functions in terms of sine and cosine. <md>
+                    <mrow> \tan(x) = \frac{\sin(x)}{\cos(x)} \qquad &amp; \qquad \sec(x) = \frac{1}{\cos(x)} </mrow>
+                    <mrow> \cot(x) = \frac{\cos(x)}{\sin(x)} \qquad &amp; \qquad \csc(x) = \frac{1}{\sin(x)} </mrow>
+                </md> We will look at the derivatives of <m>\tan(x)</m> and <m>\sec(x)</m> and leave the other two proofs to the reader.</p>
+                <p>Because <m>\tan(x)</m> is defined as a quotient, we compute its derivative using the quotient rule. <md>
+                    <mrow> \frac{d}{dx}[\tan(x)] &amp;= \frac{d}{dx}[\frac{\sin(x)}{\cos(x)}] </mrow>
+                    <mrow> &amp;= \frac{\cos(x) \sin'(x) - \sin(x) \cos'(x)}{\cos^2(x)} </mrow>
+                    <mrow> &amp;= \frac{\cos(x) \cdot \cos(x) - \sin(x) \cdot (-\sin(x))}{\cos^2(x)}</mrow>
+                    <mrow> &amp;=\frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)} </mrow>
+                    <mrow> &amp;= \frac{1}{\cos^2(x)} = \sec^2(x)</mrow>
+                </md></p>
+                <p>Similarly, <m>\sec(x)</m> is defined as a reciprocal, so we use the reciprocal rule of derivatives.<md>
+                    <mrow> \frac{d}{dx}[\sec(x)] &amp;= \frac{d}{dx}[\frac{1}{\cos(x)}] </mrow>
+                    <mrow> &amp;= \frac{-\cos'(x)}{\cos^2(x)} = \frac{-(-\sin(x))}{\cos^2(x)} = \frac{\sin(x)}{\cos^2(x)} </mrow>
+                    <mrow> &amp;= \frac{1}{\cos(x)} \cdot \frac{\sin(x)}{\cos(x)} = \sec(x) \tan(x)</mrow>
+                </md></p>
+            </proof>
+        </theorem>
+    </subsection>
+    
+    <subsection>
+        <title>Practice with Derivatives</title>
+        
+        <p>When we take into account the chain rule, we have the following general derivative rules for trigonometric functions. Notice that cosine, cotangent, and cosecant all have a negative sign. Also note the similarity in formulas between the derivatives for sine and cosine, for tangent and cotangent, and for secant and cosecant. There are really only three differentiation rules, each with a complementary rule for the complementary functions.</p>
+        
+        <assemblage xml:id='assemblage-trig-derivatives-chain'>
+            <title>General Derivative Rules for Trigonometric Functions</title>
+
+            <p>Let <m>u</m> represent any expression that depends on <m>x</m>.<md>
+                <mrow> \frac{d}{dx}[\sin(u)] &amp;= \cos(u) \frac{du}{dx} </mrow>
+                <mrow> \frac{d}{dx}[\cos(u)] &amp;= -\sin(u) \frac{du}{dx} </mrow>
+                <mrow> \frac{d}{dx}[\tan(u)] &amp;= \sec^2(u) \frac{du}{dx} </mrow>
+                <mrow> \frac{d}{dx}[\cot(u)] &amp;= -\csc^2(u) \frac{du}{dx} </mrow>
+                <mrow> \frac{d}{dx}[\sec(u)] &amp;= \sec(u) \tan(u) \frac{du}{dx} </mrow>
+                <mrow> \frac{d}{dx}[\csc(u)] &amp;= -\csc(u) \cot(u) \frac{du}{dx} </mrow>
+            </md></p>
+        </assemblage>
+        
+        <p>The following examples illustrate how these rules can be used with other rules of differentiation.</p>
+        
+        <example>
+            <statement>
+                <p>Find <m>\displaystyle \frac{d}{dx}[3\sin(x^2)]</m>.</p>
+            </statement>
+            <solution>
+                <p><md>
+                    <mrow> \frac{d}{dx}[3 \sin(x^2)] &amp;= 3 \frac{d}{dx}[\sin(x^2)] &amp; \hbox{Constant Multiple}</mrow>
+                    <mrow> &amp;= 3 \sin'(x^2) \cdot \frac{d}{dx}[x^2] &amp; \hbox{Chain Rule, $u=x^2$}</mrow>
+                    <mrow> &amp;= 3 \cos(x^2) \cdot \frac{d}{dx}[x^2] &amp; \hbox{Derivative of Sine}</mrow>
+                    <mrow> &amp;= 3 \cos(x^2) \cdot (2x) &amp; \hbox{Derivative of Power}</mrow>
+                    <mrow> &amp;= 6x \cos(x^2)</mrow>
+                </md></p>
+            </solution>
+        </example>
+        
+        <example>
+            <statement>
+                <p>Find <m>\displaystyle \frac{d}{dx}[\sec(e^{3x})]</m>.</p>
+            </statement>
+            <solution>
+                <p><md>
+                    <mrow> \frac{d}{dx}[\sec(e^{3x})] &amp; = \sec'(e^{3x}) \cdot \frac{d}{dx}[e^{3x}] &amp; \hbox{Chain Rule, $u=e^{3x}$}</mrow>
+                    <mrow> &amp;= \sec(e^{3x}) \tan(e^{3x}) \frac{d}{dx}[e^{3x}] &amp; \hbox{Derivative of Secant}</mrow>
+                    <mrow> &amp;= \sec(e^{3x}) \tan(e^{3x}) \cdot e^{3x} \frac{d}{dx}[3x] &amp; \hbox{Chain Rule, $e^u$ with $u=3x$}</mrow>
+                    <mrow> &amp;= 3e^{3x} \sec(e^{3x}) \tan(e^{3x}) </mrow>
+                </md></p>
+            </solution>
+        </example>
+        
+        <example>
+            <statement>
+                <p>Find <m>\displaystyle \frac{d}{dx}[e^{-3x}\sin(5x)]</m>.</p>
+            </statement>
+            <solution>
+                <p>The function is a product of <m>e^{-3x}</m> and <m>\sin(5x)</m>. Using the chain rule on these individual parts, we find <md>
+                    <mrow> \frac{d}{dx}[e^{-3x}] &amp;= e^{-3x} \frac{d}{dx}[-3x] </mrow>
+                    <mrow> &amp;= -3e^{-3x} </mrow>
+                    <mrow> \frac{d}{dx}[\sin(5x)] &amp;= \sin'(5x) \frac{d}{dx}[5x] </mrow>
+                    <mrow> &amp;= 5 \cos(5x) </mrow>
+                </md> Knowing those derivatives, we use the product rule to find the derivative of the overall formula. <md>
+                    <mrow> \frac{d}{dx}[e^{-3x}\sin(5x)] &amp; = \frac{d}{dx}[e^{-3x}] \cdot \sin(5x) + e^{-3x} \frac{d}{dx}[\sin(5x)] &amp; \hbox{Product Rule}</mrow>
+                    <mrow> &amp;= (-3e^{-3x}) \sin(5x) + e^{-3x} \cdot (5\cos(5x)) </mrow>
+                    <mrow> &amp;= -3e^{-3x} \sin(5x) + 5e^{-3x} \cos(5x) </mrow>
+                </md></p>
+            </solution>
+        </example>
+    </subsection>
+    
+    <subsection>
+        <title>The Squeeze Theorem for Limits</title>
+        <theorem xml:id='thm-limit-squeeze'>
+            <title>Limit Squeeze Theorem</title>
+            <statement>
+                <p>If <m>f(x)</m> is bounded between two functions <m>\ell(x)</m> (lower bound) and <m>u(x)</m> (upper bound) and we know <me>\lim_{x \to a} \ell(x) = \lim_{x \to a} u(x) = L,</me> then this guarantees <me> \lim_{x \to a} f(x) = L.</me></p>
+                <p>More formally, if there exists <m>\delta \gt 0</m> such that <m>\ell(x) \lt f(x) \lt u(x)</m> whenever <m>a \lt x \lt a+\delta</m> and <m>\ell(x) \to L</m> and <m>u(x) \to L</m> as <m>x \to a^+</m>, then <me> \lim_{x \to a^+} f(x) = L.</me> A similar statement holds for the lower limit and two-sided limit.</p>
+            </statement>
+        </theorem>
+    </subsection>
+</section>

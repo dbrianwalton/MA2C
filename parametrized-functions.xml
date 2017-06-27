@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="parametrized_functions">
+    <title>Parametrized Functions</title>
+    
+    <subsection>
+        <title>Overview</title>
+        
+        <p>Linear functions, when written in slope-intercept form, have the form <m>f(x)=mx+b</m>, where <m>m</m> and <m>b</m> represent numbers specific to the function. We call these <term>parameters</term>. In algebra, you would have also studied quadratics, which are functions of the form <m>f(x)=ax^2+bx+c</m>, again where <m>a,b,c</m> are parameters that represent specific numbers for a given quadratic.</p>
+        
+        <p>There are many families of functions that are characterized by a particular formula involving parameters. This section looks at some of these families. We learn how to create equations for the parameters based on points that the functions are intended to model. These families include, in particular, the power functions and exponential functions.</p>
+    </subsection>
+    
+    <subsection>
+        <title>Parametrized Function Families</title>
+        
+        <p>When a function can be written as an equation in a particular form involving the variables and some parameters, we say that the function belongs to a <term>parametrized family</term>. Two important parametrized families are the power functions and the exponential functions.</p>
+        
+        <definition>
+            <title>Power Functions</title>
+            <statement>
+            <p>A <term>power function</term> <m>f</m> is a function that can be written in the form <me>f(x) = A \cdot x^p,</me> where <m>A</m> and <m>p</m> are the parameters and can be any real numbers. <m>A</m> is called the amplitude and <m>p</m> is called the power.</p>
+            </statement>
+        </definition>
+                
+        <p><emph>Note</emph>: Mathematicians usually require that the power <m>p</m> in a power function is a rational number. This is an algebraic requirement so that the value can be found only using integer powers and integer roots. So a mathematician would consider <m>f(x) = x^{217/53}</m> to be a power function while <m>f(x) = x^\pi</m> would not be a power function because <m>\pi</m> is an irrational number. In this text, both will be considered power functions because of their form, not their algebraic computation.</p>
+
+        <definition>
+            <title>Exponential Functions</title>
+            <statement>
+            <p>An <term>exponential function</term> <m>f</m> is a function that can be written in the form <me>f(x) = A \cdot b^x,</me> where <m>A</m> and <m>b</m> are the parameters. <m>A</m> is called the amplitude and <m>b</m> is called the base. We require that the base is positive, <m>b \gt 0</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>Learn to distinguish power functions from exponential functions. Visually, they look very similar. However, the power function has the variable in the base of the power and a parameter (constant) as the power. Exponential functions have the variable in the exponent of the power and a parameter (constant) as the base.</p>
+        
+        <p>Another common parametrized family of functions are the <term>quadratic functions</term> which have graphs that are quadratics, whose graphs are polynomials. A quadratic function can be written in the form <me>f(x) = ax^2 + bx + c</me> and has three parameters, <m>a</m>, <m>b</m> and <m>c</m> in the equation above. The names of the parameters are not significant. We could have instead written <me>f(x) = a_2 x^2 + a_1 x + a_0,</me> so that the parameters are now <m>a_0</m>, <m>a_1</m> and <m>a_2</m>. The subscripts on the parameters conveniently correspond to the power of <m>x</m> in the equation that they multiply. This motivates an important parametrized family of functions called <term>polynomials</term>.</p>
+        
+        <definition>
+            <title>Polynomial Functions</title>
+            <statement>
+            <p>An <term>polynomial function</term> <m>f</m> is a function that can be written in the form <me>f(x) = a_0 + a_1 x + \cdots + a_n x^n,</me> for parameters <m>a_0, a_1, \ldots, a_n</m> and a non-negative integer <m>n \ge 0</m>. The parameters <m>a_0, a_1, \ldots, a_n</m> are called <term>coefficients</term>. The integer <m>n</m> is called the <term>degree</term> of the polynomial and we require that <m>a_n \ne 0</m>, which is called the <term>leading coefficient</term>.</p>
+            </statement>
+        </definition>
+        
+        <p>Linear functions and quadratic functions are special cases of polynomial functions. If the degree <m>n=0</m>, then <m>f(x) = a_0</m> is a <term>constant function</term>. If the degree <m>n=1</m>, the polynomial <m>f(x)=a_0+a_1 x</m> is linear. If the degree is <m>n=2</m>, the polynomial is quadratic. If all coefficients except the leading coefficient are zero, so that <m>f(x)=a_n x^n</m>, the function will be a power function. In fact, one way to define polynomials would be as a sum of a finite collection of power functions each with a non-negative integer power.</p>
+        
+        <p>The parametrized representation is not necessarily the most useful. For example, in many cases, linear functions are better written in the point-slope form <m>f(x)=m(x-a)+b</m> when we know a point <m>(a,b)</m> other than the <m>y</m>-intercept. Similarly, we will see that exponential functions are often more naturally written in a form, <me> f(x) = A b^{(x-a)/c}, </me> which involves two extra parameters but will have an easier interpretation for certain modeling situations. Similarly, polynomials are often best written in factored form, such as the quadratic <me> f(x) = 3(x-1)(x+4) = 3x^2+9x-12. </me> The factored form gives information about the roots or zeros of the function.</p>
+    </subsection>
+    
+    <subsection>
+        <title>Parameter Equations</title>
+        
+        <p>When we have a parametrized model chosen, data create equations that constrain the possible values of the parameters. In general, we need as many equations as there are parameters to find a unique model. With enough equations, we can solve for all of the parameters and have a specific function that matches all of the data.</p>
+        
+        <p>We start with an example finding the equation of a line. We already know how to find the function using point<ndash/>slope form. Using parameter equations provides an alternative approach that will work for other families of functions. The basic steps are as follows.</p>
+        <ul>
+            <li><p>Find the parameter equations (one equation per data point). These equations are called <term>constraint equations</term>.</p></li>
+            <li><p>Solve one equation for one parameter in terms of the other.</p></li>
+            <li><p>Substitute this formula in the other equation and solve for the remaining parameter.</p></li>
+            <li><p>Back-substitute the now-known parameter to find the value of the earlier paremeter</p></li>
+            <li><p>Write down the actual model using the parameters.</p></li>
+        </ul>
+
+        <example>
+            <p>Use parameter equations to write <m>y</m> as a linear function of <m>x</m> that passes through <m>(1,5)</m> and <m>(3,1)</m>.</p>
+            
+            <p>Start by writing the model equation, which is the general parametrized equation <me> y = mx+b. </me> For each data point, we use the values for <m>x</m> and <m>y</m> to give us a constraint equation for the parameters. The first point <m>(x,y)=(1,5)</m> has <m>x=1</m> and <m>y=5</m>. Using these in the model equation gives a parameter constraint equation <me> 5 = m(1) + b \qquad \Leftrightarrow \qquad m+b=5. </me> The second point <m>(x,y) = (3,1)</m> leads to another constraint equation <me> 1 = m(3) + b \qquad \Leftrightarrow \qquad 3m+b=1. </me></p>
+            
+            <p>Now that we have our constraint equations <m>m+b=5</m> and <m>3m+b=1</m>, we can solve one equation for one of the parameters, say <m>b</m> in the first equation, to get <me> b = 5-m. </me> Substitute this formula <m>5-m</m> for the value of <m>b</m> in the second equation to get <me> 3m + (5-m) = 1 \quad \Leftrightarrow \quad 2m+5 = 1. </me> This equation can be solved for <m>m</m> as <m>2m=-4</m> or <m>m=-2</m>. Knowing the value of <m>m</m>, we back-substitute into our equation for <m>b</m>: <me> b = 5-m = 5-(-2) = 7. </me></p>
+            
+            <p>Having found the parameters, we finish the problem by stating the final function, <me> y = -2x+7. </me></p>
+
+            <figure>
+                <image>
+                    <description>Illustration of y=-2x+7</description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            width=2.5in, height=2.5in,
+                            xmin=-2,xmax=5,
+                            xlabel={$m$}, ylabel={$h$},
+                            grid=both,
+                            minor x tick num={1},
+                            minor y tick num={4},
+                            legend style={at={(0,0)}, anchor=south west},
+                            every axis legend/.append style={nodes={right}}
+                        ]
+
+                        \addplot[blue, thick]
+                            ({x}, {-2*x+7});
+                        \addplot[
+                            only marks,
+                            color=blue
+                        ] table {
+                            1 5
+                            3 1
+                        };
+                        \legend {$y=-2x+7$}
+                        \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+        </example>
+        
+        <p>For our second example, we consider an exponential function. Notice how the strategy is the same: (1) Write the parametrized model, (2) Use the data to form constraint equations on the parameters, (3) Solve for the parameters using substitution and back-substitution, and (4) Restate the final model equation.</p>
+        
+        <example>
+            <statement>
+            <p>Use parameter equations to write <m>y</m> as an exponential function of <m>x</m> that passes through <m>(1,5)</m> and <m>(3,1)</m>.</p>
+            </statement>
+            <solution>
+            <p>Start by writing the model equation, which is the general parametrized equation for an exponential function <me> y = A \cdot b^x. </me> The first point <m>(x,y)=(1,5)</m> leads to a parameter constraint equation <me> 5 = A \cdot b^1 \qquad \Leftrightarrow \qquad A b=5. </me> The second point <m>(x,y) = (3,1)</m> leads to another constraint equation <me> 1 = A \cdot b^3 \qquad \Leftrightarrow \qquad Ab^3=1. </me></p>
+            
+            <p>Using our constraint equations <m>Ab=5</m> and <m>Ab^3=1</m>, we can solve one equation for one of the parameters. Because <m>A</m> appears in the same form in both equations, that is the easiest path <me> Ab = 5 \quad \Leftrightarrow \quad A = \frac{5}{b}. </me> Substitute this formula <m>\frac{5}{b}</m> for the value of <m>A</m> in the second equation to get <me> (\frac{5}{b})b^3 = 1 \quad \Leftrightarrow \quad 5b^2 = 1. </me> Solving for <m>b</m> gives <m>b^2 = \frac{1}{5}</m> or <m>b = \pm \sqrt{\frac{1}{5}}</m>. An exponential model requires <m>b \gt 0</m>, so we must choose <me> b= \sqrt{\frac{1}{5}} = \frac{1}{\sqrt{5}} = 5^{-1/2}. </me> Knowing <m>b</m>, we back-substitute to find <m>A</m>: <me> A = \frac{5}{b} = \frac{5}{5^{-1/2}} = 5 \cdot 5^{1/2} = 5^{3/2}. </me></p>
+            
+            <p>Having found the parameters, we finish the problem by stating the final function, <me> y = 5^{3/2} \cdot (5^{-1/2})^x. </me> Using properties of exponents, we could rewrite this in an alternate form <me> y = 5^{(\frac{3-x}{2})} = 5^{-(\frac{x-3}{2})}. </me> We can check our answer by testing if the data are recovered. When <m>x=1</m>, we get <me> y = 5^{-(\frac{1-3}{2})} = 5^1 = 5.</me> When <m>x=3</m>, we get <me> y = 5^{-(\frac{3-3}{2})} = 5^0 = 1.</me> So both points are recovered and our model is correct.</p>
+
+            <figure>
+                <image>
+                    <description>Illustration of y=5^((3-x)/2)</description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            width=2.5in, height=2.5in,
+                            xmin=-0.5,xmax=4,
+                            xlabel={$m$}, ylabel={$h$},
+                            grid=both,
+                            minor x tick num={1},
+                            minor y tick num={1},
+                            legend style={at={(1,1)}, anchor=north east},
+                            every axis legend/.append style={nodes={right}}
+                        ]
+
+                        \addplot[blue, thick]
+                            ({x}, {exp(ln(5)*(3-x)/2});
+                        \addplot[
+                            only marks,
+                            color=blue
+                        ] table {
+                            1 5
+                            3 1
+                        };
+                        \legend {$y=5^{(3-x)/2}$}
+                        \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            </solution>
+        </example>
+        
+        <p>Sometimes, we discover we need new methods to solve the parameter constraint equations.</p>
+        
+        <example>
+            <statement>
+                <p>Find the parameter constraint equations to write <m>y</m> as a power function of <m>x</m> that passes through <m>(1,5)</m> and <m>(3,1)</m>.</p>
+            </statement>
+            <solution>
+                <p>First, write the model equation, <me>y=Ax^p,</me> with parameters <m>A</m> and <m>p</m>. Use the points to find constraint equations. <md>
+                    <mrow>(x,y)=(1,5) \quad &amp;\Rightarrow \quad 5 = A \cdot 1^p \quad \Rightarrow \quad A = 5</mrow>
+                    <mrow>(x,y)=(3,1) \quad &amp;\Rightarrow \quad 1 = A \cdot 3^p \quad \Rightarrow \quad A \cdot 3^p = 1</mrow>
+                </md> The first equation actually has already solved for <m>A</m>, so we attempt to solve for <m>p</m>: <me> 5 \cdot 3^p = 1 \qquad \Leftrightarrow \qquad 3^p = \frac{1}{5}.</me> To solve this equation for <m>p</m> requires the introduction of logarithms.</p>
+            </solution>
+        </example>
+    </subsection>
+</section>

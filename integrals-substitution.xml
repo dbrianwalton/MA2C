@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="integrals-substitution">
+    <title>Integrals and the Method of Substitution</title>
+    
+    <introduction>
+    <p>Every rule for differentiation has a corresponding rule for integrals or antidifferentiation. This section focuses on the integration rule that corresponds to the chain rule.</p>
+    
+    <p>Recall that the <xref ref='thm-chain-rule' autoname='title'>chain rule</xref> states that if <m>F(x)</m> is a function with a derivative <m>F'(x)</m> and <m>u</m> is any expression (or function), then <me>\frac{d}{dx}[F(u)] = F'(u) \frac{du}{dx}.</me> The corresponding antidifferentiation rule says that if we have a function <m>f(x)</m> with an antiderivative <m>F(x)</m> (<m>F'(x)=f(x)</m>), then <me>\int f(u) \frac{du}{dx} dx = F(u) + C.</me></p>
+    
+    <p>Usually, the integrand does not appear so obviously in the form of the chain rule. The method of substitution provides a formalized method to guide the process. The method relies on transforming the integral from an integrand in terms of the independent variable, say <m>x</m>, as a new integral with an integrand in terms of the chain variable <m>u</m>. For the transformation to be valid, we must account for the chain rule factor <m>\frac{du}{dx} = u'</m>. We use the substitution rule for differentials <me>du = u' \cdot dx \qquad \Leftrightarrow \qquad dx = \frac{du}{u'}.</me></p>
+    </introduction>
+    
+    <subsection>
+    <title>Substitution and Antiderivatives</title>
+    
+    <p>To apply the method of substitution, we start with an integral whose integrand is a function the independent variable (<m>x</m>) which appears to involve a composition (suggesting a chain rule). Define <m>u</m> to be the formula in the composition and compute <m>u'</m>. We then substitute <m>\displaystyle dx = \frac{du}{u'}</m> in the integral and attempt to rewrite the entire integrand in terms of only <m>u</m>. We then find antiderivatives in terms of <m>u</m> and express the result in terms of the orignal variable.</p>
+    
+    <example>
+        <statement>
+            <p>Use the method of substitution to find <m>\displaystyle \int e^{3x} \, dx</m>.</p>
+        </statement>
+        <solution>
+            <p>The integrand <m>e^{3x}</m> involves composition with <m>u=3x</m>. This is our substitution variable. Because <m>u'=3</m>, we have <m>du = 3 dx</m> so that <m>\displaystyle dx = \frac{du}{3}</m>. We rewrite the integral in terms of the substitution variable <m>u</m>. After antidifferentiation using the variable <m>u</m>, we back-substitute our original formula for <m>u=3x</m>. The work is shown below. <md>
+                <mrow> \int e^{3x} \, dx &amp; \qquad \begin{array}{c} u=3x \\ du=3\,dx \end{array} </mrow>
+                <mrow> &amp;= \int e^{u} \cdot \frac{du}{3} </mrow>
+                <mrow> &amp;= \int \frac{1}{3} e^{u} du </mrow>
+                <mrow> &amp;= \frac{1}{3} e^{u} + C </mrow>
+                <mrow> &amp;= \frac{1}{3} e^{3x} + C </mrow>
+            </md></p>
+        </solution>
+    </example>
+    
+    <example>
+        <statement>
+            <p>Use the method of substitution to find <m>\displaystyle \int \sqrt{3x+5} \, dx</m>.</p>
+        </statement>
+        <solution>
+            <p>The integrand <m>\sqrt{3x+5}=(3x+5)^{1/2}</m> involves composition with <m>u=3x+5</m>. Because <m>u'=3</m>, we have <m>du = 3 dx</m> and <m>\displaystyle dx = \frac{du}{3}</m>. We rewrite the integral in terms of <m>u</m>, find an antiderivative, and then back-substitute to find a formula in terms of <m>x</m>. <md>
+                <mrow> \int \sqrt{3x+5} \, dx &amp; \qquad \begin{array}{c} u=3x+5 \\ du=3\,dx \end{array} </mrow>
+                <mrow> &amp;= \int \sqrt{u} \cdot \frac{du}{3} </mrow>
+                <mrow> &amp;= \int \frac{1}{3} u^{1/2} du </mrow>
+                <mrow> &amp;= \frac{1}{3} \cdot \frac{2}{3} u^{3/2} + C </mrow>
+                <mrow> &amp;= \frac{2}{9} (3x+5)^{3/2} + C </mrow>
+            </md></p>
+        </solution>
+    </example>
+    
+    <example>
+        <statement>
+            <p>Use the method of substitution to find <m>\displaystyle \int x\sin(x^2) \, dx</m>.</p>
+        </statement>
+        <solution>
+            <p>The integrand <m>x \sin(x^2)</m> is a product with the composition involving <m>u=x^2</m>. We hope that the product is a result of the chain rule. Because <m>u'=\frac{du}{dx} = 2x</m>, we have <m>\displaystyle du = 2x \, dx</m> or <m>\displaystyle dx = \frac{du}{2x}</m>. We rewrite the integral <md>
+                <mrow> \int x \sin(x^2) \, dx &amp; \qquad \begin{array}{c} u=x^2 \\ du = 2x \, dx \end{array} </mrow>
+                <mrow> &amp;= \int x \sin(u) \cdot \frac{du}{2x} </mrow>
+                <mrow> &amp;= \int \frac{x}{2x} \sin(u) du </mrow>
+                <mrow> &amp;= \int \frac{1}{2} \sin(u) du </mrow>
+                <mrow> &amp;= -\frac{1}{2} \cos(u) + C </mrow>
+                <mrow> &amp;= -\frac{1}{2} \cos(x^2) + C </mrow>
+            </md> This problem relied on the factor <m>x</m> and the formula for <m>u'=2x</m> having <m>x</m> cancel so that the transformed integral involves only the substitution variable <m>u</m>.</p>
+        </solution>
+    </example>
+    
+    <example>
+        <statement>
+            <p>Use the method of substitution to find <m>\displaystyle \int \tan(x) \, dx</m>.</p>
+        </statement>
+        <solution>
+            <p>The integrand <m>\tan(x)</m> can be rewritten as a quotient, or as a product involving a negative power, <me> \tan(x) = \frac{\sin(x)}{\cos(x)} = \sin(x) \cdot (\cos(x))^{-1}.</me> Once we have the negative power, we see the composition variable <m>u=\cos(x)</m>. Because <m>u'=\frac{du}{dx} = -\sin(x)</m>, we have <m>\displaystyle du = -\sin(x) \, dx</m> or <m>\displaystyle dx = \frac{-du}{\sin(x)}</m>. We rewrite the integral <md>
+                <mrow> \int \tan(x) \, dx &amp;= \int \sin(x) (\cos(x))^{-1} \, dx \qquad \begin{array}{c} u=\cos(x) \\ du = -\sin(x) \, dx \end{array} </mrow>
+                <mrow> &amp;= \int \sin(x) u^{-1} \frac{-du}{\sin(x)} </mrow>
+                <mrow> &amp;= \int - u^{-1} \, du </mrow>
+                <mrow> &amp;= - \ln(|u|) + C </mrow>
+                <mrow> &amp;= - \ln(|\cos(x)|) + C </mrow>
+            </md></p>
+        </solution>
+    </example>
+    
+    <p>Sometimes, after substitution, the integrand still involves the original variable. If the formula can be rewritten using only the substitution variable, then we may still be able to find an antiderivative.</p>
+    
+    <example>
+        <statement>
+            <p>Use the method of substitution to find <m>\displaystyle \int x \sqrt{1-x} \, dx</m>.</p>
+        </statement>
+        <solution>
+            <p>The integrand <m>x \sqrt{1-x} = x (1-x)^{1/2}</m> is a product with the composition involving <m>u=1-x</m>. Because <m>u'=\frac{du}{dx} = -1</m>, we have <m>\displaystyle du = -dx</m> or <m>\displaystyle dx = -du</m>. We rewrite the integral <md>
+                <mrow> \int x \sqrt{1-x} \, dx &amp;= \int x u^{1/2} \cdot -du </mrow>
+                <mrow> &amp;= \int -x u^{1/2} du </mrow>
+            </md> If we start with the substitution equation <m>u=1-x</m> and solve for <m>x</m>, we find <m>x=1-u</m> and can use this substitution in the integral. <md>
+                <mrow> \int x \sqrt{1-x} \, dx &amp;= \int -x u^{1/2} du </mrow>
+                <mrow> &amp;= \int -(1-u) u^{1/2} du </mrow>
+            </md> As currently written in a product, the antiderivative can not be found. However, if we multiply this out we can find antiderivatives using the power rule. <md>
+                <mrow> \int x \sqrt{1-x} \, dx &amp;= \int -(1-u) u^{1/2} du </mrow>
+                <mrow> &amp;= \int -u^{1/2} + u^{3/2} du </mrow>
+                <mrow> &amp;= -\frac{2}{3}u^{3/2} + \frac{2}{5}u^{5/2} + C </mrow>
+                <mrow> &amp;= -\frac{2}{3}(1-x)^{3/2} + \frac{2}{5}(1-x)^{5/2} + C </mrow>
+            </md></p>
+        </solution>
+    </example>
+    
+    <p>The method of substitution does not work (or at least does not help) if the transformed integral is no closer to finding an antiderivative than the original.</p>
+    
+    <example>
+        <statement>
+            <p>Use the method of substitution to rewrite <m>\displaystyle \int e^{-x^2}\, dx</m>.</p>
+        </statement>
+        <solution>
+            <p>The integrand <m>e^{-x^2}</m> has a composition involving <m>u=x^2</m> and <m>u'=2x</m>. For <m>x \gt 0</m> we have the back-substitution <me> u=x^2 \quad \Leftrightarrow \quad x = \sqrt{u}.</me> The method of substitution allows us to rewrite this integral.  <md>
+                <mrow> \int e^{-x^2} \, dx &amp; \qquad \begin{array}{c} u=x^2 \\ du = 2x \, dx \end{array}</mrow>
+                <mrow> &amp;= \int e^{-u} \frac{du}{2x} </mrow>
+                <mrow> &amp;= \int \frac{1}{2\sqrt{u}}e^{-u} \, du</mrow>
+            </md> While these integrals are equivalent for <m>x \gt 0</m>, the new integral is no easier to evaluate than the original. It happens that this integral does not have an elementary antiderivative formula.</p>
+        </solution>
+    </example>
+    </subsection>
+
+    <subsection>
+    <title>Substitution and Definite Integrals</title>
+    
+    <p>When using definite integrals, the Fundamental Theorem of Calculus allows us to compute a definite integral as the change in an antiderivative. If the method of substitution is used, our antiderivative will be a function of the substitution variable <m>u</m> which is a function of the independent variable. Rather than rewrite the antiderivative in terms of the original variable and then compute the change of the antiderivative, we can compute the change in the antiderivative in terms of the variable <m>u</m>.</p>
+    
+    <p>Suppose that <m>F(x)</m> is an antiderivative of <m>f(x)</m>. Now, suppose that <m>u</m> is a function of <m>x</m> so that <m>u(a)=c</m> and <m>u(b)=d</m>. If we have an integral involving composition and the chain rule, we find <md>
+        <mrow> \int_a^b f(u(x)) u'(x) dx &amp;\overset{\mathrm{FTC}}{=} [F(u(x))]_a^b </mrow>
+        <mrow> &amp;= F(u(b)) - F(u(a)) = F(d)-F(c).</mrow>
+    </md> This is identical to the integral we would get for the related definite integral <me>\int_c^d f(u) \, du \overset{\mathrm{FTC}}{=} \Big[F(u)\Big]_c^d = F(d) - F(c).</me> Consequently, using the method of substitution on a definite integral can be performed by changing the limits of integration to the values of the substitution variable.</p>
+    
+    <example>
+        <statement>
+            <p>Compute <m>\displaystyle \int_1^3 (2x+1)^4 \, dx</m>.</p>
+        </statement>
+        <solution>
+            <p>The substitution variable is <m>u=2x+1</m>. When <m>x=1</m>, <m>u=2(1)+1=3</m>, and when <m>x=3</m>, <m>u=2(3)+1=7</m>. The substitution step involves <m>u'=\frac{du}{dx}=2</m> so that <m>du = 2dx</m> or <m>\displaystyle dx=\frac{du}{2}</m>. In order to keep track of whether the limit of integration refers to <m>x</m> or <m>u</m>, we need to clearly indicate this when both variables are involved. <md>
+                <mrow> \int_1^3 (2x+1)^4 \, dx &amp; \qquad \begin{array}{c c} u=2x-1 &amp; x=1 \Rightarrow u=3 \\ du = 2\,dx &amp; x=3 \Rightarrow u=7 \end{array} </mrow>
+                <mrow> &amp;= \int_{x=1}^{x=3} u^4 \, \frac{du}{2} </mrow>
+                <mrow> &amp;= \int_3^7 \frac{1}{2}u^4 \, du </mrow>
+                <mrow> &amp;\overset{\mathrm{FTC}}{=} \Big[ \frac{1}{10} u^5 \Big]_3^7 </mrow>
+                <mrow> &amp;= \frac{1}{10}(7^5) - \frac{1}{10}(3^5)</mrow>
+                <mrow> &amp;= \frac{16564}{10} = \frac{8282}{5} </mrow>
+            </md></p>
+        </solution>
+    </example>
+    
+    <p>Sometimes the substitution variable is a decreasing function of the independent variable. This will cause the apparent order of the limits to reverse. Be careful that the limits of integration remain in the same starting and ending position as the original.</p>
+    
+    <example>
+        <statement>
+            <p>Compute <m>\displaystyle \int_3^4 \frac{x\,dx}{25-x^2}</m>.</p>
+        </statement>
+        <solution>
+            <p>The composition may not be apparent until we think of division as multiplication by a negative power: <me> \frac{x}{25-x^2} = x (25-x^2)^{-1}.</me> This suggests a substitution <m>u=25-x^2</m>. <md>
+                <mrow> \int_3^4 \frac{x \, dx}{25-x^2} &amp; \qquad \begin{array}{c c} u=25-x^2 &amp; x=3 \Rightarrow u=16 \\ du=-2x \,dx &amp; x=4 \Rightarrow u=9 \end{array}</mrow>
+                <mrow> &amp;= \int_{x=3}^{x=4} \frac{x}{u} \frac{du}{-2x} </mrow>
+                <mrow> &amp;= \int_{16}^{9} -\frac{1}{2} \frac{du}{u} </mrow>
+                <mrow> &amp;\overset{\mathrm{FTC}}{=} \Big[ -\frac{1}{2} \ln(|u|) \Big]_{16}^{9} </mrow>
+                <mrow> &amp;= -\frac{1}{2} \ln(9) - -\frac{1}{2} \ln(16) = \frac{1}{2}(\ln(16)-\ln(9)) </mrow>
+                <mrow> &amp;= \ln\Big(\sqrt{\frac{16}{9}}\Big) = \ln(\frac{4}{3}) </mrow>
+            </md></p>
+        </solution>
+    </example>
+    </subsection>
+    
+</section>

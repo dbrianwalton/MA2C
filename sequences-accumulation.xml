@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="accumulation-sequences">
+    <title>Sequences from Accumulation</title>
+
+    <subsection>
+        <title>Overview</title>
+        
+        <p>One of the most important mathematical ideas in calculus is that of an accumulation of change for physical quantities. Eventually, this will lead us to the ideas of definite integrals. We start by thinking about sequences resulting from an accumulation of a given sequence of increments. In this section, we learn the idea of summation and the mathematical notation for a summation of sequence values. We also learn about conditions which determine when a sequence will be increasing, decreasing, concave up and concave down.</p>
+        
+    </subsection>
+   
+    <subsection>
+        <title>Summation of an Increment Sequence</title>
+        
+        <p>Suppose we have a sequence. In order to keep things as concrete as possible, we will consider specifically the sequence of odd integers, <me> x = (1, 3, 5, 7, \ldots). </me> The sequence <m>x</m> will be our <term>increment sequence</term>, and we will use the increment sequence to create an <term>accumulation sequence</term>. Again, to be concrete, we will name the accumulation sequence <m>s</m> to remind us that it is a sum. In the past, we have usually considered the first index of a sequence to be 1. For an accumulation sequence, we usually want the first term to have an index value of 0 to represent the value before any accumulation has occurred. For this example, we will use <m>s_0 = 0</m>. The next four terms are given below to illustrate the idea of accumulation. <md>
+            <mrow>s_1 &amp;= x_1 = 1 </mrow>
+            <mrow>s_2 &amp;= x_1+x_2 = 1+3 = 4 </mrow>
+            <mrow>s_3 &amp;= x_1+x_2+x_3 = 1+3+5 = 9 </mrow>
+            <mrow>s_4 &amp;= x_1+x_2+x_3+x_4 = 1+3+5+7 = 16 </mrow>
+        </md></p>
+
+        <definition xml:id="defn-accumulation-sequence">
+            <title>Accumulation Sequence</title>
+            <statement>
+                <p>Given any sequence <m>(x_k : k=1,2,3,\ldots)</m> and real number <m>c</m>, a sequence <m>s</m> is called the <term>accumulation sequence</term> of <m>x</m> with initial value <m>c</m> if the value <m>s_n</m> is the sum of the first <m>n</m> terms of <m>x</m> added to <m>c</m>, for <m>n=1,2,3,\ldots</m>. By definition, we have <m>s_0 = c</m>. The sequence <m>x</m> is the <term>increment sequence</term> for <m>s</m>. If an initial value is not given, it is assumed that <m>s_0=c=0</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>In mathematics, the idea of adding terms from a sequence appears so frequently that a special notation, called summation notation or sigma notation for the Greek letter sigma <m>\Sigma</m>, was created to represent the sum.</p>
+        
+        <definition xml:id="defn-summation-notation">
+            <title>Summation Notation</title>
+            <statement>
+                <p>Given any sequence <m>x</m> and integers <m>m \le n</m>, the sum of terms <m>x_k</m> with index <m>k</m> satisfying <m>m \le k \le n</m> is written <me> \sum_{k=m}^{n} x_k = x_{m} + x_{m+1} + \cdots + x_n. </me> The sequence is often given as an explicit function of the index. The starting index <m>m</m> is called the <term>lower limit</term> of the sum while the ending index <m>n</m> is called the <term>upper limit</term>.</p>
+            </statement>
+        </definition>
+        
+        <example>
+            <statement>
+            <p>Evaluate the following sums. <ol>
+                <li> <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> </li>
+                <li> <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> </li>
+            </ol></p>
+            </statement>
+            <solution>
+            <ol>
+                <li> 
+                <p>The sum <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> involves the increment sequence <m>a_k=2k+3</m> and is the sum of terms with index from 3 to 7: <me> a_3 = 2(3)+3 = 9, \: a_4 = 2(4)+3 = 11, \: a_5 = 13, \: a_6=15, \: a_7 = 17. </me> Consequently, we can find the sum <me> \sum_{k=3}^{7} [2k+3] = 9+11+13+15+17 = 65. </me></p>
+                </li>
+
+                <li>
+                <p>The sum <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> involves an increment sequence <m>\displaystyle b_k=\frac{1}{k^2+k}</m>. The index values involved go from 1 to 4 so that we find <md>
+                    <mrow> \sum_{k=1}^{4} \frac{1}{k^2+k} &amp;= 
+                        \frac{1}{1^1+1} + \frac{1}{2^2+2} + \frac{1}{3^2+3} + \frac{1}{4^2+4} </mrow>
+                    <mrow> &amp;= \frac{1}{2} + \frac{1}{6} + \frac{1}{12} + \frac{1}{20} </mrow>
+                    <mrow> &amp;= \frac{30}{60} + \frac{10}{60} + \frac{5}{60} + \frac{3}{60} </mrow>
+                    <mrow> &amp;= \frac{48}{60} = \frac{4}{5}. </mrow>
+                </md></p>
+                </li>
+            </ol>
+            </solution>
+        </example>
+        
+        <p>Using summation notation, if we have an increment sequence <m>x</m> then the accumulation sequence <m>s</m> with initial value <m>c</m> can be written <me> s_n = c + \sum_{k=1}^{n} x_k. </me> Notice that in this equation, the index <m>n</m> of the accumulation sequence <m>s</m> appears as the upper limit of the summation. The summation itself introduces another index variable <m>k</m> that is used for the terms of the sum. The index variable is also called a <term>dummy variable</term> of summation because any other index variable could be used: <me> s_n = c + \sum_{i=1}^{n} x_i = c + \sum_{j=1}^{n} x_j. </me></p>
+        
+        <example>
+            <statement>
+                <p>Find the first five terms of the accumulation sequence <m>z</m> with increment sequence <m>a = (3, 5, 7, 9, 11, 13, \ldots)</m> with initial value <m>4</m>.</p>
+            </statement>
+            <solution>
+                <p>The sequence <m>z</m> has initial value <m>4</m> which corresponds to index 0, <me> z_0 = 4. </me> For index values <m>n \gt 0</m>, the sequence is computed with an accumulation of values from the sequence <m>a</m>. <md>
+                    <mrow> z_1 &amp;= 4 + \sum_{k=1}^{1} a_k = 4 + 3 = 7 </mrow>
+                    <mrow> z_2 &amp;= 4 + \sum_{k=1}^{2} a_k = 4 + 3 + 5 = 12 </mrow>
+                    <mrow> z_3 &amp;= 4 + \sum_{k=1}^{3} a_k = 4 + 3 + 5 + 7 = 19 </mrow>
+                    <mrow> z_4 &amp;= 4 + \sum_{k=1}^{4} a_k = 4 + 3 + 5 + 7 + 9 = 28 </mrow>
+                </md></p>
+            </solution>
+        </example>
+    </subsection>
+    
+    <subsection>
+        <title>Sequence Properties</title>
+        
+        <p>When an increment sequence has positive values, the corresponding accumulation sequence will be increasing. When an increment sequence has negative values, the accumulation sequence will be decreasing. We can extend this idea to an entire range of index values. A sequence is monotone over an index range if it steadily increases or decreases over the entire range.</p>
+        
+        <definition xml:id="defn-sequence-monotonicity">
+            <title>Monotonicity of Sequences</title>
+            <statement>
+                <p>Let <m>u</m> be a sequence and let <m>m</m> and <m>n</m> be valid indexes (integers) with <m>m \lt n</m>.</p>
+                <p>We say that <m>u</m> is <term>increasing</term> on the index range <m>m,\ldots,n</m> if for every index values <m>i</m> and <m>j</m> with <m>m \le i \lt j \le n</m>, we have <m>u_j \gt u_i</m>.</p>
+                <p>We say that <m>u</m> is <term>decreasing</term> on the index range <m>m,\ldots,n</m> if for every index values <m>i</m> and <m>j</m> with <m>m \le i \lt j \le n</m>, we have <m>u_j \lt u_i</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>The monotonicity of an accumulation sequence is completely determined by the sign of the increment sequence. The splitting property of summation allows us to think about accumulation sequences in a recursive way involving both the accumulation sequence and the increment sequence. Suppose <m>u</m> is an accumulation sequence with corresponding increment sequence <m>x</m>. For any index <m>n \ge 1</m>, we can split our summation at the intermediate index <m>n-1</m> to obtain <me> u_n = u_0 + \sum_{k=1}^{n} x_k = u_0 + \sum_{k=1}^{n-1} x_k + x_n = u_{n-1} + x_n. </me></p>
+        
+        <theorem xml:id="thm-accumulation-sequence-recursive">
+            <statement>
+                <p>For any accumulation sequence <m>u</m> with increment sequence <m>x</m>, the accumulation sequence satisfies a recursive relation <me> u_{n} = u_{n-1} + x_n, </me> for every <m>n \ge 1</m>.</p>
+            </statement>
+        </theorem>
+        
+        <p>That is, instead of thinking of generating the accumulation from scratch each time, adding all of the needed terms from <m>x</m>, this recursive view suggests that we just need to add the next term <m>x_n</m> to the previous accumulation <m>u_{n-1}</m> to get the new term <m>u_n</m>. Naturally, if <m>x_n</m> is positive the accumulation increases but if <m>x_n</m> is negative the accumulation decreases. This is generalized to an entire range of index values in the following theorem.</p>
+        
+        <theorem xml:id="thm-accumulation-sequence-monotonicity">
+            <statement>
+                <p>Suppose a sequence <m>u</m> is an accumulation sequence for a particular increment sequence <m>x</m> and <m>m</m> and <m>n</m> are integers with <m>m \lt n</m></p>
+                <p>The sequence <m>u</m> is increasing on the index range <m>m,\ldots,n</m> if and only if the sequence <m>x_k \gt 0</m> for every <m>k=m+1,\ldots,n</m>.</p>
+                <p>The sequence <m>u</m> is decreasing on the index range <m>m,\ldots,n</m> if and only if the sequence <m>x_k \lt 0</m> for every <m>k=m+1,\ldots,n</m>.</p>
+            </statement>
+            <proof>
+                <p>Suppose that <m>x_k \gt 0</m> for every <m>k=m+1,\ldots,n</m>. The proof needs to show that for any two index values <m>i,j</m> with <m>m \le i \lt j \le n</m>, we must have <m>u_j \gt u_i</m> which is equivalent to showing that <m>u_j - u_i \gt 0</m>. By definition of an accumulation sequence, <me> u_i = u_0 + \sum_{k=1}^{i} x_k. </me> Because of the splitting property of summation and since <m>i \lt j</m>, we can write <me> u_j = u_0 + \sum_{k=1}^{j} x_k = u_0 + \sum_{k=1}^{i} x_k + \sum_{k=i+1}^{j} x_k = u_i + \sum_{k=i+1}^{j}. </me> Consequently, <me> u_j - u_i = \sum_{k=i+1}^{j} x_k. </me> Since <m>m \le i \lt j \le n</m>, every term <m>x_k</m> in this sum satisfies <m>x_k \gt 0</m> and a sum of positive numbers is positive. So <m>u_j - u_i \gt 0</m> as required. This shows that <m>u</m> is increasing on a range if <m>x</m> is positive on the increments defining that range.</p>
+                <p>To show that <m>u</m> is increasing only if <m>x</m> is positive, we consider the case that at least one term <m>x_k \le 0</m> for <m>m+1 \le k \le n</m>. Given that index <m>k</m>, choose <m>i=k-1</m> and <m>j=k</m>. Then clearly we have <m>m \le i \lt j \le n</m>. Using the same splitting rule as above, we have <m>u_j - u_i = x_k \le 0</m> so that <m>u_j \le u_i</m>. Consequently, <m>u</m> is <em>not</em> increasing on a range where the increments <m>x</m> are not all positive.</p>
+                <p>Similar arguments complete the corresponding proof for a decreasing sequence.</p>
+            </proof>
+        </theorem>
+        
+        <example>
+            <statement>
+                <p>Consider the sequence <m>x</m> defined explicitly <me>x_k = 2k-13, \quad k=1, 2, 3, \ldots,</me> and the accumulation sequence <m>u</m> defined with <m>x</m> as increments and initial value <m>u_0=10</m>.</p>
+                <p>Determine index ranges on which <m>u</m> is increasing and on which <m>u</m> is decreasing. Compute enough values of <m>u</m> to demonstrate these results and create a graph.</p>
+            </statement>
+            <solution>
+                <p>Because <m>u</m> is an accumulation of <m>x</m>, we can determine where <m>u</m> is increasing or decreasing based on the signs of the increments <m>x</m>. So we solve an inequality <m>x_k \gt 0</m> using the explicit formula for <m>x_k</m>. <md>
+                    <mrow> 2k-13 \gt 0 </mrow>
+                    <mrow> 2k \gt 13 </mrow>
+                    <mrow> k \gt \frac{13}{2} </mrow>
+                </md> The smallest integer greater than <m>\frac{13}{2}</m> is <m>k=7</m>. We see that <m>x_k \gt 0</m> for any <m>k \ge 7</m>. By the same steps, we see that <m>x_k \lt 0</m> for any <m>k \le 6</m>. By <xref ref="thm-accumulation-sequence-monotonicity" />, the accumulation sequence <m>u</m> will be increasing on the range <m>6,\ldots,\infty</m> and will be decreasing on the range <m>0,\ldots,6</m>. Notice that the minimum value of the accumulation sequence as at  index value <m>n=6</m> where the transition from decreasing to increasing occurs.</p>
+                <p>We will compute sequence values for <m>n \le 12</m>. First, we compute the values of the increments <m>x</m> using the explicit formula. Once we have the increments, we start with the initial value <m>u_0=10</m> and then repeatedly add one increment at a time to find additional values of <m>u</m>. For conciseness in the table, we will use the common index variable <m>n</m> for both <m>x</m> and <m>u</m>. The value <m>x_0</m>, although potentially defined by the explicit formula, is not used and so is not shown.</p>
+                
+                <table>
+                    <tabular>
+                        <row>
+                            <cell> <m>n</m> </cell> <cell> <m>x_n=2n-13</m> </cell> <cell> <m>u_n=u_{n-1}+x_n</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 0 </cell> 
+                            <cell> n/a </cell> 
+                            <cell> <m>u_0=10</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 1 </cell> 
+                            <cell> <m>x_{1}=2(1)-13=-11</m> </cell>
+                            <cell> <m>u_{1}=10+-11=-1</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 2 </cell>
+                            <cell> <m>x_{2}=2(2)-13=-9</m> </cell>
+                            <cell> <m>u_{2}=-1+-9=-10</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 3 </cell>
+                            <cell> <m>x_{3}=2(3)-13=-7</m> </cell>
+                            <cell> <m>u_{3}=-10+-7=-17</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 4 </cell>
+                            <cell> <m>x_{4}=2(4)-13=-5</m> </cell>
+                            <cell> <m>u_{4}=-17+-5=-22</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 5 </cell>
+                            <cell> <m>x_{5}=2(5)-13=-3</m> </cell>
+                            <cell> <m>u_{5}=-22+-3=-25</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 6 </cell>
+                            <cell> <m>x_{6}=2(6)-13=-1</m> </cell>
+                            <cell> <m>u_{6}=-25+-1=-26</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 7 </cell>
+                            <cell> <m>x_{7}=2(7)-13=1</m> </cell>
+                            <cell> <m>u_{7}=-26+1=-25</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 8 </cell>
+                            <cell> <m>x_{8}=2(8)-13=3</m> </cell>
+                            <cell> <m>u_{8}=-25+3=-22</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 9 </cell>
+                            <cell> <m>x_{9}=2(9)-13=5</m> </cell>
+                            <cell> <m>u_{9}=-22+5=-17</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 10 </cell>
+                            <cell> <m>x_{10}=2(10)-13=7</m> </cell>
+                            <cell> <m>u_{10}=-17+7=-10</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 11 </cell>
+                            <cell> <m>x_{11}=2(11)-13=9</m> </cell>
+                            <cell> <m>u_{11}=-10+9=-1</m> </cell>
+                        </row>
+                        <row>
+                            <cell> 12 </cell>
+                            <cell> <m>x_{12}=2(12)-13=11</m> </cell>
+                            <cell> <m>u_{12}=-1+11=10</m> </cell>
+                        </row>
+                    </tabular>
+                </table>
+                
+                <figure>
+                <image>
+                    <latex-image-code>
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            xlabel=$n$,
+                            ylabel=$u_n$,
+                            xtick={0,1,...,12}
+                        ]
+                        \addplot[only marks, blue] table {
+                            0 10
+                            1 -1
+                            2 -10
+                            3 -17
+                            4 -22
+                            5 -25
+                            6 -26
+                            7 -25
+                            8 -22
+                            9 -17
+                            10 -10
+                            11 -1
+                            12 10
+                        };
+                        \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+                </figure>
+            </solution>
+        </example>
+        
+        <p>In the previous example, the increment sequence itself was increasing over all index values. The increments started at a negative value and increased steadily, originally become less and less negative and eventually becoming positive. This had the effect of making the graph of the accumulation sequence bend upwards. In this case, the data actually correspond to an upward-opening parabola. We refer to the bending of a graph as the <term>concavity</term>.</p>
+        
+        <definition xml:id="defn-accumulation-sequence-concavity">
+            <title>Concavity of an Accumulation Sequence</title>
+            <statement>
+                <p>Suppose <m>u</m> is a sequence that is the accumulation of a sequence <m>x</m> and <m>m</m> and <m>n</m> are index values with <m>m \lt n</m>. We say that <m>u</m> is <term>concave up</term> over the range <m>m,\ldots,n</m> if the increment sequence <m>x</m> is increasing over the range <m>m,\ldots,n</m>. If the increment sequence <m>x</m> is decreasing over the range <m>m,\ldots,n</m>, then we say that <m>u</m> is <term>concave down</term> over the range <m>m,\ldots,n</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>We conclude by observing that every sequence can be interpreted as an accumulation sequence. This requires identifying the increments. But the increments are just the differences between adjacent terms in the sequence. More specifically, we compute what are called the <term>backward differences</term>.</p>
+        
+        <definition xml:id="defn-backward-difference">
+            <title>Backward Difference of a Sequence</title>
+            <statement>
+                <p>Given a sequence <m>u</m>, the backward difference of <m>u</m> is written <m>\nabla u</m> and is defined by terms <me> (\nabla u)_n = u_n - u_{n-1}. </me> The sequence <m>\nabla u</m> is not defined for the first index of <m>u</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>Having defined the backward difference, every sequence <m>u</m> is an accumulation of its corresponding backward difference. The proof will rely on a technique introduced in the next section and is postponed until that time.</p>
+        
+        <theorem xml:id="thm-accumulation-backward-difference">
+            <title>Accumulation of Backward Differences</title>
+            <statement>
+                <p>Given any sequence <m>u = (u_n : n=0, 1, 2, \ldots)</m>, if we define <m>w</m> as the accumulation sequence with increments <m>\nabla u</m> and initial value <m>w_0 = u_0</m>, then <m>w=u</m>.</p>
+            </statement>
+        </theorem>
+        
+        <example>
+            <statement>
+                <p>Express the sequence <m>u = (u_n = n^2: n=0, 1, 2, \ldots)</m> as an accumulation of increments.</p>
+            </statement>
+            <solution>
+                <p>Before solving the problem exactly, we first consider a numerical approach. Start by finding the first few values of the sequence <m>u</m>. <me> u_0 = 0, \quad u_1 = 1, \quad u_2 = 4, \quad u_3 = 9, \quad u_4 = 16 </me> From these values, we can find the first few values of the increments (backward differences) <m>\nabla u</m>. A table of increments can be found using the numerical values of the sequence.</p>
+                <table>
+                    <tabular>
+                        <row> <cell> <m>n</m> </cell> <cell> <m>(\nabla u)_n = u_n - u_{n-1}</m> </cell> </row>
+                        <row> <cell> 1 </cell> <cell> <m> (\nabla u)_1 = 1-0 = 1 </m> </cell> </row>
+                        <row> <cell> 2 </cell> <cell> <m> (\nabla u)_2 = 4-1 = 3 </m> </cell> </row>
+                        <row> <cell> 3 </cell> <cell> <m> (\nabla u)_3 = 9-4 = 5 </m> </cell> </row>
+                        <row> <cell> 4 </cell> <cell> <m> (\nabla u)_4 = 16-9 = 7 </m> </cell> </row>
+                    </tabular>
+                </table>
+                <p>From this table, it appears that the increments defining <m>u</m> will be the odd integers.</p>
+                <p>When the sequence is defined as an explicit function of the index, we can compute the increments explicitly as well using the principle of composition. Because <m>u_n = n^2</m>, we can write <m>u_{n-1} = (n-1)^2</m>. Subtracting these values gives us the increments. <md>
+                    <mrow> (\nabla u)_n &amp;= u_n - u_{n-1} = n^2 - (n-1)^2 </mrow>
+                    <mrow> &amp;= n^2 - (n^2-2n+1) = n^2 - n^2 + 2n -1 </mrow>
+                    <mrow> &amp;=2n-1</mrow>
+                </md> If we compare the formula for the increments with the values we found in our table, we can verify our earlier work. For example, <m>(\nabla u)_1 = 2(1)-1 = 1</m> and <m>(\nabla u)_4 = 2(4)-1 = 7</m>. In summary, the sequence <m>u</m> is the accumulation sequence defined by increments <m>x = (x_k = 2k-1: k=1, 2, 3, \ldots)</m>, which is the sequence of positive odd integers, with an initial value <m>u_0=0</m>.</p>
+            </solution>
+        </example>
+    </subsection>
+ </section>

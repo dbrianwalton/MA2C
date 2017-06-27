@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book (in progress)  -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="unit-circle-trig-b">
+    <title>Unit Circle Trigonometry</title>
+
+    <!-- Generalizing Right Triangles to the Unit Circle -->
+    <subsection>
+        <title>Unit Circle Trigonometry</title>
+        <p>
+        When we first introduced the trigonometric functions of an angle, 
+        we did it for acute angles. What will we do for larger angles, or negative angles?
+        We will use the unit circle standard position of an angle and choose
+        a method that agrees with what we would expect for acute angles.
+        </p>
+        
+        <p>
+        So consider a positive, acute angle <m>0 \lt \theta \lt \frac{\pi}{2}</m>
+        (notice that we continue to use radians) that has been placed in standard
+        position on the unit circle. We have also drawn the corresponding right triangle
+        in standard position. Because the unit circle has radius <m>r=1</m>,
+        the hypotenuse of our triangle has length 1, so that the legs are
+        the cosine (adjacent) and the sine (opposite) of the angle.
+        </p>
+        
+        <figure>
+            <caption>
+            An acute angle on the unit circle and with an associated right triangle in standard position.
+            </caption>
+            <image xml:id="fig-angle-standard-position">
+                <description>The standard position of an acute angle in standard position
+                shows the terminal point has cosine as x-coordinate and sine as y-coordinate.
+                </description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[auto, thick]
+                \pgfmathsetmacro{\rad}{3}
+                \pgfmathsetmacro{\angle}{65}
+                
+                \coordinate (c1) at (0,0);
+                \draw [dotted] (c1) circle (\rad);
+                \draw [dotted] (c1) -- ($ (c1) + (\rad, 0) $);
+                \draw ($ (c1) + (\rad,0) $)
+                        arc (0:\angle:\rad) 
+                        node [above] {$(x,y)$}
+                        -- (c1);
+                \fill ($ (c1) + (\angle:\rad) $) circle [radius=2pt];
+                \draw ($ (c1) + (0:0.2*\rad) $) arc (0:\angle:0.2*\rad)
+                    node [pos=0.5, right] {$\theta$};
+
+                \coordinate (c2) at (\angle:\rad);
+                \coordinate (c2c) at (-\angle:\rad);
+                \coordinate (c3) at ($ (c2)!0.5!(c2c) $);
+                \draw (c1) -- (c2) node [pos=0.5, left] {1}
+                    -- (c3) node [pos=0.5, right] {$\sin \theta$}
+                    -- (c1) node [pos=0.5, below] {$\cos \theta$};
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+        
+        <p>
+        By noticing that the length of the legs also corresponds to the 
+        <m>x</m>- and <m>y</m>-coordinates, this gives us our desired generalization.
+        For any angle <m>\theta</m>, we will define the cosine and sine of the angle
+        as the <m>x</m>- and <m>y</m>-coordinates of the point on the unit circle for 
+        the terminal edge of the arc in standard position.
+        </p>
+        
+        <definition xml:id="definition-sine-cosine">
+            <statement>
+                <p>
+                If an angle <m>\theta</m> is put in standard position
+                and terminates at a point <m>(x,y)</m> on the unit circle,
+                then the trigonometric functions of <m>\theta</m> are defined
+                by
+                <md>
+                    <mrow> \cos \theta &amp;= x </mrow>
+                    <mrow> \sin \theta &amp;= y </mrow>
+                    <mrow> \tan \theta &amp;= \frac{\sin \theta}{\cos \theta} = \frac{y}{x} </mrow>
+                    <mrow> \sec \theta &amp;= \frac{1}{\cos \theta} = \frac{1}{x} </mrow>
+                    <mrow> \cot \theta &amp;= \frac{\cos \theta}{\sin \theta} = \frac{x}{y} </mrow>
+                    <mrow> \csc \theta &amp;= \frac{1}{\sin \theta} = \frac{1}{y} </mrow>
+                </md>
+                </p>
+            </statement>
+        </definition>
+
+        <p>
+        I suggest remembering the definitions of cosine and sine in terms of the <m>x</m>-
+        and <m>y</m>-coordinates, and the other functions in terms of the ratios
+        involving sine and cosine. One exception to this general principle is that
+        it can sometimes be helpful to think of the tangent, which is the
+        ratio <m>y/x</m>, as the slope of the terminal edge.
+        </p>
+        
+    </subsection>
+    
+    <subsection>
+        <title>Periodic Behavior of Trigonometric Functions</title>
+        
+        <p>
+        Because the terminal edge of an arc repeatedly passes through the same points,
+        the unit circle definitions of trigonometric functions create periodic
+        functions. Most of the functions have a period of <m>2 \pi</m> corresponding
+        to the rotation necessary to return to the same point. However, the tangent
+        and cotangent functions each have a period of <m>\pi</m>. This is a consequence
+        of the definition involving both <m>x</m> and <m>y</m> in their definitions.
+        The ratio will be the same if both values change sign, which is precisely what
+        happens for a half-rotation in the angle.
+        </p>
+        
+        <p>
+        How can you remember the graphs of the functions? You can do this while also
+        reinforcing your understanding of the unit-circle definitions by imagining
+        rotating around the unit circle in a counter-clockwise direction. 
+        Draw the cosine (<m>x</m>-coordinate), sine (<m>y</m>-coordinate) and 
+        tangent (slope) functions as you go.
+        </p>
+        <ul>
+        <li>
+            Start at angle <m>\theta=0</m> with a terminal point <m>(1,0)</m>.
+            Using the coordinates and slope of the terminal edge gives:
+            <me> \cos 0 = 1 \qquad \sin 0 = 0 \qquad \tan 0 = 0 </me>
+        </li>
+        <li>
+            Go half a right angle to <m>\theta=\frac{\pi}{4}</m> with a terminal point 
+            where <m>x=y</m> at <m>(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})</m>.
+            Using the coordinates and slope of the terminal edge gives:
+            <me> \cos \frac{\pi}{4} = \frac{1}{\sqrt{2}} 
+                \qquad \sin \frac{\pi}{4} = \frac{1}{\sqrt{2}} 
+                \qquad \tan \frac{\pi}{4} = 1
+            </me>
+        </li>
+        <li>
+            Finish the right angle at <m>\theta=\frac{\pi}{2}</m> with a terminal point 
+            at <m>(0,1)</m>.
+            Using the coordinates and slope of the terminal edge gives:
+            <me> \cos \frac{\pi}{2} = 0
+                \qquad \sin \frac{\pi}{2} = 1
+                \qquad \tan \frac{\pi}{4} = \hbox{undef.}
+            </me>
+        </li>
+        </ul>
+        
+        <p>
+        In general, you should remember that cosine and sine oscillate between
+        peak values of -1 and 1. Paying attention to the unit circle, you will
+        be able to identify the actual points where these are reached. The tangent,
+        which measures a slope, goes through all possible values with negative values 
+        when the angle is in the second or fourth quadrants and positive when the 
+        angle is in the first or third quadrants.
+        </p>
+        
+        <figure>
+            <caption>
+            Periodic graphs of the cosine, sine and tangent functions.
+            </caption>
+            <image xml:id="fig-basic-trig-periodic">
+                <description>The graphs of cosine, sine and tangent functions are shown.
+                </description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[thick,domain=-2.2:8.2, samples=100, x=.7cm]
+                \draw[->] (-2.2,0) -- (8.2,0) node[right] {$\theta$};
+                \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
+                \draw[color=blue] plot (\x,{cos(pi/2*\x r)});
+                \draw[color=red] plot (\x,{sin(pi/2*\x r)});
+                \draw (-0.1,1) -- (0.1,1) node[right] {1};
+                \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
+
+                \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
+                \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
+                \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
+                \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
+                \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
+                \draw (4, -0.1) -- (4, 0.1) node[above] {$2 \pi$};
+                \draw (5, -0.1) -- (5, 0.1) node[above] {$\frac{5\pi}{2}$};
+                \draw (6, -0.1) -- (6, 0.1) node[above] {$3 \pi$};
+                \draw (7, -0.1) -- (7, 0.1) node[above] {$\frac{7\pi}{2}$};
+                \draw (8, -0.1) -- (8, 0.1) node[above] {$4 \pi$};
+                
+                \draw [color=blue] (8.5,1) -- (9,1) node [right] {$y=\cos \theta$};
+                \draw [color=red] (8.5,0.6) -- (9,0.6) node [right] {$y=\sin \theta$};
+                \draw [color=violet] (8.5,-4) -- (9,-4) node [right] {$y=\tan \theta$};
+                
+                \begin{scope}[y=0.7cm, yshift=-5.5cm]
+                    \draw[->] (-2.2,0) -- (8.2,0) node[right] {$\theta$};
+                    \draw[->] (0,-4.4) -- (0,4.4) node[above] {$y$};
+
+                	\draw[clip,draw=none] (-2.2,-4.4) rectangle (8.2,4.4);
+                	
+                    \draw[color=purple] plot[domain=-2.2:-1.01] (\x,{tan(pi/2*\x r)});
+                    \draw[color=purple] plot[domain=-0.99:0.99] (\x,{tan(pi/2*\x r)});
+                    \draw[color=purple] plot[domain=1.01:2.99] (\x,{tan(pi/2*\x r)});
+                    \draw[color=purple] plot[domain=3.01:4.99] (\x,{tan(pi/2*\x r)});
+                    \draw[color=purple] plot[domain=5.01:6.99] (\x,{tan(pi/2*\x r)});
+                    \draw[color=purple] plot[domain=7.01:8.2] (\x,{tan(pi/2*\x r)});
+                    \draw (-0.1,4) -- (0.1,4) node[right] {4};
+                    \draw (-0.1,3) -- (0.1,3) node[right] {3};
+                    \draw (-0.1,2) -- (0.1,2) node[right] {2};
+                    \draw (-0.1,1) -- (0.1,1) node[right] {1};
+                    \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
+                    \draw (-0.1,-2) -- (0.1,-2) node[right] {-2};
+                    \draw (-0.1,-3) -- (0.1,-3) node[right] {-3};
+                    \draw (-0.1,-4) -- (0.1,-4) node[right] {-4};
+
+                    \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
+                    \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
+                    \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
+                    \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
+                    \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
+                    \draw (4, -0.1) -- (4, 0.1) node[above] {$2 \pi$};
+                    \draw (5, -0.1) -- (5, 0.1) node[above] {$\frac{5\pi}{2}$};
+                    \draw (6, -0.1) -- (6, 0.1) node[above] {$3 \pi$};
+                    \draw (7, -0.1) -- (7, 0.1) node[above] {$\frac{7\pi}{2}$};
+                    \draw (8, -0.1) -- (8, 0.1) node[above] {$4 \pi$};
+                \end{scope}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+        
+        <p>
+        When thinking about the tangent function, if you will remember that
+        it involves division by the cosine, then the breaks (vertical asymptotes) occur at every point
+        where the cosine is zero. This exactly corresponds to where the terminal
+        edge of the angle on the unit circle is vertical.
+        </p>
+
+    </subsection>
+    
+</section>

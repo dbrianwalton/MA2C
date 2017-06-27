@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="sequence-limits">
+    <title>Limits of Sequences</title>
+
+    <subsection>
+        <title>Overview</title>
+        
+        <p>In a <xref ref="section-sequence-nonlinear-projection" autoname="title">previous section</xref>, we saw examples of sequences that had a variety of different behaviors. Some sequences seemed to level off to a single value, some sequences appeared looked like they settled toward two alternating values, and other sequences seemed to have no clear pattern at all. In this section, we focus on describing the limiting behavior of sequences that level off to a single limiting value.</p>
+        
+        <p>We will focus on what it means for a sequence to have a limit. We will learn how to determine the limiting values for sequences defined explicitly using limit arithmetic. We will also learn about limits of sequences defined recursively through a projection function in terms of fixed points.</p>
+        
+    </subsection>
+    
+    <subsection xml:id="section-sequence-limit-discussion">
+        <title>What Is A Limit?</title>
+        
+        <p>We want to say that a sequence has a <term>limit</term> if the plot of the sequence values levels off to a single value. The limit will be that value to which the sequence is <term>converging</term>. The numerical interpretation of this perspective is that if you looked at a table of values for the sequence, the values of the sequence needs to have its values get closer and closer to some limiting value. In a decimal representation, more and more of the digits need to stop changing the further you go down in the sequence.</p>
+        
+        <example>
+            <p>The table below represent the values for a sequence defined explicitly as <m>\displaystyle x_n = \frac{3+2^n}{1+3 \cdot 2^n}</m>, shown with up to 12 decimal places. A plot of the sequence is also shown.</p>
+            <table>
+                <tabular>
+                    <col right="major"/>
+                    <col align="left"/>
+                    <row bottom="major">
+                        <cell><m>n</m></cell>
+                        <cell><m>x_n</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>0</m></cell>
+                        <cell><m>1.0</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>1</m></cell>
+                        <cell><m>0.714285714286</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>2</m></cell>
+                        <cell><m>0.538461538462</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>3</m></cell>
+                        <cell><m>0.44</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>4</m></cell>
+                        <cell><m>0.387755102041</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>5</m></cell>
+                        <cell><m>0.360824742268</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>6</m></cell>
+                        <cell><m>0.347150259067</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>7</m></cell>
+                        <cell><m>0.34025974026</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>8</m></cell>
+                        <cell><m>0.336801040312</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>9</m></cell>
+                        <cell><m>0.335068314899</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>10</m></cell>
+                        <cell><m>0.334201106411</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>11</m></cell>
+                        <cell><m>0.33376729048</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>12</m></cell>
+                        <cell><m>0.333550329563</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>13</m></cell>
+                        <cell><m>0.333441835863</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>14</m></cell>
+                        <cell><m>0.333387585702</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>15</m></cell>
+                        <cell><m>0.333360459793</m></cell>
+                    </row>
+                </tabular>
+            </table>
+            <figure>
+                <image xml:id="fig-demo-sequence-limits">
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            width=4in, height=2.5in,
+                            xlabel={$n$}, ylabel={$x_n$},
+                            ymajorgrids,
+                        ]
+                        \addplot[blue, only marks] table {
+                            0 1.0
+                            1 0.714285714286
+                            2 0.538461538462
+                            3 0.44
+                            4 0.387755102041
+                            5 0.360824742268
+                            6 0.347150259067
+                            7 0.34025974026
+                            8 0.336801040312
+                            9 0.335068314899
+                            10 0.334201106411
+                            11 0.33376729048
+                            12 0.333550329563
+                            13 0.333441835863
+                            14 0.333387585702
+                            15 0.333360459793
+                        };
+                        \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+
+            <p>The plot for the sequence shows that the sequence appears to be leveling off. Looking at the table, we see that more and more of the digits are converging to a 3. If this pattern is real and continues, the limiting value would be the repeating decimal <m>0.3333\ldots</m> which is the rational number <m>\frac{1}{3}</m>. We would say that this sequence has a limit of <m>\frac{1}{3}</m> and write <m>x_n \to \frac{1}{3}</m>.</p>
+        </example>
+        
+        <example>
+            <p>Another sequence, defined explicitly by the formula <me>u_n = 1+\frac{1}{2}\cdot(-1+\frac{1}{2^n})^n,</me> is similarly illustrated by a table and figure.</p>
+            <table>
+                <tabular>
+                    <col right="major"/>
+                    <col align="left"/>
+                    <row bottom="major">
+                        <cell><m>n</m></cell>
+                        <cell><m>u_n</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>0</m></cell>
+                        <cell><m>1.5</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>1</m></cell>
+                        <cell><m>0.75</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>2</m></cell>
+                        <cell><m>1.28125</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>3</m></cell>
+                        <cell><m>0.6650390625</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>4</m></cell>
+                        <cell><m>1.38623809814</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>5</m></cell>
+                        <cell><m>0.573392406106</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>6</m></cell>
+                        <cell><m>1.45491835196</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>7</m></cell>
+                        <cell><m>0.526711160622</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>8</m></cell>
+                        <cell><m>1.48458696224</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>9</m></cell>
+                        <cell><m>0.508720709959</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>10</m></cell>
+                        <cell><m>1.49513858939</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>11</m></cell>
+                        <cell><m>0.502678999959</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>12</m></cell>
+                        <cell><m>1.4985371216</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>13</m></cell>
+                        <cell><m>0.500792876146</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>14</m></cell>
+                        <cell><m>1.49957292337</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>15</m></cell>
+                        <cell><m>0.500228832948</m></cell>
+                    </row>
+                </tabular>
+            </table>
+            <figure>
+                <image xml:id="fig-demo-sequence-no-limits">
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            width=4in, height=2.5in,
+                            xlabel={$n$}, ylabel={$x_n$},
+                            ymajorgrids,
+                        ]
+                        \addplot[blue, only marks] table {
+                            0 1.5
+                            1 0.75
+                            2 1.28125
+                            3 0.6650390625
+                            4 1.38623809814
+                            5 0.573392406106
+                            6 1.45491835196
+                            7 0.526711160622
+                            8 1.48458696224
+                            9 0.508720709959
+                            10 1.49513858939
+                            11 0.502678999959
+                            12 1.4985371216
+                            13 0.500792876146
+                            14 1.49957292337
+                            15 0.500228832948
+                        };
+                        \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            <p>Notice that for this sequence, the graph appears to level off to two different values. However, this is because the sequence is actually approaching two alternating values. This is seen more easily in the table. Notice that late in the table, the odd index values correspond to a sequence value that is getting closer to 0.5 while the even index values correspond to a sequence value that is getting closer to 1.5. This sequence does not have a limit because the sequence is not approaching a single value.</p>
+        </example>
+        
+        <example>
+            <p>Another third sequence, defined by the nonlinear recursive formula <me>z_{n+1} = 2.7 z_n - 0.7 z_n^2</me> with initial value <m>z_0 = 1</m> does not have a convenient explicit formula. However, using a computer to generate approximate values and then graph the sequence, we can explore whether this sequence appears to have a limit.</p>
+            <table>
+                <tabular>
+                    <col right="major"/>
+                    <col align="left"/>
+                    <row bottom="major">
+                        <cell><m>n</m></cell>
+                        <cell><m>z_n</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>0</m></cell>
+                        <cell><m>1.00000000000000</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>1</m></cell>
+                        <cell><m>2.00000000000000</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>2</m></cell>
+                        <cell><m>2.60000000000000</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>3</m></cell>
+                        <cell><m>2.28800000000000</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>4</m></cell>
+                        <cell><m>2.51313920000000</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>5</m></cell>
+                        <cell><m>2.36436779299635</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>6</m></cell>
+                        <cell><m>2.47062849869924</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>7</m></cell>
+                        <cell><m>2.39789332147854</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>8</m></cell>
+                        <cell><m>2.44938730115809</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>9</m></cell>
+                        <cell><m>2.41369700737469</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>10</m></cell>
+                        <cell><m>2.43882864952499</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>11</m></cell>
+                        <cell><m>2.42131772649675</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>12</m></cell>
+                        <cell><m>2.43361218868805</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>13</m></cell>
+                        <cell><m>2.42502511000601</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>14</m></cell>
+                        <cell><m>2.43104504810447</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>15</m></cell>
+                        <cell><m>2.42683561174279</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>16</m></cell>
+                        <cell><m>2.42978439120944</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>17</m></cell>
+                        <cell><m>2.42772132482997</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>18</m></cell>
+                        <cell><m>2.42916599531699</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>19</m></cell>
+                        <cell><m>2.42815498439281</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>20</m></cell>
+                        <cell><m>2.42886281809844</m></cell>
+                    </row>
+                </tabular>
+            </table>
+            <figure>
+                <image xml:id="fig-demo-sequence-limits-2">
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                        \begin{axis}[
+                            width=4in, height=2.5in,
+                            xlabel={$n$}, ylabel={$x_n$},
+                            ymajorgrids,
+                        ]
+                        \addplot[blue, only marks] table {
+                            0 1.00000000000000
+                            1 2.00000000000000
+                            2 2.60000000000000
+                            3 2.28800000000000
+                            4 2.51313920000000
+                            5 2.36436779299635
+                            6 2.47062849869924
+                            7 2.39789332147854
+                            8 2.44938730115809
+                            9 2.41369700737469
+                            10 2.43882864952499
+                            11 2.42131772649675
+                            12 2.43361218868805
+                            13 2.42502511000601
+                            14 2.43104504810447
+                            15 2.42683561174279
+                            16 2.42978439120944
+                            17 2.42772132482997
+                            18 2.42916599531699
+                            19 2.42815498439281
+                            20 2.42886281809844
+                        };
+                        \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            <p>Graphically, you should see that the plot shows the sequence values are leveling off to a single value. However, the graph also shows that the values are alternately above and below that limit. We look in the table to determine the limiting value, but it is not obvious from the table what the limiting value should be. Because the values are alternately above and then below whatever the limit should be, we can conclude that the limit must be between the last two values listed. The limit is approximately 2.428 but we do not know the next decimal place without computing more values in the sequence. With additional computation, we find <m>z_{39} = 2.42857109636261</m> and <m>z_{40} = 2.42857166111753</m> so that our approximation for the limit can be estimated as close to 2.428571. Going even further would allow an even better approximation.</p>
+        </example>
+        
+        <p>With these examples, we can introduce the mathematical definition for the limit of a sequence.</p>
+        
+        <definition xml:id="defn-sequence-limit">
+            <statement>
+                <p>A sequence <m>x</m> has a limit <m>L</m> (where <m>L</m> is a real number) if the values <m>x_n</m> approximate <m>L</m> closer and closer as <m>n</m> increases. More precisely, for any desired accuracy of approximation <m>\epsilon \gt 0</m>, the error of approximation <m>|x_n - L| \lt \epsilon</m> eventually. This means that for every <m>\epsilon \gt 0</m>, there is a threshold index <m>N</m> so that <m>|x_n-L| \lt \epsilon</m> whenever <m>n \gt N</m>.</p>
+                <p>We write <m>\displaystyle \lim_{n \to \infty} x_n = L</m> or <m>\lim x_n = L</m> or <m>x_n \to L</m>.<notation><usage>\lim_{n \to \infty} x_n = L</usage><description>sequence <m>x_n</m> has limit <m>L</m></description></notation> <notation><usage>\lim x_n = L</usage><description>sequence <m>x_n</m> has limit <m>L</m></description></notation> <notation><usage>x_n \to L</usage><description>sequence <m>x_n</m> has limit <m>L</m></description></notation></p>
+            </statement>
+        </definition>
+    </subsection>
+    
+    <subsection xml:id="section-sequence-limit-computation">
+        <title>Limits from Explicit Formulas</title>
+        
+        <p>Using a table of values to find a limit only allows us to estimate its value. In addition, it is not clear from a table whether the pattern that this estimation is based on will continue or change. So it would be helpful to have some rules for finding limits based on the formula rather than numerical patterns.</p>
+        
+        <p>In order to compute limits of sequences, we first need to understand that some sequences grow without bound, which is written <m>x_n \to \infty</m> when the sequence grows in a positive direction or <m>x_n \to -\infty</m> when the sequence grows in a negative direction. Arithmetic sequences with increments <m>c \ne 0</m> (recall Theorem <xref ref="thm-arithmetic-sequence-recursion"/>) must either steadily increase (<m>c \gt 0</m>) or steadily decrease (<m>c \lt 0</m>). The special case that <m>c=0</m> is somewhat boring, as this corresponds to a constant sequence so that the limit is just the constant value.</p>
+        
+        <theorem xml:id="thm-limit-arithmetic-sequence">
+            <title>Limit of an Arithmetic Sequence</title>
+            <statement>
+                <p>An arithmetic sequence with explicit formula <m>x_n = a + c \cdot n</m> (for constants <m>a</m> and <m>c</m>) has unbounded growth when <m>c \ne 0</m>. The corresponding limit statements are <md>
+                    <mrow> \lim_{n \to \infty} (a+c n) = +\infty \quad &amp; (c \gt 0) </mrow>
+                    <mrow> \lim_{n \to \infty} (a+c n) = -\infty \quad &amp; (c \lt 0) </mrow>
+                    <mrow> \lim_{n \to \infty} (a) = a \quad &amp; (c = 0) </mrow>
+                </md></p>
+            </statement>
+        </theorem>
+        
+        <p>Geometric sequences are a little more complicated, depending on the ratio <m>\rho</m> (recall Theorem <xref ref="thm-geometric-sequence-recursion"/>) and the initial value. Repeated multiplication by a number whose magnitude is larger than 1 makes the resulting magnitude increase without bound. Repeated multiplication by a number whose magnitude is smaller than 1 makes the resulting magnitude converge to 0. If the ratio is negative, then the sign of the sequence values will alternate between positive and negative. This is summarized by another theorem.</p>
+        
+        <theorem xml:id="thm-limit-geometric-sequence">
+            <title>Limit of a Geometric Sequence</title>
+            <statement>
+                <p>A geometric sequence with explicit formula <m>x_n = a \cdot \rho^n</m> and ratio <m>\rho</m> is unbounded when <m>|\rho| \gt 1</m>, meaning that <m>|x_n| \to +\infty</m>. If <m>\rho \lt -1</m>, <m>x_n</m> alternates sign and has no appropriate limit statement. If <m>\rho \gt 1</m>, then the limit depends on the sign of <m>a</m>: <md>
+                    <mrow> \lim_{n \to \infty} a \cdot \rho^n = +\infty, \quad &amp; (a \gt 0), </mrow>
+                    <mrow> \lim_{n \to \infty} a \cdot \rho^n = -\infty, \quad &amp; (a \lt 0). </mrow>
+                </md> If <m>|\rho| \lt 1</m>, then <m>\displaystyle \lim_{n \to \infty} a \cdot \rho^n = 0</m>.</p>
+            </statement>
+        </theorem>
+        
+        <example>
+            <statement>
+                <p>Find the appropriate limits of the following sequences.</p>
+                <ol>
+                    <li><m>\displaystyle \lim_{n \to \infty} 3-4n</m></li>
+                    <li><m>\displaystyle \lim_{n \to \infty} 100+0.02n</m></li>
+                    <li><m>\displaystyle \lim_{n \to \infty} -3 \cdot 1.05^n</m></li>
+                    <li><m>\displaystyle \lim_{n \to \infty} 100 \cdot (-0.75)^n</m></li>
+                    <li><m>\displaystyle \lim_{n \to \infty} 5 \cdot (-1.5)^n</m></li>
+                </ol>
+            </statement>
+            <solution>
+                <ol>
+                    <li>
+                        <p>The sequence <m>x_n = 3-4n</m> is recognized as the explicit formula of an arithmetic sequence with increment <m>c=-4</m>. Since this is a negative increment, the sequence decreases without bound. So we write <me>\lim_{n \to \infty} 3-4n = -\infty.</me></p>
+                    </li>
+                    <li>
+                        <p>The sequence <m>x_n = 100+0.02n</m> is arithmetic with increment <m>c=0.02</m>. Since the increment is positive, the sequence increases without bound and we write <me>\lim_{n \to \infty} 100+0.02n = +\infty.</me></p>
+                    </li>
+                    <li>
+                        <p>The sequence <m>x_n=-3 \cdot 1.05^n</m> is a geometric sequence with ratio <m>\rho=1.05</m>. Because <m>\rho \gt 1</m>, the sequence grows without bound. Furthermore, because the terms are all negative, we have a limit <me>\lim_{n \to \infty} -3 \cdot 1.05^n = -\infty.</me></p>
+                    </li>
+                    <li>
+                        <p>The sequence <m>x_n = 100 \cdot (-0.75)^n</m> is a geometric sequence with ratio <m>\rho=-0.75</m>. Because the ratio is negative, the signs of the terms alternate between positive and negative. However, since <m>|\rho|= 0.75 \lt 1</m> the magnitude of the terms converges to zero so that <me>\lim_{n \to \infty} 100 \cdot (-0.75)^n = 0.</me></p>
+                    </li>
+                    <li>
+                        <p>The sequence <m>x_n = 5 \cdot (-1.5)^n</m> has a negative ratio <m>\rho=-1.5</m>. Since <m>|\rho| \gt 1</m>, the terms have alternating signs but grow in magnitude. Consequently, <m>\displaystyle \lim_{n \to \infty} 5 \cdot (-1.5)^n</m> has no valid limit statement. We say <m>\displaystyle \lim_{n \to \infty} 5 \cdot (-1.5)^n</m> does not exist.</p>
+                    </li>
+                </ol>
+            </solution>
+        </example>
+        
+        <p>Once we know how to identify when sequences have unbounded terms, we can use that information to find limits of related sequences. We can think of this as the arithmetic of infinity. Infinities can add and multiply but should never be subtracted or divided from one another. The most important principle to remember is that infinities should never cancel one another. Cases where the formula looks like infinities might cancel are called indeterminate. This means that the actual value can not be determined without further analysis. (Zero divided by zero is also indeterminate.)</p>
+        
+        <theorem xml:id="thm-arithmetic-infinity">
+            <statement>
+                <p>Suppose unbounded sequences are combined using arithmetic operations. Then the following arithmetic relating to limits will be valid.</p>
+                <md>
+                    <mrow>+\infty + +\infty = +\infty</mrow>
+                    <mrow>-\infty + -\infty = -\infty</mrow>
+                    <mrow>+\infty + -\infty = \hbox{indeterminate}</mrow>
+                    <mrow>+\infty \cdot +\infty = +\infty</mrow>
+                    <mrow>-\infty \cdot -\infty = +\infty</mrow>
+                    <mrow>+\infty \cdot -\infty = -\infty</mrow>
+                    <mrow>\frac{1}{+\infty} = 0</mrow>
+                    <mrow>\frac{1}{-\infty} = 0</mrow>
+                    <mrow>\frac{\pm \infty}{\pm \infty} = \hbox{indeterminate}</mrow>
+                    <mrow>0 \cdot \pm \infty = \hbox{indeterminate}</mrow>
+                    <mrow>\frac{0}{0} = \hbox{indeterminate}</mrow>
+                </md>
+            </statement>
+        </theorem>
+        
+        <p>The previous theorem was stated somewhat imprecisely in order to convey the idea of arithmetic of infinities without being bogged down by formal notation relating to limits. Each statement really is about a limit.</p>
+        <p>As an example, the arithmetic on infinity <m>+\infty + +\infty = +\infty</m> should more properly be stated as follows. Suppose that there are two sequences <m>x_n</m> and <m>y_n</m> such that <m>x_n \to +\infty</m> and <m>y_n \to +\infty</m>. The sequence defined by <m>u_n = x_n + y_n</m> has limit <me>\lim_{n \to \infty} x_n + y_n = +\infty.</me></p>
+        <p>The shorthand notation of performing arithmetic with infinity allows this to be simplified as writing <me> \lim_{n \to \infty} x_n + y_n = +\infty + +\infty = +\infty.</me> The intermediate step <m>+\infty + +\infty</m> is not truly arithmetic, but points out that <m>x_n \to +\infty</m> and <m>y_n \to +\infty</m>, and since those sequences were added, the final limit is also <m>+\infty</m>. As long as the arithmetic involves no cancelation of infinities, it will result in a correct statement.</p>
+        
+        <p>To deal with indeterminate forms, we usually need to try to rewrite the formula in a new way so that the cancelation does not apply.</p>
+        
+        <example>
+            <statement>
+                <p>Determine the following limits, if possible.</p>
+                <ol>
+                    <li><m>\displaystyle \lim_{n \to \infty} 3+\frac{5}{2^n}</m></li>
+                    <li><m>\displaystyle \lim_{n \to \infty} \frac{n^2-3n}{5n-1}</m></li>
+                    <li><m>\displaystyle \lim_{n \to \infty} \frac{1+2^n}{3+5^n}</m></li>
+                </ol>
+            </statement>
+            <solution>
+                <ol>
+                    <li>
+                        <p>The sequence <m>x_n = 3 + \frac{5}{2^n}</m> is the sum of terms <m>3</m> and <m>\frac{5}{2^n}</m> The constant sequence has a limit <m>3 \to 3</m> (since it never changes). The geometric sequence <m>\frac{5}{2^n} = 5 \cdot (\frac{1}{2})^n</m> has a ratio <m>|\rho| \lt 1</m> so that <m>\frac{5}{2^n} \to 0</m>. The form of the limit (using the terms) is <me> \lim_{n \to \infty} 3 + \frac{5}{2^n} = 3 + 0,</me> and since this does not involve any cancelation of infinities, will give the correct limit, <me>\lim_{n \to \infty} 3+\frac{5}{2^n} = 3+0 = 3.</me></p>
+                    </li>
+                    <li>
+                        <p>The sequence <m>\displaystyle u_n = \frac{n^2-3n}{5n-1}</m> is a quotient of terms <m>n^2-3n</m> and <m>5n-1</m>. To find the limit, we explore the terms individually first.</p>
+                        <p>Because <m>n^2 = n \cdot n</m>, we know <m>n^2 \to +\infty \cdot +\infty = +\infty</m>. Similarly, the arithmetic sequence <m>3n \to +\infty</m>. However, the difference <m>n^2 - 3n</m> would have a limit of the form <m>+\infty - \infty</m>, which is a cancellation of infinities. As written, <m>n^2-3n</m> is an indeterminate form. Our strategy will be to rewrite this as a product, and the best practice is to factor out (divide out) the greatest power of <m>n</m>, <me> n^2-3n =  n^2(\frac{n^2}{n^2} - \frac{3n}{n^2}) = n^2 (1 - \frac{3}{n}).</me> From this, we find <me> n \to \infty \quad \Rightarrow \quad \frac{3}{n} \to \frac{3}{+\infty} = 0 \quad \Rightarrow \quad 1-\frac{3}{n} \to 1-0 = 1.</me> Since we already know <m>n^2 \to +\infty</m>, we have the limit of the numerator <me> \lim_{n \to \infty} n^2-3n = \lim_{n \to \infty} n^2(1-\frac{3}{n}) = +\infty \cdot 1 = +\infty.</me></p>
+                        <p>The term in the denominator <m>5n-1</m> is an arithmetic sequence (linear function) with increment (slope) <m>c=5</m>, we know <me>\lim_{n \to \infty} 5n-1 = +\infty.</me> Unfortunately, that means our limit form as a quotient is itself an indeterminate form, <me> \lim_{n \to \infty} \frac{n^2-3n}{5n-1} = \frac{+\infty}{+\infty}.</me> We can not cancel infinities, so we must rewrite our formula. For this example, I worked out the numerator by itself to make a point about that term itself being an indeterminate form. Our strategy will be to apply that factoring principle to the entire formula (not just the numerator.</p>
+                        <p>The problem can be solved up front if we just factor out from the numerator and denominator the dominant term (greatest power) and simplify as needed. <md>
+                            <mrow>\lim_{n \to \infty} \frac{n^2-3n}{5n-1} &amp; = \lim_{n \to \infty} \frac{n^2(1-\frac{3}{n})}{n(5-\frac{1}{n})} </mrow>
+                            <mrow> &amp; = \lim_{n \to \infty} \frac{n(1-\frac{3}{n})}{5-\frac{1}{n}} </mrow>
+                            <mrow> &amp; = \frac{+\infty \cdot(1-\frac{3}{\infty})}{5-\frac{1}{\infty}}</mrow>
+                            <mrow> &amp; = \frac{+\infty\cdot 1}{5} = +\infty.</mrow>
+                        </md> </p>
+                    </li>
+                    <li>
+                        <p>The sequence <m>\displaystyle w_n = \frac{1+2^n}{3+5^n}</m>, by quick inspection, involves the geometric sequences <m>2^n</m> and <m>5^n</m>, both of which grow exponentially so that <m>w_n \to \frac{+\infty}{+\infty}</m>. This indeterminate form involves canceling infinities, so we must rewrite the formula. Following the method of the previous example, we factor out the dominant term, in this case the geometrically growing powers. <md>
+                            <mrow> \lim_{n \to \infty} \frac{1+2^n}{3+5^n} &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n} + \frac{2^n}{2^n})}{5^n(\frac{3}{5^n}+\frac{5^n}{5^n})} </mrow>
+                            <mrow> &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n}+1)}{5^n(\frac{3}{5^n}+1)}</mrow>
+                        </md> This is still indeterminate form <m>\frac{+\infty}{+\infty}</m>, so we rewrite <m>\displaystyle \frac{2^n}{5^n} = ({\textstyle \frac{2}{5}})^n</m>, which is a geometric sequence with ratio <m>\rho=\frac{2}{5}</m> satisfying <m>|\rho| \lt 1</m>. <md>
+                            <mrow> \lim_{n \to \infty} \frac{1+2^n}{3+5^n} &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n}+1)}{5^n(\frac{3}{5^n}+1)}</mrow>
+                            <mrow> &amp; = \lim_{n \to \infty} \frac{(\frac{2}{5})^n(\frac{1}{2^n}+1)}{\frac{3}{5^n}+1}</mrow>
+                            <mrow> &amp; = \frac{0 \cdot (0+1)}{0+1} = \frac{0}{1} = 0</mrow>
+                        </md></p>
+                    </li>
+                </ol>
+            </solution>
+        </example>
+    </subsection>
+    
+    <subsection xml:id="section-sequence-fixed-points">
+        <title>Sequence Limits and Fixed Points</title>
+        
+        <p>When a sequence <m>x</m> is defined recursively by a projection function <m>f</m>, <me>x_{n+1} = f(x_n),</me> we often do not have explicit formulas for the sequence values. That means our strategies involving formulas don't apply to such sequences. However, we can often find the limiting value by finding what are called the fixed points of the projection function.</p>
+        
+        <definition xml:id="defn-recursion-fixed-point">
+            <title>Fixed Point</title>
+            <statement>
+                <p>A <term>fixed point</term> for a function <m>f</m> is a solution to the equation <me>f(x) = x.</me></p>
+            </statement>
+        </definition>
+        
+        <p>The idea of a fixed point is a value so that the input and output are the same values. In the context of recursive sequences, this would mean that if <m>x_n</m> is at the value of a fixed point, since <m>x_{n+1}=f(x_n)</m>, then <m>x_n</m> and <m>x_{n+1}</m> are the same value. This then repeats indefinitely. A fixed point is also called a <term>stationary point</term> or an <term>equilibrium</term>.</p>
+        
+        <theorem xml:id="thm-recursive-limit-fixed-point">
+            <title>Recursive Limits as Fixed Points</title>
+            <statement>
+                <p>If a sequence is defined recursively with a continuous projection function <m>f</m>, <m>x_{n+1}=f(x_n)</m>, and <m>x_n</m> has a limit, then the limit must be a fixed point of <m>f</m>.</p>
+            </statement>
+        </theorem>
+        
+        <p>Note some things that this theorem does not guarantee. First, just because a function has a fixed point does not mean that it will be a limit. Second, the projection function needs to be continuous. We will learn what that means more precisely later, but for now consider it as saying that the function has no breaks. So there may be strange cases where <m>f</m> is not continuous and the limit of a sequence does not correspond to fixed point. Fortunately, functions defined by simple algebraic formulas will be continuous everywhere they are defined.</p>
+        
+        <p>In practice, we will observe that a sequence defined recursively has a limit (perhaps through a graph or a table) but can not determine the value of the limit. If we find all of the fixed points for the projection function, then we can determine which of those is the appropriate limit. For example, the limit may depend on the initial value of the sequence.</p>
+        
+        <example>
+            <statement>
+                <p>We earlier saw that a sequence defined recursively by <m>z_{n+1} = 2.7 z_n-0.7z_n^2</m> and initial value <m>z_0 = 1</m>, and that the approximate value of the limit was <m>2.428</m>. What is the exact value of the limit?</p>
+            </statement>
+            <solution>
+                <p>The projection function <m>f : z_n \mapsto z_{n+1}</m> is defined by the formula <m>f(x) = 2.7x-0.7x^2</m> (the value of <m>z_n</m> is replaced by the input <m>x</m>). This function is continuous (simple algebra, defined everywhere). So the limit must be a fixed point.</p>
+                <p>Solve the fixed point equation, <m>f(x)=x</m>: <md>
+                    <mrow> 2.7x-0.7x^2 = x </mrow>
+                    <mrow> 1.7x - 0.7x^2 = 0 </mrow>
+                    <mrow> x(1.7-0.7x) = 0</mrow>
+                    <mrow> x=0 \quad \hbox{or} \quad 1.7-0.7x = 0</mrow>
+                    <mrow> x=0 \quad \hbox{or} \quad x = \frac{17}{7}</mrow>
+                </md> There are two fixed points, <m>x=0</m> and <m>x=\frac{17}{7}</m>. The decimal approximation for <m>\frac{17}{7}</m> is <m>2.42857</m>, so we have found the limit, <me> \lim_{n \to \infty} z_n = \frac{17}{7}.</me></p>
+            </solution>
+        </example>
+        
+        <p>Fixed points are also useful in finding the explicit formula for sequences defined by linear projection functions. Suppose a sequence is defined recursively by the equation <m>x_{n+1} = \alpha x_n + c</m>. When <m>c=0</m>, we have a geometric sequence. When <m>\alpha = 1</m> we have an arithmetic sequence. The projection function <m>f:x_n \mapsto x_{n+1}</m> is defined by the formula <m>f(x) = \alpha x + c</m>. The fixed point is the solution to <me>\alpha x + c = x \qquad \Leftrightarrow \qquad x = \frac{c}{1-\alpha},</me> defined only for <m>\alpha \ne 1</m>.</p>
+        
+        <theorem xml:id="thm-linear-projection-explicit">
+            <title>Explicit Formula for Linear Recursive Sequences</title>
+            <statement>
+                <p>Suppose <m>x_n</m> is defined recursively by the equation <me>x_{n+1} = \alpha x + c</me> with <m>\alpha \ne 1</m> Then <m>x_n</m> is defined explicitly by a shifted geometric sequence <me>x_n = x^* + (x_0-x^*) \cdot \alpha^n = x^* + (x_1 -x^*) \cdot \alpha^{n-1},</me> where <m>x^* = \frac{c}{1-\alpha}</m> is the fixed point.</p>
+            </statement>
+        </theorem>
+        
+        <p>This theorem implies that a sequence defined recursively by a linear projection function will converge to the fixed point when the slope has magnitude less than 1. Immediate consequences of theorems are called corollaries.</p>
+        
+        <corollary xml:id="thm-linear-projection-limits">
+            <statement>
+                <p>A sequence defined recursively by <m>x_{n+1} = \alpha x_n + c</m> with <m>|\alpha| \lt 1</m> will converge to the fixed point <m>x^* = \frac{c}{1-\alpha}</m>, independent of the initial value.</p>
+            </statement>
+        </corollary>
+        
+        <example>
+            <statement>
+                <p>Suppose a patient begins taking <quantity><mag>500</mag><unit prefix="milli" base="gram"/></quantity> of a drug every four hours. However, the body metabolizes 60<percent/> of the drug in the body every four hours. Find a formula for the amount of drug in the body immediately after each dose and then determine the limiting value.</p>
+            </statement>
+            <solution>
+                <p>The body starts with no drug. Immediately after the first dose, there are <quantity><mag>500</mag><unit prefix="milli" base="gram"/></quantity>. Four hours later, 60<percent/> has been removed and then another dose is added in. If we let <m>D_n</m> be the sequence of drug mass in the body as a function of the number of doses <m>n</m>, then this is modeled recursively by the equation <me>D_{n+1} = D_n - 0.6 D_n + 500,</me> with initial value <m>D_1 = 500</m>.</p>
+                <p>This model has a linear projection function <m>f(x) = 0.4x+500</m> and corresponding fixed point <me> 0.4x+500=x \quad \Leftrightarrow \quad x=\frac{500}{0.6} = \frac{2500}{3}.</me>  The explicit formula, using <xref ref="thm-linear-projection-explicit">Theorem</xref>, is given by <me>D_n = \frac{2500}{3} + (500 - \frac{2500}{3}) \cdot 0.4^{n-1} = \frac{2500}{3} - \frac{1000}{3} \cdot 0.4^{n-1}.</me> Because the slope of the projection function <m>\alpha = 0.4</m> has magnitude less than 1, the limiting value is the fixed point <m>x^* = \frac{2500}{3} \approx 833.33</m>. Thus, if the patient continues to take the drug, the amount in the body immediately after each dose will be approximately <quantity><mag>833.33</mag><unit prefix="milli" base="gram"/></quantity>. (Immediately before the dose, it must have been approximately <quantity><mag>333.33</mag><unit prefix="milli" base="gram"/></quantity>.)</p>
+            </solution>
+        </example>
+    </subsection>
+ </section>

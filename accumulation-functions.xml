@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="accumulation-functions">
+    <title>Functions Defined by Accumulation</title>
+
+    <subsection>
+        <title>Overview</title>
+        
+        <p>When a function <m>f(x)</m> is integrable on an interval <m>I</m> and <m>a \in I</m> is any value in that interval, then for any other value <m>b \in I</m>, we can compute the definite integral of <m>f(x)</m> from <m>a</m> to <m>b</m>. Because the value depends on the value of <m>b</m>, we can think of this definite integral as a function of the upper limit <m>b</m>. We call such a function the accumulation function of <m>f(x)</m> relative to <m>x=a</m>.</p>
+        
+        <p>This section introduces how to describe accumulation functions according to the properties of the integrand (rate) function. We learn the definitions for increasing and decreasing functions as well as the definition of concavity. Using the Mean Value Theorem for Integrals, we will be able to classify the behavior of accumulation functions according to the behavior of its corresponding integrand (rate) function.</p>
+        
+    </subsection>
+   
+    <subsection>
+        <title>Accumulation Functions</title>
+        
+        <p>In our introduction, we used the variable <m>b</m> as the upper limit of the accumulation function. Because we usually think of <m>x</m> as our default independent variable, we would like to use <m>x</m> as the upper limit of the integral. But then we would have the variable <m>x</m> playing two different roles <mdash/> the upper limit of the integral and the variable of integration. To keep a single role for the variable, we always require that when using a variable in a limit of integration, the integration variable must be chosen to be a dummy variable that does not have another contextual meaning.</p>
+        
+        <definition xml:id='defn-accumulation-function'>
+            <title>Accumulation Function</title>
+            <statement>
+                <p>Let <m>f(x)</m> represent a rate of change or rate of accumulation with independent variable <m>x</m>. The <term>accumulation function</term> <m>A(x)</m> relative to <m>x=a</m> is defined as <me> A(x) = \int_{a}^{x} f(z) \, dz, </me> where <m>z</m> can be replaced with any other dummy variable (but not <m>x</m>). The function is defined so long as <m>f</m> is integrable on the interval containing both <m>x</m> and <m>a</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>Once an accumulation function is defined, it can be used to evaluate particular definite integrals, even if the starting limit does not match the point used to define the accumulation.</p>
+        
+        <theorem>
+            <title>Integration as the Difference in Accumulation</title>
+            <statement>
+            <p>Suppose <m>f(x)</m> is integrable on an interval that contains <m>a</m>, <m>b</m> and <m>c</m>. If <m>A(x)</m> is the accumulation of <m>f(x)</m> relative to <m>x=c</m>, <me> A(x) = \int_{c}^{x} f(z) \, dz, </me> then <me> \int_{a}^{b} f(x) \, dx = A(b) - A(a). </me></p>
+            </statement>
+        </theorem>
+        
+        <p>Notice that in the theorem, the definite integral used the independent variable <m>x</m> as the variable of integration. This is acceptable because the integral is a specific definite integral and the variable <m>x</m> plays no role other than the integration variable. We could have written using another dummy variable to get <me> \int_{a}^{b} f(z) \, dz = A(b) - A(a). </me></p>
+        
+        <p>Some accumulation functions can be expressed simply using other well known formulas. For example, we previously discovered the following rules which we can now identify as accumulation functions. <md>
+            <mrow> \int_{0}^{x} 1 dz = x </mrow>
+            <mrow> \int_{0}^{x} z dz = \frac{1}{2} x^2 </mrow>
+            <mrow> \int_{0}^{x} z^2 dz = \frac{1}{3} x^3 </mrow>
+            <mrow> \int_{0}^{x} z^3 dz = \frac{1}{4} x^4 </mrow>
+        </md> That is, for a constant rate <m>f(x)=1</m>, the accumulated change relative to <m>x=0</m> is <m>A(x)=x</m>. Similarly, for the rate <m>f(x)=x</m>, the accumulated change relative to <m>x=0</m> is <m>A(x) = \frac{1}{2}x^2</m>.</p>
+    </subsection>
+    
+    <subsection>
+        <title>Monotonicity</title>
+        
+        <p>Definitions allow us to give words specific meanings. In mathematics, definitions are important so that everyone can know what we mean when we see a word. When describing the behavior of a function, we will use the words <term>increasing</term> and <term>decreasing</term> to represent specific properties that a function has on particular intervals.</p>
+        
+        <definition>
+            <title>Increasing and Decreasing</title>
+            <statement>
+            <p>Let <m>f</m> be a function and let <m>I</m> be an interval (open or closed). We say <q><m>f</m> is <term>increasing on the interval</term> <m>I</m></q> to mean that we know that for any two values <m>a,b \in I</m>, if <m>b \gt a</m> then <m>f(b) \gt f(a)</m>. We say <q><m>f</m> is <term>decreasing on the interval</term> <m>I</m></q> to mean that we know that for any two values <m>a,b \in I</m>, if <m>b \gt a</m> then <m>f(b) \lt f(a)</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>In the definition for increasing and decreasing, both statements have a hypothesis that involves <m>b \gt a</m>, which means that we are considering two points where <m>b</m> is to the right of <m>a</m>. However, the conclusion of the two statements use different inequalities. For the definition of increasing, we have <m>f(b) \gt f(a)</m>, which means that the output value is greater when the input is greater (order-preserving). For the definition of decreasing, we have <m>f(b) \lt f(a)</m>, which means that the output value is lower when the input is greater (order-reversing). Both statements require that this ordering is preserved for any two points on the interval.</p>
+        
+        <p><term>Monotonicity</term> represents the idea that a function is either steadily increasing or steadily decreasing over an interval without switching. To determine intervals of monotonicity for a function means that we find intervals (as large as possible) on which the function is either increasing or decreasing, but not switching direction.</p>
+        
+        <example>
+            <statement>
+            <p>Consider the graph of the function <m>y=f(x)</m> illustrated below. Use the graph to determine intervals of monotonicity for <m>f</m>.</p>
+            <figure>
+                <image>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis} [
+                        width=3in, height=2.5in,
+                        grid=both, minor tick num={1},
+                        ]
+                        \addplot[no marks, black] coordinates {
+                            (-1,0)
+                            (6,0)
+                        };
+                        %\addplot[blue, thick, samples=100] {  };
+                        \addplot[mark=o, thick, red] coordinates {
+                            (0,0.7143)
+                            (0.4,0.7143)
+                        };
+                        \fill [opacity=0.25, red] (axis cs:0,0) -- (axis cs:0,0.7143)
+                            -- (axis cs: 0.4,0.7143) -- (axis cs: 0.4,0) -- cycle;
+                        \addplot[mark=o, thick, red] coordinates {
+                            (0.4,0.5556)
+                            (0.8,0.5556)
+                        };
+                        \fill [opacity=0.25, red] (axis cs:0.4,0) -- (axis cs:0.4,0.5556)
+                            -- (axis cs: 0.8,0.5556) -- (axis cs: 0.8,0) -- cycle;
+                        \addplot[mark=o, thick, red] coordinates {
+                            (0.8,0.4546)
+                            (1.2,0.4546)
+                        };
+                        \fill [opacity=0.25, red] (axis cs:0.8,0) -- (axis cs:0.8,0.4546)
+                            -- (axis cs: 1.2,0.4546) -- (axis cs: 1.2,0) -- cycle;
+                        \addplot[mark=o, thick, red] coordinates {
+                            (1.2,0.3846)
+                            (1.6,0.3846)
+                        };
+                        \fill [opacity=0.25, red] (axis cs:1.2,0) -- (axis cs:1.2,0.3846)
+                            -- (axis cs: 1.6,0.3846) -- (axis cs: 1.6,0) -- cycle;
+                        \addplot[mark=o, thick, red] coordinates {
+                            (1.6,0.3333)
+                            (2.0,0.3333)
+                        };
+                        \fill [opacity=0.25, red] (axis cs:1.6,0) -- (axis cs:1.6,0.3333)
+                            -- (axis cs: 2,0.3333) -- (axis cs: 2,0) -- cycle;
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            </statement>
+        </example>
+        
+        <p>When a function is described explicitly with a formula, we can use derivatives to determine intervals of monotonicity. In the current context, we want to focus on accumulation functions which do not directly require derivatives because these functions are defined in terms of a given rate function. (Big picture comment: the rate function ultimately is the derivative.) Understanding the rate function well allows us to describe where an accumulation function for that rate will be increasing or decreasing through the following theorem.</p>
+        
+        <theorem xml:id="thm-monotonicity-from-rate">
+            <title>Monotonicity Test for Accumulation Functions</title>
+            <statement>
+            <p>Suppose that <m>A(x)</m> is an accumulation function with corresponding rate function <m>f(x)</m>, and suppose that <m>f(x)</m> is continuous on <m>[a,b]</m>.</p>
+            <ul>
+                <li>
+                    <p>If <m>f(x) \gt 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is increasing on <m>[a,b]</m>.</p>
+                </li>
+                <li>
+                    <p>If <m>f(x) \lt 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is decreasing on <m>[a,b]</m>.</p>
+                </li>
+                <li>
+                    <p>If <m>f(x) = 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is constant on <m>[a,b]</m>.</p>
+                </li>
+            </ul>
+            </statement>
+        </theorem>
+        
+        <p>We will prove these ideas later after we have a better understanding of what it means for a function to be continuous. In particular, these results rely on the <xref ref='mean-value-theorem-integral' autoname='title'>Mean Value Theorem of Integrals</xref>.</p>
+    </subsection>
+</section>

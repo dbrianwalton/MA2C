@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="integral-properties">
+    <title>Properties of Definite Integrals</title>
+
+    <subsection>
+        <title>Overview</title>
+        
+        <p>Motivated by the properties of total accumulated change and of area, the definite integral inherits several significant properties. These properties are stated as theorems. We will be interested in applying the results of the theorems. However, to prove these properties is outside the scope of this text. We essentially think of these properties as the axioms of definite integrals, basic properties which must always be true.</p>
+        
+    </subsection>
+   
+    <subsection>
+        <title>Integrability</title>
+        
+        <p>The process of computing a definite integral is well-defined for simple functions. However, other functions have potential issues. One of the most significant developments of modern mathematics was developing an understanding of when functions can be integrated or not, even going so far as to create new definitions for integrals for different circumstances. For our purposes, we will focus on the more elementary Riemann integral which is based on Riemann sums.</p>
+        
+        <definition>
+            <title>Riemann Integrability</title>
+            <statement>
+            <p>A function <m>f : [a,b] \to \mathbb{R}</m> is <term>Riemann integrable</term> (or, more simply, integrable) on <m>[a,b]</m> if <m>\displaystyle \int_{a}^{b} f(x) \, dx</m> is defined. For our purposes, we will interpret this as saying that for every scheme of constructing a Riemann sum with partition of size <m>n</m> (i.e., any choices of evaluation points <m>x_k^* \in [x_{k-1},x_k]</m>), the limit of the Riemann sum is guaranteed to equal the same value: <me> \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k^*) \Delta x = \int_{a}^{b} f(x) \, dx. </me></p>
+            </statement>
+        </definition>
+
+        <p>The scope of mathematics for this text is not concerned with determining which functions are or are not integrable, with the exception of pointing out that continuous functions are integrable.</p>
+        
+        <theorem xml:id='thm-continuous-integrable'>
+            <title>Continuous Functions are Integrable</title>
+            <statement>
+            <p>If <m>f : [a,b] \to \mathbb{R}</m> is continuous, then <m>f</m> is integrable on <m>[a,b]</m>.</p>
+            </statement>
+        </theorem>
+        
+        <p>We introduced the idea of definite integrals using simple functions. Simple functions, which are piecewise constant, are clearly not continuous because of the jumps at points in the partition. Integrability must be more general than continuous functions. For our purposes, we will also include functions that are piecewise continuous, allowing a finite number of either removable discontinuities or jump discontinuities. This is based on the idea that including or excluding the endpoints of an interval does not change integrability.</p>
+
+        <theorem>
+            <title>Integrability and Open Intervals</title>
+            <statement>
+            <p>If <m>f : (a,b) \to \mathbb{R}</m> is continuous and <m>f</m> has one-sided limits at the end-points, then <m>f</m> is integrable on <m>[a,b]</m>.</p>
+            </statement>
+            <proof>
+            <p>The proof is outside the scope of this text. The idea of one-sided limits existing provides that if the end points were included, we would be back to the case of a continuous function on the closed interval <m>[a,b]</m>. If the limits don't exist, then this reduction does not apply.</p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <title>Integrability and Piecewise Continuous Functions</title>
+            <statement>
+            <p>If <m>f</m> is defined to be piecewise continuous using a partition <m>P=(x_0, x_1, \ldots, x_n)</m> of the interval <m>[a,b]</m> such that <me>f(x) = \begin{cases} f_1(x), &amp; x_0 \lt x \lt x_1, \\
+            f_2(x), &amp; x_1 \lt x \lt x_2, \\
+            \vdots \\
+            f_n(x), &amp; x_{n-1} \lt x \lt x_n,\end{cases}</me> and each <m>f_k</m> is continuous on its subinterval <m>(x_{k-1},x_k)</m> with limits at the end-points, then <m>f</m> is integrable on <m>[a,b]</m>. The result holds whether or not end-points are included in the piecewise definition.</p>
+            </statement>
+        </theorem>
+        
+        <p>While talking about conditions where a function is integrable, we should also include some discussion about where a function is not integrable. The most common issue that prevents integrability is when a function is unbounded, such as at a vertical asymptote. Such a discontinuity is called an infinite discontinuity. Definite integrals generally do not behave well at such discontinuities and special techniques must be developed later in calculus to analyze how to address the discontinuity. For now, we will consider all such functions to be nonintegrable.</p>
+        
+    </subsection>
+    
+    <subsection>
+        <title>Splitting and Linearity Properties</title>
+        
+        <p>Splitting properties are motivated by considering adjacent intervals, say <m>[a,b]</m> and <m>[b,c]</m>, and requiring that the definite integral on <m>[a,c]</m> is the sum of the integrals over the two pieces. However, this would require that <m>a \lt b \lt c</m>. While this is certainly true, the definite integral is defined in a way that the order does not matter. Recalling that the definite integral is motivated as the mathematical tool to compute the total change in a quantity as the accumulated change resulting from its rate of change, this result could be interpreted as saying, <q>The total change in <m>Q</m> as <m>x</m> goes from <m>a</m> to <m>c</m> is equal to the change in <m>Q</m> as <m>x</m> goes first from <m>a</m> to <m>b</m> plus the change as <m>x</m> then goes from <m>b</m> to <m>c</m>.</q></p>
+        
+        <theorem xml:id="thm-definite-integral-splitting">
+            <title>Splitting Property of Definite Integrals</title>
+            <statement>
+            <p>Suppose that <m>f</m> is integrable on an interval that contains <m>a</m>, <m>b</m> and <m>c</m>. Then <me> \int_{a}^{b} f(x) dx + \int_{b}^{c} f(x) dx = \int_{a}^{c} f(x) dx. </me></p>
+            </statement>
+        </theorem>
+        
+        <p>Similarly, if <m>x</m> does not change, then the dependent quantity <m>Q</m> should also not change, regardless of the function defining the rate of change. This is the motivation for the next theorem.</p>
+        
+        <theorem>
+            <title>Integral on an Empty Interval</title>
+            <statement>
+            <p>For any function <m>f</m>, <me> \int_{a}^{a} f(x) \, dx = 0. </me></p>
+            </statement>
+        </theorem>
+        
+        <p>Combining these theorems, we obtain a reversal property of definite integrals. If we switch the order of the limits of integration, then the value of the definite integral must change sign.</p>
+        
+        <theorem xml:id="thm-definite-integral-reverse">
+            <title>Integral in Reverse</title>
+            <statement>
+            <p>For any function <m>f</m>, <me> \int_{b}^{a} f(x) \, dx = - \int_{a}^{b} f(x) \, dx. </me></p>
+            </statement>
+            <proof>
+            <p>Because an integral starting and ending at <m>a</m> must equal zero, if we go from <m>a</m> to <m>b</m> and then back, there must be no overall change: <me> \int_{a}^{b} f(x) \, dx + \int_{b}^{a} f(x) \, dx = \int_{a}^{a} f(x) \, dx = 0. </me></p>
+            </proof>
+        </theorem>
+
+        <p>It is important to remember that the interpretation of a definite integral as signed area only applied when the limits of integration go from left to right. When the limits of integration go from right to left, we compute the signed area but need to reverse the sign because of the direction of integration.</p>
+        
+        <example>
+            <statement>
+                <p>Suppose that we know <m>\displaystyle \int_{0}^{4} f(x)\,dx = 6</m> and <m>\displaystyle \int_{3}^{4} f(x) \, dx = 10</m>. Find <m>\displaystyle \int_{0}^{3} f(x) \, dx</m>.</p>
+            </statement>
+            <solution>
+                <p>We use the splitting property of definite integrals. The interval <m>[0,4]</m> can be partitioned into <m>[0,3]</m> and <m>[3,4]</m> so that <me> \int_{0}^{4} f(x)\, dx = \int_0^3 f(x)\,dx + \int_3^4 f(x)\,dx. </me> We know two of the integrals and can solve for the third: <me> 6 = \int_0^3 f(x)\,dx + 10 \qquad \Leftrightarrow \qquad \int_0^3 f(x)\,dx = -4. </me></p>
+                <p>An alternate approach for finding the integral is to start with the integral that is wanted, using the interval <m>[0,3]</m>, so that we start at <m>0</m> and end at <m>3</m>. We will use the splitting property using out-of-order points and go from <m>0</m> to <m>4</m> and then to <m>3</m>: <me> \int_{0}^{3} f(x)\, dx = \int_0^4 f(x)\,dx + \int_4^3 f(x)\,dx. </me> The second integral is in the reverse order, so if we switch the order to go left-to-right, then the integral is subtracted instead of added: <me> \int_{0}^{3} f(x)\, dx = \int_0^4 f(x)\,dx - \int_3^4 f(x)\,dx = 6 - 10 = -4. </me></p>
+            </solution>
+        </example>
+
+        <example>
+            <statement>
+                <p>Suppose that the graph below shows <m>y=f(x)</m>. Use the graph to find <m>\displaystyle \int_{0}^{-3} f(x) \, dx</m>.</p>
+                <figure>
+                <image>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis} [
+                        width=3in, height=2.5in,
+                        xmin=-5, xmax=5,
+                        grid=both, minor tick num={1},
+                        ]
+                        \addplot[no marks, black] coordinates {
+                            (-5,0)
+                            (5,0)
+                        };
+                        \addplot[no marks, blue, thick] coordinates {
+                            (-5,0)
+                            (-4,-3)
+                            (-2,-3)
+                            (0,3)
+                            (2,3)
+                            (4,-3)
+                            (5,-3)
+                        };
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+                </figure>
+            </statement>
+            <solution>
+                <p>Because the graph consists of straight lines, we can use geometry to calculate areas and use signed area to determine values of definite integrals. Shading the region between the graph <m>y=f(x)</m> and the axis <m>y=0</m> and between <m>x=-3</m> and <m>x=0</m>, we get the figure shown below.</p>
+                <figure>
+                <image>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis} [
+                        width=3in, height=2.5in,
+                        xmin=-5, xmax=5,
+                        grid=both, minor tick num={1},
+                        ]
+                        \addplot[no marks, black] coordinates {
+                            (-5,0)
+                            (5,0)
+                        };
+                        \addplot[no marks, blue, thick] coordinates {
+                            (-5,0)
+                            (-4,-3)
+                            (-2,-3)
+                            (0,3)
+                            (2,3)
+                            (4,-3)
+                            (5,-3)
+                        };
+                        \fill [opacity=0.25, red] (axis cs:-3,0) -- (axis cs:-3,-3) 
+                            -- (axis cs:-2,-3) -- (axis cs:-1,0) -- cycle;
+                        \fill [opacity=0.25, blue] (axis cs:-1,0) -- (axis cs:0,3)
+                            -- (axis cs: 0,0) -- cycle;
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+                </figure>
+                <p>The region between <m>x=-3</m> and <m>x=-1</m> is a trapezoid that has area <m>\frac{1}{2}(1+2)(3) = \frac{9}{2}</m>. The region between <m>x=-1</m> and <m>x=0</m> is a triangle with area <m>\frac{1}{2}(1)(3) = \frac{3}{2}</m>. Signed area corresponds to an integral from left-to-right so that <me> \int_{-3}^{0} f(x)\,dx = -\frac{9}{2} + \frac{3}{2} = -\frac{6}{2} = -3. </me> The integral of interest is the opposite order, and so has the opposite sign: <me> \int_{0}^{-3} f(x)\, dx = -\int_{-3}^0 f(x)\,dx = -(-3) = 3. </me></p>
+            </solution>
+        </example>
+
+        <p>Because a definite integral is defined in terms of summation and summation has linearity properties, the definite integral inherits a constant multiple rule and a sum rule.</p>
+        
+        <theorem xml:id="thm-definite-integral-constant-multiple">
+            <title>Constant Multiple Rule of Definite Integrals</title>
+            <statement>
+            <p>Suppose <m>f</m> is integrable on <m>[a,b]</m> and <m>\alpha</m> is a constant. Then <me> \int_{a}^{b} [\alpha f(x)] dx = \alpha \int_{a}^{b} f(x)\,dx. </me></p>
+            </statement>
+        </theorem>
+
+        <theorem xml:id="thm-definite-integral-sum-rule">
+            <title>Sum Rule of Definite Integrals</title>
+            <statement>
+            <p>Suppose <m>f</m> and <m>g</m> are both integrable on <m>[a,b]</m>. Then <me> \int_{a}^{b} [ f(x) + g(x)] dx = \int_{a}^{b} f(x)\,dx + \int_{a}^{b} g(x) \, dx. </me></p>
+            </statement>
+        </theorem>
+        
+        <p>We often want to apply these two properties immediately after one another. The combination of the constant multiple rule and sum rule is called linearity.</p>
+
+        <theorem xml:id="thm-definite-integral-linearity">
+            <title>Linearity of Definite Integrals</title>
+            <statement>
+                <p>Suppose <m>f</m> and <m>g</m> are both integrable on <m>[a,b]</m> and <m>\alpha</m> and <m>\beta</m> are constants. Then <me> \int_{a}^{b} [\alpha f(x) + \beta g(x)] dx = \alpha \int_{a}^{b} f(x)\,dx + \beta \int_{a}^{b} g(x) \, dx. </me></p>
+            </statement>
+        </theorem>
+
+        <p>These rules allows us to take elementary functions and combine them using linear combinations (sums and constant multiples) to create more complicated functions and compute the definite integral as the corresponding linear combination of the integrals of the components. The next subsection introduces some of these elementary functions and their corresponding accumulations defining definite integrals.</p>
+        
+        <example>
+            <statement>
+            <p>Suppose that we know <m>\displaystyle \int_{1}^{4} f(x) \, dx = 8</m> and <m>\displaystyle \int_{1}^{4} g(x) \, dx = -3</m>. Find the values of the following definite integrals.</p>
+            <ol>
+                <li> <p><m>\displaystyle \int_{1}^{4} 2 f(x) \, dx</m></p> </li>
+                <li> <p><m>\displaystyle \int_{1}^{4} [f(x)-2g(x)] \, dx</m></p> </li>
+                <li> <p><m>\displaystyle \int_{1}^{4} [3+g(x)] \, dx</m></p> </li>
+            </ol>
+            </statement>
+            <solution>
+            <ol>
+                <li>
+                <p>The first integral <m>\displaystyle \int_{1}^{4} 2 f(x) \, dx</m> has an integrand <m>2f(x)</m> that is a constant multiple of the function <m>f(x)</m>. So the constant multiple rule guarantees that the definite integral is the same constant multiple as the integral of <m>f(x)</m> alone: <me> \int_{1}^{4} 2 f(x) \, dx = 2 \int_{1}^{4} f(x)\, dx = 2(8) = 16. </me></p>
+                </li>
+                <li>
+                <p>The second integral <m>\displaystyle \int_{1}^{4} [f(x)-2g(x)] \, dx</m> has an integrand <m>f(x)-2g(x)</m> that is a linear combination of <m>f(x)</m> and <m>g(x)</m> with constant multiples <m>\alpha = 1</m> and <m>\beta = -2</m>. So by linearity, the definite integral is the same linear combination of the corresponding integrals: <me> \int_{1}^{4} [f(x)-2g(x)] \, dx = \int_{1}^{4} f(x)\, dx - 2 \int_{1}^{4} g(x) \, dx = 8 - 2(-3) = 14. </me></p>
+                </li>
+                <li>
+                <p>The third integral <m>\displaystyle \int_{1}^{4} [3+g(x)] \, dx</m> has an integrand <m>3+g(x)</m> that is a sum of the constant function <m>3</m> and <m>g(x)</m>. The integral of a constant function is that constant times the the width of the interval. Consequently, the sum rule for definite integrals implies that the definite integral is given by <me> \int_{1}^{4} [3+g(x)] \, dx = \int_{1}^{4} 3\, dx + \int_{1}^{4} g(x) \, dx = 3(4-1) + -3 = 6. </me></p>
+                </li>
+            </ol>
+            </solution>
+        </example>
+        
+        <p>The final property of definite integrals relates to inequality relationships.</p>
+        
+        <theorem xml:id='thm-integral-inequality'>
+            <title>Integral Bounds</title>
+            <statement>
+                <p>If <m>f</m> and <m>g</m> are two integrable functions on an interval <m>[a,b]</m> and <m>f(x) \le g(x)</m> for all <m>x \in [a,b]</m>, then <me>\int_{a}^{b} f(x)\,dx \le \int_{a}^{b} g(x) \, dx.</me></p>
+            </statement>
+        </theorem>
+
+    </subsection>
+    
+    <subsection>
+        <title>Elementary Accumulations</title>
+        
+        <p>We introduce a few elementary functions for which definite integrals can be computed. Each of the definite integrals have a lower limit of integration at <m>x=0</m>. To compute definite integrals over other intervals, we use the splitting properties of definite integrals. You should notice that these definite integrals are closely related to elementary summation formulas.</p>
+
+        <theorem xml:id="thm-elementary-definite-integrals">
+            <title>Elementary Definite Integrals</title>
+            <statement>
+            <mdn>
+                <mrow>\int_{0}^{a} 1 \, dx = a</mrow>
+                <mrow>\int_{0}^{a} x \, dx = \frac{1}{2} a^2</mrow>
+                <mrow>\int_{0}^{a} x^2 \, dx = \frac{1}{3} a^3</mrow>
+                <mrow>\int_{0}^{a} x^3 \, dx = \frac{1}{4} a^4</mrow>
+            </mdn>
+            </statement>
+            <proof>
+            <p>The first statement is just a restatement of the definite integral for a constant rate. However, to help reinforce the use of Riemann sums in proofs of definite integrals, we will look at another approach. Because all four definite integrals have the same limits of integration, they will use the same partition. A uniform partition of <m>[0,a]</m> of size <m>n</m> has <me>\Delta x = \frac{a-0}{n} = \frac{a}{n} </me> and the partition points are defined as <me> x_k = \frac{ak}{n}. </me></p>
+            <p>The Riemann sum corresponding to <m>\displaystyle \int_0^a 1 \, dx</m>, so that <m>f(x)=1</m> is given by <md>
+                <mrow> \sum_{k=1}^{n} f(x_k^*) \Delta x &amp; = \sum_{k=1}^{n} 1 \cdot \frac{a}{n} = \sum_{k=1}^{n} \frac{a}{n}</mrow>
+                <mrow> &amp; = (\frac{a}{n}) \cdot n = a, </mrow>
+            </md> since the final summation involves a constant increment <m>\frac{ca}{n}</m>. This value does not depend on <m>n</m>, so the definite integral, which is the limit of the Riemann sum, is <me> \int_{0}^{a} c \, dx = \lim_{n \to \infty} ca = ca. </me></p>
+            <p>The Riemann sum corresponding to <m>\displaystyle \int_0^a x \, dx</m>, so that <m>f(x)=x</m> and using the right-hand rule, <m>x_k^* = x_k = \frac{ak}{n}</m> is given by <md>
+                <mrow> \sum_{k=1}^{n} f(x_k^*) \Delta x &amp; = \sum_{k=1}^{n} \frac{ak}{n} \cdot \frac{a}{n} = \sum_{k=1}^{n} \frac{a^2}{n^2}k</mrow>
+                <mrow> &amp; = (\frac{a^2}{n^2}) \sum_{k=1}^n k = \frac{a^2}{n^2} \cdot \frac{n(n+1)}{2} = \frac{a^2 (n^2+n)}{2n^2} </mrow>
+                <mrow> &amp; = \frac{a^2(1+\frac{1}{n})}{2}. </mrow>
+            </md> The definite integral is the limit of this sum, <me> \int_{0}^{a} x \, dx = \lim_{n \to \infty} \frac{a^2(1+\frac{1}{n})}{2} = \frac{1}{2}a^2. </me></p>
+            <p>The other two statements are similarly proved, using <m>f(x)=x^2</m> and <m>f(x)=x^3</m> so that the corresponding Riemann sums involve <m>\sum k^2</m> and <m>\sum k^3</m>.</p>
+            </proof>
+        </theorem>
+        
+        <example>
+            <statement>
+            <p>Compute <m>\displaystyle \int_0^4 (3x-4) dx</m></p>
+            </statement>
+            <solution>
+            <p>Using linearity with <m>-4=-4 \cdot 1</m>, we can rewrite our integral <md>
+                <mrow>\int_{0}^{4} (3x-4) dx &amp;= 3 \int_{0}^{4} x \, dx -4 \int_{0}^{4} 1 \, dx </mrow>
+                <mrow> &amp;= 3 \cdot \frac{1}{2}(4)^2 - 4 \cdot 4 = 24-16 = 8. </mrow>
+            </md></p>
+            </solution>
+        </example>
+
+        <example>
+            <statement>
+            <p>Compute <m>\displaystyle \int_0^3 (2x+1)(x-3) dx</m></p>
+            </statement>
+            <solution>
+            <p>The integrand as written is not a sum, so we can not use linearity until we expand the multiplication as a sum. <me> (2x+1)(x-3) = 2x^2 -6x + x -3 = 2x^2-5x-3. </me> Now we can rewrite our integral using linearity to find <md>
+                <mrow>\int_{0}^{3} (2x+1)(x-3) dx &amp;= \int_{0}^{3} (2x^2-5x-3)\, dx </mrow>
+                <mrow> &amp;= 2 \int_{0}^{3} x^2 \, dx -5 \int_{0}^{3} x \, dx - 3 \int_{0}^{3} 1 \, dx</mrow>
+                <mrow> &amp;= 2 \cdot \frac{1}{3}(3)^3 -5 \cdot \frac{1}{2}(3)^2 - 3 \cdot 3</mrow>
+                <mrow> &amp;= 18 - \frac{45}{2} - 9 = -\frac{27}{2}. </mrow>
+            </md></p>
+            </solution>
+        </example>
+        
+        <p>When the lower limit is not zero, we need to use the splitting property of definite integrals.</p>
+        
+        <example>
+            <statement>
+            <p>Compute <m>\displaystyle \int_{2}^{5} 2x^2 \, dx</m>.</p>
+            </statement>
+            <solution>
+            <p>The constant multiple rule allows us to factor out the constant <m>2</m> to obtain <me> \int_{2}^{5} 2x^2\, dx = 2\int_{2}^{5} x^2 \, dx. </me> For any function that is integrable on <m>[0,5]</m>, we can write <me> \int_{0}^{5} f(x) \, dx = \int_{0}^{2} f(x) \, dx + \int_{2}^{5} f(x) \, dx. </me> Reordering the terms in this equation, we find <me> \int_{2}^{5} f(x) \, dx = \int_{0}^{5} f(x) \, dx - \int_{0}^{2} f(x) \, dx. </me> Applying this to the function <m>f(x)=x^2</m>, we find <md>
+                <mrow>\int_{2}^{5} 2x^2\, dx &amp;= 2\int_{2}^{5} x^2 \, dx </mrow>
+                <mrow> &amp;= 2 \Big(\int_{0}^{5} x^2 \, dx - \int_{0}^{2} x^2 \, dx \Big) </mrow>
+                <mrow> &amp;= 2 \Big(\frac{1}{3} (5)^3 - \frac{1}{3} (2)^3\Big)</mrow>
+                <mrow> &amp;= 2 \cdot \frac{125-8}{3} = 78. </mrow>
+            </md></p>
+            </solution>
+        </example>
+    </subsection>
+</section>

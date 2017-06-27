@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="intro-optimization">
+    <title>Introduction to Optimization</title>
+    
+    <introduction>
+    
+    <p>The previous section emphasized that knowing the signs of the derivative <m>f'(x)</m> to a function <m>f(x)</m> informs us regarding the intervals of monotonicity of the function <m>f(x)</m>. We can use this information to identify extreme values.</p>
+    
+    <p>Applications involving the identification of extreme values are often called optimization problems. The task in optimization is to identify the value of an independent variable in the system that will maximize or minimize some objective. Aside from the calculus in finding the extreme values, creating an appropriate function that will serve as the objective is often the greatest challenge.</p>
+    
+    </introduction>
+    
+    <subsection>
+        <title>Local Extreme Values</title>
+    
+        <p>When the derivative <m>f'(x)</m> changes sign at a point where <m>f(x)</m> is continuous, the function has a local or relative extreme value. We begin by focusing on what we mean by a local extreme value. A local extreme is a point where the function reaches either its highest or lowest point <em>on an interval around that point</em>. The function might exceed the value on some other interval, but the value needs to be the extreme in a neighborhood of the point.</p>
+        
+        <definition>
+            <title>Local (Relative) Extreme Values</title>
+            <statement>
+                <p>A function <m>f(x)</m> has a <term>local maximum</term> at a point <m>x=c</m> in the domain if there is an interval <m>(a,b)</m> with <m>c \in (a,b)</m> so that <m>f(x) \le f(c)</m> for all <m>x \in (a,b)</m>.</p>
+                <p>A function <m>f(x)</m> has a <term>local minimum</term> at a point <m>x=c</m> in the domain if there is an interval <m>(a,b)</m> with <m>c \in (a,b)</m> so that <m>f(c) \le f(x)</m> for all <m>x \in (a,b)</m>.</p>
+            </statement>
+        </definition>
+        
+        <p>The first derivative can often provide enough information to identify local extreme values. The applicable theorem is called the first derivative test.</p>
+        
+        <theorem>
+            <title>First Derivative Test</title>
+            <statement>
+                <p>Suppose that <m>f'(x)</m> exists on an interval <m>(a,b)</m>, possibly except at <m>x=c</m> with <m>a \lt c \lt b</m> and that <m>f(x)</m> is continuous at <m>x=c</m>. <ul>
+                    <li>If <m>f'(x) \lt 0</m> for <m>x \in (a,c)</m> and <m>f'(x) \gt 0</m> for <m>x \in (c,b)</m>, then <m>f(x)</m> is decreasing on <m>(a,c]</m> and increasing on <m>[c,b)</m> so that <m>f</m> has a <term>local minimum</term> at <m>x=c</m>.</li>
+                    <li>If <m>f'(x) \gt 0</m> for <m>x \in (a,c)</m> and <m>f'(x) \lt 0</m> for <m>x \in (c,b)</m>, then <m>f(x)</m> is increasing on <m>(a,c]</m> and decreasing on <m>[c,b)</m> so that <m>f</m> has a <term>local maximum</term> at <m>x=c</m>.</li>
+                    <li>If <m>f'(x)</m> does not change sign, then <m>f</m> does <em>not</em> have a local extreme value at <m>x=c</m>.</li>
+                </ul></p>
+            </statement>
+        </theorem>
+        
+        <example>
+            <statement>
+                <p>The function <me>\displaystyle f(x) = \frac{x}{x^2+3}</me> has a derivative <me>f'(x) = \frac{3-x^2}{(x^2+3)^2}.</me> Describe the local extreme values of <m>f(x)</m>.</p>
+            </statement>
+            <solution>
+                <p>The denominator of <m>f'(x)</m> is never zero because <m>x^2+3 \ge 3</m> will never equal zero. So the sign can only change where <m>3-x^2=0</m> which occurs at two values, <m>x=\pm\sqrt{3}</m>. There are three intervals of interest. We can find the signs of <m>f'(x)</m> using the values <m>x=-2</m>, <m>x=0</m> and <m>x=2</m>. The signs are summarized in the number line summary below.</p>
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[<->] (-3,0) -- (3,0) node[above right] {$f'(x)$} node[below right] {$x$};
+
+                        \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
+                        \draw (-1.7, -0.1) -- (-1.7, 0.1) node[pos=0, below] {$-\sqrt{3}$} node[pos=1,above] {$0$};
+                        \draw (1.7, -0.1) -- (1.7, 0.1) node[pos=0, below] {$\sqrt{3}$} node[pos=1,above] {$0$};
+                        \node [above] at (-2.2,0) {$-$};
+                        \node [above] at (0,0) {$+$};
+                        \node [above] at (2.2,0) {$-$};
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+                <p>We finish by interpreting our results. <ul>
+                    <li>Because <m>f'(x) \lt 0</m> on <m>(-\infty,-\sqrt{3})</m> and <m>f'(x) \gt 0</m> on <m>(-\sqrt{3},\sqrt{3})</m>, we know <m>f(x)</m> has a local minimum at <m>x=-\sqrt{3}</m>. (Minimum over the interval <m>(-\infty,+\sqrt{3})</m>)</li>
+                    <li>Because <m>f'(x) \gt 0</m> on <m>(-\sqrt{3},\sqrt{3})</m> and <m>f'(x) \lt 0</m> on <m>(\sqrt{3},\infty)</m>, we know <m>f(x)</m> has a local maximum at <m>x=\sqrt{3}</m>. (Maximum over the interval <m>(-\sqrt{3},\infty)</m>)</li>
+                </ul> A graph of the function is illustrated below.</p>
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [ xmin=-8, xmax=8, ymin=-0.5, ymax=0.5,
+                        axis lines=center ]
+                        \addplot [domain=-8:8, samples=101] { x/(x^2+3) };
+                        \addplot [only marks] coordinates {
+                            (-1.732, {-1.732/6}) (1.732, {1.732/6})
+                        }
+                        node [pos=0, below left] {$x=-\sqrt{3}$}
+                        node [pos=1, above right] {$x=\sqrt{3}$};
+                        \end{axis}
+                        \end{tikzpicture}
+                        ]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+        
+        <p>We will learn later how to identify whether a function has <term>global extreme values</term>.</p>
+        
+    </subsection>
+    
+    <subsection>
+        <title>Optimization</title>
+        
+        <p>Optimization is the application of finding extreme values to either maximize or minimize some quantity of interest. In general, we will have a system where there is some variable that we have freedom to vary and some quantity that is a function of that variable that we want to be at a maximum or minimum value. The variable that we vary is the independent variable. The quantity that we optimize is the dependent variable and is often called the <term>objective function</term>.</p>
+        
+        <p>Frequently, the more challenging aspect of an optimization problem is identifying the appropriate function. Once the function is identified, the task is reduced to identifying local extreme values and determining whether one of those might also be the extreme value of interest. If there are multiple independent varaibles, we generally find a constraint that allows us to treat one as a dependent variable so that we ultimately only have a single independent variable.</p>
+        
+        <p>Several simple examples come from geometry where we need to construct a shape that has some feature (like a given perimeter, area or volume) and we wish to make some other feature as large as possible. We use these examples not because they are practical but because they illustrate the principles of optimization effectively.</p>
+        
+        <example>
+            <statement>
+                <p>Suppose we want to cut out a rectangle that has an area of <m>500 \; cm^2</m> but that horizontal and vertical cuts have different costs. If a horizontal cut costs twice as much as a vertical cut per centimeter, how should we cut the rectangle to minimize our cost?</p>
+            </statement>
+            <solution>
+                <p>Start by identifying the variables. <ul>
+                    <li><m>h</m> is the horizontal width of the rectangle</li>
+                    <li><m>v</m> is the vertical length of the rectangle</li>
+                    <li><m>C</m> is the cost of making the rectangle</li>
+                </ul> Once we have identified our variables, we need to find a formula for the cost because that is what we want to minimize. Let <m>p</m> be the unit cost for a vertical cut of 1 cm so that <m>2p</m> is the cost of a horizontal cut of 1 cm. The rectangle involves two horizontal cuts and two vertical cuts. So the total cost is given by <me>C = 2h \cdot 2p + 2v \cdot p = (4h+2v) p.</me> The value of <m>p</m> is just the unit cost, so we really want to minimize <m>C = 4h+2v</m> (measured in <m>p</m> units).</p>
+                <p>Our objective function involves two independent variables. This means there must be an additional constraint. Reviewing the problem, we recall that the total area needs to be <m>500 \; cm^2</m>. The area is computed by <m>A=h \cdot v = 500</m> so that we can treat <m>v</m> as another dependent variable, <me>v = \frac{500}{h}.</me> Substituting this formula into our objective function, we can rewrite it involving only a single independent variable <m>h</m>: <me>C = 4h + 2 \cdot \frac{500}{h} = 4h + \frac{1000}{h}.</me></p>
+                <p>Next, we find the derivative: <me>C'(h) = 4 - \frac{1000}{h^2}.</me> We want to see where the derivative is positive and negative, so we find a common denominator and then factor: <me>C'(h) = \frac{4h^2-1000}{h^2} = \frac{4(h^2-250)}{h^2}.</me> As a mathematical function, there is a vertical asymptote at <m>h=0</m> and intercepts at <m>h= \pm \sqrt{250}</m>. Geometrically, only <m>h \gt 0</m> makes physical sense, so we do sign analysis on <m>(0,\sqrt{250})</m> and <m>(\sqrt{250},\infty)</m>.</p>
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[->] (0,0) -- (4,0) node[above right] {$C'(h)$} node[below right] {$h$};
+
+                        \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {VA};
+                        \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$\sqrt{250}$} node[pos=1,above] {$0$};
+                        \node [above] at (1.2,0) {$-$};
+                        \node [above] at (3.2,0) {$+$};
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+                <p>The sign analysis of <m>C'(h)</m> informs us that <m>C(h)</m> is decreasing on <m>(0,\sqrt{250})</m> and increasing on <m>(\sqrt{250},\infty)</m>. The first derivative test then guarantees that <m>C(h)</m> has a local minimum at <m>h=\sqrt{250}</m> over the interval <m>(0,\infty)</m> which is the entire physically relevant domain. A graph of the cost as a function of <m>h</m> illustrates our result.</p>
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [ xmin=0, xmax=40, ymin=0, ymax=400 ]
+                        \addplot [domain=1:40, samples=101] { 4*x+1000/x };
+                        \addplot [only marks] coordinates {
+                            (15.81,126.48)
+                        } node [below] {$h=\sqrt{250}$};
+                        \end{axis}
+                        \end{tikzpicture}
+                        ]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+                <p>We finish by interpreting our mathematics. The question was how to cut the rectangle. Our analysis gave us a value for <m>h=\sqrt{250} \approx 15.81 \; cm</m>. We also need <m>v</m>, which was another dependent variable: <me>v=\frac{500}{h} = \frac{500}{\sqrt{250}} = 2 \sqrt{250} \approx 31.62 \; cm.</me> The minimal cost rectangle would have a horizontal cut of 15.81 cm and a vertical cut of 31.62 cm.</p>
+            </solution>
+        </example>
+        
+        <p>A biological example follows. A fundamental hypothesis of biology is that evolution drives organisms to maximize their fitness, which corresponds to the number of surviving offspring. There is often a trade-off between the number of offspring and the probability that the offspring survive. Let <m>f</m> (fecundity) represent the number of offspring an organism produces and let <m>s</m> (survival) represent the probability that an offspring will survive. The then fitness is given by <m>F=f \cdot s</m>, the average number of offspring that survive.</p>
+        
+        <example>
+            <statement>
+                <p>Suppose that the survival probability is related to fecundity so that it decreases exponentially according to the equation <me>s = e^{-0.012f}.</me> How many offspring should the organism have to maximize fitness?</p>
+            </statement>
+            <solution>
+                <p>First, identify the variables. The objective function is the fitness <m>F</m>. This depends on both <m>f</m> (fecundity) and <m>s</m> (survival probability) through <m>F = f \cdot s</m>. The given relation between <m>f</m> and <m>s</m> expresses <m>s</m> as a dependent variable so that we treat <m>f</m> as the independent variable. Then we can write <me>F = f \cdot e^{-0.012f}.</me></p>
+                <p>Second, we compute a derivative to determine the extreme values. We find <me>F'(f) = e^{-0.012f} - 0.012f e^{-0.012f}.</me> Our strategy is always to factor the formula in order to find intercepts. In this case, the common factor is the exponential term so that <me>F'(f) = e^{-0.012f}\cdot(1-0.012f).</me> The exponential term is always positive, so the only intercept is when <m>1-0.012f = 0</m> which has a solution <m>f = \frac{1}{0.012} = \frac{250}{3}</m>. Using this, our sign analysis for <m>F'(f)</m> consists of two intervals.</p>
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[->] (-2,0) -- (4,0) node[above right] {$F'(f)$} node[below right] {$f$};
+
+                        \draw (1, -0.1) -- (1, 0.1) node[pos=0, below] {$\frac{250}{3}$} node[pos=1,above] {$0$};
+                        \node [above] at (-0.5,0) {$+$};
+                        \node [above] at (2.5,0) {$-$};
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+                <p>The sign analysis implies that <m>F</m> is increasing on <m>(-\infty,\frac{250}{3})</m> and decreasing on <m>(\frac{250}{3},\infty)</m>. The first derivative test then implies that <m>F</m> has a maximum value when <m>f=\frac{250}{3}\approx 83.33</m> on the interval <m>(-\infty,\infty)</m>. We only needed a maximum on <m>[0,\infty)</m> (physically relevant), so this is result is appropriate. The organism will optimize fitness if the average number of offspring is 83.33 individuals.</p>
+            </solution>
+        </example>
+    </subsection>
+</section>

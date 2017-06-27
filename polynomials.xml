@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="polynomials">
+    <title>Polynomial Functions</title>
+
+    <subsection>
+        <title>Polynomials Defined</title>
+        
+        <p>
+        One of the most important mathematical families of functions is
+        the collection of polynomials.
+        Given the independent variable <m>x</m>, a polynomials is a calculation
+        that only includes addition and multiplication of real numbers and
+        the value of <m>x</m>. Repeated multiplication by <m>x</m> corresponds to
+        positive integer powers of <m>x</m>.
+        </p>
+        
+        <definition>
+            <statement>
+            A function <m>p(x)</m>  is a <term>polynomial</term> if it can be written
+            <me> p(x) = a_0 + a_1 \cdot x + a_2 \cdot x^2 + \ldots + a_n x^n </me>
+            (but traditionally written in decreasing order of powers)
+            for some integer <m>n \ge 0</m> and real numbers <m>a_0, a_1, \ldots, a_n</m>.
+            The value of <m>n</m> is called the <term>degree</term> of the polynomial
+            and the constants <m>a_0, a_1, \ldots, a_n</m> with <m>a_n \ne 0</m> are called the coefficients
+            of the powers <m>x^0, x^1, \ldots, x^n</m>.
+            The value <m>a_n</m> is called the <term>leading coefficient</term>.
+            </statement>
+        </definition>
+        
+        <example>
+        <statement>
+            Determine the coefficients and degree of each polynomial.
+            <ol>
+                <li>
+                <m>p(x) = x^2+3x-5</m>
+                </li>
+        
+                <li>
+                <m>f(x) = 3x(x-5)(2x+1)</m>
+                </li>
+            </ol>
+        </statement>
+        <solution>
+            <ol>
+                <li>
+                <m>p(x)=x^2+3x-5</m> is a polynomial with degree <m>n=2</m> and
+                coefficients <m>a_0=-5</m> (corresponding to the power <m>x^0=1</m>),
+                <m>a_1=3</m> (for <m>x^1</m>) and <m>a_2=1</m> (for <m>x^2</m>).
+                The leading coefficient is <m>a_2=1</m>.
+                </li>
+            
+                <li>
+                <m>f(x) = 3x(x-5)(2x+1)</m> is a function whose value is calculated using only addition
+                and multiplication of real numbers and the value of <m>x</m>. So it will
+                be a polynomial. To determine the coefficients, we must multiply out
+                the terms.
+                <md>
+                    <mrow> f(x) &amp;= 3x(x-5)(2x+1) = (3x^2-15x)(2x+1) </mrow>
+                    <mrow> &amp; = (3x^2)(2x) + (3x^2)(1) + (-15x)(2x) + (-15x)(1) = 6x^3 +3x^2-30x^2-15x </mrow>
+                    <mrow> &amp; = 6x^3 - 27x^2 -15x </mrow>
+                </md>
+                We see that the coefficients are <m>a_0 = 0</m> (no constant term), <m>a_1=-15, a_2=-27, a_3=6</m>.
+                The degree of <m>f</m> is <m>n=3</m> (highest power) and the leading coefficient is 6.
+                </li>
+            </ol>
+        </solution>
+        </example>
+
+    </subsection>
+    
+    <subsection>
+        <title>Polynomials in Factored Form</title>
+        
+        <p>
+        Although polynomials are defined as a sum of whole number power functions,
+        we frequently need to think about them as products.
+        This is based on an important mathematical principle of solving equations,
+        that a product can equal zero if and only if one of the factors is equal to
+        zero.
+        </p>
+        
+        <theorem>
+            <statement>
+            <m>A \cdot B = 0 \quad \hbox{if and only if} \quad A=0\hbox{ or }B=0.</m>
+            </statement>
+        </theorem>
+        
+        <p>
+        Polynomials are frequently used to model relationships between variables
+        where it is know that the dependent variable is zero for certain values
+        of the independent variable. A model can be formed by multiplying together
+        factors that individually are zero at each of the desired locations.
+        An expression of the form <m>x-c</m> is often used because
+        <m>x-c</m> equals zero when <m>x=c</m>.
+        A product of the form
+        <m>(x-a)(x-b)(x-c)</m>
+        will equal zero at <m>x=a</m> (from the first factor), at <m>x=b</m>
+        (from the second factor), and at <m>x=c</m> (from the third factor).
+        </p>
+        
+        <example>
+        <statement>
+            For each set of values, find a function that has zeros at each value in the set.
+            <ol>
+                <li><m>\{0, 4\}</m></li>
+                <li><m>\{-2, 3\}</m></li>
+                <li><m>\{-1, 1, 3\}</m></li>
+            </ol>
+        </statement>
+        <solution>
+        <ol>
+            <li> To get zeros at <m>x=0</m> and at <m>x=4</m>, the simplest function
+            will have factors of <m>(x-0)=x</m> and <m>(x-4)</m>.
+            <me>f(x) =x(x-4) = x^2-4x</me>
+            </li>
+
+            <li> To get zeros at <m>x=-2</m> and at <m>x=3</m>, the simplest function
+            will have factors of <m>(x--2)=(x+2)</m> and <m>(x-3)</m>.
+            <me>f(x) =(x+2)(x-3) = x^2-3x+2x-6 = x^2-x-6</me>
+            </li>
+
+            <li> To get zeros at each value in <m>\{-1, 1, 3\}</m>, 
+            the simplest function will have factors of <m>(x--1)=(x+1)</m>,
+            <m>(x-1)</m> and <m>(x-3)</m>.
+            <me>f(x) =(x+1)(x-1)(x-3) = (x^2-1)(x-3) = x^3-3x^2-x+3</me>
+            </li>
+        </ol>
+        </solution>
+        </example>
+        
+        <p>
+        In the previous example, because we only used simple factors, the leading
+        coefficient was always 1. Requiring that the function also passes through 
+        one additional, non-zero point corresponds to a vertical rescaling
+        by multiplying by some number. Also, in modeling settings, it is often better
+        to leave the formula in factored form.
+        </p>
+
+        <example>
+        <statement>
+            Using the same set of zeros as in the previous example, find a function
+            that has the specified zeros and passes through the given point.
+            <ol>
+                <li>Zeros at <m>\{0, 4\}</m> and <m>f(1)=2</m></li>
+                <li>Zeros at <m>\{-2, 3\}</m> and <m>f(0)=3</m></li>
+                <li>Zeros at <m>\{-1, 1, 3\}</m> and <m>f(2)=-6</m></li>
+            </ol>
+        </statement>
+        <solution>
+        <ol>
+            <li> The general model with the desired zeros is
+            <me>f(x) =ax(x-4)</me>
+            where <m>a</m> is a scaling parameter that will be determined
+            using the given point. This is found by using <m>x=1</m> and
+            requiring an output of 2:
+            <md>
+                <mrow> f(1) = 2 \quad \hbox{and} \quad f(1) = a(1)(1-4) = -3a </mrow>
+                <mrow> -3a = 2 \quad \Rightarrow \quad a=-\frac{2}{3}</mrow>
+            </md>
+            So our function is given by
+            <me> f(x) = -\frac{2}{3}x(x-4). </me>
+            <figure>
+                <image xml:id="fig-polynomial-example1">
+                    <description>
+                    Graph of y=-2/3x(x-4).
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-2.2,xmax=5.2,
+                        xtick={-2, -1, 0, 1, 2, 3, 4, 5},
+                        xlabel={$x$},
+                        ylabel={$y$},
+                    ]
+
+                    \addplot[blue, thick, samples=100]
+                        ({x}, {-2/3*x*(x-4)});
+                    \addplot[mark=none, black] {0};
+                    \addplot[only marks, blue] table {
+                        0 0
+                        4 0
+                        1 2
+                    };
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            </li>
+
+            <li> The desired model will be the same as the previous solution
+            except multiplied by the parameter <m>a</m>:
+            <me>f(x) = a(x+2)(x-3).</me>
+            In order to guarantee that <m>f(0)=3</m>, we also require
+            <md>
+                <mrow> f(0) = a(0+2)(0-3) = -6a = 3 </mrow>
+                <mrow> a=-\frac{1}{2}</mrow>
+            </md>
+            Consequently, the function is given by
+            <me> f(x) = -\frac{1}{2} (x+2)(x-3). </me>
+            <figure>
+                <image xml:id="fig-polynomial-example2">
+                    <description>
+                    Graph of y=-2/3x(x-4).
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-3.2,xmax=4.2,
+                        xtick={-3, -2, -1, 0, 1, 2, 3, 4},
+                        xlabel={$x$},
+                        ylabel={$y$},
+                    ]
+
+                    \addplot[blue, thick, samples=100]
+                        ({x}, {-1/2*(x+2)*(x-3)});
+                    \addplot[mark=none, black] {0};
+                    \addplot[only marks, blue] table {
+                        -2 0
+                        3 0
+                        0 3
+                    };
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            </li>
+
+            <li> The function will be of the form
+            <me>f(x) = a(x+1)(x-1)(x-3),</me>
+            where <m>a</m> is determined by requiring <m>f(2)=-6</m>:
+            <md>
+                <mrow> f(2) = a(2+1)(2-1)(2-3) = a(3)(1)(-1) = -3a = -6 </mrow>
+                <mrow> a=2</mrow>
+            </md>
+            Consequently, the function is given by
+            <me> f(x) = 2(x+1)(x-1)(x-3). </me>
+            <figure>
+                <image xml:id="fig-polynomial-example3">
+                    <description>
+                    Graph of y=-2/3x(x-4).
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-1.6,xmax=3.8,
+                        xtick={-1, 0, 1, 2, 3},
+                        xlabel={$x$},
+                        ylabel={$y$},
+                    ]
+
+                    \addplot[blue, thick, samples=100]
+                        ({x}, {2*(x+1)*(x-1)*(x-3)});
+                    \addplot[mark=none, black] {0};
+                    \addplot[only marks, blue] table {
+                        -1 0
+                        1 0
+                        3 0
+                        2 -6
+                    };
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            </li>
+        </ol>
+        </solution>
+        </example>
+        
+        <p>
+        In the examples thus far, the function has crossed the axis at each
+        of the zeros. This is a consequence of using a factor that behaves
+        like a linear function. If we choose factors that include powers 
+        of the basic factor, we will functions that behave like the corresponding
+        power functions near the zeros. The power with which a factor is 
+        repeated is called the <term>multiplicity</term> of the zero.
+        </p>
+        
+        <example>
+        <statement>
+            Find the equation of a function that touches, but does not cross,
+            the <m>x</m>-axis at <m>x=-2</m> and at <m>x=3</m>, and crosses
+            the axis at <m>x=0</m>, similar to the graph shown below, with
+            a value <m>f(1)=5</m>.
+            <figure>
+                <image xml:id="fig-polynomial-example4">
+                    <description>
+                    Graph of a polynomial that touches the axis
+                    like a parabola at x=-2 and at x=3 and crosses
+                    the axes like a line at x=1 with f(1)=5.
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-2.8,xmax=3.8,
+                        xtick={-2, -1, 0, 1, 2, 3},
+                        xlabel={$x$},
+                        ylabel={$y$},
+                    ]
+
+                    \addplot[blue, thick, samples=100]
+                        ({x}, {5/36*(x+2)^2*(x)*(x-3)^2});
+                    \addplot[mark=none, black] {0};
+                    \addplot[only marks, blue] table {
+                        -2 0
+                        0 0
+                        3 0
+                        1 5
+                    };
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+        </statement>
+        <solution>
+            <p>
+            Based on the zeros of the graph, we need factors like 
+            <m>(x+2)</m> (for <m>x=-2</m>), <m>x</m> (for <m>x=0</m>), 
+            and <m>(x-3)</m> (for <m>x=3</m>).
+            Because the graph looks similar to the vertex of a parabola at 
+            <m>x=-2</m> and at <m>x=3</m>, the corresponding factors
+            will need to be squared.
+            Consequently, the form of the function should be
+            <me> f(x) = a(x+2)^2 x (x-3)^2. </me>
+            Usually, we would move the factor <m>x</m> to the front 
+            for aesthetic purposes.
+            </p>
+            <p>
+            We find the scaling factor by making the function pass through
+            the given point.
+            <md>
+                <mrow> f(1) = a(1+2)^2(1)(1-3)^2 = a(9)(4) = 36a </mrow>
+                <mrow> f(1) = 5 \quad \Rightarrow \quad 36a=5 
+                \quad \Rightarrow \quad a=\frac{5}{36} </mrow>
+            </md>
+            Consequently, our model for this graph would be
+            <me> f(x) = \frac{5}{36} x (x+2)^2(x-3)^2. </me>
+            The zero at <m>x=0</m> has multiplicity 1, while the zeros
+            at <m>x=-2</m> and at <m>x=3</m> each have multiplicity 2.
+            </p>
+        </solution>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Factoring Polynomials</title>
+        
+        <p>
+        Just as every positive integer has a unique prime factorization,
+        every polynomial can be factored in a unique way (up to order of factors).
+        In the history of mathematics, this result is actually fairly remarkable
+        and is closely related to the development of complex numbers.
+        The Fundamental Theorem of Algebra guarantees that every polynomial
+        of degree <m>n</m> has exactly <m>n</m> zeros, counted by multiplicity.
+        The zeros may occur at complex numbers, and if so, they will occur
+        in complex conjugate pairs.
+        </p>
+        
+        <p>
+        In addition to the Fundamental Theorem of Algebra, the Factor<ndash />Root
+        theorem connects the zeros of the polynomial to the factors.
+        </p>
+        
+        <theorem>
+            <title>Factor<ndash />Root Theorem</title>
+            <statement>
+            A polynomial <m>f(x)</m> has a zero at <m>x=c</m> with multiplicity <m>k</m>
+            if and only if
+            <m>(x-c)^k</m> is a factor of <m>f(x)</m>.
+            </statement>
+        </theorem>
+        
+        <p>
+        Zeros that are complex conjugate pairs can be written using simple factors,
+        but it is more common to include a single quadratic factor
+        so that we only need to deal with real numbers. A basic quadratic
+        has a leading coefficient of <m>a=1</m>, and so is of the form <m>x^2+bx+c</m>.
+        The quadratic formula states that the zeros of such a quadratic are at
+        <me> x = \frac{-b \pm \sqrt{b^2-4c}}{2}. </me>
+        The zeros will be complex conjugate pairs if <m>b^2-4c \lt 0</m>.
+        When a quadratic has complex conjugate zeros, we say the quadratic is 
+        <term>irreducible</term> because it doesn't factor with real factors.
+        </p>
+        
+        <p>
+        The take-home message of all this is that for any polynomial that you
+        start with, it is (in principle) possible to factor the polynomial
+        completely so that every real zero corresponds to factors of the form
+        <m>(x-c)</m> (where <m>c</m> is the value of the zero) and
+        all remaining factors are irreducible quadratics.
+        </p>
+        
+        <p>
+        In general, factoring a polynomial is very difficult.
+        But there are some special cases that are relatively easy and which
+        are typically used in practice problems. Otherwise, we need to rely 
+        on computational tools to answer such questions.
+        Your task is to know the special cases where the work
+        is manageable.
+        For more details, refer to the appendix on polynomial factoring.
+        </p>
+        
+    </subsection>
+    
+    <subsection>
+        <title>End Behavior (Limits) of Polynomials</title>
+        
+        <p>
+        The factors of a polynomial tell us where and how many times the graph crosses
+        the <m>x</m>-axis. If there is a value <m>x</m> that makes a factor equal zero,
+        then that value is an <m>x</m>-intercept. If the factor is repeated an even number
+        of times, then although the graph comes and touches the axis, the graph will
+        not cross. It is as though it bounces off the axis.
+        So knowing the factors allows us to determine much of the shape of the graph.
+        </p>
+        
+        <p>
+        All polynomials (except constant functions) have ends that
+        go to infinity. We refer to the left side of a graph as <m>x \to -\infty</m> (<m>x</m>
+        moves along the axis to the left towards infinity) and the right side
+        of the graph as <m>x \to +\infty</m> (<m>x</m> moves along the axis to the 
+        right towards infinity). If the graph goes up forever then we say <m>y \to +\infty</m>
+        and if the graph goes down forever then we say <m>y \to -\infty</m>.
+        </p>
+        
+        <example>
+        <statement>
+            Describe the end behavior of the polynomial <m>y=x^2</m>.
+        </statement>
+        <solution>
+            The graph of the parabola <m>y=x^2</m> is shown below. Both ends of the
+            graph go up forever. So we say that <m>y \to +\infty</m> as <m>x \to -\infty</m>
+            (for the left side of the graph) and that <m>y \to +\infty</m> as
+            <m>x \to +\infty</m> (for the right side of the graph).
+            
+            <figure>
+                <image xml:id="fig-parabola-endbehavior">
+                    <description>
+                    Graph of y=x^2.
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-4,xmax=4,
+                        xlabel={$x$},
+                        ylabel={$y$},
+                    ]
+
+                    \addplot[blue, thick, samples=100]
+                        ({x}, {x^2});
+                    \addplot[mark=none, black] {0};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+        </solution>
+        </example>
+
+        <example>
+        <statement>
+            Describe the end behavior of the polynomial <m>y=x^3</m>.
+        </statement>
+        <solution>
+            The graph of the parabola <m>y=x^3</m> is shown below. Because the
+            power is an odd integer, the sides of the graph go in opposite directions.
+            We say that <m>y \to -\infty</m> as <m>x \to -\infty</m>
+            (for the left side of the graph, which goes down) and that <m>y \to +\infty</m> as
+            <m>x \to +\infty</m>  (for the right side of the graph, which goes up).
+            
+            <figure>
+                <image xml:id="fig-cubic-endbehavior">
+                    <description>
+                    Graph of y=x^3.
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-4,xmax=4,
+                        xlabel={$x$},
+                        ylabel={$y$},
+                    ]
+
+                    \addplot[blue, thick, samples=100]
+                        ({x}, {x^3});
+                    \addplot[mark=none, black] {0};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+        </solution>
+        </example>
+        
+        <p>
+        The degree and leading coefficient of a polynomial completely determine the end 
+        behavior. If the degree is even, then the polynomial will behave like a parabola
+        with both ends ultimately going in the same direction (both up or both down).
+        However, if the degree is odd, then the polynomial will behave like a cubic
+        where the ends ultimately go in opposite directions (one up and one down).
+        The sign of the leading coefficient determines what happens as <m>x \to +\infty</m>,
+        with the graph going up if the leading coefficient is positive and going down
+        if the coefficient is negative. Together, this information completely determines
+        the end behavior.
+        </p>
+        
+        <example>
+        <statement>
+            Describe the end behavior of the polynomial <m>f(x) = -2x^4+x^3+5x^2-5</m>.
+        </statement>
+        <solution>
+            The degree of this polynomial is <m>n=4</m> (from the leading
+            term <m>-2x^4</m>) with a leading coefficient
+            of <m>a_4=-2</m>. Since the leading coefficient is negative, we know
+            that for <m>y=f(x)</m>, <m>y \to -\infty</m> as <m>x \to +\infty</m>.
+            (The leading coefficient determines behavior on the right.)
+            Because the degree is an even integer, we know that the left and right
+            ends ultimately go in the same direction. So we also know
+            that <m>y \to -\infty</m> as <m>x \to -\infty</m>.
+        </solution>
+        </example>
+        
+        <p>
+        When a polynomial is written in factored form, you only need to multiply enough
+        to determine the degree (or just decide if even/odd) and the sign of the leading
+        coefficient.
+        </p>
+
+        <example>
+        <statement>
+            Describe the end behavior of the polynomial <m>f(x) = -3x^2(x-4)(x+1)^2</m>.
+        </statement>
+        <solution>
+            <p>
+            The degree can be determined by counting how many times <m>x</m> will appear
+            when multiplied out. The term <m>x^2</m> will contributed two, the term <m>(x-4)</m>
+            will contribute one more, and the term <m>(x+1)^2</m> when multiplied out
+            will contribute two more. So the degree of this polynomial is <m>n=5</m>.
+            The leading coefficient will be <m>a_5=-3</m> because the terms <m>(x-4)</m>
+            and <m>(x+1)^2</m> will each have a leading coefficient of 1 when multiplied 
+            together.
+            </p>
+            <p>
+            Now that we know the leading term will be <m>-3x^5</m> (and the rest doesn't matter),
+            we can determine the end behavior.
+            Because the degree is odd, the ends will go in opposite directions.
+            Because the leading coefficient is negative, the right hand side will go down.
+            Consequently, we can say <m>y \to -\infty</m> as <m>x \to +\infty</m>.
+            In the opposite direction, we say <m>y \to +\infty</m> as <m>x \to -\infty</m>.
+            Compare that to the graph shown below.
+            </p>
+
+            <figure>
+                <image xml:id="fig-factored-poly-endbehavior">
+                    <description>
+                    Graph of y=-3x^2(x-4)(x+1)^2.
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-5,xmax=5,
+                        xlabel={$x$},
+                        ylabel={$y$},
+                    ]
+
+                    \addplot[blue, thick, samples=100]
+                        ({x}, {-3*x^2*(x-4)*(x+1)^2});
+                    \addplot[mark=none, black] {0};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+        </solution>
+        </example>
+        
+    </subsection>
+</section>

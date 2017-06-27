@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="prop-models">
+    <title>Proportional Models</title>
+
+    <introduction>
+        <p>
+        A proportional relation is the simplest example of a linear relation.
+        So before we progress to general linear relations, we want to be sure
+        that we first understand proportionality.
+        </p>
+        
+        <definition>
+            <title>Proportional Relation</title>
+
+            <statement>
+                <p>
+                Given two covarying variables <m>a</m> and <m>b</m>, we say
+                <m>b</m> is proportional to <m>a</m> and write <m>b \propto a</m>
+                to mean that the ratio <m>b/a</m> is a constant. That is, there is 
+                some constant <m>k</m> (called the <term>proportionality constant</term>
+                so that for every state,
+                <me>\frac{b}{a} = k.</me>
+                In other words, <me>b \propto a \qquad \Leftrightarrow \qquad b=k \cdot a</me>
+                for some constant <m>k</m>.
+                </p>
+            </statement>
+            <notation>
+                <title>Proportional Relation</title>
+                <usage><m>b \propto a</m></usage>
+                <description><m>b</m> is proportional to <m>a</m></description>
+            </notation>
+        </definition>
+        
+        <p>
+        As we think about variables as representing measurable quantities in an
+        experiment, we should recall that each measurement has an associated 
+        dimension and units. The proportionality constant <m>k</m> described in the
+        definition therefore also has a dimension and its units are found by creating
+        the corresponding ratio of units of the measurements.
+        </p>
+        
+        <example>
+            <title> Distance<mdash />Rate<mdash />Time Models </title>
+            <p>
+            A classic example of proportional relations is often taught
+            in introductory algebra classes as the rate equation for distance.
+            Under the assumption of <em>constant speed</em>, distance traveled
+            is proportional to the duration of time traveled.
+            </p>
+            
+            <p>
+            If we let <m>d</m> measure the distance traveled and let <m>t</m> 
+            measure the duration of time traveled, then <m>d \propto t</m>
+            with a corresponding relation
+            <me>d=rt</me>
+            with <m>r=d/t</m> measuring the rate or speed of travel.
+            </p>
+            
+            <p>
+            The dimension for the distance traveled <m>d</m> is length. 
+            The dimension for the duration of time traveled <m>t</m> is time.
+            So the dimension measured by the rate <m>r</m> is a length per time
+            with units given by a unit of length divided by a unit of time.
+            If the units of <m>d</m> are meters (m) and the units of <m>t</m> are seconds (s),
+            then the units of <m>r</m> are meters per second (m/s).
+            If the units of <m>d</m> are miles (mi) and the units of <m>t</m> are hour (hr),
+            then the units of <m>r</m> are miles per hour (mi/hr).
+            </p>
+        </example>
+        
+        <p>
+        Other quantities behave with a similar rate relation between that of distance and time.
+        For example, hourly workers are paid a monetary value that is proportional to the time worked
+        (with a constant hourly rate).
+        The volume of water added to a reservoir is proportional to the duration of time
+        the water flowed (if the flow rate is constant).
+        Many famous laws of physics and chemistry represent proportional relations.
+        Newton's second law of motion (physics) is often quoted as <me>F=ma</me>
+        which is simply to say that the net force <m>F</m> applied to a body is proportional to the
+        acceleration <m>a</m> observed by that body (and mass <m>m</m> is the proportionality constant).
+        </p>
+        
+        <p>
+        Calculus was developed to understand relations like that between distance and time
+        when the rate is <em>not</em> constant. That requires dynamic modeling which we
+        will explore later in this course. We will learn about the derivative as the
+        measure of a rate, and we will learn about the integral as the accumulated change
+        resulting from a changing rate.
+        </p>
+        
+    </introduction>
+    
+    <subsection>
+        <title> Unit Conversions </title>
+
+        <p>
+        When a quantity measures an extensive property,
+        <fn xml:id="footnote-extensive">A quantity is extensive if regardless of how you divide the whole
+        into parts and measure each of the parts, the measure of the whole is the sum of the measures of the parts.</fn>
+        a unit of measurement literally refers to a physical unit of that quantity by which you can measure.
+        A metric ruler is an excellent example, where 1 centimeter is a physical unit of length
+        and the total length can be found by subdividing the total length into centimeter units.
+        Different units of measurement give different rules, such as a yard stick where the basic unit is 1 inch.
+        </p>
+
+        <p>
+        Unit conversion describes the process of determining the measure in desired units when you are given the measure in 
+        different units. Fortunately, for extensive quantities, unit conversion takes advantage of
+        the fact that measurements in different units are proportional to one another, as
+        summarized in the following theorem.
+        </p>
+        
+        <theorem xml:id="thm-unit-conversion-proportional">
+            <title>Proportionality of Extensive Unit Conversions</title>
+            <statement>
+                <p>
+                If an extensive quantity <m>Q</m> is measured with respect to two different units <m>q_1</m> and <m>q_2</m>
+                so that <m>Q=x \; q_1</m> and <m>Q=y \; q_2</m> (i.e., <m>x</m> is the number measured on the <m>q_1</m> ruler
+                and <m>y</m> is the number measured on the <m>q_2</m> ruler), then <m>y \propto x</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>
+                Because <m>Q=x \; q_1</m> and <m>Q=y \; q_2</m>, we know <me>y \; q_2 = x \; q_1</me>
+                and <m>\displaystyle \frac{y}{x} = \frac{q_1}{q_2}</m>, which is constant. Therefore <m>y \propto x</m>.
+                </p>
+            </proof>
+        </theorem>
+        
+        <p>
+        The proportionality constant for unit conversions is found by measuring the same quantity in both units and 
+        computing the appropriate ratio. (This is found in Section 1.3.1 of the Adler textbook, pages 25-27.)
+        In practice, we just create a dimensional equation that allows us to cancel units according to usual
+        rules of algebra.
+        </p>
+        
+        <example>
+            <p>
+            How many centimeters are in a foot? How many feet are in 1 meter?
+            </p>
+            
+            <p>
+            The official definition of an inch is 2.54 centimeters. One foot has 12 inches. One meter is 100 centimeters.
+            These statements of fact establish dimensional equations which allow us to convert units.
+            <me>
+                \begin{gathered}
+                1 \; \hbox{in} = 2.54 \; \hbox{cm} \\ 
+                \frac{1 \; \hbox{in}}{2.54 \; \hbox{cm}} = 1 \\
+                \frac{2.54 \; \hbox{cm}}{1 \; \hbox{in}} = 1 
+                \end{gathered}
+            </me>
+            We can multiply by 1 using these unit conversion ratios to cancel old units and insert new units.
+            </p>
+            
+            <p>
+            To answer the first question, we start with 1 foot and use unit conversions to find new units.
+            <me>
+                \begin{aligned}
+                1\;\hbox{ft} &amp;= 1\;\cancel{\hbox{ft}} \cdot \frac{12\;\hbox{in}}{1\;\cancel{\hbox{ft}}} = 12\;\hbox{in} \\
+                &amp;= 12\;\cancel{\hbox{in}} \cdot \frac{2.54\;\hbox{cm}}{1\;\cancel{\hbox{in}}} = 12(2.54)\;\hbox{cm} =  30.48 \;\hbox{cm}
+                \end{aligned}
+            </me>
+            This could be done in one step by using repeated conversion factors.
+            <me>
+                1\;\hbox{ft} = 1\;\cancel{\hbox{ft}} 
+                            \cdot \frac{12\;\cancel{\hbox{in}}}{1\;\cancel{\hbox{ft}}} 
+                            \cdot \frac{2.54\;\hbox{cm}}{1\;\cancel{\hbox{in}}} = 12(2.54)\;\hbox{cm} =  30.48 \;\hbox{cm}
+            </me>
+            </p>
+
+            <p>
+            The second question is answered in a similar way.
+            <me>
+                1\;\hbox{m} = 1\;\cancel{\hbox{m}} 
+                            \cdot \frac{100\;\cancel{\hbox{cm}}}{1\;\cancel{\hbox{m}}} 
+                            \cdot \frac{1\;\cancel{\hbox{in}}}{2.54\;\cancel{\hbox{cm}}}
+                            \cdot \frac{1\;{\hbox{ft}}}{12\;\cancel{\hbox{in}}}
+                            = \frac{100}{2.54(12)}\;\hbox{ft} \approx 3.28 \;\hbox{ft}
+            </me>
+            </p>
+        </example>
+        
+    </subsection>
+    
+    <subsection>
+        <title>Geometric Similarity</title>
+
+        <p>
+        A second  application of proportional relations is in regards to geometric similarity.
+        Similarity refers to the idea that two different geometric figures are the same shape
+        but at different scales and perhaps rotated or reflected. The mathematical consequence
+        of this is that any length of a path on one figure is proportional to the length of the
+        corresponding path on the other figure, and the proportionality constant is the same
+        for all such paths representing the scaling factor.
+        </p>
+        
+        <p>
+        The most common application is applied to the lengths of edges of two similar polygons,
+        usually triangles. If all of the lengths of one polygon are known and you can find
+        the scaling factor, then you can find all of the lengths of the similar polygon.
+        </p>
+        
+        <example>
+            <p>
+            Consider the two similar quadrilaterals <m>abcd</m> and <m>ABCD</m> illustrated in the figure below,
+            where the vertices are labeled to show the correspondence between the shapes.
+            We would write <m>abcd \sim ABCD</m> to indicate that these polygons are similar with the given
+            vertex correspondence.
+            </p>
+            <notation>
+                <title>Similarity</title>
+                <usage><m>abcd \sim ABCD</m></usage>
+                <description>The polygon <m>abcd</m> is similar to the polygon <m>ABCD</m></description>
+            </notation>
+            <p>
+            Suppose that you are given the following lengths: <m>ab=3</m>, <m>ad=5</m>, <m>cd=4</m>, 
+            <m>AB=4.5</m> and <m>BC=6</m>. What are the lengths of the other sides?
+            </p>
+
+            <figure xml:id="figure-similar-quadrilaterals">
+                <caption>Two similar quadrilaterals</caption>
+                <image xml:id="similar-quadrilaterals">
+                    <description>Two quadrilaterals are similar as they are of the same shape but different scale.</description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[auto, thick]
+
+                    \pgfmathsetmacro{\s}{0.25}
+                    \pgfmathsetmacro{\phi}{0}
+
+                    \coordinate (p) at (0,0);
+                    \coordinate [label=right:$a$] (a) at ($ (p) + \s*(\phi:4) $);
+                    \coordinate [label=above:$b$] (b) at ($ (p) + \s*(60+\phi:4) $);
+                    \coordinate [label=left:$c$] (c) at ($ (p) + \s*(180+\phi:4) $);
+                    \coordinate [label=below:$d$] (d) at ($ (p) + \s*(-90+\phi:3) $);
+                    \filldraw[fill=blue!20!white] (a) -- (b) -- (c) -- (d) -- cycle;
+                    
+                    \pgfmathsetmacro{\s}{0.4}
+                    \pgfmathsetmacro{\phi}{-40}
+
+                    \coordinate (P) at (3,0.5);
+                    \coordinate [label=right:$A$] (A) at ($ (P) + \s*(\phi:4) $);
+                    \coordinate [label=right:$B$] (B) at ($ (P) + \s*(60+\phi:4) $);
+                    \coordinate [label=left:$C$] (C) at ($ (P) + \s*(180+\phi:4) $);
+                    \coordinate [label=left:$D$] (D) at ($ (P) + \s*(-90+\phi:3) $);
+                    \filldraw[fill=red!20!white] (A) -- (B) -- (C) -- (D) -- cycle;
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            
+            <p>
+            Because the shapes are similar, all corresponding lengths are proportional
+            and the ratios <m>ab/AB</m>, <m>bc/BC</m>, <m>cd/CD</m> and <m>ad/AD</m> must all have the same value.
+            We look for which of those ratios can be computed numerically.
+            Since <m>ab</m> and <m>AB</m> are both given, we can find the common ratio.
+            <me>\frac{ab}{AB} = \frac{3}{4.5} = \frac{2}{3} = \frac{bc}{BC} = \frac{cd}{CD} = \frac{ad}{AD}</me>
+            Knowing the ratio, we can find the missing lengths.
+            <me>\begin{aligned}
+            \frac{ad}{AD} &amp;= \frac{5}{AD} = \frac{2}{3} \quad \Rightarrow \quad AD=\frac{15}{2}=7.5 \\
+            \frac{bc}{BC} &amp;= \frac{bc}{6} = \frac{2}{3} \quad \Rightarrow \quad bc=4 \\
+            \frac{cd}{CD} &amp;= \frac{4}{CD} = \frac{2}{3} \quad \Rightarrow \quad CD=6
+            \end{aligned}</me>
+            </p>
+        </example>
+        
+        <p>
+        We most commonly encounter similarity relations when dealing with triangles, so
+        the following theorem is stated in the context of triangles, but it easily generalizes
+        to other polygons. This theorem states that when two triangles are similar, then
+        the ratio of edge lengths within a specific triangle equals the corresponding ratio of 
+        edge lengths in the other triangle.
+        </p>
+        
+        <theorem xml:id="thm-similar-triangle-ratios">
+            <title>Similar Triangles Have Equal Edge Length Ratios</title>
+            <statement>
+                <p>
+                If <m>ABC</m> and <m>PQS</m> are similar triangles, <m>ABC \sim PQS</m>, then 
+                <me>
+                \displaystyle \frac{AB}{AC} = \frac{PQ}{PS}
+                \quad \hbox{and} \quad
+                \displaystyle \frac{AB}{BC} = \frac{PQ}{QS}
+                \quad \hbox{and} \quad
+                \displaystyle \frac{AC}{BC} = \frac{PS}{QS}.
+                </me>
+                </p>
+                <figure xml:id="figure-similar-triangles">
+                    <caption>Two similar triangles <m>ABC \sim PQS</m>.</caption>
+                    <image xml:id="similar-triangles">
+                        <description>Two triangles ABC and PQS are shown.</description>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[auto, thick]
+                        \pgfmathsetmacro{\angleA}{40}
+                        \pgfmathsetmacro{\angleB}{150}
+                        \pgfmathsetmacro{\angleC}{-150}
+
+                        \pgfmathsetmacro{\s}{1.5}
+                        \pgfmathsetmacro{\phi}{0}
+
+                        \coordinate (c1) at (0,0);
+                        \coordinate [label=right:$A$] (A) at ($ (c1) + \s*(\angleA+\phi:1) $);
+                        \coordinate [label=left:$B$] (B) at ($ (c1) + \s*(\angleB+\phi:1) $);
+                        \coordinate [label=below:$C$] (C) at ($ (c1) + \s*(\angleC+\phi:1) $);
+                        \filldraw[fill=blue!20!white] (A) -- (B) -- (C) -- cycle;
+                    
+                        \pgfmathsetmacro{\s}{2}
+                        \pgfmathsetmacro{\phi}{70}
+
+                        \coordinate (c2) at (4,0.5);
+                        \coordinate [label=above:$P$] (P) at ($ (c2) + \s*(\angleA+\phi:1) $);
+                        \coordinate [label=left:$Q$] (Q) at ($ (c2) + \s*(\angleB+\phi:1) $);
+                        \coordinate [label=right:$S$] (S) at ($ (c2) + \s*(\angleC+\phi:1) $);
+                        \filldraw[fill=red!20!white] (P) -- (Q) -- (S) -- cycle;
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+            
+            </statement>
+
+            <proof>
+                <p>
+                We will prove this for only one ratio equivalence, as the argument is the same for the others.
+                Since <m>ABC \sim PQS</m>, there is a common proportionality constant for the ratios
+                of corresponding edge lengths between the two triangles, say <m>k</m>.
+                <me>k = \frac{AB}{PQ} = \frac{AC}{PS} = \frac{BC}{QS}</me>
+                So <m>PQ = k \, AB</m> and <m>PS = k \, AC</m>.
+                Thus the corresponding ratios of edge lengths within triangles are equal:
+                <me> \frac{PQ}{PS} = \frac{k \, AB}{k \, AC} = \frac{AB}{AC}.</me>
+                </p>
+            </proof>
+        </theorem>
+        
+        <example>
+            <p>
+            The triangles <m>ABC</m> and <m>PQS</m> are similar, with the edge
+            lengths as shown in the figure below. Find the lengths of edges in <m>PQS</m>.
+            </p>
+
+            <figure xml:id="figure-similar-3-4-5-triangles">
+                <caption>Triangles <m>ABC</m> and <m>PQS</m> are similar.</caption>
+                <image xml:id="similar-3-4-5-triangles">
+                    <description>ABC is a right triangle with lengths AB=5, BC=3 and AC=4. 
+                    PQS is similar to ABC with PS=6.</description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[auto, thick, scale=0.5]
+
+                    \coordinate [label=left:$A$] (A) at (0,0);
+                    \coordinate [label=right:$B$] (B) at (4,3);
+                    \coordinate [label=right:$C$] (C) at (4,0);
+                    \filldraw[fill=blue!20!white] 
+                        (A) -- node [above left] {5}
+                        (B) -- node [right] {3}
+                        (C) -- node [below] {4} 
+                        (A) -- cycle;
+                    
+                    \coordinate [label=left:$P$] (P) at (7,0);
+                    \coordinate [label=right:$Q$] (Q) at (13,4.5);
+                    \coordinate [label=right:$S$] (S) at (13,0);
+                    \filldraw[fill=red!20!white] 
+                        (P) -- 
+                        (Q) -- 
+                        (S) -- node [below] {6}
+                        (P) -- cycle;
+                    
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            
+            <p>
+            The old way to solve this problem (before the theorem) would be to 
+            observe that the edge <m>AC</m> corresponds to the edge <m>PS</m>
+            so that the scaling ratio is <m>\displaystyle k = \frac{PS}{AC} = \frac{3}{2}</m>.
+            Then multiplying all of the edges of <m>ABC</m> by <m>k=\frac{3}{2}</m> gives
+            the edges of interest:
+            <me>\begin{aligned}
+            \frac{PQ}{AB} &amp;= k = \frac{3}{2} \qquad \Rightarrow \qquad PQ = k \, AB = \frac{3}{2}(5) = \frac{15}{2} = 7.5, \\
+            \frac{QS}{BC} &amp;= k = \frac{3}{2} \qquad \Rightarrow \qquad QS = k \, BC = \frac{3}{2}(3) = \frac{9}{2} = 4.5.
+            \end{aligned}
+            </me>
+            </p>
+            
+            <p>
+            The theorem provides a new method where we look at ratios in the triangle <m>ABC</m>
+            in order to find the same ratios in the triangle <m>PQS</m>. For example, the ratio of 
+            edges <m>AB : AC</m> is the same as the ratio <m>PQ : PS</m> so that
+            <me> \frac{AB}{AC} = \frac{5}{4} \quad \Rightarrow \quad \frac{PQ}{PS} = \frac{PQ}{6} = \frac{5}{4}
+            \quad \Rightarrow \quad PQ = \frac{5}{4}(6) = \frac{15}{2} = 7.5. </me>
+            Similarly, the ratio of edges <m>AC : BC</m> must equal the ratio <m>PS : QS</m>
+            which leads to
+            <me> \frac{AC}{BC} = \frac{4}{3} \quad \Rightarrow \quad \frac{PS}{QS} = \frac{6}{QS} = \frac{4}{3}
+            \quad \Rightarrow \quad QS = \frac{3}{4}(6) = \frac{9}{2} = 4.5. </me>
+            We see that we get the same lengths as the previous method.
+            <fn xml:id="footnote-similar-triangle-ratios">
+            It is easy to look at this example and say, <q>Why would I ever do that? It was easier the first way!</q>
+            The point of this example is to demonstrate the second method, not to claim that the second method
+            is preferable. This new approach will be critical to know as it is at the foundation
+            of trigonometric relations.
+            </fn>
+            </p>
+        </example>
+    </subsection>
+
+    <subsection>
+        <title>Proportional Models</title>
+        
+        <introduction>
+        <p>
+        Many mathematical models are constructed using the principle of proportionality.
+        The basic idea is to identify two quantities that are expected to covary in
+        a proportional manner and write an equation capturing that relationship.
+        For some models, the proportionality constant is left unspecified as a parameter.
+        In other cases, the constant is either known or can be computed from the given 
+        information. This subsection contains a variety of examples illustrating the power
+        of using proportional models.
+        </p>
+        </introduction>
+        
+        <subsubsection>
+            <title>Per Capita Rates</title>
+            
+            <p>
+            In population biology, we are often interested the relationship between
+            vital rates, such as birth rates and death rates, with the size of the population.
+            That is, we might expect that the birth rate (number of births per unit time)
+            would be larger if the population were larger since there are more individuals
+            potentially giving birth. Similarly, we might expect that the death rate (number
+            of deaths per unit time) in a population would also be larger in a larger population.
+            Models in population biology are often constructed by describing these relations.
+            </p>
+            
+            <p>
+            The simplest model capturing the idea that the birth rate is larger when the
+            population is larger uses an assumption that the birth rate is proportional
+            to the population size. Using variables, let <m>B</m> represent the birth rate
+            for a population and let <m>P</m> represent the size of the population. These
+            are covarying variables. Our assumption is that <m>B \propto P</m>, meaning that
+            we expect that under all conditions, the ratio <m>B : P</m>
+            is always the same constant.
+            </p>
+            
+            <p>
+            Using a lowercase <m>b</m> for this constant, our model is characterized by the relation
+            <men>B = b \cdot P. </men>
+            This proportionality constant has a special name, the <term>per capita birth rate</term>.
+            Here, I am speaking about the role of the constant, not the particular letter <m>b</m>.
+            The phrase <em>per capita</em> has a literal translation of <em>per head</em>.
+            Because <m>b</m> is defined by the ratio <m>\displaystyle b=\frac{B}{P}</m>,
+            in the case that <m>P=1</m> (population size is 1), <m>b</m> would equal <m>B</m>,
+            the number of births per unit time of a single individual.
+            </p>
+            
+            <p>
+            In a similar way, if we assume that the death rate of a population is proportional
+            to the size of the population, then we should consider the per capita death rate
+            <m>d</m> which leads to a model relation between the population death rate <m>D</m>
+            and the size of the population <m>P</m> given by
+            <men>D = d \cdot P. </men>
+            These models are often characterized by saying the population has a 
+            <term>constant per capita rate</term>.
+            </p>
+            
+            <example>
+                <p>
+                The United States Census Bureau's summary of births reports a birth rate
+                of 14.0 births per thousand individuals in the population for the year 2008.
+                The population that year was 304.1 million individuals. How many births
+                were recorded in 2008?
+                </p>
+                
+                <p>
+                This vital statistic information allows us to compute the per capita birth rate
+                based on a population of 1000.
+                <me> b = \frac{B}{P} = \frac{14.0}{1000} = 0.0140 </me>
+                For the full population <m>304.1\times 10^{6}</m>, we can compute the
+                birth rate for the year.
+                <me> B = b \cdot P = 0.0140 (304.1 \times 10^{6}) = 4.26 \times 10^{6} </me>
+                There were about 4.26 million births during the year 2008.
+                </p>
+                
+                <p>
+                Checking the bureau's direct report, we can find there were 4.248 million births
+                during the year. The discrepancy comes from reporting the per capita birth rate
+                with only three significant digits. A more accurate value would have been <m>b=13.97</m>
+                which leads to a matching result.
+                </p>
+            </example>
+
+        </subsubsection><!-- Per Capita Rates -->
+        
+        <subsubsection>
+            <title>Cost and Unit Cost</title>
+            
+            <p>
+            Many goods and services are purchased with a fixed unit cost.
+            This is another way of saying that the total cost is proportional
+            to the measure of the goods or services purchased.
+            Someone working at a fixed hourly rate receives a payment that is proportional
+            to the number of hours worked.
+            Grocery stores give prices for produce in dollars per pound, meaning that 
+            the cost of purchase is proportional to the weight.
+            </p>
+            
+            <p>
+            When multiple items are purchased, the total cost is the sum of the individual
+            costs. In this way, if there are different unit costs, we can still compute
+            the total cost.
+            </p>
+            
+            <example>
+                <title>Material Costs</title>
+
+                <p>
+                You are finishing a room that is 10 feet by 18 feet and a ceiling that
+                is 8 feet high. There are two windows (3 feet by 5 feet) and one door 
+                (3 feet by 7 feet). If wall paper costs <dollar />0.60 per square foot
+                and carpet costs <dollar />1.25 per square foot, what will be the total
+                cost of materials (ignoring unused scraps)?
+                </p>
+                
+                <p>
+                Notice that cost information is given per square foot. These prices are
+                the proportionality constants between the cost and the area. So we first need
+                to find the areas and then compute the cost.
+                </p>
+                
+                <p>
+                The carpet is a rectangle that is 10 feet by 18 feet. The area is computed
+                as length times width,
+                <me>A_{\hbox{carpet}} = L \cdot W = 10(18) \; \hbox{ft}^2 = 180 \; \hbox{ft}^2,</me>
+                and the carpet cost is proportional,
+                <me>C_{\hbox{carpet}} = 1.25 \; \hbox{dollars/ft}^2 \cdot A_{\hbox{carpet}}
+                = 225 \; \hbox{dollars}.</me>
+                Notice how the unit price divides by a dimension of area which when multiplied 
+                by the area (in the same units) cancel. If the price was given in different
+                units, we would first need to perform unit conversion.
+                </p>
+                
+                <p>
+                The walls consist of four rectangles which are then missing three smaller
+                rectangles (for the door and windows).
+                Two walls have width 10 feet and height 8 feet for area <m>80 \; \hbox{ft}^2</m> each;
+                the other walls have length 18 ft and height 8 ft for area <m>144 \; \hbox{ft}^2</m> each.
+                The door removes <m>21 \; \hbox{ft}^2</m> and each window removes 
+                <m>15 \; \hbox{ft}^2</m>. The total area needing wallpaper is
+                <me>A_{\hbox{wallpaper}} = [2(80) + 2(144) - 21 - 2(15)] \; \hbox{ft}^2 = 397 \; \hbox{ft}^2,</me>
+                with a resulting proportional cost
+                <me>C_{\hbox{wallpaper}} = 0.60 \; \hbox{dollars/ft}^2 \cdot A_{\hbox{wallpaper}}
+                = 238.20 \; \hbox{dollars}.</me>
+                The total cost is the sum
+                <me>C = C_{\hbox{carpet}} + C_{\hbox{wallpaper}} = <dollar />463.20 \; \hbox{dollars}.</me>
+                </p>
+                
+                
+            </example>
+        </subsubsection><!-- Cost and Unit Cost -->
+    </subsection> <!-- Proportional Models -->
+</section>

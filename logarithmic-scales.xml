@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="logarithmic-scales">
+    <title>Properties of Logarithms</title>
+
+    <subsection>
+        <title>Overview</title>
+        
+        <p>
+        We previously learned that logarithms are the inverse functions of exponential
+        functions. In this section, we will further develop our understanding of
+        logarithms by considering a logarithmic number line. This new number line
+        has the property that what we normally think of as addition is interpreted
+        in the context of multiplication, resulting from the fact that when exponentials
+        are multiplied, the powers are added. This interpretation allows us to
+        understand the basic properties of logarithms.
+        </p>
+        
+        <p>
+        In addition, we will learn that when exponential and power functions
+        can be plotted with logarithmic scale axes, the resulting transformed graph
+        will appear linear. Not only will this allow us to identify from data whether
+        a power function or exponential function is appropriate, but by finding the
+        appropriate equation of a line (in the transformed variables), we can find
+        the equation of the actual function using the properties of the logarithm.
+        </p>
+        
+    </subsection>
+    
+    <!-- Fundamental properties of logarithms -->
+    <subsection>
+        <title>Logarithmic Number Lines</title>
+        
+        <p>
+        The standard number line is also called an arithmetic number line.
+        Spacing between numbers is based on addition.
+        That is, there is a length called the unit length that represents
+        the space between consecutive whole numbers, and in particular it is the
+        distance between the numbers 0 and 1 on the number line.
+        A consequence of this spacing of numbers is that
+        the space between any two numbers <m>a</m> and <m>b</m>
+        on the number line is exactly the same as the spacing
+        between <m>0</m> and <m>b-a</m>.
+        </p>
+        
+        <p>
+        Adding numbers on an arithmetic number line corresponds geometrically 
+        to combining the lengths. One way to see this is to consider two identical
+        number lines and two numbers <m>a</m> and <m>b</m>.
+        Take the first number line and find the number <m>a</m> on that number line.
+        Now, take the second number line and move it so that the number 0
+        (which is the <term>additive identity</term>) is exactly aligned with the
+        number <m>a</m> on the first number line.
+        Find the second number <m>b</m> on the shifted number line and
+        see what number appears next to it on the original number line.
+        That number will be <m>a+b</m>.
+        </p>
+        
+        <figure>
+            <caption>
+            Addition of the numbers 8 and -3 using arithmetic number lines 
+            ends at <m>8+-3=5</m>.
+            </caption>
+            <image xml:id="fig-number-line-addition">
+                <description>
+                Addition of the numbers 8 and -3 using arithmetic number lines.
+                </description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[x=0.5cm]
+                \draw[<->] (-4.5,0) -- (12.5,0);
+                \foreach \x in {-4, -3, ..., 12}
+                    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+                \draw [very thick, red, ->] (0,0) -- (8,0);
+                \draw[<->] (-4.5,-1) -- (12.5,-1);
+                \foreach \x in {-12, -11, ..., 4}
+                    \draw ($ (\x+8,-1+0.1) $) -- ($ (\x+8,-1-0.1) $) node[below] {\x};
+                \draw [very thick, red, ->] (8,-1) -- (5,-1);
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+        
+        <p>
+        A logarithmic number line is a number line that is designed for
+        multiplication instead of addition.
+        The number 1, which is the multiplicative identity, represents the origin.
+        The logarithmic number line involves only positive numbers and
+        is designed so that the spacing between values corresponds to
+        the ratio of numbers (instead of the difference).
+        That is, given two positive numbers <m>a>0</m> and <m>b>0</m>,
+        the spacing between the numbers is the same as the space
+        between 1 and <m>b/a</m>.
+        </p>
+        
+        <p>
+        The consequence of this construction is that geometric addition corresponds
+        to multiplication of numbers. That is, if we want to multiply two numbers
+        <m>a</m> and <m>b</m>, you start with one logarithmic number line and
+        position the second line so 1 is aligned with <m>a</m>. Finding the number
+        <m>b</m> on the second line will correspond to the location of <m>ab</m>
+        on the original line.
+        </p>
+
+        <figure>
+            <caption>
+            Multiplication of the numbers 3 and 5 using logarithmic number lines 
+            ends at <m>3 \cdot 5=15</m>.
+            </caption>
+            <image xml:id="fig-lognumber-line-multiplication">
+                <description>
+                Multiplication of the numbers 3 and 5 using logarithmic number lines.
+                </description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[x=2cm]
+                \draw[<->] (-0.5,0) -- (5,0);
+                \foreach \x in {1, 2, ..., 30}
+                    \draw ($ ({ln(\x)/ln(2)},0.1) $) -- ($ ({ln(\x)/ln(2)},-0.1) $);
+                \foreach \x in {1, 2, ..., 10, 12, 15, 20}
+                    \node[below] at ($ ({ln(\x)/ln(2)},-0.1) $) {\x};
+                \draw [very thick, red, ->] ($ ({ln(1)/ln(2)},0) $) -- ($ ({ln(3)/ln(2)},0) $);
+
+                \draw[<->] (-0.5,-1) -- (5,-1);
+                \foreach \x in {1, 2, ..., 10}
+                    \draw ($ ({ln(3*\x)/ln(2)},-0.9) $) -- ($ ({ln(3*\x)/ln(2)},-1.1) $);
+                \foreach \x in {1, 2, ..., 10}
+                    \node[below] at ($ ({ln(3*\x)/ln(2)},-1.1) $) {\x};
+                \draw [very thick, red, ->] ($ ({ln(3)/ln(2)},-1) $) -- ($ ({ln(15)/ln(2)},-1) $);
+
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+        
+        <p>
+        This number line exactly corresponds to the idea of the logarithm functions.
+        Consider an exponential base <m>b</m>. The integer powers of <m>b</m> will 
+        be equally spaced on the logarithmic number line.
+        The unit length will correspond to the spacing between the origin 1 and the 
+        base <m>b</m> which is also the spacing between all integer powers of <m>b</m>.
+        Adjacent to the logarithmic number line, put an arithmetic number line 
+        so that the origin 0 is adjacent to the 1 on the logarithmic line
+        and the number 1 is adjacent to the base <m>b</m> on the logarithmic line.
+        The exponential function with base <m>b</m>, <m>\exp_b(x)</m>, is the
+        mapping from the arithmetic line to the logarithmic line.
+        The logarithm function with base <m>b</m>, <m>\log_b(x)</m>, is the inverse
+        mapping from the logarithmic line back to the arithmetic line.
+        The following figure illustrates this with a base <m>b=3</m>.
+        </p>
+
+        <figure>
+            <caption>
+            The logarithm base <m>b=3</m> uses the logarithmic scale
+            with a unit length corresponding to <m>b=3</m>.
+            </caption>
+            <image xml:id="fig-logarithm-by-numberline">
+                <description>
+                Logarithm base 3 as appearing on a number line.
+                </description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[x=2.5cm]
+                \draw[<->] (-0.5,0) -- (3.5,0)
+                    node [right] {$u=\exp_3(x)$};
+                \foreach \x in {1, 2, ..., 30}
+                    \draw ($ ({ln(\x)/ln(3)},-0.1) $) -- ($ ({ln(\x)/ln(3)},0.1) $);
+                \foreach \x in {1,2,...,10,12,15,20,27}
+                    \node[below] at ($ ({ln(\x)/ln(3)},-0.1) $) {\x};
+
+                \draw[<->] (-0.5,-1) -- (3.5,-1)
+                    node [right] {$x=\log_3(u)$};
+                \foreach \x in {0, 1, 2, 3}
+                    \draw [very thick] (\x, -0.1) -- (\x, 0.1);
+                \foreach \x in {0, 1, 2, 3}
+                    \draw (\x, -0.9) -- (\x, -1.1)
+                    node [below] {\x};
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+        
+        
+        <definition>
+        <statement>
+        For a base <m>b>0</m> with <m>b \ne 1</m>, we define
+        <m>\log_b(x)</m> to be that number <m>a</m> such that <m>x=\exp_b(a)=b^a</m>.
+        <me> \log_b(x) = a \quad \Leftrightarrow \quad \exp_b(a)=x \quad \Leftrightarrow \quad b^a = x </me>
+        </statement>
+        </definition>
+        
+        <p>
+        Because multiplication on the logarithmic scale is identical to 
+        addition on the arithmetic scale, the logarithm function inherits a 
+        corresponding property. Also, division is the inverse operation to 
+        multiplication in the same way that subtraction is the inverse operation
+        to addition. Finally, because powers correspond to repeated multiplication,
+        any power <m>a^p</m> in a logarithmic scale will correspond to a position
+        that is exactly <m>p</m> times the logarithm of <m>a</m>.
+        These three features provide the three key properties of every logarithm
+        function, which are summarized in the following theorem.
+        </p>
+        
+        <theorem>
+        <statement>
+        For any base <m>b>0</m> with <m>b \ne 1</m>, 
+        <md> 
+            <mrow> \log_b(u \cdot v) &amp;= \log_b(u) + \log_b(v) </mrow>
+            <mrow> \log_b(u \div v) &amp;= \log_b(u) - \log_b(v) </mrow>
+            <mrow> \log_b(u^p) &amp;= p \cdot \log_b(u) </mrow>
+        </md>
+        </statement>
+        </theorem>
+        
+        <p>
+        These properties are exactly the inverse properties of exponential functions.
+        </p>
+        
+        <theorem>
+        <statement>
+        For any base <m>b>0</m> with <m>b \ne 1</m>, 
+        <md> 
+            <mrow> \exp_b(x+y) &amp;= \exp_b(x) \cdot \exp_b(y) </mrow>
+            <mrow> \exp_b(x-y) &amp;= \exp_b(x) \div \exp_b(y) </mrow>
+            <mrow> \exp_b(x \cdot y) &amp;= (\exp_b(x))^y </mrow>
+        </md>
+        </statement>
+        <proof>
+            <p>
+            The proof of these properties is just interpreting properties of powers
+            in the context of exponential functions.
+            </p>
+            <md>
+                <mrow> \exp_b(x+y) = b^{x+y} = b^x \cdot b^y = \exp_b(x) \cdot \exp_b(y) </mrow>
+                <mrow> \exp_b(x-y) = b^{x-y} = \frac{b^x}{b^y} = \exp_b(x) \div \exp_b(y) </mrow>
+                <mrow> \exp_b(x \cdot y) = b^{x \cdot y} = (b^x)^y = (\exp_b(x))^y </mrow>
+            </md>
+        </proof>
+        </theorem>
+        
+        <p>
+        The logarithm properties can be used to find logarithms of a quantity in terms
+        of its factors. This can be illustrated using numbers as well as formulas.
+        </p>
+        
+        <example>
+        <statement>
+        Given that <m>\log_3(2) \approx 0.6309</m> and <m>\log_3(5) \approx 1.4650</m>,
+        determine each of the following:
+        <ol>
+            <li><m>\log_3(10)</m></li>
+            <li><m>\log_3(\frac{27}{5})</m></li>
+            <li><m>\log_3(\frac{32}{125})</m></li>
+        </ol>
+        </statement>
+        
+        <solution>
+        <ol>
+            <li>
+            We start by factoring 10 as <m>10=2 \cdot 5</m>. So we use the
+            product rule for logarithms:
+            <me> \log_3(10) = \log_3(2 \cdot 5) = \log_3(2) + \log_3(5).</me>
+            At this point, we use our approximations:
+            <me> \log_3(10) \approx 0.6309 + 1.4650 = 2.0959. </me>
+            </li>
+            <li>
+            Because <m>\frac{27}{5}</m> is a quotient, we know that we will
+            use the quotient rule for logarithms.
+            <me> \log_3(\frac{27}{5}) = \log_3(27) - \log_3(5) </me>
+            Because 27 is a power of 3, <m>27 = 3^3</m>, we know <m>\log_3(27) = 3</m>.
+            Consequently, we find with our approximations that
+            <me> \log_3(\frac{27}{5}) = 3 - \log_3(5) 
+            \approx 3 - 1.4650 = 1.5350. </me>
+            </li>
+            <li>
+            Because <m>\frac{32}{125}</m> is a quotient, we will use the 
+            quotient rule for logarithms. We also need to consider the
+            prime factorizations, <m>32 = 2^5</m> and <m>125=5^3</m>.
+            Together, these allow us to compute
+            <me> \log_3(\frac{32}{125}) = \log_3(32) - \log_3(125)
+            = \log_3(2^5) - \log_3(5^3) = 5 \log_3(2) - 3 \log_3(5). </me>
+            Using our approximations, we find
+            <me> \log_3(\frac{32}{125}) \approx 5(0.6309) - 3(1.4650)
+            = -1.2405. </me>
+            </li>
+        </ol>
+        </solution>
+        </example>
+        
+        <example>
+        <statement>
+            <p>
+            Expand the expression <m>\displaystyle \log_b(\frac{u\cdot v^k}{w^n})</m> using properties of logarithms.
+            </p>
+        </statement>
+        <solution>
+            <p>
+            The properties of logarithms depend on recognizing the operation forming
+            the expression as input. Our expression <m>\displaystyle \frac{u \cdot v^k}{w^n}</m> involves division,
+            so we must use the rule for the logarithm of a quotient.
+            <me> \log_b(\frac{u \cdot v^k}{w^n}) = \log_b(u \cdot v^k) - \log_b(w^n). </me>
+            We repeat the process until rules no longer apply.
+            The expression <m>u \cdot v^k</m> is a product, so the rule for a logarithm of a product gives
+            <me> \log_b(\frac{u \cdot v^k}{w^n}) = \log_b(u) + \log_b(v^k) - \log_b(w^n). </me>
+            The expression <m>v^k</m> and <m>w^n</m> are both powers, so the rule for a logarithm of a power gives
+            <me> \log_b(\frac{u \cdot v^k}{w^n}) = \log_b(u) + k \cdot \log_b(v) - n \cdot \log_b(w). </me>
+            This is completely expanded.
+            </p>
+        </solution>
+        </example>
+        
+        <p>
+        The reverse process can also be performed, taking an expression involving multiple logarithms
+        that are added or subtracted to find a single expression involving one logarithm.
+        The key to doing this properly is to be sure that order of operations actually gives
+        you a sum of two logarithms (to become the logarithm of a product), 
+        a difference of two logarithms (to become the logarithm of a quotient),
+        or a product of a value times a logarithm (to become the logarithm of a power).
+        </p>
+        
+        <example>
+        <statement>
+            <p>
+            Simplify the expression <m>\log(x) - 4\log(y) + 2 \log(z)</m> using properties of logarithms.
+            </p>
+        </statement>
+        <solution>
+            <p>
+            Order of operations tells us that the expression first involves the product of 4 and <m>\log(y)</m>.
+            This can be rewritten as the logarithm of <m>y</m> to a power, <m>4 \log(y) = \log(y^4)</m>.
+            Similarly, the next operation would be the product of 2 and <m>\log(z)</m> which
+            can be rewritten <m>2 \log(z) = \log(z^2)</m>. We now have
+            <me> \log(x) - 4 \log(y) + 2 \log(z) = \log(x) - \log(y^4) + \log(z^2). </me>
+            Order of operations put addition and subtraction at the same priority, so we must interpret
+            this left-to-right. So we have a difference of <m>\log(x)</m> and <m>\log(y^4)</m>,
+            which can be rewritten as the logarithm of a quotient,
+            <me> \log(x) - 4 \log(y) + 2 \log(z) = \log(\frac{x}{y^4}) + \log(z^2). </me>
+            Finally, we have the sum of two logarithms, which can be rewritten as the logarithm of a product,
+            <me> \log(x) - 4 \log(y) + 2 \log(z) = \log(\frac{x}{y^4} \cdot z^2) = \log(\frac{xz^2}{y^4}). </me>
+            </p>
+        </solution>
+        </example>
+        
+        <p>
+        Scientific calculators have two logarithm functions.
+        One logarithm that is used most often for data involves base <m>b=10</m>,
+        also called the common logarithm. This is especially useful as it relates 
+        to scientific notation. Every positive number can be written in
+        scientific notation as <m>m \times 10^p</m> where <m>1 \le m \lt 10</m>
+        and <m>p</m> is an integer. Then the common logarithm will be
+        <me> \log_{10}(m \times 10^p) = p + \log_{10}(m) </me>
+        with a value between <m>p</m> and <m>p+1</m>.
+        </p>
+        
+        <example>
+        <md>
+            <mrow> \log_{10}(3.25) &amp; \approx 0.5119 </mrow> 
+            <mrow> \log_{10}(3.25 \times 10^4) &amp; = 4 + \log_{10}(3.25) \approx 4.5119 </mrow>
+            <mrow> \log_{10}(3.25 \times 10^{-3}) &amp; = -3 + \log_{10}(3.25) \approx -2.4881 </mrow> 
+        </md>
+        </example>
+        
+        <p>
+        While a common logarithm is convenient for representing numbers in terms
+        of their order of magnitude, mathematics usually considers the 
+        natural logarithm with base <m>e \approx 2.7182818285</m>.
+        The reason for this choice will be made clear as we learn calculus.
+        </p>
+
+    </subsection>
+    
+    <subsection>
+        <title>Semi<ndash />Log and Log<ndash />Log Plots</title>
+        
+        <p>
+        When data grow multiplicatively, such as in exponential growth,
+        a logarithmic scale is more appropriate than a standard arithmetic (linear) scale.
+        Instead of plotting the data in a standard Cartesian plane, one or both axes
+        are replaced with a logarithmic number line.
+        A log<ndash />log plot has both axes using a logarithmic scale.
+        A semi-log plot has only one axis changed to a logarithmic scale.
+        </p>
+        
+        <p>
+        In addition to helping visualize data that have a wide range of 
+        order of magnitudes (the power in scientific notation), logarithmic
+        scales provide a useful transformation. In particular, power functions
+        and exponential functions transform into linear functions
+        under appropriate logarithmic transformations. This section explains
+        how this can be used.
+        </p>
+        
+        <p>
+        An elementary power function is a function where the independent variable
+        is raised to a constant power <m>p \ne 0</m>, usually a rational number. 
+        <me> y = \mathrm{pow}_{p}(x) = x^p </me>
+        Every other power function is a constant
+        multiple of an elementary power function,
+        <me> y = A \cdot x^p, </me>
+        where <m>A</m> is some constant value.
+        </p>
+        
+        <p>
+        An elementary exponential function is a function where a constant base
+        <m>b>0</m> with <m>b \ne 1</m> is raised to power given by the independent
+        variable.
+        <me> y = \exp_{b}(x) = b^x </me>
+        Every other exponential function is a constant multiple of
+        an elementary exponential function,
+        <me> y = A \cdot b^{x}, </me>
+        where <m>A</m> is a constant.
+        </p>
+        
+        <p>
+        Be sure that you see the difference between a power function, where the
+        base is the variable and the power is a constant, and an exponential
+        function where the base is a constant and the power is the variable.
+        </p>
+        
+        <p>
+        Now, consider what happens if you use a logarithm to transform
+        the dependent variable in each case. This corresponds to making
+        the <m>y</m>-axis a logarithmic scale.
+        </p>
+        
+        <p>
+        Suppose that <m>y</m> is a power function with <m>A>0</m>:
+        <me> y = A \cdot x^{p}. </me>
+        Under a transformation, we have <m>v = \log(y)</m> so
+        that the power function becomes:
+        <me> v = \log(y) = \log(A \cdot x^{p}) = \log(A) + \log(x^{p})
+        = \log(A) + p \log(x) </me>
+        Notice that the independent variable is also in a logarithm,
+        so we make the <m>x</m>-axis a logarithmic scale corresponding
+        to a transformation <m>u = \log(x)</m>.
+        In the transformed variables, we have
+        <me> v = \log(A) + p \cdot u. </me>
+        That is, a power function in linear in a log<ndash />log graph.
+        The slope of the line corresponds to the power <m>p</m>.
+        </p>
+
+        <p>
+        Suppose that <m>y</m> is an exponential function with <m>A>0</m>
+        and base <m>b>0</m>:
+        <me> y = A \cdot b^{x}. </me>
+        Under a transformation, we have <m>v = \log(y)</m> so
+        that the exponential function becomes:
+        <me> v = \log(y) = \log(A \cdot b^x) = \log(A) + \log(b^x)
+        = \log(A) + x \log(b) </me>
+        This time, the independent variable is not in a logarithm,
+        so the <m>x</m>-axis is kept in a standard axis.
+        An exponential function appears linear in a semi-log graph.
+        The slope of the line is the logarithm of the base.
+        </p>
+        
+        <example>
+        <statement>
+            Find the power function passing through the points
+            <m>(1,5)</m> and <m>(4,30)</m>.
+        </statement>
+        <solution>
+            <p>
+            A power function is of the form <m>y=A \cdot x^{p}</m>,
+            so we will need to find the constants <m>A</m> and <m>p</m>.
+            From above, we know that a log<ndash />log transform will 
+            make this linear, so we create transformed points
+            with <m>u = \log_{10}(x)</m> and <m>v = \log_{10}(y)</m>
+            so that <m>v</m> will be a linear function of <m>u</m>:
+            <me> v = \log_{10}(y) = \log_{10}(A \cdot x^{p}) = \log_{10}(A) + p \cdot \log_{10}(x)
+            = \log_{10}(A) + p \cdot u. </me>
+            </p>
+            
+            <p>
+            The points become: 
+            <md>
+                <mrow> (x,y)=(1,5) \quad \rightarrow \quad (u,v) \approx (0, 0.69897) </mrow>
+                <mrow> (x,y)=(4,30) \quad \rightarrow \quad (u,v) \approx (0.60206, 1.47712) </mrow>
+            </md>
+            The slope of the transformed points gives us our power:
+            <me>
+             p = \frac{\Delta v}{\Delta u} = \frac{1.47712 - 0.69897}{0.60206-0} = 1.2925.
+            </me>
+            The <m>v</m>-intercept is the logarithm of the constant multiple:
+            <me>
+            \log_{10}(A) = 0.69897 \quad \Rightarrow \quad A = 10^{0.69897} = 5.
+            </me>
+            </p>
+            
+            <p>
+            The desired power function is approximately given by
+            <me> y = 5 \cdot x^{1.2925} </me>
+            </p>
+        </solution>
+        </example>
+
+        <example>
+        <statement>
+            Find the exponential function passing through the points
+            <m>(1,5)</m> and <m>(4,30)</m>.
+        </statement>
+        <solution>
+            <p>
+            An exponential function is of the form <m>y=A \cdot b^{x}</m>,
+            so we will need to find the constant <m>A</m> and the base <m>b</m>.
+            From above, we know that a semi-log transform will 
+            make this linear, so we create transformed points (only transforming vertical points)
+            with <m>u = x</m> and <m>v = \log_{10}(y)</m>
+            so that <m>v</m> will be a linear function of <m>u</m>:
+            <me> v = \log_{10}(y) = \log_{10}(A \cdot b^{x}) = \log_{10}(A) + x \cdot \log_{10}(b)
+            = \log_{10}(A) + \log_{10}(b) \cdot u. </me>
+            </p>
+            
+            <p>
+            The points become: 
+            <md>
+                <mrow> (x,y)=(1,5) \quad \rightarrow \quad (u,v) \approx (1, 0.69897) </mrow>
+                <mrow> (x,y)=(4,30) \quad \rightarrow \quad (u,v) \approx (4, 1.47712) </mrow>
+            </md>
+            The slope of the transformed points gives us the logarithm of our base:
+            <me>
+             \log_{10}(b) = \frac{\Delta v}{\Delta u} = \frac{1.47712 - 0.69897}{4-1} \approx 0.25938.
+            </me>
+            The equation relating <m>(u,v)</m> is given by
+            <me>
+            v = 0.25938(u-1) + 0.69897 = 0.25938 u + 0.43959.
+            </me>
+            Because our logarithm represents a power of 10, we can find the base <m>b</m> 
+            and the constant <m>A</m>:
+            <md>
+            <mrow> \log_{10}(b)=0.25938 \quad \Leftrightarrow \quad b = 10^{0.25938} \approx 1.8171, </mrow>
+            <mrow> \log_{10}(A)=0.43959 \quad \Leftrightarrow \quad A = 10^{0.43959} \approx 2.7516. </mrow>
+            </md>
+            Consequently, our model can be written as an exponential function
+            <me>
+            y = 2.7516 \cdot (1.8171)^{x}.
+            </me>
+            </p>
+        </solution>
+        </example>
+        
+        <p>
+        The previous examples illustrated how to find approximate solutions.
+        Whenever you replace an exact expression with a rounded decimal value,
+        you are doing an approximation. The same problems can be solved exactly
+        by using properties of logarithms.
+        </p>
+
+        <example>
+        <statement>
+            Find the exact power function passing through the points
+            <m>(1,5)</m> and <m>(4,30)</m>.
+        </statement>
+        <solution>
+            <p>
+            A power function is linear after a log<ndash />log transform.
+            We find transformed points <m>(x,y) \mapsto (u,v)</m> where
+            <m>u = \log(x)</m> and <m>v = \log(y)</m> (for any base).
+            Our transformed points are
+            <md>
+                <mrow> (x,y)=(1,5) \quad \mapsto \quad (u,v) = (\log(1),\log(5)), </mrow>
+                <mrow> (x,y)=(4,30) \quad \mapsto \quad (u,v) = (\log(4),\log(30)). </mrow>
+            </md>
+            We can compute the slope of the relation for <m>(u,v)</m>,
+            <me> \frac{\Delta v}{\Delta u} = \frac{\log(30)-\log(5)}{\log(4)-\log(1)}. </me>
+            Using the properties of logarithms, we can replace the difference of logarithms
+            by a logarithm of a quotient to find a new representation of the slope,
+            <me> \frac{\Delta v}{\Delta u} = \frac{\log(30/5)}{\log(4/1)} = \frac{\log(6)}{\log(4)}. </me>
+            Note that there is no additional simplification.
+            </p>
+            
+            <p>
+            Knowing the slope, we can find the equation of the line for <m>(u,v)</m> using 
+            the point<ndash/>slope form.
+            <me>v - \log(5) = \frac{\log(6)}{\log(4)} (u-\log(1)). </me>
+            We can use this equation to find the power function in terms of <m>(x,y)</m>
+            by replacing <m>v=\log(y)</m> and <m>u=\log(x)</m>,
+            <me>\log(y) - \log(5) = \frac{\log(6)}{\log(4)} (\log(x)-\log(1)). </me>
+            Again, we use the properties of logarithms to combine terms,
+            <me>\log(y/5) = \frac{\log(6)}{\log(4)} (\log(x/1)). </me>
+            Using <m>p=\log(6)/\log(4)</m> and the property <m>p \log(x) = \log(x^p)</m>,
+            we obtain
+            <me>\log(y/5) = \log(x^{p}), </me>
+            which in turn means that
+            <me> \frac{y}{5} = x^p \quad \Leftrightarrow \quad y = 5 x^{\log(6)/\log(4)}. </me>
+            This matches our earlier calculation since <m>p = \log(6)/\log(4) \approx 1.2925</m>
+            </p>
+        </solution>
+        </example>
+
+        <example>
+        <statement>
+            Find the exact exponential function passing through the points
+            <m>(1,5)</m> and <m>(4,30)</m>.
+        </statement>
+        <solution>
+            <p>
+            An exponential function is linear after a semi-log transform.
+            We create transformed points <m>(x,y) \mapsto (x,v)</m> where <m>v = \log(y)</m> (any base).
+            Our transformed points, given by
+            <md>
+                <mrow> (x,y) = (1,5) \quad \mapsto \quad (x,v) = (1,\log(5)), </mrow>
+                <mrow> (x,y) = (4,30) \quad \mapsto \quad (x,v) = (4, \log(30)), </mrow>
+            </md>
+            will have a linear relation.
+            We find the slope of the transformed point,
+            <me> \frac{\Delta v}{\Delta x} = \frac{\log(30)-\log(5)}{4-1} = \frac{\log(6)}{3}. </me>
+            </p>
+            
+            <p>
+            Knowing the slope allows us to write down the equation of the line for <m>(x,v)</m>:
+            <me> v-\log(5) = \frac{\log(6)}{3} (x-1). </me>
+            We can find the relation for <m>(x,y)</m> by rewriting <m>v=\log(y)</m> and then
+            using the properties of logarithms to find our equation.
+            <md>
+                <mrow> \log(y)-\log(5) = \frac{\log(6)}{3}(x-1) </mrow>
+                <mrow> \log(y/5) = \log(6) \cdot \frac{x-1}{3} = \log\Big(6^{(x-1)/3}\Big) </mrow>
+                <mrow> \frac{y}{5} = 6^{(x-1)/3} </mrow>
+                <mrow> y = 5 \cdot 6^{(x-1)/3} </mrow>
+            </md>
+            This final form does not look like an exponential function <m>A b^x</m> as written.
+            Using the properties of powers (exponents), we could rewrite it:
+            <md>
+                <mrow>5 \cdot 6^{(x-1)/3} &amp;= 5 \cdot (6^{1/3})^{(x-1)} </mrow>
+                <mrow> &amp;= 5 \cdot \frac{(\sqrt[3]{6})^x}{\sqrt[3]{6}} </mrow>
+                <mrow> &amp;= \frac{5}{\sqrt[3]{6}} \cdot (\sqrt[3]{6})^x. </mrow>
+            </md>
+            Comparing this to our earlier approximation, we see that <m>A = \frac{5}{\sqrt[3]{6}} \approx 2.7516</m>
+            and <m>b=\sqrt[3]{6} \approx 1.8171</m>.
+            </p>
+        </solution>
+        </example>
+    </subsection>
+    
+</section>

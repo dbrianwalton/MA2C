@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="learn-mathematics">
+    <title>Learning Mathematics</title>
+
+    <introduction>
+        <p>I assume that you want to be successful in learning mathematics. It might be true, however, that your past experiences make you doubt this as a possibility. Before we start talking about actual mathematics, let's have a discussion about what it means to learn mathematics and how to approach this more successfully.</p>
+    </introduction>
+    
+    <!-- How People Learn -->
+    <subsection>
+        <title> How People Learn </title>
+        
+        <p>This section is based on my reading, understanding and interpretation of a report issued by the National Research Council in 2000 called <url href="http://www.nap.edu/catalog/9853/how-people-learn-brain-mind-experience-and-school-expanded-edition"> <booktitle>How People Learn: Brain, Mind, Experience and School</booktitle></url> and a follow-up report in 2005 focused more directly on mathematics, <url href="http://www.nap.edu/catalog/11101/how-students-learn-mathematics-in-the-classroom"> <booktitle>How Students Learn: Mathematics in the Classroom</booktitle></url>. There is a lot to digest, and I would encourage you to read some of this if you want more background. I hope to convey some key points that I hope will be especially helpful in focusing our efforts in learning.</p>
+        
+        <p>What does it mean to learn? Can we become more effective at learning?</p>
+        
+        <p>Studies of brain activity reveal that learning physically changes the structure of the brain. The brain consist of neurons (brain cells) that form networks. Any particular neuron has dendrites which receive signals from other neurons. When the total signal received by a neuron reaches a critical threshold, the neuron will produce its own signal which it transmits along its axon to synaptic connections with the dendrites of other neurons. External stimuli trigger patterns of neuron firing responses which are ultimately translated into memories and actions. Learning consists of transforming these networks so that the firing patterns change. Feedback (both positive and negative) is necessary to weaken connections that are not desired and to strengthen connections that are desired.</p>
+        
+        <p>Early attempts to measure learning (which pre-date the understanding of the brain), especially when studying animal models like rats in maze, considered learning as behavior that is reinforced by a stimulus. An example is given of a cat trapped in box with an exit that opens when a particular string is pulled. By (frantic) trial and error, the cat eventually opens the box. When put back in the box, the cat will not immediately repeat the necessary action to escape; it takes a number of repetitions for the action to be reinforced by the reward before the cat learns to attempt the particular action immediately in order to escape. Using modern understanding of the brain's neural networks, the negative feedback from being trapped and the positive feedback from being released and receiving a reward established new neural connections that triggered pulling the release when the cat found itself in the trapped environment.</p>
+        
+        <p>Memorization of facts using flashcards or online drills can be interpreted in the context of this model of learning. A presented statement (the clue or question) provides a stimulus. Recalling the desired response (the answer) is the behavior desired from that response. Success or failure and the resulting emotional responses during training provide the feedback for the new network connections to be formed. Unfortunately, memorization of facts is not an effective learning approach when dealing with more abstract problem solving scenarios.</p>
+        
+        <figure xml:id="figure-model-of-learning">
+            <caption>A model for learning as feedback-driven rewiring of neural pathways.</caption>
+            <image width="90%" source="images/CognitionLearningModel.png">
+                <description>
+                Diagram illustrating the steps of learning: stimulus, neural response, action, feedback, repetition
+                </description>
+            </image>
+        </figure>
+
+        <p>Views of learning have expanded to consider learning with understanding wherein learning is not just a reinforced behavior but a cognitive effort (thought) built on a framework (understanding). Learning therefore is not just a filing system of individual memories; it is structured according to some organizational process that itself involves neural feedback. One of the key distinctions that has been identified between a novice and an expert in a problem-solving area is that an expert has a rich body of knowledge that is organized around core concepts as opposed to a list of facts or strategies.</p>
+        
+        <p>Thus, we see that learning requires more than just the memorization of facts, processes and strategies; it requires developing a mental framework by which information is organized. These steps require that we undertake processes by which neural network connections in our brain are rewired, breaking connections that correspond to misconceptions and poor organization and developing new connections that correspond to more effective knowledge and organization. For most of us, this requires a significant level of interaction with the material that we wish to learn in order to effect such a change.</p>
+        
+    </subsection>
+    
+    <!-- Best Practices for Quality Learning -->
+    <subsection>
+        <title>Best Practices for Learning</title>
+        
+        <introduction>
+        <p><booktitle>How People Learn</booktitle> identified three basic principles to guide effective learning.<ol>
+            <li>
+                <p>Because students approach learning with preconceptions, these understandings must be engaged or else learning will be superficial or thwarted.</p>
+            </li>
+            <li>
+                <p>Developing competence requires (a) a deep foundation of factual knowledge, (b) a conceptual framework by which these facts and ideas are understood and (c) an organized memory system that facilitates retrieval and application of that knowledge.</p>
+            </li>
+            <li>
+                <p>Students should take control of their own learning by defining learning goals and monitoring their progress in achieving them.</p>
+            </li>
+        </ol> We should attempt to frame our learning experiences so that these three principles are implemented.</p>
+        </introduction>
+        
+        <subsubsection>
+        <title>Engaging Preconceptions</title>
+        <p>Preconceptions represent the sum of all knowledge accumulated as well as the manner in which that knowledge is organized and interpreted. Valid preconceptions provide the necessary foundation on which additional knowledge accumulates. Unfortunately, it is often the case that preconceptions become an obstacle for learning. This may be due to something learned incorrectly. But it can just as often be something learned correctly but organized in a way that obscures generalizations necessary to advance in learning.</p>
+        
+        <p>Engaging our preconceptions involves recognizing exactly what our preconceptions may be. For valid preconceptions, we integrate new knowledge into our system of understanding and it is held more tightly than if we did not connect it to our existing knowledge. For invalid or obstructive preconceptions, we face an uncomfortable <q>cognitive dissonance</q> that may require dismantling and reconstructing our framework of understanding so that future learning can proceed.</p>
+        </subsubsection>
+        
+        <subsubsection>
+        <title>Developing and Organizing a Deep Foundation of Knowledge</title>
+        <p>The second principle focuses on the knowledge itself and how we organize our thinking about that knowledge. We start with the need for a deep foundation of facts but notice that the factual knowledge alone is really just one component of this learning principle. At first glance, I thought the second and third components were the same thing <mdash/> a conceptual framework and an organized memory system <mdash/> but then I saw that although they could be related, they emphasize two different aspects.</p>
+        
+        <p>The conceptual framework is about how the facts and ideas are understood. This is how we make sense of the facts, how we relate them with one another, and how we interpret them. Effective learning requires developing this framework as we add knowledge to our memory.</p>
+        
+        <p>The organized memory system refers to our methods and strategies for recall. Consider how we can organize files on a computer drive. We could adopt a flat filing system where every file is in a single location, distinguished only by name; or we could adopt a hierarchical filing system with folders or directories organized in a way that related files are grouped together. More modern storage strategies include tagging files (e.g., hashtags), which I personally find easier to relate to memory. Imagine that our memories work in a similar way, that we can establish <em>tags</em> that go along with the knowledge. By thinking about the relevant tags as a stimulus for our mind,    we can trigger our memory to recall that desired knowledge.</p>
+        </subsubsection>
+        
+        <subsubsection>
+        <title>Metacognition and Taking Control of Your Learning</title>
+        <p>The third principle states that students should take control of their own learning. Each student should establish clear learning goals and monitor their progress. This requires thinking about their thinking, reflecting on their own understanding and effectiveness in organizing their knowledge. This process is called <term>metacognition</term>. Metacognition allows us assess our own progress and identify our strengths and weaknesses. It allows us to recognize when we need additional help. It is essential to make these formative assessments while we are developing our knowledge and skill set, rather than waiting for a final or summative assessment such as a class exam.</p>
+        </subsubsection>
+    </subsection>
+    
+    <!-- What's Class Got to Do With It? -->
+    
+    <subsection>
+        <title>What's Class Got to Do With It?</title>
+        
+        <p>[This section needs to be expanded into meaningful writing. For now, it is just a summary of the key ideas.]</p>
+        <p>Learner-centered: pay attention to students' ideas, knowledge, skills, and attitudes. Awareness that existing ideas can lead to misconceptions as well as a path to new understanding. Experiences and norms about reflecting and understanding these experiences will be different for different individuals.</p>
+        
+        <p>Knowledge-centered: pay attention to what is intended for learning, including what is taught (knowledge), why it is taught (understanding), how the knowledge should be organized (curriculum) and how it can be assessed. Identify a core of <q>enduring connected ideas</q>.</p>
+        
+        <p>Assessment-centered: make learning and understanding visible to both the student and the teacher. Use feedback in designing instruction that is responsive to student progress. Give students opportunities to revise and improve their thinking. Guide students in developing metacognitive abilities, including helping them assess their strategies in learning.</p>
+        
+        <p>Community-centered: establish norms of behavior and connections to the world that support core learning values. Encourage the processes of development, questioning and progress. Mistakes not measures of inadequacy but helpful contributions in search for knowledge, so encourage taking risks like asking questions.</p>
+        
+    </subsection>
+</section>

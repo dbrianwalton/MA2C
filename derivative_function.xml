@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="derivative_function">
+    <title>The Derivative</title>
+
+    <subsection>
+        <title>Introducing the Derivative</title>
+        
+        <p>A function is a rule that associates a unique output with each input value. When we look at the graph of a function, the points on the graph are placed so that the input value is the first coordinate (e.g., <m>x</m>) and the output value is the second coordinate (e.g., <m>y</m>). Using the graph, we can find the value of the function for a given input by looking for the input along the horizontal (<m>x</m>) axis and then finding the point on the graph intersecting the corresponding vertical line. The height of that point gives the output value of the function. </p>
+        
+        <p>If that point of the graph has a well-defined tangent line, then we could define another function that has as its output the slope of the tangent line at that point. This function is called the derivative function. The following website provides an interactive illustration of this concept: <url href="http://www.intmath.com/differentiation/derivative-graphs.php">http://www.intmath.com/differentiation/derivative-graphs.php</url></p>
+        
+        <p>Consider the figure illustrated below. The graph of a function <m>y=f(x)</m>is given and short segments of the tangent lines at various points have also been included. The point at <m>x=-1</m> has a <m>y</m>-value of 2 and a slope of 0 (horizontal tangent line). So <m>f(-1)=2</m> while <m>f'(-1)=0</m>. The point at <m>x=0</m> has a <m>y</m>-value of 0 and a slope of -3, so <m>f(0)=0</m> and <m>f'(0)=-3</m>. The third point, at <m>x=2</m> has a <m>y</m>-value of 2 and a slope of 9, corresponding to <m>f(2)=2</m> and <m>f'(2)=9</m>. The equations of these tangent lines, listed in the same order as described above, and written in point<ndash />slope form, are given by <md>
+            <mrow> y &amp;= 2, </mrow>
+            <mrow> y &amp;= -3x, </mrow>
+            <mrow> y &amp;= 9(x-2)+2. </mrow>
+        </md></p>
+        
+        <figure>
+            <image xml:id="fig-derivative-from-graph">
+                <description>Graph of a function with tangent lines and their corresponding slopes shown at several points.</description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}[
+                    xmin=-3,xmax=3,
+                    ymin=-5,ymax=5,
+                    xlabel={$x$},
+                    ylabel={$y$},
+                ]
+
+                \addplot[blue, thick, samples=100]
+                    ({x}, {x^3-3*x});
+                \addplot[only marks, blue] table {
+                    -2 -2
+                    -1 2
+                    0 0
+                    1 -2
+                    2 2
+                };
+                \addplot[dashed, thick, red, domain=-1.5:-0.5]
+                    ({x}, {2});
+                \addplot[dashed, thick, red, domain=-0.5:0.5]
+                    ({x}, {-3*x});
+                \addplot[dashed, thick, red, domain=1.5:2.5]
+                    ({x}, {2+9*(x-2)});
+                \addplot[mark=none, black] {0};
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+        
+        <definition xml:id='defn-derivative'>
+            <title>The Derivative</title>
+            <statement>
+                <p>Suppose <m>f</m> is a function. The <term>derivative</term> of <m>f</m> is a new function <m>f'</m> that for every input <m>x</m> has as output <m>f'(x)</m>the instantaneous rate of change of <m>f</m> (slope of the tangent line) at the input point, so long as that value can be defined. That is, <me> f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}, </me>if the limit exists.</p>
+            </statement>
+        </definition>
+        
+    </subsection>
+    
+    <subsection>
+        <title>Examples of Calculation</title>
+        
+        <p>Recall that the definition of the instantaneous rate of change (which is what the derivative is measuring) is the limiting value of an average rate of change of the function between two points as the second point approaches the first. When computing the derivative, we will use two points at symbolic values <m>x</m> (the point of interest) and <m>x+h</m> (the second point), where <m>h</m> is the spacing between the two points. The second point approaches the first when <m>h \to 0</m>. The basic process is outlined in the following steps: <ol>
+            <li><p>Compute <m>f(x+h)</m> using the rule for <m>f(x)</m>. (Find the output for the second point.)</p></li>
+            <li><p>Compute <m>f(x+h)-f(x)</m> and simplify. (Find the change in output.)</p></li>
+            <li><p>Simplify <m>\displaystyle \frac{\Delta f}{\Delta x} = \frac{f(x+h)-f(x)}{h}</m>. (Determine a simplified formula for the average rate of change.)</p></li>
+            <li><p>Determine <m>\displaystyle \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</m>. (Evaluate the limiting value as the second point approaches the first.)</p></li>
+        </ol></p>
+
+        <example>
+            <statement>
+                <p>Use the definition of the derivative to find <m>f'(x)</m> where <m>f(x) = x^2-3x</m>.</p>
+            </statement>
+            <solution>
+                <ul>
+                    <li><p>Find the output at the second point: <me>f(x+h) = (x+h)^2-3(x+h) = x^2+2xh+h^2-3x-3h</me></p></li>
+                    <li><p>Find the change in output between the two points: <md>
+                            <mrow> f(x+h)-f(x) &amp;= (x^2+2xh+h^2-3x-3h)- (x^2-3x) </mrow>
+                            <mrow> &amp; = x^2+2xh+h^2-3x-3h-x^2+3x </mrow>
+                            <mrow> &amp; = 2xh+h^2-3h </mrow>
+                        </md></p></li>
+                    <li><p>Simplify the average rate of change between the two points: <md>
+                            <mrow> \frac{f(x+h)-f(x)}{h} &amp; = \frac{2xh+h^2-3h}{h} </mrow>
+                            <mrow> &amp; = \frac{h(2x+h-3)}{h} </mrow>
+                            <mrow> &amp; = 2x+h-3 </mrow>
+                        </md></p></li>
+                    <li><p>The derivative is the limit of the average rate of change: <md>
+                            <mrow> f'(x) &amp; = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
+                            <mrow> &amp; = \lim_{h \to 0} 2x+h-3 </mrow>
+                            <mrow> &amp; = 2x+0-3 = 2x-3 </mrow>
+                        </md> So we have found the derivative function, <m>f'(x) = 2x-3</m>.</p></li>
+                </ul>
+            </solution>
+        </example>
+        
+        <p>Often it is more convenient to combine some of these steps together. However, just be careful that you create valid equations. Always have an equation that says what you are computing, and do not write that two things are equal when they are not the same. In the previous example, note how each time I started to compute a new thing, I created a new system of equations.</p>
+        
+        <p>In this next example, we are reminded of the need to find a common denominator when a fraction is involved. Also, it is useful to recall that division by a number <m>h</m>is the same as multiplication by its inverse <m>1/h</m>.</p>
+
+        <example>
+            <statement>
+                <p>Use the definition of the derivative to find <m>f'(x)</m> where <m>\displaystyle f(x) = \frac{1}{2x+3}</m>.</p>
+            </statement>
+            <solution>
+                <ul>
+                    <li>
+                        <p>Find the output at the second point: <me>f(x+h) = \frac{1}{2(x+h)+3} = \frac{1}{2x+2h+3}</me></p>
+                    </li>
+                    <li>
+                        <p>Find the change in output between the two points: <me> f(x+h)-f(x) = \frac{1}{2x+2h+3}- \frac{1}{2x+3} </me> Here is where we will need to use a common denominator. Recall from ordinary fractions that a common denominator is formed by multiplying the top and bottom by a missing factor. <md>
+                            <mrow> f(x+h)-f(x) &amp; = \frac{(2x+3)}{(2x+3)(2x+2h+3)} - \frac{(2x+2h+3)}{(2x+3)(2x+2h+3)} </mrow>
+                            <mrow> &amp; = \frac{(2x+3)-(2x+2h+3)}{(2x+3)(2x+2h+3)} </mrow>
+                            <mrow> &amp; = \frac{-2h}{(2x+3)(2x+2h+3)} </mrow>
+                        </md></p>
+                    </li>
+                    <li>
+                        <p>Simplify the average rate of change between the two points. However, it is dangerous to write a fraction divided by something, so we will write division by <m>h</m> as multiplication by <m>1/h</m> and simplify the resulting expression: <md>
+                            <mrow> \frac{f(x+h)-f(x)}{h} &amp; = \frac{-2h}{(2x+3)(2x+2h+3)} \cdot \frac{1}{h} </mrow>
+                            <mrow> &amp; = \frac{-2}{(2x+3)(2x+2h+3)} </mrow>
+                        </md> If you do the algebra correctly, the <m>h</m> should always be capable of being cancelled as a common factor in the quotient at this step.</p>
+                    </li>
+                    <li>
+                        <p>The derivative is the limit of the average rate of change: <md>
+                            <mrow> f'(x) &amp; = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
+                            <mrow> &amp; = \lim_{h \to 0} \frac{-2}{(2x+3)(2x+2h+3)} </mrow>
+                            <mrow> &amp; = \frac{-2}{(2x+3)(2x+0+3)} </mrow>
+                            <mrow> &amp; = \frac{-2}{(2x+3)^2} </mrow>
+                        </md> This gives us the derivative function, <me>f'(x) = \frac{-2}{(2x+3)^2}.</me></p>
+                    </li>
+                </ul>
+            </solution>
+        </example>
+        
+        <p>For our last example, we consider finding the derivative using the definition when the function involves the square root. We will find it necessary to use a trick from algebra involving conjugate pairs. Recall that <m>(a+b)(a-b) = a^2-b^2</m>. If <m>a</m> or <m>b</m> is a square root of some value, then the product of these conjugate pairs will have the square of the square root, thereby no longer involving the square root. For example, <me>(\sqrt{x}-2)(\sqrt{x}+2) = (\sqrt{x})^2 - (2)^2 = x-4.</me></p>
+
+        <example>
+            <statement>
+                <p>Use the definition of the derivative to find <m>f'(x)</m> where <m>\displaystyle f(x) = \sqrt{2x-5}</m>.</p>
+            </statement>
+            <solution>
+                <ul>
+                    <li>
+                        <p>Find the output at the second point: <me>f(x+h) = \sqrt{2(x+h)-5} = \sqrt{2x+2h-5}</me></p>
+                    </li>
+                    <li>
+                        <p>Find the change in output between the two points: <me> f(x+h)-f(x) = \sqrt{2x+2h-5}- \sqrt{2x-5} </me></p>
+                    </li>
+                    <li>
+                        <p>Simplify the average rate of change between the two points. This will require multiplying the numerator and denominator by the conjugate pair: <md>
+                            <mrow> \frac{f(x+h)-f(x)}{h} &amp; = \frac{\sqrt{2x+2h-5}-\sqrt{2x-5}}{h} </mrow>
+                            <mrow> &amp; = \frac{(\sqrt{2x+2h-5}-\sqrt{2x-5})(\sqrt{2x+2h-5}+\sqrt{2x-5})}{h(\sqrt{2x+2h-5}+\sqrt{2x-5})} </mrow>
+                            <mrow> &amp; = \frac{(\sqrt{2x+2h-5})^2-(\sqrt{2x-5})^2}{h(\sqrt{2x+2h-5}+\sqrt{2x-5})} 
+                            = \frac{(2x+2h-5)-(2x-5)} {h(\sqrt{2x+2h-5}+\sqrt{2x-5})} </mrow>
+                            <mrow> &amp; = \frac{2h}{h(\sqrt{2x+2h-5}+\sqrt{2x-5})} = \frac{2}{\sqrt{2x+2h-5}+\sqrt{2x-5}} </mrow>
+                        </md></p>
+                    </li>
+                    <li>
+                        <p>The derivative is the limit of the average rate of change: <md>
+                            <mrow> f'(x) &amp; = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
+                            <mrow> &amp; = \lim_{h \to 0} \frac{2}{\sqrt{2x+2h-5}+\sqrt{2x-5}} </mrow>
+                            <mrow> &amp; = \frac{2}{\sqrt{2x+0-5}+\sqrt{2x-5}} </mrow>
+                            <mrow> &amp; = \frac{1}{\sqrt{2x-5}} </mrow>
+                        </md> This gives us the derivative function, <me>f'(x) = \frac{1}{\sqrt{2x-5}}.</me></p>
+                    </li>
+                </ul>
+            </solution>
+        </example>
+    </subsection>
+</section>

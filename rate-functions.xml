@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="rate-functions">
+    <title>Functions Defined by Their Rates</title>
+    
+    <introduction>
+    <p>When we learned about definite integrals, we learned that the definite integral <m>\displaystyle \int_a^b f(x) \, dx</m> computes the total change in a quantity that depends on <m>x</m> when <m>x</m> changes from <m>a</m> to <m>b</m> and where <m>f(x)</m> represents the rate of change of that quantity with respect to <m>x</m>. We have worked from an intuitive idea of rate of change with respect to time using concepts like velocity being the rate of change of position or flow rates (as in gallons per minute) as being the rate of change of volume with respect to time. We are now preparing to learn more specifically what we mean by rate of change, namely introducing the concept of the <term>derivative</term>.</p>
+    </introduction>
+    
+    <subsection>
+        <title>Describing Function Behavior</title>
+        
+        <p>One of the consequences of the properties of definite integrals is that we can describe certain behaviors of a quantity in terms of the properties of the rate of change. For sequences, we learned that the properties of a sequence are determined from the increments. That is, a sequence is<ul>
+            <li><p>increasing when its increments are positive,</p></li>
+            <li><p>decreasing when its increments are negative,</p></li>
+            <li><p>concave up when its increments are increasing,</p></li>
+            <li><p>concave down when its increments are decreasing.</p></li>
+        </ul></p>
+        <p>(See <xref ref="thm-accumulation-sequence-monotonicity">Theorem</xref> and <xref ref="defn-accumulation-sequence-concavity">Definition</xref>.) We learned analogous properties of functions defined by an accumulation of changes defined by a rate of change. That is, for a quantity <m>Q</m> with a rate of change <m>R</m>: <ul>
+            <li><p><m>Q</m> is <term>increasing</term> when its rate of change is <m>R</m> is positive,</p></li>
+            <li><p><m>Q</m> is <term>decreasing</term> when its rate of change <m>R</m> is negative.</p></li>
+        </ul>(See <xref ref="thm-monotonicity-from-rate">Theorem</xref>.) We define concavity for functions analogously.</p>
+        
+        <definition xml:id="defn-function-concavity-informal">
+            <title>Concavity of Functions</title>
+            <statement>
+                <p>A quantity <m>Q</m> that is a function of an independent variable <m>x</m> with a corresponding rate of change <m>R</m> that is itself a function of <m>x</m> has <term>concavity</term> that is determined by whether the rate is increasing or decreasing. Suppose that <m>I=(a,b)</m> is an interval.</p>
+                <ul>
+                    <li><p><m>Q</m> is <term>concave up</term> on <m>I</m> if <m>R</m> is increasing on <m>I</m>.</p></li>
+                    <li><p><m>Q</m> is <term>concave down</term> on <m>I</m> if <m>R</m> is decreasing on <m>I</m>.</p></li>
+                </ul>
+            </statement>
+        </definition>
+        
+        <p>Concavity is closely related to the concept of acceleration (by which we also include the idea of deceleration). A constant rate of change leads to a linear relation. On a graph, this is a straight line. Concavity refers to a rate of change that is itself changing. This is acceleration. In physics, acceleration is caused by a force, so we can think of concavity as the effect on an object in the presence of a force.</p>
+        
+        <p>Suppose that a quantity has a positive rate of change (increasing) and is also concave up (an increasing rate of change). This would be like a car moving forward (positive rate) with a rocket pushing it forward (positive acceleration). The result would be that the car continues to go faster (increasing rate), covering ever increasing distances per unit time. A graph of the position would be rising (increasing) and bending up (concave up).</p>
+        
+        <figure xml:id="fig-prototype-incr-ccu">
+            <image width="50%">
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[x=1.0cm,y=1.0cm]
+                \draw[->] (0,0) -- (5,0) node[right] {$x$};
+                \draw[->] (0,0) -- (0,4) node[above] {$Q$};
+                \draw (1,1) .. controls (3,1) and (3.75,2) .. (4,3);
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+            <caption><m>Q</m> is an increasing and concave up function of <m>x</m>. The rate is positive and increasing.</caption>
+        </figure>
+        
+        <p>Next, suppose that a quantity has a positive rate of change (increasing) but is concave down (a decreasing rate of change). This would be like a car moving forward (positive rate) but with a rocket in reverse (negative acceleration). The car would still be moving forward, but the rocket is slowing it down. A graph of position in this case would be rising (increasing) but bending down (concave down).</p>
+        
+        <figure xml:id="fig-prototype-incr-ccd">
+            <image width="50%">
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[x=1.0cm,y=1.0cm]
+                \draw[->] (0,0) -- (5,0) node[right] {$x$};
+                \draw[->] (0,0) -- (0,4) node[above] {$Q$};
+                \draw (1,1) .. controls (1.75,2.5) and (2.75,2.8) .. (4,3);
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+            <caption><m>Q</m> is an increasing and concave down function of <m>x</m>. The rate is positive but decreasing.</caption>
+        </figure>
+        
+        <p>If the rocket continues to exert a negative force, there will be a moment when all of the forward momentum is gone and then the car begins to go backwards. Consequently, we learn that a quantity that is concave down can switch from increasing to decreasing. Graphically, this is exactly what a parabola that opens down does. However, if the rocket is gradually reduced, we might be able to slow the car down without ever changing direction.</p>
+        
+        <figure xml:id="fig-prototype-ccd-incr-decr">
+            <image width="50%">
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[x=1.0cm,y=1.0cm]
+                \draw[->] (0,0) -- (5,0) node[right] {$x$};
+                \draw[->] (0,0) -- (0,4) node[above] {$Q$};
+                \draw (1,1) .. controls (1.5,2.5) and (2,3) .. (2.5,3)
+                    .. controls (3,3) and (3.5,2.5) .. (4,1);
+                \fill (2.5,3)  circle[radius=2pt];
+                \draw[-] (2.5,-0.2) -- (2.5,0.2) node[pos=1,above] {$a$};
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+            <caption><m>Q</m> is a concave down function of <m>x</m> that is increasing for <m>x \lt a</m> and decreasing for <m>x \gt a</m>.</caption>
+        </figure>
+        
+        <p>Similar behaviors might be described for negative rates of change. This would correspond to a car that is already going backwards. Being concave up (increasing rate of change) corresponds to a positive acceleration (rocket force), which in this case is opposite the motion and would serve to slow the car down maybe to the point of reversing direction. Graphically, this corresponds to a dropping graph that is bending up (moving toward flat). Being concave down (decreasing rate of change) corresponds to negative acceleration (rocket force) which now is the same direction as the motion. This would cause the car to speed up (in the negative direction). Graphically, being concave down corresponds to a graph that is bending down and growing ever steeper.</p>
+        
+        <example>
+            <statement>
+                <p>Suppose <m>V</m> measures the volume of water (liters) in a container and that <m>V</m> is a function of time <m>t</m> (minutes) such that the rate of change (liters per minute) is also a function of time defined by <me>\frac{dV}{dt} = R(t) = 10-0.25t.</me> Describe the behavior of <m>V</m> and sketch a representative graph.</p>
+            </statement>
+            <solution>
+                <p>The rate of change of the volume in the container, <m>R(t)</m> determines the behavior of the volume. Because <m>R</m> has a negative slope <m>m=-0.25</m>, the rate is decreasing. This tells us that the volume is a concave down function. Solving the inequalities <m>R(t) \gt 0</m> and <m>R(t) \lt 0</m> will allow us to see when the rate is positive or negative, which will imply when the volume is increasing or decreasing, respectively.</p>
+                <p>The inequalities are solved by solving the equation <m>R(t)=0</m> and then testing the inequalities in the resulting intervals. <md>
+                    <mrow>10-0.25t = 0 </mrow>
+                    <mrow>-0.25t = -10</mrow>
+                    <mrow> t = \frac{-10}{-0.25} = 40</mrow>
+                </md> Testing the sign of <m>R(t)</m> when <m>t \lt 40</m>, we find, for example <m>R(20) = 10-0.25(20) = 5</m>, that the rate is positive. Consequently, <m>V</m> is increasing when <m>t \lt 40</m>. On the other hand, testing the sign of <m>R(t)</m> when <m>t \gt 40</m>, such as <m>R(60) = 0-0.25(60)=-5</m>, we find that the rate is negative so that the volume is decreasing when <m>t \gt 40</m>.</p>
+                <p>The graph of <m>R(t)</m>, shown below, is consistent with these analyses. The graph is decreasing (corresponding to the negative slope), above the axis for <m>t \lt 40</m> and below the axis for <m>t \gt 40</m>.</p>
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [ xmin=-5, xmax=75,
+                            xlabel={$t$ [min]}, ylabel={$\displaystyle R(t)=\frac{dV}{dt}$ [L/min]},
+                        ]
+                        \addplot[dashed] coordinates {
+                            (-5,0) (75,0)};
+                        \addplot[thick, blue, domain=-5:75] (\x, 10-0.25*\x);
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                    <caption>A graph of the rate of change of volume of water as a function of time.</caption>
+                </figure>
+                <p>The graph of the volume therefore needs to be concave down, increasing for <m>t \lt 40</m> and decreasing for <m>t \gt 40</m>. We do not know the starting volume (it wasn't given), so we might measure the change of volume from the initial value. That is, <m>V=0</m> on the graph will mean the volume is the same as the initial volume, rather than meaning there is no water. Using our knowledge of <xref ref="thm-elementary-definite-integrals" autoname="title">definite integrals of elementary algebraic formulas</xref> and the <xref ref="thm-definite-integral-linearity" autoname="title">linearity of definite integrals</xref>, we can find an explicit formula for our volume: <md>
+                    <mrow>V(t) &amp;= \int_0^t R(z) \, dz = \int_0^t 10-0.25z \, dz</mrow>
+                    <mrow> &amp;= \int_0^t 10 \, dz - 0.25 \int_0^t z \, dz  = 10t - 0.25 \frac{t^2}{2}.</mrow>
+                </md> The graph of this functions is shown below.</p>
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [ xmin=-5, xmax=75,
+                            xlabel={$t$ [min]}, ylabel={$V(t)$ [L]},
+                        ]
+                        \addplot[dashed] coordinates {
+                            (-5,0) (75,0)};
+                        \addplot[thick, blue, domain=-5:75] (\x, 10*\x-0.125*\x^2);
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                    <caption>A graph of the change in volume of water as a function of time.</caption>
+                </figure>
+            </solution>
+        </example>
+        
+        <p>Definite integrals allow us to compute the change in a quantity when we know the rate of change. We are now turning our attention to the reverse question. If we know how to describe the quantity itself as a function of time, how do we find its corresponding rate of change? That rate of change is called the <term>derivative</term>.</p>
+    </subsection>
+    
+    <subsection>
+        <title>Introduction to Differential Equations</title>
+        
+        <p>The rate of change or derivative of a quantity <m>Q</m> with respect to an independent variable <m>x</m> is itself another variable in the state of the system. It is often the case for physical and biological systems that there is a relationship between <m>Q</m> and its derivative <m>\displaystyle \frac{dQ}{dx}</m>. When expressed as an equation, such a relationship is called a <term>differential equation</term>. A function for which the differential equation is satisfied is called a <term>solution</term>.</p>
+        
+        <example>
+            <p>A population <m>P</m> is a function of time <m>t</m>. The derivative <m>\frac{dP}{dt}</m> is the rate of change of the population, which consists of the birth rate (total births per unit time) and death rate (total deaths per unit time). When each of these rates is proportional to the population size, we have Malthusian growth and can write the differential equation <me>\frac{dP}{dt} = b \cdot P - d \cdot P</me> where <m>b</m> is the per capita birth rate and <m>d</m> is the per capita death rate. If we write <m>r=b-d</m> to define a per capita net growth rate <m>r</m>, then the differential equation simplifies to <me>\frac{dP}{dt} = r P.</me></p>
+        </example>
+        
+        <example>
+            <p>In physics, Newton's second law of motion is usually written as its equation <m>F=ma</m>, which says that the total force acting on a body is always equal to the mass of that body times the acceleration of the body. Because acceleration is the rate of change of velocity, <me>a=\frac{dv}{dt},</me> Newton's law is actually a differential equation if we can compute the force.</p>
+            <p>Consider a falling object with mass <m>m</m>. Gravity is a downward force acting on the body with gravitational force <m>F_g = -mg</m> where <m>g</m> is the constant acceleration due to gravity. In the absence of other forces (no air resistance), the differential equation from Newton's law would be written <me>F_g = ma \quad \Leftrightarrow \quad -mg = m\frac{dv}{dt} \quad \Leftrightarrow \quad \frac{dv}{dt} = -g.</me></p>
+            <p>If there is air resistance, the resulting force is itself usually a function of the velocity of the object passing through the air, <m>F_a = f(v)</m>. Experimentally, it has been found that many objects follow a square law, that the air resistance is proportional to the square of the velocity. Because air resistance is always in opposition to motion, <m>F_a</m> must have the opposite sign as <m>v</m>. So we have <me>F_a = - \gamma v |v| = \begin{cases} -\gamma v^2, &amp; v \ge 0 \\ +\gamma v^2, &amp; v \lt 0. \end{cases}</me> Consequently, the differential equation of a falling object with air resistance is <me> F=ma \quad \Leftrightarrow \quad F_a+F_g=m \frac{dv}{dt} \quad \Leftrightarrow \quad -\gamma v|v| - m g = m \frac{dv}{dt}.</me></p>
+        </example>
+        
+        <p>Knowing a differential equation can often allow us to understand much of the behavior of the system of interest simply by determining when the rate is predicted to be positive and negative. Reasoning through concavity can be a little more difficult. We will focus on the case where the differential equation only involves the quantity <m>y</m> and its derivative <m>\frac{dy}{dx}</m> but does not involve the independent variable <m>x</m>. Such an equation is called an <term>autonomous differential equation</term>.</p>
+        
+        <theorem xml:id="thm-autonomous-diffeq-behavior">
+            <statement>
+                <p>Suppose that we can write an autonomous differential equation in the form <me>\frac{dy}{dx} = f(y),</me> so that the rate of change is explicitly a function of the dependent quantity itself. Then the behavior of <m>y</m> as a function of <m>x</m> depends on the sign of <m>f(y)</m>.</p>
+                <ul>
+                    <li><p><m>y</m> is increasing if <m>f(y)</m> is positive</p></li>
+                    <li><p><m>y</m> is decreasing if <m>f(y)</m> is negative</p></li>
+                    <li><p><m>y</m> is constant if <m>f(y)</m> is zero</p></li>
+                </ul>
+                <p>Note: There are some technical requirements on <m>f</m> that determine whether the differential equation has a good solution, but for typical algebraic functions everything is okay. A course on differential equations would include some discussion of these additional conditions.</p>
+            </statement>
+        </theorem>
+
+        <p>Values where an autonomous rate function <m>f(y)=0</m> are called <term>equilibrium solutions</term> because the value of <m>y</m> will never change if it has that value. That is, <m>y</m> will be a constant function that satisfies the differential equation.</p>
+        
+        <p>We often summarize the behavior of an autonomous differential equation using a <term>phase line</term>. A phase line is a number line representing the dependent quantity <m>y</m>. We mark the equilibrium solutions, where <m>f(y)=0</m>, on the line. Between these points, we draw arrows representing whether <m>y</m> is increasing or decreasing between those points. If we also know where the rate <m>f(y)</m> reaches extreme values, we mark the location of those extreme rate points on the number line as well to represent inflection points.</p>
+        
+        <p>The behavior of the dependent quantity then depends on where its initial value starts. If the initial value is at an equilibrium, then the dependent variable has the same constant value for all values of the independent variable. Otherwise, the function will be either increasing or decreasing, moving toward or away from equilibrium solutions.</p>
+        
+        <example>
+            <statement>
+                <p>Consider an autonomous differential equation <me>\frac{dy}{dx} = f(y)</me> where the rate function <m>f(y)</m> is illustrated below. Create a phase line and use it to sketch expected shapes for solutions representing initial values in the different regions identified in the phase line.</p>
+                <figure>
+                    <image width="60%">
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[thick,domain=-3.6:3.6, samples=100,x=1cm,y=0.2cm]
+                        \draw[<->] (-5,0) -- (5,0) node[above] {$y$};
+                        \draw[<->] (0,-15) -- (0,15) node[right] {$\displaystyle \frac{dy}{dx}=f(y)$};
+                        \draw[color=blue, thick] plot (\x,{9*\x-\x^3});
+
+                        \draw (-3, -1) -- (-3, 1) node[above] {$-3$};
+                        \draw (-1.732, -1) -- (-1.732, 1) node[above] {$-\sqrt{3}$};
+                        \draw (1.732, -1) -- (1.732, 1) node[above] {$\sqrt{3}$};
+                        \draw (3, -1) -- (3, 1) node[above] {$3$};
+
+                        \draw[fill] (-3, 0) circle (2pt);
+                        \draw[fill] (0, 0) circle (2pt);
+                        \draw[fill] (3, 0) circle (2pt);
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+            </statement>
+            <solution>
+                <p>The graph of <m>\frac{dy}{dx}=f(y)</m> has zeros at <m>y=0</m> and <m>y=\pm 3</m>. These correspond to equilibrium solutions of the differential equation. That is, <m>y(x)=3</m> (constant function) is one of the possible solutions. If the initial value is <m>y(0)=3</m>, then <m>y(x)=3</m> for all other values of <m>x</m> as well. Similarly for <m>y(0)=0</m> or <m>y(0)=-3</m>. These will be the points shown on the phase line.</p>
+                <p>The three equilibrium points divide the phase line into four intervals: <m>(-\infty, -3)</m>, <m>(-3,0)</m>, <m>(0,3)</m> and <m>(3,\infty)</m>. The graph of <m>\frac{dy}{dx}=f(y)</m> allows us to look at the sign of <m>\frac{dy}{dx}</m> for each of those regions. We see that <m>\frac{dy}{dx} \gt 0</m> for <m>y \in (-\infty,-3)</m>, so <m>y(x)</m> will be an increasing function if the initial value starts in this interval. We summarize the behavior in each interval with the following table.</p>
+                <table>
+                    <tabular>
+                        <row>
+                            <cell>Interval</cell>
+                            <cell><m>(-\infty,-3)</m></cell>
+                            <cell><m>(-3,0)</m></cell>
+                            <cell><m>(0,3)</m></cell>
+                            <cell><m>(3,\infty)</m></cell>
+                        </row>
+                        <row>
+                            <cell>Sign of <m>\frac{dy}{dx}=f(y)</m></cell>
+                            <cell><m>+</m> (pos)</cell>
+                            <cell><m>-</m> (neg)</cell>
+                            <cell><m>+</m> (pos)</cell>
+                            <cell><m>-</m> (neg)</cell>
+                        </row>
+                        <row>
+                            <cell>Behavior of <m>y</m></cell>
+                            <cell>increasing</cell>
+                            <cell>decreasing</cell>
+                            <cell>increasing</cell>
+                            <cell>decreasing</cell>
+                        </row>
+                    </tabular>
+                </table>
+                <p>The phase line is a graphical summary of the table. Marked points on the line represent the equilibrium solutions. Arrows above the line represent the behavior as direction of motion. We will also include the locations of extreme rates, namely <m>y=\pm \sqrt{3}</m>, on the phase line as tick marks (not points) to indicate the locations of inflection points.</p>
+
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[<->] (-5,0) -- (5,0) node[right] {$y$};
+
+                        \draw (-3, -0.1) -- (-3, 0.1) node[pos=0, below] {$-3$};
+                        \draw (-1.732, -0.1) -- (-1.732, 0.1) node[pos=0, below] {$-\sqrt{3}$};
+                        \draw (1.732, -0.1) -- (1.732, 0.1) node[pos=0, below] {$\sqrt{3}$};
+                        \draw (3, -0.1) -- (3, 0.1) node[pos=0, below] {$3$};
+
+                        \draw[fill] (-3, 0) circle (2pt);
+                        \draw[fill] (0, 0) circle (2pt);
+                        \draw[fill] (3, 0) circle (2pt);
+                        
+                        \draw[->, thick] (-4.5,0.25) -- (-3.5,0.25);
+                        \draw[<-, thick] (-2,0.25) -- (-1,0.25);
+                        \draw[->, thick] (1,0.25) -- (2,0.25);
+                        \draw[<-, thick] (3.5,0.25) -- (4.5,0.25);
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+                
+                <p>When we translate the information in the phase line to a sketch of the graph of solutions, we think of the phase line as the <m>y</m>-axis. The information about whether the function is increasing or decreasing is translated into the graph. Equilibrium solutions are also horizontal asymptotes for the solutions in the adjacent intervals. So we need to level off whenever the solution gets close to an equilibrium.</p>
+                
+                <figure>
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xmin=-0.25, xmax = 1.25,
+                            ymin=-5, ymax = 5,
+                            xtick = {0, 1},
+                            ytick = {-3, -1.732, 0, 1.732, 3},
+                            yticklabels = {-3, $-\sqrt{3}$, 0, $\sqrt{3}$, 3},
+                            xlabel = {$x$}, ylabel={$y$},
+                        ]
+                        \addplot[-, blue] coordinates {
+                            (-0.25,0) (1.5,0)
+                        };
+                        \addplot[-, blue] coordinates {
+                            (-0.25,3) (1.5,3)
+                        };
+                        \addplot[-, blue] coordinates {
+                            (-0.25,-3) (1.5,-3)
+                        };
+                        \addplot[dashed] coordinates {
+                            (-0.25,1.732) (1.5,1.732)
+                        };
+                        \addplot[dashed] coordinates {
+                            (-0.25,-1.732) (1.5,-1.732)
+                        };
+                        \addplot[red] table[x=t, y=x1] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
+                        \addplot[red] table[x=t, y=x2] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
+                        \addplot[red] table[x=t, y=x3] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
+                        \addplot[red] table[x=t, y=x4] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+    </subsection>
+</section>

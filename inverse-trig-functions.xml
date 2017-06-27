@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book (in progress)  -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="inverse-trig-functions">
+    <title>Inverse Trigonometric Functions</title>
+
+    <p>Trigonometric functions are periodic functions defined in terms of the unit circle. A function must be one-to-one in order to have an inverse function. Periodic functions obviously fail the horizontal line test and are not one-to-one. However, we can restrict the function to a domain on which it is one-to-one. For functions defined in terms of the unit circle, we will restrict each domain to include the first quadrant, corresponding to angles from <m>0</m> to <m>\frac{\pi}{2}</m>, as well as adjacent angles that will guarantee the restricted function is one-to-one and includes the full range of output values.</p>
+    
+    <p>Recall that the sine function represents the <m>y</m>-coordinate of the point on the unit circle of an angle's terminal edge. The range consists of all numbers in the interval <m>[-1,1]</m>. The first quadrant of angles 0 to <m>\frac{\pi}{2}</m> leads to points on the unit circle with <m>y</m>-values from 0 to 1. Angles just beyond <m>\frac{\pi}{2}</m> repeat the same <m>y</m>-values. We instead use angles in the fourth quadrant from <m>-\frac{\pi}{2}</m> to <m>0</m>. Altogether, the restricted domain will be <m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m>.</p>
+    
+    <figure>
+        <caption>The restricted domain for sine is the interval <m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m>.</caption>
+        <image xml:id="fig-restrict-domain-sine">
+            <description>The restricted domain for sine is the interval from -pi/2 to pi/2.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \pgfmathsetmacro{\rad}{2};
+            
+            \coordinate (c1) at (0,0);
+            \draw [dotted] (c1) circle (\rad);
+            \draw [thick, red] ($ (c1) + (0,-\rad) $)
+                    arc (-90:90:\rad);
+            \fill [red] ($ (c1) + (-90:\rad) $) circle [radius=2pt];
+            \fill [red] ($ (c1) + (90:\rad) $) circle [radius=2pt];
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    <figure>
+        <caption>The sine function restricted to the domain <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m>.</caption>
+        <image xml:id="fig-restricted-sine">
+            <description>The restricted sine function.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \begin{axis}
+            [
+              xmin=-3, xmax=5,
+              xtick={-2,-1,0,1,2,4}, ytick={-1,0,1},
+              xticklabels={ $-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$, $2\pi$ },
+              xlabel={$\theta$}, ylabel={$y$},
+            ]
+            \addplot [-, forget plot] coordinates { (-3,0) (5,0) };
+            \addplot [dotted, samples=101, forget plot] (x, {sin(90*x)});
+            \addplot [thick, red, domain=-1:1] (x, {sin(90*x)});
+            \addplot [only marks, red] coordinates { (-1,-1) (1,1) };
+            \legend {$y=\sin(\theta)$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    
+    <p>The inverse function for the restricted sine function is called the arcsine function or inverse sine function. Because $\sin$ takes an angle <m>\theta</m> in radians as the input and gives the <m>y</m>-coordinate on the unit circle as the output, we have <m>\sin : \theta \mapsto y</m>. The inverse takes a <m>y</m>-coordinate on the unit circle as the input and gives an angle <m>\theta</m> in the interval <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> as output, we have <m>\sin^{-1} : y \mapsto \theta</m>. The graph of the arcsine is shown below.</p>
+    
+    <figure>
+        <caption>The arcsine function, which is the inverse of the restricted sine.</caption>
+        <image xml:id="fig-arcsine">
+            <description>The inverse of the restricted sine function, the arcsine function.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \begin{axis}
+            [
+              xmin=-2, xmax=2,
+              ytick={-1,0,1}, xtick={-1,0,1},
+              yticklabels={ $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$},
+              xlabel={$y$}, ylabel={$\theta$},
+              legend pos=north west,
+            ]
+            \addplot [-, forget plot] coordinates { (-3,0) (5,0) };
+            \addplot [thick, red, domain=-1:1] ({sin(90*x)}, x);
+            \addplot [only marks, red, forget plot] coordinates { (-1,-1) (1,1) };
+            \legend {$\theta=\sin^{-1}(y)$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    
+    <p>The cosine function takes an angle <m>\theta</m> as the input and returns the <m>x</m>-coordinate of the corresponding point on the unit circle. The first quadrant angles between <m>\theta=0</m> and <m>\theta=\frac{\pi}{2}</m> have <m>x</m>-coordinates between 0 and 1. To obtain the <m>x</m>-coordinates between <m>-1</m> and 0 come from angles in the second quadrant. The restricted domain will be the interval <m>[0,\pi]</m>.</p>
+
+    <figure>
+        <caption>The restricted domain for cosine is the interval <m>[0,\pi]</m>.</caption>
+        <image xml:id="fig-restrict-domain-cosine">
+            <description>The restricted domain for cosine is the interval from 0 to pi.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \pgfmathsetmacro{\rad}{2};
+            
+            \coordinate (c1) at (0,0);
+            \draw [dotted] (c1) circle (\rad);
+            \draw [thick, red] ($ (c1) + (\rad,0) $)
+                    arc (0:180:\rad);
+            \fill [red] ($ (c1) + (0:\rad) $) circle [radius=2pt];
+            \fill [red] ($ (c1) + (180:\rad) $) circle [radius=2pt];
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    <figure>
+        <caption>The cosine function restricted to the domain <m>[0,\pi]</m>.</caption>
+        <image xml:id="fig-restricted-cosine">
+            <description>The restricted cosine function.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \begin{axis}
+            [
+              xmin=-3, xmax=5,
+              xtick={-2,-1,0,1,2,4}, ytick={-1,0,1},
+              xticklabels={ $-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$, $2\pi$ },
+              xlabel={$\theta$}, ylabel={$x$},
+            ]
+            \addplot [-, forget plot] coordinates { (-3,0) (5,0) };
+            \addplot [dotted, samples=101, forget plot] (x, {cos(90*x)});
+            \addplot [thick, red, domain=0:2] (x, {cos(90*x)});
+            \addplot [only marks, red] coordinates { (0,1) (2,-1) };
+            \legend {$x=\cos(\theta)$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    
+    <p>The inverse function for the restricted cosine function is called the arccosine function or inverse cosine function. Because $\cos$ takes an angle <m>\theta</m> in radians as the input and gives the <m>x</m>-coordinate on the unit circle as the output, we have <m>\cos : \theta \mapsto x</m>. The inverse takes an <m>x</m>-coordinate on the unit circle as the input and gives an angle <m>\theta</m> in the interval <m>[0,\pi]</m> as output, so we have <m>\cos^{-1} : x \mapsto \theta</m>. The graph of the arccosine is shown below.</p>
+    
+    <figure>
+        <caption>The arccosine function, which is the inverse of the restricted cosine.</caption>
+        <image xml:id="fig-arccosine">
+            <description>The inverse of the restricted cosine function, the arccosine function.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \begin{axis}
+            [
+              xmin=-2, xmax=2,
+              ytick={-1,0,1}, xtick={-1,0,1},
+              yticklabels={ $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$},
+              xlabel={$y$}, ylabel={$\theta$},
+              legend pos=north east,
+            ]
+            \addplot [-, forget plot] coordinates { (-3,0) (5,0) };
+            \addplot [thick, red, domain=0:2] ({cos(90*x)}, x);
+            \addplot [only marks, red, forget plot] coordinates { (-1,2) (1,0) };
+            \legend {$\theta=\cos^{-1}(y)$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    
+    <p>The tangent function takes an angle <m>\theta</m> as the input and returns the ratio <m>\frac{y}{x}</m> for the coordinates <m>(x,y)</m> of the corresponding point on the unit circle. This ratio is exactly the slope <m>m=\frac{y}{x}</m> of the line joining <m>(0,0)</m> and <m>(x,y)</m>. The first quadrant angles between <m>\theta=0</m> and <m>\theta=\frac{\pi}{2}</m> correspond to all of the possible positive slopes. To obtain negative slopes, we could use either the second or fourth quadrant. So that the function will be continuous, the restricted domain is chosen as the interval <m>(-\frac{\pi}{2}, \frac{\pi}{2})</m>. The end-points are not included because the tangent is not defined at those angles.</p>
+    
+    <figure>
+        <caption>The restricted domain for tangent is the interval <m>(-\frac{\pi}{2},\frac{\pi}{2})</m>.</caption>
+        <image xml:id="fig-restrict-domain-tangent">
+            <description>The restricted domain for tangent is the open interval from -pi/2 to pi/2.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \pgfmathsetmacro{\rad}{2};
+            
+            \coordinate (c1) at (0,0);
+            \draw [dotted] (c1) circle (\rad);
+            \draw [thick, red] ($ (c1) + (0,-\rad) $)
+                    arc (-90:90:\rad);
+            \draw [red] ($ (c1) + (-90:\rad) $) circle [radius=2pt];
+            \draw [red] ($ (c1) + (90:\rad) $) circle [radius=2pt];
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    <figure>
+        <caption>The tangent function restricted to the domain <m>(-\frac{\pi}{2},\frac{\pi}{2})</m>.</caption>
+        <image xml:id="fig-restricted-tangent">
+            <description>The restricted tangent function.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \begin{axis}
+            [
+              xmin=-3, xmax=5, ymin=-10, ymax=10,
+              xtick={-2,-1,0,1,2,4}, ytick={-1,0,1},
+              xticklabels={ $-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$, $2\pi$ },
+              xlabel={$\theta$}, ylabel={$m$},
+            ]
+            \addplot [-, forget plot] coordinates { (-3,0) (5,0) };
+            \addplot [dotted, domain=-0.95:0.95, samples=31, forget plot] (x, {tan(90*x)});
+            \addplot [dotted, domain=-0.95:0.95, samples=31, forget plot] (x-2, {tan(90*x)});
+            \addplot [dotted, domain=-0.95:0.95, samples=31, forget plot] (x+2, {tan(90*x)});
+            \addplot [dotted, domain=-0.95:0.95, samples=31, forget plot] (x+4, {tan(90*x)});
+            \addplot [thick, red, domain=-0.95:0.95] (x, {tan(90*x)});
+            \legend {$m=\tan(\theta)$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    
+    <p>The inverse function for the restricted tangent function is called the arctangent function or inverse tangent function. Because $\tan$ takes an angle <m>\theta</m> in radians as the input and gives the slope <m>m</m> of the angle, <m>\tan : \theta \mapsto m</m>. The inverse takes a slope <m>m</m> as the input and gives an angle <m>\theta</m> in the interval <m>(-\frac{\pi}{2},\frac{\pi}{2})</m> the has this slope, so we have <m>\tan^{-1} : m \mapsto \theta</m>. The graph of the arctangent is shown below.</p>
+    
+    <figure>
+        <caption>The arctangent function, which is the inverse of the restricted tangent.</caption>
+        <image xml:id="fig-arctangent">
+            <description>The arctangent function.</description>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick]
+            \begin{axis}
+            [
+              xmin=-8, xmax=8, ymin=-2, ymax=2,
+              ytick={-1,0,1}, 
+              yticklabels={ $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$},
+              xlabel={$m$}, ylabel={$\theta$},
+            ]
+            \addplot [-, forget plot] coordinates { (-10,0) (10,0) };
+            \addplot [thick, red, domain=-0.95:0.95] ({tan(90*x)}, x);
+            \legend {$\theta=\tan^{-1}(m)$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    
+    <p>The secant, cosecant, and cotangent functions also have restricted domains and corresponding inverse functions. The table below summarizes the restricted domains and ranges for each of the trigonometric functions.</p>
+    
+    <table>
+        <tabular>
+            <row below="major">
+                <cell>Restricted Function</cell>
+                <cell>Domain</cell>
+                <cell>Range</cell>
+            </row>
+            <row>
+                <cell><m>\sin(x)</m></cell>
+                <cell><m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m></cell>
+                <cell><m>[-1,1]</m></cell>
+            </row>
+            <row>
+                <cell><m>\cos(x)</m></cell>
+                <cell><m>[0,\pi]</m></cell>
+                <cell><m>[-1,1]</m></cell>
+            </row>
+            <row>
+                <cell><m>\tan(x)</m></cell>
+                <cell><m>(-\frac{\pi}{2}, \frac{\pi}{2})</m></cell>
+                <cell><m>(-\infty,\infty)</m></cell>
+            </row>
+            <row>
+                <cell><m>\cot(x)</m></cell>
+                <cell><m>(0,\pi)</m></cell>
+                <cell><m>(-\infty,\infty)</m></cell>
+            </row>
+            <row>
+                <cell><m>\sec(x)</m></cell>
+                <cell><m>[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]</m></cell>
+                <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
+            </row>
+            <row>
+                <cell><m>\csc(x)</m></cell>
+                <cell><m>[-\frac{\pi}{2},0) \cup (0,\frac{\pi}{2}]</m></cell>
+                <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
+            </row>
+        </tabular>
+    </table>
+    <p>The domain and range for the inverse functions are exactly the reverse of the restricted trigonometric functions. The inverse trigonometric functions have multiple representations. For example, the arcsine is sometimes written <m>\sin^{-1}</m> but is also written either <m>\arcsin</m> or <m>\mathrm{asin}</m>. The table summarizes the information about the inverse trigonometric functions.</p>
+    <table>
+        <tabular>
+            <row below="major">
+                <cell>Inverse Functions</cell>
+                <cell>Domain</cell>
+                <cell>Range</cell>
+            </row>
+            <row>
+                <cell><m>\sin^{-1}(x)=\arcsin(x)</m></cell>
+                <cell><m>[-1,1]</m></cell>
+                <cell><m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m></cell>
+            </row>
+            <row>
+                <cell><m>\cos^{-1}(x)=\arccos(x)</m></cell>
+                <cell><m>[-1,1]</m></cell>
+                <cell><m>[0,\pi]</m></cell>
+            </row>
+            <row>
+                <cell><m>\tan^{-1}(x)=\arctan(x)</m></cell>
+                <cell><m>(-\infty,\infty)</m></cell>
+                <cell><m>(-\frac{\pi}{2}, \frac{\pi}{2})</m></cell>
+            </row>
+            <row>
+                <cell><m>\cot^{-1}(x)=\mathrm{arccot}(x)</m></cell>
+                <cell><m>(-\infty,\infty)</m></cell>
+                <cell><m>(0,\pi)</m></cell>
+            </row>
+            <row>
+                <cell><m>\sec^{-1}(x)=\mathrm{arcsec}(x)</m></cell>
+                <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
+                <cell><m>[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]</m></cell>
+            </row>
+            <row>
+                <cell><m>\csc^{-1}(x)=\mathrm{arccsc}(x)</m></cell>
+                <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
+                <cell><m>[-\frac{\pi}{2},0) \cup (0,\frac{\pi}{2}]</m></cell>
+            </row>
+        </tabular>
+    </table>
+        
+</section>

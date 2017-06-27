@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="inverses">
+    <title>Composition and Inverse Functions</title>
+    
+    <p>In the context of covarying variables, a function is a rule (operation) that predicts the value of the dependent variable (output) given the value of the independent variable (input). An inverse function is a function that predicts the reverse relation. What happens when these two functions are composed?</p>
+    
+    <p>Suppose <m>f : x \mapsto y</m> has an inverse function <m>f^{-1}: y \mapsto x</m>. The equivalent inverse equations are given by <me>y=f(x) \quad \Leftrightarrow \quad x=f^{-1}(y).</me> When viewed as a map, these functions reverse one another's operations.</p>
+    
+    <figure>
+        <image>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm,y=1.5cm]
+            \draw[<->] (-6.5,0) -- (10.5,0) node[right] {$x$};
+            \draw[<->] (-6.5,-1) -- (10.5,-1) node[right] {$y$};
+            \foreach \x in {1}
+                \draw (\x,0.1) -- (\x,-0.1);
+            \foreach \x in {3}
+                \draw (\x,-0.9) -- (\x,-1.1);
+            \draw [thick, black, ->] (0.9,-0.15) -- (2.9,-0.85) node[pos=0.5, left] {$f$};
+            \draw [thick, black, <-] (1.1,-0.15) -- (3.1,-0.85) node[pos=0.5, right] {$f^{-1}$};
+            \end{tikzpicture}]]>
+            </latex-image-code>
+        </image>
+    </figure>
+    
+    <p>When inverse operations are applied in sequence (composition), there is no net change. We call the function that does not change the input the <term>identity function</term>, <me>\mathrm{id}(x) = x.</me> An alternate definition of an inverse function is through composition and the identity function.</p>
+
+    <definition>
+        <statement>
+        <p>Suppose a function <m>f</m> defines the relationship <m>x \mapsto y=f(x)</m>. A function <m>g</m> is the <term>inverse function</term> of <m>f</m> (and we write <m>g=f^{-1}</m> if <m>f \circ g = \mathrm{id}</m> and <m>g \circ f= \mathrm{id}</m>. That is, <md>
+            <mrow> g \circ f(x) = g(f(x)) = x \qquad (x \overset{f}{\mapsto} y \overset{g}{\mapsto} x),</mrow>
+            <mrow> f \circ g(y) = f(g(y)) =y \qquad (y \overset{g}{\mapsto} x \overset{f}{\mapsto} y).</mrow>
+        </md></p>
+        </statement>
+    </definition>
+    
+    <p>Recall that exponentials and logarithms are inverse functions and that <m>\ln</m> is the natural logarithm with base <m>e</m>. We write <m>\exp</m> without a base to refer to the natural exponential, <m>\exp(x) = e^x</m>. We often use the identity property of their compositions. <md>
+        <mrow> \exp(\ln(x)) = e^{\ln(x)} = x, </mrow>
+        <mrow> \ln(\exp(x)) = \ln(e^x) = x. </mrow>
+    </md> It is important to recognize that it is not the symbols <m>e</m> and <m>\ln</m> that cancel. It is that the composition of inverse functions create the identity.</p>
+    
+    <example>
+        <statement>
+        <p>Find the inverse function for <m>f(x) = 3x+4</m>. Then show that the compositions of <m>f</m> and <m>f^{-1}</m> are the identity function.</p>
+        </statement>
+        
+        <solution>
+            <p>Recall that to find an inverse function, you start with the equation <m>y=f(x)</m> and then solve for the independent variable <m>x</m> as a function of the dependent variable <m>y</m>. <me> y=3x+4 \quad \Leftrightarrow \quad y-4 = 3x \quad \Leftrightarrow \quad x=\frac{y-4}{3} </me> This formula gives the inverse function:<md>
+                <mrow> f: x \mapsto y=f(x) = 3x+4, </mrow>
+                <mrow> g: y \mapsto x=g(y) = \frac{y-4}{3}.</mrow>
+            </md></p>
+            <p>You may have learned that you should change the names of the variables when finding an inverse function. This is not actually necessary, but was just used so that your new function had <m>x</m> as the independent variable, <me> f^{-1}(x)=g(x)=\frac{x-4}{3}.</me> Unfortunately, this extra step obscures the significance of a function's role as a mapping relationship between two variables, not just as an operation on numbers.</p>
+            
+            <p>To verify that the composition yields the identity, where <m>f : x \mapsto y</m> and <m>f^{-1}=g : y \mapsto x</m>, we compute: <md>
+                <mrow> g \circ f(x) &amp;= g(f(x)) = g(3x+4) </mrow>
+                <mrow> &amp;= \frac{(3x+4)-4}{3} = \frac{3x}{3} = x </mrow>
+                <mrow> f \circ g(y) &amp;= f(g(y)) = f(\frac{y-4}{3}) </mrow>
+                <mrow> &amp;= 3(\frac{y-4}{3}) + 4 = y-4+4 = y </mrow>
+            </md> Both compositions yield the identity <m>g \circ f(x)=\mathrm{id}(x)=x</m> and <m>f \circ g(y)=\mathrm{id}(y)=y</m>, which is exactly what is needed for <m>g=f^{-1}</m>.</p>
+        </solution>
+    </example>
+    
+    <example>
+        <statement>
+        <p>Find the inverse function for <m>\displaystyle f(x) = \frac{2x}{x+1}</m>. Then show that the compositions of <m>f</m> and <m>f^{-1}</m> are the identity function.</p>
+        </statement>
+        
+        <solution>
+            <p>Start with the equation <m>y=f(x)</m> and solve for <m>x</m>. <md>
+                <mrow> y=\frac{2x}{x+1} </mrow>
+                <mrow> y(x+1) = 2x \qquad \Leftrightarrow \qquad xy + y = 2x </mrow>
+                <mrow> xy-2x = -y \qquad \Leftrightarrow \qquad x(y-2) = -y </mrow>
+                <mrow> x = \frac{-y}{y-2} </mrow>
+            </md> Consequently, our pair of inverse functions are given by <md>
+                <mrow> f : x \mapsto y=f(x) = \frac{2x}{x+1}, </mrow>
+                <mrow> g : y \mapsto x=g(y) = \frac{-y}{y-2}.</mrow>
+            </md></p>
+            
+            <p>Composition in this example will require using properties of fractions. Specifically, we will need to find common denominators and use the fact that division by a fraction is multiplication by the reciprocal. <md>
+                <mrow> g \circ f(x) &amp;= g(f(x)) = g(\frac{2x}{x+1}) </mrow>
+                <mrow> &amp;= \frac{-(\frac{2x}{x+1})}{(\frac{2x}{x+1})-2}
+                = \frac{-(\frac{2x}{x+1})}{(\frac{2x}{x+1})-2} \cdot \frac{(x+1)}{(x+1)} </mrow>
+                <mrow> &amp;= \frac{-2x}{2x-2(x+1)}
+                = \frac{-2x}{-2} = x </mrow>
+                <mrow> f \circ g(y) &amp;= f(g(y)) = f(\frac{-y}{y-2}) </mrow>
+                <mrow> &amp;= \frac{2(\frac{-y}{y-2})}{(\frac{-y}{y-2})+1}
+                = \frac{2(\frac{-y}{y-2})}{(\frac{-y}{y-2})+1} \cdot \frac{(y-2)}{(y-2)} </mrow>
+                <mrow> &amp;= \frac{-2y}{-y+(y-2)} = \frac{-2y}{-2} = y </mrow>
+            </md> This verifies that <m>f^{-1}=g</m>.</p>
+        </solution>
+    </example>
+    
+    <example>
+        <statement>
+        <p>Find the inverse function for <m>f(x) = 2e^{x-5}</m>. Then show that the compositions of <m>f</m> and <m>f^{-1}</m> are the identity function.</p>
+        </statement>
+        
+        <solution>
+            <p>Start with the equation <m>y=f(x)</m> and solve for <m>x</m>. Because this equation involves an exponential, we will rewrite this equation so that it an exponential equation of the form <m>e^a=b</m> and then convert it to its equivalent logarithmic equation <m>a = \ln(b)</m>. <md>
+                <mrow> y=2e^{x-5} </mrow>
+                <mrow> \frac{y}{2} = e^{x-5} </mrow>
+                <mrow> \ln \left(\frac{y}{2}\right) = x-5 </mrow>
+                <mrow> x = \ln\left(\frac{y}{2}\right) + 5 </mrow>
+            </md> Consequently, our pair of inverse functions are given by <md>
+                <mrow> f: x \mapsto y=f(x) = 2e^{x-5}, </mrow>
+                <mrow> g: y \mapsto x=g(y) = \ln\left(\frac{y}{2}\right) + 5.</mrow>
+            </md></p>
+            
+            <p>Now, compute the compositions, taking advantage of the fact that the natural exponential and natural logarithm are inverse functions. <md>
+                <mrow> g \circ f(x) &amp;= g(f(x)) = f(2e^{x-5}) </mrow>
+                <mrow> &amp;= \ln\left(\frac{(2e^{x-5})}{2}\right) + 5
+                = \ln(e^{x-5}) + 5</mrow>
+                <mrow> &amp;= (x-5)+5 = x</mrow>
+                <mrow> f \circ g(y) &amp; = f(g(y)) = g(\ln(\frac{y}{2})+5) </mrow>
+                <mrow> &amp;= 2 e^{(\ln(\frac{y}{2})+5)-5} = 2e^{\ln(\frac{y}{2})} </mrow>
+                <mrow> &amp;= 2 \cdot (\frac{y}{2}) = y </mrow>
+            </md> Because the compositions result in the identity function, we have inverse functions <m>g=f^{-1}</m>.</p>
+        </solution>
+    </example>
+    
+</section>

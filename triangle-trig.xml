@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="triangle-trig">
+	<title>Right Triangles and Trigonometry</title>
+
+	<!-- Similar Right Triangles -->
+	<subsection>
+		<title>Right Triangles</title>
+		<p>
+		We already reviewed the idea that similar triangles have equal ratios of
+		corresponding sides. This is at the heart of trigonometry using right triangles.
+		An important fact from geometry is that any two triangles that have equal angles
+		are similar. A right triangle, by definition, has one angle that is perpendicular
+		or 90 degrees. Because the sum of angles in a triangle always add to 180 degrees,
+		it really only takes one of the other angles to establish similarity.
+		</p>
+		
+		<p>
+		We consider an acute angle <m>\theta</m> (less than 90 degrees). A right triangle
+		with base angle <m>\theta</m> in standard position (with the base horizontal 
+		and the angle on the left) is shown in the diagram below.
+		The legs that join at right angles are identified as being adjacent (adj) to 
+		the angle or opposite (opp) to the angle, while the side opposite the right 
+		angle is the hypotenuse (hyp).
+		</p>
+		
+        <figure>
+            <caption>An illustration of similar right triangles with base angle <m>\theta</m>
+            in standard position.</caption>
+            <image xml:id="fig-right-triangle-stdpos">
+                <description>Right triangle in standard position, as described in paragraph above.</description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[auto, thick]
+                \coordinate (A) at (0,0);
+                \node[left] at (A) {$A$};
+                \coordinate (B) at ($ (A) + 3*(40:1) $);
+                \node[right] at (B) {$B$};
+                \coordinate (Bc) at ($ (A) + 3*(-40:1) $);
+                \coordinate (C) at ($ (B)!0.5!(Bc) $);
+                \node[right] at (C) {$C$};
+                \draw (A) -- (B) node[pos=0.5] {hyp} 
+                    -- (C) node[pos=0.5] {opp} 
+                    -- (A) node[pos=0.5] {adj} ;
+                \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
+                \node at ($ (A) + 0.75*(20:1) $) {$\theta$};
+                \end{tikzpicture}]]>
+                </latex-image-code>
+            </image>
+        </figure>
+
+        <p>
+        For any right triangle with the same base angle, the ratios of these three sides
+        are always going to found in the exact proportions.
+        These proportions define the six trigonometric values of the angle:
+        <md>
+            <mrow>\sin \theta &amp; = \frac{\mathrm{opp}}{\mathrm{hyp}} &amp; \hbox{(sine)}</mrow>
+            <mrow>\cos \theta &amp; = \frac{\mathrm{adj}}{\mathrm{hyp}} &amp; \hbox{(cosine)}</mrow>
+            <mrow>\tan \theta &amp; = \frac{\mathrm{opp}}{\mathrm{adj}} &amp; \hbox{(tangent)}</mrow>
+            <mrow>\sec \theta &amp; = \frac{\mathrm{hyp}}{\mathrm{adj}} &amp; \hbox{(secant)}</mrow>
+            <mrow>\cot \theta &amp; = \frac{\mathrm{adj}}{\mathrm{opp}} &amp; \hbox{(cotangent)}</mrow>
+            <mrow>\csc \theta &amp; = \frac{\mathrm{hyp}}{\mathrm{opp}} &amp; \hbox{(cosecant)}.</mrow>
+        </md>
+        The first three proportions are often introduced using a mnemonic ``SOH-CAH-TOA"
+        where the three letters correspond to the first letter of the proportion name (<bold>S</bold>ine),
+        the numerator side (<bold>O</bold>pposite) and denominator side (<bold>H</bold>ypotenuse).
+        </p>
+        
+        <p>
+        It is sometimes useful to think of drawing special right triangles where one of the
+        sides has unit length (length=1). When the hypotenuse has unit length, the triangle
+        involves sine (opposite) and cosine (adjacent).
+        When the adjacent leg has unit length, the triangle has sides with lengths given by
+        tangent (opposite) and secant (hypotenuse).
+        When the opposite leg has unit length, the triangle has sides with lengths given by
+        cotangent (adjacent) and cosecant (hypotenuse).
+        When I realized this simple fact, the naming of the proportions made much more sense.
+        </p>
+        
+        <figure>
+            <caption>Illustration of the three similar unit right triangles with angle <m>\theta</m>.</caption>
+            <image source="images/unit-right-triangles.png">
+                <description>Unit right triangles showing the six fundamental trigonometric values.</description>
+            </image>
+        </figure>
+        
+		<theorem xml:id="thm-pythagorean-identities">
+		    <title>Pythagorean Identities</title>
+		    <statement>
+		    The Pythagorean theorem states that the sum of the squares of 
+		    the legs of a right triangle must equal the square of the hypotenuse.
+		    Consequently, the trigonometric values of an angle must satisfy:
+		    <md>
+		        <mrow> (\sin \theta)^2 + (\cos \theta)^2 = 1 </mrow>
+		        <mrow> (\tan \theta)^2 + 1 = (\sec \theta)^2 </mrow>
+		        <mrow> 1 + (\cot \theta)^2 = (\csc \theta)^2 </mrow>
+		    </md>
+		    </statement>
+		    <proof>
+		        Consider any triangle with base angle <m>\theta</m>.
+		        The Pythagorean theorem guarantees
+		        <me> \mathrm{opp}^2 + \mathrm{adj}^2 = \mathrm{hyp}^2. </me>
+		        The first identity is found by dividing both sides of this equation
+		        by <m>\mathrm{hyp}^2</m>.
+		        The next two identities are found by dividing by <m>\mathrm{adj}^2</m>
+		        and <m>\mathrm{opp}^2</m>, respectively.
+		    </proof>
+		</theorem>
+		
+	</subsection>
+	
+	<subsection>
+	    <title>Special Right Triangles</title>
+	    
+	    <p>
+	    There are two right triangles that often appear in problems
+	    because they are geometrically simple. One of these is the
+	    isosceles right triangle where the base angle is exactly half
+	    of a right angle (<m>\theta = 45^\circ</m>). This triangle is
+	    often called a 45<ndash />45<ndash />90 right triangle. The other
+	    simple triangle comes from dividing an equilateral triangle
+	    in half, so that the base angle is either <m>30^\circ</m> or <m>60^\circ</m>,
+	    and is called a 30<ndash />60<ndash />90 right triangle.
+	    </p>
+	    
+	    <figure>
+	        <caption>Illustration of 45<ndash />45<ndash />90 and
+	        30<ndash />60<ndash />90 right triangles.</caption>
+	        <image xml:id="fig-simple-right-triangles">
+	            <description>
+	            Figure showing an isosceles 45-45-90 right triangle and
+	            a 30-60-90 right triangle formed from an equilateral triangle.
+	            </description>
+                <latex-image-code>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[auto, thick]
+                \pgfmathsetmacro{\angleA}{40}
+                \pgfmathsetmacro{\angleB}{150}
+                \pgfmathsetmacro{\angleC}{-150}
+
+                \pgfmathsetmacro{\s}{1.5}
+                \pgfmathsetmacro{\phi}{0}
+
+                \coordinate (c1) at (0,0);
+                \coordinate (A) at ($ (c1) $);
+                \coordinate (B) at ($ (c1) + (\s,\s) $);
+                \coordinate (C) at ($ (c1) + (\s, 0) $);
+                \draw (A) -- (B) node[pos=0.5] {$\sqrt{2}$} 
+                    -- (C) node[pos=0.5] {1} 
+                    -- (A) node[pos=0.5] {1} ;
+                \draw (2.25,0) rectangle (2.5,0.25);
+                \node[align=left] at ($ (c1) + 0.7*(22:1) $) {$45^\circ$};
+                \node[align=right] at ($ (B) + (-0.3,-0.65) $) {$45^\circ$};
+
+                \pgfmathsetmacro{\s}{3}
+                \pgfmathsetmacro{\phi}{70}
+
+                \coordinate (c2) at (4,0);
+                \coordinate (P) at ($ (c2) $);
+                \coordinate (Q) at ($ (c2) + \s*(30:1) $);
+                \coordinate (R) at ($ (c2) + \s*(-30:1) $);
+                \coordinate (S) at ($ (Q)!0.5!(R) $);
+                \draw[dashed] (P) -- (Q) -- (R) -- cycle;
+                \draw (P) -- (Q)  node[pos=0.5] {$1$} 
+                    --  (S)  node[pos=0.5] {$\frac{1}{2}$} 
+                    -- (P) node[pos=0.3] {$\frac{\sqrt{3}}{2}$} ;
+                \draw (S) rectangle ($ (S) + (-0.25, 0.25) $);
+                \node[align=left] at ($ (c2) + (15:1) $) {$30^\circ$};
+                \node[align=right] at ($ (Q) + (-0.25,-0.45) $) {$60^\circ$};
+                \end{tikzpicture}]]>
+                </latex-image-code>
+	        </image>
+	    </figure>
+	    
+	    <p>
+	    It is handy to be able to reproduce these two triangles as quickly as possible.
+	    The key is to remember how the triangles were created. 
+	    For the 45<ndash />45<ndash />90 triangle, draw an isosceles right triangle and label
+	    the lengths of both legs as 1. To find the length of the hypotenuse $h$, use
+	    the Pythagorean theorem:
+	    <md>
+	        <mrow> 1^2 + 1^2 = h^2 </mrow>
+	        <mrow> h^2 = 2 </mrow>
+	        <mrow> h = \sqrt{2} </mrow>
+	    </md>
+	    For the 30<ndash />60<ndash />90 triangle, recall that this is exactly half
+	    of an equilateral triangle. The hypotenuse will have length 1 while the 
+	    leg opposite the 30 degrees is exactly half that length. Now use the Pythagorean
+	    theorem to find the length of the other leg $b$ which bisected the triangle:
+	    <md>
+	        <mrow> (\frac{1}{2})^2 + b^2 = 1^2 </mrow>
+	        <mrow> \frac{1}{4} + b^2 = 1 </mrow>
+	        <mrow> b^2 = \frac{3}{4} </mrow>
+	        <mrow> b = \frac{\sqrt{3}}{2} </mrow>
+	    </md>
+	    </p>
+	    
+	    <p>
+	    Once you have the triangles drawn with lengths identified, you can use
+	    the triangles to find the proportions that define the trigonometric values.
+        I strongly discourage trying to memorize this table. Learn how the table
+        was created, and that will reinforce the more general principles and ultimately
+        require less mental effort to recall.
+        </p>
+
+        <table>
+            <tabular top="major" halign="center">
+                <row bottom="minor">
+                    <cell><m>\theta</m></cell>
+                    <cell><m>30^{\circ}</m></cell>
+                    <cell><m>45^{\circ}</m></cell>
+                    <cell><m>60^{\circ}</m></cell>
+                </row>
+                <row>
+                    <cell><m>\sin \theta = \frac{\hbox{opp}}{\hbox{hyp}}</m></cell>
+                    <cell><m>\sin 30^{\circ} = \frac{1}{2}</m></cell>
+                    <cell><m>\sin 45^{\circ} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}</m></cell>
+                    <cell><m>\sin 60^{\circ} = \frac{\sqrt{3}}{2}</m></cell>
+                </row>
+                <row>
+                    <cell><m>\cos \theta = \frac{\hbox{adj}}{\hbox{hyp}}</m></cell>
+                    <cell><m>\cos 30^{\circ} = \frac{\sqrt{3}}{2}</m></cell>
+                    <cell><m>\cos 45^{\circ} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}</m></cell>
+                    <cell><m>\cos 60^{\circ} = \frac{1}{2}</m></cell>
+                </row>
+                <row>
+                    <cell><m>\tan \theta = \frac{\hbox{opp}}{\hbox{adj}}</m></cell>
+                    <cell><m>\tan 30^{\circ} = \frac{\frac{1}{2}}{\frac{\sqrt{3}}{2}} = \frac{1}{\sqrt{3}}</m></cell>
+                    <cell><m>\tan 45^{\circ} = 1</m></cell>
+                    <cell><m>\tan 60^{\circ} = \frac{\frac{\sqrt{3}}{2}}{\frac{1}{2}} = \sqrt{3}</m></cell>
+                </row>
+            </tabular>
+        </table>
+	</subsection>
+	
+	<subsection>
+	    <title>Examples</title>
+	    
+	    <p>
+	    The first example illustates how you can use two known lengths for a triangle
+	    to find the trigonometric values for the angle.
+	    </p>
+	    
+	    <example>
+	    <statement>
+	        <p>
+	        Suppose a right triangle with a base angle <m>\theta</m> has
+	        a base of length 3 and a height of length 5. What are the trigonometric
+	        values associated with <m>\theta</m>?
+	        </p>
+	    </statement>
+	    <solution>
+	        <p>
+	        Start by drawing a diagram, labeling the unknown side (the hypotenuse) with
+	        a variable, say <m>c</m>.
+	        </p>
+	        
+            <figure>
+                <image xml:id="fig-triangle-unknowns">
+                    <description>
+                    Figure showing a right triangle with legs 3 and 5 and a hypotenuse
+                    with unknown length labeled c.
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[auto, thick]
+                    \coordinate (A) at (0,0);
+                    \coordinate (B) at ($ (A) + 0.6*(3,5) $);
+                    \coordinate (C) at ($ (A) + 0.6*(3,0) $);
+                    \draw (A) -- (B) node[pos=0.5] {$c$} 
+                        -- (C) node[pos=0.5] {5} 
+                        -- (A) node[pos=0.5] {3} ;
+                    \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
+                    \node at ($ (A) + 0.5*(40:1) $) {$\theta$};
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            
+            <p>
+            Using the Pythagorean theorem, we can find the length of the hypotenuse.
+            <md>
+                <mrow> 3^2 + 5^2 = c^2 </mrow>
+                <mrow> 9 + 25 = 34 = c^2 </mrow>
+                <mrow> c = \sqrt{34} </mrow>
+            </md>
+            Now that we know the lengths of all three sides, we can compute the
+            trigonometric values for our angle.
+            <md>
+                <mrow> \sin \theta &amp; = \frac{\hbox{opp}}{\hbox{hyp}} = \frac{5}{\sqrt{34}} </mrow>
+                <mrow> \cos \theta &amp; = \frac{\hbox{adj}}{\hbox{hyp}} = \frac{3}{\sqrt{34}} </mrow>
+                <mrow> \tan \theta &amp; = \frac{\hbox{opp}}{\hbox{adj}} = \frac{5}{3} </mrow>
+                <mrow> \sec \theta &amp; = \frac{\hbox{hyp}}{\hbox{adj}} = \frac{\sqrt{34}}{3} </mrow>
+                <mrow> \cot \theta &amp; = \frac{\hbox{adj}}{\hbox{opp}} = \frac{3}{5} </mrow>
+                <mrow> \csc \theta &amp; = \frac{\hbox{hyp}}{\hbox{opp}} = \frac{\sqrt{34}}{5} </mrow>
+            </md>
+            </p>
+	    
+	    </solution>
+	    </example>
+	    
+	    <p>
+	    Our second example illustrates how knowing the trigonometric values associated with
+	    an angle allow us to determine the lengths of sides. This occurs a lot in physics
+	    in the context of decomposing a force or velocity into two perpendicular components.
+	    </p>
+	    
+	    <example>
+	        <statement>
+	        <p>
+	        A golf ball is launched at a speed of 
+	        <quantity><mag>80</mag><unit base="meter"/><per base="second"/></quantity>
+	        and at an angle of \(40^\circ\)
+	        from the ground. What are the horizontal and vertical components of the ball's velocity?
+	        </p>
+	        </statement>
+	        
+	        <solution>
+	        <p>
+	        My preferred method of solution begins with a figure of a right
+	        triangle, where the angle <m>\theta = 40^{\circ}</m> is the base angle, the
+	        hypotenuse is labeled with length 80, and the legs are labeled with 
+	        variables representing the horizontal velocity <m>v_x</m> and 
+	        the vertical velocity <m>v_y</m>.
+	        </p>
+	        
+            <figure>
+                <image xml:id="fig-velocity-decomposition">
+                    <description>
+                    Figure showing a right triangle representing a velocity of 80 ft/s
+                    and unknown horizontal and vertical velocity components.
+                    </description>
+                    <latex-image-code>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[auto, thick]
+                    \coordinate (A) at (0,0);
+                    \coordinate (B) at ($ (A) + 3*(40:1) $);
+                    \coordinate (Bc) at ($ (A) + 3*(-40:1) $);
+                    \coordinate (C) at ($ (B)!0.5!(Bc) $);
+                    \draw (A) -- (B) node[pos=0.5] {80} 
+                        -- (C) node[pos=0.5] {$v_y$} 
+                        -- (A) node[pos=0.5] {$v_x$} ;
+                    \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
+                    \node at ($ (A) + 0.75*(20:1) $) {$40^{\circ}$};
+                    \end{tikzpicture}]]>
+                    </latex-image-code>
+                </image>
+            </figure>
+            
+            <p>
+            The trigonometric values for <m>\theta=40^{\circ}</m> can be easily found
+            using a calculator. (These once were found by looking up the angles in a table.)
+            We can setup equations relating the ratios of lengths and the corresponding 
+            trigonometric values.
+            <md>
+                <mrow> \sin 40^{\circ} = \frac{\hbox{opp}}{\hbox{hyp}} = \frac{v_y}{80} </mrow>
+                <mrow> \cos 40^{\circ} = \frac{\hbox{adj}}{\hbox{hyp}} = \frac{v_x}{80} </mrow>
+            </md>
+            From the first equation, we can solve for <m>v_y</m>:
+            <me> v_y = 80 \cdot \sin 40^{\circ} \approx 80 \cdot 0.6248 = 51.42. </me>
+            We find the horizontal velocity <m>v_x</m> by solving the second equation
+            <me> v_x = 80 \cdot \cos 40^{\circ} \approx 80 \cdot 0.7660 = 61.28. </me>
+            So the ball is traveling with a vertical velocity approximately 
+            <quantity><mag>51.42</mag><unit base="meter"/><per base="second"/></quantity>
+            and a horizontal velocity approximately
+            <quantity><mag>61.28</mag><unit base="meter"/><per base="second"/></quantity>.
+            </p>
+	        </solution>
+	    </example>
+	</subsection>
+</section>
