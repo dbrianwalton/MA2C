@@ -24,7 +24,7 @@ $(HTML)/images: $(HTML)
 
 html_images: $(HTML)/images
 	cp -a $(MA2Croot)/img/ $(HTML)/images/
-#	$(MB)/script/mbx -c latex-image -d $(HTML)/images/ -f svg $(XML)/$(XML_base)
+	$(MB)/script/mbx -c latex-image -d $(HTML)/images/ -f svg $(XML)/$(XML_base)
 
 pdf: $(LATEX_base).pdf ;
 
