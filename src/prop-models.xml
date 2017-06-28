@@ -34,7 +34,7 @@
             </statement>
             <notation>
                 <title>Proportional Relation</title>
-                <usage><m>b \propto a</m></usage>
+                <usage>b \propto a</usage>
                 <description><m>b</m> is proportional to <m>a</m></description>
             </notation>
         </definition>
@@ -218,7 +218,7 @@
             </p>
             <notation>
                 <title>Similarity</title>
-                <usage><m>abcd \sim ABCD</m></usage>
+                <usage>abcd \sim ABCD</usage>
                 <description>The polygon <m>abcd</m> is similar to the polygon <m>ABCD</m></description>
             </notation>
             <p>

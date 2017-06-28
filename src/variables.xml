@@ -664,7 +664,7 @@
                 <mrow>(9-W)W = 25</mrow>
                 <mrow>9W-W^2=25</mrow>
                 <mrow>W^2-9W+25=0</mrow>
-                <mrow>W=\frac{9 \pm \sqrt{(-9)^2-4(25)}{2}</mrow>
+                <mrow>W=\frac{9 \pm \sqrt{(-9)^2-4(25)}}{2}</mrow>
                 <mrow>W=\frac{9 \pm \sqrt{81-100}}{2}=\frac{9\pm \sqrt{-19}}{2}</mrow>
             </md> When solving this quadratic formula, we have the square-root of a negative number giving complex numbers.</p>
             <p>In conclusion, we found that there are no real solutions. This means that it is not possible to create a rectangle with a perimeter of 18 <quantity><unit base="meter"/></quantity> and an area of 25 <quantity><unit base="meter" exp="2"/></quantity>.</p>

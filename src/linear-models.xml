@@ -82,7 +82,7 @@
 		</p>
 		<notation>
 			<title>Slope<ndash />Intercept Form of Linear Function</title>
-			<usage><m>y=mx+b</m></usage>
+			<usage>y=mx+b</usage>
 			<description>Equation of a line with slope <m>m</m> passing through the <m>y</m>-axis at <m>(x,y)=(0,b)</m>.</description>
 		</notation>
 		
@@ -102,7 +102,7 @@
 		</p>
 		<notation>
 			<title>Point<ndash />Slope Form of Linear Function</title>
-			<usage><m>y=y_1+m(x-x_1)</m></usage>
+			<usage>y=y_1+m(x-x_1)</usage>
 			<description>Equation of a line with slope <m>m</m> passing through a point <m>(x,y)=(x_1,y_1)</m>.</description>
 		</notation>
 
