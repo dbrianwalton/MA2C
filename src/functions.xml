@@ -12,16 +12,72 @@
 
     <subsection>
         <title>Overview</title>
-    
-        <p>When two variables are related, it is sometimes the case that knowing one of the variables allows us to predict the value of the other variable. Other times, knowing one variable is not enough to determine the value of the other variable. Finding and describing such predictive relationships is at the heart of all quantitative sciences. If a predictive relationship can be found, then it can used, naturally enough, to make predictions. If a predictive relationship can not be found, then scientists explore the system attempting to find additional variables that make predictive relationships. The ability for one variable to predict another corresponds to the mathematical idea of a function.</p>
         
-        <p>This section explores the foundational ideas necessary to talk about functions. We begin with mathematical relationships between variables, represented by equations, to define one variable as an explicit function of another. The process of starting with an equation to create such an explicit function corresponds to solving the equation for the dependent variable. This requires a brief review of the role of mathematical operations, their order of precedence, and inverse operations. Because some functions might not come from explicit formulas, we introduce the mathematical description of a function with a corresponding <term>function notation</term>. We conclude with examples.</p>
+        <p>Calculus studies the relationships between variables. These relationships are most often expressed in terms of functions. In mathematics, a function is the a predictive relationship between an independent and a dependent variable such that knowing the value of the independent variable allows us to predict the value of the dependent variable.</p>
         
+        <p>In this section, we will review concepts relating to functions that are taught in algebra and pre-calculus. We start with linear relations. Linear functions will motivate many of the ideas throughout this course.</p>
     </subsection>
     
     <!-- Functions -->
     <subsection>
-        <title>Functions from Equations</title>
+        <title>Linear Functions</title>
+        
+        <p>A <term>linear relation</term> is a relation between two variables, say <m>x</m> and <m>y</m>, such that the graph of all states <m>(x,y)</m> is a geometric line. Every line in the <m>(x,y)</m> plane can be characterized by an equation of the form <men xml:id="general-eqn-line">Ax+By=C,</men> where <m>A</m>, <m>B</m> and <m>C</m> are constants. Equation <xref ref="general-eqn-line"/> is called the <term>general equation of a line</term>.</p>
+        <p>Horizontal and vertical lines are special cases. A <term>horizontal line</term> occurs when the <m>y</m>-values of every state are the same. The equation of a horizontal line is of the form <m>y=C</m>. A <term>vertical line</term> occurs when the <m>x</m>-values of every state are the same. The equation of a vertical line is of the form <m>x=C</m>.</p>
+        <note>
+            <statement>
+                <p>In mathematics, <term>definitions</term> provide the precise meaning of words that describe mathematical objects. Mathematics is a <term>deductive</term> science, meaning that mathematical truth is determined by showing that definitions are satisfied using logical reasoning. For example, we can think of the general equation of a line in Equation <xref ref="general-eqn-line"/> as the definition of a line. We can reason that what we have described as horizontal and vertical lines are actually lines. For example, the equation <m>y=C</m> satisfies the general equation of a line with <m>a=0</m> and <m>b=1</m>. The logical argument used to show a definition is satisfied is called a <term>proof</term>.</p>
+            </statement>
+        </note>
+        <p>We say that an equation defines <m>y</m> as a function of <m>x</m> if we can solve the equation for <m>y</m>. That is, we can write the equation in an equivalent form where <m>y</m> equals an expression that only involves <m>x</m>. This includes the possibility that <m>y</m> equals a constant. This new equation with <m>y</m> isolated defines <m>y</m> as <term>an explicit function</term> of <m>x</m>.</p>
+        
+        <example>
+            <statement><p>Show that the line <m>2x+3y=6</m> defines <m>y</m> as a function of <m>x</m> by writing <m>y</m> as an explicit function of <m>x</m>.</p></statement>
+            <solution>
+                <p>We start with the equation <m>2x+3y=6</m> and solve the equation for <m>y</m>. <md>
+                    <mrow>2x+3y=6</mrow>
+                    <mrow>3y=-2x+6</mrow>
+                    <mrow>y=\frac{-2x+6}{3}</mrow>
+                    <mrow>y=-{\textstyle \frac{2}{3}}x+2</mrow>
+                </md> The equation <m>y=-\frac{2}{3}x+2</m> defines <m>y</m> as an explicit function of <m>x</m>.</p>
+            </solution>
+        </example>
+        
+        <p>There is nothing particularly special about solving for <m>y</m>. We might instead solve for <m>x</m>. The variable that we isolate is called the <term>dependent variable</term> and the other variable is called the <term>independent variable</term>.</p>
+
+        <example>
+            <statement><p>Show that the line <m>2x+3y=6</m> also defines <m>x</m> as a function of <m>y</m>.</p></statement>
+            <solution>
+                <p>Starting with the equation <m>2x+3y=6</m>, we isolate <m>x</m>. <md>
+                    <mrow>2x+3y=6</mrow>
+                    <mrow>2x=-3y+6</mrow>
+                    <mrow>x=\frac{-3y+6}{2}</mrow>
+                    <mrow>x=-{\textstyle \frac{3}{2}}y+3</mrow>
+                </md> The equation <m>x=-\frac{3}{2}x+3</m> defines <m>x</m> as an explicit function of <m>y</m>. In this context, <m>x</m> is the dependent variable and <m>y</m> is the independent variable.</p>
+            </solution>
+        </example>
+        
+        <p>When a function will be used repeatedly, the function is assigned a name, which might be a letter, a word, or any symbol. In math textbooks, the most common name is <m>f</m>. We write <m>x \overset{f}{\mapsto} y</m> as a symbolic statement that <m>f</m> is the function relating an independent variable <m>x</m> and a dependent variable <m>y</m>. The arrow summarizes that the function lets us use values of <m>x</m> to predict the value of <m>y</m>.</p>
+        
+        <p> Function notation introduces <m>f(\square)</m> as</p>
+        <p>An explicit function provides a convenient way to predict the value of the dependent variable knowing the value of the independent variable. We substitute the given value of the independent variable into the equation, compute the value of the explicit expression, and that value is the predicted value of the dependent variable. If we were to use the original equation, we could also substitute the value of the independent variable but then we would need to solve for the unknown dependent variable. The explicit function has the advantage that the solving process was already performed.</p>
+        
+        <example>
+            <statement><p>For the line <m>2x+3y=6</m>, find the value of <m>y</m> when <m>x=2</m>.</p></statement>
+            <solution>
+                <p>If we use the original equation, we can substitute the value of <m>x=2</m> into the equation <m>2x+3y=6</m> and solve for <m>y</m>. <md>
+                    <mrow>2x+3y=6</mrow>
+                    <mrow>2(2)+3y=6</mrow>
+                    <mrow>4+3y=6</mrow>
+                    <mrow>3y=2</mrow>
+                    <mrow>y={\textstyle \frac{2}{3}}</mrow>
+                </md></p>
+                <p>On the other hand, we earlier solved for <m>y</m> as an explicit function <me>y=-\frac{3}{2}x+3.</me> Substituting <m>x=2</m> into this equation directly gives us the desired value. <md>
+                    <mrow>y&amp;=-{\textstyle \frac{2}{3}}x+2</mrow>
+                    <mrow>y&amp;=-{\textstyle \frac{2}{3}}(2)+2 =-{\textstyle \frac{4}{3}}+{\textstyle \frac{6}{3}}={\textstyle \frac{2}{3}}</mrow>
+                </md></p>
+            </solution>
+        </example>
         
         <p>A <term>function</term> is a relationship between two variables such that knowing one variable (the <term>independent variable</term>) allows us to predict the exact value of the other variable (the <term>dependent variable</term>). Conveniently, an equation in two variables defines a relationship between those variables. If we can solve such an equation so that one variable is equal to an expression involving only the other variable, then we have written that variable as an explicit function of the other.</p>
         

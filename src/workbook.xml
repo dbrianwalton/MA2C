@@ -1,126 +1,126 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-	Overall element for a Mathbook XML document; mandatory, always
-	Including XInclude in order to segment the work into multiple chapter files,
-	and perhaps ultimately individual section files.
+    Overall element for a Mathbook XML document; mandatory, always
+    Including XInclude in order to segment the work into multiple chapter files,
+    and perhaps ultimately individual section files.
 -->
 <!DOCTYPE doc> 
 
 <mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
 
     <xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
-	
+    
     <book xml:id="model-calculus">
         <title>A Modeling Approach to Calculus</title>
 
         <xi:include href="./frontmatter.xml" />
 
-		<chapter>
-			<title>Overview to the Course</title>
-			
+        <chapter>
+            <title>Overview to the Course</title>
+            
             <xi:include href="./learn_math.xml" />
             <xi:include href="./numbers_measurements.xml" />
-            <xi:include href="./variables.xml" />			
-            <xi:include href="./modeling.xml" />			
-		</chapter>
-		
-		<chapter>
-			<title>Foundations</title>
-			
-            <xi:include href="./functions.xml" />			
-            <xi:include href="./linear-functions.xml" />			
-            <xi:include href="./parametrized-functions.xml" />			
+            <xi:include href="./variables.xml" />            
+            <xi:include href="./modeling.xml" />            
+        </chapter>
+        
+        <chapter>
+            <title>Foundations</title>
+            
+            <xi:include href="./functions.xml" />            
+            <xi:include href="./linear-functions.xml" />            
+            <xi:include href="./parametrized-functions.xml" />            
             <xi:include href="./roots_logarithms.xml" />
-            <xi:include href="./logarithmic-scales.xml" />			
-            <xi:include href="./composition.xml" />			
-            <xi:include href="./inverses.xml" />			
-            <xi:include href="./transformations.xml" />			
-		</chapter>
-		
-		<chapter>
-			<title>Discrete Dynamic Models</title>
-			<subtitle>Sequences as Dynamic Models</subtitle>
-			
+            <xi:include href="./logarithmic-scales.xml" />            
+            <xi:include href="./composition.xml" />            
+            <xi:include href="./inverses.xml" />            
+            <xi:include href="./transformations.xml" />            
+        </chapter>
+        
+        <chapter>
+            <title>Discrete Dynamic Models</title>
+            <subtitle>Sequences as Dynamic Models</subtitle>
+            
             <xi:include href="./sequences-intro.xml" />
-            <xi:include href="./sequences-projection-models.xml" />			
-            <xi:include href="./sequences-limits.xml" />			
-            <xi:include href="./sequences-accumulation.xml" />			
-            <xi:include href="./sequences-summation-formulas.xml" />			
-		</chapter>
-		
-		<chapter>
-		    <title>Continuous Models of Accumulation</title>
-		    
+            <xi:include href="./sequences-projection-models.xml" />            
+            <xi:include href="./sequences-limits.xml" />            
+            <xi:include href="./sequences-accumulation.xml" />            
+            <xi:include href="./sequences-summation-formulas.xml" />            
+        </chapter>
+        
+        <chapter>
+            <title>Continuous Models of Accumulation</title>
+            
             <xi:include href="./accumulate-change.xml" />
-            <xi:include href="./riemann-sums.xml" />			
-            <xi:include href="./integral-properties.xml" />			
-            <xi:include href="./accumulation-functions.xml" />			
-			<xi:include href="./rate-functions.xml" />
-		</chapter>
-		
-		<chapter>
-			<title>Continuous Dynamic Models</title>
-			<subtitle>Models of Change</subtitle>
-			
-			
+            <xi:include href="./riemann-sums.xml" />            
+            <xi:include href="./integral-properties.xml" />            
+            <xi:include href="./accumulation-functions.xml" />            
+            <xi:include href="./rate-functions.xml" />
+        </chapter>
+        
+        <chapter>
+            <title>Continuous Dynamic Models</title>
+            <subtitle>Models of Change</subtitle>
+            
+            
             <xi:include href="./calculus-overview.xml" />
             <xi:include href="./intro-optimization.xml" />
 
             <xi:include href="./derivative_intro.xml" />
-            <xi:include href="./derivative_function.xml" />			
+            <xi:include href="./derivative_function.xml" />            
             <xi:include href="./continuity_intro.xml" />
-            <xi:include href="./limits-with-infinity.xml" />		
-            <xi:include href="./limit_rules.xml" />			
+            <xi:include href="./limits-with-infinity.xml" />        
+            <xi:include href="./limit_rules.xml" />            
             <xi:include href="./differentiation.xml" />
-            <xi:include href="./practice-derivatives.xml" />			
-            <xi:include href="./chain-rule.xml" />			
-            <xi:include href="./exponential_derivative.xml" />			
-            <xi:include href="./trigonometry-derivative.xml" />			
-            <xi:include href="./implicit-differentiation.xml" />			
+            <xi:include href="./practice-derivatives.xml" />            
+            <xi:include href="./chain-rule.xml" />            
+            <xi:include href="./exponential_derivative.xml" />            
+            <xi:include href="./trigonometry-derivative.xml" />            
+            <xi:include href="./implicit-differentiation.xml" />            
             <xi:include href="./inverse-trig-derivatives.xml" />
-		</chapter>
-		
-		<chapter>
-		    <title>Applications of Derivatives</title>
-		    
-		    <xi:include href="./continuous-functions.xml" />
-		    <xi:include href="./differentiable-functions.xml" />
-		    <xi:include href="./mvt-consequences.xml" />
-		    <xi:include href="./optimization.xml" />
-		    <xi:include href="./lhopital-rule.xml" />
-		    <xi:include href="./antiderivatives.xml" />
-		    <xi:include href="./ftc.xml" />
-		    <xi:include href="./integrals-substitution.xml" />
-		</chapter>
-		
-		<chapter>
-		    <title>Experimental Sections</title>
-		    
+        </chapter>
+        
+        <chapter>
+            <title>Applications of Derivatives</title>
+            
+            <xi:include href="./continuous-functions.xml" />
+            <xi:include href="./differentiable-functions.xml" />
+            <xi:include href="./mvt-consequences.xml" />
+            <xi:include href="./optimization.xml" />
+            <xi:include href="./lhopital-rule.xml" />
+            <xi:include href="./antiderivatives.xml" />
+            <xi:include href="./ftc.xml" />
+            <xi:include href="./integrals-substitution.xml" />
+        </chapter>
+        
+        <chapter>
+            <title>Experimental Sections</title>
+            
             <xi:include href="./prop-models.xml" />
-            <xi:include href="./linear-models.xml" />			
-            <xi:include href="./periodic-models.xml" />			
-            <xi:include href="./power-exponent.xml" />			
+            <xi:include href="./linear-models.xml" />            
+            <xi:include href="./periodic-models.xml" />            
+            <xi:include href="./power-exponent.xml" />            
             <xi:include href="./polynomials.xml" />
             <xi:include href="./approximations.xml" />
-		</chapter>
-		
-		<appendix>
-		    <title>Mathematics Foundations</title>
-		    
+        </chapter>
+        
+        <appendix>
+            <title>Mathematics Foundations</title>
+            
             <xi:include href="./appendix-numbers-sets-arithmetic.xml" />
             <xi:include href="./algebra.xml" />
-		</appendix>
-		
-		<appendix>
-		    <title>Trigonometry Basics</title>
+        </appendix>
+        
+        <appendix>
+            <title>Trigonometry Basics</title>
 
             <xi:include href="./triangle-trig.xml" />
             <xi:include href="./angle-measurement.xml" />
             <xi:include href="./unit-circle-trig.xml" />
             <xi:include href="./inverse-trig-functions.xml" />
-		</appendix>
-		
+        </appendix>
+        
         <backmatter>
             <title>Reference material</title>
 
