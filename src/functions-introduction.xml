@@ -608,7 +608,7 @@
         
         <exercise>
             <statement>
-                <p>Suppose <m>\displaystyle f(x)=\frac{3}{x+2}</m> and <m>g(x)=\frac{3-2x}{x}</m>. Simplify each of the following. <ol>
+                <p>Suppose <m>\displaystyle f(x)=\frac{3}{x+2}</m> and <m>\displaystyle g(x)=\frac{3-2x}{x}</m>. Simplify each of the following. <ol>
                     <li><m>f(x-2)</m></li>
                     <li><m>g(\frac{1}{x})</m></li>
                     <li><m>f \circ g(x)</m></li>

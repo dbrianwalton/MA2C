@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="functions-construction">
+    <title>Constructing Functions</title>
+
+    <introduction>
+        <title>Overview</title>
+        
+        <p>In calculus, the rules of computation will depend on how a function is put together. The arithmetic operations of addition, subtraction, multiplication, and division can all be used to combine expressions. This section focuses on the principles and skills necessary to recognize how a function is constructed. It begins by focusing on elementary functions, or operations that can be applied to a variable, and then considers how those building blocks can be combined. Common constructions often take the same form, so we consider parametrized families of functions. We end by considering how piecewise functions use different functions on different portions of the domain.</p>
+    </introduction>
+    
+    <subsection>
+        <title>Elementary Functions</title>
+        
+        <p>Most functions are built from elementary operations that are then combined through arithmetic or composition. We will call the elementary operations that can act on variables our elementary functions.</p>
+        
+        <paragraphs>
+            <title>Constant and Identity Functions</title>
+            
+            <p>The simplest functions are the constant functions and the identity function.</p>
+            
+            <definition>
+                <statement>
+                <p>A <term>constant function</term> is a function that has the same output value for every input value, <m>f(x)=c</m> for some constant <m>c</m>.</p>
+                </statement>
+            </definition>
+            
+            <definition>
+                <statement>
+                <p>The <term>identity function</term> is a function where the output value is the same as the input value, <m>f(x)=x</m>.</p>
+                </statement>
+            </definition>
+        </paragraphs>
+        
+        <p>We will usually work with these functions in combination with other functions. However, a constant function is often used for a quantity that is independent of the independent variable, or in other words does not depend on the variable.</p>
+        
+        <paragraphs>
+            <title>Power and Exponential Functions</title>
+            
+            <p>In addition to the basic arithmetic operations of addition, subtraction, multiplication, and division, applying a power is very common. You must learn to distinguish between two distinct types of functions based on whether the variable is in the base or the exponent.</p>
+            
+            <definition xml:id="elementary-power-function">
+                <statement>
+                <p>The <term>elementary power function</term> of degree <m>p</m> (a constant) is the function <m>\mathop{\mathrm{pow}}_p(x) = x^p</m>.</p>
+                </statement>
+            </definition>
+            <definition xml:id="elementary-exponential-function">
+                <statement>
+                <p>The <term>elementary exponential function</term> of base <m>b</m> (a constant with <m>b \gt 0</m> and <m>b \ne 1</m>) is the function <m>\exp_b(x) = b^x</m>.</p>
+                </statement>
+            </definition>
+            
+            <p>When a variable is raised to a constant power, such as <m>x^2</m>, we are using a power function. When a constant is raised to a variable power, such as <m>2^x</m>, we are using an exponential function. There will be times when both the base and the exponent involve a variable; we will learn later to rewrite these formulas as a composition with an exponential function.</p>
+        </paragraphs>
+        
+        <paragraphs>
+            <title>Roots and Logarithms</title>
+            
+            <p>Power and exponential functions have corresponding inverse functions. A root provides the inverse operation to an integer power. A logarithm provides the inverse operation to an exponential.</p>
+            
+            <definition xml:id="root-as-function">
+                <statement>
+                    <p>For an integer <m>n \gt 1</m>, the <m>n</m>th root <m>y=\sqrt[n]{x}</m> is the value such that <m>y^n=x</m>. If <m>n</m>is even, we require <m>x \ge 0</m> and <m>y \ge 0</m>. If <m>n</m> is odd, there is no restriction.</p>
+                </statement>
+            </definition>
+            
+            <p>For even values <m>n</m> and <m>x \gt 0</m>, the equation <m>y^n=x</m> has two solutions, <m>y = \pm \sqrt[n]{x}</m>, because multiplying an even number of negative values is positive, <m>(-1)^n=1</m>. There are no real solutions to <m>y^n=x</m> when <m>x \lt 0</m> for an even power <m>n</m>.</p>
+            
+            <p>A root can be written as a fractional power. The properties of exponents imply that <m>(x^p)^n = x^{pn}</m>. If <m>p=\frac{1}{n}</m>, then <m>(x^{\frac{1}{n}})^n = x</m>. That is, <m>x^{\frac{1}{n}} = \sqrt[n]{x}</m>. This equivalence means that for any rational number <m>p=\frac{k}{n}</m>, the power <m>x^p</m> can be computed using integer powers (repeated multiplication) and extracting roots: <me>x^{\frac{k}{n}} = (\sqrt[n]{x})^k</me>.</p>
+            
+            <definition xml:id="logarithm-function">
+                <statement>
+                    <p>For any base <m>b</m> with <m>b \gt 0</m> and <m>b \ne 1</m>, the exponential <m>\exp_b(x)=b^x</m> has an inverse function, <m>\log_b(x)</m>, which is called the logarithm of base <m>b</m>. The value <m>y=\log_b(x)</m> is defined as that value <m>y</m> such that <m>b^y = x</m>.</p>
+                </statement>
+            </definition>
+            
+            <p>Notice that both roots and logarithms are defined through the equation that they solve. We will often convert equations using these inverses to simplify our work.</p>
+            
+            <example>
+                <statement>
+                    <p>Solve <m>\sqrt[3]{x}=2</m>.</p>
+                </statement>
+                <solution>
+                    <p>The equation <m>\sqrt[3]{x} = 2</m> has an isolated cube root on the left. The inverse operation is cubing, so we get an equivalent equation by cubing both sides. <md>
+                        <mrow>\sqrt[3]{x}=2</mrow>
+                        <mrow>(\sqrt[3]{x})^3 = 2^3</mrow>
+                        <mrow>x=2^3</mrow>
+                    </md> The solution is <m>x=8</m>.</p>
+                </solution>
+            </example>
+            
+            <example>
+                <statement>
+                    <p>Solve <m>x^4=4</m>.</p>
+                </statement>
+                <solution>
+                    <p>The equation <m>x^4 = 4</m> has an isolated integer power on the left. The inverse operation is a fourth root. Because the power is even, there are two solutions.<md>
+                        <mrow>x^4=4</mrow>
+                        <mrow>\sqrt[4]{x^4} = \sqrt[4]{4}</mrow>
+                        <mrow>x = \pm \sqrt[4]{4}</mrow>
+                    </md> Because <m>4=2^2</m>, we could rewrite this as <me>x = \pm(2^2)^{\frac{1}{4}} = \pm 2^{\frac{2}{4}} = \pm 2^{\frac{1}{2}} = \pm \sqrt{2}</me>.</p>
+                </solution>
+            </example>
+            
+            <example>
+                <statement>
+                    <p>Solve <m>\log_3(x)=3</m>.</p>
+                </statement>
+                <solution>
+                    <p>The equation <m>\log_3(x)=2</m> has an isolated logarithm. The inverse operation is an exponential with the same base <m>b=3</m>. An equivalent equation is formed by applying this exponential to both sides of the equation.<md>
+                        <mrow>\log_3(x)=2</mrow>
+                        <mrow>\exp_3(\log_3(x)) = 3^2</mrow>
+                        <mrow>x = 9</mrow>
+                    </md> This is saying that the equation <m>\log_3(9)=2</m> is equivalent to <m>3^2=9</m>.</p>
+                </solution>
+            </example>
+            
+            <example>
+                <statement>
+                    <p>Solve <m>4^x=8</m>.</p>
+                </statement>
+                <solution>
+                    <p>The equation <m>4^x=8</m> has an isolated exponential. The inverse operation is a logarithm with the same base <m>b=4</m>.<md>
+                        <mrow>4^x=8</mrow>
+                        <mrow>\log_4(\exp_4(x)) = \log_4(8)</mrow>
+                        <mrow>x = \log_4(8)</mrow>
+                    </md></p>
+                </solution>
+            </example>
+            
+            <p>We will learn techniques for simplifying logarithms when we review the properties of exponents. Most scientific calculators only have logarithms for base <m>b=10</m> (common logarithm) and for base <m>b=e</m> (natural logarithm). We will later prove that every logarithm can be found using one of these by the <xref ref="logarithm-change-of-base">change of base formula</xref> <me> \log_b(x) = \frac{\log(x)}{\log(b)} = \frac{\ln(x)}{\ln(b)}.</me></p>
+        </paragraphs>
+        
+        <paragraphs>
+            <title>Trigonometric Functions</title>
+            
+            <p>The trigonometric functions are used in relation to triangles as well as cyclic behavior. There are two fundamental trigonometric functions, the sine and cosine functions, from which the others are defined. We will study these functions in more depth later, but for the purpose of summary include the following table here. <md>
+                <mrow> \sin(x) &amp; &amp; \text{sine} </mrow>
+                <mrow> \cos(x) &amp; &amp; \text{cosine} </mrow>
+                <mrow> \tan(x) &amp;= \frac{\sin(x)}{\cos(x)} &amp; \text{tangent} </mrow>
+                <mrow> \sec(x) &amp;= \frac{1}{\cos(x)} &amp; \text{secant} </mrow>
+                <mrow> \cot(x) &amp;= \frac{\cos(x)}{\sin(x)} &amp; \text{cotangent} </mrow>
+                <mrow> \csc(x) &amp;= \frac{1}{\sin(x)} &amp; \text{cosecant} </mrow>
+            </md></p>
+            
+            <p>The trigonometric functions are periodic, which implies that they must not be one-to-one. Inverse trigonometric functions are defined to solve equations for a limited interval and provide additional elementary functions for our use.<md>
+                <mrow> \sin^{-1}(x) &amp;= \arcsin(x) &amp; \text{arcsine} </mrow>
+                <mrow> \cos^{-1}(x) &amp;= \arccos(x) &amp; \text{arccosine} </mrow>
+                <mrow> \tan^{-1}(x) &amp;= \arctan(x) &amp; \text{arctangent} </mrow>
+                <mrow> \sec^{-1}(x) &amp;= \mathop{\mathrm{arcsec}}(x) &amp; \text{arcsecant} </mrow>
+            </md> The arccotangent and arccosecant functions can be defined but are not used in practice.</p>
+        </paragraphs>
+    </subsection>
+    
+    <subsection>
+        <title>Combining Expressions</title>
+        
+        <p>Functions defined by a formula are generally formed by combining these functions into more complicated expressions. One of the most valuable skills in calculus is the ability to recognize how a formula is constructed. Many rules in calculus are named according to which operation forms the expression of interest. The basic operations of combination are the arithmetic operations of addition (a <term>sum</term>), subtraction (a <term>difference</term>), multiplication (a <term>product</term>), and division (a <term>quotient</term>) along with the operation of function composition. We might have also included powers as an algebraic operation, but we will instead think of powers in terms of the power and exponential functions.</p>
+        
+        <p>Most formulas involve more than one operation. An expression is classified by the <em>last</em> operation that would be applied. The order of operations determines the priority with which operations are applied. In algebra, you may have learned the acronym <c>PEMDAS</c>, which stands for Parentheses, Exponents, Multiplication, Division, Addition, and Subtraction. Subtraction is really the addition of an inverse, so differences can be classified as sums. The same technically applies for division being multiplication, but this is less frequently used. We will change the meaning of <c>E</c> to stand for <em>Every function</em>, including powers and exponentials, as all functions have higher precedence than the arithmetic operations.</p>
+        
+        <example>
+            <statement>
+                <p>Classify each function by the last operation that is applied, and then classify each component expression.</p>
+                <ol>
+                    <li><m>f(x)=x^2-3x\sin(x)</m></li>
+                    <li><m>g(x)=(2x+1)(x-3)</m></li>
+                    <li><m>h(x)=(x^2+3)^4</m></li>
+                    <li><m>j(x)=\displaystyle \frac{2xy}{\sqrt{3x-1}}</m></li>
+                    <li><m>k(x)=5e^{2x}</m></li>
+                </ol>
+            </statement>
+            <solution>
+                <ol>
+                    <li>The function <m>f(x)=x^2-3x\sin(x)</m> is a <em>difference</em> of the expressions <m>x^2</m> and <m>3x\sin(x)</m>. The first component expression <m>x^2</m> is a power function (<m>p=2</m>) of <m>x</m>; the second component expression <m>3x\sin(x)</m> is a product of <m>3x</m> and <m>\sin(x)</m>. (We could also have used a sum of <m>x^2</m> and <m>-3x\sin(x)</m>.)</li>
+                    <li>The function <m>g(x)=(2x+1)(x-3)</m> is a <em>product</em> of the expressions <m>2x+1</m> and <m>x-3</m>. The first expression <m>2x+1</m> is the sum of <m>2x</m> and <m>1</m> while the second expression is the sum of <m>x</m> and <m>-3</m>.</li>
+                    <li>The function <m>h(x)=(x^2+3)^4</m> has the power (<m>p=4</m>) as its last operation. Because we treat powers as functions, this is a composition. The inner expression is <m>u=x^2+3</m>, and <m>h(x)=u^4</m>. If we define outer function <m>O(x)=x^4</m> and inner function <m>I(x)=x^2+3</m>, then <m>h(x) = O \circ I(x)</m>. The outer expression is an elementary power. The inner expression is a sum of <m>x^2</m> and the constant <m>3</m>.</li>
+                    <li>The function <m>j(x)=\displaystyle \frac{2xe^x}{\sqrt{3x-1}}</m> is a <em>quotient</em> of expressions <m>2xe^x</m> and <m>\sqrt{3x-1}</m>. The first expression <m>2xe^x</m> is a product of <m>2x</m> and <m>e^x</m>; the second expression <m>\sqrt{3x-1}</m> is a square root (a function) of the expression <m>3x-1</m>, meaning this is a composition. The outer function would be <m>O(x)=\sqrt{x}</m> and the inner function would be <m>I(x)=3x-1</m>. We could also think of the square root as an elementary power function, <m>O(x)=x^{\frac{1}{2}}</m>.</li>
+                    <li>The expression <m>5e^{2x}</m> is a <em>product</em> of the expressions <m>5</m> and <m>e^{2x}</m>. The expression <m>5</m> is a constant; the expression <m>e^{2x}</m> is an exponential function with base <m>e</m> in composition, <m>e^u</m>, with the expression <m>u=2x</m>.</li>
+                </ol>
+            </solution>
+        </example>
+        
+        <p>Combinations of expressions with constants are usually classified in a special way. When we add a constant, we call the combination a <term>constant sum</term>. When we multiply by a constant, we call the combination a <term>constant multiple</term>. The expression <m>1/f(x)</m> is better described as the reciprocal (or multiplicative inverse) of <m>f(x)</m> than as a quotient of <m>1</m> with <m>f(x)</m>.</p>
+        
+        <p>Arithmetic operations involve two expressions. We call them binary operations. Because addition and multiplication are commutative and associative, we often think of sums or products involving more than two terms as a single sum. This is why <m>3xy</m> is a product with three factors<mdash/><m>3</m>, <m>x</m>, and <m>y</m><mdash/>but we consider it a product of <m>3x</m> (also a product) and <m>y</m> to respect the binary nature of multiplication.</p>
+        
+        <paragraphs>
+        <title>Linear Combinations and Polynomials</title>
+        <p>One of the most common ways to combine expressions in mathematics is to create a sum of constant multiples of those expressions. Such a combination is called a linear combination.</p>
+        
+        <definition xml:id="defn-linear-combination">
+            <statement>
+                <p>Given a finite set of expressions, <m>u=(u_1, u_2, \ldots, u_n)</m>, and the same number of constants, <m>c = (c_1, c_2, \ldots, c_n)</m>, the <term>linear combination</term> of the expressions <m>u</m> with <term>coefficients</term> <m>c</m> is the sum of constant multiples of the expressions <me>c_1 u_1 + c_2 u_2 + \cdots + c_n u_n.</me></p>
+            </statement>
+        </definition>
+        
+        <p>The non-negative integer powers of <m>x</m> are the powers <m>x^0=1</m>, <m>x^1=x</m>, <m>x^2</m>, <m>x^3</m>, etc., and form the basis for an important family of functions called polynomials.</p>
+        
+        <definition xml:id="defn-polynomial">
+            <statement>
+                <p>Let <m>n</m> be a non-negative integer. A <term>polynomial</term> of <term>degree</term> <m>n</m> is a linear combination of the terms <m>(1, x, x^2, \ldots, x^n)</m>, <me>f(x) = a_n x^n + \cdots + a_2 x^2 + a_1 x + a_0</me>. The term <m>a_n x^n</m> is called the <term>leading term</term> and <m>a_n</m> is called the <term>leading coefficient</term>.</p>
+            </statement>
+        </definition>
+
+        <p>A constant multiple of just one such power is called a <term>monomial</term>. The sum of two constant multiples is called a <term>binomial</term>.</p>
+        
+        <example>
+            <statement>
+                <p>The polynomial <m>f(x)=3x^3+x^2-5x+8</m> is a linear combination of the powers <m>(1, x, x^2, x^3)</m>. The degree of the polynomial is <m>n=3</m>, and the coefficients are <m>(c_0, c_1, c_2, c_3) = (8, -5, 1, 3)</m>. The leading coefficient is <m>c_3=3</m>.</p>
+            </statement>
+        </example>
+        <example>
+            <statement>
+                <p>Write down the polynomial <m>f(x)</m> of degree <m>n=4</m> with coefficients <m>(c_0,c_1,c_2,c_3,c_4) = (16, 0, -8, 0, 1)</m>.</p>
+            </statement>
+            <solution>
+                <p>Because <m>c_1=0</m> and <m>c_3=0</m>, we skip the terms with powers <m>x^1=x</m> and <m>x^3</m>. We usually write polynomials in decreasing powers, so we have <md>
+                    <mrow>f(x) &amp;= 1x^4 + 0x^3 + -8x^2 + 0x^1 + 16 x^0 </mrow>
+                    <mrow> &amp;= x^4-8x^2+16.</mrow>
+                </md></p>
+            </solution>
+        </example>
+        
+        </paragraphs>
+    </subsection>
+    
+    <subsection>
+        <title>Parametrized Functions</title>
+        
+        <p>When functions have the same structure but use different constants, we say they are in the same parametrized (or parametric) family. For example, linear functions can all be written in the form <m>f(x)=mx+b</m> with different values of <m>m</m> and <m>b</m>. The constants are called the <term>parameters</term> of the family. Some examples of parametrized functions are: <ol>
+            <li>Linear functions <m>f(x)=mx+b</m>, parameters <m>m</m> and <m>b</m>;</li>
+            <li>Quadratic functions <m>f(x)=ax^2+bx+c</m>, parameters <m>a</m>, <m>b</m>, and <m>c</m>;</li>
+            <li>Cubic functions <m>f(x)=ax^3+bx^2+cx+d</m>, parameters <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m>;</li>
+            <li>General power functions <m>f(x)=Ax^p</m>, parameters <m>A</m> and <m>p</m>;</li>
+            <li>General exponential functions <m>f(x)=Ab^x</m>, parameters <m>A</m> and <m>b</m> with <m>b \gt 0</m> and <m>b \ne 1</m>.</li>
+        </ol> Any polynomial could be considered a parametrized function. Notice that the general power and exponential functions are just constant multiples of the elementary power and exponential functions.</p>
+        
+        <p>To find the values of the parameters for a function, we use given states for the relation to create equations. The equation associated with each state is called a <term>constraint</term>. We generally need as many constraints as parameters in the function. We solve the system of equations simultaneously to find the parameters. This usually requires a method called solving by substitution.</p>
+        
+        <p>The <term>method of substitution</term> for a system of equations is to take one equation and solve for one of the unknowns. We then substitute that formula in place of that unknown in the <em>other</em> equation. This allows us to find the value of the second unknown. We then back-substitute that value into our first equation to solve for the first unknown.</p>
+
+        <example>
+            <statement>
+                <p>Find a linear function <m>f(x)=mx+b</m> satisfying <m>f(2)=5</m> and <m>f(5)=1</m>.</p>
+            </statement>
+            <solution>
+                <p>We could find an equation of the function by computing the slope and <m>y</m>-intercept, but we want to illustrate the method of substitution. The data will give us equations for <m>m</m> and <m>b</m>. We use the parametrized formula <m>f(x)=mx+b</m> for the two given values <m>x=2</m> and <m>x=5</m> to give us two constraint equations. <md>
+                    <mrow>f(2)=5 \quad \Rightarrow \quad \left\{ \begin{matrix} x=2 \\ f(x)=5 \end{matrix} \right.  \quad \Rightarrow \quad 5 = m(2)+b </mrow>
+                    <mrow>f(5)=1 \quad \Rightarrow \quad \left\{ \begin{matrix} x=5 \\ f(x)=1 \end{matrix} \right.  \quad \Rightarrow \quad 1 = m(5)+b </mrow>
+                </md> The system of equations that we need to solve is given by <me> \left\{ \begin{matrix} 2m+b = 5, \\ 5m+b= 1. \end{matrix}\right.</me></p>
+                <p>We solve for <m>b</m> in the first equation. <md>
+                    <mrow>2m+b = 5</mrow>
+                    <mrow>b=5-2m</mrow>
+                </md> Now substitute this formula into the second equation. <md>
+                    <mrow>5m+b=1</mrow>
+                    <mrow>5m+(5-2m)=1</mrow>
+                    <mrow>3m+5=1</mrow>
+                    <mrow>\textstyle m=-\frac{4}{3}</mrow>
+                </md> We finish by back-substituting this value into the first equation to find the value for <m>b</m>, <me>\textstyle b=5-2m=5-2(\frac{4}{3})=5-\frac{8}{3}=\frac{7}{3}.</me> The function is <m>f(x)=-\frac{4}{3}x+\frac{7}{3}</m>.</p>
+            </solution>
+        </example>
+        
+        <example>
+            <statement>
+                <p>Find a power function <m>f(x)=Ax^p</m> satisfying <m>f(2)=5</m> and <m>f(5)=1</m>.</p>
+            </statement>
+            <solution>
+                <p>Start by creating the system of constraint equations. <me> \left\{ \begin{matrix} A \cdot 2^p = 5 \\ A \cdot 5^p = 1 \end{matrix} \right.</me> To use the method of substitution, it is easiest to solve for <m>A</m>: <md>
+                    <mrow> A \cdot 2^p = 5, </mrow>
+                    <mrow> A = \frac{5}{2^p}. </mrow>
+                </md> Substitute this into the second equation to get an equation for <m>p</m>: <md>
+                    <mrow> A \cdot 5^p = 1 </mrow>
+                    <mrow> \Big( \frac{5}{\displaystyle 2^p} \Big) \cdot 5^p = 1 </mrow>
+                    <mrow> 5 \cdot \Big( \frac{5^p}{2^p} \Big) = 1 </mrow>
+                    <mrow> 5 \cdot (\textstyle \frac{5}{2})^p = 1 </mrow>
+                </md> To solve this, we isolate the <em>exponential</em> with base <m>\frac{5}{2}</m> and then use a logarithm as the inverse operation. <md>
+                    <mrow> 5 \cdot (\textstyle \frac{5}{2})^p = 1 </mrow>
+                    <mrow>(\textstyle \frac{5}{2})^p = \frac{1}{5} </mrow>
+                    <mrow>\textstyle \log_{\frac{5}{2}}(\exp_{\frac{5}{2}}(p)) = \log_{\frac{5}{2}}(\frac{1}{5})</mrow>
+                    <mrow>\textstyle p = \log_{\frac{5}{2}}(\frac{1}{5})</mrow>
+                    <mrow>p = \frac{\log(\frac{1}{5})}{\log(\frac{5}{2})} \approx -1.7565</mrow>
+                </md> This allows us to find the value of <m>A</m>: <me>A = \frac{5}{2^p} \approx \frac{5}{2^{-1.7565}} \approx 16.894.</me> The exact function is defined by <me>f(x) = \frac{5}{2^p} \cdot x^p, \qquad p = \log_{\frac{5}{2}}({\textstyle \frac{1}{5}}),</me> with an approximate form <me>f(x) \approx 16.894 \cdot x^{-1.7565}.</me></p>
+            </solution>
+        </example>
+        
+        <example>
+            <statement>
+                <p>Find an exponential function <m>f(x)=Ab^x</m> satisfying <m>f(2)=5</m> and <m>f(5)=1</m>.</p>
+            </statement>
+            <solution>
+                <p>Start by creating the system of constraint equations. <me> \left\{ \begin{matrix} A \cdot b^2 = 5 \\ A \cdot b^5 = 1 \end{matrix} \right.</me> We solve for <m>A</m>: <md>
+                    <mrow> A \cdot b^2 = 5, </mrow>
+                    <mrow> A = \frac{5}{b^2}. </mrow>
+                </md> Substitute this into the second equation to get an equation for <m>p</m>: <md>
+                    <mrow> A \cdot b^5 = 1 </mrow>
+                    <mrow> \Big( \frac{5}{\displaystyle b^2} \Big) \cdot b^5 = 1 </mrow>
+                    <mrow> 5 \cdot \Big( \frac{b^5}{b^2} \Big) = 1 </mrow>
+                    <mrow> 5 \cdot b^3 = 1 </mrow>
+                    <mrow> b^3 = \textstyle{\frac{1}{5}}</mrow>
+                    <mrow> b = \sqrt[3]{\textstyle \frac{1}{5}} = = \frac{1}{5^{\frac{1}{3}}} = 5^{-\frac{1}{3}} </mrow>
+                </md> The value of <m>A</m> can be found: <me>A = \frac{5}{b^2} = \frac{5}{(5^{-\frac{1}{3}})^2} = \frac{5}{5^{-\frac{2}{3}}} = 5 \cdot 5^{\frac{2}{3}} = 5^{\frac{5}{3}}.</me> The exact exponential function is defined by <me>f(x) =5^{\frac{5}{3}} \cdot (5^{-\frac{1}{3}})^x</me>, and is approximated by <me>f(x) \approx 14.620 \cdot 0.58480^x</me>.</p>
+            </solution>
+        </example>
+    </subsection>
+    
+    <conclusion>
+        <title>Summary</title>
+        
+        <ul>
+            <li>Functions defined by formulas are typically constructed from elementary functions: constant functions, the identity function, power functions, exponential functions, logarithms, and trigonometric functions.</li>
+            <li>Roots are the inverse functions to powers, meaning <m>y=\sqrt[n]{x}</m> is equivalent to <m>y^n = x</m>, and can be written as powers, <me>\sqrt[n]{x} = x^{\frac{1}{n}}</me>.</li>
+            <li>Logarithms are the inverse functions to exponentials, meaning <m>y=\log_b(x)</m> is equivalent to <m>\exp_b(y)=b^y = x</m>.</li>
+            <li>Combinations of expressions can be arithmetic (sum, difference, product, or quotient) or the composition of functions. An expression is classified by the <em>last</em> operation used to construct that expression.</li>
+            <li>Operations involving constant functions are classified as constant sums, constant multiples, or reciprocals.</li>
+            <li>A polynomial is a linear combination of simple powers <m>(1,x,x^2,\ldots,x^n)</m>, or, in other words, a sum of constant multiples of these powers, <me>f(x)=a_n x^n + \cdots + a_2 x^2 + a_1 x + a_0</me>. The constant multiples <m>(a_0,a_1,\ldots,a_n)</m> are called the coefficients. The term <m>a_n x^n</m> is called the leading term.</li>
+            <li>A parametrized family of functions is a set of functions that have the same structure with different constants. The constants that can change are called parameters.</li>
+            <li>Knowing the value of a parametrized function for a state establishes a constraint equation for the parameters. With enough constraints, we can often solve for the parameter values using the method of substitution.</li>
+        </ul>
+    </conclusion>
+    
+    <exercises>
+        <exercise>
+            <statement>
+                <p>Solve the equation for <m>x</m>.</p>
+                <ol>
+                    <li><m>x^7 = 4</m></li>
+                    <li><m>3x^3=8</m></li>
+                    <li><m>\sqrt[4]{x} = 3</m></li>
+                    <li><m>3 \sqrt[3]{2x} = 4</m></li>
+                </ol>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Solve the equation for <m>x</m>.</p>
+                <ol>
+                    <li><m>5^x=10</m></li>
+                    <li><m>3^{2x}=4</m></li>
+                    <li><m>\log_4(x)=2</m></li>
+                    <li><m>\log_3(2x)=9</m></li>
+                    <li><m>4 \log_5(x)= 15</m></li>
+                </ol>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Classify each elementary function.</p>
+                <ol>
+                    <li><m>f(x)=\pi</m></li>
+                    <li><m>g(x)=x</m></li>
+                    <li><m>h(x)=x^\pi</m></li>
+                    <li><m>j(x)=\pi^x</m></li>
+                    <li><m>k(x)=\sin(x)</m></li>
+                </ol>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Classify each function according to the last operation. Then classify the component expressions.</p>
+                <ol>
+                    <li><m>f(x)=4x^4</m></li>
+                    <li><m>g(x)=2^{3x}+5</m></li>
+                    <li><m>h(x)=3^{5x-1}</m></li>
+                    <li><m>\displaystyle j(x)=3\sqrt{x} + \frac{1}{x^2}</m></li>
+                    <li><m>k(x)=4x^2e^{3x}</m></li>
+                    <li><m>\displaystyle m(x)=\frac{x^2(3x-1)}{(x^2+1)^4}</m></li>
+                </ol>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>For each polynomial, determine the degree and list the coefficients.</p>
+                <ol>
+                    <li><m>f(x)=3x^2+5x-1</m></li>
+                    <li><m>f(x)=x^3-2x+8</m></li>
+                    <li><m>f(x)=x^4-1</m></li>
+                    <li><m>f(x)=x^4+4x^3+6x^2+4x+1</m></li>
+                </ol>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Find a parametrized function <m>f(x)=ax^2+b</m> that satisfies <m>f(1)=5</m> and <m>f(3)=21</m>.</p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Find a parametrized function <m>\displaystyle f(x)=\frac{ax}{x+b}</m> that satisfies <m>f(5)=3</m> and <m>f(10)=4</m>.</p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Find a power function <m>f(x)=A x^p</m> that satisfies <m>f(1)=3</m> and <m>f(3)=27</m>.</p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Find a power function <m>f(x)=A x^p</m> that satisfies <m>f(1)=4</m> and <m>f(4)=2</m>.</p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Find a power function <m>f(x)=A x^p</m> that satisfies <m>f(2)=12</m> and <m>f(4)=36</m>.</p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Find an exponential function <m>f(x)=A b^x</m> that satisfies <m>f(0)=5</m> and <m>f(3)=45</m>.</p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Find an exponential function <m>f(x)=A b^x</m> that satisfies <m>f(0)=12</m> and <m>f(5)=6</m>.</p>
+            </statement>
+        </exercise>
+        
+        <exercise>
+            <statement>
+                <p>Find an exponential function <m>f(x)=A b^x</m> that satisfies <m>f(2)=8</m> and <m>f(4)=12</m>.</p>
+            </statement>
+        </exercise>
+        
+        <exercisegroup>
+            <introduction>
+                <p>Parametrized functions are often used to model real-life scenarios. In particular, exponential functions are often used to model problems involving radioactive decay. A <term>half-life</term> is a length of time during which the amount of the radioactive substance loses exactly half of its mass. We think of the mass <m>M</m> as a function of time <m>t</m>, <m>M=A\cdot b^t</m>, with parameters <m>A</m> and <m>b</m>.</p>
+                <p>Use the information given in each problem to find a parametrized exponential function satisfying the given data and use it to answer the question.</p>
+            </introduction>
+            <exercise>
+                <statement>
+                    <p>P-32 is a radioactive isotope of phosphorus used in labeling biological molecules. P-32 has a half-life of 14.29 days. Suppose an experiment begins with 10 <quantity><unit prefix="micro" base="gram"/></quantity> of P-32. Find a parametrized model for the mass (in <quantity><unit prefix="micro" base="gram"/></quantity>) as a function of time (in days) measured from the start of the experiment, <m>t \mapsto M</m>, in order to determine how much P-32 remains after 10 days and after 100 days.</p>
+                </statement>
+                <hint>
+                    <p>Create two constraints using <m>t=0</m> and <m>t=14.29</m>.</p>
+                </hint>
+            </exercise>
+            
+            <exercise>
+                <statement>
+                    <p>C-14 is a radioactive isotope of carbon used in dating biological samples. C-14 has a half-life of 5730 years. Due to cosmic rays on atmospheric nitrogen, C-14 has a steady concentration in the atmosphere. The tissue of living plants match the atmospheric concentration until the time of death. Measuring how much the fraction of carbon that is C-14 allows us to estimate the time the plant tissue died.</p>
+                    <p>Suppose a sample is measured as having 3.5 <quantity><unit prefix="milli" base="gram"/></quantity>. How old is the sample if the living sample is estimated to have had 5.0 <quantity><unit prefix="milli" base="gram"/></quantity>?</p>
+                </statement>
+                <hint>
+                    <p>The current measurement gives a constraint for <m>t=0</m>; the half-life gives a second constraint. Solve for <m>t</m> corresponding to the living sample.</p>
+                </hint>
+            </exercise>
+        </exercisegroup>
+    </exercises>
+</section>

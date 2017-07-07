@@ -29,6 +29,7 @@
             <title>Foundations</title>
             
             <xi:include href="./functions-introduction.xml" />            
+            <xi:include href="./functions-construction.xml" />            
             <xi:include href="./functions.xml" />            
             <xi:include href="./linear-functions.xml" />            
             <xi:include href="./parametrized-functions.xml" />            
