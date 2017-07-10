@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2017  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="functions-piecewise">
+    <title>Functions Defined on Sets</title>
+
+    <introduction>
+        <title>Overview</title>
+        
+        <p></p>
+    </introduction>
+    
+    <subsection>
+        <title>Function Domains</title>
+        
+        <p><xref ref="domain-and-range">Recall</xref> that the domain of a function <m>x \mapsto y</m> is the set of values of the independent variable <m>x</m> for which the function has a state <m>(x,y)</m>. Most sets that we encounter are made up of intervals, which describe sets of all real numbers between two extremes. For a brief review of concepts related to sets and interval, see <xref ref="appendix-sets-intervals">Appendix</xref>.</p>
+        
+        <p>When a function is defined by a formula, the domain is usually not stated. The <term>natural domain</term> is then understood to be the set of inputs for which the function is defined. We find this set by identifying which operations might not be defined for all values and then solve either equations or inequalities that will identify where the function is defined. Our elementary operations and functions have the following constraints. <ul>
+            <li>Division is undefined if the denominator equals zero.</li>
+            <li>Even roots (e.g., square roots) are undefined if the inner expression is negative.</li>
+            <li>Logarithms are undefined if the inner expression is non-positive (zero or negative).</li>
+        </ul></p>
+        
+        <example>
+            <statement>
+                <p>Determine the domain of <m>\displaystyle f(x) = \frac{2x+3}{x^2-4}</m>.</p>
+            </statement>
+            <solution>
+                <p>Because <m>f(x)</m> is defined as a quotient, the domain will be the set of all values except where <m>x^2-4=0</m>. We solve this equation by factoring, since a product can only equal zero if one of the factors equals zero. <md>
+                    <mrow>x^2-4 = 0</mrow>
+                    <mrow>(x+2)(x-2) = 0 </mrow>
+                    <mrow>x+2 = 0 \quad \text{or} \quad x-2=0</mrow>
+                    <mrow>x=-2 \quad \text{or} \quad x=2</mrow>
+                </md> This means <m>f(x)</m> is defined for all inputs except <m>x=-2</m> or <m>x=2</m>.</p>
+                <p>To describe the domain using intervals, we think of the real number line and remove <m>x=\pm 2</m>. A graphical representation of the set using a number line is shown below. Intervals are read from the line left-to-right. It starts at <m>-\infty</m> and continues until <m>-2</m>, then goes from <m>-2</m> to <m>2</m>, and finally goes from <m>2</m> until <m>+\infty</m>. We write <me>D = (-\infty,-2) \cup (-2, 2) \cup (2,+\infty)</me>.</p>
+                <figure>
+                    <image width="50%">
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[<->] (-4,0) -- (4,0);
+
+                        \draw (-2, -0.1) -- (-2,0.1) node[pos=0, below] {$-2$};
+                        \draw (2, -0.1) -- (2,0.1) node[pos=0, below] {$2$};
+                        \draw [<-, blue, thick] (-4,0.2) -- (-2.1,0.2);
+                        \draw [blue, thick] (-2,0.2) circle (0.1);
+                        \draw [blue, thick] (-1.9,0.2) -- (1.9,0.2);
+                        \draw [blue, thick] (2,0.2) circle (0.1);
+                        \draw [->, blue, thick] (2.1,0.2) -- (4,0.2) node [right] {$D$};
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </figure>
+            </solution>
+        </example>
+        
+        <p>Sometimes finding the domain of a function involves solving an inequality (such as for a square root or a logarithm). To solve the inequality, we identify points where the expression of interest <em>might</em> change sign. This can only occur where the expression equals zero or where the expression is undefined, either of which is found by solving an equation. We then check the sign of the expression in each of the resulting intervals.</p>
+        
+        <example>
+            <statement>
+                <p>Find the domain of the function <m>\displaystyle g(x)=\sqrt{x^2-x-6}</m>.</p>
+            </statement>
+            <solution>
+                <p>The square root in <m>g(x)</m> will only have a real value when the input expression is non-negative, <m>x^2-x-6 \ge 0</m>. Our task becomes determining the signs of the expression <m>x^2-x-6</m>. First, we find potential sign-changing points. The expression is always defined so we just solve the equation <m>x^2-x-6=0</m>. <md>
+                    <mrow>x^2-x-6=0 </mrow>
+                    <mrow>(x-3)(x+2)=0</mrow>
+                    <mrow>x-3=0 \quad \text{or} \quad x+2=0</mrow>
+                    <mrow>x=3 \quad \text{or} \quad x=-2</mrow>
+                </md> 
+            </solution>
+        </example>
+    </subsection>
+    
+    <conclusion>
+        <title>Summary</title>
+        
+        <ul>
+            <li>Sets are often defined as the union of intervals. An open interval <m>(a,b)</m> describes a set that is a solution to <m>a \lt x \lt b</m>. A closed intervals <m>[a,b]</m> includes the endpoints, <m>a \le x \le b</m>.</li>
+            <li>The natural domain of a function is found by determining the set of inputs for which the function output is defined.</li>
+            <li>An explicit domain for a function can be specified using mapping notation, <me> f:D \rightarrow \mathbb{R}; x \mapsto f(x), </me> or using a constraint.</li>
+            <li>A piecewise function uses different rules for different sets of the domain. The boundaries of these sets are the break-points of the function.</li>
+            <li>Continuity of functions is introduced as a concept to guarantee that piecewise functions are connected. At each break-point, we need to verify that the formula to the left and the formula to the right both match the value at the break-point.</li>
+            <li>Functions constructed from elementary functions are continuous on their domains. (Understanding why this is true is one of our course goals.)</li>
+        </ul>
+    </conclusion>
+    
+    <exercises>
+        <exercise>
+            <statement>
+                <p>Sample.</p>
+            </statement>
+        </exercise>
+
+    </exercises>
+</section>
