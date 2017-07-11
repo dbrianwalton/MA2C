@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Overall element for a Mathbook XML document; mandatory, always
+    Including XInclude in order to segment the work into multiple chapter files,
+    and perhaps ultimately individual section files.
+-->
+<!DOCTYPE doc> 
+
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
+    
+    <book xml:id="model-calculus">
+        <title>A Modeling Approach to Calculus</title>
+
+        <xi:include href="./frontmatter.xml" />
+
+        <chapter>
+            <title>Overview to the Course</title>
+            
+            <xi:include href="./learn_math.xml" />
+            <xi:include href="./numbers_measurements.xml" />
+            <xi:include href="./variables.xml" />            
+            <xi:include href="./modeling.xml" />            
+        </chapter>
+        
+        <chapter>
+            <title>Functions</title>
+            
+            <xi:include href="./functions-introduction.xml" />            
+            <xi:include href="./functions-construction.xml" />            
+            <xi:include href="./functions-piecewise.xml" />            
+        </chapter>
+        
+        <appendix>
+            <title>Mathematics Foundations</title>
+            
+            <xi:include href="./appendix-numbers-sets-arithmetic.xml" />
+            <xi:include href="./algebra.xml" />
+        </appendix>
+        
+        <appendix>
+            <title>Trigonometry Basics</title>
+
+            <xi:include href="./triangle-trig.xml" />
+            <xi:include href="./angle-measurement.xml" />
+            <xi:include href="./unit-circle-trig.xml" />
+            <xi:include href="./inverse-trig-functions.xml" />
+        </appendix>
+        
+        <backmatter>
+            <title>Reference material</title>
+
+            <section>
+                <title>Notation</title>
+                <notation-list />
+            </section>
+
+            <section>
+                <title>Solutions to Selected Exercises</title>
+                <solution-list />
+            </section>
+
+        </backmatter>
+
+    </book>
+
+</mathbook>

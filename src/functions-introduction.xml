@@ -120,13 +120,12 @@
                             <mrow> \frac{y_3-y_1}{x_3-x_1} &amp;= \frac{-1-5}{10-1} = -\frac{6}{9} = -\frac{2}{3} </mrow>
                         </md> Because the slopes are the same value <m>m=-\frac{2}{3}</m>, there is a linear relation with these states.</p>
                         <p>We find the equation <m>y=mx+b</m> by computing <m>b=y-mx</m> using one of the given states and <m>m=-\frac{2}{3}</m>, such as <m>(x_1,y_1)=(1,5)</m>: <me>\textstyle b = 5-(-\frac{2}{3})(1) = 5+\frac{2}{3} = \frac{17}{3}.</me> The linear relation is characterized by the equation <me>\textstyle y=-\frac{2}{3}x+\frac{17}{3}.</me> If we multiply both sides by 3, we can find an equivalent equation involving only integers <m>3y = -2x+17</m>, which is equivalent to an equation <m>2x+3y=17</m>. The graph of this line along with the data are shown below.</p>
-                        <sidebyside>
+                        <figure>
                             <image width="50%">
                                 <latex-image-code>
                                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                                 <![CDATA[\tikzset{%
                                 }
-                                \pgfplotsset{ width=6cm }
                                 \begin{tikzpicture}
                                 \begin{axis}[
                                     xlabel={$x$},
@@ -136,30 +135,31 @@
                                 \addplot[
                                     only marks,
                                     color=blue
-                                ] table {
-                                    1 5
-                                    4 3
-                                    10 -1
+                                ] coordinates {
+                                    (1,5) (4,3) (10,-1)
+                                %table {
+                                %    1 5
+                                %    4 3
+                                %    10 -1
                                 };
                                 \addplot [domain=-4:12,samples=2] {(-2*x+17)/3};
                                 \end{axis}
                                 \end{tikzpicture}]]>
                                 </latex-image-code>
                             </image>
-                        </sidebyside>
+                        </figure>
                     </li>
                     <li>
                         <p>For the second data set, we measure the slopes using the states <m>(x_1,y_1)=(2,11)</m>, <m>(x_2,y_2)=(6,19)</m>, and <m>(x_3,y_3)=(12,27)</m>: <md>
                             <mrow> \frac{y_2-y_1}{x_2-x_1} &amp;= \frac{19-11}{6-2} = \frac{8}{4} = 2 </mrow>
                             <mrow> \frac{y_3-y_1}{x_3-x_1} &amp;= \frac{27-11}{12-2} = \frac{16}{10} = \frac{8}{5} </mrow>
                         </md> Because the slopes have different values, these data are not consistent with a linear relation. The figure below illustrates the data along with the line passing through the first two states. The third data point is not on the line.</p>
-                        <sidebyside>
+                        <figure>
                             <image width="50%">
                                 <latex-image-code>
                                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                                 <![CDATA[\tikzset{%
                                 }
-                                \pgfplotsset{ width=6cm }
                                 \begin{tikzpicture}
                                 \begin{axis}[
                                     xlabel={$x$},
@@ -169,17 +169,15 @@
                                 \addplot[
                                     only marks,
                                     color=blue
-                                ] table {
-                                    2 11
-                                    6 19
-                                    12 27
+                                ] coordinates {
+                                    (2,11) (6,19) (12,27)
                                 };
                                 \addplot [domain=-4:18,samples=2] {2*(x-2)+11};
                                 \end{axis}
                                 \end{tikzpicture}]]>
                                 </latex-image-code>
                             </image>
-                        </sidebyside>
+                        </figure>
                     </li>
                 </ol>
             </solution>

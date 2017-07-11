@@ -13,7 +13,11 @@
     <introduction>
         <title>Overview</title>
         
-        <p></p>
+        <p>In this section, we consider how functions are defined on different sets. We learn about the domain of the function and how to find the domain given a formula. Sometimes, we need to restrict a function to use a rule only on a particular set, called the explicit domain. Other times, we need the function to use different rules on different sets, creating a piecewise function.</p>
+        
+        <p>As part of finding domains, we learn about solving inequalities in order to determine where an expression is positive and negative. We approach these problems using sign analysis. This consists in finding points where the expression might change sign and then testing what sign occurs in each resulting interval.</p>
+        
+        <p>With piecewise functions, a function might not be continuous. We learn about limit notation as a way of evaluating what a rule to the left or right of a point would have given at a point. Continuity requires that the function is defined and that the left- and right-limits both agree with the actual function value.</p>
     </introduction>
     
     <subsection>
@@ -39,8 +43,8 @@
                     <mrow>x=-2 \quad \text{or} \quad x=2</mrow>
                 </md> This means <m>f(x)</m> is defined for all inputs except <m>x=-2</m> or <m>x=2</m>.</p>
                 <p>To describe the domain using intervals, we think of the real number line and remove <m>x=\pm 2</m>. A graphical representation of the set using a number line is shown below. Intervals are read from the line left-to-right. It starts at <m>-\infty</m> and continues until <m>-2</m>, then goes from <m>-2</m> to <m>2</m>, and finally goes from <m>2</m> until <m>+\infty</m>. We write <me>D = (-\infty,-2) \cup (-2, 2) \cup (2,+\infty)</me>.</p>
-                <sidebyside>
-                    <image width="50%">
+                <sidebyside width="75%" margins="auto">
+                    <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
@@ -75,8 +79,8 @@
                     <mrow>x-3=0 \quad \text{or} \quad x+2=0</mrow>
                     <mrow>x=3 \quad \text{or} \quad x=-2</mrow>
                 </md> If we mark these points on a number line, we can easily identify the intervals to test for signs. I like to use the same number line to record the resulting signs, so I label <m>x</m>-values below the line and the resulting sign or value of the expression above the line.</p>
-                <sidebyside>
-                    <image width="50%">
+                <sidebyside width="75%" margins="auto">
+                    <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
@@ -101,8 +105,8 @@
                     <mrow>x=0 \quad &amp;\Rightarrow \quad x^2-x-6 = 0^2-0-6 = -6</mrow>
                     <mrow>x=4 \quad &amp; \Rightarrow \quad x^2-x-6 = 4^2-4-6 = 6</mrow>
                 </md> We can now update the number line we started by recording either <m>+</m> or <m>-</m> above each interval that we tested.</p>
-                <sidebyside>
-                    <image width="50%">
+                <sidebyside width="75%" margins="auto">
+                    <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
@@ -125,7 +129,25 @@
                         </latex-image-code>
                     </image>
                 </sidebyside>
-                <p>We were finding the domain of <m>g(x)=\log_4(x^2-x-6)</m>, which requires <m>x^2-x-6 \gt 0</m>. Based on our summary, we need to find all values which result in the expression having a positive sign. So our solution is the set <m>D</m> formed from the union of intervals <m>(-\infty,-2)</m> and <m>(3,\infty)</m>, <me>D = (-\infty,-2) \cup (3,\infty)</me>.</p>
+                <p>We were finding the domain of <m>g(x)=\log_4(x^2-x-6)</m>, which requires <m>x^2-x-6 \gt 0</m>. Based on our summary, we need to find all values which result in the expression having a positive sign. So our solution is the set <m>D</m> formed from the union of intervals <m>(-\infty,-2)</m> and <m>(3,\infty)</m>, <me>D = (-\infty,-2) \cup (3,\infty)</me>. A visualization of the domain on the number line might also help solidify the connections between the sign analysis number line and the domain set. <sidebyside width="75%" margins="auto">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[<->] (-4,0) -- (4,0);
+
+                        \draw (-2, -0.1) -- (-2,0.1) node[pos=0, below] {$-2$};
+                        \draw (3, -0.1) -- (3,0.1) node[pos=0, below] {$3$};
+                        \draw [<-, blue, thick] (-4,0.2) -- (-2.1,0.2);
+                        \draw [blue, thick] (-2,0.2) circle (0.1);
+                        \draw [blue, thick] (3,0.2) circle (0.1);
+                        \draw [->, blue, thick] (3.1,0.2) -- (4,0.2) node [right] {$D$};
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside></p>
             </solution>
         </example>
         
@@ -143,8 +165,8 @@
                 </md> Zeros for a quotient require that the numerator equals zero. <md>
                     <mrow>4x=0</mrow>
                     <mrow>x=0</mrow>
-                </md> Our sign analysis number line will have three points. <sidebyside>
-                    <image width="50%">
+                </md> Our sign analysis number line will have three points. <sidebyside width="75%" margins="auto">
+                    <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
@@ -171,8 +193,8 @@
                     <mrow>x = -1 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(-1)}{(-1+3)(-1-3)} = \frac{(-)}{(+)(-)}</mrow>
                     <mrow>x = 1 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(1)}{(1+3)(1-3)} = \frac{(+)}{(+)(-)}</mrow>
                     <mrow>x = 4 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(4)}{(4+3)(4-3)} = \frac{(+)}{(+)(+)}</mrow>
-                </md> The signs can be summarized on the number line. <sidebyside>
-                    <image width="50%">
+                </md> The signs can be summarized on the number line. <sidebyside width="75%" margins="auto">
+                    <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
@@ -199,7 +221,27 @@
                         </latex-image-code>
                     </image>
                 </sidebyside></p>
-                <p>We interpret our analysis to find the domain of <m>h(x)</m>. The domain must include intervals where the inner expression is positive, <m>(-3,0)</m> and <m>(3,\infty)</m>, along with points where the expression equals zero, <m>x=0</m>. We do not include the points where the expression was undefined, <m>x=\pm3</m>. The domain is the set <me>D = (-3,0] \cup (3,\infty)</me>.</p>
+                <p>We interpret our analysis to find the domain of <m>h(x)</m>. The domain must include intervals where the inner expression is positive, <m>(-3,0)</m> and <m>(3,\infty)</m>, along with points where the expression equals zero, <m>x=0</m>. The set is visualized below. We do not include the points where the expression was undefined, <m>x=\pm3</m>. The domain is the set <me>D = (-3,0] \cup (3,\infty)</me>. <sidebyside width="75%" margins="auto">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=0.7cm,y=0.7cm]
+                        \draw[<->] (-5,0) -- (5,0);
+
+                        \draw (-3, -0.1) -- (-3,0.1) node[pos=0, below] {$-3$};
+                        \draw (0, -0.1) -- (0,0.1) node[pos=0, below] {$0$};
+                        \draw (3, -0.1) -- (3,0.1) node[pos=0, below] {$3$};
+                        \draw [blue, thick] (-2.9,0.2) -- (-0.1,0.2);
+                        \draw [->, blue, thick] (3.1,0.2) -- (5,0.2) node [right] {$D$};
+                        \draw [blue, thick] (-3,0.2) circle (0.1);
+                        \draw [blue, fill, thick] (0,0.2) circle (0.1);
+                        \draw [blue, thick] (3,0.2) circle (0.1);
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside> </p>
             </solution>
         </example>
         
@@ -220,7 +262,15 @@
             </solution>
         </example>
         
-        <p>Restricting a domain is necessary to define inverse functions when a function is not one-to-one. For example, we have early noted that <m>y=x^2</m> is not one-to-one because when solving for <m>x</m>, we get two solutions <m>x=\pm\sqrt{y}</m>. Nevertheless, we think of <m>f(x)=x^2</m> and <m>g(x)=\sqrt{x}</m> as inverses of one another. This is only true if we restrict the domain of <m>f</m>. Instead of using mapping notation, we will usually use a restriction on the domain.</p>
+        <p>Instead of using mapping notation, we will usually use a restriction on the domain. In this approach, we use an equation and include an inequality or similar test specifying which values of the independent variable may be used.</p>
+        
+        <example>
+            <statement>
+                <p>The function <m>f:[0,1] \to \mathbb{R}; x \mapsto 2x+5</m> could also be written using a standard equation with a restriction. In this form, it would be written <me> f(x) = 2x+5, \quad 0 \le x \le 1.</me></p>
+            </statement>
+        </example>
+        
+        <p>Restricting a domain is necessary to define inverse functions when a function is not one-to-one. For example, we have early noted that <m>y=x^2</m> is not one-to-one because when solving for <m>x</m>, we get two solutions <m>x=\pm\sqrt{y}</m>. Nevertheless, we think of <m>f(x)=x^2</m> and <m>g(x)=\sqrt{x}</m> as inverses of one another. This is only true if we restrict the domain of <m>f</m>.</p>
         
         <example>
             <statement>
@@ -250,8 +300,8 @@
                     <mrow>f(2) &amp;= 2^2 = 4</mrow>
                     <mrow>f(2.01) &amp; = 4-2.01 = 1.99</mrow>
                 </md></p>
-                <p>The graph of the relation <m>y=f(x)</m> is created by pasting the graphs <m>y=3</m>, <m>y=x^2</m>, and <m>y=4-x</m> into a single graph, but including only that portion of the graphs that is relevant for the constrained domains of those rules. For points at the edge of a domain interval, we use filled circles only when the point is explicitly included. <sidebyside>
-                    <image width="50%">
+                <p>The graph of the relation <m>y=f(x)</m> is created by pasting the graphs <m>y=3</m>, <m>y=x^2</m>, and <m>y=4-x</m> into a single graph, but including only that portion of the graphs that is relevant for the constrained domains of those rules. For points at the edge of a domain interval, we use filled circles only when the point is explicitly included. <sidebyside width="75%" margins="auto">
+                    <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
@@ -260,6 +310,8 @@
                         \begin{axis}
                         [
                             xmin=-4, xmax=4,
+                            ymin=-2, ymax=6,
+                            axis lines=center,
                         ]
                         \addplot [domain=-5:0, blue, thick] {3};
                         \addplot [domain=0:2, blue, thick, samples=25] {x^2};
@@ -273,8 +325,144 @@
             </solution>
         </example>
         
-        <p>In the previous example, the graph of the function had breaks. Those breaks occurred at the edges of the constrained domains of the rule. We call such a break a <term>discontinuity</term>.</p>
-
+        <p>In the previous example, the graph of the function had breaks. Those breaks occurred at the edges of the constrained domains of the rule. We call such a break a <term>discontinuity</term>. When a function is connected, we say it is <term>continuous</term>. For a piecewise function to be continuous at a point, the rule used to the left and right of a point need to give the same value as the rule at the point.</p>
+        
+        <p>We need a notation that says to use the different rules around a point. Function evaluation notation <m>f(x)</m> finds the value using the rule at the point. We use a new notation, called <term>limit notation</term>, to apply the rules coming from the left or from the right to predict the value at a point.</p>
+        
+        <definition xml:id="defn-limit-intuition">
+            <title>Intuitive Meaning of Limit Notation</title>
+            <statement>
+                <p>For a piecewise function using otherwise continuous expressions around a point <m>x=c</m>, <me>f(x) = \begin{cases}
+                    f_{\text{left}}(x), &amp; x \lt c, \\
+                    f_{\text{at}}(x), &amp; x=c, \\
+                    f_{\text{right}}(x), &amp; x \gt c,
+                \end{cases}</me> the left- and right-limits of <m>f(x)</m> at <m>c</m> are the values of the expressions <m>f_{\text{left}}(c)</m> and <m>f_{\text{right}}(c)</m> and are written using limit notation, <md>
+                    <mrow> \lim_{x \to c^-} f(x) = f_{\text{left}}(c), </mrow>
+                    <mrow> \lim_{x \to c^+} f(x) = f_{\text{right}}(c). </mrow>
+                </md></p>
+            </statement>
+        </definition>
+        
+        <example>
+            <statement>
+                <p>For the piecewise function <me>f(x) = \begin{cases}
+                    3, &amp; x \lt 0, \\
+                    x^2, &amp; 0 \lt x \le 2, \\
+                    4-x, &amp; x \gt 2,
+                \end{cases}</me> evaluate the limits at <m>x=0</m> and at <m>x=2</m>.</p>
+            </statement>
+            <solution>
+                <p>Around <m>x=0</m>, the function <m>f(x)</m> uses <m>f(x)=3</m> to the left of <m>x=0</m> and <m>f(x)=x^2</m> immediately to the right of <m>x=0</m>. Using limit notation, we write <md>
+                    <mrow> \lim_{x \to 0^-} f(x) &amp;= 3,</mrow>
+                    <mrow> \lim_{x \to 0^+} f(x) &amp;= 0^2 = 0.</mrow>
+                </md> Around <m>x=2</m>, the function <m>f(x)</m> uses <m>f(x)=x^2</m> to the left and <m>f(x)=4-x</m> to the right. For limits, we then have <md>
+                    <mrow> \lim_{x \to 2^-} f(x) &amp;= 2^2=4,</mrow>
+                    <mrow> \lim_{x \to 2^+} f(x) &amp;= 4-2 = 2.</mrow>
+                </md></p>
+                <p>In the earlier example using this same function, we included a filled circle at the point <m>(2,4)</m> for the value <m>f(2)=2^2=4</m>. When a limit is different from the value of the function (or the function value doesn't exist), we can include an empty circle to show the limit of either the left or the right branch. The limits at <m>x=0</m> leads to two empty points at <m>(0,3)</m> (left-limit) and at <m>(0,0)</m> (right-limit). The limits at <m>x=2</m> leads to one empty point at <m>(2,2)</m>, since the left-limit matches the value of the function at <m>(2,4)</m>. This improved graph is shown below. <sidebyside width="75%" margins="auto">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xmin=-4, xmax=4,
+                            ymin=-2, ymax=6,
+                            axis lines=center,
+                        ]
+                        \addplot [domain=-5:0, blue, thick] {3};
+                        \addplot [domain=0:2, blue, thick, samples=25] {x^2};
+                        \addplot [only marks, blue] coordinates { (2,4) };
+                        \addplot [domain=2:5, blue, thick] {4-x};
+                        \addplot [only marks, mark=*, mark options={fill=white}, blue] coordinates { (0,3) (0,0) (2,2) };
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside></p>
+            </solution>
+        </example>
+        
+        <p>At a point away from break points of piecewise functions, the same rule is applied on the left and on the right. Consequently, we can compute left- and right-limits for formulas that are not defined piecewise as well.</p>
+        
+        <example>
+            <statement>
+                <p>Find <m>\displaystyle \lim_{x \to 1^-} \left[x^2-2x\right]</m> and <m>\displaystyle \lim_{x \to 1^+} \left[x^2-2x\right]</m>.</p>
+            </statement>
+            <solution>
+                <p>We can think of the expression <m>x^2-2x</m> as a function. The same rule is applied everywhere, so this is equivalent to a piecewise function <me>f(x)=\begin{cases}
+                    x^2-2x, &amp; x \lt 1, \\
+                    x^2-2x, &amp; x = 1, \\
+                    x^2-2x, &amp; x \gt 1.
+                \end{cases}.</me> (You wouldn't normally write this down<mdash/>just think it.) Consequently, we have <md>
+                    <mrow> \lim_{x \to 1^-} \left[x^2-2x\right] = 1^2-2(1)=-1,</mrow>
+                    <mrow> \lim_{x \to 1^+} \left[x^2-2x\right] = 1^2-2(1)=-1.</mrow>
+                </md></p>
+            </solution>
+        </example>
+        
+        <p>Continuity captures the idea of connectedness. The rule for a function to either side of a point should perfectly match up with the rule for the point itself. We express this with limits.</p>
+        
+        <definition xml:id="defn-continuity-at-point">
+            <title>Continuity at a Point</title>
+            <statement>
+                <p>The statement <q>the function <m>f</m> is continuous at a point <m>x=c</m></q> means that the left-limit and right-limit at <m>x=c</m> are equal to the value <m>f(c)</m>, <md>
+                    <mrow>\lim_{x \to c^-} f(x) = f(c), </mrow>
+                    <mrow>\lim_{x \to c^+} f(x) = f(c). </mrow>
+                </md></p>
+            </statement>
+            <note>
+                <p>Our definition for continuity is, at the moment, a bit circular because our intuitive definition of limits (<xref ref="defn-limit-intuition"/>) indicated that we needed <q>otherwise continuous expressions</q>. We will need a definition for limits that captures the same idea but does not require continuous expressions. We will then show that every simple algebraic expression is continuous using that new definition.</p>
+            </note>
+        </definition>
+        
+        <example>
+            <statement>
+                <p>For the function <me>f(x) = \begin{cases} 
+                    2x+a, &amp; x \lt 2, \\
+                    1, &amp; x=2, \\
+                    -3x+b, &amp; x \ge 2,
+                \end{cases}</me> what values of <m>a</m> and <m>b</m> are needed to make <m>f</m> continuous at <m>x=2</m>?</p>
+            </statement>
+            <solution>
+                <p>The parameters <m>a</m> and <m>b</m> for these formulas set the <m>y</m>-intercepts of the lines, allowing us to slide the lines up or down. We are looking for values that make these lines intersect at the point <m>(2,1)</m>. We use limit notation to create the equations we need to solve.</p>
+                <p>To make the rule <m>f(x)=2x+a</m> (to the left of <m>x=2</m>) reach the correct point, we use the left-limit. <md>
+                    <mrow> \lim_{x \to 2^-} f(x) &amp;= \lim_{x \to 2^-} \left[2x+a\right] </mrow>
+                    <mrow> &amp;= 2(2)+a = 4+a </mrow>
+                </md> So that the left branch intersects at the correct point, we need <m>4+a=1</m> with <m>a=-3</m>.</p>
+                <p>To make the rule <m>f(x)=-3x+b</m> (to the right of <m>x=2</m>) reach the correct point, we use the right-limit. <md>
+                    <mrow> \lim_{x \to 2^+} f(x) &amp;= \lim_{x \to 2^+} \left[-3x+b\right] </mrow>
+                    <mrow> &amp;= -3(2)+b = -6+b </mrow>
+                </md> We need <m>-6+b=1</m> so that <m>b=7</m>.</p>
+                <p>The function <me> f(x) = \begin{cases}
+                    2x-3, &amp; x \lt 2, \\
+                    1, &amp; x=2, \\
+                    -3x+7, &amp; x \gt 2,
+                \end{cases}</me> is continuous at <m>x=2</m>. A graph of this function is shown below. <sidebyside width="75%" margins="auto">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xmin=-4, xmax=4,
+                            ymin=-10, ymax=5,
+                            axis lines = center,
+                        ]
+                        \addplot [domain=-5:2, blue, thick] {2*x-3};
+                        \addplot [domain=2:5, blue, thick] {-3*x+7};
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside></p>
+            </solution>
+        </example>
+        
     </subsection>
     <conclusion>
         <title>Summary</title>
@@ -292,17 +480,110 @@
             <li>Inequalities related to zero can be solved by sign analysis: create intervals separated by zeros and discontinuities, test intervals for sign, and interpret the results.</li>
             <li>An explicit domain for a function can be specified using mapping notation, <me> f:D \rightarrow \mathbb{R}; x \mapsto f(x), </me> or using a constraint.</li>
             <li>A piecewise function uses different rules for different sets of the domain. The boundaries of these sets are the break-points of the function.</li>
-            <li>Continuity of functions is introduced as a concept to guarantee that piecewise functions are connected. At each break-point, we need to verify that the formula to the left and the formula to the right both match the value at the break-point.</li>
-            <li>Functions constructed from elementary functions are continuous on their domains. (Understanding why this is true is one of our course goals.)</li>
+            <li>Continuity of functions is introduced as a concept to guarantee that piecewise functions are connected. At each break-point, we need to verify using limits that the formula to the left and the formula to the right both match the value at the break-point.</li>
+            <li>Limit notation indicates that we use a function rule to the left or right of a point and find the value if that rule were extended continuously to the point of interest. <md>
+                <mrow>\lim_{x \to c^-} f(x) = \text{value from rule on left} </mrow>
+                <mrow>\lim_{x \to c^+} f(x) = \text{value from rule on right} </mrow>
+            </md></li>
         </ul>
     </conclusion>
     
     <exercises>
         <exercise>
             <statement>
-                <p>Sample.</p>
+                <p>Write the function <me>f:[0,3) \to \mathbb{R}; x \mapsto 2x-3</me> as an equation with a restriction.</p>
             </statement>
         </exercise>
-
+        <exercise>
+            <statement>
+                <p>Write the function <me>f(x) = 4x+1, \quad -2 \lt x \le 1</me> using mapping notation.</p>
+            </statement>
+        </exercise>
+        
+        <exercisegroup>
+            <introduction>
+                <p>For each of the functions, find the natural domain.</p>
+            </introduction>
+            <exercise>
+                <statement><m>\displaystyle f(x) = \frac{3x}{x^2+1}</m></statement>
+            </exercise>
+            <exercise>
+                <statement><m>\displaystyle f(x) = \frac{3x}{x^2-1}</m></statement>
+            </exercise>
+            <exercise>
+                <statement><m>\displaystyle f(x) = \frac{x+2}{x^2-4x-21}</m></statement>
+            </exercise>
+            <exercise>
+                <statement><m>\displaystyle f(x) = \log_3(x+5)</m></statement>
+            </exercise>
+            <exercise>
+                <statement><m>\displaystyle f(x) = \log_{10}\left(\frac{x+2}{x-1}\right)</m></statement>
+            </exercise>
+            <exercise>
+                <statement><m>\displaystyle f(x) = \sqrt{x^2-2x-15}</m></statement>
+            </exercise>
+            <exercise>
+                <statement><m>\displaystyle f(x) = \sqrt[3]{\frac{x^2-2x-3}{x^2+2x}}</m></statement>
+            </exercise>
+            <exercise>
+                <statement><m>\displaystyle f(x) = \sqrt[4]{\frac{x^3-8x}{x^2-1}}</m></statement>
+            </exercise>
+        </exercisegroup>
+        <exercisegroup>
+            <introduction>
+                <p>For each function, find the indicated values.</p>
+            </introduction>
+            <exercise>
+                <statement>
+                    <p><m>\displaystyle f(x) = \begin{cases}
+                        x^2-3x, &amp; x \lt 1, \\
+                        2, &amp; x = 1, \\
+                        3x-2, &amp; x \gt 1.
+                    \end{cases}</m> <ol>
+                        <li><m>f(\frac{1}{2})</m></li>
+                        <li><m>f(1)</m></li>
+                        <li><m>f(2)</m></li>
+                        <li><m>\displaystyle \lim_{x \to 1^-} f(x)</m></li>
+                        <li><m>\displaystyle \lim_{x \to 1^+} f(x)</m></li>
+                        <li><m>\displaystyle \lim_{x \to 2^-} f(x)</m></li>
+                        <li><m>\displaystyle \lim_{x \to 2^+} f(x)</m></li>
+                    </ol>Is <m>f</m> continuous at <m>x=1</m>? Is <m>f</m> continuous at <m>x=2</m>?</p>
+                </statement>
+            </exercise>
+            <exercise>
+                <statement>
+                    <p><m>\displaystyle g(x) = \begin{cases}
+                        -3x+1, &amp; x \lt 0, \\
+                        2^x, &amp; 0 \lt x \lt 3, \\
+                        2x+3, &amp; x \ge 3.
+                    \end{cases}</m> <ol>
+                        <li><m>g(-2)</m></li>
+                        <li><m>g(0)</m></li>
+                        <li><m>g(3)</m></li>
+                        <li><m>\displaystyle \lim_{x \to 0^-} g(x)</m></li>
+                        <li><m>\displaystyle \lim_{x \to 0^+} g(x)</m></li>
+                        <li><m>\displaystyle \lim_{x \to 3^-} g(x)</m></li>
+                        <li><m>\displaystyle \lim_{x \to 3^+} g(x)</m></li>
+                    </ol> Is <m>g</m> continuous at <m>x=0</m>? Is <m>g</m> continuous at <m>x=3</m>?</p>
+                </statement>
+            </exercise>
+        </exercisegroup>
+        <exercise>
+            <statement>
+                <p>Find the value of <m>a</m> so that <me> f(x) = \begin{cases}
+                    2x+5, &amp; x \le 3, \\
+                    ax-4, &amp; x \gt 3,
+                \end{cases}</me> is continuous at <m>x=3</m>.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>Find the values of <m>a</m> and <m>b</m> so that <me> f(x) = \begin{cases}
+                    5-2x, &amp; x \le -1, \\
+                    ax+b, &amp; -1 \lt x \lt 2, \\
+                    2x-5, &amp; x \ge 2,
+                \end{cases}</me> is continuous at <m>x=-1</m> and at <m>x=2</m>.</p>
+            </statement>
+        </exercise>
     </exercises>
 </section>

@@ -8,7 +8,8 @@ MB = ~/mathbook
 HTML_XSL = waltbook-html.xsl
 LATEX_XSL = waltbook-latex.xsl
 
-XML_base = workbook.xml
+XML_base = ma2c.xml
+XML_oldbase = workbook.xml
 XML_single = worksection.xml
 LATEX_base = model-calculus
 LATEX_single = test-section
