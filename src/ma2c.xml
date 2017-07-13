@@ -31,6 +31,7 @@
             <xi:include href="./functions-introduction.xml" />            
             <xi:include href="./functions-construction.xml" />            
             <xi:include href="./functions-piecewise.xml" />            
+            <xi:include href="./functions-visualize.xml" />            
         </chapter>
         
         <appendix>

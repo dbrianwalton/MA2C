@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2017  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="functions-visualize">
+    <title>Visualizing Functions</title>
+
+    <introduction>
+        <title>Overview</title>
+        
+        <p></p>
+    </introduction>
+    
+    <subsection>
+        <title>Functions as Maps</title>
+        
+        <p>When we first introduced functions, we thought of them as maps between two variables, <m>x \overset{f}\mapsto y</m>. We can visualize a function as a map by thinking of the domain and range as each belonging to one real number line. The function is a rule for a mapping arrow between those two number lines. For a value <m>x</m> in the domain, the arrow must point to a specific location on the <m>y</m> number line.</p>
+        
+        <example>
+            <statement>
+                <p>The figure below illustrates the constant function <m>f(x)=3</m> as a map. For every value <m>x</m> in the domain, the value of <m>y</m> is always <m>y=3</m>.</p>
+                <figure margins="auto">
+                    <caption>The map <m>x \mapsto y=3</m>.</caption>
+                    <jsxgraph xml:id="jsxgraph-constant-function-ex1" width="75%" aspect="4:1">
+                        <input>
+                        var jcf = {};
+                        JXG.Options.axis.ticks.majorHeight = 0.5;
+                        jcf.b = JXG.JSXGraph.initBoard('jsxgraph-constant-function-ex1', 
+                                    {
+                                        boundingbox:[-5,3,5,-1],
+                                        axis: false,
+                                        grid: false,
+                                        showCopyright:false,
+                                        showNavigation:false,
+                                    });
+                        jcf.xaxis = jcf.b.create('axis',
+                            [ [0,2],[1,2] ], {
+                             drawZero:true // Doesn't do anything here.
+                            }
+                        );
+                        jcf.yaxis = jcf.b.create('axis',
+                            [ [0,0],[1,0] ], {
+                             drawZero:true // Doesn't do anything here.
+                            }
+                        );
+                        jcf.xV = jcf.b.create('glider', [0,2, jcf.xaxis],
+                                            {
+                                            name:'x',
+                                            });
+                        jcf.yV = jcf.b.create('point', [3,0],
+                                            {
+                                            name:'y',
+                                            fixed:true,
+                                            color:'blue',
+                                            });
+                        jcf.fArrow = jcf.b.create('arrow', [jcf.xV, jcf.yV],
+                                            {
+                                            name: 'f',
+                                            fixed:true,
+                                            color:'black',
+                                            });
+                        </input>
+                    </jsxgraph>
+                </figure>
+            </statement>
+        </example>
+        
+        <example>
+            <statement>
+                <p>The next figure illustrates the identity function <m>f(x)=x</m> as a map. For every value <m>x</m> in the domain, the value of <m>y</m> is the same as <m>x</m>.</p>
+                <sidebyside margins="auto">
+                    <jsxgraph xml:id="jsxgraph-identity-function-ex2" width="75%" aspect="4:1">
+                        <input>
+                        var jcf = {};
+                        JXG.Options.axis.ticks.majorHeight = 0.5;
+                        jcf.b = JXG.JSXGraph.initBoard('jsxgraph-identity-function-ex2', 
+                                    {
+                                        boundingbox:[-5,3,5,-1],
+                                        axis: false,
+                                        grid: false,
+                                        showCopyright:false,
+                                        showNavigation:false,
+                                    });
+                        jcf.xaxis = jcf.b.create('axis',
+                            [ [0,2],[1,2] ], {
+                             drawZero:true // Doesn't do anything here.
+                            }
+                        );
+                        jcf.yaxis = jcf.b.create('axis',
+                            [ [0,0],[1,0] ], {
+                             drawZero:true // Doesn't do anything here.
+                            }
+                        );
+                        jcf.xV = jcf.b.create('glider', [0,2, jcf.xaxis],
+                                            {
+                                            name:'x',
+                                            });
+                        jcf.yV = jcf.b.create('point', [function() { return jcf.xV.X() },0],
+                                            {
+                                            name:'y',
+                                            fixed:true,
+                                            color:'blue',
+                                            });
+                        jcf.fArrow = jcf.b.create('arrow', [jcf.xV, jcf.yV],
+                                            {
+                                            name: 'f',
+                                            fixed:true,
+                                            color:'black',
+                                            });
+                        </input>
+                    </jsxgraph>
+                </sidebyside>
+            </statement>
+        </example>
+            </subsection>
+    
+    <subsection>
+        <title>Functions as Graphs</title>
+        
+        <p></p>
+        
+    </subsection>
+    
+    <subsection>
+        <title>Transformations of Functions</title>
+        
+        <p></p>
+        
+    </subsection>
+    
+    <subsection>
+        <title>Properties of Functions</title>
+        
+        <p></p>
+        
+    </subsection>
+    
+    <conclusion>
+        <title>Summary</title>
+        
+        <ul>
+            <li></li>
+        </ul>
+    </conclusion>
+    
+    <exercises>
+        <exercise>
+            <statement>
+                <p></p>
+            </statement>
+        </exercise>
+    </exercises>
+</section>

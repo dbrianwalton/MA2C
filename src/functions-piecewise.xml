@@ -129,7 +129,8 @@
                         </latex-image-code>
                     </image>
                 </sidebyside>
-                <p>We were finding the domain of <m>g(x)=\log_4(x^2-x-6)</m>, which requires <m>x^2-x-6 \gt 0</m>. Based on our summary, we need to find all values which result in the expression having a positive sign. So our solution is the set <m>D</m> formed from the union of intervals <m>(-\infty,-2)</m> and <m>(3,\infty)</m>, <me>D = (-\infty,-2) \cup (3,\infty)</me>. A visualization of the domain on the number line might also help solidify the connections between the sign analysis number line and the domain set. <sidebyside width="75%" margins="auto">
+                <p>We were finding the domain of <m>g(x)=\log_4(x^2-x-6)</m>, which requires <m>x^2-x-6 \gt 0</m>. Based on our summary, we need to find all values which result in the expression having a positive sign. So our solution is the set <m>D</m> formed from the union of intervals <m>(-\infty,-2)</m> and <m>(3,\infty)</m>, <me>D = (-\infty,-2) \cup (3,\infty)</me>. A visualization of the domain on the number line might also help solidify the connections between the sign analysis number line and the domain set.</p>
+                <sidebyside width="75%" margins="auto">
                     <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -147,7 +148,7 @@
                         \end{tikzpicture}]]>
                         </latex-image-code>
                     </image>
-                </sidebyside></p>
+                </sidebyside>
             </solution>
         </example>
         
@@ -165,7 +166,8 @@
                 </md> Zeros for a quotient require that the numerator equals zero. <md>
                     <mrow>4x=0</mrow>
                     <mrow>x=0</mrow>
-                </md> Our sign analysis number line will have three points. <sidebyside width="75%" margins="auto">
+                </md> Our sign analysis number line will have three points.</p>
+                <sidebyside width="75%" margins="auto">
                     <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -188,12 +190,14 @@
                         \end{tikzpicture}]]>
                         </latex-image-code>
                     </image>
-                </sidebyside> Checking one point in each resulting interval gives us the sign. Because we only need to know the sign, it is simpler to think of factors of positive or negative values. <md>
+                </sidebyside>
+                <p>Checking one point in each resulting interval gives us the sign. Because we only need to know the sign, it is simpler to think of factors of positive or negative values. <md>
                     <mrow>x = -4 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(-4)}{(-4+3)(-4-3)} = \frac{(-)}{(-)(-)}</mrow>
                     <mrow>x = -1 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(-1)}{(-1+3)(-1-3)} = \frac{(-)}{(+)(-)}</mrow>
                     <mrow>x = 1 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(1)}{(1+3)(1-3)} = \frac{(+)}{(+)(-)}</mrow>
                     <mrow>x = 4 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(4)}{(4+3)(4-3)} = \frac{(+)}{(+)(+)}</mrow>
-                </md> The signs can be summarized on the number line. <sidebyside width="75%" margins="auto">
+                </md> The signs can be summarized on the number line.</p>
+                <sidebyside width="75%" margins="auto">
                     <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -220,8 +224,9 @@
                         \end{tikzpicture}]]>
                         </latex-image-code>
                     </image>
-                </sidebyside></p>
-                <p>We interpret our analysis to find the domain of <m>h(x)</m>. The domain must include intervals where the inner expression is positive, <m>(-3,0)</m> and <m>(3,\infty)</m>, along with points where the expression equals zero, <m>x=0</m>. The set is visualized below. We do not include the points where the expression was undefined, <m>x=\pm3</m>. The domain is the set <me>D = (-3,0] \cup (3,\infty)</me>. <sidebyside width="75%" margins="auto">
+                </sidebyside>
+                <p>We interpret our analysis to find the domain of <m>h(x)</m>. The domain must include intervals where the inner expression is positive, <m>(-3,0)</m> and <m>(3,\infty)</m>, along with points where the expression equals zero, <m>x=0</m>. The set is visualized below. We do not include the points where the expression was undefined, <m>x=\pm3</m>. The domain is the set <me>D = (-3,0] \cup (3,\infty)</me>.</p>
+                <sidebyside width="75%" margins="auto">
                     <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -241,7 +246,7 @@
                         \end{tikzpicture}]]>
                         </latex-image-code>
                     </image>
-                </sidebyside> </p>
+                </sidebyside>
             </solution>
         </example>
         
@@ -300,7 +305,8 @@
                     <mrow>f(2) &amp;= 2^2 = 4</mrow>
                     <mrow>f(2.01) &amp; = 4-2.01 = 1.99</mrow>
                 </md></p>
-                <p>The graph of the relation <m>y=f(x)</m> is created by pasting the graphs <m>y=3</m>, <m>y=x^2</m>, and <m>y=4-x</m> into a single graph, but including only that portion of the graphs that is relevant for the constrained domains of those rules. For points at the edge of a domain interval, we use filled circles only when the point is explicitly included. <sidebyside width="75%" margins="auto">
+                <p>The graph of the relation <m>y=f(x)</m> is created by pasting the graphs <m>y=3</m>, <m>y=x^2</m>, and <m>y=4-x</m> into a single graph, but including only that portion of the graphs that is relevant for the constrained domains of those rules. For points at the edge of a domain interval, we use filled circles only when the point is explicitly included.</p>
+                <sidebyside width="75%" margins="auto">
                     <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -321,7 +327,7 @@
                         \end{tikzpicture}]]>
                         </latex-image-code>
                     </image>
-                </sidebyside></p>
+                </sidebyside>
             </solution>
         </example>
         
@@ -359,7 +365,8 @@
                     <mrow> \lim_{x \to 2^-} f(x) &amp;= 2^2=4,</mrow>
                     <mrow> \lim_{x \to 2^+} f(x) &amp;= 4-2 = 2.</mrow>
                 </md></p>
-                <p>In the earlier example using this same function, we included a filled circle at the point <m>(2,4)</m> for the value <m>f(2)=2^2=4</m>. When a limit is different from the value of the function (or the function value doesn't exist), we can include an empty circle to show the limit of either the left or the right branch. The limits at <m>x=0</m> leads to two empty points at <m>(0,3)</m> (left-limit) and at <m>(0,0)</m> (right-limit). The limits at <m>x=2</m> leads to one empty point at <m>(2,2)</m>, since the left-limit matches the value of the function at <m>(2,4)</m>. This improved graph is shown below. <sidebyside width="75%" margins="auto">
+                <p>In the earlier example using this same function, we included a filled circle at the point <m>(2,4)</m> for the value <m>f(2)=2^2=4</m>. When a limit is different from the value of the function (or the function value doesn't exist), we can include an empty circle to show the limit of either the left or the right branch. The limits at <m>x=0</m> leads to two empty points at <m>(0,3)</m> (left-limit) and at <m>(0,0)</m> (right-limit). The limits at <m>x=2</m> leads to one empty point at <m>(2,2)</m>, since the left-limit matches the value of the function at <m>(2,4)</m>. This improved graph is shown below.</p>
+                <sidebyside width="75%" margins="auto">
                     <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -381,7 +388,7 @@
                         \end{tikzpicture}]]>
                         </latex-image-code>
                     </image>
-                </sidebyside></p>
+                </sidebyside>
             </solution>
         </example>
         
@@ -440,7 +447,8 @@
                     2x-3, &amp; x \lt 2, \\
                     1, &amp; x=2, \\
                     -3x+7, &amp; x \gt 2,
-                \end{cases}</me> is continuous at <m>x=2</m>. A graph of this function is shown below. <sidebyside width="75%" margins="auto">
+                \end{cases}</me> is continuous at <m>x=2</m>. A graph of this function is shown below.</p>
+                <sidebyside width="75%" margins="auto">
                     <image>
                         <latex-image-code>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -459,7 +467,7 @@
                         \end{tikzpicture}]]>
                         </latex-image-code>
                     </image>
-                </sidebyside></p>
+                </sidebyside>
             </solution>
         </example>
         
