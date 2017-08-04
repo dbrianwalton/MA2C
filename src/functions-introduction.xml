@@ -313,209 +313,208 @@
   
     <subsection>
         <title>Function Notation</title>
-        <introduction>
-            <p>
-            When a function will be used repeatedly, the function is assigned a name,
-            which might be a letter, a word, or any symbol.
-            In math textbooks, the most common name for a function is <m>f</m>.
-            We write <m>x \overset{f}{\mapsto} y</m> as a symbolic statement
-            that <m>f</m> is the function relating an independent variable <m>x</m> and a dependent variable <m>y</m>.
-            We call this notation using an arrow <term> function mapping notation</term>.
-            The arrow summarizes that the function lets us use values of <m>x</m> to predict the value of <m>y</m>.
-            If we have an explicit function, we can use use the equation on the right hand side
-            or just the expression if the name of the dependent variable is not required.
-            </p>
-      
-            <p>
-            Mapping notation captures the idea that a function provides a rule
-            that <em>maps</em> each value of the independent variable to a unique value for the dependent variable.
-            </p>
-      
-            <example>
-                <statement>
-                    <p>
-                    The explicit function <m>y=-\frac{2}{3}x+2</m> assigned to a function with name <m>f</m>
-                    would be written using function mapping notation as
-                    <me>x \overset{f}{\mapsto} y=-{\textstyle \frac{2}{3}}x+2,</me>
-                    or, if we didn't need the name of the dependent variable, as
-                    <me>x \overset{f}{\mapsto} -{\textstyle \frac{2}{3}}x+2.</me>
-                    </p>
-                    <figure margins="auto">
-                        <jsxgraph xml:id="jsx-fcn-intro-linear-ex1" width="75%" aspect="4:1">
-                            <input>
-                            var jcf1 = {
-                                f : function(x) { var y; y=-2*x/3+2; return y; },
-                                input : { name:'x', color:'blue', value:0 },
-                                output : { name:'y', color:'red' },
-                            };
-                            createMap(jcf1, 'jsx-fcn-intro-linear-ex1');
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                    <p>
-                    The inverse function <m>x=-\frac{3}{2}y+3</m> would need a different name, say <m>g</m>.
-                    We would write
-                    <me> y \overset{g}{\mapsto} x=-{\textstyle \frac{3}{2}}y+3.</me>
-                    </p>
-                    <figure margins="auto">
-                        <jsxgraph xml:id="jsx-fcn-intro-linear-ex2" width="75%" aspect="4:1">
-                            <input>
-                            var jcf2 = {
-                                f : function(x) { var y; y=-1.5*x+3; return y; },
-                                input : { name:'y', color:'red', value:2 },
-                                output : { name:'x', color:'blue' },
-                            };
-                            createMap(jcf2, 'jsx-fcn-intro-linear-ex2');
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                </statement>
-            </example>
-      
-            <p>
-            Using substitution of the independent variable for a named function is made simpler using <term>function evaluation notation</term>.
-            This is done by writing the function name followed by a value or an expression enclosed in parentheses.
-            Whatever is inside of the parentheses is the value substituted in place of the independent variable.
-            </p>
-      
-            <note xml:id="function-notation-not-multiplication">
-                <statement>
-                    <p>
-                    Although writing parentheses in mathematics next to a number or a variable means multiplication,
-                    a function is not a variable.
-                    The parentheses after the function do <em>not</em> mean multiplication but evaluation.
-                    It is unfortunate that the same symbols have different meanings,
-                    so you will need to pay close attention to the context.
-                    </p>
-                </statement>
-            </note>
-      
-            <p>
-            Function evaluation notation can be used in place of function mapping notation to define a function.
-            </p>
-      
-            <example>
-                <statement>
-                    <p>
-                    The statement <m>f(x)=-\frac{2}{3}x+2</m> and <m>x \overset{f}{\mapsto} -\frac{2}{3}x+2</m> are exactly equivalent.
-                    If we wish to name the dependent variable using evaluation notation,
-                    we would need to say <m>y=f(x)=-\frac{2}{3}x+2</m>.
-                    The evaluation notation is interpreted as
-                    <q>the output value of the function <m>f</m> with independent variable <m>x</m> is <m>-\frac{2}{3}x+2</m>.</q>
-                    It is usually read more concisely as saying <q>the value of <m>f</m> of <m>x</m> is <m>-\frac{2}{3}x+2</m>.</q>
-                    </p>
-                </statement>
-            </example>
-      
-            <p>
-            The next few examples illustrate how evaluation notation relates to substitution.
-            </p>
-      
-            <example>
-                <statement>
-                    <p>
-                    For <m>f(x)=-\frac{2}{3}x+2</m>, simplify each of the following expressions.
-                    <ol>
-                        <li><m>f(4)</m></li>
-                        <li><m>f(t)</m></li>
-                        <li><m>f(3x+1)</m></li>
-                    </ol>
-                    </p>
-                </statement>
-                <solution>
-                    <ol>
-                        <li>
-                            <p>
-                            To simplify <m>f(4)</m>, we see that the value inside parentheses is 4.
-                            So we substitute the independent variable with the value 4.
-                            <md>
-                                <mrow>f(x) &amp;= -{\textstyle \frac{2}{3}}x+2</mrow>
-                                <mrow>f(4) &amp;= -{\textstyle \frac{2}{3}}(4)+2 = {-\textstyle \frac{8}{3} + \frac{6}{3}} = {\textstyle -\frac{2}{3}}</mrow>
-                            </md>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                            The expression <m>f(t)</m> substitutes the variable <m>t</m> in place of <m>x</m>:
-                            <me>f(t) = -{\textstyle \frac{2}{3}}t+2.</me>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                            The expression <m>f(3x+1)</m> substitutes the expression <m>3x+1</m> for the independent variable <m>x</m>.
-                            Although the original independent variable of <m>f(x)=-\frac{2}{3}x+2</m> is <m>x</m>,
-                            we should think of this substitution in terms of a placeholder
-                            <m>f(\square)=-\frac{2}{3}\square+2</m> and substitution <m>\square = 3x+1</m>.
-                            <md>
-                                <mrow>f(x) &amp;= -{\textstyle \frac{2}{3}}x+2</mrow>
-                                <mrow>f(\square) &amp;= -{\textstyle \frac{2}{3}}\square+2</mrow>
-                                <mrow>f(3x+1) &amp;= -{\textstyle \frac{2}{3}}(3x+1)+2</mrow>
-                                <mrow> &amp;= \textstyle -\frac{2}{3}(3x) + -\frac{2}{3}(1) + 2 </mrow>
-                                <mrow> &amp;= \textstyle -2x + \frac{4}{3}</mrow>
-                            </md>
-                            Introducing the placeholder symbol <m>\square</m> is not necessary
-                            but might help emphasize that we are not just <em>including</em> things with the <m>x</m>.
-                            We are performing an actual substitution, <m>\square = 3x+1</m>.
-                            </p>
-                        </li>
-                    </ol>
-                </solution>
-            </example>
-      
-            <note>
-                <statement>
-                    <p>
-                    When an expression is inside the parentheses of function evaluation notation,
-                    you should use parentheses at the substitution step as well
-                    to ensure that the entire expression is being used.
-                    Once substitution occurs, you should then be sure to apply standard algebraic rules appropriately.
-                    </p>
-                </statement>
-            </note>
-      
-            <example>
-                <statement>
-                    <p>
-                    For <m>g(y)=-\frac{3}{2}y+3</m>, simplify each of the following expressions.
-                    <ol>
-                        <li><m>g(x)</m></li>
-                        <li><m>g(2t)</m></li>
-                        <li><m>3g(2x)+1</m></li>
-                    </ol>
-                    </p>
-                </statement>
-                <solution>
-                    <ol>
-                        <li>
-                            To find <m>g(x)</m> requires a simple substitution.
-                            <md>
-                                <mrow>g(y) &amp;= \textstyle -\frac{3}{2}y+3</mrow>
-                                <mrow>g(x) &amp;= \textstyle -\frac{3}{2}x+3</mrow>
+        
+        <p>
+        When a function will be used repeatedly, the function is assigned a name,
+        which might be a letter, a word, or any symbol.
+        In math textbooks, the most common name for a function is <m>f</m>.
+        We write <m>x \overset{f}{\mapsto} y</m> as a symbolic statement
+        that <m>f</m> is the function relating an independent variable <m>x</m> and a dependent variable <m>y</m>.
+        We call this notation using an arrow <term> function mapping notation</term>.
+        The arrow summarizes that the function lets us use values of <m>x</m> to predict the value of <m>y</m>.
+        If we have an explicit function, we can use use the equation on the right hand side
+        or just the expression if the name of the dependent variable is not required.
+        </p>
+  
+        <p>
+        Mapping notation captures the idea that a function provides a rule
+        that <em>maps</em> each value of the independent variable to a unique value for the dependent variable.
+        </p>
+  
+        <example>
+            <statement>
+                <p>
+                The explicit function <m>y=-\frac{2}{3}x+2</m> assigned to a function with name <m>f</m>
+                would be written using function mapping notation as
+                <me>x \overset{f}{\mapsto} y=-{\textstyle \frac{2}{3}}x+2,</me>
+                or, if we didn't need the name of the dependent variable, as
+                <me>x \overset{f}{\mapsto} -{\textstyle \frac{2}{3}}x+2.</me>
+                </p>
+                <figure margins="auto">
+                    <jsxgraph xml:id="jsx-fcn-intro-linear-ex1" width="75%" aspect="4:1">
+                        <input>
+                        var jcf1 = {
+                            f : function(x) { var y; y=-2*x/3+2; return y; },
+                            input : { name:'x', color:'blue', value:0 },
+                            output : { name:'y', color:'red' },
+                        };
+                        createMap(jcf1, 'jsx-fcn-intro-linear-ex1');
+                        </input>
+                    </jsxgraph>
+                </figure>
+                <p>
+                The inverse function <m>x=-\frac{3}{2}y+3</m> would need a different name, say <m>g</m>.
+                We would write
+                <me> y \overset{g}{\mapsto} x=-{\textstyle \frac{3}{2}}y+3.</me>
+                </p>
+                <figure margins="auto">
+                    <jsxgraph xml:id="jsx-fcn-intro-linear-ex2" width="75%" aspect="4:1">
+                        <input>
+                        var jcf2 = {
+                            f : function(x) { var y; y=-1.5*x+3; return y; },
+                            input : { name:'y', color:'red', value:2 },
+                            output : { name:'x', color:'blue' },
+                        };
+                        createMap(jcf2, 'jsx-fcn-intro-linear-ex2');
+                        </input>
+                    </jsxgraph>
+                </figure>
+            </statement>
+        </example>
+  
+        <p>
+        Using substitution of the independent variable for a named function is made simpler using <term>function evaluation notation</term>.
+        This is done by writing the function name followed by a value or an expression enclosed in parentheses.
+        Whatever is inside of the parentheses is the value substituted in place of the independent variable.
+        </p>
+  
+        <note xml:id="function-notation-not-multiplication">
+            <statement>
+                <p>
+                Although writing parentheses in mathematics next to a number or a variable means multiplication,
+                a function is not a variable.
+                The parentheses after the function do <em>not</em> mean multiplication but evaluation.
+                It is unfortunate that the same symbols have different meanings,
+                so you will need to pay close attention to the context.
+                </p>
+            </statement>
+        </note>
+  
+        <p>
+        Function evaluation notation can be used in place of function mapping notation to define a function.
+        </p>
+  
+        <example>
+            <statement>
+                <p>
+                The statement <m>f(x)=-\frac{2}{3}x+2</m> and <m>x \overset{f}{\mapsto} -\frac{2}{3}x+2</m> are exactly equivalent.
+                If we wish to name the dependent variable using evaluation notation,
+                we would need to say <m>y=f(x)=-\frac{2}{3}x+2</m>.
+                The evaluation notation is interpreted as
+                <q>the output value of the function <m>f</m> with independent variable <m>x</m> is <m>-\frac{2}{3}x+2</m>.</q>
+                It is usually read more concisely as saying <q>the value of <m>f</m> of <m>x</m> is <m>-\frac{2}{3}x+2</m>.</q>
+                </p>
+            </statement>
+        </example>
+  
+        <p>
+        The next few examples illustrate how evaluation notation relates to substitution.
+        </p>
+  
+        <example>
+            <statement>
+                <p>
+                For <m>f(x)=-\frac{2}{3}x+2</m>, simplify each of the following expressions.
+                <ol>
+                    <li><m>f(4)</m></li>
+                    <li><m>f(t)</m></li>
+                    <li><m>f(3x+1)</m></li>
+                </ol>
+                </p>
+            </statement>
+            <solution>
+                <ol>
+                    <li>
+                        <p>
+                        To simplify <m>f(4)</m>, we see that the value inside parentheses is 4.
+                        So we substitute the independent variable with the value 4.
+                        <md>
+                            <mrow>f(x) &amp;= -{\textstyle \frac{2}{3}}x+2</mrow>
+                            <mrow>f(4) &amp;= -{\textstyle \frac{2}{3}}(4)+2 = {-\textstyle \frac{8}{3} + \frac{6}{3}} = {\textstyle -\frac{2}{3}}</mrow>
                         </md>
-                        </li>
-                        <li>
-                            To find <m>g(2t)</m> requires a substitution of the expression <m>x=2t</m>.
-                            <md>
-                                <mrow>g(2t) &amp;= \textstyle -\frac{3}{2}(2t)+3</mrow>
-                                <mrow> &amp;= -3t+3</mrow>
-                            </md>
-                        </li>
-                        <li>
-                            To find <m>3g(2x)+1</m> will require substitution of <m>g(2x)</m>
-                            by a formula that itself involves substitution.
-                            Note the use of parentheses.
-                            <md>
-                                <mrow>3g(2x)+1 &amp;= 3\Big({\textstyle  -\frac{3}{2}(2x)+3}\Big) + 1</mrow>
-                                <mrow> &amp;= 3(-3x+3)+1 = -9x+9+1</mrow>
-                                <mrow> &amp;=-9x+10</mrow>
-                            </md>
-                        </li>
-                    </ol>
-                </solution>
-            </example>
-        </introduction>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                        The expression <m>f(t)</m> substitutes the variable <m>t</m> in place of <m>x</m>:
+                        <me>f(t) = -{\textstyle \frac{2}{3}}t+2.</me>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                        The expression <m>f(3x+1)</m> substitutes the expression <m>3x+1</m> for the independent variable <m>x</m>.
+                        Although the original independent variable of <m>f(x)=-\frac{2}{3}x+2</m> is <m>x</m>,
+                        we should think of this substitution in terms of a placeholder
+                        <m>f(\square)=-\frac{2}{3}\square+2</m> and substitution <m>\square = 3x+1</m>.
+                        <md>
+                            <mrow>f(x) &amp;= -{\textstyle \frac{2}{3}}x+2</mrow>
+                            <mrow>f(\square) &amp;= -{\textstyle \frac{2}{3}}\square+2</mrow>
+                            <mrow>f(3x+1) &amp;= -{\textstyle \frac{2}{3}}(3x+1)+2</mrow>
+                            <mrow> &amp;= \textstyle -\frac{2}{3}(3x) + -\frac{2}{3}(1) + 2 </mrow>
+                            <mrow> &amp;= \textstyle -2x + \frac{4}{3}</mrow>
+                        </md>
+                        Introducing the placeholder symbol <m>\square</m> is not necessary
+                        but might help emphasize that we are not just <em>including</em> things with the <m>x</m>.
+                        We are performing an actual substitution, <m>\square = 3x+1</m>.
+                        </p>
+                    </li>
+                </ol>
+            </solution>
+        </example>
+  
+        <note>
+            <statement>
+                <p>
+                When an expression is inside the parentheses of function evaluation notation,
+                you should use parentheses at the substitution step as well
+                to ensure that the entire expression is being used.
+                Once substitution occurs, you should then be sure to apply standard algebraic rules appropriately.
+                </p>
+            </statement>
+        </note>
+  
+        <example>
+            <statement>
+                <p>
+                For <m>g(y)=-\frac{3}{2}y+3</m>, simplify each of the following expressions.
+                <ol>
+                    <li><m>g(x)</m></li>
+                    <li><m>g(2t)</m></li>
+                    <li><m>3g(2x)+1</m></li>
+                </ol>
+                </p>
+            </statement>
+            <solution>
+                <ol>
+                    <li>
+                        To find <m>g(x)</m> requires a simple substitution.
+                        <md>
+                            <mrow>g(y) &amp;= \textstyle -\frac{3}{2}y+3</mrow>
+                            <mrow>g(x) &amp;= \textstyle -\frac{3}{2}x+3</mrow>
+                        </md>
+                    </li>
+                    <li>
+                        To find <m>g(2t)</m> requires a substitution of the expression <m>x=2t</m>.
+                        <md>
+                            <mrow>g(2t) &amp;= \textstyle -\frac{3}{2}(2t)+3</mrow>
+                            <mrow> &amp;= -3t+3</mrow>
+                        </md>
+                    </li>
+                    <li>
+                        To find <m>3g(2x)+1</m> will require substitution of <m>g(2x)</m>
+                        by a formula that itself involves substitution.
+                        Note the use of parentheses.
+                        <md>
+                            <mrow>3g(2x)+1 &amp;= 3\Big({\textstyle  -\frac{3}{2}(2x)+3}\Big) + 1</mrow>
+                            <mrow> &amp;= 3(-3x+3)+1 = -9x+9+1</mrow>
+                            <mrow> &amp;=-9x+10</mrow>
+                        </md>
+                    </li>
+                </ol>
+            </solution>
+        </example>
       
-        <subsubsection>
+        <paragraphs>
             <title>Composition of Functions</title>
             <p>
             Evaluating a function using an expression as the input is called <term>composition</term>.
@@ -610,9 +609,9 @@
                     </ol>
                 </solution>
             </example>
-        </subsubsection>
+        </paragraphs>
       
-        <subsubsection>
+        <paragraphs>
             <title>Inverse Functions</title>
       
             <p>
@@ -715,7 +714,7 @@
                     </p>
                 </statement>
             </definition>
-        </subsubsection>
+        </paragraphs>
     </subsection>
     <subsection>
         <title>Nonlinear functions and graphs</title>
