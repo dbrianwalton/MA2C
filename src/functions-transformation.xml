@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2017  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="functions-transformation">
+    <title>Transformations of Functions</title>
+
+    <introduction>
+        <title>Overview</title>
+        
+        <p>
+        As a final section in the chapter on functions, we turn our attention to transformations.
+        We think of functions as a relation between variables, <m>x \mapsto y</m>.
+        In general, a transformation maps the state <m>(x,y)</m> to another pair <m>(u,v)</m>.
+        In this section, we will consider transformations where <m>u</m> is a function of <m>x</m>, <m>x \mapsto u</m>,
+        and <m>v</m> is a function of <m>y</m>, <m>y \mapsto v</m>.
+        We want to understand the function <m>u \mapsto v</m> based on the function <m>x \mapsto y</m>.
+        </p>
+        
+        <p>
+        In algebra, we would have learned about transformations of graphs.
+        Elementary transformations include translations or shifts, scaling or stretching, and reflections.
+        These transformations result from simple linear functions relating the variables.
+        In addition to using linear functions to transform graphs, 
+        we will explore some nonlinear functions that transform linear graphs.
+        </p>
+        
+    </introduction>
+    
+    <subsection>
+        <title>Elementary Transformations</title>
+        
+        <p>
+        The elementary transformations of a graph include translation, scaling, and reflection.
+        In algebra courses, we are often given a summary of the equations of such transformations.
+        </p>
+        
+        <assemblage>
+            <title>Elementary Transformations of Graphs</title>
+            <p>
+            Suppose we know the graph of a function <m>y=f(x)</m>.
+            The following equations define the specified transformations of that graph.
+            <ul>
+                <li>
+                Vertical translation, shifting the graph <m>c</m> units vertically,
+                <me>y=f(x)+c</me>.
+                </li>
+                <li>
+                Horizontal translation, shifting the graph <m>c</m> units horizontally,
+                <me>y=f(x-c)</me>.
+                </li>
+                <li>
+                Vertical scaling, stretching or compressing all vertical coordinates by a factor <m>a</m>,
+                <me>y=af(x)</me>.
+                </li>
+                <li>
+                Horizontal scaling, stretching or compressing all horizontal coordinates by a factor <m>a</m>,
+                <me>y=f(\frac{x}{a})</me>.
+                </li>
+                <li>
+                Vertical reflection across the horizontal axis,
+                <me>y=-f(x)</me>.
+                </li>
+                <li>
+                Horizontal reflection across the vertical axis,
+                <me>y=f(-x)</me>.
+                </li>
+            </ul>
+            </p>
+        </assemblage>
+        
+        <p>
+        There are some key patterns to these equations of transformation.
+        All of the vertical transformations occur outside the function,
+        while all of the horizontal transformations occur on the input to the function.
+        Vertical transformations involve arithmetic consistent with the operation.
+        For example, to move the graph up 3 units, you add <m>+3</m> to the output of the function.
+        Horizontal transformations involve arithmetic opposite of the desired operation.
+        To move a graph 3 units to the right, you add <m>-3</m> to the independent variable.
+        </p>
+        
+        <p>
+        The following interactive graphs allow you to explore transformations of the graph <m>y=\sin(x)</m> by dragging sliders.
+        </p>
+        
+        <example>
+            <statement>
+                <p>
+                Explore horizontal and vertical translations using the equation
+                <me>y=\sin(x+a)+b</me>
+                using parameters <m>a</m> and <m>b</m>.
+                Notice that because the input to the sine function is <m>x+a=x--a</m>,
+                the direction of translation is opposite the value of <m>a</m> chosen.
+                The values <m>a=0</m> and <m>b=0</m> correspond to no transformation.
+                </p>
+            </statement>
+            <figure margins="auto">
+                <jsxgraph xml:id="jsx-fcn-transform-translate1" width="75%">
+                    <input>
+                    <![CDATA[
+                    JXG.Options.axis.ticks.majorHeight = 8;
+                    JXG.Options.axis.ticks.minorHeight = 4;
+                    JXG.Options.axis.ticks.drawZero = false;
+                    jcf1 = {};
+                    jcf1.b = JXG.JSXGraph.initBoard("jsx-fcn-transform-translate1", 
+                        {
+                            boundingbox:[-6,6,6,-6],
+                            axis: true,
+                            grid: false,
+                            showCopyright:false,
+                            showNavigation:false,
+                        }
+                    );
+                    jcf1.b.create('text', [-5,5,"a"]);
+                    jcf1.aSlider = jcf1.b.create('slider', [[-4.5,5], [-1,5], [-5,0,5]], {snapWidth:0.1} );
+                    jcf1.b.create('text', [-5,4,"b"]);
+                    jcf1.bSlider = jcf1.b.create('slider', [[-4.5,4], [-1,4], [-5,0,5]], {snapWidth:0.1} );
+                    jcf1.b.create('functiongraph', [function(x) {return Math.sin(x);}], { strokeColor:"blue", dash:2 });
+                    jcf1.b.create('functiongraph', 
+                        [
+                            function(x) {
+                                var a=jcf1.aSlider.Value();
+                                var b=jcf1.bSlider.Value();
+                                return Math.sin(x+a)+b;
+                            }
+                        ], { strokeColor:"blue" });
+                    jcf1.b.create('point', [0,0], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+                    jcf1.b.create('point', [Math.PI/2,1], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+                    jcf1.b.create('point', 
+                        [
+                            function() {
+                                return -jcf1.aSlider.Value();
+                            },
+                            function() {
+                                return jcf1.bSlider.Value();
+                            }
+                        ], 
+                        {strokeColor:"blue", color:"blue", withLabel:false }
+                    );
+                    jcf1.b.create('point', 
+                        [
+                            function() {
+                                return Math.PI/2-jcf1.aSlider.Value();
+                            },
+                            function() {
+                                return 1+jcf1.bSlider.Value();
+                            }
+                        ], 
+                        {strokeColor:"blue", color:"blue", withLabel:false }
+                    );
+                    ]]>
+                    </input>
+                </jsxgraph>
+            </figure>
+        </example>
+        
+        <example>
+            <statement>
+                <p>
+                Explore horizontal and vertical scaling using the equation
+                <me>y=b\sin(ax)</me>
+                using parameters <m>a</m> and <m>b</m>.
+                Notice that negative multiples result in reflections.
+                The values <m>a=1</m> and <m>b=1</m> correspond to no transformation.
+                </p>
+            </statement>
+            <figure margins="auto">
+                <jsxgraph xml:id="jsx-fcn-transform-scale1" width="75%">
+                    <input>
+                    <![CDATA[
+                    JXG.Options.axis.ticks.majorHeight = 8;
+                    JXG.Options.axis.ticks.minorHeight = 4;
+                    JXG.Options.axis.ticks.drawZero = false;
+                    jcf2 = {};
+                    jcf2.b = JXG.JSXGraph.initBoard("jsx-fcn-transform-scale1", 
+                        {
+                            boundingbox:[-6,6,6,-6],
+                            axis: true,
+                            grid: false,
+                            showCopyright:false,
+                            showNavigation:false,
+                        }
+                    );
+                    jcf2.b.create('text', [-5,5,"a"]);
+                    jcf2.aSlider = jcf2.b.create('slider', [[-4.5,5], [-1,5], [-5,1,5]], {snapWidth:0.1} );
+                    jcf2.b.create('text', [-5,4,"b"]);
+                    jcf2.bSlider = jcf2.b.create('slider', [[-4.5,4], [-1,4], [-5,1,5]], {snapWidth:0.1} );
+                    jcf2.b.create('functiongraph', [function(x) {return Math.sin(x);}], { strokeColor:"blue", dash:2 });
+                    jcf2.b.create('functiongraph', 
+                        [
+                            function(x) {
+                                var a=jcf2.aSlider.Value();
+                                var b=jcf2.bSlider.Value();
+                                return Math.sin(x*a)*b;
+                            }
+                        ], { strokeColor:"blue" });
+                    jcf2.b.create('point', [0,0], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+                    jcf2.b.create('point', [Math.PI/2,1], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+                    jcf2.b.create('point', 
+                        [
+                            function() {
+                                return Math.PI/(2*jcf2.aSlider.Value());
+                            },
+                            function() {
+                                return jcf2.bSlider.Value();
+                            }
+                        ], 
+                        {strokeColor:"blue", color:"blue", withLabel:false }
+                    );
+                    ]]>
+                    </input>
+                </jsxgraph>
+            </figure>
+        </example>
+
+        <p>
+        We will explore a new approach to understanding transformations 
+        that will help us understand more complicated transformations.
+        This approach will also help us understand why horizontal transformations seem to be opposite of what we want.
+        </p>
+
+        <p>
+        We start by thinking of the original graph <m>y=f(x)</m> as a relation between two variables.
+        The transformation will define a relation between two other variables.
+        If we would normally use the same variable names in both instances, such as <m>x</m> and <m>y</m>,
+        then we need a way to distinguish between the original relation and the transformed relation.
+        You could choose completely different variables, such as <m>u</m> and <m>v</m>,
+        or you could choose to style the variables differently, such as using uppercase <m>X</m> and <m>Y</m>.
+        </p>
+        
+        <p>
+        In our general approach to transformations, we will describe the transformation
+        according to what happens to each coordinate, mapping points <m>(x,y)</m> to <m>(X,Y)</m>.
+        Let <m>x \overset{f}\mapsto y</m> be the untransformed function.
+        Now, suppose the transformation on the variables can be described by functions 
+        <m>x \overset{T_{x}}\mapsto X</m> and <m>y \overset{T_{y}}\mapsto Y</m>.
+        If <m>T_{x}</m> has an inverse, 
+        then the relation <m>X \mapsto Y</m> can be found using composition,
+        <me>X \overset{T_{x}^{-1}} \mapsto x \overset{f}\mapsto y \overset{T_{y}}\mapsto Y.</me>
+        In other words, <me>Y = T_y \circ f\big( T_x^{-1}(X) \big).</me>
+        </p>
+        
+        <p>
+        The elementary transformations correspond to coordinates that are mapped using linear functions.
+        The slope affects scaling and a non-zero intercept corresponds affects translation.
+        If we know where corresponding points are found in the original and the transformed graphs,
+        then we can find linear functions mapping the coordinates.
+        We use these functions to find the equation of the transformed graph.
+        </p>
+        
+        <example>
+            <statement>
+                <p>
+                Find the equation of a parabola whose vertex is at <m>(2,3)</m> and
+                which has another point at <m>(4,5)</m> 
+                by finding a transformation of <m>y=x^2</m> using the points <m>(0,0)</m> and <m>(1,1)</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                Our original graph uses coordinates <m>(x,y)</m>.
+                To distinguish variables, our transformed graph will use coordinates <m>(X,Y)</m>.
+                Based on the description of the problem, we need a transformation of coordinates
+                <me>(x,y)=(0,0) \mapsto (X,Y)=(2,3)</me>
+                and <me>(x,y)=(1,1) \mapsto (X,Y)=(4,5)</me>.
+                We will work with one coordinate variable at a time.
+                </p>
+                <p>
+                The transformation of <m>x</m>-coordinates, <m>x \overset{T_x}\mapsto X</m>,
+                is illustrated in the following map.
+                We have <m>0 \overset{T_x} \mapsto 2</m> (for the vertex) 
+                and <m>1 \overset{T_x} \mapsto 4</m> (for the second point).
+                </p>
+                <sidebyside width="60%">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[<->] (-4,0) -- (4,0) node[pos=1, above right] {$x$};
+                        \draw (0,-.1) -- (0,.1) node[pos=0, below] {$0$};
+                        \draw (0.5,-.1) -- (0.5,.1) node[pos=0, below] {$1$};
+                        \draw[<->] (-4,-1.5) -- (4,-1.5) node[pos=1, above right] {$X$};
+                        \draw (1,-1.6) -- (1,-1.4) node[pos=0, below] {$2$};
+                        \draw (2,-1.6) -- (2,-1.4) node[pos=0, below] {$4$};
+                        \draw [->] (0,-0.6) -- (1,-1.3);
+                        \draw [->] (0.5,-0.6) -- (2,-1.3);
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+                <p>
+                This map is a linear function.
+                To find the equation of the function, we need the slope,
+                <me> \frac{\Delta X}{\Delta x} = \frac{4-2}{1-0} = 2.</me>
+                Using the given point <m>(x,X)=(0,2)</m> and the point<ndash/>slope equation, we find
+                <me>X = 2(x-0)+2 = 2x+2</me>.
+                This is the map <m>T_x(x) = 2x+2</m>.
+                The inverse map is found by solving for <m>x</m> as a function of <m>X</m>,
+                <me>T_x^{-1}(X) = x = \frac{X-2}{2} = .</me>
+                We could have found this map directly by thinking about <m>X \mapsto x</m>.
+                </p>
+                <p>
+                The transformation of <m>y</m>-coordinates is similar, illustrated as a map below.
+                The given points correspond to <m>y=0 \overset{T_y} \mapsto Y=3</m>
+                and <m>y=1 \overset{T_y} \mapsto Y=5</m>.
+                </p>
+                <sidebyside width="60%">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[<->] (-4,0) -- (4,0) node[pos=1, above right] {$y$};
+                        \draw (0,-.1) -- (0,.1) node[pos=0, below] {$0$};
+                        \draw (0.5,-.1) -- (0.5,.1) node[pos=0, below] {$1$};
+                        \draw[<->] (-4,-1.5) -- (4,-1.5) node[pos=1, above right] {$Y$};
+                        \draw (1.5,-1.6) -- (1.5,-1.4) node[pos=0, below] {$3$};
+                        \draw (2.5,-1.6) -- (2.5,-1.4) node[pos=0, below] {$5$};
+                        \draw [->] (0,-0.6) -- (1.5,-1.3);
+                        \draw [->] (0.5,-0.6) -- (2.5,-1.3);
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+                <p>
+                The equation for the map <m>T_y</m> requires the slope,
+                <me> \frac{\Delta Y}{\Delta y} = \frac{5-3}{1-0} = 2, </me>
+                and the known point <m>(y,Y)=(0,3)</m>.
+                The transformation is given by <me>T_y(y) = Y = 2y+3.</me>
+                </p>
+                <p>
+                We find the equation of the transformation by finding the composition
+                represented by the chain,
+                <me> \begin{cases} \displaystyle x = T_x^{-1}(X) = \frac{X-2}{2}, \\ y=f(x)=x^2, \\ Y=T_y(y) = 2y+3. \end{cases} </me>
+                Simplifying this composition gives
+                <me>Y = 2 \Big( \frac{X-2}{2} \Big)^2 + 3.</me>
+                A graph of <m>y=x^2</m> and <m>\displaystyle y=2\Big(\frac{x-2}{2}\Big)^2+3</m> are shown in the figure below.
+                </p>
+                <sidebyside width="60%">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xmin=-5, xmax=5, ymin=-5, ymax=10,
+                            xlabel={$x$}, ylabel={$y$},
+                            axis lines=center,
+                        ]
+                        \addplot [domain=-5:5, samples=101, dashed] { x^2 };
+                        \addplot [domain=-5:5, samples=101] { 2*((x-2)/2)^2+3 };
+                        \addplot [only marks] coordinates { (0,0) (1,1) };
+                        \addplot [only marks] coordinates { (2,3) (4,5) };
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+            </solution>
+        </example>
+        
+        <p>
+        To find the equations used in the composition for a transformation, you don't need to use the same points.
+        All that you need to do is find the linear equation required to transform each coordinate separately.
+        The following example illustrates this for a sinusoidal graph.
+        </p>
+        
+        <example>
+            <statement>
+                <p>
+                The sine function <m>y=\sin(x)</m> is a periodic function with a period <m>2\pi</m> and range <m>[-1,1]</m>.
+                Key points on the graph include <m>(0,0)</m>, <m>(\frac{\pi}{2},1)</m>, <m>(\pi,0)</m>, <m>(\frac{3\pi}{2},-1)</m>, and <m>(2\pi,0)</m>.
+                Any graph that is an elementary transformation of the sine function is called <term>sinusoidal</term>.
+                </p>
+                <sidebyside width="60%">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xmin=-5, xmax=8, ymin=-2, ymax=2,
+                            xlabel={$x$}, ylabel={$y$},
+                            axis lines=center, domain=-5:8,
+                            xtick={0, 1.5708, 3.1416, 4.7124, 6.2832},
+                            xticklabels={{$0$},{$\frac{\pi}{2}$},{$\pi$},{$\frac{3\pi}{2}$},{$2\pi$}},
+                        ]
+                        \addplot [domain=-5:8, samples=101] { sin(deg(x)) };
+                        \addplot [only marks] coordinates { (0,0) (1.5708,1) (3.1416,0) (4.7124,-1) (6.2832,0) };
+                        \addplot [samples=2, dashed] {-1};
+                        \addplot [samples=2, dashed] {1};
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+                <p>
+                Use transformations of the sine function to model the height <m>H</m> (in cm) of a mass bouncing on a spring as function of time <m>t</m> (in s).
+                The mass completes one cycle every 2 seconds and reaches a maximum height of 10 cm and minimum height of 2 cm. 
+                The mass is known to be at its minimum at <m>t=0</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                In order to find our model <m>t \mapsto H</m>, we need to determine a composition of maps
+                <me> t \mapsto x \overset{\sin}\mapsto y \mapsto H.</me>
+                We will need to find the functions relating the independent and dependent variables separately.
+                </p>
+                <p>
+                We start by finding the map corresponding to the independent variables, <m>t \mapsto x</m>.
+                Because our mass is at its minimum at <m>t=0</m> and the sine function is at its minimum at <m>x=\frac{3\pi}{2}</m>,
+                we can use the point <m>(t,x)=(0,\frac{3\pi}{2})</m>.
+                We use the period to find a second point.
+                The mass will return to its minimum at <m>t=2</m>.
+                The sine function returns to its minimum at <m>x=\frac{3\pi}{2} + 2\pi</m>.
+                </p>
+                <p>
+                We use the points <m>(t,x)=(0,\frac{3\pi}{2})</m> and <m>(t,x)=(2,\frac{3\pi}{2}+2\pi)</m> to find the transformation <m>t \mapsto x</m>.
+                First, we find the slope or rate of change,
+                <me>\frac{\Delta x}{\Delta t} = \frac{2\pi}{2} = \pi.</me>
+                Then we write down the equation using the point<ndash/>slope form of a line,
+                <me>x = \pi(t-0)+\frac{3\pi}{2} = \pi t + \frac{3\pi}{2} = \pi({\textstyle t+\frac{3}{2}}).</me>
+                </p>
+                <p>
+                To find the transformation for the dependent variables <m>y \mapsto H</m>,
+                we can use the minimum and maximum values.
+                The sine function has minimum <m>y=-1</m> and maximum <m>y=1</m>.
+                The mass has minimum height <m>H=2</m> and maximum height <m>H=10</m>.
+                Our map <m>y \mapsto H</m> includes the points <m>(y,H)=(-1,2)</m> and <m>(y,H)=(1,10)</m>.
+                The equation is based on the slope or rate of change
+                <me>\frac{\Delta H}{\Delta y} = \frac{10-2}{1--1} = 4</me>
+                and the point<ndash/>slope equation
+                <me>H = 4(y-1)+10 = 4y+6</me>.
+                </p>
+                <p>
+                We put these together as a chain or composition,
+                <me> t \mapsto x \mapsto y \mapsto H </me>,
+                using the individual relations found above,
+                <me>\begin{cases}
+                    x = \pi(t+\frac{3}{2}), \\
+                    y = \sin(x), \\
+                    H = 4y + 6.
+                \end{cases}</me>
+                Combining these equations, we find our model equation
+                <me>H = 4 \sin\big( \pi({\textstyle t + \frac{3}{2}})\big) + 6.</me>
+                A graph shows that this model matches the description given.
+                </p>
+                <sidebyside width="60%">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xmin=-5, xmax=5, ymin=-5, ymax=15,
+                            xlabel={$t$}, ylabel={$H$},
+                            axis lines=center,
+                        ]
+                        \addplot [domain=-5:5, samples=101] { 4*sin(deg(3.141593*(x+1.5)))+6 };
+                        \addplot [samples=2, dashed] {2};
+                        \addplot [samples=2, dashed] {10};
+                        \addplot [only marks] coordinates { (0,2) (2,2) };
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+            </solution>
+        </example>
+    </subsection>
+    
+    <subsection>
+        <title>Nonlinear Transformations of Linear Relations</title>
+        
+        <p>
+        A surprising number of useful functions are nonlinear transformations of linear relations.
+        That is, suppose that we are interested in a model for two variables <m>x \mapsto y</m>.
+        It is often the case that there are nonlinear coordinate transformations <m>x \mapsto u</m> and <m>y \mapsto v</m> 
+        such that the relationship for the transformed variables <m>u \mapsto v</m> is linear.
+        </p>
+        
+        <example>
+            <statement>
+                <p>
+                Consider a general exponential model <m>y=A b^x</m>.
+                Because the logarithm is one-to-one, we can find an equivalent equation by applying the logarithm to both sides.
+                <md>
+                    <mrow>y=A b^x</mrow>
+                    <mrow>\ln(y) = \ln(A b^x) </mrow>
+                    <mrow> \ln(y) = \ln(A) + \ln(b) \cdot x </mrow>
+                </md>
+                If we define a transformed variable <m>v=\ln(y)</m> 
+                and note that <m>\ln(A)</m> and <m>\ln(b)</m> are just numbers,
+                then we discover that <m>v</m> is a linear function of <m>x</m>,
+                <me>v = \ln(b) \cdot x + \ln(A)</me>.
+                </p>
+            </statement>
+        </example>
+        
+        <p>
+        The previous example means that if we have two variables <m>(x,y)</m> such that <m>(x,\ln(y))</m> is linear,
+        then the original variables have an exponential relation.
+        Graphing utilities (like spreadsheets) often have an ability to change an axis to a logarithmic scale.
+        Our result tells us that if the <m>y</m>-axis is logarithmic and the <m>x</m>-axis is left alone (linear scale),
+        then the data being viewed have an exponential relation.
+        This type of graph is called a <term>semi-log plot</term>.
+        </p>
+
+        <p>
+        By finding the equation of the transformed variables, we can find the original exponential model.
+        </p>
+        
+        <example>
+            <statement>
+                <p>
+                Suppose a population grows exponentially such that <m>P=500</m> when <m>t=5</m> and <m>P=1500</m> when <m>t=12</m>.
+                Use a semi-log transformation to find the model <m>t \mapsto P</m>.
+                </p>
+            </statement>
+            <solution>
+                <p>
+                Because we are told the model <m>t \mapsto P</m> is exponential, we know that <m>t \mapsto \ln(P)</m> is linear.
+                We first transform the data points to the transformed variables, although we don't need the decimal values.
+                <md>
+                    <mrow> (t,P) = (5,500) \qquad &amp;\Rightarrow \qquad (t, \ln(P)) = (5,\ln(500)) </mrow>
+                    <mrow> (t,P) = (12,1500) \qquad &amp;\Rightarrow \qquad (t, \ln(P)) = (12,\ln(1500)) </mrow>
+                </md>
+                The transformed data are linear, so we find the slope,
+                <me> \frac{ \Delta \ln(P)}{\Delta t} = \frac{\ln(1500)- \ln(500)}{12-5} = \frac{\ln(\frac{1500}{500})}{7} = \frac{\ln(3)}{7}.</me>
+                Knowing the slope, we can use the point<ndash/>slope form using <m>\ln(P)</m> as our dependent variable,
+                <me> \ln(P) = \frac{\ln(3)}{7}(t-5) + \ln(500). </me>
+                </p>
+                <p>
+                We find the original model by now solving for <m>P</m>.
+                This involves applying the exponential (base <m>e</m>) to both sides of the equation
+                and then use properties of logarithms and exponents to simplify the result.
+                <md>
+                    <mrow> \ln(P) &amp;= \frac{\ln(3)}{7}(t-5) + \ln(500) </mrow>
+                    <mrow> e^{\ln(P)} &amp;= e^{\frac{\ln(3)}{7}(t-5) + \ln(500)} </mrow>
+                    <mrow> P &amp;= e^{\frac{\ln(3)}{7}(t-5)} \cdot e^{\ln(500)} </mrow>
+                    <mrow> &amp;= e^{\frac{\ln(3)}{7}(t-5)} \cdot 500 </mrow>
+                    <mrow> &amp;= 500 e^{\ln(3) \frac{t-5}{7}} </mrow>
+                </md>
+                Our model for the population is therefore
+                <me> P = 500 e^{\ln(3) \frac{t-5}{7}} = 500 \cdot 3^{\frac{t-5}{7}}, </me>
+                illustrated in the figure below.
+                </p>
+                <sidebyside width="60%">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xmin=-5, xmax=15,
+                            xlabel={$t$}, ylabel={$P$},
+                            axis lines=center, domain=-5:20
+                        ]
+                        \addplot [samples=101] { 500*exp(ln(3)*(x-5)/7) };
+                        \addplot [only marks] coordinates { (5,500) (12,1500) };
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+            </solution>
+        </example>
+        
+        <p>
+        While we found that exponential models look linear in a semi-log plot,
+        a power function model will look linear in a <term>log-log plot</term>.
+        This means that both coordinate axes are transformed with a logarithm.
+        </p>
+        
+        <example>
+            <statement>
+                <p>
+                In 1967, Lasiewski and Dawson published an article in <em>The Condor</em> relating 
+                the body mass <m>M</m> (in kg) and resting metabolic rate <m>R</m> (in kcal/day) for birds. 
+                They tabulated the recorded body mass and metabolic rate for individual birds based on published studies.
+                The following table includes twelve of these birds.
+                Graph the data and determine if the data appear linear in a log-log plot.
+                Then use a linear regression of transformed data to estimate the model
+                </p>
+                <table>
+                    <caption>Selected body mass and resting metabolic rate of birds, as tabulated in Lasiewski and Dawson (1967).</caption>
+                    <tabular>
+                    <row top="medium" bottom="medium">
+                        <cell>Bird</cell>
+                        <cell><m>M</m> (kg)</cell>
+                        <cell><m>R</m> (kcal/day)</cell>
+                    </row>
+                    <row>
+                        <cell>Rufous hummingbird</cell>
+                         <cell>0.0038</cell>
+                         <cell>1.5</cell>
+                    </row>
+                    <row>
+                        <cell>Common nighthawk</cell>
+                         <cell>0.075</cell>
+                         <cell>9.5</cell>
+                    </row>
+                    <row>
+                        <cell>Common wood pigeon</cell>
+                         <cell>0.150</cell>
+                         <cell>17.0</cell>
+                    </row>
+                    <row>
+                        <cell>Northern bobwhite</cell>
+                         <cell>0.194</cell>
+                         <cell>23.0</cell>
+                    </row>
+                    <row>
+                        <cell>Wood duck</cell>
+                         <cell>0.485</cell>
+                         <cell>65</cell>
+                    </row>
+                    <row>
+                        <cell>Pacific gull</cell>
+                         <cell>1.21</cell>
+                         <cell>127</cell>
+                    </row>
+                    <row>
+                        <cell>Great horned owl</cell>
+                         <cell>1.450</cell>
+                         <cell>108</cell>
+                    </row>
+                    <row>
+                        <cell>Wood stork</cell>
+                         <cell>2.5</cell>
+                         <cell>201</cell>
+                    </row>
+                    <row>
+                        <cell>Brown pelican</cell>
+                         <cell>3.51</cell>
+                         <cell>264</cell>
+                    </row>
+                    <row>
+                        <cell>Sandhill crane</cell>
+                         <cell>3.89</cell>
+                         <cell>168</cell>
+                    </row>
+                    <row>
+                        <cell>Trumpeter swan</cell>
+                         <cell>8.88</cell>
+                         <cell>418</cell>
+                    </row>
+                    <row>
+                        <cell>Andean condor</cell>
+                         <cell>10.32</cell>
+                         <cell>351</cell>
+                    </row>
+                    </tabular>
+                </table>
+            </statement>
+            <solution>
+                <p>
+                After entering the data into a spreadsheet or other graphing utility,
+                we generate a scatterplot of the points <m>(M,R)</m>, as shown below on the left.
+                You should see that the relationship of the data is increasing and concave down.
+                If we modify both axes to use a logarithmic scale, as shown below on the right,
+                we see that the transformed relationship looks reasonably linear.
+                This suggests using a linear relation on the transformed coordinates.
+                </p>
+                <sidebyside widths="40% 40%" margins="auto">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xlabel={$M$}, ylabel={$R$},
+                            width=6cm,
+                        ]
+                        \addplot [only marks,blue] table [x=M, y=R] {data/bird-mass-rate.dat};
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{loglogaxis}
+                        [
+                            xlabel={$M$}, ylabel={$R$},
+                            width=6cm,
+                        ]
+                        \addplot [only marks,blue] table [x={M}, y={R}] {data/bird-mass-rate.dat};
+                        \end{loglogaxis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+                <p>
+                To form the linear model, we need to generate actual transformed values
+                and not just a graph using logarithm scales.
+                In the spreadsheet, we will create two new columns for <m>\ln(M)</m> and for <m>\ln(R)</m>.
+                For example, suppose the mass <m>M</m> of Selasphorus rufus appears in the spreadsheet in cell <c>B2</c>
+                and we want to generate the transformed variable <m>\ln(M)</m> in cell <c>D2</c>.
+                In cell <c>D2</c>, we would type the formula <c>=ln(B2)</c>.
+                Copying this formula and pasting it into other cells will preserve the relative location.
+                If you paste it into cell <c>D3</c>, you will discover it automatically changed the formula to <c>=ln(B3)</c>.
+                </p>
+                <p>
+                Once we have new columns <m>\ln(M)</m> and <m>\ln(R)</m>, 
+                we can create a new scatterplot of data <m>(\ln(M), \ln(R))</m> using <em>linear</em> scales.
+                This new graph will have the same appearance as the original data using <em>logarithmic</em> scales,
+                except that the axes show the logarithm of the data rather than the original data using logarithmic scales.
+                With this new graph, we can find the linear trend line.
+                The graph below shows the graph of the transformed data, 
+                along with a trend line using the formula <me>y=0.7356x+4.4192</me>.
+                We change the variables to those plotted to give a transformed model <me>\ln(R) = 0.7356 \ln(M)+4.4192.</me>
+                </p>
+                <sidebyside width="40%" margins="auto">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xlabel={$\ln(M)$}, ylabel={$\ln(R)$},
+                            width=6cm,
+                        ]
+                        \addplot [only marks,blue] table [x={logM}, y={logR}] {data/bird-mass-rate.dat};
+                        \addplot [domain=-6:3,samples=2,red] {0.7356*x+4.4192};
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+                <p>
+                We find the model of the relation for the original variables <m>M \mapsto R</m> by solving for <m>R</m> and simplifying.
+                To eliminate the logarithm, we apply the inverse operation of the natural exponential.
+                Because our data are approximate, we can use decimal approximations for our formulas.
+                <md>
+                    <mrow> \ln(R) &amp;= 0.7356 \ln(M) + 4.4192 </mrow>
+                    <mrow> e^{\ln(R)} &amp;= e^{0.7356 \ln(M) + 4.4192} </mrow>
+                    <mrow> R &amp;= e^{0.7356 \ln(M)} \cdot e^{4.4192} </mrow>
+                    <mrow> &amp;= e^{\ln(M^{0.7356})} \cdot 83.030 </mrow>
+                    <mrow> &amp;= 83.030 \cdot M^{0.7356} </mrow>
+                </md>
+                We see that the model is a power function, <m>R = 83.030 M^{0.7356}</m>.
+                The figure below shows the original data using linear axes along with this approximating model.
+                <sidebyside width="40%" margins="auto">
+                    <image>
+                        <latex-image-code>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xlabel={$M$}, ylabel={$R$},
+                            width=6cm,
+                        ]
+                        \addplot [only marks,blue] table [x={M}, y={R}] {data/bird-mass-rate.dat};
+                        \addplot [domain=0:12,samples=101,red] {83.03*exp(0.7356*ln(x))};
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+                </p>
+            </solution>
+        </example>
+    </subsection>
+    
+    <conclusion>
+        <title>Summary</title>
+        
+        <ul>
+            <li>Elementary transformations of a graph of a function include translation, scaling, and reflection.</li>
+            <li>Vertical transformations are applied to the output of the function directly.</li>
+            <li>Horizontal transformations are applied to the input of the function as inverse operations.</li>
+            <li>
+                <p>
+                Elementary transformations can be found using linear functions that map the original coordinates <m>(x,y)</m> 
+                to the transformed coordinates <m>(X,Y)</m> with <m>x \overset{T_x}\mapsto X </m> and <m>y \overset{T_y}\mapsto Y</m>
+                using composition, <me>X \overset{T_x^{-1}}\mapsto x \mapsto y \overset{T_y}\mapsto Y.</me>
+                <ul>
+                    <li>Addition by a constant (intercept) corresponds to translation.</li>
+                    <li>Multiplication by a constant (slope) corresponds to rescaling.</li>
+                    <li>A negative multiple (slope) corresponds to reflection.</li>
+                </ul>
+                </p>
+            </li>
+            <li>
+                Nonlinear transformations using invertible maps can also be useful. 
+                A common transformation is the logarithm, corresponding to viewing a graph with logarithmic scales.
+            </li>
+            <li>
+                Data <m>(x,y)</m> that appear linear on a semi-log plot (with the <m>y</m>-axis in logarithmic scale)
+                means that <m>(x,\ln(y))</m> will have a linear relation.
+                Subsequently, <m>x \mapsto y</m> will be an exponential model.
+            </li>
+            <li>
+                Data <m>(x,y)</m> that appear linear on a log-log plot (with both axes in logarithmic scale)
+                means that <m>(\ln(x),\ln(y))</m> will have a linear relation.
+                Subsequently, <m>x \mapsto y</m> will be a power function model.
+            </li>
+        </ul>
+    </conclusion>
+    
+    <exercises>
+        <exercise>
+            <statement>
+                <p>Find the equation of a parabola with a vertex at <m>(3,2)</m> and a second point at <m>(6,0)</m>.</p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                View a graph of <m>y=|x|</m>, which forms the shape of a <q>V</q>. 
+                Find the equation of a transformation that moves the vertex to <m>(-3,2)</m>,
+                opens downward, and has a second point at <m>(0,0)</m>.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                The function <m>\displaystyle f(x)=\frac{x}{1+x}</m> is a simple increasing, concave down function
+                that passes through <m>f(0)=0</m> and has a horizontal asymptote <m>y=1</m> and half-saturation constant <m>x=1</m>.
+                This basic function is often used to model the reaction rate of enzyme-catalyzed reactions.
+                </p>
+                <p>
+                Suppose that <m>C</m> is the concentration of a reactant in an enzyme-catalyzed reaction
+                and <m>V</m> is the rate of reaction.
+                Use transformations of <m>y=\frac{x}{1+x}</m> to find a model for <m>C \mapsto V</m> 
+                such that the <m>(C,V)=(0,0)</m> is a possible state, the saturating rate is <m>V=50</m>,
+                and the half-saturation occurs at <m>C=80</m>.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                The Gaussian function <m>f(x)=e^{-\frac{1}{2}x^2}</m> is symmetric about <m>x=0</m> with a maximum <m>f(0)=1</m>,
+                has a horizontal asymptote <m>y=0</m> as <m>x \to \pm \infty</m>,
+                and has inflection points at <m>x=\pm 1</m>.
+                This function is often used in statistics to describe normally distributed data.
+                </p>
+                <p>
+                The height of individuals in a population were recorded and observed to have a normal distribution.
+                A histogram plot showing the number of individuals <m>N</m> with the same height <m>H</m>, rounded to the nearest centimeter,
+                could be modeled <m>H \mapsto N</m> as a transformation of <m>f</m>.
+                The maximum in the histogram (line of symmetry) is at <m>H=152</m> cm with <m>N=250</m>.
+                The inflection points were observed to be at <m>H=144</m> cm and <m>H=160</m> cm.
+                The horizontal asymptote is still <m>N=0</m>.
+                Find a Gaussian curve to model the distribution.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                Find an equation for a sinusoidal graph <m>(x,y)</m> with a period 10,
+                a center line (midpoint between the maximum and minimum) of <m>y=8</m>,
+                and has a maximum at <m>(x,y)=(2,11)</m>.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                The number of hours of daylight <m>H</m> is a periodic function
+                of the time <m>D</m>, measured in days after the year begins.
+                The cycle repeats every 365 days.
+                The longest day is on the summer solstice, which occurs at <m>D=172.25</m>, with <m>H=14.85</m>.
+                The shortest day is the winter solstice, which occurs at <m>D=354.75</m>, with <m>H=9.48</m>.
+                Find a sinusoidal model for <m>D \mapsto H</m>.
+                Use your model to determine the number of hours of daylight on <m>pi</m>-day, <m>D=72</m>.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                The cosine is another trigonometric function with period <m>2\pi</m> and range <m>[-1,1]</m>
+                and has the identical graph shape as sine.
+                However, the maximum for cosine occurs at <m>\cos(0)=1</m> and the minimum occurs at <m>\cos(\pi)=-1</m>.
+                Find the equation of cosine in terms of the sine function by using transformations.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                The square of the cosine function, <m>\cos^2(x)</m>, has the same shape as the sine and cosine graphs,
+                except that the period is <m>\pi</m> and the minimum and maximum values are <m>0</m> and <m>1</m>, respectively.
+                We know <m>\cos^2(0)=1</m> and <m>\cos^2(\frac{\pi}{2})=0</m>.
+                Find the equation of <m>\cos^2(x)</m> in terms of the sine or cosine function by using transformations.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                The square of the sine function, <m>\sin^2(x)</m>, has the same shape as the sine and cosine graphs,
+                except that the period is <m>\pi</m> and the minimum and maximum values are <m>0</m> and <m>1</m>, respectively.
+                We know <m>\sin^2(0)=0</m> and <m>\sin^2(\frac{\pi}{2})=1</m>.
+                Find the equation of <m>\sin^2(x)</m> in terms of the sine or cosine function by using transformations.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                A population <m>P</m> grows exponentially in time <m>t</m> such that <m>P=500</m> when <m>t=2</m>
+                and triples every 12 years.
+                Use the semi-log transform to find a linear model <m>t \mapsto \ln(P)</m>
+                and then find the model <m>t \mapsto P</m>.
+                What was the population when <m>t=0</m>?
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                In a simple electrical circuit, the voltage <m>V</m> on a capacitor decays exponentially as a function of time <m>t</m>.
+                After <m>t=5</m> seconds, we find <m>V=8</m> volts; after another 5 seconds, we find <m>V=6.4</m> volts.
+                Use the semi-log transform to find a linear model <m>t \mapsto \ln(V)</m>
+                and then find the exponential model <m>t \mapsto V</m>.
+                When will the circuit reach <m>V=1</m> volt?
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                During childhood development, the head grows at a different rate than the rest of the body.
+                This is why the heads of young children look larger proportional to their body than older children and adults.
+                Such growth is called <term>allometry</term> and is often observed to follow a power law.
+                </p>
+                <p>
+                According to the World Health Organization's statistics for child development,
+                the median circumference <m>C</m> of the head for a one-year-old girl is 45 cm and the median height <m>H</m> is 74.5 cm.
+                For a five-year-old, the median head size is <m>C=50</m> cm and the median height is <m>H=109.5</m> cm.
+                Use a log-log transform to find a linear model <m>\ln(H) \mapsto \ln(C)</m>
+                and then find the power function model <m>H \mapsto C</m>.
+                If this pattern continues, predict the head circumference for a ten-year-old where the median height is <m>H=140</m> cm.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                Chemical reactions generally occur at a rate <m>R</m> that is proportional to a power of the reactant concentration <m>C</m>.
+                Such a reaction will have a graph <m>(C,R)</m> that appears linear in a log-log plot.
+                Suppose you have a reaction such that <m>R=0.5</m> when <m>C=0.2</m>
+                and <m>R=1.5</m> when <m>C=0.4</m>.
+                Use a log-log transform to find a linear model <m>\ln(C) \mapsto \ln(R)</m>
+                and then find the power function model <m>C \mapsto R</m>.
+                </p>
+            </statement>
+        </exercise>
+    </exercises>
+</section>
