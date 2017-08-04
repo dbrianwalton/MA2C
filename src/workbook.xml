@@ -26,11 +26,17 @@
         </chapter>
         
         <chapter>
+            <title>Functions</title>
+            
+            <xi:include href="./functions-introduction.xml" />
+            <xi:include href="./functions-construction.xml" />
+            <xi:include href="./functions-piecewise.xml" />
+            <xi:include href="./functions-properties.xml" />
+        </chapter>
+        
+        <chapter>
             <title>Foundations</title>
             
-            <xi:include href="./functions-introduction.xml" />            
-            <xi:include href="./functions-construction.xml" />            
-            <xi:include href="./functions-piecewise.xml" />            
             <xi:include href="./functions.xml" />            
             <xi:include href="./linear-functions.xml" />            
             <xi:include href="./parametrized-functions.xml" />            

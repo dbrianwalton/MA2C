@@ -27,7 +27,7 @@
         
         <p>When a function is defined by a formula, the domain is usually not stated. The <term>natural domain</term> is then understood to be the set of inputs for which the function is defined. We find this set by identifying which operations might not be defined for all values and then solve either equations or inequalities that will identify where the function is defined. Our elementary operations and functions have the following constraints. <ul>
             <li>Division is undefined if the denominator equals zero.</li>
-            <li>Even roots (e.g., square roots) are undefined if the inner expression is negative.</li>
+            <li>Even roots (e.g., square roots) and irrational powers are undefined if the inner expression is negative.</li>
             <li>Logarithms are undefined if the inner expression is non-positive (zero or negative).</li>
         </ul></p>
         
@@ -272,14 +272,68 @@
         <example>
             <statement>
                 <p>The function <m>f:[0,1] \to \mathbb{R}; x \mapsto 2x+5</m> could also be written using a standard equation with a restriction. In this form, it would be written <me> f(x) = 2x+5, \quad 0 \le x \le 1.</me></p>
+                <p>The graphical representations of <m>f</m> as a map or as a graph are shown in the figures below. For values of the independent variable outside of the restricted domain, the value of the dependent variable is undefined.</p>
+                <figure margins="auto">
+                    <caption>The restricted function <m>f(x)=2x+5</m> for <m>0 \le x \le 1</m> as a map.</caption>
+                    <jsxgraph xml:id="jsx-fcn-piecewise-restrict-ex1" width="75%" aspect="4:1">
+                        <input>
+                        <![CDATA[
+                        var jcf1 = { 
+                            f : function(x) 
+                                {
+                                    var y=undefined;
+                                    if (x >= 0 && x <= 1)
+                                        y=2*x+5;
+                                    return y;
+                                 },
+                            input : { name:'x', color:'blue', value:0, min:-2.5, max:2.5 },
+                            output : { name:'y', color:'red', min:-0.5, max:10.5 },
+                        };
+                        createMap(jcf1, 'jsx-fcn-piecewise-restrict-ex1');
+                        ]]>
+                        </input>
+                    </jsxgraph>
+                </figure>
+            
+                <figure>
+                    <caption>The graph of the restricted function <m>y=f(x)=2x+5</m> for <m>0 \le x \le 1</m>  in the <m>(x,y)</m> plane.</caption>
+                    <jsxgraph xml:id="jsx-fcn-piecewise-restrict-graph1" width="75%" aspect="1:1">
+                        <input>
+                        <![CDATA[
+                        var jcg2 = { 
+                            f : function(x) { var y=undefined; if (x >= 0 && x <= 1) y=2*x+5; return y; },
+                            input : { name:'x', color:'blue', value:0.4, min:-1, max:3 },
+                            output : { name:'y', color:'red', min:-1, max:10 },
+                        };
+                        createFGraph(jcg2, 'jsx-fcn-piecewise-restrict-graph1');
+                        ]]>
+                        </input>
+                    </jsxgraph>
+                </figure>
             </statement>
         </example>
         
-        <p>Restricting a domain is necessary to define inverse functions when a function is not one-to-one. For example, we have early noted that <m>y=x^2</m> is not one-to-one because when solving for <m>x</m>, we get two solutions <m>x=\pm\sqrt{y}</m>. Nevertheless, we think of <m>f(x)=x^2</m> and <m>g(x)=\sqrt{x}</m> as inverses of one another. This is only true if we restrict the domain of <m>f</m>.</p>
+        <p>Restricting a domain is necessary to define inverse functions when a function is not one-to-one. For example, we have early noted that <m>y=x^2</m> is not one-to-one because when solving for <m>x</m>, we get two solutions <m>x=\pm\sqrt{y}</m>. The next example explores this in more depth.</p>
         
         <example>
             <statement>
-                <p>The function <m>f:[0,\infty) \to \mathbb{R}; x \mapsto x^2</m> can be written using a standard equation with a constraint as <me>f(x) = x^2, \quad x \ge 0</me>. The inequality that serves as the constraint specifies the domain since <m>\{x : x \ge 0\} = [0,\infty)</m>.</p>
+                <p>We intuitively, but incorrectly, think of <m>f(x)=x^2</m> and <m>g(x)=\sqrt{x}</m> as inverse functions. The composition <m>g \circ f(x) = \sqrt{x^2}</m> is not the identity because <m>\sqrt{x^2} = |x|</m>. This is illustrated in the figure below. For <m>x \lt 0</m>, <m>g \circ f(x) \ne x</m>; but for <m>x \ge 0</m>, <m>g \circ f(x)=x</m>.</p>
+                <figure>
+                    <caption>The chain <m>x \mapsto u=x^2 \mapsto y=\sqrt{u}</m> .</caption>
+                    <jsxgraph xml:id="jsx-fcn-piecewise-chain-ex1" width="75%" aspect="4:1.5">
+                        <input>
+                        var jcm1 = { 
+                            outer : function(u) { var y; y=Math.sqrt(u); return y; },
+                            inner : function(x) { var u; u=x*x; return u; },
+                            input : { name:'x', color:'blue', value:-1, min:-4, max:4 },
+                            middle : { name:'u', color:'orange', min:-4, max:4},
+                            output : { name:'y', color:'red', min:-4, max:4},
+                        };
+                        createChainMap(jcm1, 'jsx-fcn-piecewise-chain-ex1');
+                        </input>
+                    </jsxgraph>
+                </figure>
+                <p>The function restricted to this domain, <m>f:[0,\infty) \to \mathbb{R}; x \mapsto x^2</m>, can be written using a standard equation with a constraint as <me>f(x) = x^2, \quad x \ge 0</me>. The restricted function is the inverse of the square root.</p>
             </statement>
         </example>
     </subsection>
@@ -420,10 +474,10 @@
                     <mrow>\lim_{x \to c^+} f(x) = f(c). </mrow>
                 </md></p>
             </statement>
-            <note>
-                <p>Our definition for continuity is, at the moment, a bit circular because our intuitive definition of limits (<xref ref="defn-limit-intuition"/>) indicated that we needed <q>otherwise continuous expressions</q>. We will need a definition for limits that captures the same idea but does not require continuous expressions. We will then show that every simple algebraic expression is continuous using that new definition.</p>
-            </note>
         </definition>
+        <note>
+            <p>Our definition for continuity is, at the moment, a bit circular because our intuitive definition of limits (<xref ref="defn-limit-intuition"/>) indicated that we needed <q>otherwise continuous expressions</q>. We will need a definition for limits that captures the same idea but does not require continuous expressions. We will then show that every simple algebraic expression is continuous using that new definition.</p>
+        </note>
         
         <example>
             <statement>

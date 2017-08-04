@@ -187,11 +187,38 @@
     <subsection>
         <title>Function Notation</title>
 
-        <p>When a function will be used repeatedly, the function is assigned a name, which might be a letter, a word, or any symbol. In math textbooks, the most common name is <m>f</m>. We write <m>x \overset{f}{\mapsto} y</m> as a symbolic statement that <m>f</m> is the function relating an independent variable <m>x</m> and a dependent variable <m>y</m>. We call this notation using an arrow <term> function mapping notation</term>. The arrow summarizes that the function lets us use values of <m>x</m> to predict the value of <m>y</m>. If we have an explicit function, we can use use the equation on the right hand side or just the expression if the name of the dependent variable is not required.</p>
+        <p>When a function will be used repeatedly, the function is assigned a name, which might be a letter, a word, or any symbol. In math textbooks, the most common name for a function is <m>f</m>. We write <m>x \overset{f}{\mapsto} y</m> as a symbolic statement that <m>f</m> is the function relating an independent variable <m>x</m> and a dependent variable <m>y</m>. We call this notation using an arrow <term> function mapping notation</term>. The arrow summarizes that the function lets us use values of <m>x</m> to predict the value of <m>y</m>. If we have an explicit function, we can use use the equation on the right hand side or just the expression if the name of the dependent variable is not required.</p>
+        
+        <p>Mapping notation captures the idea that a function provides a rule that <em>maps</em> each value of the independent variable to a unique value for the dependent variable.</p>
         
         <example>
             <statement>
-                <p>The explicit function <m>y=-\frac{2}{3}x+2</m> assigned to a function with name <m>f</m> would be written using function mapping notation as <me>x \overset{f}{\mapsto} y=-{\textstyle \frac{2}{3}}x+2,</me> or, if we didn't need the name of the dependent variable, as <me>x \overset{f}{\mapsto} -{\textstyle \frac{2}{3}}x+2.</me> The inverse function <m>x=-\frac{3}{2}y+3</m> would need a different name, say <m>g</m>. We would write <me> y \overset{g}{\mapsto} x=-{\textstyle \frac{3}{2}}y+3.</me></p>
+                <p>The explicit function <m>y=-\frac{2}{3}x+2</m> assigned to a function with name <m>f</m> would be written using function mapping notation as <me>x \overset{f}{\mapsto} y=-{\textstyle \frac{2}{3}}x+2,</me> or, if we didn't need the name of the dependent variable, as <me>x \overset{f}{\mapsto} -{\textstyle \frac{2}{3}}x+2.</me></p>
+                <figure margins="auto">
+                    <jsxgraph xml:id="jsx-fcn-intro-linear-ex1" width="75%" aspect="4:1">
+                        <input>
+                        var jcf1 = { 
+                            f : function(x) { var y; y=-2*x/3+2; return y; },
+                            input : { name:'x', color:'blue', value:0 },
+                            output : { name:'y', color:'red' },
+                        };
+                        createMap(jcf1, 'jsx-fcn-intro-linear-ex1');
+                        </input>
+                    </jsxgraph>
+                </figure>
+                <p>The inverse function <m>x=-\frac{3}{2}y+3</m> would need a different name, say <m>g</m>. We would write <me> y \overset{g}{\mapsto} x=-{\textstyle \frac{3}{2}}y+3.</me> </p>
+                <figure margins="auto">
+                    <jsxgraph xml:id="jsx-fcn-intro-linear-ex2" width="75%" aspect="4:1">
+                        <input>
+                        var jcf2 = {
+                            f : function(x) { var y; y=-1.5*x+3; return y; },
+                            input : { name:'y', color:'red', value:2 },
+                            output : { name:'x', color:'blue' },
+                        };
+                        createMap(jcf2, 'jsx-fcn-intro-linear-ex2');
+                        </input>
+                    </jsxgraph>
+                </figure>
             </statement>
         </example>
         
@@ -279,7 +306,27 @@
         </example>
         
         <p>Evaluating a function using an expression as the input is called <term>composition</term>. In the examples above, <m>f(3x+1)</m> and <m>g(2t)</m> were composition of functions. First, <m>f(3x+1)</m> is the composition of <m>f</m> with an input expression of <m>3x+1</m>. Second, <m>g(2t)</m> is the composition of the function <m>g</m> with an input expression <m>2t</m>.</p>
-        <p>When the input expression for a function is itself the output value of a function, we can use circle notation for composition. We write <m>f \circ g(x)</m> to mean that <m>g(x)</m> is the input expression to the function <m>f</m>: <me>f \circ g(x) = f\big( g(x) \big).</me></p>
+        <p>When the input expression for a function is itself the output value of a function, we can use circle notation for composition. We write <m>f \circ g(x)</m> to mean that <m>g(x)</m> is the input expression to the function <m>f</m>: <me>f \circ g(x) = f\big( g(x) \big).</me> By thinking about functions as relations between variables, we can think of the inner expression <m>g(x)</m> as an intermediate variable, say <m>u</m>. There are two functions: <m>x \overset{g}\mapsto u</m> and <m>u \overset{f} \mapsto y</m>. The composition <m>f \circ g</m> puts these together as a chain <m>x \overset{f \circ g} \mapsto y = x \overset{g}\mapsto u \overset{f}\mapsto y</m> to find the value of <m>y</m> starting from <m>x</m>.</p>
+        
+        <example>
+            <statement>
+                <p>Suppose <m>f(x)=x^2</m> and <m>g(x)=x+3</m>. The composition <m>f \circ g(x)=f(g(x))</m> corresponds a chain. The inner expression defines an intermediate variable <m>x \overset{g}\mapsto u=x+3</m>, while the outer function squares the result <m>u \overset{f}\mapsto y=u^2</m>. The composition <m>f \circ g(x) = (x+3)^2</m> does this in a single step <me>x \overset{g}\mapsto x+3 \overset{f}\mapsto (x+3)^2</me>. The chain is illustrated in the figure below.</p>
+                <figure>
+                    <jsxgraph xml:id="jsx-fcn-intro-chain-ex1" width="75%" aspect="4:2">
+                        <input>
+                        var jcm1 = { 
+                            outer : function(u) { var y; y=u*u; return y; },
+                            inner : function(x) { var u; u=x+3; return u; },
+                            input : { name:'x', color:'blue', value:-1 },
+                            middle : { name:'u', color:'orange'},
+                            output : { name:'y', color:'red' },
+                        };
+                        createChainMap(jcm1, 'jsx-fcn-intro-chain-ex1');
+                        </input>
+                    </jsxgraph>
+                </figure>
+            </statement>
+        </example>
         
         <example>
             <statement>
@@ -305,8 +352,38 @@
         </example>
         
         <p>Inverse functions undo one another's operations. For example, consider the function <m>a \overset{f}{\mapsto} b = 3a+2</m>. The inverse function is found by solving for <m>a</m> in the equation <m>b=3a+2</m> which gives <m>\displaystyle a = \frac{b-2}{3}</m>. In words, to find <m>b</m> given <m>a</m>, we first multiply <m>a</m> by <m>3</m> and then add <m>2</m>. The inverse functions says that given <m>b</m>, we find <m>a</m> by subtracting <m>2</m> and then dividing by <m>3</m>. Notice that these operations are exactly what it takes to undo the operations of <m>f</m> and recover the original value of <m>a</m>.</p>
+        <figure>
+            <caption>Composition <m>y=g \circ f(a)</m>, corresponding to chain <m>a \overset{f}\mapsto b \overset{g}\mapsto y</m>. As the functions are inverses, this always yields <m>y=a</m>.</caption>
+            <jsxgraph xml:id="jsx-fcn-intro-chain-inverse1" width="75%" aspect="4:2">
+                <input>
+                var jcm2 = { 
+                    outer : function(a) { var b; b=3*a+2; return b; },
+                    inner : function(b) { var a; a=(b-2)/3; return a; },
+                    input : { name:'a', color:'blue', value:0 },
+                    middle : { name:'b', color:'orange'},
+                    output : { name:'y', color:'red' },
+                };
+                createChainMap(jcm2, 'jsx-fcn-intro-chain-inverse1');
+                </input>
+            </jsxgraph>
+        </figure>
+        <figure>
+            <caption>Composition <m>y=f \circ g(b)</m>, corresponding to chain <m>b \overset{g}\mapsto a \overset{f}\mapsto y</m>. As the functions are inverses, this always yields <m>y=b</m>.</caption>
+            <jsxgraph xml:id="jsx-fcn-intro-chain-inverse2" width="75%" aspect="4:2">
+                <input>
+                var jcm2 = { 
+                    outer : function(b) { var a; a=(b-2)/3; return a; },
+                    inner : function(a) { var b; b=3*a+2; return b; },
+                    input : { name:'b', color:'blue', value:0 },
+                    middle : { name:'a', color:'orange'},
+                    output : { name:'y', color:'red' },
+                };
+                createChainMap(jcm2, 'jsx-fcn-intro-chain-inverse2');
+                </input>
+            </jsxgraph>
+        </figure>
         
-        <p>The composition of inverse functions simplifies in a remarkable way.</p>
+        <p>Simplifying the composition of inverse functions gives an algebraic interpretation of functions canceling.</p>
         
         <example>
             <statement>
@@ -334,10 +411,28 @@
         </definition>
     </subsection>
     <subsection>
-        <title>Nonlinear functions</title>
+        <title>Nonlinear functions and graphs</title>
         <p>Any function that does not satisfy a linear relation is called a <term>nonlinear function</term>. Most functions are nonlinear. Function notation works in a similar way for nonlinear functions, substituting a value or an expression in the place of the independent variable. Nonlinear functions are not always defined for every input value. Consequently, we will review the concept of the <term>domain</term> of a function. Additionally, not every function has an inverse function, depending on whether or not it is one-to-one.</p>
         
         <p>When an equation defines a relation between two variables, if we can solve for one variable then the equation defines that variable as a function. However, if solving the equation results in multiple values then it is not a function.</p>
+        
+        <p>An equation in two variables can also be used to define a graph in the plane. When the variables are <m>x</m> and <m>y</m>, we usually think of the <m>(x,y)</m> plane. Solving for <m>y</m> in terms of a particular value of <m>x</m>, say <m>x=a</m>, corresponds to finding points on the graph that intersect the vertical line <m>x=a</m>. Solving for <m>x</m> in terms of a particular value of <m>y</m>, say <m>y=b</m>, corresponds to finding points on the graph that intersect the horizontal line <m>y=b</m>.</p>
+        
+        <theorem xml:id="vertical-line-test">
+            <title>The Vertical Line Test</title>
+            <statement>
+                <p>Consider a graph in the <m>(x,y)</m> plane. If every vertical line <m>x=a</m> intersects the graph at no more than one point, then <m>y</m> is a function of <m>x</m>.</p>
+            </statement>
+        </theorem>
+        
+        <theorem xml:id="horizontal-line-test">
+            <title>The Horizontal Line Test</title>
+            <statement>
+                <p>Consider a graph in the <m>(x,y)</m> plane. If every horizontal line <m>y=b</m> intersects the graph at no more than one point, then <m>x</m> is a function of <m>y</m>.</p>
+            </statement>
+        </theorem>
+        
+        <p>When the graph in questions comes from a known function <m>y=f(x)</m>, then the horizontal line test is used to determine if <m>f</m> is one-to-one and has an inverse function.</p>
         
         <example>
             <statement>
@@ -364,7 +459,6 @@
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
-                        %\pgfplotsset{ width=6cm }
                         \begin{tikzpicture}
                         \begin{axis}[
                             xlabel={$x$},
@@ -606,7 +700,7 @@
         
         <exercise>
             <statement>
-                <p>Suppose <m>\displaystyle f(x)=\frac{3}{x+2}</m> and <m>\displaystyle g(x)=\frac{3-2x}{x}</m>. Simplify each of the following. <ol>
+                <p>Suppose <m>\displaystyle f(x)=\frac{3}{x+2}</m> and <m>\displaystyle g(x)=\frac{3}{x}-2</m>. Simplify each of the following. <ol>
                     <li><m>f(x-2)</m></li>
                     <li><m>g(\frac{1}{x})</m></li>
                     <li><m>f \circ g(x)</m></li>

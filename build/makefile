@@ -17,17 +17,18 @@ LATEX_single = test-section
 .PHONY: html_files html_images pdf single
 
 html_files: $(HTML)
+	cp -a ${XML}/js ${HTML}/
 	cd $(HTML) && xsltproc --xinclude $(XSL)/$(HTML_XSL) $(XML)/$(XML_base)
 
 $(HTML):
 	mkdir $(HTML)
 
 $(HTML)/images: $(HTML)
-	mkdir $(HTML)/images
+	if [ ! -d "$(HTML)/images"] ; then mkdir $(HTML)/images ; fi
 
 html_images: $(HTML)/images
 	cp -a $(MA2Croot)/img/ $(HTML)/images/
-	$(MB)/script/mbx -c latex-image -d $(HTML)/images/ -f svg $(XML)/$(XML_base)
+	$(MB)/script/mbx --include $(MA2Croot)/src/data/ -c latex-image -d $(HTML)/images/ -f svg $(XML)/$(XML_base)
 
 single: $(LATEX_single).pdf;
 
@@ -38,12 +39,15 @@ $(LATEX_single).tex:
 
 $(LATEX_single).pdf: images $(LATEX_single).tex
 	cp -a $(MA2Croot)/img/ images/
+	cp -a $(MA2Croot)/src/data/ data/
 	pdflatex $(LATEX_single).tex
-    
+
 pdf: $(LATEX_base).pdf ;
 
 images:
 	mkdir images
+data:
+	mkdir data
 
 .PHONY: $(LATEX_base).tex
 
@@ -52,5 +56,6 @@ $(LATEX_base).tex:
 
 $(LATEX_base).pdf: images $(LATEX_base).tex
 	cp -a $(MA2Croot)/img/ images/
+	cp -a $(MA2Croot)/src/data/ data/
 	pdflatex $(LATEX_base).tex
 	pdflatex $(LATEX_base).tex

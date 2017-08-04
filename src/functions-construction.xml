@@ -32,11 +32,67 @@
                 </statement>
             </definition>
             
+            <figure margins="auto">
+                <caption>The constant function <m>f(x)=3</m> as a map <m>x \overset{f}\mapsto 3</m>.</caption>
+                <jsxgraph xml:id="jsx-fcn-construct-constant-ex1" width="75%" aspect="4:1">
+                    <input>
+                    var jcf1 = { 
+                        f : function(x) { var y; y=3; return y; },
+                        input : { name:'x', color:'blue', value:0 },
+                        output : { name:'y', color:'red' },
+                    };
+                    createMap(jcf1, 'jsx-fcn-construct-constant-ex1');
+                    </input>
+                </jsxgraph>
+            </figure>
+            
+            <figure>
+                <caption>The graph of the constant function <m>y=f(x)=3</m> in the <m>(x,y)</m> plane.</caption>
+                <jsxgraph xml:id="jsx-fcn-construct-constant-graph1" width="75%" aspect="1:1">
+                    <input>
+                    var jcg1 = { 
+                        f : function(x) { var y; y=3; return y; },
+                        input : { name:'x', color:'blue', value:2 },
+                        output : { name:'y', color:'red' },
+                    };
+                    createFGraph(jcf1, 'jsx-fcn-construct-constant-graph1');
+                    </input>
+                </jsxgraph>
+            </figure>
+            
             <definition>
                 <statement>
                 <p>The <term>identity function</term> is a function where the output value is the same as the input value, <m>f(x)=x</m>.</p>
                 </statement>
             </definition>
+
+            <figure margins="auto">
+                <caption>The identity function <m>f(x)=x</m> as a map <m>x \overset{f}\mapsto x</m>.</caption>
+                <jsxgraph xml:id="jsx-fcn-construct-identity-ex1" width="75%" aspect="4:1">
+                    <input>
+                    var jcf1 = { 
+                        f : function(x) { var y; y=x; return y; },
+                        input : { name:'x', color:'blue', value:2 },
+                        output : { name:'y', color:'red' },
+                    };
+                    createMap(jcf1, 'jsx-fcn-construct-identity-ex1');
+                    </input>
+                </jsxgraph>
+            </figure>
+            
+            <figure>
+                <caption>The graph of the identity function <m>y=f(x)=x</m> in the <m>(x,y)</m> plane.</caption>
+                <jsxgraph xml:id="jsx-fcn-construct-identity-graph1" width="75%" aspect="1:1">
+                    <input>
+                    var jcg2 = { 
+                        f : function(x) { var y; y=x; return y; },
+                        input : { name:'x', color:'blue', value:2 },
+                        output : { name:'y', color:'red' },
+                    };
+                    createFGraph(jcf1, 'jsx-fcn-construct-identity-graph1');
+                    </input>
+                </jsxgraph>
+            </figure>
         </paragraphs>
         
         <p>We will usually work with these functions in combination with other functions. However, a constant function is often used for a quantity that is independent of the independent variable, or in other words does not depend on the variable.</p>
@@ -75,9 +131,13 @@
             
             <p>A root can be written as a fractional power. The properties of exponents imply that <m>(x^p)^n = x^{pn}</m>. If <m>p=\frac{1}{n}</m>, then <m>(x^{\frac{1}{n}})^n = x</m>. That is, <m>x^{\frac{1}{n}} = \sqrt[n]{x}</m>. This equivalence means that for any rational number <m>p=\frac{k}{n}</m>, the power <m>x^p</m> can be computed using integer powers (repeated multiplication) and extracting roots: <me>x^{\frac{k}{n}} = (\sqrt[n]{x})^k</me>.</p>
             
+            <note xml:id="note-power-domain">
+                <p>The domain of <m>x^p</m> depends on the form of the power <m>p</m>. If <m>p</m> is a positive integer, the power represents repeated multiplication, such as <m>x^2=x \cdot x</m> and <m>x^3=x \cdot x \cdot x</m>. Then domain is the set of all real numbers <m>(-\infty,\infty)</m>. A negative power <m>p \lt 0</m> indicates division, <me>x^p = \frac{1}{x^{|p|}},</me> so that <m>x \ne 0</m>. For negative integer powers <m>p</m>, the domain is the set of non-zero numbers <m>(-\infty,0)\cup(0,\infty)</m>. If <m>p</m> is a rational number, <m>p=\frac{k}{n}</m>, then the domain depends on which root <m>n</m> is involved. For even roots, <m>x^p</m> is undefined when <m>x \lt 0</m>; for odd roots, <m>x^p</m> is defined for positive and negative <m>x</m>. For irrational powers <m>p</m>, we exclude all negative values <m>x</m>.</p>
+            </note>
+            
             <definition xml:id="logarithm-function">
                 <statement>
-                    <p>For any base <m>b</m> with <m>b \gt 0</m> and <m>b \ne 1</m>, the exponential <m>\exp_b(x)=b^x</m> has an inverse function, <m>\log_b(x)</m>, which is called the logarithm of base <m>b</m>. The value <m>y=\log_b(x)</m> is defined as that value <m>y</m> such that <m>b^y = x</m>.</p>
+                    <p>For any base <m>b</m> with <m>b \gt 0</m> and <m>b \ne 1</m>, the exponential <m>\exp_b(x)=b^x</m> has an inverse function, <m>\log_b(x)</m>, which is called the logarithm of base <m>b</m>. The value <m>y=\log_b(x)</m> is defined for <m>x \gt 0</m> as that value <m>y</m> such that <m>b^y = x</m>.</p>
                 </statement>
             </definition>
             
@@ -135,7 +195,7 @@
                 </solution>
             </example>
             
-            <p>We will learn techniques for simplifying logarithms when we review the properties of exponents. Most scientific calculators only have logarithms for base <m>b=10</m> (common logarithm) and for base <m>b=e</m> (natural logarithm). We will later prove that every logarithm can be found using one of these by the <xref ref="logarithm-change-of-base">change of base formula</xref> <me> \log_b(x) = \frac{\log(x)}{\log(b)} = \frac{\ln(x)}{\ln(b)}.</me></p>
+            <p>We will learn techniques for simplifying logarithms when we review the properties of exponents. Most scientific calculators only have logarithms for base <m>b=10</m> (common logarithm) and for base <m>b=e</m> (natural logarithm). We will later prove that every logarithm can be found using one of these by the <xref ref="logarithm-change-base">change of base formula</xref> <me> \log_b(x) = \frac{\log(x)}{\log(b)} = \frac{\ln(x)}{\ln(b)}.</me></p>
         </paragraphs>
         
         <paragraphs>
@@ -159,7 +219,7 @@
         </paragraphs>
     </subsection>
     
-    <subsection>
+    <subsection xml:id="subsection-combining-expressions">
         <title>Combining Expressions</title>
         
         <p>Functions defined by a formula are generally formed by combining these functions into more complicated expressions. One of the most valuable skills in calculus is the ability to recognize how a formula is constructed. Many rules in calculus are named according to which operation forms the expression of interest. The basic operations of combination are the arithmetic operations of addition (a <term>sum</term>), subtraction (a <term>difference</term>), multiplication (a <term>product</term>), and division (a <term>quotient</term>) along with the operation of function composition. We might have also included powers as an algebraic operation, but we will instead think of powers in terms of the power and exponential functions.</p>
@@ -305,7 +365,7 @@
                     <mrow> 5 \cdot \Big( \frac{b^5}{b^2} \Big) = 1 </mrow>
                     <mrow> 5 \cdot b^3 = 1 </mrow>
                     <mrow> b^3 = \textstyle{\frac{1}{5}}</mrow>
-                    <mrow> b = \sqrt[3]{\textstyle \frac{1}{5}} = = \frac{1}{5^{\frac{1}{3}}} = 5^{-\frac{1}{3}} </mrow>
+                    <mrow> b = \sqrt[3]{\textstyle \frac{1}{5}} = \frac{1}{5^{\frac{1}{3}}} = 5^{-\frac{1}{3}} </mrow>
                 </md> The value of <m>A</m> can be found: <me>A = \frac{5}{b^2} = \frac{5}{(5^{-\frac{1}{3}})^2} = \frac{5}{5^{-\frac{2}{3}}} = 5 \cdot 5^{\frac{2}{3}} = 5^{\frac{5}{3}}.</me> The exact exponential function is defined by <me>f(x) =5^{\frac{5}{3}} \cdot (5^{-\frac{1}{3}})^x</me>, and is approximated by <me>f(x) \approx 14.620 \cdot 0.58480^x</me>.</p>
             </solution>
         </example>

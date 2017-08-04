@@ -334,7 +334,7 @@
             </statement>
         </theorem>
         
-        <p>Elementary exponential functions with <m>b \gt 1</m> show <term>exponential growth</term> and are increasing functions. Elementary exponential functions with <m>b \lt 1</m> show <term>exponential decay</term> and are decreasing functions. (When <m>b=1</m>, the function is constant.) That exponential functions are either increasing or decreasing means that they are one-to-one. For <m>b \ne 1</m>, an elementary exponential function has a <xref ref="definition-range" autoname="title">range</xref> of <m>(0,\infty)</m> so that for any value <m>y \gt 0</m>, there is a unique value <m>x</m> such that <m>b^x = y</m>. This value of <m>x</m> is how we define a logarithm.</p>
+        <p>Elementary exponential functions with <m>b \gt 1</m> show <term>exponential growth</term> and are increasing functions. Elementary exponential functions with <m>b \lt 1</m> show <term>exponential decay</term> and are decreasing functions. (When <m>b=1</m>, the function is constant.) That exponential functions are either increasing or decreasing means that they are one-to-one. For <m>b \ne 1</m>, an elementary exponential function has a <xref ref="domain-and-range" autoname="title">range</xref> of <m>(0,\infty)</m> so that for any value <m>y \gt 0</m>, there is a unique value <m>x</m> such that <m>b^x = y</m>. This value of <m>x</m> is how we define a logarithm.</p>
         
         <definition xml:id="define-logarithm">
             <title>Logarithm Functions</title>

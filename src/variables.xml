@@ -657,7 +657,7 @@
             <p>We have two more state variables, the perimeter <m>P</m> and the area <m>A</m>. Geometry gives us two equations that constrain the state of the system <m>(L,W,P,A)</m>: <md>
                 <mrow>P=2L+2W,</mrow>
                 <mrow>A=L \cdot W.</mrow>
-            </md> The problem gives us two additional pieces of information, <m>P=18</m> and <m>A=25</m>. When we substitute those values of the state into the equations, we have two equations for two variables: <me>2L+2W=18, \qquad L \cdot W = 25.</me> In order to solve these equations, we use one equation to isolate one of the variables, say <m>L</m>, and then substitute the resulting expression into the other equation. (See <xref ref="algebra-solve-substitute"/>.)<md>
+            </md> The problem gives us two additional pieces of information, <m>P=18</m> and <m>A=25</m>. When we substitute those values of the state into the equations, we have two equations for two variables: <me>2L+2W=18, \qquad L \cdot W = 25.</me> In order to solve these equations, we use one equation to isolate one of the variables, say <m>L</m>, and then substitute the resulting expression into the other equation. <md>
                 <mrow>2L+2W=18 \qquad \Rightarrow \qquad L=9-W</mrow>
                 <mrow>L\cdot W = 25 \qquad \Rightarrow \qquad (9-W)W = 25</mrow>
             </md> Then we solve the equation that only involves <m>W</m>. <md>

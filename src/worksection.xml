@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./functions-piecewise.xml" />
+            <xi:include href="./functions-transformation.xml" />
 		</chapter>
 		
     </book>
