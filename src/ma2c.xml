@@ -56,6 +56,41 @@
             <xi:include href="./rate-functions.xml" />
         </chapter>
         
+        <chapter>
+            <title>Continuous Dynamic Models</title>
+            <subtitle>Models of Change</subtitle>
+            
+            
+            <xi:include href="./calculus-overview.xml" />
+            <xi:include href="./intro-optimization.xml" />
+
+            <xi:include href="./derivative_intro.xml" />
+            <xi:include href="./derivative_function.xml" />            
+            <xi:include href="./continuity_intro.xml" />
+            <xi:include href="./limits-with-infinity.xml" />        
+            <xi:include href="./limit_rules.xml" />            
+            <xi:include href="./differentiation.xml" />
+            <xi:include href="./practice-derivatives.xml" />            
+            <xi:include href="./chain-rule.xml" />            
+            <xi:include href="./exponential_derivative.xml" />            
+            <xi:include href="./trigonometry-derivative.xml" />            
+            <xi:include href="./implicit-differentiation.xml" />            
+            <xi:include href="./inverse-trig-derivatives.xml" />
+        </chapter>
+        
+        <chapter>
+            <title>Applications of Derivatives</title>
+            
+            <xi:include href="./continuous-functions.xml" />
+            <xi:include href="./differentiable-functions.xml" />
+            <xi:include href="./mvt-consequences.xml" />
+            <xi:include href="./optimization.xml" />
+            <xi:include href="./lhopital-rule.xml" />
+            <xi:include href="./antiderivatives.xml" />
+            <xi:include href="./ftc.xml" />
+            <xi:include href="./integrals-substitution.xml" />
+        </chapter>
+        
         <appendix>
             <title>Mathematics Foundations</title>
             

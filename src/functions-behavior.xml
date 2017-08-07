@@ -278,6 +278,11 @@
             <p>
                 One of our goals in calculus will be to develop a method to determine the intervals
                 on which a function is increasing or decreasing.
+                When we motivated monotonicity with linear functions,
+                we saw that a positive slope implied an increasing function
+                and a negative slope implied a decreasing function.
+                Calculus will develop a more general sense of the slope of a function using the derivative
+                such that we will describe monotonicity based on the signs of the derivative.
             </p>
             
             <note>
