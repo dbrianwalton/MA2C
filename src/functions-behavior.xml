@@ -824,16 +824,6 @@
             we use the limit statement
             <me>\lim_{x \to -\infty} f(x) = L</me>.
         </p>
-        <note>
-            <p>
-                A common false impression about horizontal asymptotes is that 
-                the graph of a function can not cross the asymptote.
-                A function can not cross a vertical asymptote,
-                but that is only because a function can not intersect a vertical line at more than one point.
-                An asymptote only requires that the graph behaves more and more like the line.
-            </p>
-        </note>
-        
         <example>
             <statement>
                 <p>
@@ -870,6 +860,72 @@
                 </sidebyside>
             </statement>
         </example>
+        
+        <p>
+        A function can also have unbounded behavior near a particular input value, say at <m>x=a</m>.
+        Using limit notation, this means that at least one of the following must be true.
+        <md>
+            <mrow>\lim_{x \to a^-}f(x) &amp;= +\infty</mrow>
+            <mrow>\lim_{x \to a^-}f(x) &amp;= -\infty</mrow>
+            <mrow>\lim_{x \to a^+}f(x) &amp;= +\infty</mrow>
+            <mrow>\lim_{x \to a^+}f(x) &amp;= -\infty</mrow>
+        </md>
+        The graph has a <term>vertical asymptote</term> at <m>x=a</m>,
+        meaning that the graph of the function approaches closer and closer to this vertical line.
+        </p>
+        <example>
+            <statement>
+                <p>
+                    The graph of a function <m>y=f(x)</m> is shown below with two vertical asymptotes.
+                    The vertical asymptote at <m>x=0</m> corresponds to left- and right-limits
+                    <md>
+                        <mrow>\lim_{x \to 0^-} f(x) &amp;= -\infty,</mrow>
+                        <mrow>\lim_{x \to 0^+} f(x) &amp;= +\infty,</mrow>
+                    </md>
+                    The vertical asymptote at <m>x=2</m> only corresponds to the right-limit
+                    <me>\lim_{x \to 2^+} f(x) = +\infty.</me> 
+                </p>
+                <sidebyside width="70%">
+                    <image>
+                        <latex-image-code>
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [
+                            xmin=-6, xmax=6,
+                            ymin=-5, ymax=5,
+                            axis lines=center,
+                        ]
+                        \addplot [domain=-6:-0.1, samples=101, thick, blue]
+                            { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
+                        \addplot [domain=0.1:2, samples=101, thick, blue]
+                            { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
+                        \addplot [domain=2.1:6, samples=101, thick, blue]
+                            { 1/(x-2) };
+                        \end{axis}
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+                <p>
+                It is hard to tell from a graph alone where a vertical asymptote occurs.
+                Using only the limited graph window, it is not obvious that the vertical asymptote is at exactly <m>x=0</m>
+                since the graph is still fairly far away from that vertical line from this perspective.
+                </p>
+            </statement>
+        </example>
+        
+        <note>
+            <p>
+                A common false impression about horizontal asymptotes is that 
+                the graph of a function can not cross the asymptote.
+                A function can not cross a vertical asymptote,
+                but that is only because a function can not intersect a vertical line at more than one point.
+                An asymptote only requires that the graph behaves more and more like the line.
+            </p>
+        </note>
+        
         <p>
             When a function physically relates two variables, <m>x \mapsto y</m>,
             a horizontal asymptote indicates that
