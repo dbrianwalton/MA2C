@@ -903,6 +903,7 @@
                             { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
                         \addplot [domain=2.1:6, samples=101, thick, blue]
                             { 1/(x-2) };
+                        \addplot [no marks,dashed,blue] coordinates { (2,-5) (2,5) };
                         \end{axis}
                         \end{tikzpicture}]]>
                         </latex-image-code>
