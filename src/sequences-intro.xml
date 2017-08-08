@@ -13,135 +13,674 @@
     <subsection>
         <title>Overview</title>
         
-        <p>Sequences are often introduced to us as young children as a tool to look for basic numerical patterns. We are shown the start to a list of numbers and asked if we can identify the next few numbers in the list or are asked to identify the rule being used to generate the sequence. <md>
+        <p>
+        Sequences are often introduced to us as young children as a tool to look for basic numerical patterns.
+        We are shown the start to a list of numbers and asked if we can identify the next few numbers in the list or are asked to identify the rule being used to generate the sequence.
+        <md>
             <mrow>1, 5, 9, 13, \ldots</mrow>
             <mrow>2, 6, 18, 54, \ldots</mrow>
-        </md> You probably recognized that in the first sequence, the next number would be 17 since the pattern involved adding 4 to the previous number. In the second sequence, you probably saw that we were multiplying by the value 3, so that the next number would have been 162. These patterns help motivate the mathematical definition of a sequence.</p>
+        </md>
+        You probably recognized that in the first sequence,
+        the next number would be 17 because the pattern involved adding 4 to the previous number.
+        In the second sequence, you probably saw that we were multiplying by the value 3,
+        so that the next number would have been 162.
+        These patterns help motivate the mathematical definition of a sequence.
+        </p>
         
-        <p>This section introduces the basic terminology for sequences. It explains how a sequence is a special type of function, where the domain is a set of integers. We will learn about explicit formulas for a sequence and recursive formulas for a sequence, using arithmetic and geometric sequences as our original motivation. Future sections will introduce more interesting sequences.</p>
+        <p>
+        We study sequences because they illustrate a number of ideas we will use in calculus.
+        We eventually want to describe functions as dynamic models.
+        Dynamical models for sequences are easier to illustrate than for general functions.
+        We want a clearer definition for limits.
+        Limits for sequences introduce the ideas of approximation that are necessary for limits of functions.
+        Finally, in calculus we will measure the accumulated change of a quantity when we know its rate.
+        Accumulation formulas for sequences will provide the tools we need to define more general accumulations.
+        </p>
+        
+        <p>
+        This section introduces the basic terminology for sequences.
+        It explains how a sequence is a special type of function, where the domain is a set of integers.
+        We will learn about explicit formulas for a sequence and recursive formulas for a sequence, 
+        using arithmetic and geometric sequences as our original motivation.
+        </p>
     </subsection>
     
     <subsection>
         <title>Basic Terminology</title>
         
-        <p>A <term>sequence</term> is an ordered set of numbers. The idea of being ordered is that we can say what the first number is, what the second number is, and so forth. To emphasize that the number have assigned positions, a sequence can be written as an ordered list using parentheses. The entire sequence can be assigned a symbol, just like a variable, so that a sequence given by 1, 5, 9, 13, etc., and assigned a symbol <m>x</m> would be written <me> x = (1, 5, 9, 13, \ldots).</me></p>
+        <p>
+        A <term>sequence</term> is an ordered set of numbers.
+        The idea of being ordered is that we can say what the first number is, what the second number is, and so forth.
+        To emphasize that the number have assigned positions, a sequence can be written as an ordered list using parentheses.
+        The entire sequence can be assigned a symbol, just like a variable, 
+        so that a sequence assigned a symbol <m>x</m> and given by the values 1, 5, 9, 13, etc., would be written
+        <me> x = (1, 5, 9, 13, \ldots).</me>
+        </p>
         
-        <p>Because the sequence has a specific order, we use an <term>index</term> as a way of counting through the sequence. For a given sequence, the term with index 1 is the first number of the sequence, the term with index 2 is the second number, the term with index 3 is the third number, and so forth. We use subscripts on a sequence to refer to an indexed value. So <m>x_1</m> is the first value of sequence <m>x</m> and <m>x_5</m> refers to the value of the sequence <m>x</m> with index 5.</p>
-
-        <p>Once we recognize that a sequence has an association between an index (the integer counting through the terms) and the values of the sequence, we should be able to recognize that every sequence corresponds to a function. In fact, this leads to the formal definition of a sequence.</p>
-        
-        <definition>
-            <statement>
-            <p>A sequence <m>x</m> is a function with a domain <m>D</m> that is a subset of integers (usually <m>D=\mathbb{N}=\{1,2,3,\ldots\}</m> or <m>D=\mathbb{N}_0 = \{0,1,2,3,\ldots\}</m>) and values that are real numbers. <me> x : D \to \mathbb{R}, n \mapsto x_n. </me></p>
-            </statement>
-        </definition>
-        
-        <p>In that definition, the notation <m>D \to \mathbb{R}</m> was about the domain and range, namely that the domain was the set <m>D</m> (a subset of integers) and the range is a subset of <m>\mathbb{R}</m> (in other words, all sequence values are real numbers). The additional notation <m>n \mapsto x_n</m> (notice  the different type of arrow) says that the index (represented by a placeholder variable <m>n</m>) is the input while the sequence value <m>x_n</m> is the output. According to this definition, <m>x_3</m> is the output value corresponding to an input (index) of 3.</p>
-        
-        <p>Because a sequence is a function of the index, we sometimes have <term>explicit</term> definitions for sequence values. A sequence might be defined through a simple formula and the domain, <me> x_n = \frac{n}{n+1}, \quad n \in D=\{1, 2, 3, \ldots\}.</me> The formula acts like a function, but instead of writing <m>x(n)</m>,  a sequence uses subscript notation. Values of the sequence can be found just like for functions. <md>
-            <mrow> x_1 &amp;= x(1) = \frac{1}{1+1} = \frac{1}{2}, </mrow>
-            <mrow> x_2 &amp;= x(2) = \frac{2}{2+1} = \frac{2}{3}, </mrow>
-            <mrow> x_{10} &amp;= x(10) = \frac{10}{10+1} = \frac{10}{11}. </mrow>
-        </md> With this interpretation, we can even do composition to find the sequence value at an index defined by a formula. <md>
-            <mrow> x_{n+1} &amp;= x(n+1) = \frac{(n+1)}{(n+1)+1} = \frac{n+1}{n+2}, </mrow>
-            <mrow> x_{2n} &amp;= x(2n) = \frac{2n}{2n+1}, </mrow>
-            <mrow> x_{n^2} &amp;= x(n^2) = \frac{n^2}{n^2+1}. </mrow>
-        </md></p>
+        <p>
+        Because the sequence has a specific order, we use an <term>index</term> as a way of counting through the sequence.
+        For a given sequence, the term with index 1 is the first number of the sequence, 
+        the term with index 2 is the second number, 
+        the term with index 3 is the third number, and so forth.
+        We use subscripts on a sequence to refer to an indexed value.
+        So <m>x_1</m> is the first value of sequence <m>x</m> 
+        and <m>x_5</m> refers to the value of the sequence <m>x</m> with index 5.
+        </p>
         
         <example>
             <statement>
-            <p>Find an explicit formula for the sequence <me> x = (\frac{1}{4}, \frac{1}{9}, \frac{1}{16}, \frac{1}{25}, \ldots),</me> and then find <m>x_{12}</m> and <m>x_{2n}</m>.</p>
+                <p>
+                For the sequence <m>x = (1,5,9,13,\ldots)</m>, 
+                find each of the following values: <m>x_1</m>, <m>x_3</m>, and <m>x_5</m>.
+                </p>
             </statement>
             <solution>
-            <p>To find the explicit formula, we look for a pattern in the sequence and then try to find a relationship between the index and the pattern. In this case, every sequence value is the reciprocal of a perfect square. If we look at this pattern with a table showing the index and the pattern, we find a relationship.</p>
-            <table>
-            <tabular>
-                <row>
-                    <cell><m>n</m></cell>
-                    <cell>1</cell>
-                    <cell>2</cell>
-                    <cell>3</cell>
-                    <cell>4</cell>
-                </row>
-                <row>
-                    <cell><m>x_n</m></cell>
-                    <cell><m>\frac{1}{2^2}</m></cell>
-                    <cell><m>\frac{1}{3^2}</m></cell>
-                    <cell><m>\frac{1}{4^2}</m></cell>
-                    <cell><m>\frac{1}{5^2}</m></cell>
-                </row>
-            </tabular>
-            </table>
-            <p>The pattern is that the number that is squared is always 1 greater than the index. So the explicit formula for this sequence is given by <me> x_n = \frac{1}{(n+1)^2}, \quad n \in \{1, 2, 3, 4, \ldots\}.</me> Using this explicit formula, we can find the desired values. <md>
-                <mrow>x_{12} &amp;= x(12) = \frac{1}{(12+1)^2} = \frac{1}{169} </mrow>
-                <mrow>x_{2n} &amp;= x(2n) = \frac{1}{(2n+1)^2} </mrow>
-            </md></p>
+                <p>
+                We can create a mapping between the index (ordering) and the values of the sequence.
+                <me>\begin{matrix}
+                    n &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
+                    \downarrow \\
+                    x_n &amp; 1 &amp; 5 &amp; 9 &amp; 13 &amp; 17 &amp; 21
+                \end{matrix}</me>
+                From this relation, we can identify the values.
+                <md>
+                    <mrow>x_1 &amp; = 1</mrow>
+                    <mrow>x_3 &amp; = 9</mrow>
+                    <mrow>x_5 &amp; = 17</mrow>
+                </md>
+                </p>
             </solution>
         </example>
+        
+        <p>
+        Once we recognize that a sequence has an association between an index 
+        (the integer counting through the terms) and the values of the sequence, 
+        we should be able to recognize that every sequence corresponds to a function.
+        In fact, this leads to the formal definition of a sequence.
+        </p>
+        
+        <definition xml:id="definition-sequence">
+            <statement>
+                <p>
+                A sequence <m>x</m> is a function with a domain <m>D</m> that is a subset of integers 
+                (usually <m>D=\mathbb{N}=\{1,2,3,\ldots\}</m> or <m>D=\mathbb{N}_0 = \{0,1,2,3,\ldots\}</m>) 
+                and values that are real numbers.
+                <me> x : D \to \mathbb{R}, n \mapsto x_n. </me>
+                The value of the sequence is a function of the index.
+                </p>
+            </statement>
+        </definition>
+        
+        <p>
+        In the definition of a sequence, the first index value does not need to be <m>1</m>.
+        Any integer could be the first value in the domain.
+        Also, the variable of the index is not always <m>n</m>.
+        By convention, however, it is most often a letter from the middle of the alphabet.
+        We show that a sequence starts with a particular index value, say <m>n_0</m>,
+        by including the following additional notation:
+        <me>x = (x_n)_{n=n_0}^{\infty}.</me>
+        </p>
+        
+        <example>
+            <statement>
+                <p>
+                The sequence 
+                <me>u=(u_k)_{k=-1}^{\infty} = (8, 5, 2, -1, -4, \ldots)</me>
+                follows a simple pattern.
+                The first index value is <m>k=-1</m>.
+                The sequence has the following values:
+                <md>
+                    <mrow>u_{-1} = 8, </mrow>
+                    <mrow>u_{0} = 5, </mrow>
+                    <mrow>u_{1} = 2, </mrow>
+                    <mrow>u_{2} = -1. </mrow>
+                </md>
+                </p>
+            </statement>
+        </example>
+        
+        <paragraphs>
+            <title>Explicit Representations</title>
+            <p>
+            Because a sequence is a function of the index, 
+            we sometimes have <term>explicit</term> definitions for sequence values. 
+            A sequence might be defined through a simple formula and the domain, 
+            <me> x_n = \frac{n}{n+1}, \quad n \in D=\{1, 2, 3, \ldots\}.</me> 
+            The formula acts like a function, but instead of writing <m>x(n)</m>,
+            a sequence uses subscript notation.
+            Values of the sequence can be found just like for functions.
+            <md>
+                <mrow> x_1 &amp;= x(1) = \frac{1}{1+1} = \frac{1}{2}, </mrow>
+                <mrow> x_2 &amp;= x(2) = \frac{2}{2+1} = \frac{2}{3}, </mrow>
+                <mrow> x_{10} &amp;= x(10) = \frac{10}{10+1} = \frac{10}{11}. </mrow>
+            </md>
+            With this interpretation, we can even do composition to find the sequence value at an index defined by a formula.
+            <md>
+                <mrow> x_{n+1} &amp;= x(n+1) = \frac{(n+1)}{(n+1)+1} = \frac{n+1}{n+2}, </mrow>
+                <mrow> x_{2n} &amp;= x(2n) = \frac{2n}{2n+1}, </mrow>
+                <mrow> x_{n^2} &amp;= x(n^2) = \frac{n^2}{n^2+1}. </mrow>
+            </md>
+            </p>
+        
+            <example>
+                <statement>
+                    <p>
+                    Find an explicit formula for the sequence 
+                    <me> x = (\frac{1}{4}, \frac{1}{9}, \frac{1}{16}, \frac{1}{25}, \ldots),</me> 
+                    and then find <m>x_{12}</m> and <m>x_{2n}</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                    To find the explicit formula, we look for a pattern in the sequence 
+                    and then try to find a relationship between the index and the pattern. 
+                    In this case, every sequence value is the reciprocal of a perfect square. 
+                    If we look at this pattern with a table showing the index and the pattern, 
+                    we find a relationship.
+                    </p>
+                    <table>
+                        <tabular>
+                            <row>
+                                <cell><m>n</m></cell>
+                                <cell>1</cell>
+                                <cell>2</cell>
+                                <cell>3</cell>
+                                <cell>4</cell>
+                            </row>
+                            <row>
+                                <cell><m>x_n</m></cell>
+                                <cell><m>\frac{1}{2^2}</m></cell>
+                                <cell><m>\frac{1}{3^2}</m></cell>
+                                <cell><m>\frac{1}{4^2}</m></cell>
+                                <cell><m>\frac{1}{5^2}</m></cell>
+                            </row>
+                        </tabular>
+                    </table>
+                    <p>
+                    The pattern is that the number that is squared is always 1 greater than the index. 
+                    So the explicit formula for this sequence is given by 
+                    <me> x_n = \frac{1}{(n+1)^2}, \quad n \in \{1, 2, 3, 4, \ldots\}.</me> 
+                    Using this explicit formula, we can find the desired values. 
+                    <md>
+                        <mrow>x_{12} &amp;= x(12) = \frac{1}{(12+1)^2} = \frac{1}{169} </mrow>
+                        <mrow>x_{2n} &amp;= x(2n) = \frac{1}{(2n+1)^2} </mrow>
+                    </md>
+                    </p>
+                </solution>
+            </example>
+            
+            <p>
+            The graph of a sequence corresponds to the points <m>(n, x_n)</m>.
+            This graph will be discrete points because the domain only includes integers.
+            </p>
+            
+            <example>
+                <statement>
+                    <p>
+                    Graph the sequence <m>\displaystyle x_n = \frac{n}{n+1}</m>, 
+                    defined for <m>n=1, 2, 3, \ldots</m>.
+                    </p>
+                </statement>
+                <solution>
+                    <p>
+                    This is the sequence discussed above.
+                    The plot will include the points 
+                    <me>\{(n, x_n) : x_n=\frac{n}{n+1}, n=1, 2, 3, \ldots\}
+                    = \{(1,\frac{1}{2}), (2,\frac{2}{3}), (3,\frac{3}{4}), (4, \frac{4}{5}), \ldots\}.</me>
+                    </p>
+                    <sidebyside widths="50%">
+                        <image>
+                            <latex-image-code>
+                            <![CDATA[\tikzset{%
+                            }
+                            \begin{tikzpicture}
+                            \begin{axis}
+                            [
+                                xmin=-1, xmax=12.5,
+                                ymin=-0.5, ymax=1.5,
+                                axis lines=center,
+                                xlabel={$n$}, 
+                                ylabel={$x_n$},
+                            ]
+                            \addplot [samples at={1,...,12}, only marks, blue]
+                                { x/(x+1) };
+                            \end{axis}
+                            \end{tikzpicture}]]>
+                            </latex-image-code>
+                        </image>
+                    </sidebyside>
+                </solution>
+            </example>
+        </paragraphs>
     </subsection>
     
     <subsection>
         <title>Arithmetic and Geometric Sequences</title>
         
-        <p>An <term>arithmetic sequence</term> is a sequence whose terms change by a fixed increment or difference. For example, consider the first sequence introduced in the section, <me> x = (1, 5, 9, 13, \ldots). </me> The pattern for this sequence was that we add 4 to each term in the sequence to find the next term. The value 4 is called the <term>difference</term> of the sequence.</p>
+        <p>
+        For ordinary functions, we usually expect them to be represented using an explicit formula.
+        But we often think of sequences in terms of a pattern for finding a value based on the previous value.
+        Such a representation is called <term>recursive</term>.
+        The simplest sequences follow simple recursive patterns.
+        </p>
         
-        <p>A <term>geometric sequence</term> is a sequence whose terms change by a fixed multiple or ratio. The second sequence of the section was a geometric sequence, <me> u = (2, 6, 18, 54, \ldots). </me> Each term is found by multiplying the previous term by 3, which is the ratio of the sequence.</p>
+        <p>
+        An <term>arithmetic sequence</term> is a sequence whose terms change by a fixed increment or difference.
+        For example, consider the first sequence introduced in the section, <me>x = (1, 5, 9, 13, \ldots).</me>
+        The pattern for this sequence was that we add 4 to each term in the sequence to find the next term.
+        The value 4 is called the <term>difference</term> of the sequence.
+        </p>
         
-        <p>Arithmetic and geometric sequences are examples of recursive sequences which means that later terms in the sequence can be determined based only on the previous terms. The equation that describes the relationship between consecutive terms of the sequence is called the <term>recurrence relation</term>. When the equation is solved for the new term as a function of the previous term, we have a <term>recursive formula</term>. The function is called the <term>projection function</term> for the sequence.</p>
+        <p>
+        A <term>geometric sequence</term> is a sequence whose terms change by a fixed multiple or ratio. 
+        The second sequence of the section was a geometric sequence, <me> u= (2, 6, 18, 54, \ldots).</me>
+        Each term is found by multiplying the previous term by 3, which is the <term>ratio</term> of the sequence.
+        </p>
         
-        <p>To make sense of a recurrence relation or recursive formula, we first need to understand the notation <m>x_{n+1}</m> and <m>x_{n-1}</m>. For a specific value of <m>n</m>, say <m>n=3</m>, we have <m>n+1=4</m> and <m>n-1=2</m>. Thus for <m>n=3</m> so that <m>x_n=x_3</m>, we must have <m>x_{n+1} = x_{4}</m> and <m>x_{n-1}=x_2</m>. Just as <m>x_4</m> is the term after <m>x_3</m> and <m>x_2</m> is the term before <m>x_3</m>, the general formula <m>x_{n+1}</m> refers to the term after <m>x_n</m> which is, in turn, preceded by <m>x_{n-1}</m>. Similarly, <m>x_{n+3}</m> would refer to the value 3 terms after <m>x_n</m>.</p>
+        <p>
+        For recursively defined sequences, the equation that describes the relationship 
+        between consecutive terms of the sequence is called the <term>recurrence relation</term>.
+        When the equation is solved for the new term as a function of the previous term, 
+        we have a recursive formula that uses a projection function.
+        </p>
         
-        <p>Because an arithmetic sequence has a constant difference between terms, the recurrence relation is defined through the difference. Consider our arithmetic sequence above, <m>x=(1,5,9,13,\ldots)</m>, which has a constant difference of 4 between terms. That is, all of the following equations are true about our sequence: <md>
-            <mrow> x_2 - x_1 &amp;= 5-1 = 4, </mrow>
-            <mrow> x_3 - x_2 &amp;= 9-5 = 4, </mrow>
-            <mrow> x_4 - x_3 &amp;= 13-9 = 4, </mrow>
-            <mrow> &amp; \vdots </mrow>
-        </md> This infinite collection of equations is captured as a pattern with a single formula, <me> x_{n+1} - x_n = 4, \quad n=1, 2, 3, \ldots. </me> Alternatively, we could also represent the same pattern with a slightly different formula, <me> x_{n} - x_{n-1} = 4, \quad n=2, 3, 4, \ldots. </me> The first equation is interpreted as looking forward in the sequence (<m>x_{n+1}</m> is future relative to <m>x_n</m>) while the second equation is interpreted as looking backward (<m>x_{n-1}</m> is prior to <m>x_n</m>). Either equation represents the recurrence relation since they mean the same system of equations.</p>
-        
-        <p>The recursive formula is defined by solving the recurrence relation in terms of the later term in the sequence. The first equation, solved for <m>x_{n+1}</m>, gives one possible recursive formula, <me> x_{n+1} = x_n + 4, \quad n=1, 2, 3, \ldots. </me> Solving the second equation for <m>x_n</m> gives an equivalent recursive formula <me> x_{n} = x_{n-1} + 4, \quad n=2, 3, 4, \ldots. </me> In either case, the projection function defining the recursive formula is the same, <me> f(x) = x+4. </me> The forward looking recursion is defined by <me> x_{n+1} = f(x_n), \quad n=1, 2, 3, \ldots, </me> while the backward looking recursion is defined by <me> x_{n} = f(x_{n-1}), \quad n=2, 3, 4, \ldots. </me></p>
-        
-        <p>The same pattern generalizes for every arithmetic sequence.</p>
-        
-        <theorem xml:id="thm-arithmetic-sequence-recursion">
+        <definition xml:id="defn-projection-function">
+            <title>Projection Function</title>
             <statement>
-            <p>An arithmetic sequence <m>x</m> with domain <m>D=\{1,2,3,\ldots\}</m> and defined with constant difference <m>c</m> has a recurrence relation <m>x_{n+1} - x_n = c</m> and a recursive formula for the next term given by <me> x_{n+1} = x_n + c, \quad n=1, 2, 3, \ldots. </me> The projection function is <m>f(x) = x+c</m>.</p>
+                <p>
+                Suppose a sequence <m>x</m> is defined by a recurrence relation of the form 
+                <me>x_{n+1} = f(x_n).</me>
+                The function <m>f</m> defining the relation <m>x_{n} \mapsto x_{n+1}</m> 
+                is called the <term>projection function</term>.
+                </p>
             </statement>
-        </theorem>
+        </definition>
         
-        <p>A geometric sequence is defined by a constant ratio between terms. The constant ratio is defined with the future term on top and the previous term on bottom. For our example geometric sequence, <m>u=(2,6,18,54,\ldots)</m>, our constant ratio is 3: <me> \frac{u_2}{u_1} = \frac{6}{2} = 3, \quad \frac{u_3}{u_2} = \frac{18}{6} = 3, \quad \ldots </me> Generalizing this patterns gives us one possible recurrence relation, <me> \frac{u_{n+1}}{u_n} = 3, \quad n=1, 2, 3, \ldots. </me> Cross-multiplying gives us another possible recurrence formula that is also a recursive definition for our sequence, <me> u_{n+1} = 3 u_n, \quad n=1, 2, 3, \ldots. </me> This corresponds to a projection function <m>f(x) = 3x</m> (<m>u_{n+1}</m> is the output projected value corresponding to an input <m>u_n</m>).</p>
-
-        <theorem xml:id="thm-geometric-sequence-recursion">
+        <p>
+        To make sense of recursive formulas,
+        we first need to understand the notation <m>x_{n+1}</m> and <m>x_{n-1}</m>.
+        For a specific value of <m>n</m>, say <m>n=3</m>, we have <m>n+1=4</m> and <m>n-1=2</m>.
+        Thus for <m>n=3</m> so that <m>x_n=x_3</m>, 
+        we must have <m>x_{n+1} = x_{4}</m> and <m>x_{n-1}=x_2</m>.
+        Just as <m>x_4</m> is the term after <m>x_3</m> and <m>x_2</m> is the term before <m>x_3</m>,
+        the general formula <m>x_{n+1}</m> refers to the term after <m>x_n</m> 
+        and <m>x_{n-1}</m> is the term before <m>x_n</m>, speaking of a generic index <m>n</m>.
+        Similarly, <m>x_{n+3}</m> would refer to the value 3 terms after <m>x_n</m>.
+        </p>
+        
+        <example>
             <statement>
-            <p>A geometric sequence <m>x</m> with domain <m>D=\{1,2,3,\ldots\}</m> and defined with constant ratio <m>\rho</m> has a recurrence relation <m>\displaystyle \frac{x_{n+1}}{x_n} = \rho</m> and a recursive formula for the next term given by <me> x_{n+1} = \rho x_n, \quad n=1, 2, 3, \ldots. </me> The projection function is <m>f(x) = \rho x</m>.</p>
+                <p>
+                A sequence is defined by the recurrence relation
+                <me>u_{n+1}-u_n = 1.4 u_n - \frac{3}{u_n}, \quad n \ge -1,</me>
+                and an initial value <m>u_{-1}=1</m>.
+                Find the recursive equation corresponding to the projection function,
+                <m>u_n \mapsto u_{n+1}</m>, and find <m>f(x)</m>. 
+                Use this to find <m>u_0</m> and <m>u_1</m>.
+                </p>
             </statement>
-        </theorem>
+            <solution>
+                <p>
+                To find the recursive equation, we need to solve for <m>u_{n+1}</m>.
+                <md>
+                    <mrow>u_{n+1}-u_n = 1.4 u_n - \frac{3}{u_n}</mrow>
+                    <mrow>u_{n+1} = 2.4 u_n - \frac{3}{u_n}</mrow>
+                </md>
+                This recursive equation gives us a map from a current value <m>u_n</m>
+                to the next value <m>u_{n+1}</m> in the sequence, <m>u_n \mapsto u_{n+1}</m>,
+                which is the projection function
+                <me>u_{n+1} = f(u_n) = 2.4 u_n - \frac{3}{u_n}.</me>
+                This means that using an input <m>x</m> gives
+                <me>f(x) = 2.4 x - \frac{3}{x}.</me>
+                </p>
+                <p>
+                As a map, we can repeatedly use this function to find subsequent values of the sequence.
+                <md>
+                    <mrow>u_{-1} &amp;= 1</mrow>
+                    <mrow> u_{0} &amp;= f(u_{-1}) = f(1)</mrow>
+                    <mrow> &amp;= 2.4(1)-\frac{3}{1} = -0.6</mrow>
+                    <mrow>u_{1} &amp;= f(u_0) = f(-0.6)</mrow>
+                    <mrow> &amp;= 2.4(-0.6)-\frac{3}{-0.6} = 3.56</mrow>
+                </md>
+                </p>
+                <sidebyside widths="70%">
+                    <image>
+                        <latex-image-code>
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}
+                        \draw [<->] (-2.5,0) -- (4.5,0) node [right] {$u_n$};
+                        \draw [<->] (-2.5,-2) -- (4.5,-2) node [right] {$u_{n+1}$};
+                        \draw (1,-0.1) -- (1,0.1) 
+                            node [pos=0, below] {$1$}
+                            node [pos=1, above] {$u_{-1}$}
+                        ;
+                        \draw [->] (1,-0.5) -- (-0.6,-1.5);
+                        \draw (-0.6,-2.1) -- (-0.6,-1.9) 
+                            node [pos=0, below] {$-0.6$}
+                            node [pos=1, above] {$u_{0}$}
+                        ;
+                        \draw [dashed] (-0.6,-0.5) -- (-0.6,-1.5);
+                        \draw (-0.6,-0.1) -- (-0.6,0.1) 
+                            node [pos=0, below] {$-0.6$}
+                            node [pos=1, above] {$u_{0}$}
+                        ;
+                        \draw [->] (-0.6,-0.5) -- (3.56,-1.5);
+                        \draw (3.56,-2.1) -- (3.56,-1.9) 
+                            node [pos=0, below] {$3.56$}
+                            node [pos=1, above] {$u_{1}$}
+                        ;
+                        \draw [dashed] (3.56,-0.5) -- (3.56,-1.5);
+                        \draw (3.56,-0.1) -- (3.56,0.1) 
+                            node [pos=0, below] {$3.56$}
+                            node [pos=1, above] {$u_{1}$}
+                        ;
+                        \end{tikzpicture}]]>
+                        </latex-image-code>
+                    </image>
+                </sidebyside>
+            </solution>
+        </example>
         
-        <p>Because arithmetic sequences result from repeated addition of the same value, such sequences can be written explicitly as linear functions of the index. Consider a general arithmetic sequence with recursive definition <me> x_{n+1} = x_n + \beta, \quad n=1, 2, 3, \ldots, </me> with initial value <m>x_1=c</m>. Look at the pattern of values for the sequence. <md>
-            <mrow> x_1 &amp;= c </mrow>
-            <mrow> x_2 &amp;= x_1 + \beta = c+\beta </mrow>
-            <mrow> x_3 &amp;= x_2+ \beta = (c+\beta)+\beta = c + 2\beta </mrow>
-            <mrow> x_4 &amp;= x_3+ \beta = (c+2\beta)+\beta = c + 3\beta </mrow>
-            <mrow> x_5 &amp;= x_4+ \beta = (c+3\beta)+\beta = c + 4\beta </mrow>
-        </md> Notice that for a given index <m>n</m>, the term <m>x_n</m> includes <m>(n-1)\beta</m>, so that the explicit formula is given by <me> x_n = \beta(n-1) + c. </me></p>
+        <paragraphs>
+            <title>Arithmetic Sequences</title>
+            <p>
+            Because an arithmetic sequence has a constant difference between terms, 
+            the recurrence relation is defined through the difference. 
+            Consider our arithmetic sequence above, <m>x=(1,5,9,13,\ldots)</m>, 
+            which has a constant difference of 4 between terms. 
+            That is, all of the following equations are true about our sequence: 
+            <md>
+                <mrow> x_2 - x_1 &amp;= 5-1 = 4, </mrow>
+                <mrow> x_3 - x_2 &amp;= 9-5 = 4, </mrow>
+                <mrow> x_4 - x_3 &amp;= 13-9 = 4, </mrow>
+                <mrow> &amp; \vdots </mrow>
+            </md> 
+            This infinite collection of equations is captured as a pattern with a single formula, 
+            <me> x_{n+1} - x_n = 4, \quad n=1, 2, 3, \ldots. </me> 
+            This equation is a <term>recurrence relation</term>.
+            Alternatively, we could also represent the same pattern with a slightly different recurrence relation, 
+            <me> x_{n} - x_{n-1} = 4, \quad n=2, 3, 4, \ldots. </me> 
+            The first equation is interpreted as looking forward in the sequence 
+            (<m>x_{n+1}</m> is future relative to <m>x_n</m>) 
+            while the second equation is interpreted as looking backward 
+            (<m>x_{n-1}</m> is prior to <m>x_n</m>). 
+            </p>
         
-        <p>An alternative approach to this formula is to recognize that a graph of an arithmetic sequence using points <m>(n, x_n)</m> will be on a line. Because <m>x_{n+1}=x_n+\beta</m> so that <m>x_{n+1}-x_n =\beta</m>, the change in output is always <m>\frac{x_{n+1}-x_n}{(n+1)-n} = \beta</m>. Further, we know the point from the first index is <m>(n,x_n)=(1,c)</m>. The <xref autoname="title" ref="eqn-point-slope-line">point<ndash/>slope equation</xref> of this line is given by <me> x_n = \beta(n-1)+c.</me></p>
+            <p>
+            The recursive formula is defined by solving the recurrence relation in terms of the later term in the sequence. 
+            The first equation, solved for <m>x_{n+1}</m>, gives one possible recursive formula, 
+            <me> x_{n+1} = x_n + 4, \quad n=1, 2, 3, \ldots. </me> 
+            Solving the second equation for <m>x_n</m> gives an equivalent recursive formula 
+            <me> x_{n} = x_{n-1} + 4, \quad n=2, 3, 4, \ldots. </me> 
+            In either case, the projection function defining the recursive formula is the same, 
+            <me> f(x) = x+4. </me> 
+            </p>
         
-        <p>Geometric sequences result from repeated multiplication by the same value. Consider a general geometric sequence with recursive definition <me> x_{n+1} = \alpha \cdot x_n, \quad n=1, 2, 3, \ldots, </me> with initial value <m>x_1=c</m>. Since repeated multiplication corresponds to powers, we can find a pattern that leads to the general explicit formula for the sequence value as a function of the index. <md>
-            <mrow> x_1 &amp;= c </mrow>
-            <mrow> x_2 &amp;= \alpha x_1 = \alpha c </mrow>
-            <mrow> x_3 &amp;= \alpha x_2 = \alpha(\alpha c) = \alpha^2 c </mrow>
-            <mrow> x_4 &amp;= \alpha x_3 = \alpha(\alpha^2 c) = \alpha^3 c </mrow>
-            <mrow> x_5 &amp;= \alpha x_4 = \alpha(\alpha^3 c) = \alpha^4 c </mrow>
-        </md> The power of <m>\alpha</m> is always one smaller than the value of the index. Our general explicit formula for the sequence value as a function of the index is given by <me> x_n = c \cdot \alpha^{n-1}. </me> Notice that this is a special case of the <xref autoname="title" ref="thm-exponential-transformation">equation of an exponential function</xref>.</p>
+            <p>
+            The same pattern generalizes for every arithmetic sequence.
+            </p>
         
-        <p>These results generalize to being given any particular value in the sequence. We state this as a theorem for later reference.</p>
+            <theorem xml:id="thm-arithmetic-sequence-recursion">
+                <statement>
+                    <p>
+                    An arithmetic sequence <m>x</m> with domain <m>D=\{1,2,3,\ldots\}</m> 
+                    and defined with constant difference <m>c</m> has a recurrence relation 
+                    <m>x_{n+1} - x_n = c</m> 
+                    and a recursive formula for the next term given by 
+                    <me> x_{n+1} = x_n + c, \quad n=1, 2, 3, \ldots. </me> 
+                    The projection function is <m>f(x) = x+c</m>.
+                    </p>
+                </statement>
+            </theorem>
         
-        <theorem xml:id="theorem-explicit-sequences">
-            <statement>
-                <p>An arithmetic sequence with increment <m>\beta</m> and given value <m>x_k</m> satisfies the explicit formula <me>x_n = x_k + \beta(n-k).</me></p>
-                <p>A geometric sequence with ratio <m>\rho</m> and given value <m>x_k</m> satisfies the explicit formula <me>x_n = x_k \cdot \rho^{n-k}.</me></p>
-            </statement>
-        </theorem>
+            <p>
+            Because arithmetic sequences result from repeated addition of the same value, 
+            such sequences can be written explicitly as linear functions of the index. 
+            Consider a general arithmetic sequence with recursive definition 
+            <me> x_{n+1} = x_n + \beta, \quad n=1, 2, 3, \ldots, 
+            </me> with initial value <m>x_1=c</m>. 
+            Look at the pattern of values for the sequence. 
+            <md>
+                <mrow> x_1 &amp;= c </mrow>
+                <mrow> x_2 &amp;= x_1 + \beta = c+\beta </mrow>
+                <mrow> x_3 &amp;= x_2+ \beta = (c+\beta)+\beta = c + 2\beta </mrow>
+                <mrow> x_4 &amp;= x_3+ \beta = (c+2\beta)+\beta = c + 3\beta </mrow>
+                <mrow> x_5 &amp;= x_4+ \beta = (c+3\beta)+\beta = c + 4\beta </mrow>
+            </md> 
+            Notice that for a given index <m>n</m>, the term <m>x_n</m> includes <m>(n-1)\beta</m>, 
+            so that the explicit formula is given by <me> x_n = \beta(n-1) + c. </me>
+            </p>
+        
+            <p>
+            An alternative approach to this formula is to recognize that a graph of an arithmetic sequence 
+            using points <m>(n, x_n)</m> will be on a line with slope <m>\beta</m>. 
+            Further, we know the point from the first index is <m>(n,x_n)=(1,c)</m>. 
+            The <xref autoname="title" ref="eqn-point-slope-line">point<ndash/>slope equation</xref> of this line is given by 
+            <me> x_n = \beta(n-1)+c.</me>
+            </p>
+        </paragraphs>
+        
+        <paragraphs>
+        <title>Geometric Sequences</title>
+            <p>
+            A geometric sequence is defined by a constant ratio between terms. 
+            The constant ratio is defined with the future term on top and the previous term on bottom. 
+            For our example geometric sequence, <m>u=(2,6,18,54,\ldots)</m>, our constant ratio is 3: 
+            <me> \frac{u_2}{u_1} = \frac{6}{2} = 3, \quad \frac{u_3}{u_2} = \frac{18}{6} = 3, \quad \ldots </me> 
+            Generalizing this patterns gives us one possible recurrence relation,
+            <me> \frac{u_{n+1}}{u_n} = 3, \quad n=1, 2, 3, \ldots. </me>
+            Cross-multiplying gives us another possible recurrence formula that is also a recursive definition for our sequence, 
+            <me> u_{n+1} = 3 u_n, \quad n=1, 2, 3, \ldots. </me>
+            This corresponds to a projection function <m>f(x) = 3x</m>.
+            </p>
+        
+            <theorem xml:id="thm-geometric-sequence-recursion">
+                <statement>
+                    <p>
+                    A geometric sequence <m>x</m> with domain <m>D=\{1,2,3,\ldots\}</m> 
+                    and defined with constant ratio <m>\rho</m> has a recurrence relation 
+                    <m>\displaystyle \frac{x_{n+1}}{x_n} = \rho</m> 
+                    and a recursive formula for the next term given by 
+                    <me> x_{n+1} = \rho x_n, \quad n=1, 2, 3, \ldots. </me> 
+                    The projection function is <m>f(x) = \rho x</m>.
+                    </p>
+                </statement>
+            </theorem>
+        
+            <p>
+            Geometric sequences result from repeated multiplication by the same value. 
+            Consider a general geometric sequence with recursive definition 
+            <me> x_{n+1} = \alpha \cdot x_n, \quad n=1, 2, 3, \ldots, </me>
+            with initial value <m>x_1=c</m>. 
+            Since repeated multiplication corresponds to powers, 
+            we can find a pattern that leads to the general explicit formula for the sequence value as a function of the index. 
+            <md>
+                <mrow> x_1 &amp;= c </mrow>
+                <mrow> x_2 &amp;= \alpha x_1 = \alpha c </mrow>
+                <mrow> x_3 &amp;= \alpha x_2 = \alpha(\alpha c) = \alpha^2 c </mrow>
+                <mrow> x_4 &amp;= \alpha x_3 = \alpha(\alpha^2 c) = \alpha^3 c </mrow>
+                <mrow> x_5 &amp;= \alpha x_4 = \alpha(\alpha^3 c) = \alpha^4 c </mrow>
+            </md> 
+            The power of <m>\alpha</m> is always one smaller than the value of the index. 
+            Our general explicit formula for the sequence value as a function of the index is given by 
+            <me> x_n = c \cdot \alpha^{n-1}. </me> 
+            Notice that this is a special case of the 
+            <xref autoname="title" ref="thm-exponential-transformation">equation of an exponential function</xref>.
+            </p>
+            
+            <p>
+            These results generalize to being given any particular value in the sequence. 
+            We state this as a theorem for later reference.
+            </p>
+            
+            <theorem xml:id="theorem-explicit-sequences">
+                <statement>
+                    <p>
+                    An arithmetic sequence with increment <m>\beta</m> and given value <m>x_k</m> 
+                    satisfies the explicit formula <me>x_n = x_k + \beta(n-k).</me>
+                    </p>
+                    <p>
+                    A geometric sequence with ratio <m>\rho</m> and given value <m>x_k</m> 
+                    satisfies the explicit formula <me>x_n = x_k \cdot \rho^{n-k}.</me>
+                    </p>
+                </statement>
+            </theorem>
+        </paragraphs>
     </subsection>
-   
+    
+    <conclusion>
+        <title>Summary</title>
+        
+        <ul>
+            <li>
+                Sequences are functions with domains that are subsets of the integers.
+                The independent variable (input) is called the <term>index</term>
+                and the dependent variable (output) is called the <term>value</term>.
+            </li>
+            <li>
+                An <term>explicit representation</term> of a sequence <m>x</m> is when 
+                there is a function for the mapping <m>n \mapsto x_n</m>.
+                Sequence evaluation, including composition, follow standard function rules.
+            </li>
+            <li>
+                A <term>recursive representation</term> of a sequence <m>x</m> is when 
+                there is a function relating consecutive values <m>x_n \mapsto x_{n+1}</m>.
+                This function is called the <term>projection function</term>.
+            </li>
+            <li>
+                An arithmetic sequence with common difference <m>c</m> has a projection function <m>f(x)=x+c</m>,
+                a recursive relation <me>x_{n+1}=x_n + c</me>,
+                and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k + \beta(n-1).</me>
+            </li>
+            <li>
+                A geometric sequence with common ratio <m>\rho</m> has a projection function <m>f(x)=\rho x</m>,
+                a recursive relation <me>x_{n+1}=\rho \cdot x_n</me>,
+                and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k \cdot \rho^{n-k}.</me>
+            </li>
+        </ul>
+    </conclusion>
+    
+    <exercises>
+        <exercise>
+            <statement>
+                <p>
+                Find an explicit formula for each of the following sequences.
+                <ol>
+                    <li><m>x = (x_n)_{n=0}^{\infty} = (1, 4, 9, 16, 25, \ldots)</m></li>
+                    <li><m>y = (y_n)_{n=1}^{\infty} = (\frac{1}{4}, \frac{2}{9}, \frac{3}{16}, \frac{4}{25}, \ldots)</m></li>
+                    <li><m>z = (z_n)_{n=0}^{\infty} = (0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \ldots)</m></li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                A sequence is defined explicitly with the formula
+                <me>x_n = -3n+20, \qquad n=0, 1, 2, 3, \ldots.</me>
+                <ol>
+                    <li>List the first five values in the sequence.</li>
+                    <li>Compute <m>x_{n+1}</m> and then simplify <m>x_{n+1}-x_n</m>.</li>
+                    <li>Use the previous result to write down a recurrence relation.</li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                A sequence is defined explicitly with the formula
+                <me>y_k = \frac{2^{k-2}}{3^{k}}, \qquad k=0, 1, 2, 3, \ldots.</me>
+                <ol>
+                    <li>List the first five values in the sequence.</li>
+                    <li>Compute <m>y_{k+1}</m> and then simplify <m>\displaystyle \frac{y_{k+1}}{y_k}</m>.</li>
+                    <li>Use the previous result to write down a recurrence relation.</li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                A sequence is defined recursively by
+                <me>x_{n+1} = 2x_n - 5, \quad n=0, 1, 2, \ldots,</me>
+                with an initial value <m>x_0=6</m>.
+                <ol>
+                    <li>If <m>f : x_n \mapsto x_{n+1}</m> is the projection function, find <m>f(x)</m>.</li>
+                    <li>Find <m>x_1</m>, <m>x_2</m>, and <m>x_3</m>.</li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                A sequence is defined recursively by
+                <me>u_{k+1} = \frac{u_k}{2} + \frac{3}{u_k}, \quad k=0, 1, 2, \ldots,</me>
+                with an initial value <m>u_0=6</m>.
+                <ol>
+                    <li>If <m>f</m> is the projection function  <m>u_k \mapsto u_{k+1}</m>, find <m>f(x)</m>.</li>
+                    <li>Find <m>u_1</m>, <m>u_2</m>, and <m>u_3</m>.</li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                For the sequence <m>x=(x_k)_{k=0}^{\infty} = (2, 4, 6, 8, 10, 12, \ldots)</m>,
+                answer the following questions.
+                <ol>
+                    <li>What is the name of the sequence? the index of the sequence? the first index value?</li>
+                    <li>What are <m>x_1</m>, <m>x_2</m>, and <m>x_5</m>?</li>
+                    <li>What is the recursive formula? What is the projection function?</li>
+                    <li>What is the explicit formula? What is <m>x_{10}</m>?</li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                For the sequence <m>y=(y_i)_{i=-2}^{\infty} = (20, 13, 6, -1, \ldots)</m>,
+                answer the following questions.
+                <ol>
+                    <li>What is the name of the sequence? the index of the sequence? the first index value?</li>
+                    <li>What are <m>y_0</m>, <m>y_1</m>, and <m>y_3</m>?</li>
+                    <li>What is the recursive formula? What is the projection function?</li>
+                    <li>What is the explicit formula? What is <m>y_{10}</m>?</li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                For the sequence <m>z=(z_m)_{m=1}^{\infty} = (\frac{2}{9}, \frac{4}{3}, 8, 48, \ldots)</m>,
+                answer the following questions.
+                <ol>
+                    <li>What is the name of the sequence? the index of the sequence? the first index value?</li>
+                    <li>What are <m>z_1</m>, <m>z_2</m>, and <m>z_5</m>?</li>
+                    <li>What is the recursive formula? What is the projection function?</li>
+                    <li>What is the explicit formula? What is <m>z_{10}</m>?</li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                For the sequence <m>w=(w_n)_{n=0}^{\infty} = (24, -12, 6, -3, \ldots)</m>,
+                answer the following questions.
+                <ol>
+                    <li>What is the name of the sequence? the index of the sequence? the first index value?</li>
+                    <li>What are <m>w_1</m>, <m>w_3</m>, and <m>w_5</m>?</li>
+                    <li>What is the recursive formula? What is the projection function?</li>
+                    <li>What is the explicit formula? What is <m>w_{10}</m>?</li>
+                </ol>
+                </p>
+            </statement>
+        </exercise>
+    </exercises>
  </section>
