@@ -40,7 +40,7 @@
             <title>Discrete Dynamic Models</title>
             
             <xi:include href="./sequences-intro.xml" />
-            <xi:include href="./sequences-projection-models.xml" />            
+            <xi:include href="./sequences-modeling.xml" />            
             <xi:include href="./sequences-limits.xml" />            
             <xi:include href="./sequences-accumulation.xml" />            
             <xi:include href="./sequences-summation-formulas.xml" />            
