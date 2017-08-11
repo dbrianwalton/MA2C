@@ -456,7 +456,7 @@
             An alternative approach to this formula is to recognize that a graph of an arithmetic sequence 
             using points <m>(n, x_n)</m> will be on a line with slope <m>\beta</m>. 
             Further, we know the point from the first index is <m>(n,x_n)=(1,c)</m>. 
-            The <xref autoname="title" ref="point-slope-line">point<ndash/>slope equation</xref> of this line is given by 
+            The <xref text="title" ref="point-slope-line">point<ndash/>slope equation</xref> of this line is given by 
             <me> x_n = \beta(n-1)+c.</me>
             </p>
         </paragraphs>
@@ -505,8 +505,6 @@
             The power of <m>\alpha</m> is always one smaller than the value of the index. 
             Our general explicit formula for the sequence value as a function of the index is given by 
             <me> x_n = c \cdot \alpha^{n-1}. </me> 
-            Notice that this is a special case of the 
-            <xref autoname="title" ref="thm-exponential-transformation">equation of an exponential function</xref>.
             </p>
             
             <p>

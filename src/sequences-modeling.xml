@@ -121,7 +121,7 @@
         For such a model, the forward difference is also constant, <m>\Delta P_t = \Delta P = B-D</m>.
         The resulting recursive equation becomes <me>P_{t+1}= P_t + \Delta P</me>, 
         which we recognize as an arithmetic sequence with an increment <m>\Delta P</m>.
-        Using Theorem <xref ref="theorem-explicit-sequences"/>, 
+        Using <xref ref="theorem-explicit-sequences"/>, 
         we know the explicit formula for this sequence is given by <me>P_t = P_0 + \Delta P \cdot t.</me>
         Such a population either increases linearly (if <m>B \gt D</m>), decreases linearly (if <m>B \lt D</m>),
         or is constant (if <m>B = D</m>).
@@ -208,7 +208,7 @@
         The recursive equation becomes 
         <me>P_{t+1} = P_t + (b-d) P_t = (1+b-d) P_t</me>.
         We recognize this as the equation of a geometric sequence with the ratio <m>\rho = 1+b-d</m>. 
-        Again using Theorem <xref ref="theorem-explicit-sequences"/>, 
+        Again using <xref ref="theorem-explicit-sequences"/>, 
         we know the explicit formula for this sequence is given by 
         <me>P_t = P_0 \cdot (1+b-d)^{t}.</me> 
         This form of growth for the sequence is often called <term>Malthusian growth</term>.
@@ -696,9 +696,10 @@
             # The 45 says to stop when m reaches 45
             # So the values of m used will be 0 ... 44
             for m in range(45):
-                # Indent 4 spaces to say what is repeated
+                # Indent repeated block 4 spaces
                 # Display the current month and the current balance
-                print m, B
+                # Format: %d means integer, %f means floating point (decimal)
+                print "%d %f" % (m, B)
                 # Now update the balance value
                 # B on left is new value, B on right is old value
                 B = B - 250 + 0.0025*B
@@ -798,7 +799,7 @@
                     <mrow>S_0 = 200.</mrow>
                 </md> 
                 Thus our model is a simple geometric sequence. 
-                We have an explicit solution using Theorem <xref ref="theorem-explicit-sequences"/>: 
+                We have an explicit solution using <xref ref="theorem-explicit-sequences"/>: 
                 <me>S_n = 200 \cdot 0.75^n.</me> 
                 </p>
             </solution>
@@ -814,7 +815,14 @@
             <input>
             <![CDATA[# We want n from 0 to 20. The following command creates
             # a list of points (n,S_n) using an explicit formula.
-            data = [ (n, 200*0.75^n) for n in range(21) ]
+            data = []
+            for n in range(21):
+                # Calculate
+                S = 200*0.75^n
+                # Display
+                print "%d %f" % (n,S)
+                # Store for plot
+                data.append( (n,S) )
             
             # Then create a plot with axis labels.
             list_plot(data, frame=True, axes_labels=['dilutions','mass of salt'])]]>
