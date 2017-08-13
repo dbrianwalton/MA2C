@@ -748,7 +748,7 @@
         </subsubsection>
     </subsection>
         
-    <subsection>
+    <subsection xml:id="functions-behavior-end-limits">
         <title>End Behavior</title>
         
         <p>

@@ -193,21 +193,23 @@
             </p>
             
             <note xml:id="note-power-domain">
-                <p>
-                The domain of <m>x^p</m> depends on the form of the power <m>p</m>.
-                If <m>p</m> is a positive integer, the power represents repeated multiplication, 
-                such as <m>x^2=x \cdot x</m> and <m>x^3=x \cdot x \cdot x</m>.
-                Then domain is the set of all real numbers <m>(-\infty,\infty)</m>.
-                A negative power <m>p \lt 0</m> indicates division, 
-                <me>x^p = \frac{1}{x^{|p|}},</me> 
-                so that <m>x \ne 0</m>.
-                For negative integer powers <m>p</m>, the domain is the set of non-zero numbers <m>(-\infty,0)\cup(0,\infty)</m>.
-                If <m>p</m> is a rational number, <m>p=\frac{k}{n}</m>, 
-                then the domain depends on which root <m>n</m> is involved.
-                For even roots, <m>x^p</m> is undefined when <m>x \lt 0</m>; 
-                for odd roots, <m>x^p</m> is defined for positive and negative <m>x</m>.
-                For irrational powers <m>p</m>, we exclude all negative values <m>x</m>.
-                </p>
+                <statement>
+                    <p>
+                    The domain of <m>x^p</m> depends on the form of the power <m>p</m>.
+                    If <m>p</m> is a positive integer, the power represents repeated multiplication, 
+                    such as <m>x^2=x \cdot x</m> and <m>x^3=x \cdot x \cdot x</m>.
+                    Then domain is the set of all real numbers <m>(-\infty,\infty)</m>.
+                    A negative power <m>p \lt 0</m> indicates division, 
+                    <me>x^p = \frac{1}{x^{|p|}},</me> 
+                    so that <m>x \ne 0</m>.
+                    For negative integer powers <m>p</m>, the domain is the set of non-zero numbers <m>(-\infty,0)\cup(0,\infty)</m>.
+                    If <m>p</m> is a rational number, <m>p=\frac{k}{n}</m>, 
+                    then the domain depends on which root <m>n</m> is involved.
+                    For even roots, <m>x^p</m> is undefined when <m>x \lt 0</m>; 
+                    for odd roots, <m>x^p</m> is defined for positive and negative <m>x</m>.
+                    For irrational powers <m>p</m>, we exclude all negative values <m>x</m>.
+                    </p>
+                </statement>
             </note>
             
             <definition xml:id="logarithm-function">
@@ -313,7 +315,7 @@
             Most scientific calculators only have logarithms for base <m>b=10</m> (common logarithm) 
             and for base <m>b=e</m> (natural logarithm).
             We will later prove that every logarithm can be found using one of these 
-            by the <xref ref="logarithm-change-base">change of base formula</xref> 
+            by the <xref text="title" ref="logarithm-change-base">change of base formula</xref> 
             <me> \log_b(x) = \frac{\log(x)}{\log(b)} = \frac{\ln(x)}{\ln(b)}</me>.
             </p>
         </paragraphs>
