@@ -43,7 +43,7 @@
             <xi:include href="./sequences-modeling.xml" />            
             <xi:include href="./sequences-limits.xml" />            
             <xi:include href="./sequences-accumulation.xml" />            
-            <xi:include href="./sequences-summation-formulas.xml" />            
+            <xi:include href="./sequences-summation.xml" />            
         </chapter>
         
         <chapter>
