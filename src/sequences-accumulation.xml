@@ -118,10 +118,10 @@
             <title>Accumulation Sequence</title>
             <statement>
                 <p>
-                Given a sequence of increments, <m>u=(u_n)_{n=n_0}^{\infty}</m>,
-                we can define the <term>accumulation sequence</term> <m>x</m>
+                Given a sequence of increments, <m>x=(x_n)_{n=n_0}^{\infty}</m>,
+                we can define the <term>accumulation sequence</term> <m>u</m>
                 using the backward recurrence,
-                <me>x_n = x_{n-1} + u_n, \quad n \ge n_0,</me>
+                <me>u_n = u_{n-1} + x_n, \quad n \ge n_0,</me>
                 and an initial value.
                 </p>
             </statement>
