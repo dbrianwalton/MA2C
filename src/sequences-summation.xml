@@ -6,582 +6,951 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="sequences-summation">
-    <title>Summation Formulas</title>
+  <title>Summation Formulas</title>
 
-    <subsection>
-        <title>Overview</title>
-        
-        <p>
-        When an increment sequence is given explicitly, we often seek to find
-        an explicit formula for the accumulation sequence. This section introduces
-        basic properties of summation as well as
-        some basic formulas for a few elementary increment sequences. 
-        Combining the basic formulas with the properties of summation, 
-        we can compute explicit formulas for accumulations when the increment 
-        sequence is a linear combination of these elementary sequences. 
-        To prove that these formulas are correct,
-        we also introduce a theorem that shows that a sequence is uniquely defined
-        by its initial value and increments.
-        </p>
-        
-    </subsection>
-    <subsection>
-        <title>Summation of as Accumulated Change</title>
-        
-        <p>
-        In mathematics, the idea of adding terms from a sequence appears so frequently that a special notation, 
-        called summation notation or sigma notation for the Greek letter sigma <m>\Sigma</m>, 
-        was created to represent the sum.
-        </p>
-        
-        <definition xml:id="defn-summation-notation">
-            <title>Summation Notation</title>
-            <statement>
-                <p>
-                Given any sequence <m>x</m> and integers <m>m \le n</m>, 
-                the sum of terms <m>x_k</m> with index <m>k</m> satisfying <m>m \le k \le n</m> 
-                is written <me> \sum_{k=m}^{n} x_k = x_{m} + x_{m+1} + \cdots + x_n. </me> 
-                The sequence is often given as an explicit function of the index. 
-                The starting index <m>m</m> is called the <term>lower limit</term> of the sum 
-                while the ending index <m>n</m> is called the <term>upper limit</term>.
-                </p>
-            </statement>
-        </definition>
-        
-        <example>
-            <statement>
-                <p>
-                Evaluate the following sums. 
-                <ol>
-                    <li> <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> </li>
-                    <li> <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> </li>
-                </ol>
-                </p>
-            </statement>
-            <solution>
-                <ol>
-                    <li> 
-                        <p>
-                        The sum <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> 
-                        involves the increment sequence <m>a_k=2k+3</m> 
-                        and is the sum of terms with index from 3 to 7: 
-                        <me> a_3 = 2(3)+3 = 9, \: a_4 = 2(4)+3 = 11, \: a_5 = 13, \: a_6=15, \: a_7 = 17. </me> 
-                        Consequently, we can find the sum <me> \sum_{k=3}^{7} [2k+3] = 9+11+13+15+17 = 65. </me>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        The sum <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> 
-                        involves an increment sequence <m>\displaystyle b_k=\frac{1}{k^2+k}</m>. 
-                        The index values involved go from 1 to 4 so that we find 
-                        <md>
-                            <mrow> \sum_{k=1}^{4} \frac{1}{k^2+k} &amp;= 
-                                \frac{1}{1^1+1} + \frac{1}{2^2+2} + \frac{1}{3^2+3} + \frac{1}{4^2+4} </mrow>
-                            <mrow> &amp;= \frac{1}{2} + \frac{1}{6} + \frac{1}{12} + \frac{1}{20} </mrow>
-                            <mrow> &amp;= \frac{30}{60} + \frac{10}{60} + \frac{5}{60} + \frac{3}{60} </mrow>
-                            <mrow> &amp;= \frac{48}{60} = \frac{4}{5}. </mrow>
-                        </md>
-                        </p>
-                    </li>
-                </ol>
-            </solution>
-        </example>
-        
-        <p>
-        Using summation notation, if we have an increment sequence <m>x</m> 
-        then the accumulation sequence <m>s</m> with initial value <m>c</m> can be written 
-        <me> s_n = c + \sum_{k=1}^{n} x_k. </me> 
-        Notice that, in this equation, 
-        the index <m>n</m> of the accumulation sequence <m>s</m> appears as the upper limit of the summation. 
-        The summation itself introduces another index variable <m>k</m> 
-        that is used for the terms of the sum. 
-        The index variable is also called a <term>dummy variable</term> of summation 
-        because any other index variable could be used: 
-        <me> s_n = c + \sum_{i=1}^{n} x_i = c + \sum_{j=1}^{n} x_j. </me>
-        </p>
-        
-        <example>
-            <statement>
-                <p>
-                Find the first five terms of the accumulation sequence <m>z</m> 
-                with increment sequence <m>a = (3, 5, 7, 9, 11, 13, \ldots)</m> 
-                with initial value <m>4</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                The sequence <m>z</m> has initial value <m>4</m> which corresponds to index 0, <me> z_0 = 4. </me> 
-                For index values <m>n \gt 0</m>, the sequence is computed with an accumulation of values 
-                from the sequence <m>a</m>. 
-                <md>
-                    <mrow> z_1 &amp;= 4 + \sum_{k=1}^{1} a_k = 4 + 3 = 7 </mrow>
-                    <mrow> z_2 &amp;= 4 + \sum_{k=1}^{2} a_k = 4 + 3 + 5 = 12 </mrow>
-                    <mrow> z_3 &amp;= 4 + \sum_{k=1}^{3} a_k = 4 + 3 + 5 + 7 = 19 </mrow>
-                    <mrow> z_4 &amp;= 4 + \sum_{k=1}^{4} a_k = 4 + 3 + 5 + 7 + 9 = 28 </mrow>
-                </md>
-                </p>
-            </solution>
-        </example>
-    </subsection>
-    <subsection>
-        <title>Properties of Summation</title>
-        
-        <p>
-        Because a summation involves only addition, the basic properties of addition
-        translate to corresponding properties for summation.
-        </p>
-        
-        <p>
-        Suppose we have a sequence <m>x</m> and a constant <m>\alpha</m>.
-        We can create a new sequence <m>\alpha x</m>, 
-        called a <term>constant multiple</term>, by multiplying
-        every term of <m>x</m> by the same constant <m>\alpha</m>. 
-        Using the constant multiple as an increment sequence, every term
-        will have a common factor of <m>\alpha</m>.
-        This leads to a property of summation called the constant multiple rule.
-        </p>
-        
-        <theorem xml:id="thm-summation-constant-multiple-rule">
-            <title>Constant Multiple Rule of Summation</title>
-            <statement>
-                <p>
-                Let <m>x</m> be a sequence and <m>\alpha</m> a constant. Then for
-                any lower and upper limits,
-                <me> \sum_{k=m}^{n} \alpha x_k = \alpha \sum_{k=m}^{n} x_k. </me>
-                </p>
-            </statement>
-        </theorem>
-        
-        <p>
-        The next property considers a sequence that is itself formed by adding
-        two sequences together. Suppose we have two sequences <m>u</m> and <m>w</m>
-        and we form a new sequence <m>u+w</m> with values that are the sum
-        of the corresponding values of <m>u</m> and <m>w</m>.
-        Because addition is both commutative and associative, any sum of a finite
-        number of terms can be regrouped in any convenient way.
-        A summation of terms <m>u+w</m> can therefore be grouped in a way that we
-        add only the terms from <m>u</m> and then add only the terms from <m>v</m>
-        and then add the results. This leads to a property of summation
-        called the sum rule.
-        </p>
-        
-        <theorem xml:id="thm-summation-sum-rule">
-            <title>Sum Rule of Summation</title>
-            <statement>
-                <p>
-                Let <m>u</m> and <m>w</m> be any two sequences with common domain.
-                Then for any lower and upper limits,
-                <me> \sum_{k=m}^{n} [u_k+w_k] = \sum_{k=m}^{n} u_k + \sum_{k=m}^{n} w_k. </me>
-                </p>
-            </statement>
-        </theorem>
-        
-        <p>
-        Using the rules together creates a new rule called linearity involving
-        two sequences <m>x</m> and <m>y</m>.
-        The idea for this rule is that an individual term in the increment sequence
-        is the sum of a constant multiple of each, <m>\alpha x + \beta y</m>.
-        Such a sum is called a <term>linear combination</term> of <m>x</m> and <m>y</m>
-        with coefficients <m>\alpha</m> and <m>\beta</m>. This name results from
-        the general equation of a line being of the form <m>ax + by = c</m>.
-        </p>
-        
-        <theorem xml:id="thm-summation-linearity">
-            <title>Linearity of Summation</title>
-            <statement>
-                <p>
-                Let <m>x</m> and <m>y</m> be any two sequences with common domain
-                and let <m>\alpha</m> and <m>\beta</m> be any two constants.
-                Then for any lower and upper limits,
-                <me> \sum_{k=m}^{n} [\alpha x_k + \beta y_k] = \alpha \sum_{k=m}^{n} x_k + \beta \sum_{k=m}^{n} y_k. </me>
-                </p>
-            </statement>
-        </theorem>
-        
-        <p>
-        Using <m>\alpha = 1</m> and <m>\beta = -1</m>, the linear combination
-        becomes a difference, <m>\alpha x + \beta y = x - y</m>. 
-        So the difference rule is a special case of linearity.
-        </p>
-        
-        <theorem xml:id="thm-summation-difference-rule">
-            <title>Difference Rule of Summation</title>
-            <statement>
-                <p>
-                Let <m>x</m> and <m>y</m> be any two sequences with common domain.
-                Then for any lower and upper limits,
-                <me> \sum_{k=m}^{n} [x_k-y_k] = \sum_{k=m}^{n} x_k - \sum_{k=m}^{n} y_k. </me>
-                </p>
-            </statement>
-        </theorem>
-        
-        <p>
-        There are no corresponding rules for multiplication or division.
-        This is really no different than emphasizing the importance of multiplying all terms
-        using the distributive property, such as occurs with the FOIL method for multiplying binomials.
-        For example, <m>\displaystyle \sum_{k=1}^{3} [k] = 1+2+3 = 6</m>.
-        The product of the sum gives one result:
-        <me> \sum_{k=1}^{3}[k] \cdot \sum_{k=1}^{3}[k] = (1+2+3) \cdot (1+2+3) = 6 \cdot 6 = 36. </me>
-        But the sum of the products gives a different result:
-        <me> \sum_{k=1}^{3}[k \cdot k] = (1^2+2^2+3^2) = 1+4+9 = 14. </me>
-        In general,
-        <me> \sum_{k=m}^{n} [x_k \cdot y_k] \ne \sum_{k=m}^{n} x_k \cdot \sum_{k=m}^{n} y_k. </me>
-        </p>
-        
-        <p>
-        The other important properties of summation focus on how to split a summation
-        into two pieces. Suppose a summation has lower index limit <m>m</m> and upper
-        index limit <m>n</m>. The total summation can be split into two parts,
-        where the first part is a summation involving the terms having index values
-        from <m>m</m> to <m>k</m> and the second part is a summation involving the
-        remaining terms with index values <m>k+1</m> through <m>n</m>. (Of course, since we
-        chose to use <m>k</m> as that intermediate integer, our dummy variable 
-        for the summation needs to be different.)
-        </p>
-        
-        <theorem xml:id="thm-summation-splitting">
-            <title>Splitting Rule for Summation</title>
-            <statement>
-                <p>
-                Given any sequence <m>x</m> and summation limits <m>m</m> and <m>n</m>
-                and an intermediate integer <m>k</m> with <m>m \lt k \lt n</m>,
-                <me> \sum_{i=m}^{n} [x_i] = \sum_{i=m}^{k} [x_i] + \sum_{i=k+1}^{n} [x_i]. </me>
-                </p>
-            </statement>
-        </theorem>
-        
-        <p>
-        A consequence of the splitting property of summation is that a summation
-        over a particular range of index values can be written as a difference of
-        a summation over a larger range of index values minus summations representing
-        the terms that were not in the original range of summation.
-        </p>
-        
-        <corollary xml:id="cor-summation-reduce">
-            <title>Reducing a Summation over a Restricted Range</title>
-            <statement>
-                <p>
-                Given any sequence <m>x</m> and summation limits <m>m</m> and <m>n</m>.
-                Suppose there are index values <m>k \lt m</m> and <m>p \gt n</m>.
-                Then each of the following computations give the same value.
-                </p>
-                <md>
-                    <mrow> \sum_{j=m}^{n} x_j &amp;= \sum_{j=k}^{n} x_j - \sum_{j=k}^{m-1} x_j, </mrow>
-                    <mrow> &amp;= \sum_{j=m}^{p} x_j - \sum_{j=n+1}^{p} x_j, </mrow>
-                    <mrow> &amp;= \sum_{j=k}^{p} x_j - \sum_{j=k}^{m-1} x_j - \sum_{j=n+1}^{p} x_j. </mrow>
-                </md>
-            </statement>
-        </corollary>
-
-        <p>
-        In order to establish formulas for summations, we will need a way
-        to demonstrate that two sequences are really the same.
-        We conclude this subsection by introducing a theorem that is not
-        so much a property of summation, but a method to infer that sequences from
-        two different representations are actually the same.
-        </p>
-        
-        <theorem xml:id="thm-sequence-uniqueness">
-            <title>Uniqueness of Sequences</title>
-            <statement>
-                <p>
-                Suppose that two sequences <m>u</m> and <m>w</m>
-                have the same initial value, <m>u_0=w_0</m>, and
-                the same increments, <m>\nabla u = \nabla w</m>.
-                Then <m>u=w</m>.
-                </p>
-            </statement>
-            <proof>
-                <p>
-                The proof of this theorem requires showing that
-                <m>u_n = w_n</m> for every <m>n=0, 1, 2, \ldots</m>.
-                Such a proof involves a mathematical principle called induction.
-                This principle requires first showing that an initial statement is true,
-                in this case that <m>u_0 = w_0</m>, which is one of the assumptions.
-                The second step of the principle is to show that if we assume that
-                any given statement is true, in this case that <m>u_n = w_n</m>
-                for a particular value of <m>n</m>, then the next statement
-                must also be true, or that <m>u_{n+1} = w_{n+1}</m>.
-                </p>
-                <p>
-                Because both <m>u</m> and <m>w</m> are accumulations with the same increments,
-                we know that <m>u_{n+1} = u_n + (\nabla u)_{n+1}</m>.
-                By our assumption, <m>u_n = w_n</m>; and by our hypothesis, <m>(\nabla u)_{n+1} = (\nabla w)_{n+1}</m>.
-                This means 
-                <me>u_{n+1} = w_n + (\nabla w)_{n+1} = w_{n+1}. </me>
-                By the principle of mathematical induction, the equations <m>u_n = w_n</m> 
-                must therefore be true for every <m>n=0, 1, 2, 3, \ldots</m>, meaning that
-                the two sequences are, in fact, the same.
-                </p>
-            </proof>
-        </theorem>
-        
-        <p>
-        Theorem <xref ref="thm-accumulation-backward-difference" /> stated that every sequence
-        is an accumulation of its backward differences. This is an immediate corollary
-        of Theorem <xref ref="thm-sequence-uniqueness" />. But we will be able to use this
-        theorem in many other circumstances when we wish to show that two representations
-        of a sequence give the same sequence. 
-        </p>
-    </subsection>
-        
-    <subsection>
-        <title>Elementary Summation Formulas</title>
-        
-        <p>
-        There are some elementary increment sequences for which we can find
-        an explicit formula for the accumulation sequence.
-        We will state the results and prove them using the uniqueness criteria for sequences.
-        </p>
-        
-        <theorem xml:id="thm-sum-of-constants">
-            <title>Sum of Constant Sequence</title>
-            <statement>
-                <me> \sum_{k=1}^{n} c = cn </me>
-            </statement>
-            <proof>
-                <p>
-                The accumulation sequence of interest is <m>\displaystyle u_n = \sum_{k=1}^{n} c</m>.
-                The increment sequence <m>x</m> is a sequence of constants, <m>c_k=c</m>.
-                The proposed explicit sequence is <m>w_n = cn</m>.
-                The initial value of <m>u</m> is <m>u_0 = 0</m> which matches the initial value of the explicit sequence <m>w_0 = c(0) = 0</m>.
-                To show that <m>w=u</m>, we need to show that <m>w</m> has the same increments.
-                <me> (\nabla w)_n = w_{n}-w_{n-1} = cn - c(n-1) = cn - cn + c = c</me>
-                Since <m>(\nabla w)_n = c</m> is the same increment as <m>x_k</m>, <m>u</m> and <m>w</m> are the same sequence.
-                </p>
-            </proof>
-        </theorem>
-        
-        <theorem xml:id="thm-sum-of-integers">
-            <title>Sum of Natural Numbers</title>
-            <statement>
-                <me> \sum_{k=1}^{n} k = \frac{n(n+1)}{2} </me>
-            </statement>
-            <proof>
-                <p>
-                The accumulation sequence of interest is <m>\displaystyle u_n = \sum_{k=1}^{n} k</m>.
-                The increment sequence <m>x</m> is defined by <m>x_k=k</m>.
-                The proposed explicit sequence is <m>w_n = \frac{n(n+1)}{2}</m>.
-                The initial value of <m>u</m> is <m>u_0 = 0</m> which matches the initial value of the explicit sequence <m>w_0 = \frac{0(1)}{2} = 0</m>.
-                The increment for <m>w</m> is given by:
-                <md>
-                    <mrow> (\nabla w)_n &amp;= w_{n}-w_{n-1} = \frac{n(n+1)}{2} - \frac{(n-1)n}{2} </mrow>
-                    <mrow> &amp;= \frac{n}{2}\big( (n+1) - (n-1) \big) = \frac{n}{2} \cdot 2 = n</mrow>
-                </md>
-                Since <m>(\nabla w)_n = n = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
-                By Theorem <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
-                </p>
-            </proof>
-        </theorem>
-        
-        <theorem xml:id="thm-sum-of-squares">
-            <title>Sum of Squares</title>
-            <statement>
-                <me> \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6} </me>
-            </statement>
-            <proof>
-                <p>
-                The accumulation sequence of interest is <m>\displaystyle u_n = \sum_{k=1}^{n} k^2</m>
-                so that increment sequence <m>x</m> is defined by <m>x_k=k^2</m>.
-                The proposed explicit sequence is <m>w_n = \frac{n(n+1)(2n+1)}{6}</m>.
-                The initial value of <m>u</m> is <m>u_0 = 0</m> which matches the initial value of the explicit sequence <m>w_0 = \frac{0(1)(1)}{6} = 0</m>.
-                The increment for <m>w</m> is given by:
-                <md>
-                    <mrow> (\nabla w)_n &amp;= w_{n}-w_{n-1} </mrow>
-                    <mrow> &amp;= \frac{n(n+1)(2n+1)}{6} - \frac{(n-1)n\big(2(n-1)+1\big)}{6} </mrow>
-                    <mrow> &amp;= \frac{n}{6}\big( (n+1)(2n+1) - (n-1)(2n-1) \big) </mrow>
-                    <mrow> &amp;= \frac{n}{6} \big((2n^2+3n+1) - (2n^2-3n+1)\big) </mrow>
-                    <mrow> &amp;= \frac{n}{6}(6n) = n^2 </mrow>
-                </md>
-                Since <m>(\nabla w)_n = n^2 = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
-                By Theorem <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
-                </p>
-            </proof>
-        </theorem>
-        
-        <theorem xml:id="thm-sum-of-cubes">
-            <title>Sum of Cubes</title>
-            <statement>
-                <me> \sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4} </me>
-            </statement>
-            <proof>
-                <p>
-                The accumulation sequence of interest is <m>\displaystyle u_n = \sum_{k=1}^{n} k^3</m>
-                so that increment sequence <m>x</m> is defined by <m>x_k=k^3</m>.
-                The proposed explicit sequence is <m>w_n = \frac{n^2(n+1)^2}{4}</m>.
-                The initial value of <m>u</m> is <m>u_0 = 0</m> which matches the initial value of the explicit sequence <m>w_0 = \frac{0(1)(1)}{6} = 0</m>.
-                The increment for <m>w</m> is given by:
-                <md>
-                    <mrow> (\nabla w)_n &amp;= w_{n}-w_{n-1} </mrow>
-                    <mrow> &amp;= \frac{n^2(n+1)^2}{4} - \frac{(n-1)^2n^2}{4} </mrow>
-                    <mrow> &amp;= \frac{n^2}{4}\big( (n+1)^2 - (n-1)^2 \big) </mrow>
-                    <mrow> &amp;= \frac{n^2}{4} \big((n^2+2n+1) - (n^2-2n+1)\big) </mrow>
-                    <mrow> &amp;= \frac{n^2}{4}(4n) = n^3 </mrow>
-                </md>
-                Since <m>(\nabla w)_n = n^3 = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
-                By Theorem <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
-                </p>
-            </proof>
-        </theorem>
-        
-        <theorem xml:id="thm-sum-of-geometric">
-            <title>Sum of a Geometric Sequence</title>
-            <statement>
-                <me> \sum_{k=0}^{n} b^k = \frac{b^{n+1}-1}{b-1} </me>
-            </statement>
-            <proof>
-                <p>
-                The accumulation sequence of interest is <m>\displaystyle u_n = \sum_{k=0}^{n} b^k</m>
-                so that increment sequence <m>x</m> is defined by <m>x_k=b^k</m>.
-                The proposed explicit sequence is <m>w_n = \frac{b^{n+1}-1}{b-1}</m>.
-                Because the summation lower index is 0, the sequence <m>u</m> has a non-zero initial value
-                <m>u_0 = b^0 = 1</m>. The initial value of <m>w</m> is given by
-                <me> w_0 = \frac{b^{1}-1}{b-1} = 1,</me>
-                which matches the initial value of <m>u</m>.
-                The increment for <m>w</m> is given by:
-                <md>
-                    <mrow> (\nabla w)_n &amp;= w_{n}-w_{n-1} = \frac{b^{n+1}-1}{b-1} - \frac{b^{n}-1}{b-1} </mrow>
-                    <mrow> &amp;= \frac{1}{b-1}\big( (b^{n+1}-1) - (b^n-1) \big) </mrow>
-                    <mrow> &amp;= \frac{b^{n+1}-b^n}{b-1} = \frac{b^n(b-1)}{b-1} = b^n </mrow>
-                </md>
-                Since <m>(\nabla w)_n = b^n = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
-                By Theorem <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
-                </p>
-            </proof>
-        </theorem>
-        
-        <example>
-            <statement>
-                <p>
-                Find the sum of the integers <m>1, 2, \ldots, 100</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                Start by recognizing this as the accumulation of the sequence
-                <m>x=(k : k=1, 2, 3, \ldots)</m> over a range <m>1 \le k \le 100</m>.
-                This allows us to rewrite our problem as a summation:
-                <me> \sum_{k=1}^{100} k. </me>
-                Theorem <xref ref="thm-sum-of-integers"/> applies directly with <m>n=100</m>,
-                so we know
-                <me> \sum_{k=1}^{100} k = \frac{100(101)}{2} = 5050. </me>
-                </p>
-            </solution>
-        </example>
-        
-        <example>
-            <statement>
-                <p>
-                Find the sum of the integers <m>100, 101, \ldots, 200</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                This example is a little more complex than the previous one because
-                we do not start at <m>k=1</m>. Instead, we are summing the sequence
-                <m>x = (k : k=1,2,3,\ldots)</m> over a range <m>100 \le k \le 200</m>,
-                corresponding to a summation
-                <me> \sum_{k=100}^{200} k. </me>
-                Using Corollary <xref ref="cor-summation-reduce"/>, we can write the
-                summation in question as a difference
-                <me> \sum_{k=100}^{200} k = \sum_{k=1}^{200} k - \sum_{k=1}^{99}, </me>
-                since we don't want to include the range <m>1 \le k \le 99</m>.
-                Each of the summations can be computed using Theorem <xref ref="thm-sum-of-integers"/>:
-                <md>
-                    <mrow> \sum_{k=1}^{200} k = \frac{200(201)}{2} = 20100, </mrow>
-                    <mrow> \sum_{k=1}^{99} k = \frac{99(100)}{2} = 4950, </mrow>
-                </md>
-                so that the desired sum is 
-                <me> \sum_{k=100}^{200} k = 20100 - 4950 = 15150. </me>
-                </p>
-            </solution>
-        </example>
-    </subsection>
+  <subsection>
+    <title>Overview</title>
     
-    <subsection>
-        <title>Summations of Combinations</title>
-        
+    <p>
+      Accumulation sequences are closely related to summations.
+      An accumulation sequence is the creation of one sequence formed by adding one value at a time.
+      A summation represents the sum of a collection of values.
+      It is natural, therefore, that we can connect these two ideas.
+    </p>
+    
+    <p>
+      This section introduces summations and applies accumulation sequences to compute these sums.
+      A special notation for summation, sometimes called sigma notation, is explained.
+      We also learn about properties of summation.
+      The terms in the summation can be represented as a sequence.
+      If we define an accumulation sequence with increments by the summation sequence,
+      then the value of the summation will be computed as the change in the accumulation sequence.
+      This will give us methods for computing summations of many explicit sequences.
+    </p>
+  </subsection>
+  
+  <subsection>
+    <title>Summation of as Accumulated Change</title>
+    
+    <p>
+      In mathematics, the idea of adding terms from a sequence appears so frequently that a special notation, 
+      called summation notation or sigma notation for the Greek letter sigma <m>\Sigma</m>, 
+      was created to represent the sum.
+    </p>
+    
+    <definition xml:id="defn-summation-notation">
+      <title>Summation Notation</title>
+      <statement>
         <p>
-        With the accumulation of elementary sequences established and theorems regarding
-        combinations of sequences proved, we are ready to apply our summation formulas
-        for more complex summations that involve linear combinations of elementary sequences.
-        Recall that a linear combination of sequences is the sum of constant multiples of
-        those other sequences. Only sums behave well with summation. If a summation involves
-        a product or quotient (or other complex function) of elementary sequences, then
-        the strategy described here does not apply.
+          Given any sequence <m>x</m> and integers <m>m \le n</m>, 
+          the sum of terms <m>x_k</m> with index <m>k</m> satisfying <m>m \le k \le n</m> 
+          is written <me> \sum_{k=m}^{n} x_k = x_{m} + x_{m+1} + \cdots + x_n. </me> 
+          The starting index <m>m</m> is called the <term>lower limit</term> of the sum 
+          while the ending index <m>n</m> is called the <term>upper limit</term>.
         </p>
-        
+      </statement>
+    </definition>
+    
+    <p>
+      The sequence of terms being added is often given as an explicit function of the index.
+      In that case, the explicit formula is used in place of the sequence name in the summation.
+    </p>
+    
+    <example>
+      <statement>
         <p>
-        The basic idea introduced here is to apply the linearity property of summations
-        stated in Theorem <xref ref="thm-summation-linearity"/>. The sums will split into
-        separate summations and the constant multiples factor out of the individual sums.
-        We will then apply our known summation formulas for the remaining summations
-        to find our desired explicit formula.
+          Evaluate the following sums. 
+          <ol>
+            <li> <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> </li>
+            <li> <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> </li>
+          </ol>
         </p>
-        
-        <example>
-            <statement>
-                <p>
-                Find <m>\displaystyle \sum_{k=1}^{20} (500+60k-2k^2)</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                Linearity consists of the sum rule (use the summation each term in the sum)
-                and the constant multiple rule (constant multiples factor out of a sum).
-                Although linearity allows the two steps to be done at once, the following
-                illustrates the steps in order:
-                <md>
-                    <mrow> \sum_{k=1}^{20} [500+60k-2k^2] &amp;= \sum_{k=1}^{20} [500] + \sum_{k=1}^{20} [60k] + \sum_{k=1}^{20} [-2k^2] </mrow>
-                    <mrow> &amp;= \sum_{k=1}^{20} [500] + 60 \sum_{k=1}^{20} [k] -2 \sum_{k=1}^{20} [k^2]. </mrow>
-                </md>
-                The brackets emphasize that the increments of a summation are given by a particular value or formula.
-                Each of these summations involve elementary increment sequences for which we have explicit formulas.
-                <md>
-                    <mrow> \sum_{k=1}^{20} [500] = 500(20) = 10000, </mrow>
-                    <mrow> \sum_{k=1}^{20} [k] = \frac{20(21)}{2} = 210, </mrow>
-                    <mrow> \sum_{k=1}^{20} [k^2] = \frac{20(21)(41)}{6} = 2870. </mrow>
-                </md>
-                Consequently, 
-                <me> \sum_{k=1}^{20} [500+60k-2k^2] = 10000 + 60(210) - 2(2870) = 16860. </me>
-                </p>
-            </solution>
-        </example>
-        
+      </statement>
+      <solution>
+        <ol>
+          <li> 
+            <p>
+              The sum <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> 
+              involves the increment sequence <m>a_k=2k+3</m> 
+              and is the sum of terms with index from 3 to 7: 
+              <me> a_3 = 2(3)+3 = 9, \: a_4 = 2(4)+3 = 11, \: a_5 = 13, \: a_6=15, \: a_7 = 17. </me> 
+              Consequently, we can find the sum <me> \sum_{k=3}^{7} [2k+3] = 9+11+13+15+17 = 65. </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              The sum <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> 
+              involves an increment sequence <m>\displaystyle b_k=\frac{1}{k^2+k}</m>. 
+              The index values involved go from 1 to 4 so that we find 
+              <md>
+                <mrow> \sum_{k=1}^{4} \frac{1}{k^2+k} &amp;= 
+                \frac{1}{1^1+1} + \frac{1}{2^2+2} + \frac{1}{3^2+3} + \frac{1}{4^2+4} </mrow>
+                <mrow> &amp;= \frac{1}{2} + \frac{1}{6} + \frac{1}{12} + \frac{1}{20} </mrow>
+                <mrow> &amp;= \frac{30}{60} + \frac{10}{60} + \frac{5}{60} + \frac{3}{60} </mrow>
+                <mrow> &amp;= \frac{48}{60} = \frac{4}{5}. </mrow>
+              </md>
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </example>
+    
+    <p>
+      An accumulation sequence is closely related to summation.
+      The accumulation is a new sequence formed by adding one value at a time.
+      A summation represents the sum of all of the terms indicated.
+      So if we form a sequence adding the values one at a time, 
+      then once all of the terms have been added, the accumulation sequence will exactly match the summation.
+    </p>
+    
+    <p>
+      Using summation notation, if we have an increment sequence <m>x</m> 
+      then the accumulation sequence <m>s</m> with <m>\nabla s_n = x_n</m> 
+      and initial value <m>s_0 = c</m> can be written 
+      <me> s_n = c + \sum_{k=1}^{n} x_k. </me> 
+      Notice that, in this equation, 
+      the index <m>n</m> of the accumulation sequence <m>s</m> appears as the upper limit of the summation. 
+      The summation itself introduces another index variable <m>k</m> 
+      that is used for the terms of the sum. 
+      The index variable is also called a <term>dummy variable</term> of summation 
+      because any other index variable could be used: 
+      <me> s_n = c + \sum_{i=1}^{n} x_i = c + \sum_{j=1}^{n} x_j. </me>
+    </p>
+    
+    <example>
+      <statement>
         <p>
-        The same strategy still applies if the constant multiple coefficients are written using parameters
-        or even using variables other than the dummy index variable of summation. In particular,
-        when the upper limit of the summation is a variable, the formula for the sequence
-        might also involve that variable as well as the index variable. Because this will
-        be encountered frequently, an example is provided below.
+          Find the first five terms of the accumulation sequence <m>z</m> 
+          with increment sequence <m>a = (3, 5, 7, 9, 11, 13, \ldots)</m> 
+          with initial value <m>4</m>.
         </p>
-        
-        <example>
-            <statement>
-                <p>
-                Find a formula for <m>\displaystyle \sum_{k=1}^{n} \left( \frac{3k}{n^2} - \frac{k^2}{n^3} \right)</m>
-                that involves only <m>n</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                The sequence of increments is <m>\displaystyle x_k = \frac{3k}{n^2} - \frac{k^2}{n^3}</m>.
-                We recognize this as a linear combination of the more elementary sequences <m>k</m> and <m>k^2</m>
-                if we rewrite the sequence
-                <me> x_k = \frac{3}{n^2} \cdot k + \frac{-1}{n^3} \cdot k^2. </me>
-                Because the coefficients of this linear combination only involve <m>n</m>
-                and not the dummy variable of the summation,
-                we can rewrite the summation as a corresponding linear combination
-                and then apply the elementary summation formulas to find our desired formula.
-                <md>
-                    <mrow> \sum_{k=1}^{n} \left( \frac{3k}{n^2} - \frac{k^2}{n^3}\right) &amp;= \frac{3}{n^2} \sum_{k=1}^{n} [k] - \frac{1}{n^3} \sum_{k=1}^{n}[k^2] </mrow>
-                    <mrow> &amp;= \frac{3}{n^2} \cdot \frac{n(n+1)}{2} - \frac{1}{n^3} \cdot \frac{n(n+1)(2n+1)}{6} </mrow>
-                    <mrow> &amp;= \frac{3n(n+1)}{2n^2} - \frac{n(n+1)(2n+1)}{6n^3}. </mrow>
-                </md>
-                </p>
-            </solution>
-        </example>
-    </subsection>
+      </statement>
+      <solution>
+        <p>
+          The sequence <m>z</m> has initial value <m>4</m> which corresponds to index 0, <me> z_0 = 4. </me> 
+          For index values <m>n \gt 0</m>, the sequence is computed with an accumulation of values 
+          from the sequence <m>a</m>. 
+          <md>
+            <mrow> z_1 &amp;= 4 + \sum_{k=1}^{1} a_k = 4 + 3 = 7 </mrow>
+            <mrow> z_2 &amp;= 4 + \sum_{k=1}^{2} a_k = 4 + 3 + 5 = 12 </mrow>
+            <mrow> z_3 &amp;= 4 + \sum_{k=1}^{3} a_k = 4 + 3 + 5 + 7 = 19 </mrow>
+            <mrow> z_4 &amp;= 4 + \sum_{k=1}^{4} a_k = 4 + 3 + 5 + 7 + 9 = 28 </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+      Notice that when an accumulation sequence is written as a summation, we have
+      <me>s_n = s_0 + \sum_{k=1}^{n} x_k.</me>
+      Reorganizing terms, we can instead write the sum as a change in the accumulation sequence,
+      <me>\sum_{k=1}^{n} x_k = s_n - s_0.</me>
+      This observation can be generalized to other index ranges using the splitting property of summation.
+    </p>
+    
+    <p>
+      The splitting property of summation essentially splits a sum into two sums.
+    </p>
+    
+    <theorem xml:id="summation-splitting-property">
+      <title>Summation Splitting Property</title>
+      <statement>
+        <p>
+          For any summation <m>\displaystyle \sum_{i=m}^{n} x_i</m> and intermediate index <m>k</m> with <m>m \lt k \lt n</m>, 
+          we can split the sum at <m>k</m> as
+          <me>\sum_{i=m}^{n} x_i = \sum_{i=m}^{k} x_i + \sum_{i=k+1}^{n} x_i.</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The property is simply a generalization of the associative properties of addition.
+          The basic idea is to group terms,
+          <md>
+            <mrow>\sum_{i=m}^{n} x_i &amp;= x_m + x_{m+1} + \cdots +x_{k} + x_{k+1} + \cdots + x_n</mrow>
+            <mrow>&amp;= \big(x_m + x_{m+1} + \cdots +x_{k}\big) + \big(x_{k+1} + \cdots + x_n\big)</mrow>
+            <mrow>&amp;= \sum_{i=m}^{k} x_i + \sum_{i=k+1}^{n} x_i</mrow>
+          </md>
+        </p>
+      </proof>
+    </theorem>
+    
+    <p>
+      By creating an accumulation sequence using the terms from a summation,
+      we can rewrite the summation as a change in the accumulation sequence.
+    </p>
+    
+    <theorem xml:id="summation-as-accumulated-change">
+      <title>Summation as Accumulated Change</title>
+      <statement>
+        <p>
+          Given any sequence of terms <m>x_k</m> and an accumulation sequence <m>s</m> with <m>\nabla s_k = x_k</m>,
+          <me> \sum_{k=m}^{n} x_k = s_n - s_{m-1}.</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The accumulation sequence can be written
+          <me>s_n = s_0 + \sum_{k=1}^{n} x_k.</me>
+          By the <xref text="title" ref="summation-splitting-property"/>,
+          if we split the sum at index <m>k=m-1</m>, we have
+          <me>s_n = s_0 + \sum_{k=1}^{m-1} x_k+\sum_{k=m}^{n} x_k.</me>
+          However, once we recognize
+          <me>s_{m-1} = s_0 + \sum_{k=1}^{m-1} x_k,</me>
+          we have
+          <me>s_n = s_{m-1} + \sum_{k=m}^{n} x_k</me>.
+          Solving for the summation gives the stated conclusion,
+          <me> \sum_{k=m}^{n} x_k = s_n - s_{m-1}.</me>
+        </p>
+      </proof>
+    </theorem>
+    
+    <p>
+      In this theorem, notice that which accumulation sequence is used does not matter.
+      The initial value is irrelevant.
+      In addition, notice that the accumulated change represented by the sum 
+      is equal to the change from <em>one before</em> the lower limit to the upper limit.
+      This extra index step corresponds to increments matching backward differences.
+      Finally, notice that the difference in accumulations can also be written
+      <me>\sum_{k=m}^{n} x_k = \sum_{k=1}^{n} x_k - \sum_{k=1}^{m-1} x_k.</me>
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          In a <xref text="title" ref="example-accumulation-odd-integers">previous example</xref>, 
+          we showed that the accumulation of odd integers was the sequence of squares.
+          Use this to compute the sum of all odd three digit numbers.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The question is asking us to compute
+          <me>101+103+105+\cdots+997+999</me>.
+          In order to apply summation properties and accumulation sequences,
+          we need the explicit formula for the sequence of terms 
+          as well as the lower limit and upper limit of the sum.
+        </p>
+        <p>
+          We <xref ref="example-odd-integer-formula">earlier showed</xref>
+          that the odd integers have an explicit formula <m>x_k=2k-1</m>, <m>k=1,2,3,\ldots</m>.
+          It was for this sequence that 
+          <xref ref="example-accumulation-odd-integers">we had</xref> 
+          <me> s_n = \sum_{k=1}^{n} 2k-1 = n^2. </me>
+          We now have the sequence of our terms and the corresponding accumulation sequence.
+        </p>
+        <p>
+          To find the limits of summation, we need to find the value of the index <m>k</m>
+          such that <m>x_k=101</m> (lower limit) and <m>x_k=999</m> (upper limit).
+          For the lower limit, we have
+          <md>
+            <mrow>2k-1 = 101</mrow>
+            <mrow>2k=102</mrow>
+            <mrow>k=51</mrow>,
+          </md>
+          and for the upper limit we have
+          <md>
+            <mrow>2k-1 = 999</mrow>
+            <mrow>2k=1000</mrow>
+            <mrow>k=500</mrow>.
+          </md>
+          Consequently, the sum of interest is
+          <me>\sum_{k=51}^{500} 2k-1 = 101 + 103 + 105 + \cdots + 997 + 999.</me>
+        </p>
+        <p>
+          We are finally ready to apply the <xref text="title" ref="summation-as-accumulated-change"/>.
+          The summation is equal to the change in the accumulation sequence from 50 to 500,
+          <md>
+            <mrow>\sum_{k=51}^{500} 2k-1 &amp;= s_{500} - s_{50}</mrow>
+            <mrow> &amp;= 500^2 - 50^2</mrow>
+            <mrow> &amp;= 250000 - 2500</mrow>
+            <mrow> &amp;= 247500.</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  
+  <subsection>
+    <title>Properties of Summation</title>
+    
+    <p>
+      Now that we know that we can write a summation as the change of an accumulation sequence,
+      we have a tool to compute summations once we are able to identify the accumulation.
+      However, it can be tedious to find the accumulation sequence for every problem.
+      We benefit from properties of summation that allow us to use elementary building blocks
+      to compute the summation for a variety of different problems.
+      These properties of summation correspond to the basic properties of addition.
+    </p>
+    
+    <p>
+      Suppose we have a sequence <m>x</m> and a constant <m>\alpha</m>.
+      We can create a new sequence <m>\alpha x</m>, 
+      called a <term>constant multiple</term>, by multiplying
+      every term of <m>x</m> by the same constant <m>\alpha</m>. 
+      Using the constant multiple as an increment sequence, every term
+      will have a common factor of <m>\alpha</m>.
+      This leads to a property of summation called the constant multiple rule<mdash/>constant multiples factor out of summation.
+    </p>
+    
+    <theorem xml:id="thm-summation-constant-multiple-rule">
+      <title>Constant Multiple Rule of Summation</title>
+      <statement>
+        <p>
+          Let <m>x</m> be a sequence and <m>\alpha</m> a constant. Then for
+          any lower and upper limits,
+          <me> \sum_{k=m}^{n} \alpha x_k = \alpha \sum_{k=m}^{n} x_k. </me>
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      The next property considers a sequence that is itself formed by adding
+      two sequences together. Suppose we have two sequences <m>u</m> and <m>w</m>
+      and we form a new sequence <m>u+w</m> with values that are the sum
+      of the corresponding values, <m>(u+w)_n = u_n + w_n</m>.
+      Because addition is both commutative and associative, any sum of a finite
+      number of terms can be regrouped in any convenient way.
+      A summation of terms <m>u+w</m> can therefore be grouped in a way that we
+      add only the terms from <m>u</m> and then add only the terms from <m>v</m>
+      and then add the results. 
+      This leads to a property of summation called the sum rule.
+    </p>
+    
+    <theorem xml:id="thm-summation-sum-rule">
+      <title>Sum Rule of Summation</title>
+      <statement>
+        <p>
+          Let <m>u</m> and <m>w</m> be any two sequences defined for the range <m>k=m,\ldots,n</m>.
+          Then 
+          <me> \sum_{k=m}^{n} [u_k+w_k] = \sum_{k=m}^{n} u_k + \sum_{k=m}^{n} w_k. </me>
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      Using the rules together creates a new rule called linearity involving
+      two sequences <m>x</m> and <m>y</m>.
+      The idea for this rule is that an individual term in the increment sequence
+      is the sum of a constant multiple of each, <m>\alpha x + \beta y</m>.
+      Such a sum is called a <term>linear combination</term> of <m>x</m> and <m>y</m>
+      with coefficients <m>\alpha</m> and <m>\beta</m>. This name results from
+      the general equation of a line being of the form <m>ax + by = c</m>.
+      Linearity applies the sum rule and the constant multiple as if in a single step.
+    </p>
+    
+    <theorem xml:id="thm-summation-linearity">
+      <title>Linearity of Summation</title>
+      <statement>
+        <p>
+          Let <m>x</m> and <m>y</m> be any two sequences with common domain
+          and let <m>\alpha</m> and <m>\beta</m> be any two constants.
+          Then for any lower and upper limits,
+          <me> \sum_{k=m}^{n} [\alpha x_k + \beta y_k] = \alpha \sum_{k=m}^{n} x_k + \beta \sum_{k=m}^{n} y_k. </me>
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      Using <m>\alpha = 1</m> and <m>\beta = -1</m>, the linear combination
+      becomes a difference, <m>\alpha x + \beta y = x - y</m>. 
+      So the difference rule is a special case of linearity.
+    </p>
+    
+    <theorem xml:id="thm-summation-difference-rule">
+      <title>Difference Rule of Summation</title>
+      <statement>
+        <p>
+          Let <m>x</m> and <m>y</m> be any two sequences with common domain.
+          Then for any lower and upper limits,
+          <me> \sum_{k=m}^{n} [x_k-y_k] = \sum_{k=m}^{n} x_k - \sum_{k=m}^{n} y_k. </me>
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      There are no corresponding rules for multiplication or division.
+      This is really no different than emphasizing the importance of multiplying all terms
+      using the distributive property, such as occurs with the FOIL method for multiplying binomials.
+      For example, <m>\displaystyle \sum_{k=1}^{3} [k] = 1+2+3 = 6</m>.
+      The product of the sum gives one result:
+      <me> \sum_{k=1}^{3}[k] \cdot \sum_{k=1}^{3}[k] = (1+2+3) \cdot (1+2+3) = 6 \cdot 6 = 36. </me>
+      But the sum of the products gives a different result:
+      <me> \sum_{k=1}^{3}[k \cdot k] = (1^2+2^2+3^2) = 1+4+9 = 14. </me>
+      In general,
+      <me> \sum_{k=m}^{n} [x_k \cdot y_k] \ne \sum_{k=m}^{n} x_k \cdot \sum_{k=m}^{n} y_k. </me>
+    </p>
+  </subsection>
+  
+  <subsection>
+    <title>Elementary Summation Formulas</title>
+    
+    <p>
+      There are some elementary increment sequences for which we can find
+      an explicit formula for the accumulation sequence.
+      We will state the results and prove them using the 
+      <xref ref="thm-sequence-uniqueness">uniqueness criteria for sequences</xref>.
+      The simplest accumulation sequence, and that used in each of the elementary summation formulas,
+      use an initial value <m>s_0 = 0</m>.
+      Thus, where we normally would have <m>s_n - s_0</m> as the accumulated change, we only have <m>s_n</m>.
+    </p>
+    
+    <theorem xml:id="thm-sum-of-constants">
+      <title>Sum of Constant Sequence</title>
+      <statement>
+        <me> \sum_{k=1}^{n} c = cn </me>
+      </statement>
+      <proof>
+        <p>
+          The accumulation sequence of interest is <me>\displaystyle u_n = \sum_{k=1}^{n} c</me>.
+          The increment sequence <m>x</m> is a sequence of constants, <m>c_k=c</m>.
+          The proposed explicit sequence is <me>w_n = cn</me>.
+          The initial value of <m>u</m> is <m>u_0 = 0</m> which matches the initial value of the explicit sequence <m>w_0 = c(0) = 0</m>.
+          To show that <m>w=u</m>, we need to show that <m>w</m> has the same increments.
+          <me> (\nabla w)_n = w_{n}-w_{n-1} = cn - c(n-1) = cn - cn + c = c</me>
+          Since <m>(\nabla w)_n = c</m> is the same increment as <m>x_k</m>, <m>u</m> and <m>w</m> are the same sequence.
+        </p>
+      </proof>
+    </theorem>
+    
+    <theorem xml:id="thm-sum-of-integers">
+      <title>Sum of Natural Numbers</title>
+      <statement>
+        <me> \sum_{k=1}^{n} k = \frac{n(n+1)}{2} </me>
+      </statement>
+      <proof>
+        <p>
+          The accumulation sequence of interest is <me>\displaystyle u_n = \sum_{k=1}^{n} k</me>.
+          The increment sequence <m>x</m> is defined by <m>x_k=k</m>.
+          The proposed explicit sequence is <me>\displaystyle w_n = \frac{n(n+1)}{2}</me>.
+          The initial values agree:
+          <md>
+            <mrow>u_0 &amp;= 0,</mrow> 
+            <mrow>w_0 &amp;= \frac{0(1)}{2} = 0.</mrow>
+          </md>
+          The increment for <m>w</m> is given by:
+          <md>
+            <mrow> (\nabla w)_n &amp;= w_{n}-w_{n-1} = \frac{n(n+1)}{2} - \frac{(n-1)n}{2} </mrow>
+            <mrow> &amp;= \frac{n}{2}\big( (n+1) - (n-1) \big) = \frac{n}{2} \cdot 2 = n</mrow>
+          </md>
+          Since <m>(\nabla w)_n = n = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
+          By <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
+        </p>
+      </proof>
+    </theorem>
+    
+    <theorem xml:id="thm-sum-of-squares">
+      <title>Sum of Squares</title>
+      <statement>
+        <me> \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6} </me>
+      </statement>
+      <proof>
+        <p>
+          The accumulation sequence of interest is <me>\displaystyle u_n = \sum_{k=1}^{n} k^2</me>
+          so that increment sequence <m>x</m> is defined by <m>x_k=k^2</m>.
+          The proposed explicit sequence is <me>\displaystyle w_n = \frac{n(n+1)(2n+1)}{6}</me>.
+          The initial values agree:
+          <md>
+            <mrow>u_0 &amp;= 0,</mrow> 
+            <mrow>w_0 &amp;= \frac{0(1)(1)}{6} = 0.</mrow>
+          </md>
+          The increment for <m>w</m> is given by:
+          <md>
+            <mrow> (\nabla w)_n &amp;= w_{n}-w_{n-1} </mrow>
+            <mrow> &amp;= \frac{n(n+1)(2n+1)}{6} - \frac{(n-1)n\big(2(n-1)+1\big)}{6} </mrow>
+            <mrow> &amp;= \frac{n}{6}\big( (n+1)(2n+1) - (n-1)(2n-1) \big) </mrow>
+            <mrow> &amp;= \frac{n}{6} \big((2n^2+3n+1) - (2n^2-3n+1)\big) </mrow>
+            <mrow> &amp;= \frac{n}{6}(6n) = n^2 </mrow>
+          </md>
+          Since <m>(\nabla w)_n = n^2 = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
+          By <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
+        </p>
+      </proof>
+    </theorem>
+    
+    <theorem xml:id="thm-sum-of-cubes">
+      <title>Sum of Cubes</title>
+      <statement>
+        <me> \sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4} </me>
+      </statement>
+      <proof>
+        <p>
+          The accumulation sequence of interest is <me>\displaystyle u_n = \sum_{k=1}^{n} k^3</me>
+          so that increment sequence <m>x</m> is defined by <m>x_k=k^3</m>.
+          The proposed explicit sequence is <me>\displaystyle w_n = \frac{n^2(n+1)^2}{4}</me>.
+          The initial values agree:
+          <md>
+            <mrow>u_0 = 0,</mrow> 
+            <mrow>w_0 = \frac{0(1)(1)}{6} = 0.</mrow>
+          </md>
+          The increment for <m>w</m> is given by:
+          <md>
+            <mrow> (\nabla w)_n &amp;= w_{n}-w_{n-1} </mrow>
+            <mrow> &amp;= \frac{n^2(n+1)^2}{4} - \frac{(n-1)^2n^2}{4} </mrow>
+            <mrow> &amp;= \frac{n^2}{4}\big( (n+1)^2 - (n-1)^2 \big) </mrow>
+            <mrow> &amp;= \frac{n^2}{4} \big((n^2+2n+1) - (n^2-2n+1)\big) </mrow>
+            <mrow> &amp;= \frac{n^2}{4}(4n) = n^3 </mrow>
+          </md>
+          Since <m>(\nabla w)_n = n^3 = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
+          By <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
+        </p>
+      </proof>
+    </theorem>
+    
+    <theorem xml:id="thm-sum-of-geometric">
+      <title>Sum of a Geometric Sequence</title>
+      <statement>
+        <me> \sum_{k=0}^{n} b^k = \frac{b^{n+1}-1}{b-1} </me>
+      </statement>
+      <proof>
+        <p>
+          The accumulation sequence of interest is <me>\displaystyle u_n = \sum_{k=0}^{n} b^k</me>
+          so that increment sequence <m>x</m> is defined by <m>x_k=b^k</m>.
+          The proposed explicit sequence is <me>\displaystyle w_n = \frac{b^{n+1}-1}{b-1}</me>.
+          Because the summation lower index is 0, the sequence <m>u</m> has a non-zero initial value
+          <m>u_0 = b^0 = 1</m>. The initial value of <m>w</m> is given by
+          <me> w_0 = \frac{b^{1}-1}{b-1} = 1,</me>
+          which matches the initial value of <m>u</m>.
+          The increment for <m>w</m> is given by:
+          <md>
+            <mrow> (\nabla w)_n &amp;= w_{n}-w_{n-1} = \frac{b^{n+1}-1}{b-1} - \frac{b^{n}-1}{b-1} </mrow>
+            <mrow> &amp;= \frac{1}{b-1}\big( (b^{n+1}-1) - (b^n-1) \big) </mrow>
+            <mrow> &amp;= \frac{b^{n+1}-b^n}{b-1} = \frac{b^n(b-1)}{b-1} = b^n </mrow>
+          </md>
+          Since <m>(\nabla w)_n = b^n = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
+          By <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
+        </p>
+      </proof>
+    </theorem>
+    
+    <p>
+      Our first examples consider sums involving just the elementary terms.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          Find the sum of the integers <m>1, 2, \ldots, 100</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Start by recognizing this as the accumulation of the sequence
+          <m>x=(k : k=1, 2, 3, \ldots)</m> over a range <m>1 \le k \le 100</m>.
+          This allows us to rewrite our problem as a summation:
+          <me> \sum_{k=1}^{100} k. </me>
+          Theorem <xref ref="thm-sum-of-integers"/> applies directly with <m>n=100</m>,
+          so we know
+          <me> \sum_{k=1}^{100} k = \frac{100(101)}{2} = 5050. </me>
+        </p>
+      </solution>
+    </example>
+    
+    <example>
+      <statement>
+        <p>
+          Find the sum of the integers <m>100, 101, \ldots, 200</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This example uses the same basic sequence (the integers) 
+          but instead of starting at <m>k=1</m>, we are summing the sequence
+          <m>x = (k : k=1,2,3,\ldots)</m> over an index range <m>100 \le k \le 200</m>,
+          <me> 100+101+\cdots+200 = \sum_{k=100}^{200} k. </me>
+          Using the <xref text="title" ref="summation-as-accumulated-change"/> theorem,
+          we can write the summation as a difference
+          <me> \sum_{k=100}^{200} k = \sum_{k=1}^{200} k - \sum_{k=1}^{99}. </me>
+          The two summations are accumulations from <xref ref="thm-sum-of-integers"/>:
+          <md>
+            <mrow> \sum_{k=1}^{200} k = \frac{200(201)}{2} = 20100, </mrow>
+            <mrow> \sum_{k=1}^{99} k = \frac{99(100)}{2} = 4950. </mrow>
+          </md>
+          Consequently,
+          <me> \sum_{k=100}^{200} k = 20100 - 4950 = 15150. </me>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  
+  <subsection>
+    <title>Summations of Linear Combinations</title>
+    
+    <p>
+      The elementary summation formulas allow us to compute sums involving only the elementary terms.
+      Combining these formulas using the properties of summation, 
+      namely using the constant multiple rule and the sum rule,
+      we can compute sums of any linear combination of the elementary terms.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          Find <m>\displaystyle \sum_{k=1}^{20} (500+60k-2k^2)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The increments in the sum consist of a constant (<m>500</m>),
+          a constant multiple of the index (<m>60k</m>),
+          and a constant multiple of the square of the index (<m>-2k^2</m>).
+          The <xref ref="thm-summation-linearity">linearity property of summation</xref> 
+          allows us to compute the sum using the elementary formulas.
+          Although linearity allows the two steps to be done at once, the following
+          illustrates the steps (sum and constant multiple rules) in order:
+          <md>
+            <mrow> \sum_{k=1}^{20} [500+60k-2k^2] &amp;= \sum_{k=1}^{20} [500] + \sum_{k=1}^{20} [60k] + \sum_{k=1}^{20} [-2k^2] </mrow>
+            <mrow> &amp;= \sum_{k=1}^{20} [500] + 60 \sum_{k=1}^{20} [k] -2 \sum_{k=1}^{20} [k^2]. </mrow>
+          </md>
+          The brackets emphasize that the increments of a summation are given by a particular value or formula.
+          Each of these summations involve elementary increment sequences for which we have explicit formulas.
+          <md>
+            <mrow> \sum_{k=1}^{20} [500] = 500(20) = 10000, </mrow>
+            <mrow> \sum_{k=1}^{20} [k] = \frac{20(21)}{2} = 210, </mrow>
+            <mrow> \sum_{k=1}^{20} [k^2] = \frac{20(21)(41)}{6} = 2870. </mrow>
+          </md>
+          Consequently, 
+          <me> \sum_{k=1}^{20} [500+60k-2k^2] = 10000 + 60(210) - 2(2870) = 16860. </me>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+      The same strategy still applies if the constant multiple coefficients are written using parameters
+      or even using variables other than the dummy index variable of summation. In particular,
+      when the upper limit of the summation is a variable, the formula for the sequence
+      might also involve that variable as well as the index variable. Because this will
+      be encountered frequently, an example is provided below.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          Find a formula for <m>\displaystyle \sum_{k=1}^{n} \left( \frac{3k}{n^2} - \frac{k^2}{n^3} \right)</m>
+          that involves only <m>n</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The sequence of increments is <m>\displaystyle x_k = \frac{3k}{n^2} - \frac{k^2}{n^3}</m>.
+          We recognize this as a linear combination of the more elementary sequences <m>k</m> and <m>k^2</m>
+          if we rewrite the sequence
+          <me> x_k = \frac{3}{n^2} \cdot k + \frac{-1}{n^3} \cdot k^2. </me>
+          Because the coefficients of this linear combination only involve <m>n</m>
+          and not the dummy variable of the summation <m>k</m>,
+          we can rewrite the summation as a corresponding linear combination
+          and then apply the elementary summation formulas to find our desired formula.
+          <md>
+            <mrow> \sum_{k=1}^{n} \left( \frac{3k}{n^2} - \frac{k^2}{n^3}\right) &amp;= \frac{3}{n^2} \sum_{k=1}^{n} [k] - \frac{1}{n^3} \sum_{k=1}^{n}[k^2] </mrow>
+            <mrow> &amp;= \frac{3}{n^2} \cdot \frac{n(n+1)}{2} - \frac{1}{n^3} \cdot \frac{n(n+1)(2n+1)}{6} </mrow>
+            <mrow> &amp;= \frac{3n(n+1)}{2n^2} - \frac{n(n+1)(2n+1)}{6n^3}. </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+      There are no convenient summation rules for products or quotients, with one exception.
+      If the product can be rewritten as a sum using the distributive property of multiplication,
+      then we can sometimes use linearity after this simplification in terms of elementary formulas.
+      If the increments are not linear combinations of elementary terms,
+      then we have no methods for simplifying the calculation.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          Find a formula for <m>\displaystyle \sum_{k=1}^{n} (2-\frac{3k}{n})(1+\frac{2k}{n})</m>
+          that only involves <m>n</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Use the distributive property (aka FOIL) to rewrite the product as a sum
+          which can be identified as a linear combination of a constant term, <m>k</m>, and <m>k^2</m>:
+          <md>
+            <mrow>(2-\frac{3k}{n})(1+\frac{2k}{n}) &amp;= 2+\frac{4k}{n} - \frac{3k}{n} -\frac{12k^2}{n^2}</mrow>
+            <mrow> &amp;= 2 + \frac{1}{n} \cdot k - \frac{12}{n^2} k^2.</mrow>
+          </md>
+          The <xref ref="thm-summation-linearity">linearity property of summation</xref>
+          allows us to compute the sum as the same linear combination of the elementary accumulations:
+          <md>
+            <mrow>\sum_{k=1}^{n} (2-\frac{3k}{n})(1+\frac{2k}{n}) &amp;= \sum_{k=1}^{n} 2 + \frac{1}{n} \cdot k - \frac{12}{n^2} k^2 </mrow>
+            <mrow> &amp;= \sum_{k=1}^{n} 2 + \frac{1}{n} \sum_{k=1}^{n}\cdot k - \frac{12}{n^2} \sum_{k=1}^{n} k^2 </mrow>
+            <mrow> &amp;= 2n + \frac{1}{n} \cdot \frac{n(n+1)}{2} - \frac{12}{n^2} \frac{n(n+1)(2n+1)}{6} </mrow>
+          </md>
+          To simplify the answer, we need to cancel common factors 
+          and then rewrite the expression with a common denominator.
+          <md>
+            <mrow> \sum_{k=1}^{n} (2-\frac{3k}{n})(1+\frac{2k}{n}) &amp;= 2n + \frac{n+1}{2} - \frac{2(n+1)(2n+1)}{n} </mrow>
+            <mrow> &amp;= \frac{(2n)(2n) + n(n+1)-4(n+1)(2n+1)}{2n} </mrow>
+            <mrow> &amp;= \frac{4n^2 + n^2 + n - 8n^2 -12n -4}{2n} </mrow>
+            <mrow> &amp;= \frac{-3n^2 - 11n -4}{2n} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  
+  <conclusion>
+    <title>Summary</title>
+    
+    <ul>
+      <li>
+        Summation of terms is equivalent to an accumulation of those terms as increments.
+      </li>
+      <li>
+        Summation notation (sigma notation) provides a method to communicate the sequence of increments
+        as well as the range of index values. 
+        The index variable is sometimes called the dummy variable 
+        because any other variable could be used in its place.
+      </li>
+      <li>
+        The <xref text="title" ref="summation-splitting-property"/> allows us
+        to split a summation over an index range into the sum of two summations over adjacent ranges.
+      </li>
+      <li>
+        Every summation can be computed as the accumulated change of the terms as increments.
+        The <xref text="title" ref="summation-as-accumulated-change"/> theorem states
+        that if we know the accumulation sequence <m>u</m> with increments <m>x</m>, then
+        <me>\sum_{k=m}^{n} x_k = u_n - u_{m-1}.</me>
+      </li>
+      <li>
+        <p>
+          The linearity properties of summation (the constant multiple rule and the sum rule)
+          allow us to break summations involving sums into simpler summations over the same index range.
+          <ul>
+            <li> <xref text="title" ref="thm-summation-constant-multiple-rule"/>: <m>\displaystyle \sum_{k=m}^{n} \alpha x_k = \alpha \sum_{k=m}^{n} x_k</m> </li>
+            <li> <xref text="title" ref="thm-summation-sum-rule"/>: <m>\displaystyle \sum_{k=m}^{n} [u_k+w_k] = \sum_{k=m}^{n} u_k + \sum_{k=m}^{n} w_k</m> </li>
+            <li> <xref text="title" ref="thm-summation-linearity"/>: <m>\displaystyle \sum_{k=m}^{n} [\alpha u_k + \beta w_k] = \alpha \sum_{k=m}^{n} u_k +\beta \sum_{k=m}^{n} w_k</m> </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          Elementary accumulation formulas:
+          <ul>
+            <li> <xref text="title" ref="thm-sum-of-constants"/>: <m>\displaystyle \sum_{k=1}^{n} c = cn</m> </li>
+            <li> <xref text="title" ref="thm-sum-of-integers"/>: <m>\displaystyle \sum_{k=1}^{n} k = \frac{n(n+1)}{2}</m> </li>
+            <li> <xref text="title" ref="thm-sum-of-squares"/>: <m>\displaystyle \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}</m> </li>
+            <li> <xref text="title" ref="thm-sum-of-cubes"/>: <m>\displaystyle \sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4}</m> </li>
+            <li> <xref text="title" ref="thm-sum-of-geometric"/>: <m>\displaystyle \sum_{k=0}^{n} b^k = \frac{b^{n+1}-1}{b-1}</m> </li>
+          </ul>
+        </p>
+      </li>
+    </ul>
+  </conclusion>
+  
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          For each of the following summations, write down the sum of individual terms.
+          Then compute the value of the sum.
+          For example, <m>\sum_{k=2}^{5} 2k</m> would be <m>2(2)+2(3)+2(4)+2(5)=4+6+8+10 = 28</m>.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \sum_{k=12}^{15} 3k</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \sum_{k=-2}^{2} 2^k</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \sum_{k=2}^{5} \frac{2k+1}{5k}</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Rewrite the following sums in summation notation. 
+          Find an appropriate formula for the increment sequence 
+          and identify the correct lower and upper limits of the sum.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>15+20+25+30+\cdots+90</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>21+25+29+33+\cdots+61</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\frac{1}{4} + \frac{2}{9} + \frac{3}{16} + \cdots + \frac{12}{169}</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            The sum of all four digit odd numbers.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            The sum of all two-digit squares, <m>16+25+36+49+64+81</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            The sum of all three-digit odd squares.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          The following collection of problems practice applying the properties of summation.
+          Given the following information about the sequence <m>x</m> and <m>y</m>,
+          compute the desired summations.
+          <md>
+            <mrow> x_0 = 8 \qquad \sum_{k=1}^{10} x_k = 42 \qquad \sum_{k=0}^{20} x_k = 30 </mrow>
+            <mrow> y_{19} = 4 \qquad y_{20} = -8 \qquad \sum_{k=0}^{18} y_k = -4 \qquad \sum_{k=11}^{20} y_k = 5 </mrow>
+          </md>
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \sum_{k=0}^{10} 4x_k</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \sum_{k=0}^{20} x_k+y_k</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \sum_{k=11}^{20} 3x_k-2y_k</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Compute the following sums using the summation
+          properties and the elementary summation formulas.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \sum_{k=1}^{20} 3k</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \sum_{k=1}^{30} 4k-100</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \sum_{k=12}^{20} k^2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \sum_{k=1}^{n} (1+3k)(2-5k)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \sum_{k=0}^{6} 3^k</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>3+3^3+3^5+3^7+\cdot+3^{19}</m></p>
+          <p>Hint: Rewrite as a summation that can use the geometric sum.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>The sum of three-digit multiples of 5</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>The sum of three-digit perfect squares</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \sum_{k=1}^{n} \left(\frac{4}{n}-\frac{5k}{n^2}\right)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \sum_{k=1}^{n} \frac{3k^2}{n^3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \sum_{k=1}^{n}
+          \left(2+\frac{3k}{n}\right)^2 \cdot \frac{1}{n}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Use the properties and elementary formulas for summation to
+          find a formula for the summation in order to compute the
+          limit.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{5k}{n^2}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{k^2}{n^3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(2+\frac{3k}{n}\right) \cdot \frac{3}{n}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(1+\frac{2k}{n}\right)^2 \cdot \frac{2}{n}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
 </section>
