@@ -8,194 +8,581 @@
 <!-- See the file COPYING for copying conditions. -->
    
 <section xml:id="calculus-overview">
-    <title>An Overview of Calculus</title>
-    
-    <p>When we studied sequences, we learned that the behavior of the sequence could be described in terms of its increments. (Recall <xref ref='accumulation-sequences'/>.) The following summarizes what we learned about sequences.</p>
-    
-    <assemblage xml:id="asm-seq-behavior-from-increments">
-        <title>Behavior of a Sequence Using Increments</title>
-        <p>Every sequence <m>(x_k)</m> has a corresponding increment sequence, <m>\Delta x_k = x_{k} - x_{k-1}</m>. The dynamic behavior of the sequence <m>x</m> can be described using the attributes of the increments as summarized below. <ul>
-            <li>If the increments are positive on a range, <m>\Delta x_k \gt 0</m> for all <m>k=m,\ldots,n</m>, then the sequence <m>x</m> is increasing on the index range <m>k=m-1,\ldots,n</m>.</li>
-            <li>If the increments are negative on a range, <m>\Delta x_k \lt 0</m> for all <m>k=m,\ldots,n</m>, then the sequence <m>x</m> is decreasing on the index range <m>k=m-1,\ldots,n</m>.</li>
-            <li>If the increments are increasing on a range, <m>\Delta x_k \gt 0</m> for all <m>k=m,\ldots,n</m>, then the sequence <m>x</m> is concave up on the index range <m>k=m-1,\ldots,n</m>.</li>
-            <li>If the increments are decreasing on a range, <m>\Delta x_k \lt 0</m> for all <m>k=m,\ldots,n</m>, then the sequence <m>x</m> is concave down on the index range <m>k=m-1,\ldots,n</m>.</li>
-        </ul></p>
-    </assemblage>
-    <note>
-        <p>The range of index values for the sequence always starts one index earlier than the corresponding range of index values describing the increments because each increment is computed as a backward different. The increment <m>\Delta x_m = x_m - x_{m-1}</m> characterizes the behavior of the sequence <m>x</m> going from index <m>m-1</m> to index <m>m</m>. So a range of index values <m>k=m,\ldots,n</m> for the increments characterizes the change of the sequence <m>x_{m-1}</m> to <m>x_{m}</m>, and ultimately to <m>x_n</m>.</p>
-    </note>
-    
-    <p>We now attempt to use this understanding by way of analogy to describe functions. Functions are more general than sequences, although sequences are a special subcollection of functions. A function is a general rule mapping values in a domain set to a co-domain set. For a sequence, the domain is a collection of integers. More generally, functions might have any valid set as the domain. We will usually be working with functions whose domains are intervals or unions of intervals.</p>
-    
-    <p>When we learned about definite integrals, for a function <m>f</m> that is integrable (which includes all continuous functions), we can define an accumulation function <me>A(x)=\int_{a}^{x} f(z) \, dz.</me> (See <xref ref='accumulation-functions'/>,) The accumulation function measures the accumulated increments of change using <m>f(x)</m> as the rate of change as <m>x</m> goes from <m>x=a</m> to the present value. The Riemann sum approximation reinforces this interpretation, <me> \int_{a}^{x} f(z) \, dz \approx \sum_{k=1}^{n} f(z_k^*) \Delta z </me> where <m>\displaystyle \Delta z = \frac{x-a}{n}</m>, <m>z_k=a+k \Delta z</m> and <m>z_k^*</m> is any value in the subinterval <m>[z_{k-1}, z_k]</m>. The increments <m>f(z_k^*) \Delta z</m> represent the product of a rate <m>f(z_k^*)</m> and an increment of the variable <m>\Delta z</m>.</p>
-    
-    <p>The rate function for an accumulation function is analogous to the increments for a sequence. The features of the rate function informs us about the behavior of the accumulation function <m>A(x)</m>. The rate function <m>f(x)</m> is called the <term>derivative</term> of the accumulation function <m>A(x)</m>, and we write <m>f(x)=A'(x)</m> or <m>\displaystyle f(x)=\frac{dA}{dx}</m>. This statement, known as the Fundamental Theorem of Calculus, serves as the central result of calculus. One of our goals is to understand this result at a level where we know not only what it says but why it is true.</p>
-    
-    <assemblage xml:id="asm-fcn-behavior-from-derivative">
-        <title>Behavior of a Function Using Derivatives</title>
-        <p>Given an accumulation function <m>A(x)</m> that has a derivative <m>A'(x)=f(x)</m> defined on an interval <m>I</m>, then the behavior of <m>A</m> is determined by the behavior of <m>A'=f</m> as given below. <ul>
-            <li>If <m>A'(x) \gt 0</m> for all <m>x \in I</m>, then <m>A(x)</m> is increasing on the interval <m>I</m>.</li>
-            <li>If <m>A'(x) \lt 0</m> for all <m>x \in I</m>, then <m>A(x)</m> is decreasing on the interval <m>I</m>.</li>
-            <li>If <m>A'(x)</m> is increasing on the interval <m>I</m>, then <m>A(x)</m> is concave up on <m>I</m>.</li>
-            <li>If <m>A'(x)</m> is decreasing on the interval <m>I</m>, then <m>A(x)</m> is concave down on <m>I</m>.</li>
-        </ul></p>
-        <p><image>
-            <latex-image-code>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[x=1cm,y=1cm]
-                \draw (0,0) arc (180:90:1cm);
-                \draw (2.5,1) arc (90:0:1cm);
-                \draw (5,1) arc (-180:-90:1cm);
-                \draw (7.5,0) arc (-90:0:1cm);
-                \draw (0.5,0) node [below] {increasing};
-                \draw (3,0) node [below] {decreasing};
-                \draw (5.5,0) node [below] {decreasing};
-                \draw (8,0) node [below] {increasing};
-                \draw (0.5,-0.675) node {concave down};
-                \draw (3,-0.675) node {concave down};
-                \draw (5.5,-0.775) node {concave up};
-                \draw (8,-0.775) node {concave up};
-                \end{tikzpicture}]]>
-            </latex-image-code>
-        </image></p>
-    </assemblage>
-
-    <p>When a function is defined as an accumulation function, identifying the derivative (or rate function) is as easy as identifying the function that appears inside the integral operation. But what about other functions? Do they have derivatives as well? Unfortunately, the answer is not always. We will be studying this question throughout the course as well as learn rules for how to find the derivatives when they exist.</p>
-    
-    <p>Note that because <m>A'(x)=f(x)</m> is also a function, it too might have a derivative, represented by <m>A''(x)=f'(x)</m>. If so, the sign of <m>A''</m> can tell us whether <m>A'</m> is increasing or decreasing, and therefore gives us the concavity of the original function <m>A</m>. Also note that we will later learn some conditions in which we will be able to add the end-points of the intervals. Also, we will not generally use the name <m>A</m> for the function of interest.</p>
-
-    <p>In order to use these results about the behavior of a function in terms of its derivative, we will need to have methods of determining derivatives. For now, we will let a computer assist us. Online tools, such as <url href="http://www.wolframalpha.com">WolframAlpha.com</url> or <url href="https://sagecell.sagemath.org/">SageMathCell</url>, are convenient enough. Because Sage allows more flexibility, some guidance is provided below.</p>
-    
-    <p>Suppose you have a function <m>F(x) = x^3+4x^2</m>. Sage requires that you explicitly indicate multiplication. In order to work with our function, we will save it with a label <c>y</c>. To verify our work, we will have Sage display its results.</p>
-    <sage xml:id='sage-derivs-prelim'>
-        <input>
-        # Anything after # is ignored. We use that for comments.
-        # Define the expression y
-        y = x^3+4*x^2
-        # Display how Sage interpreted our result
-        show(y)
-        </input>
-    </sage>
-    <p>In Sage, once we have a label (a Sage variable), we can apply Sage operations. In this example, we want to find the derivative. We will save this with a new label as well, say <c>dy</c>. So long as you evaluated the above results already, you can evaluate the next step below.</p>
-    <sage xml:id='sage-derivs-diff'>
-        <input>
-        # y should have been defined earlier (above)
-        dy = y.derivative(x)
-        # Have Sage display the result.
-        show(dy)
-        </input>
-    </sage>
-    <p>If your problem involves an independent variable other than <m>x</m>, you need to let Sage know what symbols represent mathematical variables. The following script uses the same function but with <m>t</m> as the independent variable. It also finds <m>f''(t)</m> as the derivative of <m>f'(t)</m>.</p>
-    <sage xml:id='sage-derivs-combined'>
-        <input>
-        # Define the mathematical variables
-        var('t')
-        # Define the function and label with Sage variable
-        y = t^3+4*t^2
-        # Compute the derivatives.
-        dy = y.derivative(t)
-        d2y = dy.derivative(t)
-        # Have Sage display the results.
-        show(y)
-        show(dy)
-        show(d2y)
-        </input>
-    </sage>
-    <p>Knowing formulas for the derivatives allows us to interpret the behavior of the original function. The following example works with the function we just differentiated with Sage.</p>
-    
+  <title>An Overview of Calculus</title>
+  
+  <introduction>
+    <p>
+    The <xref ref="chapter-sequences">previous chapter</xref> studied sequences.
+    There are three major concepts in calculus that we can use sequences to motivate.
+    These are limits, derivatives, and integrals.
+    </p>
+    <p>
+    In this chapter, we will focus on the idea of the definite integral
+    as a generalization of accumulating increments of change.
+    Thinking of sequences in terms of their increments of change is simpler
+    because the domain consists only of integers which are equally spaced.
+    More general functions are defined with domains consisting of intervals of the real numbers.
+    (Some functions can be defined on even more complex sets, which gives rise to even more advanced mathematics.)
+    Consequently, we can not think only in terms of increments of change
+    but in terms of a <term>rate of change</term>.
+    </p>
+  </introduction>
+  
+  <subsection>
+    <title>Limits</title>
+    <p>
+    For sequences, we introduced the idea of limits as the value the sequence was approaching
+    further and further in that sequence.
+    We saw that the decimal approximations of the sequence values would eventually converge
+    to the decimal approximation of the limiting value.
+    The mathematical definition of the limit was stated in terms of the possibility of
+    eventually waiting long enough in the sequence that the sequence values would approximate the limit value
+    within <em>any</em> desired accuracy of approximation.
+    </p>
+    <p>
+    The only limits of interest in sequences were when the index went to infinity.
+    For functions, in order to <xref ref="defn-limit-intuition">understand continuity</xref>, 
+    we have found that we also need to think about limits 
+    as the independent variable approaches a value from either the left or the right.
+    Sequences can give us a way to think about this possibility.
+    </p>
+    <definition xml:id="definition-limit-by-sequences">
+      <title>Limits of Function</title>
+      <statement>
+        <p>
+        For a function <m>f</m> defined on intervals to the left and right of <m>c</m>,
+        we say <me>\lim_{x \to c} f(x) = L</me> to mean that
+        for <em>every</em> independent sequence <m>x</m> such that <m>x_n \ne c</m> and <m>x_n \to c</m>,
+        the dependent sequence <m>y = \left(f(x_n)\right)_{n=n_0}^{\infty}</m> must have the limit <m>L</m>,
+        <me>\lim_{n \to \infty} f(x_n).</me>
+        One-sided limits add constraints to the independent sequences, with <m>x \to c^+</m> requiring <m>x_n \gt c</m>
+        and <m>x \to c^-</m> requiring <m>x_n \lt c</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+    Function limits are properties of the function itself and do not depend on the sequences chosen.
+    If different independent sequences that converge to <m>c</m> result in different limits for the dependent sequence,
+    then the function does not have a limit.
+    The following example illustrates how this new definition relates our earlier concept 
+    of continuity of piecewise functions with the sequence definition of function limits.
+    </p>
     <example>
-        <statement>
-            <p>Given <m>f(t) = t^3+4t^2</m>, describe the behavior of <m>f</m> giving intervals of monotonicity and of concavity.</p>
-        </statement>
-        <solution>
-            <p>Using a computer, we found <m>f'(t) = 3t^2+8t</m> and <m>f''(t)=6t+8</m>. Both of these derivatives are defined for every value of <m>t</m>. So we are looking for intervals on which <m>f'(t)</m> and <m>f''(t)</m> are positive or negative.</p>
-            <p>To address these questions, we will use factoring. The sign of a product can be determined from the signs of factors. When there is an odd number of negative factors, the product is negative. When there is an even number of negative factors (including zero negative factors), the product is positive. Simple factors can change signs where the factor equals zero or is not defined.</p>
-            <p>First, we consider <m>f'(t)=3t^2+8t = t(3t+8)</m>  The factor <m>t</m> changes sign at <m>t=0</m>, is positive when <m>t \gt 0</m> and negative when <m>t \lt 0</m>. The factor <m>3t+8</m> changes sign when <m>3t+8=0</m> or <m>t = - \frac{8}{3}</m>. It is positive when <m>t \gt -\frac{8}{3}</m> and negative when <m>t \lt -\frac{8}{3}</m>. These results can be conveniently summarized with a number line. Below the line, we indicate the values of the independent variable <m>t</m>. Above the line, we indicate the sign of the function under consideration, in this case <m>f'(t)</m> by showing the signs of the factors.</p>
-            <figure>
-                <image>
-                    <latex-image-code>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[x=1cm,y=1cm]
-                    \draw[<->] (-5,0) -- (2,0) node[above right] {$f'(t)=t(3t+8)$} node[below right] {$t$};
-
-                    \draw (-2.667, -0.1) -- (-2.667, 0.1) node[pos=0, below] {$-\frac{8}{3}$} node[pos=1,above] {$0$};
-                    \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
-                    \node [above] at (-3.866,0) {$(-)(-)$};
-                    \node [above] at (-1.16,0) {$(-)(+)$};
-                    \node [above] at (1,0) {$(+)(+)$};
-                    \end{tikzpicture}]]>
-                    </latex-image-code>
-                </image>
-            </figure>
-            <p>Our sign analysis of the factors shows us that <m>f'(t) \gt 0</m> on the intervals <m>(-\infty,-\frac{8}{3})</m> and <m>(0,\infty)</m> and that <m>f'(t) \lt 0</m> on the interval <m>(-\frac{8}{3},0)</m>. We interpret these results as behaviors for the function <m>f(t)=t^3+4t^2</m>. <ul>
-                <li><m>f(t)</m> is increasing for <m>t \lt -\frac{8}{3}</m>, that is, on the interval <m>(-\infty,-\frac{8}{3})</m>.</li>
-                <li><m>f(t)</m> is decreasing for <m>-\frac{8}{3} \lt t \lt 0</m>, that is, on the interval <m>(-\frac{8}{3},0)</m>.</li>
-                <li><m>f(t)</m> is increasing for <m>t \gt 0</m>, that is, on the interval <m>(0,\infty)</m>.</li>
-            </ul></p>
-            <p>The second derivative <m>f''(t)=6t+8=2(3t+4)</m> has only one factor that changes sign at <m>t=-\frac{4}{3}</m>. The sign analysis of <m>f''(t)</m> is summarized by another number line summary.</p>
-            <figure>
-                <image>
-                    <latex-image-code>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[x=1cm,y=1cm]
-                    \draw[<->] (-5,0) -- (2,0) node[above right] {$f''(t)=6t+8$} node[below right] {$t$};
-
-                    \draw (-1.333, -0.1) -- (-1.333, 0.1) node[pos=0, below] {$-\frac{4}{3}$} node[pos=1,above] {$0$};
-                    \node [above] at (-3,0) {$-$};
-                    \node [above] at (1,0) {$+$};
-                    \end{tikzpicture}]]>
-                    </latex-image-code>
-                </image>
-            </figure>
-            <p>We interpret the sign analysis as telling us that <m>f''(t) \gt 0</m> on the interval <m>(-\frac{4}{3},\infty)</m> and <m>f''(t) \lt 0</m> on the interval <m>(-\infty,-\frac{4}{3})</m>. Because <m>f''(t)</m> is the derivative of <m>f'(t)</m>, this implies that <m>f'(t)</m> is increasing on the interval <m>(-\frac{4}{3},\infty)</m> and is decreasing on the interval <m>(-\infty,-\frac{4}{3})</m>. Knowing where <m>f'(t)</m> is increasing and decreasing allows us, in turn, to know where <m>f(t)</m> is concave up and concave down. <ul>
-                <li><m>f(t)</m> is concave down on the interval <m>(-\infty,-\frac{4}{3})</m>.</li>
-                <li><m>f(t)</m> is concave up on the interval <m>(-\frac{4}{3},\infty)</m>.</li>
-            </ul></p>
-            <p>Compare these results to the graph <m>y=f(t)</m>, shown below. Pay particular attention to how the intervals we found above relate to the features of the graph. Look for how the graph is increasing for <m>t \lt -\frac{8}{3}</m>, decreasing for <m>-\frac{8}{3} \lt t \lt 0</m> and increasing for <m>t \gt 0</m>. Notice how the graph is concave down for <m>t \lt -\frac{4}{3}</m> but concave up for <m>t \gt -\frac{4}{3}</m>. Many students mistakenly think that we should have said the graph is concave down on the interval <m>(-\infty,0)</m> (<m>t \lt 0</m>) and concave up on the interval <m>(-\frac{8}{3},\infty)</m> (<m>t \gt -\frac{8}{3}</m>). Why would they say that? What would you say to help them understand why concavity changes at <m>t=-\frac{4}{3}</m>?</p>
-            <figure>
-                <image>
-                    <latex-image-code>
-                    <!-- CDATA to protect xml interpretation -->
-                    <![CDATA[
-                    \tikzset{%
-                    }
-                    \begin{tikzpicture}
-                    \begin{axis} [
-                        xmin=-5, xmax=2, xlabel={$t$}, 
-                        ymin=-10, ymax=20, ylabel={$y$}
-                    ]
-                    \addplot [-, domain=-5:2, samples=100] {x^3+4*x^2};
-                    \legend {$y=t^3+4t^2$};
-                    \addplot [only marks] coordinates {
-                        (-2.667, 9.481) (-1.333, 4.74) (0,0)
-                    } node[pos=0,above] {$t=-\frac{8}{3}$}
-                    node[pos=0.5, above right] {$t=-\frac{4}{3}$}
-                    node[pos=1, below] {$t=0$};
-                    \end{axis}
-                    \end{tikzpicture}
-                    ]]>
-                    </latex-image-code>
-                </image>
-            </figure>
-            
-        </solution>
+      <statement>
+        <p>
+        A function is defined piecewise as
+        <me>f(x) = \begin{cases}
+          x+2, &amp; x\lt 3, \\
+          4x-x^2, &amp; x \gt 3.
+        \end{cases}</me>
+        Find <m>\displaystyle \lim_{x \to 3^-} f(x)</m>, <m>\displaystyle \lim_{x \to 3^+} f(x)</m>,
+        and <m>\displaystyle \lim_{x \to 3} f(x)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        The left-sided limit needs to consider an independent sequence <m>x_n \lt 3</m> with <m>x_n \to 3</m>.
+        The following partial table illustrates an example with <m>x_n = 3 - 10^{-n}</m>.
+        </p>
+        <sidebyside margins="auto">
+          <tabular>
+            <row below="major">
+              <cell><m>n</m></cell>
+              <cell><m>x_n</m></cell>
+              <cell><m>f(x_n)</m></cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>2.9</m></cell>
+              <cell><m>f(2.9)=2.9+2=4.9</m></cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>2.99</m></cell>
+              <cell><m>f(2.99)=2.99+2=4.99</m></cell>
+            </row>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>2.999</m></cell>
+              <cell><m>f(2.999)=2.999+2=4.999</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+        If we compare the values of the dependent sequence <m>f(x_n)</m> 
+        with the value of the formula <m>x+2</m> evaluated at <m>x=3</m>, which is <m>x+2=5</m>,
+        we can see that the dependent sequence is approaching that limit <m>f(x_n) \to 5</m>.
+        We therefore write <me>\lim_{x \to 3^-} f(x) = 5</me>.
+        </p>
+        <p>
+        In a similar way, a right-sided limit requires <m>x_n \gt 3</m> with <m>x_n \to 3</m>,
+        such as the sequence <m>x_n = 3 + 10^{-n}</m>.
+        </p>
+        <sidebyside margins="auto">
+          <tabular>
+            <row below="major">
+              <cell><m>n</m></cell>
+              <cell><m>x_n</m></cell>
+              <cell><m>f(x_n)</m></cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>3.1</m></cell>
+              <cell><m>f(3.1)=4(3.1)-(3.1)^2=2.79</m></cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>3.01</m></cell>
+              <cell><m>f(3.01)=4(3.01)-(3.01)^2=2.9799</m></cell>
+            </row>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>3.001</m></cell>
+              <cell><m>f(3.001)=4(3.001)-(3.001)^2=2.997999</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+        If we compare the values of the dependent sequence <m>f(x_n)</m> 
+        with the value of the formula <m>4x-x^2</m> evaluated at <m>x=3</m>, which is <m>4x-x^2=3</m>,
+        we can see that the dependent sequence is approaching that limit <m>f(x_n) \to 3</m>.
+        We therefore write <me>\lim_{x \to 3^+} f(x) = 3</me>.
+        </p>
+        <p>
+        The two-sided limit requires only <m>x_n \to 3</m>.
+        The sequence values might be either above or below 3.
+        Above, we found that when the independent variable values are on the left <m>x_n \lt 3</m>,
+        we had <m>f(x_n) \to 5</m>.
+        But when <m>x_n \gt 3</m>, we had <m>f(x_n) \to 3</m>.
+        Because different sequences with <m>x_n \to 3</m> result in different limits for <m>f(x_n)</m>,
+        <me>\lim_{x \to 3} f(x) \text{ does not exist}.</me>
+        </p>
+      </solution>
     </example>
     
-    <assemblage xml:id='overview-questions'>
-        <title>Key Questions Still Needing Answers</title>
-        <p>This section introduced a number of things that we will study as the course progresses. It leaves a number of questions unanswered for now.<ul>
-        <li>The derivative was introduced as the rate function in a definite integral. What does the derivative measure?</li>
-        <li>How does one mathematically define a derivative?</li>
-        <li>How does one calculate a derivative?</li>
-        <li>What functions even have a derivative?</li>
-        <li>What is the precise relationship between definite integrals and derivatives (i.e., the fundamental theorem of calculus)?</li>
-        <li>Concavity is defined by where a derivative is increasing or decreasing. What does that really mean?</li>
-        </ul></p>
-    </assemblage>
+    <p>
+    While the previous example attempted to connect our simpler understanding of limits
+    with the limits of sequences, the given solution really only illustrated two 
+    out of infinitely many possible independent sequences.
+    We still need a mechanism that will prove that these two intuitive ideas actually agree.
+    </p>
+  </subsection>
+  
+  <subsection>
+    <title>Derivatives and Integrals</title>
+    
+    <p>
+    For sequences, we learned to think of complementary ideas of accumulation sequences and increments.
+    With a sequence <m>x</m>, we had a forward difference
+    <me>\Delta x_n = x_{n+1} - x_n</me>
+    and a backward difference
+    <me>\nabla x_n = x_n - x_{n-1}</me>.
+    These differences measure the change in the sequence <m>x</m> for consecutive values of the index,
+    which plays the role of the independent variable.
+    </p>
+    <p>
+    For functions defined on intervals, there is no meaning to <em>consecutive</em> values of the independent variable.
+    Near a point of interest <m>x=c</m>, there are infinitely many other values close to <m>c</m>.
+    Consequently, when measuring the change of a function <m>\Delta f</m>, 
+    we must also specify the change in the independent variable <m>\Delta x</m>.
+    Consider two values for the independent variable, say <m>x=a</m> and <m>x=b</m>,
+    and we define <m>\Delta x = b-a</m> and <m>\Delta f = f(b) - f(a)</m>.
+    </p>
+    <p>
+    Different increments <m>\Delta x</m> will usually result in different function increments <m>\Delta f</m>.
+    However, for many functions, the ratio <m>\Delta f / \Delta x</m>, called the <term>average rate of change</term>, has a limit as <m>\Delta x \to 0</m>.
+    This limiting rate of change is called the <term>instantaneous rate of change</term>
+    and in calculus is named the <term>derivative</term>.
+    </p>
+    <definition xml:id="defn-instantaneous-rate-of-change">
+      <title>Instantaneous Rate of Change</title>
+      <p>
+      Given a function <m>f</m> that relates variables <m>x \overset{f}\mapsto y</m>,
+      the <term>instantaneous rate of change</term> of <m>y</m> with respect to <m>x</m>
+      is the <term>derivative</term> <m>\displaystyle \frac{dy}{dx}</m> defined by
+      <me>\frac{dy}{dx} = \lim_{\Delta x \to 0} \frac{\Delta f}{\Delta x} = \lim_{\Delta x \to 0} \frac{f(x+\Delta x) - f(x)}{\Delta x},</me>
+      if the limit exists. Consequently, for sufficiently small increments <m>\Delta x</m>,
+      we have <me>\Delta f \approx \frac{dy}{dx} \cdot \Delta x</me>.
+      </p>
+    </definition>
+    <p>
+    The following example illustrates the role of the instantaneous rate of change 
+    to relate the increments of the independent variable with the increments of the dependent variable.
+    </p>
+    <example>
+      <statement>
+        <p>
+        A ball dropped from a tower has a height <m>h</m> (measured in feet) modeled 
+        as a function of time <m>t</m> (measured in seconds) given by
+        <me>t \overset{f}\mapsto h = 40 - 16t^2.</me>
+        At <m>t=1</m>, the instantaneous rate of change is <m>\displaystyle \frac{dh}{dt} = -32</m>.
+        </p>
+        <p>
+        This rate of change is illustrated in the dynamic figure below.
+        Thinking of <m>t_0=1</m> as one value of the independent variable, 
+        you can adjust the second value <m>t_1</m> to establish the increment <m>\Delta t=t_1-t_0</m>.
+        The function automatically computes <m>f(1)</m> and <m>f(t_1)</m> and shows <m>\Delta h = f(t_1)-f(1)</m>.
+        The ratio <m>\Delta h/\Delta t</m> will be close to 
+        <quantity><mag>-32</mag><unit base="foot"/><per base="second"/></quantity>
+        for small values of <m>\Delta t</m>.
+        </p>
+        <figure margins="auto">
+          <jsxgraph xml:id="jsx-calc-overview-rate-of-change" width="75%" aspect="4:2">
+            <input>
+            <![CDATA[
+            var jcf1 = { 
+              f : function(x) 
+                {
+                  var y=40-16*x*x;
+                  return y;
+                 },
+              input : { name:'t', color:'blue', value:1, delta:0.25, fixed:true, min:0.67, max:1.33 },
+              output : { name:'h', color:'red', min:10, max:35 },
+            };
+            createMapRateOfChange(jcf1, 'jsx-calc-overview-rate-of-change');
+            ]]>
+            </input>
+          </jsxgraph>
+        </figure>
+        <p>
+        We can recover this instantaneous rate of change using limits, as shown in the solution below.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        We know that <m>\Delta t = t_1 - 1</m> and <m>\Delta h = f(t_1)-f(1)</m>.
+        Using the formula, this gives
+        <me>\Delta h = (40-16t_1^2) - (40-16(1)^2) = -16(t_1^2 - 1)</me>.
+        The average rate of change is defined by the quotient
+        <me>\frac{\Delta h}{\Delta t} = \frac{-16(t_1^2-1}{t_1-1}</me>,
+        which has a value for all <m>t_1 \ne 1</m>.
+        </p>
+        <p>
+        The instantaneous rate of change is the limit of the average rate of change
+        as <m>\Delta t \to 0</m>, which in this case requires <m>t_1 \to 1</m>.
+        Even though the quotient is not defined at <m>t_1=1</m>, 
+        we can simplify the formula used on the sides to a formula that is defined.
+        <md>
+          <mrow>\frac{dh}{dt} = \lim_{\Delta t \to 0} \frac{\Delta h}{\Delta t} &amp;= \lim_{t_1 \to 1} \frac{-16(t_1^2-1)}{t_1-1}</mrow>
+          <mrow> &amp;= \lim_{t_1 \to 1} \frac{-16(t_1+1)(t_1-1)}{t_1-1}</mrow>
+          <mrow> &amp;= \lim_{t_1 \to 1} -16(t_1+1)</mrow>
+          <mrow> &amp;= -16(1+1) = -32</mrow>
+        </md>
+        The key step in this limit calculation was changing the limit expression
+        from one in which the formula is not continuous to a new formula.
+        When the formula is continuous, we can just evaluate it at the point of interest.
+        </p>
+      </solution>
+    </example>
+    <p>
+    At this point, our emphasis is understanding that the rate of change or derivative
+    measures the limiting ratio for increments of change in the value of the function 
+    to corresponding increments of change in the independent variable.
+    Not every function has a derivative.
+    We will study the calculation of the derivative in more depth in later chapters.
+    </p>
+    <p>
+    Computing a derivative for a given function is analogous to computing the increments of a sequence.
+    The complementary calculation for sequences is to compute the accumulation sequence for given increments.
+    The calculus analogue is to be given a function that represents a rate of change and 
+    use it to find a new function, the <term>accumulation function</term>, 
+    that has that rate of change as its derivative.
+    </p>
+  </subsection>
+  <p>
+  When we studied sequences, we learned that the behavior of the sequence could be described in terms of its increments.
+  (Recall <xref ref='accumulation-sequences'/>.) The following summarizes what we learned about sequences.
+  </p>
+  
+  <assemblage xml:id="asm-seq-behavior-from-increments">
+    <title>Behavior of a Sequence Using Increments</title>
+    <p>
+    Every sequence <m>(x_k)</m> has a corresponding increment sequence, <m>\Delta x_k = x_{k} - x_{k-1}</m>.
+    The dynamic behavior of the sequence <m>x</m> can be described using the attributes of the increments as summarized below.
+    <ul>
+    <li>If the increments are positive on a range, <m>\Delta x_k \gt 0</m> for all <m>k=m,\ldots,n</m>, then the sequence <m>x</m> is increasing on the index range <m>k=m-1,\ldots,n</m>.</li>
+    <li>If the increments are negative on a range, <m>\Delta x_k \lt 0</m> for all <m>k=m,\ldots,n</m>, then the sequence <m>x</m> is decreasing on the index range <m>k=m-1,\ldots,n</m>.</li>
+    <li>If the increments are increasing on a range, <m>\Delta x_k \gt 0</m> for all <m>k=m,\ldots,n</m>, then the sequence <m>x</m> is concave up on the index range <m>k=m-1,\ldots,n</m>.</li>
+    <li>If the increments are decreasing on a range, <m>\Delta x_k \lt 0</m> for all <m>k=m,\ldots,n</m>, then the sequence <m>x</m> is concave down on the index range <m>k=m-1,\ldots,n</m>.</li>
+    </ul>
+    </p>
+  </assemblage>
+  <note>
+    <p>
+    The range of index values for the sequence always starts one index earlier than the corresponding range of index values describing the increments because each increment is computed as a backward different.
+    The increment <m>\Delta x_m = x_m - x_{m-1}</m> characterizes the behavior of the sequence <m>x</m> going from index <m>m-1</m> to index <m>m</m>.
+    So a range of index values <m>k=m,\ldots,n</m> for the increments characterizes the change of the sequence <m>x_{m-1}</m> to <m>x_{m}</m>, and ultimately to <m>x_n</m>.
+    </p>
+  </note>
+  
+  <p>
+  We now attempt to use this understanding by way of analogy to describe functions.
+  Functions are more general than sequences, although sequences are a special subcollection of functions.
+  A function is a general rule mapping values in a domain set to a co-domain set.
+  For a sequence, the domain is a collection of integers.
+  More generally, functions might have any valid set as the domain.
+  We will usually be working with functions whose domains are intervals or unions of intervals.
+  </p>
+  
+  <p>
+  When we learned about definite integrals, for a function <m>f</m> that is integrable (which includes all continuous functions), we can define an accumulation function <me>A(x)=\int_{a}^{x} f(z) \, dz.</me> (See <xref ref='accumulation-functions'/>,) The accumulation function measures the accumulated increments of change using <m>f(x)</m> as the rate of change as <m>x</m> goes from <m>x=a</m> to the present value.
+  The Riemann sum approximation reinforces this interpretation, <me> \int_{a}^{x} f(z) \, dz \approx \sum_{k=1}^{n} f(z_k^*) \Delta z </me> where <m>\displaystyle \Delta z = \frac{x-a}{n}</m>, <m>z_k=a+k \Delta z</m> and <m>z_k^*</m> is any value in the subinterval <m>[z_{k-1}, z_k]</m>.
+  The increments <m>f(z_k^*) \Delta z</m> represent the product of a rate <m>f(z_k^*)</m> and an increment of the variable <m>\Delta z</m>.
+  </p>
+  
+  <p>
+  The rate function for an accumulation function is analogous to the increments for a sequence.
+  The features of the rate function informs us about the behavior of the accumulation function <m>A(x)</m>.
+  The rate function <m>f(x)</m> is called the <term>derivative</term> of the accumulation function <m>A(x)</m>, and we write <m>f(x)=A'(x)</m> or <m>\displaystyle f(x)=\frac{dA}{dx}</m>.
+  This statement, known as the Fundamental Theorem of Calculus, serves as the central result of calculus.
+  One of our goals is to understand this result at a level where we know not only what it says but why it is true.
+  </p>
+  
+  <assemblage xml:id="asm-fcn-behavior-from-derivative">
+    <title>Behavior of a Function Using Derivatives</title>
+    <p>
+    Given an accumulation function <m>A(x)</m> that has a derivative <m>A'(x)=f(x)</m> defined on an interval <m>I</m>, then the behavior of <m>A</m> is determined by the behavior of <m>A'=f</m> as given below.
+    <ul>
+    <li>If <m>A'(x) \gt 0</m> for all <m>x \in I</m>, then <m>A(x)</m> is increasing on the interval <m>I</m>.</li>
+    <li>If <m>A'(x) \lt 0</m> for all <m>x \in I</m>, then <m>A(x)</m> is decreasing on the interval <m>I</m>.</li>
+    <li>If <m>A'(x)</m> is increasing on the interval <m>I</m>, then <m>A(x)</m> is concave up on <m>I</m>.</li>
+    <li>If <m>A'(x)</m> is decreasing on the interval <m>I</m>, then <m>A(x)</m> is concave down on <m>I</m>.</li>
+    </ul>
+    </p>
+    <p>
+    <image>
+    <latex-image-code>
+    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+    <![CDATA[\tikzset{%
+    }
+    \begin{tikzpicture}[x=1cm,y=1cm]
+    \draw (0,0) arc (180:90:1cm);
+    \draw (2.5,1) arc (90:0:1cm);
+    \draw (5,1) arc (-180:-90:1cm);
+    \draw (7.5,0) arc (-90:0:1cm);
+    \draw (0.5,0) node [below] {increasing};
+    \draw (3,0) node [below] {decreasing};
+    \draw (5.5,0) node [below] {decreasing};
+    \draw (8,0) node [below] {increasing};
+    \draw (0.5,-0.675) node {concave down};
+    \draw (3,-0.675) node {concave down};
+    \draw (5.5,-0.775) node {concave up};
+    \draw (8,-0.775) node {concave up};
+    \end{tikzpicture}]]>
+    </latex-image-code>
+    </image>
+    </p>
+  </assemblage>
+
+  <p>
+  When a function is defined as an accumulation function, identifying the derivative (or rate function) is as easy as identifying the function that appears inside the integral operation.
+  But what about other functions? Do they have derivatives as well? Unfortunately, the answer is not always.
+  We will be studying this question throughout the course as well as learn rules for how to find the derivatives when they exist.
+  </p>
+  
+  <p>
+  Note that because <m>A'(x)=f(x)</m> is also a function, it too might have a derivative, represented by <m>A''(x)=f'(x)</m>.
+  If so, the sign of <m>A''</m> can tell us whether <m>A'</m> is increasing or decreasing, and therefore gives us the concavity of the original function <m>A</m>.
+  Also note that we will later learn some conditions in which we will be able to add the end-points of the intervals.
+  Also, we will not generally use the name <m>A</m> for the function of interest.
+  </p>
+
+  <p>
+  In order to use these results about the behavior of a function in terms of its derivative, we will need to have methods of determining derivatives.
+  For now, we will let a computer assist us.
+  Online tools, such as <url href="http://www.wolframalpha.com">WolframAlpha.com</url> or <url href="https://sagecell.sagemath.org/">SageMathCell</url>, are convenient enough.
+  Because Sage allows more flexibility, some guidance is provided below.
+  </p>
+  
+  <p>
+  Suppose you have a function <m>F(x) = x^3+4x^2</m>.
+  Sage requires that you explicitly indicate multiplication.
+  In order to work with our function, we will save it with a label <c>y</c>.
+  To verify our work, we will have Sage display its results.
+  </p>
+  <sage xml:id='sage-derivs-prelim'>
+    <input>
+    # Anything after # is ignored.
+    We use that for comments.
+    # Define the expression y
+    y = x^3+4*x^2
+    # Display how Sage interpreted our result
+    show(y)
+    </input>
+  </sage>
+  <p>
+  In Sage, once we have a label (a Sage variable), we can apply Sage operations.
+  In this example, we want to find the derivative.
+  We will save this with a new label as well, say <c>dy</c>.
+  So long as you evaluated the above results already, you can evaluate the next step below.
+  </p>
+  <sage xml:id='sage-derivs-diff'>
+    <input>
+    # y should have been defined earlier (above)
+    dy = y.derivative(x)
+    # Have Sage display the result.
+    show(dy)
+    </input>
+  </sage>
+  <p>
+  If your problem involves an independent variable other than <m>x</m>, you need to let Sage know what symbols represent mathematical variables.
+  The following script uses the same function but with <m>t</m> as the independent variable.
+  It also finds <m>f''(t)</m> as the derivative of <m>f'(t)</m>.
+  </p>
+  <sage xml:id='sage-derivs-combined'>
+    <input>
+    # Define the mathematical variables
+    var('t')
+    # Define the function and label with Sage variable
+    y = t^3+4*t^2
+    # Compute the derivatives.
+    dy = y.derivative(t)
+    d2y = dy.derivative(t)
+    # Have Sage display the results.
+    show(y)
+    show(dy)
+    show(d2y)
+    </input>
+  </sage>
+  <p>
+  Knowing formulas for the derivatives allows us to interpret the behavior of the original function.
+  The following example works with the function we just differentiated with Sage.
+  </p>
+  
+  <example>
+    <statement>
+    <p>
+    Given <m>f(t) = t^3+4t^2</m>, describe the behavior of <m>f</m> giving intervals of monotonicity and of concavity.
+    </p>
+    </statement>
+    <solution>
+    <p>
+    Using a computer, we found <m>f'(t) = 3t^2+8t</m> and <m>f''(t)=6t+8</m>.
+    Both of these derivatives are defined for every value of <m>t</m>.
+    So we are looking for intervals on which <m>f'(t)</m> and <m>f''(t)</m> are positive or negative.
+    </p>
+    <p>
+    To address these questions, we will use factoring.
+    The sign of a product can be determined from the signs of factors.
+    When there is an odd number of negative factors, the product is negative.
+    When there is an even number of negative factors (including zero negative factors), the product is positive.
+    Simple factors can change signs where the factor equals zero or is not defined.
+    </p>
+    <p>
+    First, we consider <m>f'(t)=3t^2+8t = t(3t+8)</m>  The factor <m>t</m> changes sign at <m>t=0</m>, is positive when <m>t \gt 0</m> and negative when <m>t \lt 0</m>.
+    The factor <m>3t+8</m> changes sign when <m>3t+8=0</m> or <m>t = - \frac{8}{3}</m>.
+    It is positive when <m>t \gt -\frac{8}{3}</m> and negative when <m>t \lt -\frac{8}{3}</m>.
+    These results can be conveniently summarized with a number line.
+    Below the line, we indicate the values of the independent variable <m>t</m>.
+    Above the line, we indicate the sign of the function under consideration, in this case <m>f'(t)</m> by showing the signs of the factors.
+    </p>
+    <figure>
+    <image>
+    <latex-image-code>
+    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+    <![CDATA[\tikzset{%
+    }
+    \begin{tikzpicture}[x=1cm,y=1cm]
+    \draw[<->] (-5,0) -- (2,0) node[above right] {$f'(t)=t(3t+8)$} node[below right] {$t$};
+
+    \draw (-2.667, -0.1) -- (-2.667, 0.1) node[pos=0, below] {$-\frac{8}{3}$} node[pos=1,above] {$0$};
+    \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
+    \node [above] at (-3.866,0) {$(-)(-)$};
+    \node [above] at (-1.16,0) {$(-)(+)$};
+    \node [above] at (1,0) {$(+)(+)$};
+    \end{tikzpicture}]]>
+    </latex-image-code>
+    </image>
+    </figure>
+    <p>
+    Our sign analysis of the factors shows us that <m>f'(t) \gt 0</m> on the intervals <m>(-\infty,-\frac{8}{3})</m> and <m>(0,\infty)</m> and that <m>f'(t) \lt 0</m> on the interval <m>(-\frac{8}{3},0)</m>.
+    We interpret these results as behaviors for the function <m>f(t)=t^3+4t^2</m>.
+    <ul>
+    <li><m>f(t)</m> is increasing for <m>t \lt -\frac{8}{3}</m>, that is, on the interval <m>(-\infty,-\frac{8}{3})</m>.</li>
+    <li><m>f(t)</m> is decreasing for <m>-\frac{8}{3} \lt t \lt 0</m>, that is, on the interval <m>(-\frac{8}{3},0)</m>.</li>
+    <li><m>f(t)</m> is increasing for <m>t \gt 0</m>, that is, on the interval <m>(0,\infty)</m>.</li>
+    </ul>
+    </p>
+    <p>
+    The second derivative <m>f''(t)=6t+8=2(3t+4)</m> has only one factor that changes sign at <m>t=-\frac{4}{3}</m>.
+    The sign analysis of <m>f''(t)</m> is summarized by another number line summary.
+    </p>
+    <figure>
+    <image>
+    <latex-image-code>
+    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+    <![CDATA[\tikzset{%
+    }
+    \begin{tikzpicture}[x=1cm,y=1cm]
+    \draw[<->] (-5,0) -- (2,0) node[above right] {$f''(t)=6t+8$} node[below right] {$t$};
+
+    \draw (-1.333, -0.1) -- (-1.333, 0.1) node[pos=0, below] {$-\frac{4}{3}$} node[pos=1,above] {$0$};
+    \node [above] at (-3,0) {$-$};
+    \node [above] at (1,0) {$+$};
+    \end{tikzpicture}]]>
+    </latex-image-code>
+    </image>
+    </figure>
+    <p>
+    We interpret the sign analysis as telling us that <m>f''(t) \gt 0</m> on the interval <m>(-\frac{4}{3},\infty)</m> and <m>f''(t) \lt 0</m> on the interval <m>(-\infty,-\frac{4}{3})</m>.
+    Because <m>f''(t)</m> is the derivative of <m>f'(t)</m>, this implies that <m>f'(t)</m> is increasing on the interval <m>(-\frac{4}{3},\infty)</m> and is decreasing on the interval <m>(-\infty,-\frac{4}{3})</m>.
+    Knowing where <m>f'(t)</m> is increasing and decreasing allows us, in turn, to know where <m>f(t)</m> is concave up and concave down.
+    <ul>
+    <li><m>f(t)</m> is concave down on the interval <m>(-\infty,-\frac{4}{3})</m>.</li>
+    <li><m>f(t)</m> is concave up on the interval <m>(-\frac{4}{3},\infty)</m>.</li>
+    </ul>
+    </p>
+    <p>
+    Compare these results to the graph <m>y=f(t)</m>, shown below.
+    Pay particular attention to how the intervals we found above relate to the features of the graph.
+    Look for how the graph is increasing for <m>t \lt -\frac{8}{3}</m>, decreasing for <m>-\frac{8}{3} \lt t \lt 0</m> and increasing for <m>t \gt 0</m>.
+    Notice how the graph is concave down for <m>t \lt -\frac{4}{3}</m> but concave up for <m>t \gt -\frac{4}{3}</m>.
+    Many students mistakenly think that we should have said the graph is concave down on the interval <m>(-\infty,0)</m> (<m>t \lt 0</m>) and concave up on the interval <m>(-\frac{8}{3},\infty)</m> (<m>t \gt -\frac{8}{3}</m>).
+    Why would they say that? What would you say to help them understand why concavity changes at <m>t=-\frac{4}{3}</m>?
+    </p>
+    <figure>
+    <image>
+    <latex-image-code>
+    <!-- CDATA to protect xml interpretation -->
+    <![CDATA[
+    \tikzset{%
+    }
+    \begin{tikzpicture}
+    \begin{axis} [
+    xmin=-5, xmax=2, xlabel={$t$}, 
+    ymin=-10, ymax=20, ylabel={$y$}
+    ]
+    \addplot [-, domain=-5:2, samples=100] {x^3+4*x^2};
+    \legend {$y=t^3+4t^2$};
+    \addplot [only marks] coordinates {
+    (-2.667, 9.481) (-1.333, 4.74) (0,0)
+    } node[pos=0,above] {$t=-\frac{8}{3}$}
+    node[pos=0.5, above right] {$t=-\frac{4}{3}$}
+    node[pos=1, below] {$t=0$};
+    \end{axis}
+    \end{tikzpicture}
+    ]]>
+    </latex-image-code>
+    </image>
+    </figure>
+    
+    </solution>
+  </example>
+  
+  <assemblage xml:id='overview-questions'>
+    <title>Key Questions Still Needing Answers</title>
+    <p>
+    This section introduced a number of things that we will study as the course progresses.
+    It leaves a number of questions unanswered for now.<ul>
+    <li>The derivative was introduced as the rate function in a definite integral.
+    What does the derivative measure?</li>
+    <li>How does one mathematically define a derivative?</li>
+    <li>How does one calculate a derivative?</li>
+    <li>What functions even have a derivative?</li>
+    <li>What is the precise relationship between definite integrals and derivatives (i.e., the fundamental theorem of calculus)?</li>
+    <li>Concavity is defined by where a derivative is increasing or decreasing.
+    What does that really mean?</li>
+    </ul>
+    </p>
+  </assemblage>
 </section>

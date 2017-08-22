@@ -35,7 +35,7 @@ This file a customization file to work with MathBook XML.
     <xsl:if test="$b-has-jsxgraph">
         <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
         <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
-        <script type="text/javascript" src="http://educ.jmu.edu/~waltondb/MA2C/js/MA2C_JSX.js"></script>
+        <script type="text/javascript" src="./js/MA2C_JSX.js"></script>
     </xsl:if>
 </xsl:template>
 
