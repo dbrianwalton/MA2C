@@ -8,828 +8,828 @@
 <!-- See the file COPYING for copying conditions. -->
    
 <section xml:id="sequences-accumulation">
-    <title>Sequences from Accumulation</title>
+  <title>Sequences from Accumulation</title>
 
-    <introduction>
-        <title>Overview</title>
-        
-        <p>
-        One of the most important mathematical ideas in calculus is 
-        that of an accumulation of change for physical quantities. 
-        We start by thinking about change and accumulation of change for sequences.
-        Eventually, this will lead us to the calculus ideas of the derivative and of definite integrals. 
-        </p>
-        <p>
-        In this section, we learn explore sequences through their differences and accumulations.
-        The differences for a sequence defines a new sequence which we call the increments.
-        We introduce the mathematical notation for adding the terms of a sequence using summation notation.
-        We also learn about conditions which determine when a sequence will be 
-        increasing, decreasing, concave up and concave down based on properties of the increments.
-        </p>
-    </introduction>
+  <introduction>
+    <title>Overview</title>
     
-    <subsection>
-        <title>Sequence Differences and Accumulation</title>
-        
-        <p>
-        When we first discussed arithmetic sequences, we learned that they had a constant increment.
-        For example, the sequence <m>x=(1, 4, 7, 10, 13, \ldots)</m> has a constant increment of <m>+3</m>.
-        Sometimes, more complicated sequences can also be understood which have variable increments.
-        </p>
-        
-        <example>
-            <p>
-            Consider <m>x = (5, 7, 11, 17, 25, \ldots)</m>.
-            The increments are not always the same, but we can find a pattern.
-            </p>
-            <sidebyside width="80%">
-                <image>
-                    <latex-image-code>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[x=2cm]
-                    \node (x0) at (0,0) {$x_0=5$};
-                    \node (x1) at (1,0) {$x_1=7$};
-                    \node (x2) at (2,0) {$x_2=11$};
-                    \node (x3) at (3,0) {$x_3=17$};
-                    \node (x4) at (4,0) {$x_4=25$};
-                    \draw [->] (x0) -- (x1) node[pos=0.5,above] {$+2$};
-                    \draw [->] (x1) -- (x2) node[pos=0.5,above] {$+4$};
-                    \draw [->] (x2) -- (x3) node[pos=0.5,above] {$+6$};
-                    \draw [->] (x3) -- (x4) node[pos=0.5,above] {$+8$};
-                    \end{tikzpicture}]]>
-                    </latex-image-code>
-                </image>
-            </sidebyside>
-            <p>
-            The increments form a new sequence, which is the sequence of even numbers.
-            The next value in the sequence , if the pattern continues, will be <m>x_5=x_4+10=35</m>.
-            Our recurrence relation will require a formula involving the index variable.
-            Consider the pattern:
-            <md>
-                <mrow>x_0 &amp;= 5</mrow>
-                <mrow>x_1 &amp; = x_0 + 2 = x_0 + 2(1) </mrow>
-                <mrow>x_2 &amp; = x_1 + 4 = x_1 + 2(2) </mrow>
-                <mrow>x_3 &amp; = x_2 + 6 = x_2 + 2(3) </mrow>
-                <mrow>x_4 &amp; = x_3 + 8 = x_3 + 2(4) </mrow>
-            </md>
-            The pattern can be written 
-            as a backward recurrence <me>x_{n} = x_{n-1} + 2n</me> 
-            or as a forward recurrence <me>x_{n+1} = x_n + 2(n+1).</me>
-            </p>
-        </example>
-        
-        <p>
-        The previous example illustrated how we can use the increments of a sequence to describe that sequence.
-        We introduce some notation to calculate these increments.
-        </p>
-        
-        <definition xml:id="difference-operators">
-            <title>The Backward Difference</title>
-            <statement>
-                <p>
-                Given a sequence <m>x=(x_n)_{n=n_0}^{\infty}</m> with first index <m>n_0</m>,
-                we define the <term>increment sequence</term> or <term>backward difference</term>
-                named <m>\nabla x=(\nabla x_n)_{n=n_0+1}^{\infty}</m> defined by
-                <me>\nabla x_n = x_n - x_{n-1}.</me>
-                We can also define the <term>forward difference</term> <m>\Delta x=(\Delta x_n)_{n=n_0}^{\infty}</m>
-                defined by
-                <me>\Delta x_n = x_{n+1} - x_{n}.</me>
-                </p>
-            </statement>
-        </definition>
-        
-        <p>
-        We will only use the backward difference when discussing increments
-        because it is more natural when we work with summation notation.
-        Analogous ideas and formulas could be stated for the forward difference but will not be needed.
-        </p>
-        
-        <p>
-        For any sequence, we can compute its increments using backward differences.
-        In a reverse manner, if we are told the increments and an initial value, 
-        we can reproduce the original sequence using a backward recurrence,
-        <me>x_n = x_{n-1} + \nabla x_n.</me>
-        We call the resulting sequence the accumulation of the increments.
-        </p>
-        
-        <definition xml:id="defn-accumulation-sequence">
-            <title>Accumulation Sequence</title>
-            <statement>
-                <p>
-                Given a sequence of increments, <m>x=(x_n)_{n=n_0}^{\infty}</m>,
-                we can define the <term>accumulation sequence</term> <m>u</m>
-                using the backward recurrence,
-                <me>u_n = u_{n-1} + x_n, \quad n \ge n_0,</me>
-                and an initial value.
-                </p>
-            </statement>
-        </definition>
-        
-        <p>
-        Notice that the first index of the increments will always be one later 
-        than the first index of the corresponding accumulation.
-        </p>
-        
-        <example>
-            <statement>
-                <p>
-                Find the first six terms of the accumulation sequence named <m>s</m> with
-                increments defined by <m>x=(x_n)_{n=-1}^{\infty} = (-3,0,3,6,9,\ldots)</m>
-                and whose first value is 12.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                Because accumulation uses a backward recurrence, 
-                the first index of <m>s</m> will be <m>n=-2</m>.
-                We can compute the values of the accumulation <m>s</m> by 
-                successively adding the increments.
-                </p>
-                <sidebyside margins="auto">
-                    <tabular>
-                        <row bottom="major">
-                            <cell><m>n</m></cell>
-                            <cell><m>x_n</m></cell>
-                            <cell><m>s_n</m></cell>
-                        </row>
-                        <row>
-                            <cell>-2</cell>
-                            <cell></cell>
-                            <cell>12</cell>
-                        </row>
-                        <row>
-                            <cell>-1</cell>
-                            <cell>-3</cell>
-                            <cell>9</cell>
-                        </row>
-                        <row>
-                            <cell>0</cell>
-                            <cell>0</cell>
-                            <cell>9</cell>
-                        </row>
-                        <row>
-                            <cell>1</cell>
-                            <cell>3</cell>
-                            <cell>12</cell>
-                        </row>
-                        <row>
-                            <cell>2</cell>
-                            <cell>6</cell>
-                            <cell>18</cell>
-                        </row>
-                        <row>
-                            <cell>3</cell>
-                            <cell>9</cell>
-                            <cell>27</cell>
-                        </row>
-                    </tabular>
-                </sidebyside>
-            </solution>
-        </example>
-        
-        <p>
-        Because we can recreate a sequence using its increments and initial value,
-        knowing that information is enough to identify a sequence.
-        In particular, if we have two different ways of describing a sequence and
-        they both have the same initial value and same increments, then they are the same sequence.
-        </p>
-        
-        <theorem xml:id="thm-sequence-uniqueness">
-            <title>Sequences Identified by Increments</title>
-            <statement>
-                <p>
-                Given any two sequences <m>u</m> and <m>w</m>,
-                if <m>u_0=w_0</m> and <m>\nabla u_n = \nabla w_n</m> for all <m>n \gt 0</m>,
-                then <m>u_n = w_n</m> for all <m>n \ge 0</m>.
-                </p>
-            </statement>
-        </theorem>
-        
-        <p>
-        We can use this theorem to show that an accumulation sequence has an explicit formula
-        by showing that the backward differences of that formula describe the increment sequence.
-        </p>
-        
-        <example xml:id="example-odd-integer-formula">
-            <statement>
-                <p>
-                Show that the sequence of odd integers have explicit formula <m>x_n=2n-1</m>, <m>n=1, 2, 3, \ldots</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                We need to verify the initial value and the increments.
-                The first odd integer is 1, which agrees with <m>x_1=2(1)-1 = 1</m>.
-                So our explicit formula has the correct initial value.
-                Next, we verify the increments.
-                Odd integers have increments <m>\nabla x_n = 2</m>, 
-                which we verify using the formula.
-                <md>
-                    <mrow>x_n - x_{n-1} &amp; = \big(2n-1\big) - \big(2(n-1)-1\big)</mrow>
-                    <mrow> &amp;= 2n-1-(2n-3) = 2n-1-2n+3 </mrow>
-                    <mrow> &amp;= 2 </mrow>
-                </md>
-                Since <m>x_n</m> has the correct initial value and correct increments,
-                <m>x_n=2n-1</m> is the explicit formula for the sequence of odd integers, <m>n \ge 1</m>.
-                </p>
-            </solution>
-        </example>
-        
-        <example xml:id="example-accumulation-odd-integers">
-            <statement>
-                <p>
-                Using the sequence of odd integers <m>x_n=2n-1</m>, <m>n \ge 1</m>,
-                as the increments for an accumulation sequence <m>s</m> with <m>s_0=0</m>,
-                show that <m>s_n = n^2</m>.
-                That is, show that the accumulation of the odd integers is the sequence of squared integers.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                We start by seeing if the statement makes sense by checking the first few values.
-                <md>
-                    <mrow> x_1 &amp;= 1 </mrow>
-                    <mrow> x_1 + x_2 &amp;= 1+3 = 4 </mrow>
-                    <mrow> x_1 + x_2 + x_3 &amp;= 1+3+5 = 9 </mrow>
-                </md>
-                The pattern appears to hold for the first few values.
-                </p>
-                <p>
-                The initial value using the explicit formula is <m>s_0 = 0^2 = 0</m>,
-                the same initial value as stated for the accumulation.
-                In order to prove that it will always be true, we need to compare the actual increments.
-                The increment of <m>s</m> is computed as the backward difference,
-                <md>
-                    <mrow> \nabla s_n &amp;= s_{n} - s_{n-1} </mrow>
-                    <mrow> &amp;= n^2 - (n-1)^2 </mrow>
-                    <mrow> &amp;= n^2 - (n^2-2n+1) </mrow>
-                    <mrow> &amp;= 2n-1. </mrow>
-                </md>
-                Because <m>\nabla s_n = x_n</m>, we know that <m>s_n</m> is the accumulation of the odd integers
-                with initial value <m>s_0 = 0</m>.
-                </p>
-            </solution>
-        </example>
-    </subsection>
+    <p>
+    One of the most important mathematical ideas in calculus is 
+    that of an accumulation of change for physical quantities. 
+    We start by thinking about change and accumulation of change for sequences.
+    Eventually, this will lead us to the calculus ideas of the derivative and of definite integrals. 
+    </p>
+    <p>
+    In this section, we learn explore sequences through their differences and accumulations.
+    The differences for a sequence defines a new sequence which we call the increments.
+    We introduce the mathematical notation for adding the terms of a sequence using summation notation.
+    We also learn about conditions which determine when a sequence will be 
+    increasing, decreasing, concave up and concave down based on properties of the increments.
+    </p>
+  </introduction>
+  
+  <subsection>
+    <title>Sequence Differences and Accumulation</title>
     
-    <subsection>
-        <title>Sequence Behavior</title>
-        
+    <p>
+    When we first discussed arithmetic sequences, we learned that they had a constant increment.
+    For example, the sequence <m>x=(1, 4, 7, 10, 13, \ldots)</m> has a constant increment of <m>+3</m>.
+    Sometimes, more complicated sequences can also be understood which have variable increments.
+    </p>
+    
+    <example>
+      <p>
+      Consider <m>x = (5, 7, 11, 17, 25, \ldots)</m>.
+      The increments are not always the same, but we can find a pattern.
+      </p>
+      <sidebyside width="80%">
+        <image>
+          <latex-image-code>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=2cm]
+          \node (x0) at (0,0) {$x_0=5$};
+          \node (x1) at (1,0) {$x_1=7$};
+          \node (x2) at (2,0) {$x_2=11$};
+          \node (x3) at (3,0) {$x_3=17$};
+          \node (x4) at (4,0) {$x_4=25$};
+          \draw [->] (x0) -- (x1) node[pos=0.5,above] {$+2$};
+          \draw [->] (x1) -- (x2) node[pos=0.5,above] {$+4$};
+          \draw [->] (x2) -- (x3) node[pos=0.5,above] {$+6$};
+          \draw [->] (x3) -- (x4) node[pos=0.5,above] {$+8$};
+          \end{tikzpicture}]]>
+          </latex-image-code>
+        </image>
+      </sidebyside>
+      <p>
+      The increments form a new sequence, which is the sequence of even numbers.
+      The next value in the sequence , if the pattern continues, will be <m>x_5=x_4+10=35</m>.
+      Our recurrence relation will require a formula involving the index variable.
+      Consider the pattern:
+      <md>
+        <mrow>x_0 &amp;= 5</mrow>
+        <mrow>x_1 &amp; = x_0 + 2 = x_0 + 2(1) </mrow>
+        <mrow>x_2 &amp; = x_1 + 4 = x_1 + 2(2) </mrow>
+        <mrow>x_3 &amp; = x_2 + 6 = x_2 + 2(3) </mrow>
+        <mrow>x_4 &amp; = x_3 + 8 = x_3 + 2(4) </mrow>
+      </md>
+      The pattern can be written 
+      as a backward recurrence <me>x_{n} = x_{n-1} + 2n</me> 
+      or as a forward recurrence <me>x_{n+1} = x_n + 2(n+1).</me>
+      </p>
+    </example>
+    
+    <p>
+    The previous example illustrated how we can use the increments of a sequence to describe that sequence.
+    We introduce some notation to calculate these increments.
+    </p>
+    
+    <definition xml:id="difference-operators">
+      <title>The Backward Difference</title>
+      <statement>
         <p>
-        Recall that one of the reasons to study sequences was that 
-        they could motivate how we think about functions generally.
-        The behavior of a sequence, both in terms of monotonicity and concavity,
-        can be understood in terms of its increments or differences.
+        Given a sequence <m>x=(x_n)_{n=n_0}^{\infty}</m> with first index <m>n_0</m>,
+        we define the <term>increment sequence</term> or <term>backward difference</term>
+        named <m>\nabla x=(\nabla x_n)_{n=n_0+1}^{\infty}</m> defined by
+        <me>\nabla x_n = x_n - x_{n-1}.</me>
+        We can also define the <term>forward difference</term> <m>\Delta x=(\Delta x_n)_{n=n_0}^{\infty}</m>
+        defined by
+        <me>\Delta x_n = x_{n+1} - x_{n}.</me>
+        </p>
+      </statement>
+    </definition>
+    
+    <p>
+    We will only use the backward difference when discussing increments
+    because it is more natural when we work with summation notation.
+    Analogous ideas and formulas could be stated for the forward difference but will not be needed.
+    </p>
+    
+    <p>
+    For any sequence, we can compute its increments using backward differences.
+    In a reverse manner, if we are told the increments and an initial value, 
+    we can reproduce the original sequence using a backward recurrence,
+    <me>x_n = x_{n-1} + \nabla x_n.</me>
+    We call the resulting sequence the accumulation of the increments.
+    </p>
+    
+    <definition xml:id="defn-accumulation-sequence">
+      <title>Accumulation Sequence</title>
+      <statement>
+        <p>
+        Given a sequence of increments, <m>x=(x_n)_{n=n_0}^{\infty}</m>,
+        we can define the <term>accumulation sequence</term> <m>u</m>
+        using the backward recurrence,
+        <me>u_n = u_{n-1} + x_n, \quad n \ge n_0,</me>
+        and an initial value.
+        </p>
+      </statement>
+    </definition>
+    
+    <p>
+    Notice that the first index of the increments will always be one later 
+    than the first index of the corresponding accumulation.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        Find the first six terms of the accumulation sequence named <m>s</m> with
+        increments defined by <m>x=(x_n)_{n=-1}^{\infty} = (-3,0,3,6,9,\ldots)</m>
+        and whose first value is 12.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Because accumulation uses a backward recurrence, 
+        the first index of <m>s</m> will be <m>n=-2</m>.
+        We can compute the values of the accumulation <m>s</m> by 
+        successively adding the increments.
+        </p>
+        <sidebyside margins="auto">
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>x_n</m></cell>
+              <cell><m>s_n</m></cell>
+            </row>
+            <row>
+              <cell>-2</cell>
+              <cell></cell>
+              <cell>12</cell>
+            </row>
+            <row>
+              <cell>-1</cell>
+              <cell>-3</cell>
+              <cell>9</cell>
+            </row>
+            <row>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>9</cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>3</cell>
+              <cell>12</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>6</cell>
+              <cell>18</cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell>9</cell>
+              <cell>27</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+      </solution>
+    </example>
+    
+    <p>
+    Because we can recreate a sequence using its increments and initial value,
+    knowing that information is enough to identify a sequence.
+    In particular, if we have two different ways of describing a sequence and
+    they both have the same initial value and same increments, then they are the same sequence.
+    </p>
+    
+    <theorem xml:id="thm-sequence-uniqueness">
+      <title>Sequences Identified by Increments</title>
+      <statement>
+        <p>
+        Given any two sequences <m>u</m> and <m>w</m>,
+        if <m>u_0=w_0</m> and <m>\nabla u_n = \nabla w_n</m> for all <m>n \gt 0</m>,
+        then <m>u_n = w_n</m> for all <m>n \ge 0</m>.
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+    We can use this theorem to show that an accumulation sequence has an explicit formula
+    by showing that the backward differences of that formula describe the increment sequence.
+    </p>
+    
+    <example xml:id="example-odd-integer-formula">
+      <statement>
+        <p>
+        Show that the sequence of odd integers have explicit formula <m>x_n=2n-1</m>, <m>n=1, 2, 3, \ldots</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        We need to verify the initial value and the increments.
+        The first odd integer is 1, which agrees with <m>x_1=2(1)-1 = 1</m>.
+        So our explicit formula has the correct initial value.
+        Next, we verify the increments.
+        Odd integers have increments <m>\nabla x_n = 2</m>, 
+        which we verify using the formula.
+        <md>
+          <mrow>x_n - x_{n-1} &amp; = \big(2n-1\big) - \big(2(n-1)-1\big)</mrow>
+          <mrow> &amp;= 2n-1-(2n-3) = 2n-1-2n+3 </mrow>
+          <mrow> &amp;= 2 </mrow>
+        </md>
+        Since <m>x_n</m> has the correct initial value and correct increments,
+        <m>x_n=2n-1</m> is the explicit formula for the sequence of odd integers, <m>n \ge 1</m>.
+        </p>
+      </solution>
+    </example>
+    
+    <example xml:id="example-accumulation-odd-integers">
+      <statement>
+        <p>
+        Using the sequence of odd integers <m>x_n=2n-1</m>, <m>n \ge 1</m>,
+        as the increments for an accumulation sequence <m>s</m> with <m>s_0=0</m>,
+        show that <m>s_n = n^2</m>.
+        That is, show that the accumulation of the odd integers is the sequence of squared integers.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        We start by seeing if the statement makes sense by checking the first few values.
+        <md>
+          <mrow> x_1 &amp;= 1 </mrow>
+          <mrow> x_1 + x_2 &amp;= 1+3 = 4 </mrow>
+          <mrow> x_1 + x_2 + x_3 &amp;= 1+3+5 = 9 </mrow>
+        </md>
+        The pattern appears to hold for the first few values.
         </p>
         <p>
-        First, we look at monotonicity.
-        When an increment sequence has positive values, 
-        the corresponding accumulation sequence will be increasing. 
-        When an increment sequence has negative values, 
-        the accumulation sequence will be decreasing. 
-        We can extend this idea to an entire range of index values. 
-        A sequence is monotone over an index range 
-        if it steadily increases or decreases over the entire range.
+        The initial value using the explicit formula is <m>s_0 = 0^2 = 0</m>,
+        the same initial value as stated for the accumulation.
+        In order to prove that it will always be true, we need to compare the actual increments.
+        The increment of <m>s</m> is computed as the backward difference,
+        <md>
+          <mrow> \nabla s_n &amp;= s_{n} - s_{n-1} </mrow>
+          <mrow> &amp;= n^2 - (n-1)^2 </mrow>
+          <mrow> &amp;= n^2 - (n^2-2n+1) </mrow>
+          <mrow> &amp;= 2n-1. </mrow>
+        </md>
+        Because <m>\nabla s_n = x_n</m>, we know that <m>s_n</m> is the accumulation of the odd integers
+        with initial value <m>s_0 = 0</m>.
         </p>
-        
-        <definition xml:id="defn-sequence-monotonicity">
-            <title>Monotonicity of Sequences</title>
-            <statement>
-                <p>
-                Let <m>u</m> be a sequence and let <m>m</m> and <m>n</m> be valid indexes (integers) 
-                with <m>m \lt n</m>.
-                </p>
-                <p>
-                We say that <m>u</m> is <term>increasing</term> (order preserving) on the index range <m>m,\ldots,n</m> 
-                if for every index values <m>i</m> and <m>j</m> with <m>m \le i \lt j \le n</m>, 
-                we have <m>u_i \lt u_j</m>.
-                </p>
-                <p>
-                We say that <m>u</m> is <term>decreasing</term> (order reversing) on the index range <m>m,\ldots,n</m> 
-                if for every index values <m>i</m> and <m>j</m> with <m>m \le i \lt j \le n</m>, 
-                we have <m>u_i \gt u_j</m>.
-                </p>
-            </statement>
-        </definition>
-        
+      </solution>
+    </example>
+  </subsection>
+  
+  <subsection>
+    <title>Sequence Behavior</title>
+    
+    <p>
+    Recall that one of the reasons to study sequences was that 
+    they could motivate how we think about functions generally.
+    The behavior of a sequence, both in terms of monotonicity and concavity,
+    can be understood in terms of its increments or differences.
+    </p>
+    <p>
+    First, we look at monotonicity.
+    When an increment sequence has positive values, 
+    the corresponding accumulation sequence will be increasing. 
+    When an increment sequence has negative values, 
+    the accumulation sequence will be decreasing. 
+    We can extend this idea to an entire range of index values. 
+    A sequence is monotone over an index range 
+    if it steadily increases or decreases over the entire range.
+    </p>
+    
+    <definition xml:id="defn-sequence-monotonicity">
+      <title>Monotonicity of Sequences</title>
+      <statement>
         <p>
-        The monotonicity of an accumulation sequence is completely determined by the sign of the increment sequence. 
-        Suppose <m>u</m> is an accumulation of the sequence <m>x</m>.
-        Because <m>\nabla u_k = u_k - u_{k-1} = x_k</m>, we know that <m>u_k = u_{k-1} + x_k</m>.
-        If <m>x_k \gt 0</m>, then <m>u_k \gt u_{k-1}</m>; 
-        if <m>x_k \lt 0</m>, then <m>u_k \lt u_{k-1}</m>.
-        This is generalized to an entire range of index values in the following theorem
-        by using the transitive property of inequalities.
+        Let <m>u</m> be a sequence and let <m>m</m> and <m>n</m> be valid indexes (integers) 
+        with <m>m \lt n</m>.
         </p>
-        
-        <theorem xml:id="thm-sequence-monotonicity">
-            <title>Increment Test for Sequence Monotonicity</title>
-            <statement>
-                <p>
-                Suppose a sequence <m>u</m> is an accumulation sequence 
-                for a particular increment sequence <m>x</m> 
-                and <m>m</m> and <m>n</m> are integers with <m>m \lt n</m>
-                </p>
-                <p>
-                The sequence <m>u</m> is increasing on the index range <m>m,\ldots,n</m> 
-                if and only if the sequence <m>\nabla u_k = x_k \gt 0</m> for every <m>k=m+1,\ldots,n</m>.
-                </p>
-                <p>
-                The sequence <m>u</m> is decreasing on the index range <m>m,\ldots,n</m> 
-                if and only if the sequence <m>\nabla u_k = x_k \lt 0</m> for every <m>k=m+1,\ldots,n</m>.
-                </p>
-            </statement>
-        </theorem>
-        
-        <example>
-            <statement>
-                <p>
-                Consider the sequence <m>x</m> defined explicitly <me>x_k = 2k-13, \quad k=1, 2, 3, \ldots,</me> 
-                and the accumulation sequence <m>u</m> defined with <m>x</m> as increments and initial value <m>u_0=10</m>.
-                </p>
-                <p>
-                Determine index ranges on which <m>u</m> is increasing and on which <m>u</m> is decreasing. 
-                Compute enough values of <m>u</m> to demonstrate these results and create a graph.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                Because <m>u</m> is an accumulation of <m>x</m>, 
-                we can determine where <m>u</m> is increasing or decreasing based on the signs of the increments <m>x</m>. 
-                We solve the inequality <m>x_k \gt 0</m> using the explicit formula for <m>x_k</m>. 
-                <md>
-                    <mrow> 2k-13 \gt 0 </mrow>
-                    <mrow> 2k \gt 13 </mrow>
-                    <mrow> k \gt \frac{13}{2} </mrow>
-                </md> 
-                The smallest integer greater than <m>\frac{13}{2}</m> is <m>k=7</m>. 
-                We see that <m>x_k \gt 0</m> for any <m>k \ge 7</m>. 
-                By the same steps, we see that <m>x_k \lt 0</m> for any <m>k \le 6</m>. 
-                </p>
-                <p>
-                By <xref ref="thm-sequence-monotonicity" />, 
-                the accumulation sequence <m>u</m> will be increasing on the range <m>6,\ldots,\infty</m> 
-                and will be decreasing on the range <m>0,\ldots,6</m>. 
-                Notice that the minimum value of the accumulation sequence as at index value <m>n=6</m> 
-                where the transition from decreasing to increasing occurs.
-                We go back one because increments are the backward difference.
-                </p>
-                <p>
-                We will compute sequence values for <m>n \le 12</m>. 
-                First, we compute the values of the increments <m>x</m> using the explicit formula. 
-                Once we have the increments, we start with the initial value <m>u_0=10</m> 
-                and then repeatedly add one increment at a time to find additional values of <m>u</m>. 
-                For conciseness in the table, 
-                we will use the common index variable <m>n</m> for both <m>x</m> and <m>u</m>. 
-                The value <m>x_0</m>, although potentially defined by the explicit formula, 
-                is not used and so is not shown.
-                With the sequence computed, a plot of the sequence is shown.
-                </p>
-                
-                <sidebyside>
-                    <tabular>
-                        <row>
-                            <cell> <m>n</m> </cell> 
-                            <cell> <m>x_n=2n-13</m> </cell> 
-                            <cell> <m>u_n=u_{n-1}+x_n</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 0 </cell> 
-                            <cell> n/a </cell> 
-                            <cell> <m>u_0=10</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 1 </cell> 
-                            <cell> <m>x_{1}=2(1)-13=-11</m> </cell>
-                            <cell> <m>u_{1}=10+-11=-1</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 2 </cell>
-                            <cell> <m>x_{2}=2(2)-13=-9</m> </cell>
-                            <cell> <m>u_{2}=-1+-9=-10</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 3 </cell>
-                            <cell> <m>x_{3}=2(3)-13=-7</m> </cell>
-                            <cell> <m>u_{3}=-10+-7=-17</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 4 </cell>
-                            <cell> <m>x_{4}=2(4)-13=-5</m> </cell>
-                            <cell> <m>u_{4}=-17+-5=-22</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 5 </cell>
-                            <cell> <m>x_{5}=2(5)-13=-3</m> </cell>
-                            <cell> <m>u_{5}=-22+-3=-25</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 6 </cell>
-                            <cell> <m>x_{6}=2(6)-13=-1</m> </cell>
-                            <cell> <m>u_{6}=-25+-1=-26</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 7 </cell>
-                            <cell> <m>x_{7}=2(7)-13=1</m> </cell>
-                            <cell> <m>u_{7}=-26+1=-25</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 8 </cell>
-                            <cell> <m>x_{8}=2(8)-13=3</m> </cell>
-                            <cell> <m>u_{8}=-25+3=-22</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 9 </cell>
-                            <cell> <m>x_{9}=2(9)-13=5</m> </cell>
-                            <cell> <m>u_{9}=-22+5=-17</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 10 </cell>
-                            <cell> <m>x_{10}=2(10)-13=7</m> </cell>
-                            <cell> <m>u_{10}=-17+7=-10</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 11 </cell>
-                            <cell> <m>x_{11}=2(11)-13=9</m> </cell>
-                            <cell> <m>u_{11}=-10+9=-1</m> </cell>
-                        </row>
-                        <row>
-                            <cell> 12 </cell>
-                            <cell> <m>x_{12}=2(12)-13=11</m> </cell>
-                            <cell> <m>u_{12}=-1+11=10</m> </cell>
-                        </row>
-                    </tabular>
-                </sidebyside>
-                <sidebyside>
-                    <image>
-                        <latex-image-code>
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                            \begin{axis}[
-                                xlabel=$n$,
-                                ylabel=$u_n$,
-                                xtick={0,1,...,12}
-                            ]
-                            \addplot[only marks, blue,] coordinates {
-                                (0,10)
-                                (1,-1)
-                                (2,-10)
-                                (3,-17)
-                                (4,-22)
-                                (5,-25)
-                                (6,-26)
-                                (7,-25)
-                                (8,-22)
-                                (9,-17)
-                                (10,-10)
-                                (11,-1)
-                                (12,10)
-                            };
-                            \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                </sidebyside>
-            </solution>
-        </example>
-        
         <p>
-        We now turn our attention to the <term>concavity</term> of the sequence.
-        In the previous example, although the accumulation sequence <m>u</m> was first decreasing and then increasing,
-        the increment sequence <m>x</m> was increasing over all index values. 
-        Indeed, for <m>x_k = 2k-13</m>, we have <m>\nabla x_k = 2 \gt 0</m>.
-        The increments started at a negative value and increased steadily, 
-        originally become less and less negative and eventually becoming positive. 
-        This had the effect of making the graph of the accumulation sequence bend upwards. 
-        In this case, the data actually correspond to an upward-opening parabola. 
+        We say that <m>u</m> is <term>increasing</term> (order preserving) on the index range <m>m,\ldots,n</m> 
+        if for every index values <m>i</m> and <m>j</m> with <m>m \le i \lt j \le n</m>, 
+        we have <m>u_i \lt u_j</m>.
         </p>
-        
         <p>
-        The <xref text="title" ref="concavity-average-rates">definition of concavity</xref> 
-        for functions was that the slope increased over an interval.
-        However, for sequences, the increments are the same as the slopes.
-        Consequently, concavity of a sequence is based on whether the increments are increasing or decreasing.
+        We say that <m>u</m> is <term>decreasing</term> (order reversing) on the index range <m>m,\ldots,n</m> 
+        if for every index values <m>i</m> and <m>j</m> with <m>m \le i \lt j \le n</m>, 
+        we have <m>u_i \gt u_j</m>.
         </p>
-        
-        <definition xml:id="defn-accumulation-sequence-concavity">
-            <title>Concavity of an Accumulation Sequence</title>
-            <statement>
-                <p>
-                Suppose <m>u</m> is a sequence with increments <m>\nabla u_k = x_k</m> 
-                and <m>m</m> and <m>n</m> are index values with <m>m \lt n</m>.
-                </p>
-                <p>
-                We say that <m>u</m> is <term>concave up</term> over the range <m>m,\ldots,n</m> 
-                if the increment sequence <m>x</m> is increasing over the range <m>m,\ldots,n</m>.
-                </p>
-                <p>
-                We say that <m>u</m> is <term>concave down</term> over the range <m>m,\ldots,n</m> 
-                if the increment sequence <m>x</m> is decreasing over the range <m>m,\ldots,n</m>.
-                then 
-                </p>
-            </statement>
-        </definition>
-        
+      </statement>
+    </definition>
+    
+    <p>
+    The monotonicity of an accumulation sequence is completely determined by the sign of the increment sequence. 
+    Suppose <m>u</m> is an accumulation of the sequence <m>x</m>.
+    Because <m>\nabla u_k = u_k - u_{k-1} = x_k</m>, we know that <m>u_k = u_{k-1} + x_k</m>.
+    If <m>x_k \gt 0</m>, then <m>u_k \gt u_{k-1}</m>; 
+    if <m>x_k \lt 0</m>, then <m>u_k \lt u_{k-1}</m>.
+    This is generalized to an entire range of index values in the following theorem
+    by using the transitive property of inequalities.
+    </p>
+    
+    <theorem xml:id="thm-sequence-monotonicity">
+      <title>Increment Test for Sequence Monotonicity</title>
+      <statement>
         <p>
-        Because we can test if the increment sequence is increasing or decreasing by looking at its increments,
-        the concavity of a sequence is determined from the increments of its increments, 
-        which is called the second backward difference.
+        Suppose a sequence <m>u</m> is an accumulation sequence 
+        for a particular increment sequence <m>x</m> 
+        and <m>m</m> and <m>n</m> are integers with <m>m \lt n</m>
+        </p>
+        <p>
+        The sequence <m>u</m> is increasing on the index range <m>m,\ldots,n</m> 
+        if and only if the sequence <m>\nabla u_k = x_k \gt 0</m> for every <m>k=m+1,\ldots,n</m>.
+        </p>
+        <p>
+        The sequence <m>u</m> is decreasing on the index range <m>m,\ldots,n</m> 
+        if and only if the sequence <m>\nabla u_k = x_k \lt 0</m> for every <m>k=m+1,\ldots,n</m>.
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <statement>
+        <p>
+        Consider the sequence <m>x</m> defined explicitly <me>x_k = 2k-13, \quad k=1, 2, 3, \ldots,</me> 
+        and the accumulation sequence <m>u</m> defined with <m>x</m> as increments and initial value <m>u_0=10</m>.
+        </p>
+        <p>
+        Determine index ranges on which <m>u</m> is increasing and on which <m>u</m> is decreasing. 
+        Compute enough values of <m>u</m> to demonstrate these results and create a graph.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Because <m>u</m> is an accumulation of <m>x</m>, 
+        we can determine where <m>u</m> is increasing or decreasing based on the signs of the increments <m>x</m>. 
+        We solve the inequality <m>x_k \gt 0</m> using the explicit formula for <m>x_k</m>. 
+        <md>
+          <mrow> 2k-13 \gt 0 </mrow>
+          <mrow> 2k \gt 13 </mrow>
+          <mrow> k \gt \frac{13}{2} </mrow>
+        </md> 
+        The smallest integer greater than <m>\frac{13}{2}</m> is <m>k=7</m>. 
+        We see that <m>x_k \gt 0</m> for any <m>k \ge 7</m>. 
+        By the same steps, we see that <m>x_k \lt 0</m> for any <m>k \le 6</m>. 
+        </p>
+        <p>
+        By <xref ref="thm-sequence-monotonicity" />, 
+        the accumulation sequence <m>u</m> will be increasing on the range <m>6,\ldots,\infty</m> 
+        and will be decreasing on the range <m>0,\ldots,6</m>. 
+        Notice that the minimum value of the accumulation sequence as at index value <m>n=6</m> 
+        where the transition from decreasing to increasing occurs.
+        We go back one because increments are the backward difference.
+        </p>
+        <p>
+        We will compute sequence values for <m>n \le 12</m>. 
+        First, we compute the values of the increments <m>x</m> using the explicit formula. 
+        Once we have the increments, we start with the initial value <m>u_0=10</m> 
+        and then repeatedly add one increment at a time to find additional values of <m>u</m>. 
+        For conciseness in the table, 
+        we will use the common index variable <m>n</m> for both <m>x</m> and <m>u</m>. 
+        The value <m>x_0</m>, although potentially defined by the explicit formula, 
+        is not used and so is not shown.
+        With the sequence computed, a plot of the sequence is shown.
         </p>
         
-        <definition xml:id="defn-second-backward-difference">
-            <statement>
-                <p>
-                Suppose <m>u</m> is a sequence with increments <m>\nabla u_k = x_k</m>.
-                The <term>second backward difference</term> of <m>u</m>, written <m>\nabla^2u_k</m>,
-                measures the backward difference of the increments,
-                <me>\nabla^2 u_k = \nabla x_k = x_k - x_{k-1}</me>.
-                The first index of <m>\nabla^2 u_k</m> is two greater than the first index of <m>u</m>.
-                (A second forward difference <m>\delta^2 u</m> is defined similarly but will not be used.)
-                </p>
-            </statement>
-        </definition>
-        
-        <theorem xml:id="thm-sequence-concavity">
-            <title>Second Difference Test for Sequence Concavity</title>
-            <statement>
-                <p>
-                Suppose <m>u</m> is a sequence with increments <m>\nabla u_k = x_k</m>.
-                If <m>\nabla^2 u_k \gt 0</m> for all <m>k</m> with <m>m \lt k \lt n</m>,
-                then <m>x</m> is increasing and <m>u</m> is concave up on the index range <m>m-1,\ldots,n</m>.
-                If <m>\nabla^2 u_k \lt 0</m> for all <m>k</m> with <m>m \lt k \lt n</m>,
-                then <m>x</m> is decreasing and <m>u</m> is concave down on the index range <m>m-1,\ldots,n</m>.
-                If <m>\nabla^2 u_k = 0</m> for all <m>k</m> with <m>m \lt k \lt n</m>,
-                then <m>x</m> is constant and <m>u</m> is linear on the index range <m>m-1,\ldots,n</m>.
-                </p>
-            </statement>
-        </theorem>
-        
-        <example>
-            <statement>
-                <p>
-                Determine the monotonicity and concavity of the accumulation sequence <m>u</m> 
-                with increments <m>x_k = k^2 -90k + 1600</m>, <m>k=1,2,3,\ldots</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                For monotonicity, we look at the signs of the increments.
-                We find the zeros <m>k^2-90k+1600 = 0</m> and then test the signs in intervals.
-                The equation is quadratic, so we can use the quadratic formula.
-                <md>
-                    <mrow>k &amp;= \frac{90 \pm \sqrt{(-90)^2 - 4(1)(1600)}}{2}</mrow>
-                    <mrow> &amp;= \frac{90 \pm \sqrt{8100 - 6400}}{2}</mrow>
-                    <mrow> &amp;= \frac{90 \pm \sqrt{8100 - 6400}}{2}</mrow>
-                    <mrow> &amp;= \frac{90}{2} \pm \frac{\sqrt{1700}}{2}</mrow>
-                    <mrow> &amp;= 45 \pm 5\sqrt{17}</mrow>
-                </md>
-                In this case, the exact values are not as useful as the approximate decimal values.
-                <me>k \approx 24.38 \quad \text{or} \quad k \approx 65.62</me>
-                </p>
-                <p>
-                We need to check values in the intervals.
-                <md>
-                    <mrow> x_0 &amp;= 0^2-90(0)+1600 = 1600 </mrow>
-                    <mrow> x_{30} &amp;= (30)^2-90(30)+1600 = -200 </mrow>
-                    <mrow> x_{70} &amp;= (70)^2-90(70)+1600 = 200 </mrow>
-                </md>
-                This shows that <m>x_k \gt 0</m> for <m>k=1,\ldots,24</m>,
-                that <m>x_k \lt 0</m> for <m>k=25,\ldots,65</m>,
-                and that <m>x_k \gt 0</m> for <m>k=66,\ldots</m>.
-                Consequently, the <em>accumulation sequence</em> is 
-                increasing for the range <m>k=0,\ldots,24</m>,
-                decreasing for the range <m>k=24,\ldots,65</m>,
-                and again increasing for the range <m>k=65,\ldots</m>.
-                </p>
-                <p>
-                For concavity, we need to determine where the increment sequence is increasing or decreasing.
-                We compute the backward differences of <m>x_k</m> or second backward differences of <m>u</m>.
-                <md>
-                    <mrow>\nabla^2 u_k = \nabla x_k &amp;=x_k - x_{k-1}</mrow>
-                    <mrow> &amp;=\big(k^2-90k+1600\big) - \big((k-1)^2-90(k-1)+1600\big)</mrow>
-                    <mrow> &amp;=k^2-90k+1600 - \big(k^2-2k+1-90k+90+1600\big)</mrow>
-                    <mrow> &amp;=k^2-90k+1600 - k^2 + 92k+1-1691\big)</mrow>
-                    <mrow> &amp;=2k-91 </mrow>
-                </md>
-                This equals zero if <m>k=45.5</m>.
-                We have <m>\nabla^2 u_k \lt 0</m> for <m>k=2,\ldots,45</m>
-                and <m>\nabla^2 u_k \gt 0</m> for <m>46,\ldots</m>.
-                Thus, <m>x_k</m> is decreasing and the accumulation <m>u_k</m> is concave down
-                on the range <m>k=1,\ldots,45</m>, 
-                and <m>x_k</m> is increasing and the accumulation <m>u_k</m> is concave up
-                on the range <m>k=45,\ldots</m>.
-                </p>
-                <p>
-                A plot of the sequence with initial value <m>u_0=0</m> is shown below.
-                Points within the range where the plot is concave down are colored in blue.
-                Points within the range where the plot is concave up are colored in orange.
-                The index <m>k=45</m> is included in both ranges and is considered the inflection point.
-                </p>
-                <sidebyside margins="auto" width="60%">
-                    <image>
-                        <latex-image-code>
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                            \begin{axis}[
-                                xlabel=$k$,
-                                ylabel=$u_k$,
-                                scaled y ticks=false,
-                            ]
-                            \addplot[samples at={0,1,...,44},only marks, blue, mark size=1pt] 
-                                { x*(x+1)*(2*x+1)/6 - 90*x*(x+1)/2 + 1600*x };
-                            \addplot[samples at={45},only marks, black, mark size=1pt] 
-                                { x*(x+1)*(2*x+1)/6 - 90*x*(x+1)/2 + 1600*x };
-                            \addplot[samples at={46,47,...,90},only marks, orange, mark size=1pt] 
-                                { x*(x+1)*(2*x+1)/6 - 90*x*(x+1)/2 + 1600*x };
-                            \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                </sidebyside>
-            </solution>
-        </example>
-    </subsection>
-    <conclusion>
-        <title>Summary</title>
-        <ul>
-            <li>
-                <p>
-                Every sequence <m>x</m> can be interpreted as an accumulation of increments, 
-                which we measure using backward differences,
-                <me>\nabla x_n = x_n - x_{n-1}</me>.
-                </p>
-            </li>
-            <li>
-                <p>
-                Given a sequence <m>x = (x_n)_{n=1}^{\infty}</m>,
-                we can define a new sequence <m>u</m> called the <term>accumulation sequence</term> of <m>x</m>
-                with a recurrence relation
-                <me>u_{n} = u_{n-1} + x_n</me>
-                and an initial value <m>u_0</m> 
-                so that the increments of <m>u</m> is given by the sequence <m>x</m>, <m>\nabla u_n = x_n</m>.
-                </p>
-            </li>
-            <li>
-                <p>
-                If two sequences share the same initial value and the same increments, 
-                then the sequences are identical. (See <xref ref="thm-sequence-uniqueness"/>.)
-                </p>
-            </li>
-            <li>
-                <p>
-                The <xref text="title" ref="thm-sequence-monotonicity"/> shows 
-                that a sequence is increasing over the range of index values
-                for which the increments are positive
-                and decreasing over the range of index values
-                for which the increments are negative.
-                </p>
-            </li>
-            <li>
-                <p>
-                The <xref text="title" ref="thm-sequence-concavity"/> shows 
-                that a sequence is concave up over the range of index values
-                for which the second backward differences are positive
-                and concave down over the range of index values
-                for which the second backward differences are negative.
-                </p>
-            </li>
-        </ul>
-    </conclusion>
-    <exercises>
-        <exercisegroup>
-            <introduction>
-                <p>
-                Find the first six terms of the indicated accumulation sequence
-                for the given increment sequence.
-                Clearly indicate the relevant index values.
-                </p>
-            </introduction>
-            <exercise>
-                <statement>
-                    <p>
-                    Find <m>u</m> with increments defined by <m>x=(x_k)_{k=2}^\infty = (-4,-2,0,2,4,6,\ldots)</m>
-                    and initial value <m>21</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    Find <m>w</m> with increments defined by <m>y=(y_i)_{i=0}^\infty = (1,-1,1,1,-1,-1,1,1,1,-1,\ldots)</m>
-                    and initial value <m>0</m>.
-                    </p>
-                </statement>
-            </exercise>
-        </exercisegroup>
-        <exercisegroup>
-            <introduction>
-                <p>
-                In the following problems, show that explicit definition and recursive definition
-                define the same sequence. If not, explain why.
-                </p>
-            </introduction>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>x_n = 3n-5</m> for <m>n=-2, -1, 0, \ldots</m> defines the same sequence as
-                    <m>x_n = x_{n-1} + 3</m> with <m>x_{-2} = -11</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>x_n = 2^{n+1}-1</m> for <m>n=0, 1, 2, \ldots</m> defines the same sequence as
-                    <m>x_{n} = x_{n-1} + 2^n</m> with <m>x_{0} = 1</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>x_n = n^2 - n</m> for <m>n=0, 1, 2, \ldots</m> defines the same sequence as
-                    <m>x_{n} = x_{n-1} + n</m> with <m>x_{0} = 0</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>x_n = \frac{1}{2}(3^n-1)</m> for <m>n=0, 1, 2, \ldots</m> defines the same sequence as
-                    <m>x_{n+1} = x_{n} + 3^n</m> with <m>x_{0} = 0</m>.
-                    Note: The recursive formula uses a forward recurrence,
-                    so either compare forward differences or rewrite the recursive equation as a backward recurrence.
-                    </p>
-                </statement>
-            </exercise>
-        </exercisegroup>
-        <exercisegroup>
-            <introduction>
-                <p>
-                Determine the monotonicity and concavity for each sequence,
-                providing the ranges of index values for each behavior.
-                </p>
-            </introduction>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>x_n = 3n-25</m> for <m>n=0,1,\ldots</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>x_n = 300-7n</m> for <m>n=0,1,\ldots</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>x_n = n^2 - 40n + 90</m> for <m>n=0,1,\ldots</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>x_n = 500 + 75 n - n^2</m> for <m>n=0,1,\ldots</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>\nabla x_n = 4n-70</m> for <m>n=1,2,\ldots</m> with <m>x_0 = 20</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>\nabla x_n = 50-3n</m> for <m>n=1,2,\ldots</m> with <m>x_0 = -10</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>\nabla x_n = n^2 - 30n</m> for <m>n=1,2,\ldots</m> with <m>x_0 = 0</m>.
-                    </p>
-                </statement>
-            </exercise>
-            <exercise>
-                <statement>
-                    <p>
-                    <m>\nabla x_n = -100 + 75n - n^2</m> for <m>n=1,2,\ldots</m> with <m>x_0 = 0</m>.
-                    </p>
-                </statement>
-            </exercise>
-        </exercisegroup>
-    </exercises>
+        <sidebyside>
+          <tabular>
+            <row>
+              <cell> <m>n</m> </cell> 
+              <cell> <m>x_n=2n-13</m> </cell> 
+              <cell> <m>u_n=u_{n-1}+x_n</m> </cell>
+            </row>
+            <row>
+              <cell> 0 </cell> 
+              <cell> n/a </cell> 
+              <cell> <m>u_0=10</m> </cell>
+            </row>
+            <row>
+              <cell> 1 </cell> 
+              <cell> <m>x_{1}=2(1)-13=-11</m> </cell>
+              <cell> <m>u_{1}=10+-11=-1</m> </cell>
+            </row>
+            <row>
+              <cell> 2 </cell>
+              <cell> <m>x_{2}=2(2)-13=-9</m> </cell>
+              <cell> <m>u_{2}=-1+-9=-10</m> </cell>
+            </row>
+            <row>
+              <cell> 3 </cell>
+              <cell> <m>x_{3}=2(3)-13=-7</m> </cell>
+              <cell> <m>u_{3}=-10+-7=-17</m> </cell>
+            </row>
+            <row>
+              <cell> 4 </cell>
+              <cell> <m>x_{4}=2(4)-13=-5</m> </cell>
+              <cell> <m>u_{4}=-17+-5=-22</m> </cell>
+            </row>
+            <row>
+              <cell> 5 </cell>
+              <cell> <m>x_{5}=2(5)-13=-3</m> </cell>
+              <cell> <m>u_{5}=-22+-3=-25</m> </cell>
+            </row>
+            <row>
+              <cell> 6 </cell>
+              <cell> <m>x_{6}=2(6)-13=-1</m> </cell>
+              <cell> <m>u_{6}=-25+-1=-26</m> </cell>
+            </row>
+            <row>
+              <cell> 7 </cell>
+              <cell> <m>x_{7}=2(7)-13=1</m> </cell>
+              <cell> <m>u_{7}=-26+1=-25</m> </cell>
+            </row>
+            <row>
+              <cell> 8 </cell>
+              <cell> <m>x_{8}=2(8)-13=3</m> </cell>
+              <cell> <m>u_{8}=-25+3=-22</m> </cell>
+            </row>
+            <row>
+              <cell> 9 </cell>
+              <cell> <m>x_{9}=2(9)-13=5</m> </cell>
+              <cell> <m>u_{9}=-22+5=-17</m> </cell>
+            </row>
+            <row>
+              <cell> 10 </cell>
+              <cell> <m>x_{10}=2(10)-13=7</m> </cell>
+              <cell> <m>u_{10}=-17+7=-10</m> </cell>
+            </row>
+            <row>
+              <cell> 11 </cell>
+              <cell> <m>x_{11}=2(11)-13=9</m> </cell>
+              <cell> <m>u_{11}=-10+9=-1</m> </cell>
+            </row>
+            <row>
+              <cell> 12 </cell>
+              <cell> <m>x_{12}=2(12)-13=11</m> </cell>
+              <cell> <m>u_{12}=-1+11=10</m> </cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <sidebyside>
+          <image>
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xlabel=$n$,
+                ylabel=$u_n$,
+                xtick={0,1,...,12}
+              ]
+              \addplot[only marks, blue,] coordinates {
+                (0,10)
+                (1,-1)
+                (2,-10)
+                (3,-17)
+                (4,-22)
+                (5,-25)
+                (6,-26)
+                (7,-25)
+                (8,-22)
+                (9,-17)
+                (10,-10)
+                (11,-1)
+                (12,10)
+              };
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    
+    <p>
+    We now turn our attention to the <term>concavity</term> of the sequence.
+    In the previous example, although the accumulation sequence <m>u</m> was first decreasing and then increasing,
+    the increment sequence <m>x</m> was increasing over all index values. 
+    Indeed, for <m>x_k = 2k-13</m>, we have <m>\nabla x_k = 2 \gt 0</m>.
+    The increments started at a negative value and increased steadily, 
+    originally become less and less negative and eventually becoming positive. 
+    This had the effect of making the graph of the accumulation sequence bend upwards. 
+    In this case, the data actually correspond to an upward-opening parabola. 
+    </p>
+    
+    <p>
+    The <xref text="title" ref="concavity-average-rates">definition of concavity</xref> 
+    for functions was that the slope increased over an interval.
+    However, for sequences, the increments are the same as the slopes.
+    Consequently, concavity of a sequence is based on whether the increments are increasing or decreasing.
+    </p>
+    
+    <definition xml:id="defn-accumulation-sequence-concavity">
+      <title>Concavity of an Accumulation Sequence</title>
+      <statement>
+        <p>
+        Suppose <m>u</m> is a sequence with increments <m>\nabla u_k = x_k</m> 
+        and <m>m</m> and <m>n</m> are index values with <m>m \lt n</m>.
+        </p>
+        <p>
+        We say that <m>u</m> is <term>concave up</term> over the range <m>m,\ldots,n</m> 
+        if the increment sequence <m>x</m> is increasing over the range <m>m,\ldots,n</m>.
+        </p>
+        <p>
+        We say that <m>u</m> is <term>concave down</term> over the range <m>m,\ldots,n</m> 
+        if the increment sequence <m>x</m> is decreasing over the range <m>m,\ldots,n</m>.
+        then 
+        </p>
+      </statement>
+    </definition>
+    
+    <p>
+    Because we can test if the increment sequence is increasing or decreasing by looking at its increments,
+    the concavity of a sequence is determined from the increments of its increments, 
+    which is called the second backward difference.
+    </p>
+    
+    <definition xml:id="defn-second-backward-difference">
+      <statement>
+        <p>
+        Suppose <m>u</m> is a sequence with increments <m>\nabla u_k = x_k</m>.
+        The <term>second backward difference</term> of <m>u</m>, written <m>\nabla^2u_k</m>,
+        measures the backward difference of the increments,
+        <me>\nabla^2 u_k = \nabla x_k = x_k - x_{k-1}</me>.
+        The first index of <m>\nabla^2 u_k</m> is two greater than the first index of <m>u</m>.
+        (A second forward difference <m>\delta^2 u</m> is defined similarly but will not be used.)
+        </p>
+      </statement>
+    </definition>
+    
+    <theorem xml:id="thm-sequence-concavity">
+      <title>Second Difference Test for Sequence Concavity</title>
+      <statement>
+        <p>
+        Suppose <m>u</m> is a sequence with increments <m>\nabla u_k = x_k</m>.
+        If <m>\nabla^2 u_k \gt 0</m> for all <m>k</m> with <m>m \lt k \lt n</m>,
+        then <m>x</m> is increasing and <m>u</m> is concave up on the index range <m>m-1,\ldots,n</m>.
+        If <m>\nabla^2 u_k \lt 0</m> for all <m>k</m> with <m>m \lt k \lt n</m>,
+        then <m>x</m> is decreasing and <m>u</m> is concave down on the index range <m>m-1,\ldots,n</m>.
+        If <m>\nabla^2 u_k = 0</m> for all <m>k</m> with <m>m \lt k \lt n</m>,
+        then <m>x</m> is constant and <m>u</m> is linear on the index range <m>m-1,\ldots,n</m>.
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <statement>
+        <p>
+        Determine the monotonicity and concavity of the accumulation sequence <m>u</m> 
+        with increments <m>x_k = k^2 -90k + 1600</m>, <m>k=1,2,3,\ldots</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        For monotonicity, we look at the signs of the increments.
+        We find the zeros <m>k^2-90k+1600 = 0</m> and then test the signs in intervals.
+        The equation is quadratic, so we can use the quadratic formula.
+        <md>
+          <mrow>k &amp;= \frac{90 \pm \sqrt{(-90)^2 - 4(1)(1600)}}{2}</mrow>
+          <mrow> &amp;= \frac{90 \pm \sqrt{8100 - 6400}}{2}</mrow>
+          <mrow> &amp;= \frac{90 \pm \sqrt{8100 - 6400}}{2}</mrow>
+          <mrow> &amp;= \frac{90}{2} \pm \frac{\sqrt{1700}}{2}</mrow>
+          <mrow> &amp;= 45 \pm 5\sqrt{17}</mrow>
+        </md>
+        In this case, the exact values are not as useful as the approximate decimal values.
+        <me>k \approx 24.38 \quad \text{or} \quad k \approx 65.62</me>
+        </p>
+        <p>
+        We need to check values in the intervals.
+        <md>
+          <mrow> x_0 &amp;= 0^2-90(0)+1600 = 1600 </mrow>
+          <mrow> x_{30} &amp;= (30)^2-90(30)+1600 = -200 </mrow>
+          <mrow> x_{70} &amp;= (70)^2-90(70)+1600 = 200 </mrow>
+        </md>
+        This shows that <m>x_k \gt 0</m> for <m>k=1,\ldots,24</m>,
+        that <m>x_k \lt 0</m> for <m>k=25,\ldots,65</m>,
+        and that <m>x_k \gt 0</m> for <m>k=66,\ldots</m>.
+        Consequently, the <em>accumulation sequence</em> is 
+        increasing for the range <m>k=0,\ldots,24</m>,
+        decreasing for the range <m>k=24,\ldots,65</m>,
+        and again increasing for the range <m>k=65,\ldots</m>.
+        </p>
+        <p>
+        For concavity, we need to determine where the increment sequence is increasing or decreasing.
+        We compute the backward differences of <m>x_k</m> or second backward differences of <m>u</m>.
+        <md>
+          <mrow>\nabla^2 u_k = \nabla x_k &amp;=x_k - x_{k-1}</mrow>
+          <mrow> &amp;=\big(k^2-90k+1600\big) - \big((k-1)^2-90(k-1)+1600\big)</mrow>
+          <mrow> &amp;=k^2-90k+1600 - \big(k^2-2k+1-90k+90+1600\big)</mrow>
+          <mrow> &amp;=k^2-90k+1600 - k^2 + 92k+1-1691\big)</mrow>
+          <mrow> &amp;=2k-91 </mrow>
+        </md>
+        This equals zero if <m>k=45.5</m>.
+        We have <m>\nabla^2 u_k \lt 0</m> for <m>k=2,\ldots,45</m>
+        and <m>\nabla^2 u_k \gt 0</m> for <m>46,\ldots</m>.
+        Thus, <m>x_k</m> is decreasing and the accumulation <m>u_k</m> is concave down
+        on the range <m>k=1,\ldots,45</m>, 
+        and <m>x_k</m> is increasing and the accumulation <m>u_k</m> is concave up
+        on the range <m>k=45,\ldots</m>.
+        </p>
+        <p>
+        A plot of the sequence with initial value <m>u_0=0</m> is shown below.
+        Points within the range where the plot is concave down are colored in blue.
+        Points within the range where the plot is concave up are colored in orange.
+        The index <m>k=45</m> is included in both ranges and is considered the inflection point.
+        </p>
+        <sidebyside margins="auto" width="60%">
+          <image>
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xlabel=$k$,
+                ylabel=$u_k$,
+                scaled y ticks=false,
+              ]
+              \addplot[samples at={0,1,...,44},only marks, blue, mark size=1pt] 
+                { x*(x+1)*(2*x+1)/6 - 90*x*(x+1)/2 + 1600*x };
+              \addplot[samples at={45},only marks, black, mark size=1pt] 
+                { x*(x+1)*(2*x+1)/6 - 90*x*(x+1)/2 + 1600*x };
+              \addplot[samples at={46,47,...,90},only marks, orange, mark size=1pt] 
+                { x*(x+1)*(2*x+1)/6 - 90*x*(x+1)/2 + 1600*x };
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+  </subsection>
+  <conclusion>
+    <title>Summary</title>
+    <ul>
+      <li>
+        <p>
+        Every sequence <m>x</m> can be interpreted as an accumulation of increments, 
+        which we measure using backward differences,
+        <me>\nabla x_n = x_n - x_{n-1}</me>.
+        </p>
+      </li>
+      <li>
+        <p>
+        Given a sequence <m>x = (x_n)_{n=1}^{\infty}</m>,
+        we can define a new sequence <m>u</m> called the <term>accumulation sequence</term> of <m>x</m>
+        with a recurrence relation
+        <me>u_{n} = u_{n-1} + x_n</me>
+        and an initial value <m>u_0</m> 
+        so that the increments of <m>u</m> is given by the sequence <m>x</m>, <m>\nabla u_n = x_n</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+        If two sequences share the same initial value and the same increments, 
+        then the sequences are identical. (See <xref ref="thm-sequence-uniqueness"/>.)
+        </p>
+      </li>
+      <li>
+        <p>
+        The <xref text="title" ref="thm-sequence-monotonicity"/> shows 
+        that a sequence is increasing over the range of index values
+        for which the increments are positive
+        and decreasing over the range of index values
+        for which the increments are negative.
+        </p>
+      </li>
+      <li>
+        <p>
+        The <xref text="title" ref="thm-sequence-concavity"/> shows 
+        that a sequence is concave up over the range of index values
+        for which the second backward differences are positive
+        and concave down over the range of index values
+        for which the second backward differences are negative.
+        </p>
+      </li>
+    </ul>
+  </conclusion>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+        Find the first six terms of the indicated accumulation sequence
+        for the given increment sequence.
+        Clearly indicate the relevant index values.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+          Find <m>u</m> with increments defined by <m>x=(x_k)_{k=2}^\infty = (-4,-2,0,2,4,6,\ldots)</m>
+          and initial value <m>21</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          Find <m>w</m> with increments defined by <m>y=(y_i)_{i=0}^\infty = (1,-1,1,1,-1,-1,1,1,1,-1,\ldots)</m>
+          and initial value <m>0</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        In the following problems, show that explicit definition and recursive definition
+        define the same sequence. If not, explain why.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = 3n-5</m> for <m>n=-2, -1, 0, \ldots</m> defines the same sequence as
+          <m>x_n = x_{n-1} + 3</m> with <m>x_{-2} = -11</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = 2^{n+1}-1</m> for <m>n=0, 1, 2, \ldots</m> defines the same sequence as
+          <m>x_{n} = x_{n-1} + 2^n</m> with <m>x_{0} = 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = n^2 - n</m> for <m>n=0, 1, 2, \ldots</m> defines the same sequence as
+          <m>x_{n} = x_{n-1} + n</m> with <m>x_{0} = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = \frac{1}{2}(3^n-1)</m> for <m>n=0, 1, 2, \ldots</m> defines the same sequence as
+          <m>x_{n+1} = x_{n} + 3^n</m> with <m>x_{0} = 0</m>.
+          Note: The recursive formula uses a forward recurrence,
+          so either compare forward differences or rewrite the recursive equation as a backward recurrence.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        Determine the monotonicity and concavity for each sequence,
+        providing the ranges of index values for each behavior.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = 3n-25</m> for <m>n=0,1,\ldots</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = 300-7n</m> for <m>n=0,1,\ldots</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = n^2 - 40n + 90</m> for <m>n=0,1,\ldots</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = 500 + 75 n - n^2</m> for <m>n=0,1,\ldots</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\nabla x_n = 4n-70</m> for <m>n=1,2,\ldots</m> with <m>x_0 = 20</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\nabla x_n = 50-3n</m> for <m>n=1,2,\ldots</m> with <m>x_0 = -10</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\nabla x_n = n^2 - 30n</m> for <m>n=1,2,\ldots</m> with <m>x_0 = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\nabla x_n = -100 + 75n - n^2</m> for <m>n=1,2,\ldots</m> with <m>x_0 = 0</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
 </section>

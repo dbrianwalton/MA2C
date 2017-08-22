@@ -8,1121 +8,1121 @@
 <!-- See the file COPYING for copying conditions. -->
    
 <section xml:id="functions-behavior">
-    <title>Describing the Behavior of Functions</title>
+  <title>Describing the Behavior of Functions</title>
 
+  <introduction>
+    <title>Overview</title>
+    
+    <p>
+      We have been learning about how functions are constructed and how they are defined.
+      In many instances, before we construct a formula for a function, 
+      we need to identify what behavior we are attempting to model.
+      At other times, we have a formula and we need to know what behavior that predicts.
+      We need specific language that we can use to describe behavior.
+    </p>
+    
+    <p>
+      In this section, we will focus on three types of behavior: monotonicity, concavity, and end behavior.
+      Monotonicity will describe where a function is increasing or decreasing.
+      Concavity will describe where the slope ro rate of change of a function is increasing or decreasing.
+      In a graph, concavity describes whether the curve is bending up or bending down.
+      We also discuss simple end behavior including unbounded growth (tending to infinity) and horizontal asymptotes.
+    </p>
+    
+    <p>
+      Our emphasis is in learning the language of behavior, describing graphs using this language,
+      and creating graphs based on a description of a function.
+      As our study of calculus develops, we will learn mathematical tools that will allow us 
+      to determine function behavior more precisely.
+    </p>
+  </introduction>
+  
+  <subsection>
+    <title>Functions Have Shapes</title>
+    
     <introduction>
-        <title>Overview</title>
-        
-        <p>
-            We have been learning about how functions are constructed and how they are defined.
-            In many instances, before we construct a formula for a function, 
-            we need to identify what behavior we are attempting to model.
-            At other times, we have a formula and we need to know what behavior that predicts.
-            We need specific language that we can use to describe behavior.
-        </p>
-        
-        <p>
-            In this section, we will focus on three types of behavior: monotonicity, concavity, and end behavior.
-            Monotonicity will describe where a function is increasing or decreasing.
-            Concavity will describe where the slope ro rate of change of a function is increasing or decreasing.
-            In a graph, concavity describes whether the curve is bending up or bending down.
-            We also discuss simple end behavior including unbounded growth (tending to infinity) and horizontal asymptotes.
-        </p>
-        
-        <p>
-            Our emphasis is in learning the language of behavior, describing graphs using this language,
-            and creating graphs based on a description of a function.
-            As our study of calculus develops, we will learn mathematical tools that will allow us 
-            to determine function behavior more precisely.
-        </p>
+    <p>
+      We often describe functions according to the shape of their graphs.
+      The different possible shapes we see in graphs correspond to specific behaviors of the functions.
+      We will focus on two aspects of a graph: monotonicity and concavity.
+    </p>
     </introduction>
     
-    <subsection>
-        <title>Functions Have Shapes</title>
-        
-        <introduction>
-        <p>
-            We often describe functions according to the shape of their graphs.
-            The different possible shapes we see in graphs correspond to specific behaviors of the functions.
-            We will focus on two aspects of a graph: monotonicity and concavity.
-        </p>
-        </introduction>
-        
-        <subsubsection>
-            <title>Monotonicity</title>
-            <p>
-                The <term>monotonicity</term> of a function deals with whether the function is increasing or decreasing.
-                We start with the mathematical definitions of increasing and decreasing functions.
-                We will explore the ideas graphically in terms of maps and then graphs.
-            </p>
-            
-            <definition xml:id="increasing-decreasing">
-                <title>Monotonicity</title>
-                <statement>
-                    <p>
-                        A function <m>f</m> is <term>increasing</term> on a subset <m>S</m>
-                        of the domain (usually an interval) if
-                        for every <m>x_1,x_2 \in S</m>, <me>x_1 \lt x_2 \qquad \text{implies} \qquad f(x_1) \lt f(x_2)</me>.
-                    </p>
-                    <p>
-                        A function <m>f</m> is <term>decreasing</term> on a subset <m>S</m>
-                        of the domain (usually an interval) if
-                        for every <m>x_1,x_2 \in S</m>, <me>x_1 \lt x_2 \qquad \text{implies} \qquad f(x_1) \gt f(x_2)</me>.
-                    </p>
-                </statement>
-            </definition>
-            
-            <p>
-                One way to think of monotonicity is that the function retains an ordering of the sets.
-                An increasing function preserves the order, so that if two inputs are in a particular order, 
-                <m>x_1 \lt x_2</m>, then the resulting outputs have the same order, <m>f(x_1) \lt f(x_2)</m>.
-                A decreasing function reverses the order, so that if inputs have an order, <m>x_1 \lt x_2</m>,
-                then the outputs must have the opposite order <m>f(x_1) \gt f(x_2)</m>.
-                A function that is not monotone (neither increasing or decreasing) does not maintain
-                a sense of order uniformly over the set.
-                Sometimes the outputs might have the same order as the inputs,
-                and sometimes the outputs might have the opposite order.
-            </p>
-            
-            <example>
-                <statement>
-                    <p>
-                        The function <m>f(x)=2x+1</m> is a linear function with positive slope <m>m=2</m>.
-                        We can show that <m>f</m> is an increasing function.
-                        Suppose <m>x_0 \lt x_1</m>.
-                        Multiplying both sides of an inequality by a positive number <em>preserves</em> the ordering,
-                        as does adding the same value to both sides:
-                        <md>
-                            <mrow>x_0 \lt x_1</mrow>
-                            <mrow>2x_0 \lt 2x_1</mrow>
-                            <mrow>2x_0+1 \lt 2x_1+1</mrow>
-                            <mrow>f(x_0) \lt f(x_1)</mrow>
-                        </md>
-                        This is visualized in the following figure.
-                    </p>
-                    <figure margins="auto">
-                        <caption>Dynamic illustration of the function <m>f(x)=2x+1</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is increasing.</caption>
-                        <jsxgraph xml:id="jsx-fcn-behavior-increase-ex1" width="75%" aspect="4:1">
-                            <input>
-                            <![CDATA[
-                            var jcf1 = { 
-                                f : function(x) 
-                                    {
-                                        var y=2*x+1;
-                                        return y;
-                                     },
-                                input : { name:'x', color:'blue', values:[0,1], min:-2.5, max:2.5 },
-                                output : { name:'y', color:'red', min:-2.5, max:2.5 },
-                            };
-                            createMapMulti(jcf1, 'jsx-fcn-behavior-increase-ex1');
-                            ]]>
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                    <p>
-                        Thinking of the map dynamically, we see that as we increase the input, the output also increases.
-                        This is captured in the graph of the function in the <m>(x,y)</m> plane.
-                        The graph shows <m>y</m>-values increasing as viewed from left to right,
-                        which is corresponding to <m>x</m>-values increasing.
-                    </p>
-                    <figure margins="auto">
-                        <caption>The graph of the function <m>y=f(x)=2x+1</m> in the <m>(x,y)</m> plane.</caption>
-                        <jsxgraph xml:id="jsx-fcn-behavior-increase-ex1b" width="75%">
-                            <input>
-                            <![CDATA[
-                            var jcf1b = { 
-                                f : function(x) 
-                                    {
-                                        var y=2*x+1;
-                                        return y;
-                                     },
-                                input : { name:'x', color:'blue', values:[0.5,1], min:-2.5, max:2.5 },
-                                output : { name:'y', color:'red', min:-2.5, max:5.5 },
-                            };
-                            createFGraphMulti(jcf1b, 'jsx-fcn-behavior-increase-ex1b');
-                            ]]>
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                </statement>
-            </example>
-            
-            <example>
-                <statement>
-                    <p>
-                        The function <m>f(x)=-2x+3</m> is a linear function with negative slope <m>m=-2</m>.
-                        We can show that <m>f</m> is an decreasing function.
-                        Suppose <m>x_0 \lt x_1</m>.
-                        Multiplying both sides of an inequality by a negative number <em>reverses</em> the ordering,
-                        while adding the same value to both sides preserves the order:
-                        <md>
-                            <mrow>x_0 \lt x_1</mrow>
-                            <mrow>-2x_0 \gt -2x_1</mrow>
-                            <mrow>-2x_0+3 \gt -2x_1+3</mrow>
-                            <mrow>f(x_0) \gt f(x_1)</mrow>
-                        </md>
-                    </p>
-                    <figure margins="auto">
-                        <caption>Dynamic illustration of the function <m>f(x)=-2x+3</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is decreasing.</caption>
-                        <jsxgraph xml:id="jsx-fcn-behavior-decrease-ex2" width="75%" aspect="4:1">
-                            <input>
-                            <![CDATA[
-                            var jcf2 = { 
-                                f : function(x) 
-                                    {
-                                        var y=-2*x+3;
-                                        return y;
-                                     },
-                                input : { name:'x', color:'blue', values:[0.5,1], min:-2.5, max:2.5 },
-                                output : { name:'y', color:'red', min:-2.5, max:2.5 },
-                            };
-                            createMapMulti(jcf2, 'jsx-fcn-behavior-decrease-ex2');
-                            ]]>
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                    <p>
-                        The map shows that the order of outputs is always opposite to the order of the inputs.
-                        Thinking of the map dynamically, we see that as we increase the input, the output decreases.
-                        The graph of the function in the <m>(x,y)</m> plane captures the same information.
-                        Viewing the graph from left to right (as <m>x</m> increases), the <m>y</m>-values decrease.
-                    </p>
-                    <figure margins="auto">
-                        <caption>The graph of the function <m>y=f(x)=-2x+3</m> in the <m>(x,y)</m> plane.</caption>
-                        <jsxgraph xml:id="jsx-fcn-behavior-decrease-ex2b" width="75%">
-                            <input>
-                            <![CDATA[
-                            var jcf2b = { 
-                                f : function(x) 
-                                    {
-                                        var y=-2*x+3;
-                                        return y;
-                                     },
-                                input : { name:'x', color:'blue', values:[0.5,1], min:-2.5, max:2.5 },
-                                output : { name:'y', color:'red', min:-2.5, max:5.5 },
-                            };
-                            createFGraphMulti(jcf2b, 'jsx-fcn-behavior-decrease-ex2b');
-                            ]]>
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                </statement>
-            </example>
-            
-            <p>
-                Some functions are not monotone because the map does not retain the ordering of the sets.
-                Dynamically, this is because the output will sometimes increase and sometimes decrease
-                as the input is increased.
-            </p>
-            
-            <example>
-                <statement>
-                    <p>
-                        The function <m>f(x)=x^2</m> is not a linear function and is not monotone.
-                        We can show this by illustrating that the function is inconsistent
-                        in ordering the output values relative to the input values. 
-                        Consider <m>x_0=-2</m> and <m>x_1=-1</m>. 
-                        We have <m>f(x_0)=4 \gt f(x_1)=1</m>, so for these inputs the order is reversed.
-                        However, for <m>x_0=1</m> and <m>x_1=2</m>, we have <m>f(x_0)=1 \gt f(x_1)=4</m>
-                        and the order is preserved.
-                        This function is not increasing or decreasing, but is a combination.
-                    </p>
-                    <figure margins="auto">
-                        <caption>Dynamic illustration of the function <m>f(x)=x^2</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is not monotone.</caption>
-                        <jsxgraph xml:id="jsx-fcn-behavior-monotone-ex3" width="75%" aspect="4:1">
-                            <input>
-                            <![CDATA[
-                            var jcf3 = { 
-                                f : function(x) 
-                                    {
-                                        var y=x*x;
-                                        return y;
-                                     },
-                                input : { name:'x', color:'blue', values:[1,2], min:-2.5, max:2.5 },
-                                output : { name:'y', color:'red', min:-2.5, max:5.5 },
-                            };
-                            createMapMulti(jcf3, 'jsx-fcn-behavior-monotone-ex3');
-                            ]]>
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                    <p>
-                        We can see graphically that <m>f</m> is decreasing on <m>(-\infty,0]</m>
-                        because for any two inputs in this interval, the order of the outputs is reversed.
-                        We can also see that <m>f</m> is increasing on <m>[0,\infty)</m>
-                        because for any two inputs in that interval, the order of the outputs is preserved.
-                        This point where monotonicity switches corresponds to the vertex of the parabola <m>y=x^2</m>.
-                    </p>
-                    <figure margins="auto">
-                        <caption>Dynamic illustration of the function <m>f(x)=x^2</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is not monotone.</caption>
-                        <jsxgraph xml:id="jsx-fcn-behavior-monotone-ex3b" width="75%">
-                            <input>
-                            <![CDATA[
-                            var jcf3b = { 
-                                f : function(x) 
-                                    {
-                                        var y=x*x;
-                                        return y;
-                                     },
-                                input : { name:'x', color:'blue', values:[1,2], min:-2.5, max:2.5 },
-                                output : { name:'y', color:'red', min:-2.5, max:5.5 },
-                            };
-                            createFGraphMulti(jcf3b, 'jsx-fcn-behavior-monotone-ex3b');
-                            ]]>
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                </statement>
-            </example>
-            
-            <p>
-                One of our goals in calculus will be to develop a method to determine the intervals
-                on which a function is increasing or decreasing.
-                When we motivated monotonicity with linear functions,
-                we saw that a positive slope implied an increasing function
-                and a negative slope implied a decreasing function.
-                Calculus will develop a more general sense of the slope of a function using the derivative
-                such that we will describe monotonicity based on the signs of the derivative.
-            </p>
-            
-            <note>
-                <p>
-                When listing intervals on which a function is increasing or decreasing,
-                it is important <em>not</em> to use a union of the intervals.
-                The reason is that we are saying that 
-                the function is increasing on <em>each</em> of the intervals individually
-                and not on the set formed by the union.
-                If listing multiple intervals, simply form a comma-separated list.
-                </p>
-            </note>
-        </subsubsection>
-        
-        <subsubsection>
-            <title>Concavity</title>
-            
-            <p>
-                Concavity describes how the graph of a function in the <m>(x,y)</m> plane bends.
-                If the graph bends upward, we say the function is <term>concave up</term>.
-                If the graph bends downward, we say the function is <term>concave down</term>.
-            </p>
-            <figure width="60%">
-                <caption>Comparison of concave up and concave down graphs</caption>
-                <sidebyside widths="40% 40%">
-                    <figure>
-                        <caption>Concave up</caption>
-                        <image>
-                            <latex-image-code>
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \draw (0,0) arc (-160:-20:2);
-                            \end{tikzpicture}]]>
-                            </latex-image-code>
-                        </image>
-                    </figure>
-                    <figure>
-                        <caption>Concave down</caption>
-                        <image>
-                            <latex-image-code>
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \draw (0,0) arc (160:20:2);
-                            \end{tikzpicture}]]>
-                            </latex-image-code>
-                        </image>
-                    </figure>
-                </sidebyside>
-            </figure>
-            <p>
-                As with monotonicity, these attributes of functions apply over intervals rather than at individual points.
-                When a graph changes concavity at a point, for example switching from bending up to bending down,
-                the function has an <term>inflection point</term>.
-                A technical definition of concavity that depends on the concept of a derivative will be provided later.
-            </p>
-            <p>
-                However, we can capture the essential idea by thinking about how the slope is changing between points.
-                A function that has an increasing slope or rate of change over an interval is concave up on the interval.
-                A function that has decreasing slope or rate of change is concave down.
-            </p>
-            <definition xml:id="concavity-average-rates">
-                <title>Concavity</title>
-                <statement>
-                    <p>
-                        A function <m>f</m> is <term>concave up</term> on a subset <m>S</m> of the domain (usually an interval)
-                        if for every <m>x_1,x_2,x_3 \in S</m>, the slope or rate of change is increasing,
-                        <me>x_1 \lt x_2 \lt x_3 \qquad \text{implies} \qquad \frac{f(x_2)-f(x_1)}{x_2-x_1} \lt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>.
-                    </p>
-                    <p>
-                        A function <m>f</m> is <term>concave down</term> on a subset <m>S</m> of the domain (usually an interval)
-                        if for every <m>x_1,x_2,x_3 \in S</m>, the slope or rate of change is decreasing,
-                        <me>x_1 \lt x_2 \lt x_3 \qquad \text{implies} \qquad \frac{f(x_2)-f(x_1)}{x_2-x_1} \gt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>.
-                    </p>
-                </statement>
-            </definition>
-            
-            <p>
-                This definition is not very easy to use directly.
-                When we learn more about derivatives to describe the slope at individual points,
-                we will have a much better method known as the second derivative test for concavity.
-                However, the following examples will illustrate what is happening.
-            </p>
-            <example>
-                <statement>
-                    <p>
-                        The function <m>f(x)=x^2</m> is concave up on <m>(-\infty,\infty)</m> (the entire domain).
-                        We will not <em>prove</em> that this is true because this is too difficult without derivatives.
-                        But we can illustrate the idea.
-                    </p>
-                    <p>
-                        Consider the graph <m>y=f(x)=x^2</m> and the particular values
-                        <m>x_1=-4</m>, <m>x_2=-2</m>, and <m>x_3=-1</m>.
-                        We will calculate the slope or rate of change 
-                        between <m>(x_1,y_1)=(-4,16)</m> and <m>(x_2,y_2)=(-2,4)</m>
-                        and between <m>(x_2,y_2)</m> and <m>(x_3,y_3)=(-1,1)</m>.
-                        <md>
-                            <mrow> m_{12} = \frac{y_2-y_1}{x_2-x_1} = \frac{4-16}{-2--4} = \frac{-12}{2} = -6 </mrow>
-                            <mrow> m_{23} = \frac{y_3-y_2}{x_3-x_2} = \frac{1-4}{-1--2} = \frac{-3}{1} = -3 </mrow>
-                        </md>
-                        We can see that the slope or rate of change is increasing, <m>m_{12} \lt m_{23}</m>.
-                        These slopes are illustrated in the following figure.
-                    </p>
-                    <sidebyside width="50%">
-                        <image>
-                            <latex-image-code>
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \begin{axis}
-                            [
-                                xmin=-5, xmax=5,
-                                ymin=-4, ymax=20,
-                            ]
-                            \addplot [domain=-5:5, samples=51, thick, blue] { x^2 };
-                            \addplot [only marks, thick] coordinates {
-                                (-4,16) (-2,4) (-1,1)
-                            }
-                            node [pos=0, right] {$(x_1,y_1)$}
-                            node [pos=0.5, left] {$(x_2,y_2)$}
-                            node [pos=1, left] {$(x_3,y_3)$};
-                            \addplot [dashed] coordinates { (-4,16) (-2,4) }
-                                node [pos=0.5, right] {$m_{12}=-6$};
-                            \addplot [dashed] coordinates { (-2,4) (-1,1) }
-                                node [pos=0.5, right] {$m_{23}=-3$};
-                            \end{axis}
-                            \end{tikzpicture}]]>
-                            </latex-image-code>
-                        </image>
-                    </sidebyside>
-                    <p>
-                        This is not a proof of concavity because we only illustrated the order for three specific points.
-                        Use the following dynamic figure to convince yourself that
-                        for <em>any</em> three points we might choose, the slopes increase from left to right.
-                    </p>
-                    <figure>
-                        <caption></caption>
-                        <jsxgraph xml:id="jsx-fcn-behavior-concavity-ex1" width="75%" aspect="4:3">
-                            <input>
-                            <![CDATA[
-                            var idName = "jsx-fcn-behavior-concavity-ex1";
-                            var jcf4 = {
-                                input: { name:"x", min:-5.5, max:5.5 },
-                                output: { name:"y", min:-2, max:20 },
-                            };
-                            jcf4.b = JXG.JSXGraph.initBoard(idName, 
-                                {
-                                    boundingbox:[
-                                            jcf4.input.min,
-                                            jcf4.output.max,
-                                            jcf4.input.max,
-                                            jcf4.output.min
-                                        ],
-                                    axis: true,
-                                    grid: false,
-                                    showCopyright:false,
-                                    showNavigation:false,
-                                }
-                            );
-                            jcf4.plot = jcf4.b.create("functiongraph", 
-                                function(x) { return x*x; }
-                            );
-                            jcf4.x1 = jcf4.b.create("glider",
-                                [-4, 16, jcf4.plot],
-                                { name:"A" },
-                            );
-                            jcf4.x2 = jcf4.b.create("glider",
-                                [-2, 4, jcf4.plot],
-                                { name:"B" },
-                            );
-                            jcf4.x3 = jcf4.b.create("glider",
-                                [-1, 1, jcf4.plot],
-                                { name:"C" },
-                            );
-                            jcf4.b.create("segment", [jcf4.x1, jcf4.x2]);
-                            jcf4.b.create("segment", [jcf4.x2, jcf4.x3]);
-                            jcf4.mAB = jcf4.b.create("text",
-                                [-5, 3.5, function() {
-                                    var deltaY = jcf4.x2.Y()-jcf4.x1.Y(),
-                                    deltaX = (jcf4.x2.X()-jcf4.x1.X());
-                                    return "m_{AB} = " + Number(deltaY/deltaX).toFixed(3)
-                                }]
-                            );
-                            jcf4.mBC = jcf4.b.create("text",
-                                [-5, 2.5, function() {
-                                    var deltaY = jcf4.x3.Y()-jcf4.x2.Y(),
-                                    deltaX = (jcf4.x3.X()-jcf4.x2.X());
-                                    return "m_{BC} = " + Number(deltaY/deltaX).toFixed(3)
-                                }]
-                            );
-                            jcf4.mCompare = jcf4.b.create("text",
-                                [-5,1.5, function() {
-                                    var deltaX, deltaY, mAB, mBC;
-                                    deltaY = jcf4.x2.Y()-jcf4.x1.Y(),
-                                    deltaX = (jcf4.x2.X()-jcf4.x1.X());
-                                    mAB = deltaY/deltaX;
-                                    deltaY = jcf4.x3.Y()-jcf4.x2.Y(),
-                                    deltaX = (jcf4.x3.X()-jcf4.x2.X()),
-                                    mBC = deltaY/deltaX;
-                                    var cmpStr = "";
-                                    if (jcf4.x1.X() > jcf4.x2.X() || jcf4.x2.X() > jcf4.x3.X()) {
-                                        cmpStr = "Need A < B < C";
-                                    } else {
-                                        if (mAB > mBC) {
-                                            cmpStr = "m_{AB} > m_{BC}";
-                                        } else if (mAB < mBC) {
-                                            cmpStr = "m_{AB} < m_{BC}";
-                                        }
-                                    }
-                                    return cmpStr;
-                                }]
-                            );
-                            ]]>
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                    <p>
-                        The reason that <m>f</m> has an inflection point at <m>x=0</m> is
-                        that point is where <m>f</m> has the steepest negative slope.
-                        To the left, <m>x \lt 0</m>, the slope decreases;
-                        to the right, <m>x \gt 0</m>, the slope increases.
-                    </p>
-                </statement>
-            </example>
-            
-            <example>
-                <statement>
-                    <p>
-                        The function <m>f(x)=x^3-3x</m> changes concavity at <m>x=0</m>.
-                        <m>f</m> is concave down on <m>(-\infty,0]</m> and concave up on <m>[0,\infty)</m>.
-                        When three points are chosen with <m>x \in (-\infty,0]</m>, the slope is decreasing.
-                        When the three points are chosen with <m>x \in [0,\infty)</m>, the slope is increasing.
-                        This can be verified in the following dynamic figure.
-                        However, the three points must all be in either <m>(-\infty,0]</m> or in <m>[0,\infty)</m>.
-                    </p>
-                    <figure>
-                        <caption></caption>
-                        <jsxgraph xml:id="jsx-fcn-behavior-concavity-ex2" width="75%" aspect="4:3">
-                            <input>
-                            <![CDATA[
-                            var idName = "jsx-fcn-behavior-concavity-ex2";
-                            var jcf5 = {
-                                input: { name:"x", min:-3.25, max:3.25 },
-                                output: { name:"y", min:-5, max:5 },
-                            };
-                            jcf5.b = JXG.JSXGraph.initBoard(idName, 
-                                {
-                                    boundingbox:[
-                                            jcf5.input.min,
-                                            jcf5.output.max,
-                                            jcf5.input.max,
-                                            jcf5.output.min
-                                        ],
-                                    axis: true,
-                                    grid: false,
-                                    showCopyright:false,
-                                    showNavigation:false,
-                                }
-                            );
-                            jcf5.plot = jcf5.b.create("functiongraph", 
-                                function(x) { return x*(x*x-3); }
-                            );
-                            jcf5.x1 = jcf5.b.create("glider",
-                                [-2, -2, jcf5.plot],
-                                { name:"A" },
-                            );
-                            jcf5.x2 = jcf5.b.create("glider",
-                                [-1, 2, jcf5.plot],
-                                { name:"B" },
-                            );
-                            jcf5.x3 = jcf5.b.create("glider",
-                                [0, 0, jcf5.plot],
-                                { name:"C" },
-                            );
-                            jcf5.b.create("segment", [jcf5.x1, jcf5.x2]);
-                            jcf5.b.create("segment", [jcf5.x2, jcf5.x3]);
-                            jcf5.mAB = jcf5.b.create("text",
-                                [-3, 2, function() {
-                                    var deltaY = jcf5.x2.Y()-jcf5.x1.Y(),
-                                    deltaX = (jcf5.x2.X()-jcf5.x1.X());
-                                    return "m_{AB} = " + Number(deltaY/deltaX).toFixed(3)
-                                }]
-                            );
-                            jcf5.mBC = jcf5.b.create("text",
-                                [-3, 1.5, function() {
-                                    var deltaY = jcf5.x3.Y()-jcf5.x2.Y(),
-                                    deltaX = (jcf5.x3.X()-jcf5.x2.X());
-                                    return "m_{BC} = " + Number(deltaY/deltaX).toFixed(3)
-                                }]
-                            );
-                            jcf5.mCompare = jcf5.b.create("text",
-                                [-3,1, function() {
-                                    var deltaX, deltaY, mAB, mBC;
-                                    deltaY = jcf5.x2.Y()-jcf5.x1.Y(),
-                                    deltaX = (jcf5.x2.X()-jcf5.x1.X());
-                                    mAB = deltaY/deltaX;
-                                    deltaY = jcf5.x3.Y()-jcf5.x2.Y(),
-                                    deltaX = (jcf5.x3.X()-jcf5.x2.X()),
-                                    mBC = deltaY/deltaX;
-                                    var cmpStr = "";
-                                    if (jcf5.x1.X() >= jcf5.x2.X() || jcf5.x2.X() >= jcf5.x3.X()) {
-                                        cmpStr = "Need A < B < C";
-                                    } else {
-                                        if (mAB > mBC) {
-                                            cmpStr = "m_{AB} > m_{BC}";
-                                        } else if (mAB < mBC) {
-                                            cmpStr = "m_{AB} < m_{BC}";
-                                        }
-                                    }
-                                    return cmpStr;
-                                }]
-                            );
-                            ]]>
-                            </input>
-                        </jsxgraph>
-                    </figure>
-                </statement>
-            </example>
-        </subsubsection>
-        
-        <subsubsection>
-            <title>Combining Monotonicity and Concavity</title>
-            
-            <p>
-                The shape of a graph of a function is often defined in terms of the monotonicity and concavity combined.
-                There are four basic shapes that correspond to the four quadrants of a circle,
-                illustrated in the figure below.
-                A curve that has a positive and increasing slope is increasing and concave up.
-                A curve that has a positive but decreasing slope is increasing and concave down.
-                A curve that has a negative but increasing (becoming less negative) slope is decreasing and concave up.
-                A curve that has a negative and decreasing (becoming more negative) slope is decreasing and concave down.
-            </p>
-            <figure width="80%">
-                <caption>Basic shapes defined by monotonicity and concavity.</caption>
-                <sidebyside widths="20% 20% 20% 20%">
-                    <figure>
-                        <caption>Increasing, Concave up</caption>
-                        <image>
-                            <latex-image-code>
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \draw (0,0) arc (-80:-10:2);
-                            \end{tikzpicture}]]>
-                            </latex-image-code>
-                        </image>
-                    </figure>
-                    <figure>
-                        <caption>Increasing, Concave Down</caption>
-                        <image>
-                            <latex-image-code>
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \draw (0,0) arc (170:100:2);
-                            \end{tikzpicture}]]>
-                            </latex-image-code>
-                        </image>
-                    </figure>
-                    <figure>
-                        <caption>Decreasing, Concave up</caption>
-                        <image>
-                            <latex-image-code>
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \draw (0,0) arc (-170:-100:2);
-                            \end{tikzpicture}]]>
-                            </latex-image-code>
-                        </image>
-                    </figure>
-                    <figure>
-                        <caption>Decreasing, Concave Down</caption>
-                        <image>
-                            <latex-image-code>
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \draw (0,0) arc (80:10:2);
-                            \end{tikzpicture}]]>
-                            </latex-image-code>
-                        </image>
-                    </figure>
-                </sidebyside>
-            </figure>
-            <p>
-                We can describe the shape of a graph by stating intervals 
-                on which the function satisfies each of the possible behaviors. 
-                The intervals are separated by points where the graph reaches 
-                either a maximum or minimum value (changes in monotonicity) 
-                or where the slope of the graph reaches an extreme and begins 
-                to bend the other direction (changes in concavity or points of inflection).
-            </p>
-            <example>
-                <statement>
-                    <p>
-                        The graph of a function <m>y=f(x)</m> is shown below,
-                        with labeled extreme points and inflection points.
-                        Describe the shape of the graph by giving intervals of monotonicity and concavity.
-                    </p>
-                    <sidebyside width="75%">
-                        <image>
-                            <latex-image-code>
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \begin{axis}
-                            [
-                                xmin=-6, xmax=6,
-                                ymin=-4, ymax=15,
-                            ]
-                            \addplot [domain=-6:-1,samples=100, thick, blue]
-                                { (x+3)^2-3 };
-                            \addplot [domain=-1:0,samples=100, thick, blue]
-                                { -(x-1)^2+5 };
-                            \addplot [domain=0:1,samples=100, thick, blue]
-                                { (x+1)^2+3 };
-                            \addplot [domain=1:6,samples=100, thick, blue]
-                                { -(x-3)^2+11 };
-                            \addplot [only marks, thick] coordinates {
-                                (-3,-3) (-1,1) (0,4) (1,7) (3,11)
-                            }
-                            node [pos=0, above] {$(-3,3)$}
-                            node [pos=0.25, left] {$(-1,1)$}
-                            node [pos=0.5, left] {$(0,4)$}
-                            node [pos=0.75, left] {$(1,7)$}
-                            node [pos=1, above] {$(3,11)$};
-                            \end{axis}
-                            \end{tikzpicture}]]>
-                            </latex-image-code>
-                        </image>
-                    </sidebyside>
-                </statement>
-                <solution>
-                    <p>
-                        Intervals for monotonicity are based on the function increasing or decreasing. 
-                        The end-points of these intervals are the extreme points for the function. 
-                        When the graph extends beyond the frame of the figure, 
-                        we assume the function behavior continues as shown. Intervals always are read from left to right. The end-point of an interval is included (closed) if the behavior extends up to and including that point.
-                    </p>
-                    <p>
-                        The function <m>f</m> is decreasing on <m>(-\infty,-3]</m>, 
-                        increasing on <m>[-3,3]</m>, and decreasing on <m>[3,\infty)</m>.
-                        Notice that the extremes at <m>x=-3</m> and <m>x=3</m> are included in two intervals. 
-                        The continuous function is decreasing on <m>(-\infty,-3)</m> as an open interval.
-                        Because <m>f</m> decreases up to and including <m>x=-3</m>, we include the end-point.
-                    </p>
-                    <p>
-                        Intervals for concavity are based on where the slope is increasing or decreasing.
-                        Intervals on which the graph bends upward, <m>f</m> is concave up.
-                        Intervals on which the graph bends downward, <m>f</m> is concave down.
-                        Notice our graph has inflection points (where the concavity changes) at <m>x=-1</m>, <m>x=0</m>, and <m>x=1</m>.
-                        At these points, the graph starts to bend in the opposite direction.
-                    </p>
-                    <p>
-                        The function <m>f</m> is concave up on <m>(-\infty,-1]</m>, concave down on <m>[-1,0]</m>, concave up on <m>[0,1]</m>, and concave down on <m>[1,\infty)</m>.
-                        We include the inflection points as the end points of the intervals (closed) because the slope is increasing or decreasing up to and including those points.
-                    </p>
-                </solution>
-            </example>
-            
-        </subsubsection>
-    </subsection>
-        
-    <subsection xml:id="functions-behavior-end-limits">
-        <title>End Behavior</title>
-        
-        <p>
-            End-behavior of a function describes what happens to a function as the size of the input grows.
-            Consider the possibilities of a linear function, <m>y=f(x)=mx+b</m>.
-            So long as the slope is non-zero, the function is <em>unbounded</em>, 
-            meaning that the graph eventually goes above every level and eventually goes below every level
-            (on opposite sides of the graph).
-        </p>
-        <p>
-            If the slope is positive, <m>m \gt 0</m>, then the function is increasing.
-            We say <m>f(x) \to +\infty</m> as <m>x \to +\infty</m>, which we read as 
-            <q>the value of <m>f(x)</m> tends to positive infinity as the value of <m>x</m> goes to positive infinity</q>.
-            This is because the <m>y</m>-values will eventually rise <em>above</em> any level 
-            on the right side of the graph (for sufficiently large positive values <m>x</m>).
-            We also say <m>f(x) \to -\infty</m> as <m>x \to -\infty</m>
-            because the <m>y</m>-values are <em>below</em> any specified value 
-            on the left side of the graph (for sufficiently large negative values <m>x</m>).
-            When the slope is negative, <m>m \lt 0</m>, the unbounded behavior is reversed.
-        </p>
-        
-        <figure>
-            <caption>Unbounded behavior of linear functions with positive and negative slopes.</caption>
-            <sidebyside>
-                <figure>
-                    <caption>Positive slope (<m>m \gt 0</m>)</caption>
-                    <image>
-                        <latex-image-code>
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \draw [<->] (0,0) -- (3,2)
-                            node [pos=0, below] {$\underset{x \to -\infty}{f(x) \to -\infty}$}
-                            node [pos=1, above] {$\underset{x \to +\infty}{f(x) \to +\infty}$};
-                        \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                </figure>
-                <figure>
-                    <caption>Negative slope (<m>m \lt 0</m>)</caption>
-                    <image>
-                        <latex-image-code>
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \draw [<->] (0,2) -- (3,0)
-                            node [pos=0, above] {$\underset{x \to -\infty}{f(x) \to +\infty}$}
-                            node [pos=1, below] {$\underset{x \to +\infty}{f(x) \to -\infty}$};
-                        \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                </figure>
-            </sidebyside>
-        </figure>
-        
-        <p>
-            For consistency in notation to describe the tendency of a function (as opposed to the value of a function),
-            we use limits to describe unbounded behavior.
+    <subsubsection>
+      <title>Monotonicity</title>
+      <p>
+        The <term>monotonicity</term> of a function deals with whether the function is increasing or decreasing.
+        We start with the mathematical definitions of increasing and decreasing functions.
+        We will explore the ideas graphically in terms of maps and then graphs.
+      </p>
+      
+      <definition xml:id="increasing-decreasing">
+        <title>Monotonicity</title>
+        <statement>
+          <p>
+            A function <m>f</m> is <term>increasing</term> on a subset <m>S</m>
+            of the domain (usually an interval) if
+            for every <m>x_1,x_2 \in S</m>, <me>x_1 \lt x_2 \qquad \text{implies} \qquad f(x_1) \lt f(x_2)</me>.
+          </p>
+          <p>
+            A function <m>f</m> is <term>decreasing</term> on a subset <m>S</m>
+            of the domain (usually an interval) if
+            for every <m>x_1,x_2 \in S</m>, <me>x_1 \lt x_2 \qquad \text{implies} \qquad f(x_1) \gt f(x_2)</me>.
+          </p>
+        </statement>
+      </definition>
+      
+      <p>
+        One way to think of monotonicity is that the function retains an ordering of the sets.
+        An increasing function preserves the order, so that if two inputs are in a particular order, 
+        <m>x_1 \lt x_2</m>, then the resulting outputs have the same order, <m>f(x_1) \lt f(x_2)</m>.
+        A decreasing function reverses the order, so that if inputs have an order, <m>x_1 \lt x_2</m>,
+        then the outputs must have the opposite order <m>f(x_1) \gt f(x_2)</m>.
+        A function that is not monotone (neither increasing or decreasing) does not maintain
+        a sense of order uniformly over the set.
+        Sometimes the outputs might have the same order as the inputs,
+        and sometimes the outputs might have the opposite order.
+      </p>
+      
+      <example>
+        <statement>
+          <p>
+            The function <m>f(x)=2x+1</m> is a linear function with positive slope <m>m=2</m>.
+            We can show that <m>f</m> is an increasing function.
+            Suppose <m>x_0 \lt x_1</m>.
+            Multiplying both sides of an inequality by a positive number <em>preserves</em> the ordering,
+            as does adding the same value to both sides:
             <md>
-                <mrow> \lim_{x \to -\infty} f(x) &amp;= -\infty &amp; \text{means $f(x) \to -\infty$ as $x \to -\infty$}</mrow>
-                <mrow> \lim_{x \to -\infty} f(x) &amp;= \infty &amp; \text{means $f(x) \to +\infty$ as $x \to -\infty$}</mrow>
-                <mrow> \lim_{x \to \infty} f(x) &amp;= -\infty &amp; \text{means $f(x) \to -\infty$ as $x \to +\infty$}</mrow>
-                <mrow> \lim_{x \to \infty} f(x) &amp;= \infty &amp; \text{means $f(x) \to +\infty$ as $x \to +\infty$}</mrow>
+              <mrow>x_0 \lt x_1</mrow>
+              <mrow>2x_0 \lt 2x_1</mrow>
+              <mrow>2x_0+1 \lt 2x_1+1</mrow>
+              <mrow>f(x_0) \lt f(x_1)</mrow>
             </md>
-        </p>
+            This is visualized in the following figure.
+          </p>
+          <figure margins="auto">
+            <caption>Dynamic illustration of the function <m>f(x)=2x+1</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is increasing.</caption>
+            <jsxgraph xml:id="jsx-fcn-behavior-increase-ex1" width="75%" aspect="4:1">
+              <input>
+              <![CDATA[
+              var jcf1 = { 
+                f : function(x) 
+                  {
+                    var y=2*x+1;
+                    return y;
+                   },
+                input : { name:'x', color:'blue', values:[0,1], min:-2.5, max:2.5 },
+                output : { name:'y', color:'red', min:-2.5, max:2.5 },
+              };
+              createMapMulti(jcf1, 'jsx-fcn-behavior-increase-ex1');
+              ]]>
+              </input>
+            </jsxgraph>
+          </figure>
+          <p>
+            Thinking of the map dynamically, we see that as we increase the input, the output also increases.
+            This is captured in the graph of the function in the <m>(x,y)</m> plane.
+            The graph shows <m>y</m>-values increasing as viewed from left to right,
+            which is corresponding to <m>x</m>-values increasing.
+          </p>
+          <figure margins="auto">
+            <caption>The graph of the function <m>y=f(x)=2x+1</m> in the <m>(x,y)</m> plane.</caption>
+            <jsxgraph xml:id="jsx-fcn-behavior-increase-ex1b" width="75%">
+              <input>
+              <![CDATA[
+              var jcf1b = { 
+                f : function(x) 
+                  {
+                    var y=2*x+1;
+                    return y;
+                   },
+                input : { name:'x', color:'blue', values:[0.5,1], min:-2.5, max:2.5 },
+                output : { name:'y', color:'red', min:-2.5, max:5.5 },
+              };
+              createFGraphMulti(jcf1b, 'jsx-fcn-behavior-increase-ex1b');
+              ]]>
+              </input>
+            </jsxgraph>
+          </figure>
+        </statement>
+      </example>
+      
+      <example>
+        <statement>
+          <p>
+            The function <m>f(x)=-2x+3</m> is a linear function with negative slope <m>m=-2</m>.
+            We can show that <m>f</m> is an decreasing function.
+            Suppose <m>x_0 \lt x_1</m>.
+            Multiplying both sides of an inequality by a negative number <em>reverses</em> the ordering,
+            while adding the same value to both sides preserves the order:
+            <md>
+              <mrow>x_0 \lt x_1</mrow>
+              <mrow>-2x_0 \gt -2x_1</mrow>
+              <mrow>-2x_0+3 \gt -2x_1+3</mrow>
+              <mrow>f(x_0) \gt f(x_1)</mrow>
+            </md>
+          </p>
+          <figure margins="auto">
+            <caption>Dynamic illustration of the function <m>f(x)=-2x+3</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is decreasing.</caption>
+            <jsxgraph xml:id="jsx-fcn-behavior-decrease-ex2" width="75%" aspect="4:1">
+              <input>
+              <![CDATA[
+              var jcf2 = { 
+                f : function(x) 
+                  {
+                    var y=-2*x+3;
+                    return y;
+                   },
+                input : { name:'x', color:'blue', values:[0.5,1], min:-2.5, max:2.5 },
+                output : { name:'y', color:'red', min:-2.5, max:2.5 },
+              };
+              createMapMulti(jcf2, 'jsx-fcn-behavior-decrease-ex2');
+              ]]>
+              </input>
+            </jsxgraph>
+          </figure>
+          <p>
+            The map shows that the order of outputs is always opposite to the order of the inputs.
+            Thinking of the map dynamically, we see that as we increase the input, the output decreases.
+            The graph of the function in the <m>(x,y)</m> plane captures the same information.
+            Viewing the graph from left to right (as <m>x</m> increases), the <m>y</m>-values decrease.
+          </p>
+          <figure margins="auto">
+            <caption>The graph of the function <m>y=f(x)=-2x+3</m> in the <m>(x,y)</m> plane.</caption>
+            <jsxgraph xml:id="jsx-fcn-behavior-decrease-ex2b" width="75%">
+              <input>
+              <![CDATA[
+              var jcf2b = { 
+                f : function(x) 
+                  {
+                    var y=-2*x+3;
+                    return y;
+                   },
+                input : { name:'x', color:'blue', values:[0.5,1], min:-2.5, max:2.5 },
+                output : { name:'y', color:'red', min:-2.5, max:5.5 },
+              };
+              createFGraphMulti(jcf2b, 'jsx-fcn-behavior-decrease-ex2b');
+              ]]>
+              </input>
+            </jsxgraph>
+          </figure>
+        </statement>
+      </example>
+      
+      <p>
+        Some functions are not monotone because the map does not retain the ordering of the sets.
+        Dynamically, this is because the output will sometimes increase and sometimes decrease
+        as the input is increased.
+      </p>
+      
+      <example>
+        <statement>
+          <p>
+            The function <m>f(x)=x^2</m> is not a linear function and is not monotone.
+            We can show this by illustrating that the function is inconsistent
+            in ordering the output values relative to the input values. 
+            Consider <m>x_0=-2</m> and <m>x_1=-1</m>. 
+            We have <m>f(x_0)=4 \gt f(x_1)=1</m>, so for these inputs the order is reversed.
+            However, for <m>x_0=1</m> and <m>x_1=2</m>, we have <m>f(x_0)=1 \gt f(x_1)=4</m>
+            and the order is preserved.
+            This function is not increasing or decreasing, but is a combination.
+          </p>
+          <figure margins="auto">
+            <caption>Dynamic illustration of the function <m>f(x)=x^2</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is not monotone.</caption>
+            <jsxgraph xml:id="jsx-fcn-behavior-monotone-ex3" width="75%" aspect="4:1">
+              <input>
+              <![CDATA[
+              var jcf3 = { 
+                f : function(x) 
+                  {
+                    var y=x*x;
+                    return y;
+                   },
+                input : { name:'x', color:'blue', values:[1,2], min:-2.5, max:2.5 },
+                output : { name:'y', color:'red', min:-2.5, max:5.5 },
+              };
+              createMapMulti(jcf3, 'jsx-fcn-behavior-monotone-ex3');
+              ]]>
+              </input>
+            </jsxgraph>
+          </figure>
+          <p>
+            We can see graphically that <m>f</m> is decreasing on <m>(-\infty,0]</m>
+            because for any two inputs in this interval, the order of the outputs is reversed.
+            We can also see that <m>f</m> is increasing on <m>[0,\infty)</m>
+            because for any two inputs in that interval, the order of the outputs is preserved.
+            This point where monotonicity switches corresponds to the vertex of the parabola <m>y=x^2</m>.
+          </p>
+          <figure margins="auto">
+            <caption>Dynamic illustration of the function <m>f(x)=x^2</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is not monotone.</caption>
+            <jsxgraph xml:id="jsx-fcn-behavior-monotone-ex3b" width="75%">
+              <input>
+              <![CDATA[
+              var jcf3b = { 
+                f : function(x) 
+                  {
+                    var y=x*x;
+                    return y;
+                   },
+                input : { name:'x', color:'blue', values:[1,2], min:-2.5, max:2.5 },
+                output : { name:'y', color:'red', min:-2.5, max:5.5 },
+              };
+              createFGraphMulti(jcf3b, 'jsx-fcn-behavior-monotone-ex3b');
+              ]]>
+              </input>
+            </jsxgraph>
+          </figure>
+        </statement>
+      </example>
+      
+      <p>
+        One of our goals in calculus will be to develop a method to determine the intervals
+        on which a function is increasing or decreasing.
+        When we motivated monotonicity with linear functions,
+        we saw that a positive slope implied an increasing function
+        and a negative slope implied a decreasing function.
+        Calculus will develop a more general sense of the slope of a function using the derivative
+        such that we will describe monotonicity based on the signs of the derivative.
+      </p>
+      
+      <note>
         <p>
-            When the graph of a function <m>f</m> behaves more and more like a constant function (horizontal line)
-            for larger and larger values of the independent variable, we say <m>f</m> has a <term>horizontal asymptote</term>.
-            A horizontal asymptote <m>y=L</m> on the right side (large, positive values for <m>x</m>) uses the limit statement 
-            <me>\lim_{x \to \infty} f(x) = L</me>,
-            which means that the value of <m>f(x)</m> approaches the constant value <m>L</m> as <m>x \to +\infty</m>.
-            When <m>f</m> has a horizontal asymptote <m>y=L</m> on the left side (large, negative values of <m>x</m>), 
-            we use the limit statement
-            <me>\lim_{x \to -\infty} f(x) = L</me>.
+        When listing intervals on which a function is increasing or decreasing,
+        it is important <em>not</em> to use a union of the intervals.
+        The reason is that we are saying that 
+        the function is increasing on <em>each</em> of the intervals individually
+        and not on the set formed by the union.
+        If listing multiple intervals, simply form a comma-separated list.
         </p>
-        <example>
-            <statement>
-                <p>
-                    The graph of a function <m>y=f(x)</m> is shown below. 
-                    This function has two horizontal asymptotes: <m>y=-2</m> as <m>x \to -\infty</m>
-                    and <m>y=1</m> as <m>x \to +\infty</m>. We write
-                    <md>
-                        <mrow>\lim_{x \to -\infty} f(x) = -2,</mrow>
-                        <mrow>\lim_{x \to +\infty} f(x) = 1.</mrow>
-                    </md>
-                </p>
-                <sidebyside width="70%">
-                    <image>
-                        <latex-image-code>
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}
-                        [
-                            xmin=-6, xmax=6,
-                            ymin=-5, ymax=5,
-                            axis lines=center,
-                        ]
-                        \addplot [domain=-6:6, samples=101, thick, blue]
-                            { (exp(2*x-4)-2*exp(-x+2)+8)/(exp(2*x-4)+exp(-x+2)) };
-                        \addplot [domain=0:6, dashed, samples=2, blue]
-                            { 1 } node [pos=0.8, above] {$y=1$};
-                        \addplot [domain=-6:0, dashed, samples=2, blue]
-                            { -2 } node [pos=0.2,below] {$y=-2$};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                </sidebyside>
-            </statement>
-        </example>
-        
-        <p>
-        A function can also have unbounded behavior near a particular input value, say at <m>x=a</m>.
-        Using limit notation, this means that at least one of the following must be true.
-        <md>
-            <mrow>\lim_{x \to a^-}f(x) &amp;= +\infty</mrow>
-            <mrow>\lim_{x \to a^-}f(x) &amp;= -\infty</mrow>
-            <mrow>\lim_{x \to a^+}f(x) &amp;= +\infty</mrow>
-            <mrow>\lim_{x \to a^+}f(x) &amp;= -\infty</mrow>
-        </md>
-        The graph has a <term>vertical asymptote</term> at <m>x=a</m>,
-        meaning that the graph of the function approaches closer and closer to this vertical line.
-        </p>
-        <example>
-            <statement>
-                <p>
-                    The graph of a function <m>y=f(x)</m> is shown below with two vertical asymptotes.
-                    The vertical asymptote at <m>x=0</m> corresponds to left- and right-limits
-                    <md>
-                        <mrow>\lim_{x \to 0^-} f(x) &amp;= -\infty,</mrow>
-                        <mrow>\lim_{x \to 0^+} f(x) &amp;= +\infty,</mrow>
-                    </md>
-                    The vertical asymptote at <m>x=2</m> only corresponds to the right-limit
-                    <me>\lim_{x \to 2^+} f(x) = +\infty.</me> 
-                </p>
-                <sidebyside width="70%">
-                    <image>
-                        <latex-image-code>
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}
-                        [
-                            xmin=-6, xmax=6,
-                            ymin=-5, ymax=5,
-                            axis lines=center,
-                        ]
-                        \addplot [domain=-6:-0.1, samples=101, thick, blue]
-                            { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
-                        \addplot [domain=0.1:2, samples=101, thick, blue]
-                            { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
-                        \addplot [domain=2.1:6, samples=101, thick, blue]
-                            { 1/(x-2) };
-                        \addplot [no marks,dashed,blue] coordinates { (2,-5) (2,5) };
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                </sidebyside>
-                <p>
-                It is hard to tell from a graph alone where a vertical asymptote occurs.
-                Using only the limited graph window, it is not obvious that the vertical asymptote is at exactly <m>x=0</m>
-                since the graph is still fairly far away from that vertical line from this perspective.
-                </p>
-            </statement>
-        </example>
-        
-        <note>
-            <p>
-                A common false impression about horizontal asymptotes is that 
-                the graph of a function can not cross the asymptote.
-                A function can not cross a vertical asymptote,
-                but that is only because a function can not intersect a vertical line at more than one point.
-                An asymptote only requires that the graph behaves more and more like the line.
-            </p>
-        </note>
-        
-        <p>
-            When a function physically relates two variables, <m>x \mapsto y</m>,
-            a horizontal asymptote indicates that
-            for sufficiently large values of the independent variable,
-            the dependent variable is essentially a constant.
-            A common description in physical settings for this constant is a <term>saturation value</term>.
-            We think of the quantity measured by the independent variable as a control variable.
-            The dependent variable can be thought of as a response.
-            As the control variable is increased, the response will pass through some of its range of values.
-            However, there will come a point where even though you continue to increase the control variable,
-            the response is no longer able to change very much at all.
-            That is, the response has saturated.
-        </p>
-        
-        <example>
-            <statement>
-                <p>
-                    An enzyme is a protein that helps catalyze a chemical reaction.
-                    The rate or velocity of reaction <m>V</m> depends on the concentration of the reactant <m>C</m>.
-                    Commonly, the function <m>C \mapsto V</m> is increasing, concave down, and has a horizontal asymptote,
-                    known as Michaelis<ndash/>Menten reaction kinetics.
-                    The physical domain is <m>C \in [0, \infty)</m>.
-                    Because the relation is increasing, we know that adding more reactants will raise the reaction rate.
-                    Because the relation is concave down, we know that the degree to which the rate increases slows down as more reactants are added.
-                    The horizontal asymptote means that this increase in the reaction rate saturates to some maximum rate <m>V_{\text{max}}</m>,
-                    <me> \lim_{C \to \infty} V = V_{\text{max}}.</me>
-                    The reactant concentration where the reaction rate is halfway to the maximum value is called the half-saturation value,
-                    and is usually represented with a constant <m>K</m>.
-                </p>
-                <figure width="70%">
-                    <caption>Michaelis<ndash/>Menten reaction kinetics with saturating rate <m>V_{\text{max}}</m> and half-saturation constant <m>K</m>.</caption>
-                    <image>
-                        <latex-image-code>
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}
-                        [
-                            xmin=-1, xmax=4.5,
-                            ymin=-1, ymax=5.5,
-                            axis lines=center,
-                            xtick={1},
-                            xticklabels={$K$},
-                            xlabel={$C$}, ylabel={$V$},
-                            ytick={3},
-                            yticklabels={$V_{\text{max}}$},
-                        ]
-                        \addplot [domain=0:6, samples=101, thick, blue]
-                            { 3*x/(1+x) };
-                        \addplot [domain=0:6, samples=2, dashed, blue]
-                            {3};
-                        \addplot [only marks, blue] coordinates { (1,1.5) };
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                </figure>
-            </statement>
-        </example>
-        
-        <example>
-            <statement>
-                <p>
-                    Imagine a crop of plants growing in a field.
-                    The total biomass harvested <m>B</m> depends on the number of seeds <m>S</m> that are sown.
-                    If very few seeds are sown, the biomass harvested will be small.
-                    For more seeds sown, we expect the biomass would increase.
-                    However, if too many seeds are sown, then the crop will be overcrowded, resulting in a lower harvest.
-                    We expect that there might be an optimal number of seeds <m>S^*</m> for which the biomass is at a maximum.
-                </p>
-                <p>
-                    Describe the behavior of the function <m>S \mapsto B</m> and sketch a possible graph.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                    The function <m>S \mapsto B</m> will have a physical domain of <m>S \in [0,\infty)</m>.
-                    Because <m>B</m> is a maximum at <m>S=S^*</m>, the function is increasing on <m>[0,S^*]</m>
-                    and decreasing on <m>[S^*,\infty)</m>.
-                    The simplest assumption for concavity would be that the function starts concave down.
-                    However, a concave down and decreasing function will eventually approach <m>-\infty</m>,
-                    which is not physically possible for our physical scenario.
-                    Therefore, the function must change concavity at some inflection point after <m>S^*</m>, say at <m>S=S^\dagger</m>.
-                    Our function would be concave down on <m>[0,S^\dagger]</m> and concave up on <m>[S^\dagger,\infty)</m>.
-                    Continuing to increase the number of seeds will result in ever smaller biomass due to overcrowding
-                    until it approaches some saturating biomass <m>B_\infty</m>,
-                    <me> \lim_{S \to \infty} B = B_\infty.</me>
-                </p>
-                <figure width="70%">
-                    <caption>Possible graph of <m>(S,B)</m> with maximum at <m>S=S^*</m> and inflection point at <m>S=S^\dagger</m>.</caption>
-                    <image>
-                        <latex-image-code>
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}
-                        [
-                            xmin=-1, xmax=34.5,
-                            ymin=-1, ymax=12.5,
-                            axis lines=center,
-                            xtick={6,11},
-                            xticklabels={$S^*$, $S^\dagger$},
-                            xlabel={$S$}, ylabel={$B$},
-                            ytick={4},
-                            yticklabels={$B_{\infty}$},
-                        ]
-                        \addplot [domain=0:35, samples=101, thick, blue]
-                            { 4*(x-1)*exp(-x/5)+4 };
-                        \addplot [domain=0:35, samples=2, dashed, blue]
-                            {4};
-                        \addplot [only marks, blue] coordinates { (6,10.02) (11,8.43) };
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image-code>
-                    </image>
-                </figure>
-                <p>
-                    Note: The asterisk and dagger are decorations 
-                    so that the symbols <m>S^*</m> and <m>S^\dagger</m> represent general constants.
-                    We don't know actual values for the maximum and inflection point, so we can't use numbers.
-                    The symbols are place-holders for values that would be determined experimentally.
-                    Similarly, the symbol <m>B_{\infty}</m> represents the value for the biomass harvested
-                    when the number of seeds sown saturates the system.
-                </p>
-            </solution>
-        </example>
-    </subsection>
-        
-    <conclusion>
-        <title>Summary</title>
-        
-        <ul>
-            <li>
-                <p>
-                Describing the <term>monotonicity</term> of a function is determining intervals 
-                on which the function is increasing or decreasing.
-                </p>
-            </li>
-            <li>
-                <p>
-                A function <m>f</m> is <term>increasing</term> on a set <m>S</m> if the function is order preserving:
-                For all <m>x_1,x_2 \in S</m>, we must have
-                <me> x_1 \lt x_2 \quad \Rightarrow \quad f(x_1) \lt f(x_2)</me>.
-                This corresponds to a graph that is rising left to right (positive slopes).
-                </p>
-                <p>
-                A function <m>f</m> is <term>decreasing</term> on a set <m>S</m> if the function is order reversing: 
-                For all <m>x_1,x_2 \in S</m>, we must have
-                <me> x_1 \lt x_2 \quad \Rightarrow \quad f(x_1) \gt f(x_2)</me>.
-                This corresponds to a graph that is falling left to right (negative slopes).
-                </p>
-            </li>
-            <li>
-                <p>
-                Describing the concavity of a function is determining intervals 
-                on which the function is concave up or concave down.
-                </p>
-            </li>
-            <li>
-                <p>
-                A function <m>f</m> is <term>concave up</term> on a set <m>S</m> if the slope or rate of change is increasing on <m>S</m>:
-                For all <m>x_1,x_2,x_3 \in S</m>, we must have
-                <me> x_1 \lt x_2 \lt x_2 \quad \Rightarrow \quad \frac{f(x_2)-f(x_1)}{x_2-x_1} \lt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>.
-                The graph will be bending upward.
-                </p>
-                <p>
-                A function <m>f</m> is <term>concave down</term> on a set <m>S</m> if the slope or rate of change is decreasing on <m>S</m>:
-                For all <m>x_1,x_2,x_3 \in S</m>, we must have
-                <me> x_1 \lt x_2 \lt x_2 \quad \Rightarrow \quad \frac{f(x_2)-f(x_1)}{x_2-x_1} \gt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>.
-                The graph will be bending downward.
-                </p>
-            </li>
-            <li>
-                <p>A <term>point of inflection</term> is a point where a function is continuous and changes concavity.</p>
-            </li>
-            <li>
-                <p>Lists of intervals of monotonicity and concavity should be separated by commas and not joined by unions.</p>
-            </li>
-            <li>
-                <p>Limits as <m>x \to \pm\infty</m> describe end behavior.</p>
-                <ul>
-                    <li>To say <m>f(x) \to +\infty</m> means values of <m>f(x)</m> eventually rise above <em>any</em> possible value.</li>
-                    <li>To say <m>f(x) \to -\infty</m> means values of <m>f(x)</m> eventually fall below <em>any</em> possible value.</li>
-                    <li>To say <m>f(x) \to L</m> means values of <m>f(x)</m> eventually approaches a horizontal asymptote <m>y=L</m>.</li>
-                </ul>
-            </li>
-        </ul>
-    </conclusion>
+      </note>
+    </subsubsection>
     
-    <exercises>
-        <exercise>
-            <statement>
-                <p>
-                The graph of a function <m>y=f(x)</m>
-                </p>
-            </statement>
-        </exercise>
-    </exercises>
+    <subsubsection>
+      <title>Concavity</title>
+      
+      <p>
+        Concavity describes how the graph of a function in the <m>(x,y)</m> plane bends.
+        If the graph bends upward, we say the function is <term>concave up</term>.
+        If the graph bends downward, we say the function is <term>concave down</term>.
+      </p>
+      <figure width="60%">
+        <caption>Comparison of concave up and concave down graphs</caption>
+        <sidebyside widths="40% 40%">
+          <figure>
+            <caption>Concave up</caption>
+            <image>
+              <latex-image-code>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \draw (0,0) arc (-160:-20:2);
+              \end{tikzpicture}]]>
+              </latex-image-code>
+            </image>
+          </figure>
+          <figure>
+            <caption>Concave down</caption>
+            <image>
+              <latex-image-code>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \draw (0,0) arc (160:20:2);
+              \end{tikzpicture}]]>
+              </latex-image-code>
+            </image>
+          </figure>
+        </sidebyside>
+      </figure>
+      <p>
+        As with monotonicity, these attributes of functions apply over intervals rather than at individual points.
+        When a graph changes concavity at a point, for example switching from bending up to bending down,
+        the function has an <term>inflection point</term>.
+        A technical definition of concavity that depends on the concept of a derivative will be provided later.
+      </p>
+      <p>
+        However, we can capture the essential idea by thinking about how the slope is changing between points.
+        A function that has an increasing slope or rate of change over an interval is concave up on the interval.
+        A function that has decreasing slope or rate of change is concave down.
+      </p>
+      <definition xml:id="concavity-average-rates">
+        <title>Concavity</title>
+        <statement>
+          <p>
+            A function <m>f</m> is <term>concave up</term> on a subset <m>S</m> of the domain (usually an interval)
+            if for every <m>x_1,x_2,x_3 \in S</m>, the slope or rate of change is increasing,
+            <me>x_1 \lt x_2 \lt x_3 \qquad \text{implies} \qquad \frac{f(x_2)-f(x_1)}{x_2-x_1} \lt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>.
+          </p>
+          <p>
+            A function <m>f</m> is <term>concave down</term> on a subset <m>S</m> of the domain (usually an interval)
+            if for every <m>x_1,x_2,x_3 \in S</m>, the slope or rate of change is decreasing,
+            <me>x_1 \lt x_2 \lt x_3 \qquad \text{implies} \qquad \frac{f(x_2)-f(x_1)}{x_2-x_1} \gt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>.
+          </p>
+        </statement>
+      </definition>
+      
+      <p>
+        This definition is not very easy to use directly.
+        When we learn more about derivatives to describe the slope at individual points,
+        we will have a much better method known as the second derivative test for concavity.
+        However, the following examples will illustrate what is happening.
+      </p>
+      <example>
+        <statement>
+          <p>
+            The function <m>f(x)=x^2</m> is concave up on <m>(-\infty,\infty)</m> (the entire domain).
+            We will not <em>prove</em> that this is true because this is too difficult without derivatives.
+            But we can illustrate the idea.
+          </p>
+          <p>
+            Consider the graph <m>y=f(x)=x^2</m> and the particular values
+            <m>x_1=-4</m>, <m>x_2=-2</m>, and <m>x_3=-1</m>.
+            We will calculate the slope or rate of change 
+            between <m>(x_1,y_1)=(-4,16)</m> and <m>(x_2,y_2)=(-2,4)</m>
+            and between <m>(x_2,y_2)</m> and <m>(x_3,y_3)=(-1,1)</m>.
+            <md>
+              <mrow> m_{12} = \frac{y_2-y_1}{x_2-x_1} = \frac{4-16}{-2--4} = \frac{-12}{2} = -6 </mrow>
+              <mrow> m_{23} = \frac{y_3-y_2}{x_3-x_2} = \frac{1-4}{-1--2} = \frac{-3}{1} = -3 </mrow>
+            </md>
+            We can see that the slope or rate of change is increasing, <m>m_{12} \lt m_{23}</m>.
+            These slopes are illustrated in the following figure.
+          </p>
+          <sidebyside width="50%">
+            <image>
+              <latex-image-code>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-5, xmax=5,
+                ymin=-4, ymax=20,
+              ]
+              \addplot [domain=-5:5, samples=51, thick, blue] { x^2 };
+              \addplot [only marks, thick] coordinates {
+                (-4,16) (-2,4) (-1,1)
+              }
+              node [pos=0, right] {$(x_1,y_1)$}
+              node [pos=0.5, left] {$(x_2,y_2)$}
+              node [pos=1, left] {$(x_3,y_3)$};
+              \addplot [dashed] coordinates { (-4,16) (-2,4) }
+                node [pos=0.5, right] {$m_{12}=-6$};
+              \addplot [dashed] coordinates { (-2,4) (-1,1) }
+                node [pos=0.5, right] {$m_{23}=-3$};
+              \end{axis}
+              \end{tikzpicture}]]>
+              </latex-image-code>
+            </image>
+          </sidebyside>
+          <p>
+            This is not a proof of concavity because we only illustrated the order for three specific points.
+            Use the following dynamic figure to convince yourself that
+            for <em>any</em> three points we might choose, the slopes increase from left to right.
+          </p>
+          <figure>
+            <caption></caption>
+            <jsxgraph xml:id="jsx-fcn-behavior-concavity-ex1" width="75%" aspect="4:3">
+              <input>
+              <![CDATA[
+              var idName = "jsx-fcn-behavior-concavity-ex1";
+              var jcf4 = {
+                input: { name:"x", min:-5.5, max:5.5 },
+                output: { name:"y", min:-2, max:20 },
+              };
+              jcf4.b = JXG.JSXGraph.initBoard(idName, 
+                {
+                  boundingbox:[
+                      jcf4.input.min,
+                      jcf4.output.max,
+                      jcf4.input.max,
+                      jcf4.output.min
+                    ],
+                  axis: true,
+                  grid: false,
+                  showCopyright:false,
+                  showNavigation:false,
+                }
+              );
+              jcf4.plot = jcf4.b.create("functiongraph", 
+                function(x) { return x*x; }
+              );
+              jcf4.x1 = jcf4.b.create("glider",
+                [-4, 16, jcf4.plot],
+                { name:"A" },
+              );
+              jcf4.x2 = jcf4.b.create("glider",
+                [-2, 4, jcf4.plot],
+                { name:"B" },
+              );
+              jcf4.x3 = jcf4.b.create("glider",
+                [-1, 1, jcf4.plot],
+                { name:"C" },
+              );
+              jcf4.b.create("segment", [jcf4.x1, jcf4.x2]);
+              jcf4.b.create("segment", [jcf4.x2, jcf4.x3]);
+              jcf4.mAB = jcf4.b.create("text",
+                [-5, 3.5, function() {
+                  var deltaY = jcf4.x2.Y()-jcf4.x1.Y(),
+                  deltaX = (jcf4.x2.X()-jcf4.x1.X());
+                  return "m_{AB} = " + Number(deltaY/deltaX).toFixed(3)
+                }]
+              );
+              jcf4.mBC = jcf4.b.create("text",
+                [-5, 2.5, function() {
+                  var deltaY = jcf4.x3.Y()-jcf4.x2.Y(),
+                  deltaX = (jcf4.x3.X()-jcf4.x2.X());
+                  return "m_{BC} = " + Number(deltaY/deltaX).toFixed(3)
+                }]
+              );
+              jcf4.mCompare = jcf4.b.create("text",
+                [-5,1.5, function() {
+                  var deltaX, deltaY, mAB, mBC;
+                  deltaY = jcf4.x2.Y()-jcf4.x1.Y(),
+                  deltaX = (jcf4.x2.X()-jcf4.x1.X());
+                  mAB = deltaY/deltaX;
+                  deltaY = jcf4.x3.Y()-jcf4.x2.Y(),
+                  deltaX = (jcf4.x3.X()-jcf4.x2.X()),
+                  mBC = deltaY/deltaX;
+                  var cmpStr = "";
+                  if (jcf4.x1.X() > jcf4.x2.X() || jcf4.x2.X() > jcf4.x3.X()) {
+                    cmpStr = "Need A < B < C";
+                  } else {
+                    if (mAB > mBC) {
+                      cmpStr = "m_{AB} > m_{BC}";
+                    } else if (mAB < mBC) {
+                      cmpStr = "m_{AB} < m_{BC}";
+                    }
+                  }
+                  return cmpStr;
+                }]
+              );
+              ]]>
+              </input>
+            </jsxgraph>
+          </figure>
+          <p>
+            The reason that <m>f</m> has an inflection point at <m>x=0</m> is
+            that point is where <m>f</m> has the steepest negative slope.
+            To the left, <m>x \lt 0</m>, the slope decreases;
+            to the right, <m>x \gt 0</m>, the slope increases.
+          </p>
+        </statement>
+      </example>
+      
+      <example>
+        <statement>
+          <p>
+            The function <m>f(x)=x^3-3x</m> changes concavity at <m>x=0</m>.
+            <m>f</m> is concave down on <m>(-\infty,0]</m> and concave up on <m>[0,\infty)</m>.
+            When three points are chosen with <m>x \in (-\infty,0]</m>, the slope is decreasing.
+            When the three points are chosen with <m>x \in [0,\infty)</m>, the slope is increasing.
+            This can be verified in the following dynamic figure.
+            However, the three points must all be in either <m>(-\infty,0]</m> or in <m>[0,\infty)</m>.
+          </p>
+          <figure>
+            <caption></caption>
+            <jsxgraph xml:id="jsx-fcn-behavior-concavity-ex2" width="75%" aspect="4:3">
+              <input>
+              <![CDATA[
+              var idName = "jsx-fcn-behavior-concavity-ex2";
+              var jcf5 = {
+                input: { name:"x", min:-3.25, max:3.25 },
+                output: { name:"y", min:-5, max:5 },
+              };
+              jcf5.b = JXG.JSXGraph.initBoard(idName, 
+                {
+                  boundingbox:[
+                      jcf5.input.min,
+                      jcf5.output.max,
+                      jcf5.input.max,
+                      jcf5.output.min
+                    ],
+                  axis: true,
+                  grid: false,
+                  showCopyright:false,
+                  showNavigation:false,
+                }
+              );
+              jcf5.plot = jcf5.b.create("functiongraph", 
+                function(x) { return x*(x*x-3); }
+              );
+              jcf5.x1 = jcf5.b.create("glider",
+                [-2, -2, jcf5.plot],
+                { name:"A" },
+              );
+              jcf5.x2 = jcf5.b.create("glider",
+                [-1, 2, jcf5.plot],
+                { name:"B" },
+              );
+              jcf5.x3 = jcf5.b.create("glider",
+                [0, 0, jcf5.plot],
+                { name:"C" },
+              );
+              jcf5.b.create("segment", [jcf5.x1, jcf5.x2]);
+              jcf5.b.create("segment", [jcf5.x2, jcf5.x3]);
+              jcf5.mAB = jcf5.b.create("text",
+                [-3, 2, function() {
+                  var deltaY = jcf5.x2.Y()-jcf5.x1.Y(),
+                  deltaX = (jcf5.x2.X()-jcf5.x1.X());
+                  return "m_{AB} = " + Number(deltaY/deltaX).toFixed(3)
+                }]
+              );
+              jcf5.mBC = jcf5.b.create("text",
+                [-3, 1.5, function() {
+                  var deltaY = jcf5.x3.Y()-jcf5.x2.Y(),
+                  deltaX = (jcf5.x3.X()-jcf5.x2.X());
+                  return "m_{BC} = " + Number(deltaY/deltaX).toFixed(3)
+                }]
+              );
+              jcf5.mCompare = jcf5.b.create("text",
+                [-3,1, function() {
+                  var deltaX, deltaY, mAB, mBC;
+                  deltaY = jcf5.x2.Y()-jcf5.x1.Y(),
+                  deltaX = (jcf5.x2.X()-jcf5.x1.X());
+                  mAB = deltaY/deltaX;
+                  deltaY = jcf5.x3.Y()-jcf5.x2.Y(),
+                  deltaX = (jcf5.x3.X()-jcf5.x2.X()),
+                  mBC = deltaY/deltaX;
+                  var cmpStr = "";
+                  if (jcf5.x1.X() >= jcf5.x2.X() || jcf5.x2.X() >= jcf5.x3.X()) {
+                    cmpStr = "Need A < B < C";
+                  } else {
+                    if (mAB > mBC) {
+                      cmpStr = "m_{AB} > m_{BC}";
+                    } else if (mAB < mBC) {
+                      cmpStr = "m_{AB} < m_{BC}";
+                    }
+                  }
+                  return cmpStr;
+                }]
+              );
+              ]]>
+              </input>
+            </jsxgraph>
+          </figure>
+        </statement>
+      </example>
+    </subsubsection>
+    
+    <subsubsection>
+      <title>Combining Monotonicity and Concavity</title>
+      
+      <p>
+        The shape of a graph of a function is often defined in terms of the monotonicity and concavity combined.
+        There are four basic shapes that correspond to the four quadrants of a circle,
+        illustrated in the figure below.
+        A curve that has a positive and increasing slope is increasing and concave up.
+        A curve that has a positive but decreasing slope is increasing and concave down.
+        A curve that has a negative but increasing (becoming less negative) slope is decreasing and concave up.
+        A curve that has a negative and decreasing (becoming more negative) slope is decreasing and concave down.
+      </p>
+      <figure width="80%">
+        <caption>Basic shapes defined by monotonicity and concavity.</caption>
+        <sidebyside widths="20% 20% 20% 20%">
+          <figure>
+            <caption>Increasing, Concave up</caption>
+            <image>
+              <latex-image-code>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \draw (0,0) arc (-80:-10:2);
+              \end{tikzpicture}]]>
+              </latex-image-code>
+            </image>
+          </figure>
+          <figure>
+            <caption>Increasing, Concave Down</caption>
+            <image>
+              <latex-image-code>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \draw (0,0) arc (170:100:2);
+              \end{tikzpicture}]]>
+              </latex-image-code>
+            </image>
+          </figure>
+          <figure>
+            <caption>Decreasing, Concave up</caption>
+            <image>
+              <latex-image-code>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \draw (0,0) arc (-170:-100:2);
+              \end{tikzpicture}]]>
+              </latex-image-code>
+            </image>
+          </figure>
+          <figure>
+            <caption>Decreasing, Concave Down</caption>
+            <image>
+              <latex-image-code>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \draw (0,0) arc (80:10:2);
+              \end{tikzpicture}]]>
+              </latex-image-code>
+            </image>
+          </figure>
+        </sidebyside>
+      </figure>
+      <p>
+        We can describe the shape of a graph by stating intervals 
+        on which the function satisfies each of the possible behaviors. 
+        The intervals are separated by points where the graph reaches 
+        either a maximum or minimum value (changes in monotonicity) 
+        or where the slope of the graph reaches an extreme and begins 
+        to bend the other direction (changes in concavity or points of inflection).
+      </p>
+      <example>
+        <statement>
+          <p>
+            The graph of a function <m>y=f(x)</m> is shown below,
+            with labeled extreme points and inflection points.
+            Describe the shape of the graph by giving intervals of monotonicity and concavity.
+          </p>
+          <sidebyside width="75%">
+            <image>
+              <latex-image-code>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-6, xmax=6,
+                ymin=-4, ymax=15,
+              ]
+              \addplot [domain=-6:-1,samples=100, thick, blue]
+                { (x+3)^2-3 };
+              \addplot [domain=-1:0,samples=100, thick, blue]
+                { -(x-1)^2+5 };
+              \addplot [domain=0:1,samples=100, thick, blue]
+                { (x+1)^2+3 };
+              \addplot [domain=1:6,samples=100, thick, blue]
+                { -(x-3)^2+11 };
+              \addplot [only marks, thick] coordinates {
+                (-3,-3) (-1,1) (0,4) (1,7) (3,11)
+              }
+              node [pos=0, above] {$(-3,3)$}
+              node [pos=0.25, left] {$(-1,1)$}
+              node [pos=0.5, left] {$(0,4)$}
+              node [pos=0.75, left] {$(1,7)$}
+              node [pos=1, above] {$(3,11)$};
+              \end{axis}
+              \end{tikzpicture}]]>
+              </latex-image-code>
+            </image>
+          </sidebyside>
+        </statement>
+        <solution>
+          <p>
+            Intervals for monotonicity are based on the function increasing or decreasing. 
+            The end-points of these intervals are the extreme points for the function. 
+            When the graph extends beyond the frame of the figure, 
+            we assume the function behavior continues as shown. Intervals always are read from left to right. The end-point of an interval is included (closed) if the behavior extends up to and including that point.
+          </p>
+          <p>
+            The function <m>f</m> is decreasing on <m>(-\infty,-3]</m>, 
+            increasing on <m>[-3,3]</m>, and decreasing on <m>[3,\infty)</m>.
+            Notice that the extremes at <m>x=-3</m> and <m>x=3</m> are included in two intervals. 
+            The continuous function is decreasing on <m>(-\infty,-3)</m> as an open interval.
+            Because <m>f</m> decreases up to and including <m>x=-3</m>, we include the end-point.
+          </p>
+          <p>
+            Intervals for concavity are based on where the slope is increasing or decreasing.
+            Intervals on which the graph bends upward, <m>f</m> is concave up.
+            Intervals on which the graph bends downward, <m>f</m> is concave down.
+            Notice our graph has inflection points (where the concavity changes) at <m>x=-1</m>, <m>x=0</m>, and <m>x=1</m>.
+            At these points, the graph starts to bend in the opposite direction.
+          </p>
+          <p>
+            The function <m>f</m> is concave up on <m>(-\infty,-1]</m>, concave down on <m>[-1,0]</m>, concave up on <m>[0,1]</m>, and concave down on <m>[1,\infty)</m>.
+            We include the inflection points as the end points of the intervals (closed) because the slope is increasing or decreasing up to and including those points.
+          </p>
+        </solution>
+      </example>
+      
+    </subsubsection>
+  </subsection>
+    
+  <subsection xml:id="functions-behavior-end-limits">
+    <title>End Behavior</title>
+    
+    <p>
+      End-behavior of a function describes what happens to a function as the size of the input grows.
+      Consider the possibilities of a linear function, <m>y=f(x)=mx+b</m>.
+      So long as the slope is non-zero, the function is <em>unbounded</em>, 
+      meaning that the graph eventually goes above every level and eventually goes below every level
+      (on opposite sides of the graph).
+    </p>
+    <p>
+      If the slope is positive, <m>m \gt 0</m>, then the function is increasing.
+      We say <m>f(x) \to +\infty</m> as <m>x \to +\infty</m>, which we read as 
+      <q>the value of <m>f(x)</m> tends to positive infinity as the value of <m>x</m> goes to positive infinity</q>.
+      This is because the <m>y</m>-values will eventually rise <em>above</em> any level 
+      on the right side of the graph (for sufficiently large positive values <m>x</m>).
+      We also say <m>f(x) \to -\infty</m> as <m>x \to -\infty</m>
+      because the <m>y</m>-values are <em>below</em> any specified value 
+      on the left side of the graph (for sufficiently large negative values <m>x</m>).
+      When the slope is negative, <m>m \lt 0</m>, the unbounded behavior is reversed.
+    </p>
+    
+    <figure>
+      <caption>Unbounded behavior of linear functions with positive and negative slopes.</caption>
+      <sidebyside>
+        <figure>
+          <caption>Positive slope (<m>m \gt 0</m>)</caption>
+          <image>
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw [<->] (0,0) -- (3,2)
+              node [pos=0, below] {$\underset{x \to -\infty}{f(x) \to -\infty}$}
+              node [pos=1, above] {$\underset{x \to +\infty}{f(x) \to +\infty}$};
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </figure>
+        <figure>
+          <caption>Negative slope (<m>m \lt 0</m>)</caption>
+          <image>
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw [<->] (0,2) -- (3,0)
+              node [pos=0, above] {$\underset{x \to -\infty}{f(x) \to +\infty}$}
+              node [pos=1, below] {$\underset{x \to +\infty}{f(x) \to -\infty}$};
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </figure>
+      </sidebyside>
+    </figure>
+    
+    <p>
+      For consistency in notation to describe the tendency of a function (as opposed to the value of a function),
+      we use limits to describe unbounded behavior.
+      <md>
+        <mrow> \lim_{x \to -\infty} f(x) &amp;= -\infty &amp; \text{means $f(x) \to -\infty$ as $x \to -\infty$}</mrow>
+        <mrow> \lim_{x \to -\infty} f(x) &amp;= \infty &amp; \text{means $f(x) \to +\infty$ as $x \to -\infty$}</mrow>
+        <mrow> \lim_{x \to \infty} f(x) &amp;= -\infty &amp; \text{means $f(x) \to -\infty$ as $x \to +\infty$}</mrow>
+        <mrow> \lim_{x \to \infty} f(x) &amp;= \infty &amp; \text{means $f(x) \to +\infty$ as $x \to +\infty$}</mrow>
+      </md>
+    </p>
+    <p>
+      When the graph of a function <m>f</m> behaves more and more like a constant function (horizontal line)
+      for larger and larger values of the independent variable, we say <m>f</m> has a <term>horizontal asymptote</term>.
+      A horizontal asymptote <m>y=L</m> on the right side (large, positive values for <m>x</m>) uses the limit statement 
+      <me>\lim_{x \to \infty} f(x) = L</me>,
+      which means that the value of <m>f(x)</m> approaches the constant value <m>L</m> as <m>x \to +\infty</m>.
+      When <m>f</m> has a horizontal asymptote <m>y=L</m> on the left side (large, negative values of <m>x</m>), 
+      we use the limit statement
+      <me>\lim_{x \to -\infty} f(x) = L</me>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The graph of a function <m>y=f(x)</m> is shown below. 
+          This function has two horizontal asymptotes: <m>y=-2</m> as <m>x \to -\infty</m>
+          and <m>y=1</m> as <m>x \to +\infty</m>. We write
+          <md>
+            <mrow>\lim_{x \to -\infty} f(x) = -2,</mrow>
+            <mrow>\lim_{x \to +\infty} f(x) = 1.</mrow>
+          </md>
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-6, xmax=6,
+              ymin=-5, ymax=5,
+              axis lines=center,
+            ]
+            \addplot [domain=-6:6, samples=101, thick, blue]
+              { (exp(2*x-4)-2*exp(-x+2)+8)/(exp(2*x-4)+exp(-x+2)) };
+            \addplot [domain=0:6, dashed, samples=2, blue]
+              { 1 } node [pos=0.8, above] {$y=1$};
+            \addplot [domain=-6:0, dashed, samples=2, blue]
+              { -2 } node [pos=0.2,below] {$y=-2$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
+      </statement>
+    </example>
+    
+    <p>
+    A function can also have unbounded behavior near a particular input value, say at <m>x=a</m>.
+    Using limit notation, this means that at least one of the following must be true.
+    <md>
+      <mrow>\lim_{x \to a^-}f(x) &amp;= +\infty</mrow>
+      <mrow>\lim_{x \to a^-}f(x) &amp;= -\infty</mrow>
+      <mrow>\lim_{x \to a^+}f(x) &amp;= +\infty</mrow>
+      <mrow>\lim_{x \to a^+}f(x) &amp;= -\infty</mrow>
+    </md>
+    The graph has a <term>vertical asymptote</term> at <m>x=a</m>,
+    meaning that the graph of the function approaches closer and closer to this vertical line.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The graph of a function <m>y=f(x)</m> is shown below with two vertical asymptotes.
+          The vertical asymptote at <m>x=0</m> corresponds to left- and right-limits
+          <md>
+            <mrow>\lim_{x \to 0^-} f(x) &amp;= -\infty,</mrow>
+            <mrow>\lim_{x \to 0^+} f(x) &amp;= +\infty,</mrow>
+          </md>
+          The vertical asymptote at <m>x=2</m> only corresponds to the right-limit
+          <me>\lim_{x \to 2^+} f(x) = +\infty.</me> 
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-6, xmax=6,
+              ymin=-5, ymax=5,
+              axis lines=center,
+            ]
+            \addplot [domain=-6:-0.1, samples=101, thick, blue]
+              { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
+            \addplot [domain=0.1:2, samples=101, thick, blue]
+              { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
+            \addplot [domain=2.1:6, samples=101, thick, blue]
+              { 1/(x-2) };
+            \addplot [no marks,dashed,blue] coordinates { (2,-5) (2,5) };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
+        <p>
+        It is hard to tell from a graph alone where a vertical asymptote occurs.
+        Using only the limited graph window, it is not obvious that the vertical asymptote is at exactly <m>x=0</m>
+        since the graph is still fairly far away from that vertical line from this perspective.
+        </p>
+      </statement>
+    </example>
+    
+    <note>
+      <p>
+        A common false impression about horizontal asymptotes is that 
+        the graph of a function can not cross the asymptote.
+        A function can not cross a vertical asymptote,
+        but that is only because a function can not intersect a vertical line at more than one point.
+        An asymptote only requires that the graph behaves more and more like the line.
+      </p>
+    </note>
+    
+    <p>
+      When a function physically relates two variables, <m>x \mapsto y</m>,
+      a horizontal asymptote indicates that
+      for sufficiently large values of the independent variable,
+      the dependent variable is essentially a constant.
+      A common description in physical settings for this constant is a <term>saturation value</term>.
+      We think of the quantity measured by the independent variable as a control variable.
+      The dependent variable can be thought of as a response.
+      As the control variable is increased, the response will pass through some of its range of values.
+      However, there will come a point where even though you continue to increase the control variable,
+      the response is no longer able to change very much at all.
+      That is, the response has saturated.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          An enzyme is a protein that helps catalyze a chemical reaction.
+          The rate or velocity of reaction <m>V</m> depends on the concentration of the reactant <m>C</m>.
+          Commonly, the function <m>C \mapsto V</m> is increasing, concave down, and has a horizontal asymptote,
+          known as Michaelis<ndash/>Menten reaction kinetics.
+          The physical domain is <m>C \in [0, \infty)</m>.
+          Because the relation is increasing, we know that adding more reactants will raise the reaction rate.
+          Because the relation is concave down, we know that the degree to which the rate increases slows down as more reactants are added.
+          The horizontal asymptote means that this increase in the reaction rate saturates to some maximum rate <m>V_{\text{max}}</m>,
+          <me> \lim_{C \to \infty} V = V_{\text{max}}.</me>
+          The reactant concentration where the reaction rate is halfway to the maximum value is called the half-saturation value,
+          and is usually represented with a constant <m>K</m>.
+        </p>
+        <figure width="70%">
+          <caption>Michaelis<ndash/>Menten reaction kinetics with saturating rate <m>V_{\text{max}}</m> and half-saturation constant <m>K</m>.</caption>
+          <image>
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-1, xmax=4.5,
+              ymin=-1, ymax=5.5,
+              axis lines=center,
+              xtick={1},
+              xticklabels={$K$},
+              xlabel={$C$}, ylabel={$V$},
+              ytick={3},
+              yticklabels={$V_{\text{max}}$},
+            ]
+            \addplot [domain=0:6, samples=101, thick, blue]
+              { 3*x/(1+x) };
+            \addplot [domain=0:6, samples=2, dashed, blue]
+              {3};
+            \addplot [only marks, blue] coordinates { (1,1.5) };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </figure>
+      </statement>
+    </example>
+    
+    <example>
+      <statement>
+        <p>
+          Imagine a crop of plants growing in a field.
+          The total biomass harvested <m>B</m> depends on the number of seeds <m>S</m> that are sown.
+          If very few seeds are sown, the biomass harvested will be small.
+          For more seeds sown, we expect the biomass would increase.
+          However, if too many seeds are sown, then the crop will be overcrowded, resulting in a lower harvest.
+          We expect that there might be an optimal number of seeds <m>S^*</m> for which the biomass is at a maximum.
+        </p>
+        <p>
+          Describe the behavior of the function <m>S \mapsto B</m> and sketch a possible graph.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>S \mapsto B</m> will have a physical domain of <m>S \in [0,\infty)</m>.
+          Because <m>B</m> is a maximum at <m>S=S^*</m>, the function is increasing on <m>[0,S^*]</m>
+          and decreasing on <m>[S^*,\infty)</m>.
+          The simplest assumption for concavity would be that the function starts concave down.
+          However, a concave down and decreasing function will eventually approach <m>-\infty</m>,
+          which is not physically possible for our physical scenario.
+          Therefore, the function must change concavity at some inflection point after <m>S^*</m>, say at <m>S=S^\dagger</m>.
+          Our function would be concave down on <m>[0,S^\dagger]</m> and concave up on <m>[S^\dagger,\infty)</m>.
+          Continuing to increase the number of seeds will result in ever smaller biomass due to overcrowding
+          until it approaches some saturating biomass <m>B_\infty</m>,
+          <me> \lim_{S \to \infty} B = B_\infty.</me>
+        </p>
+        <figure width="70%">
+          <caption>Possible graph of <m>(S,B)</m> with maximum at <m>S=S^*</m> and inflection point at <m>S=S^\dagger</m>.</caption>
+          <image>
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-1, xmax=34.5,
+              ymin=-1, ymax=12.5,
+              axis lines=center,
+              xtick={6,11},
+              xticklabels={$S^*$, $S^\dagger$},
+              xlabel={$S$}, ylabel={$B$},
+              ytick={4},
+              yticklabels={$B_{\infty}$},
+            ]
+            \addplot [domain=0:35, samples=101, thick, blue]
+              { 4*(x-1)*exp(-x/5)+4 };
+            \addplot [domain=0:35, samples=2, dashed, blue]
+              {4};
+            \addplot [only marks, blue] coordinates { (6,10.02) (11,8.43) };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </figure>
+        <p>
+          Note: The asterisk and dagger are decorations 
+          so that the symbols <m>S^*</m> and <m>S^\dagger</m> represent general constants.
+          We don't know actual values for the maximum and inflection point, so we can't use numbers.
+          The symbols are place-holders for values that would be determined experimentally.
+          Similarly, the symbol <m>B_{\infty}</m> represents the value for the biomass harvested
+          when the number of seeds sown saturates the system.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+    
+  <conclusion>
+    <title>Summary</title>
+    
+    <ul>
+      <li>
+        <p>
+        Describing the <term>monotonicity</term> of a function is determining intervals 
+        on which the function is increasing or decreasing.
+        </p>
+      </li>
+      <li>
+        <p>
+        A function <m>f</m> is <term>increasing</term> on a set <m>S</m> if the function is order preserving:
+        For all <m>x_1,x_2 \in S</m>, we must have
+        <me> x_1 \lt x_2 \quad \Rightarrow \quad f(x_1) \lt f(x_2)</me>.
+        This corresponds to a graph that is rising left to right (positive slopes).
+        </p>
+        <p>
+        A function <m>f</m> is <term>decreasing</term> on a set <m>S</m> if the function is order reversing: 
+        For all <m>x_1,x_2 \in S</m>, we must have
+        <me> x_1 \lt x_2 \quad \Rightarrow \quad f(x_1) \gt f(x_2)</me>.
+        This corresponds to a graph that is falling left to right (negative slopes).
+        </p>
+      </li>
+      <li>
+        <p>
+        Describing the concavity of a function is determining intervals 
+        on which the function is concave up or concave down.
+        </p>
+      </li>
+      <li>
+        <p>
+        A function <m>f</m> is <term>concave up</term> on a set <m>S</m> if the slope or rate of change is increasing on <m>S</m>:
+        For all <m>x_1,x_2,x_3 \in S</m>, we must have
+        <me> x_1 \lt x_2 \lt x_2 \quad \Rightarrow \quad \frac{f(x_2)-f(x_1)}{x_2-x_1} \lt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>.
+        The graph will be bending upward.
+        </p>
+        <p>
+        A function <m>f</m> is <term>concave down</term> on a set <m>S</m> if the slope or rate of change is decreasing on <m>S</m>:
+        For all <m>x_1,x_2,x_3 \in S</m>, we must have
+        <me> x_1 \lt x_2 \lt x_2 \quad \Rightarrow \quad \frac{f(x_2)-f(x_1)}{x_2-x_1} \gt \frac{f(x_3)-f(x_2)}{x_3-x_2}</me>.
+        The graph will be bending downward.
+        </p>
+      </li>
+      <li>
+        <p>A <term>point of inflection</term> is a point where a function is continuous and changes concavity.</p>
+      </li>
+      <li>
+        <p>Lists of intervals of monotonicity and concavity should be separated by commas and not joined by unions.</p>
+      </li>
+      <li>
+        <p>Limits as <m>x \to \pm\infty</m> describe end behavior.</p>
+        <ul>
+          <li>To say <m>f(x) \to +\infty</m> means values of <m>f(x)</m> eventually rise above <em>any</em> possible value.</li>
+          <li>To say <m>f(x) \to -\infty</m> means values of <m>f(x)</m> eventually fall below <em>any</em> possible value.</li>
+          <li>To say <m>f(x) \to L</m> means values of <m>f(x)</m> eventually approaches a horizontal asymptote <m>y=L</m>.</li>
+        </ul>
+      </li>
+    </ul>
+  </conclusion>
+  
+  <exercises>
+    <exercise>
+      <statement>
+        <p>
+        The graph of a function <m>y=f(x)</m>
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>
