@@ -1120,8 +1120,60 @@
     <exercise>
       <statement>
         <p>
-        The graph of a function <m>y=f(x)</m>
+        Consider the graph of the function <m>y=f(x)</m> illustrated below. 
+        Use the graph to determine intervals of monotonicity for <m>f</m>.
         </p>
+        <sidebyside>
+          <image>
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis} [
+              width=3in, height=2.5in,
+              grid=both, minor tick num={1},
+              ]
+              \addplot[no marks, black] coordinates {
+                (-1,0)
+                (6,0)
+              };
+              %\addplot[blue, thick, samples=100] {  };
+              \addplot[mark=o, thick, red] coordinates {
+                (0,0.7143)
+                (0.4,0.7143)
+              };
+              \fill [opacity=0.25, red] (axis cs:0,0) -- (axis cs:0,0.7143)
+                -- (axis cs: 0.4,0.7143) -- (axis cs: 0.4,0) -- cycle;
+              \addplot[mark=o, thick, red] coordinates {
+                (0.4,0.5556)
+                (0.8,0.5556)
+              };
+              \fill [opacity=0.25, red] (axis cs:0.4,0) -- (axis cs:0.4,0.5556)
+                -- (axis cs: 0.8,0.5556) -- (axis cs: 0.8,0) -- cycle;
+              \addplot[mark=o, thick, red] coordinates {
+                (0.8,0.4546)
+                (1.2,0.4546)
+              };
+              \fill [opacity=0.25, red] (axis cs:0.8,0) -- (axis cs:0.8,0.4546)
+                -- (axis cs: 1.2,0.4546) -- (axis cs: 1.2,0) -- cycle;
+              \addplot[mark=o, thick, red] coordinates {
+                (1.2,0.3846)
+                (1.6,0.3846)
+              };
+              \fill [opacity=0.25, red] (axis cs:1.2,0) -- (axis cs:1.2,0.3846)
+                -- (axis cs: 1.6,0.3846) -- (axis cs: 1.6,0) -- cycle;
+              \addplot[mark=o, thick, red] coordinates {
+                (1.6,0.3333)
+                (2.0,0.3333)
+              };
+              \fill [opacity=0.25, red] (axis cs:1.6,0) -- (axis cs:1.6,0.3333)
+                -- (axis cs: 2,0.3333) -- (axis cs: 2,0) -- cycle;
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
       </statement>
     </exercise>
   </exercises>

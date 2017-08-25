@@ -452,6 +452,8 @@
           The formula <c>DV(z)</c> represents the formula
           for the rate of change evaluated at this integration
           variable instead of <m>t</m>, <m>-40+3z</m>.
+          This could have been computed in WolframAlpha with the query
+          <c>integrate -40+3z with respect to z from 1 to t</c>.
         </p>
       </statement>
     </example>
@@ -605,6 +607,51 @@
             and compare this to the average rate
             <m>\displaystyle \frac{\Delta A}{\Delta r}</m>
             with <m>\Delta r=0.05</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          For each problem, write down the formula involving an integral
+          for the quantity whose derivative and initial value are given.
+          Use technology to find the algebraic formula of the quantity.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            Given <m>\displaystyle \frac{dy}{dx}=4</m> 
+            and <m>y=5</m> when <m>x=2</m>.
+            Find <m>y</m> as a function of <m>x</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Given <m>\displaystyle \frac{dy}{dx}=2+3x</m> 
+            and <m>y=4</m> when <m>x=1</m>.
+            Find <m>y</m> as a function of <m>x</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Given <m>\displaystyle \frac{dQ}{dt}=t^3</m> 
+            and <m>Q=2</m> when <m>t=1</m>.
+            Find <m>Q</m> as a function of <m>t</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Given <m>\displaystyle \frac{dP}{dt}=500e^{0.2t}</m> 
+            and <m>P=4000</m> when <m>t=0</m>.
+            Find <m>P</m> as a function of <m>t</m>.
           </p>
         </statement>
       </exercise>
