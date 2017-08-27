@@ -517,17 +517,17 @@
         # Calculate the table for plotting
         data = []
         for n in range(lastIndex+1):
-          xn = n/(2*n+1)
-          data.append( (n,xn) )
+            xn = n/(2*n+1)
+            data.append( (n,xn) )
         graph = list_plot(data, frame=True, axes_labels=["n", "x_n"])
         show(graph)
 
         # Display a portion of the table
         for n in range(lastIndex-showLast,lastIndex+1):
-          # data is a list of points, so data[n] = (n,xn)
-          # Format %d means as integer, \t means tab
-          # and %10.8f means 8 decimal places in 10 available
-          print "%d\t%10.8f" % data[n]
+            # data is a list of points, so data[n] = (n,xn)
+            # Format %d means as integer, \t means tab
+            # and %10.8f means 8 decimal places in 10 available
+            print "%d\t%10.8f" % data[n]
         </input>
         <output>
         90    0.49723757

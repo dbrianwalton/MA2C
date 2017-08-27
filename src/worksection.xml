@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./accumulation-functions.xml" />
+            <xi:include href="./functions-behavior.xml" />
 		</chapter>
 		
     </book>
