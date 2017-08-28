@@ -1006,6 +1006,21 @@
         </p>
       </introduction>
       <exercise>
+        <statement>
+          <sidebyside width="60%" margins="auto">
+            <image>
+              <latex-image-code>
+                \begin{tikzpicture}
+                \begin{axis}
+                [
+                  xmin=-4, xmax=4
+                ]
+                \end{axis};
+                \end{tikzpicture}
+              </latex-image-code>
+            </image>
+          </sidebyside>
+        </statement>
       </exercise>
     </exercisegroup>
   </exercises>
