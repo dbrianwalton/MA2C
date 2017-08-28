@@ -696,13 +696,13 @@
     # The 45 says to stop when m reaches 45
     # So the values of m used will be 0 ... 44
     for m in range(45):
-    # Indent repeated block 4 spaces
-    # Display the current month and the current balance
-    # Format: %d means integer, %f means floating point (decimal)
-    print "%d %f" % (m, B)
-    # Now update the balance value
-    # B on left is new value, B on right is old value
-    B = B - 250 + 0.0025*B
+        # Indent repeated block 4 spaces
+        # Display the current month and the current balance
+        # Format: %d means integer, %f means floating point (decimal)
+        print "%d %f" % (m, B)
+        # Now update the balance value
+        # B on left is new value, B on right is old value
+        B = B - 250 + 0.0025*B
     </input>
     <!-- need to use wildcard matching to make this doctestable -->
     <output>

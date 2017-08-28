@@ -13,54 +13,115 @@ when you host your project on a server.
 -->
 
 <frontmatter xml:id="index">
-	<!--
-	Items typically on the main title page, perhaps duplicated
-	in the half-title page, page headings, etc.
-	One exception - main title and (optional) subtitle follow
-	the scheme for titling any division of the work.
-	 -->
+  <!--
+  Items typically on the main title page, perhaps duplicated
+  in the half-title page, page headings, etc.
+  One exception - main title and (optional) subtitle follow
+  the scheme for titling any division of the work.
+   -->
 
-	<titlepage>
+  <titlepage>
 
-	   <!-- There can be several authors here -->
-		<author>
-			<personname>D. Brian Walton</personname>
-			<department>Department of Mathematics and Statistics</department>
-			<!-- Use "break" tag anywhere for forced line break -->
-			<institution><line>James Madison University</line><line>Harrisonburg, Virginia, USA</line></institution>
-			<email>waltondb@jmu.edu</email>
-		</author>
+     <!-- There can be several authors here -->
+    <author>
+      <personname>D. Brian Walton</personname>
+      <department>Department of Mathematics and Statistics</department>
+      <!-- Use "break" tag anywhere for forced line break -->
+      <institution>
+        <line>James Madison University</line>
+        <line>Harrisonburg, Virginia, USA</line>
+      </institution>
+      <email>waltondb@jmu.edu</email>
+    </author>
 
-		<!-- Can set date manually or use the "today" element -->
-		<date><today /></date>
+    <!-- Can set date manually or use the "today" element -->
+    <date><today /></date>
 
-	</titlepage>
+  </titlepage>
 
-	<!--
-	Acknowledgements, dedications, colophon (ISBN, copyright, etc)
-	are supported in the book document type.  Such a diverse range
-	is not yet available for articles.  Send requests.
-	-->
-	 
-	<preface xml:id="preface">
-        <p>You can download a PDF copy of the book with the links below. There are differently formatted options, depending on how you intend to use the PDF.</p>
-        <ul>
-            <li>
-                <p><url href="http://educ.jmu.edu/~waltondb/ModelCalculus/model-calculus.pdf">http://educ.jmu.edu/~waltondb/ModelCalculus/model-calculus.pdf</url> (Margins formatted to print 2-sided)</p>
-            </li>
-            <li>
-                <p><url href="http://educ.jmu.edu/~waltondb/ModelCalculus/model-calculus-1page.pdf">http://educ.jmu.edu/~waltondb/ModelCalculus/model-calculus-1page.pdf</url> (Margins formatted to print 1-sided)</p>
-            </li>
-        </ul>
-        
-        <p>In order to keep track of changes during the semester, the following list describes the changes that have taken place in the text since August 2016.</p>
-        
-        <ul>
-            <li>Example 2.4.3 includes finding a derivative using technology. The wording originally used the word <q>integral</q> (copy/paste error).</li>
-            <li>Continuity of Functions (Section 5.4) was edited to remove redundant information about interval notation.</li>
-            <li>The Derivative (Section 5.3) had another example added that involved using conjugates for square roots (Example 5.3.4).</li>knox 2
-            <li>Correction to example of <m>L(b)</m> in Section 5.9, Exponential Derivatives. Used to say <m>2^x</m> in every formula.</li>
-            <li>Added Derivatives of Trigonometric Functions as Section 5.10, and renumbering Implicit Differentiation as Section 5.11.</li>
-        </ul>
-	</preface>
+  <!--
+  Acknowledgements, dedications, colophon (ISBN, copyright, etc)
+  are supported in the book document type.  Such a diverse range
+  is not yet available for articles.  Send requests.
+  -->
+   
+  <preface xml:id="preface">
+    <p>
+    Calculus is a branch of mathematics that studies functions
+    through the processes of limits, derivatives, and integrals.
+    This text introduces the ideas of calculus through the context
+    of mathematical models.
+    This text is organized to review precalculus concepts
+    necessary to be successful in learning calculus.
+    The goal is not, however, to introduce these concepts
+    to a beginner but to leverage some familiarity toward a deeper understanding.
+    </p>
+    <p>
+    The text begins with a basic review of numbers and variables
+    with an aim of connecting these foundational concepts 
+    to the goals of modeling relationships between physically measured quantities.
+    It then turns to the development of functions as the mathematical
+    tool used for predictive relationships between variables.
+    Intuitive ideas of continuity are introduced in relationship 
+    to making piecewise functions connected, with limits introduced as a way
+    to characterize the behavior of a function at the break points.
+    </p>
+    <p>
+    Sequences are introduced early as a discrete illustration
+    of many of the concepts relating to modeling with functions.
+    Patterns found in sequences are familiar to students
+    and these patterns can often be described both explicitly and recursively.
+    This will serve as a prelude to the idea that functions can be
+    defined explicitly with a formula or indirectly through differential equations.
+    In addition, sequences foreshadow the ideas of limits, derivatives, and integrals.
+    Describing the monotonicity and concavity of a sequence
+    then provides a direct correspondence to describing the behavior
+    of a function in terms of its first and second derivatives.
+    </p>
+    <p>
+    Summation rules and formulas naturally occur as part of the discussion of sequences.
+    This motivates an early introduction of the definite integral
+    as the generalization of the accumulation of increments of change.
+    The rate of change is introduced in the context of accumulation
+    and the reader is explicitly told to look forward to the Fundamental Theorem of Calculus
+    as the formal connection between the rate of accumulation and the instantaneous
+    rate of change as being equivalent.
+    Properties of the definite integral as well as elementary formulas are introduced.
+    The behavior of functions in terms of the first and second derivative are
+    introduced using the integral representation of functions.
+    </p>
+    <p>
+    Next, we develop a more thorough investigation of limits and continuity of functions.
+    Properties of limits are developed in the context of the limits of sequences.
+    The epsilon-delta definition of a limit is given in an optional section.
+    Continuity of functions is formalized and the major theorems for continuous functions
+    are presented, namely the Intermediate Value Theorem and the Extreme Value Theorem.
+    </p>
+    <p>
+    This is followed by the formal development of the derivative and the rules of differentiation,
+    including the first part of the Fundamental Theorem of Calculus.
+    Applications of derivatives and antiderivatives are included.
+    </p>
+    <p>
+    You can download a PDF copy of the book with the links below. 
+    There are differently formatted options, depending on how you intend to use the PDF.
+    </p>
+    <ul>
+        <li>
+            <p><url href="http://educ.jmu.edu/~waltondb/MA2C/model-calculus.pdf">http://educ.jmu.edu/~waltondb/MA2C/model-calculus.pdf</url> (Margins formatted to print 2-sided)</p>
+        </li>
+        <li>
+            <p><url href="http://educ.jmu.edu/~waltondb/MA2C/model-calculus-1page.pdf">http://educ.jmu.edu/~waltondb/MA2C/model-calculus-1page.pdf</url> (Margins formatted to print 1-sided)</p>
+        </li>
+    </ul>
+    
+    <p>
+    In order to keep track of changes during the semester, 
+    the following list describes the changes that have taken 
+    place in the text since August 2017.</p>
+    
+    <ul>
+        <li></li>
+    </ul>
+  </preface>
 </frontmatter>

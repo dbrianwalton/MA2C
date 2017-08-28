@@ -54,7 +54,7 @@
     <xi:include href="./riemann-sums.xml" />            
     <xi:include href="./integral-properties.xml" />            
     <xi:include href="./accumulation-functions.xml" />            
-    <xi:include href="./rate-functions.xml" />
+    <xi:include href="./accumulation-applications.xml" />            
     </chapter>
     
     <chapter>
@@ -63,6 +63,7 @@
     
     
     <xi:include href="./intro-optimization.xml" />
+    <xi:include href="./rate-functions.xml" />
 
     <xi:include href="./derivative_intro.xml" />
     <xi:include href="./derivative_function.xml" />            

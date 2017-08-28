@@ -8,31 +8,31 @@
 <!-- See the file COPYING for copying conditions. -->
    
 <section>
-    <title>Approximations</title>
+  <title>Approximations</title>
 
-    <!-- Functions -->
-    <subsection>
-        <title>Functions from Equations</title>
-        
-        <p>Given the Fundamental Theorem, we would find the antiderivative useful.</p>
-
-        <sage>
-            <input>
-f(x) = sqrt(x)
-a=1
-
-@interact
-def interactive_2d_plotter(c1=slider(-4,4,1/20,0, label='c1'), c2=slider(-4,4,1/20,0, label='c2'), c3=slider(-4,4,1/20,0, label='c3'), square=checkbox(True, 'Square'), axes=checkbox(False, 'Show Axes')):
-    approx = c1+c2*(x-1)+c3*(x-1)^2
-    plot1 = plot(f(x), 0,4)
-    plot2 = plot(approx, 0,4, color='red')
-    show(plot1+plot2+point((a,f(a))),title="Graphs", figsize=[3,3])
-    show(plot(f(x)-approx, a-1,a+1), title="Error", figsize=[2,2])
-            </input>
-            <output>1/2*x - 1/4*sin(2*x)</output>
-        </sage>
-
-
-    </subsection>
+  <!-- Functions -->
+  <subsection>
+    <title>Functions from Equations</title>
     
+    <p>Given the Fundamental Theorem, we would find the antiderivative useful.</p>
+
+    <sage>
+      <input>
+      f(x) = sqrt(x)
+      a=1
+      
+      @interact
+      def interactive_2d_plotter(c1=slider(-4,4,1/20,0, label='c1'), c2=slider(-4,4,1/20,0, label='c2'), c3=slider(-4,4,1/20,0, label='c3'), square=checkbox(True, 'Square'), axes=checkbox(False, 'Show Axes')):
+          approx = c1+c2*(x-1)+c3*(x-1)^2
+          plot1 = plot(f(x), 0,4)
+          plot2 = plot(approx, 0,4, color='red')
+          show(plot1+plot2+point((a,f(a))),title="Graphs", figsize=[3,3])
+          show(plot(f(x)-approx, a-1,a+1), title="Error", figsize=[2,2])
+      </input>
+      <output>1/2*x - 1/4*sin(2*x)</output>
+    </sage>
+
+
+  </subsection>
+  
 </section>
