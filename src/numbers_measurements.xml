@@ -141,22 +141,54 @@
         </exercisegroup>
         <exercise>
             <statement>
-                <p>A right triangle is formed with legs measuring 5 <quantity><unit prefix="centi" base="meter"/></quantity> and 8 <quantity><unit prefix="centi" base="meter"/></quantity>. Express the length of the hypotenuse <m>H</m> to the nearest millimeter, stating the margin of error based on a ruler showing millimeters. Rewrite your statement about margin of error as an inequality involving absolute values.</p>
+                <p>
+                A right triangle is formed with legs measuring 
+                5 <quantity><unit prefix="centi" base="meter"/></quantity> 
+                and 8 <quantity><unit prefix="centi" base="meter"/></quantity>. 
+                Express the length of the hypotenuse <m>H</m> to the nearest tenth of a centimeter, 
+                stating the margin of error based on a ruler showing millimeters. 
+                Rewrite your statement about margin of error 
+                as an inequality involving absolute values.
+                </p>
             </statement>
         </exercise>
         <exercise>
             <statement>
-                <p>A right triangle is formed with one leg measuring 10 <quantity><unit prefix="centi" base="meter"/></quantity> and the hypotenuse measuring 18 <quantity><unit prefix="centi" base="meter"/></quantity>. Express the length of the other leg <m>L</m> to the nearest millimeter, stating the margin of error based on a ruler showing millimeters. Rewrite your statement about margin of error as an inequality involving absolute values.</p>
+                <p>
+                A right triangle is formed with one leg measuring 
+                10 <quantity><unit prefix="centi" base="meter"/></quantity> 
+                and the hypotenuse measuring 18 <quantity><unit prefix="centi" base="meter"/></quantity>. 
+                Express the length of the other leg <m>L</m> to the nearest tenth of a centimeter, 
+                stating the margin of error based on a ruler showing millimeters. 
+                Rewrite your statement about margin of error as an inequality involving absolute values.
+                </p>
             </statement>
         </exercise>        
         <exercise>
             <statement>
-                <p>The circumference of a tree trunk, with margin of error, is recorded as <m>C = 138.4 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>. What is corresponding estimate for the diameter of the tree <m>D</m> with its corresponding margin of error? (Round the margin of error to the nearest hundredth of a centimeter.)</p>
+                <p>
+                The circumference of a tree trunk, with margin of error, 
+                is recorded as <m>C = 138.4 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>. 
+                What is the corresponding estimate for the diameter of the tree <m>D</m> 
+                with its corresponding margin of error? 
+                (Round the estimate and the margin of error to the nearest thousandth of a centimeter.)
+                </p>
             </statement>
         </exercise>
         <exercise>
             <statement>
-                <p>A rectangle is formed with a width <m>W=20 \pm 0.1</m> <quantity><unit prefix="centi" base="meter"/></quantity> and a height <m>H=15 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>. What range of areas are possible for this rectangle? Using the approximations <m>\widehat{W}=20</m> <quantity><unit prefix="centi" base="meter"/></quantity> and <m>\widehat{H}=15</m> <quantity><unit prefix="centi" base="meter"/></quantity>, the approximated area would be <m>\widehat{A}=300</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>. Can the range of possible areas be expressed using a symmetric margin of error <m>|A-\widehat{A}| \lt \epsilon</m>? Explain.</p>
+                <p>
+                A rectangle is formed with a width <m>W=20 \pm 0.1</m> 
+                <quantity><unit prefix="centi" base="meter"/></quantity> 
+                and a height <m>H=15 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>. 
+                What range of areas are possible for this rectangle? 
+                Using the approximations <m>\widehat{W}=20</m> <quantity><unit prefix="centi" base="meter"/></quantity> 
+                and <m>\widehat{H}=15</m> <quantity><unit prefix="centi" base="meter"/></quantity>, 
+                the approximated area would be 
+                <m>\widehat{A}=300</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>. 
+                Can the range of possible areas be expressed using a symmetric margin of error 
+                <m>|A-\widehat{A}| \lt \epsilon</m>? Explain.
+                </p>
             </statement>
         </exercise>
     </exercises>
