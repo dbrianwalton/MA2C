@@ -1029,7 +1029,6 @@
       </introduction>
       <exercise>
         <statement>
-<<<<<<< HEAD
           <sidebyside width="60%" margins="auto">
             <image>
               <latex-image-code>
@@ -1040,7 +1039,9 @@
                 ]
                 \end{axis};
                 \end{tikzpicture}
-=======
+              </latex-image-code>
+            </image>
+          </sidebyside>
           <p>
           Given: graph of <m>y=f'(x)</m> and <m>f(0)=4</m>.
           </p>
@@ -1119,7 +1120,6 @@
                 };
               \end{axis}
               \end{tikzpicture}
->>>>>>> refs/remotes/origin/master
               </latex-image-code>
             </image>
           </sidebyside>
