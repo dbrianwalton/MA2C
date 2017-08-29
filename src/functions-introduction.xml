@@ -183,6 +183,14 @@
     </definition>
     
     <p>
+    The slope is also called the <term>rate of change</term>.
+    If we define <m>\Delta x = x_2-x_1</m> as the increment of change of <m>x</m>
+    and <m>\Delta y = y_2-y_1</m> as the increment of change of <m>y</m>,
+    then the slope is equal to the ratio of the increments of change of <m>y</m> to <m>x</m>,
+    <me>m = \frac{\Delta y}{\Delta x}</me>.
+    </p>
+    
+    <p>
     One of the most well-remembered equation from algebra is the <term>slope<ndash/>intercept equation of a line</term>,
     <me>y=mx+b,</me> which is the equation of a line with slope <m>m</m>
     and with a <m>y</m>-intercept at the state <m>(x,y)=(0,b)</m>.
@@ -317,11 +325,12 @@
     When a function will be used repeatedly, the function is assigned a name,
     which might be a letter, a word, or any symbol.
     In math textbooks, the most common name for a function is <m>f</m>.
-    We write <m>x \overset{f}{\mapsto} y</m> as a symbolic statement
+    We write <m>x \overset{f}{\mapsto} y</m> or <m>f : x \mapsto y</m> as a symbolic statement
     that <m>f</m> is the function relating an independent variable <m>x</m> and a dependent variable <m>y</m>.
-    We call this notation using an arrow <term> function mapping notation</term>.
-    The arrow summarizes that the function lets us use values of <m>x</m> to predict the value of <m>y</m>.
-    If we have an explicit function, we can use use the equation on the right hand side
+    We call this notation using an arrow <term>function mapping notation</term>.
+    The arrow <m>\mapsto</m> summarizes that the function lets us 
+    use values of <m>x</m> to predict the value of <m>y</m>.
+    If we have an explicit function, we can use the equation on the right hand side
     or just the expression if the name of the dependent variable is not required.
     </p>
   
@@ -348,13 +357,23 @@
               output : { name:'y', color:'red' },
             };
             createMap(jcf1, 'jsx-fcn-intro-linear-ex1');
+            jcf1.b.create('arrow', [[getCoord(0,jcf1.input),2],[getCoord(2,jcf1.output),0]],
+              { color:'black', dash:1 });
             </input>
           </jsxgraph>
         </figure>
         <p>
+        The mapping figure illustrates the role of the slope as a rate of change.
+        The increment of change for <m>y</m> is always <m>-\frac{2}{3}</m> times
+        the increment of change for <m>x</m>.
+        </p>
+        <p>
         The inverse function <m>x=-\frac{3}{2}y+3</m> would need a different name, say <m>g</m>.
         We would write
         <me> y \overset{g}{\mapsto} x=-{\textstyle \frac{3}{2}}y+3.</me>
+        Notice now that we treat <m>y</m> as the independent variable, 
+        so that an increment of change in <m>x</m> is always <m>-\frac{3}{2}</m>
+        times the increment of change in <m>y</m>.
         </p>
         <figure margins="auto">
           <jsxgraph xml:id="jsx-fcn-intro-linear-ex2" width="75%" aspect="4:1">
@@ -365,6 +384,8 @@
               output : { name:'x', color:'blue' },
             };
             createMap(jcf2, 'jsx-fcn-intro-linear-ex2');
+            jcf2.b.create('arrow', [[getCoord(0,jcf2.input),2],[getCoord(3,jcf2.output),0]],
+              { color:'black', dash:1 });
             </input>
           </jsxgraph>
         </figure>
@@ -748,7 +769,7 @@
         <p>
         Consider a graph in the <m>(x,y)</m> plane.
         If every vertical line <m>x=a</m> intersects the graph at no more than one point,
-        then <m>y</m> is a function of <m>x</m>.
+        then the graph defines <m>y</m> as a function of <m>x</m>.
         </p>
       </statement>
     </theorem>
@@ -759,7 +780,7 @@
         <p>
         Consider a graph in the <m>(x,y)</m> plane.
         If every horizontal line <m>y=b</m> intersects the graph at no more than one point,
-        then <m>x</m> is a function of <m>y</m>.
+        then the graph defines <m>x</m> as a function of <m>y</m>.
         </p>
       </statement>
     </theorem>
@@ -803,9 +824,10 @@
         </md>
         Thus, <m>x</m> is an explicit function of <m>y</m> with
         <me>y \mapsto x=\frac{-4y-2}{3y-1}</me>.
+        The equation relating <m>x</m> and <m>y</m> is therefore one-to-one 
+        and these functions are inverse functions.
         </p>
         <p>
-        The equation relating <m>x</m> and <m>y</m> is therefore one-to-one and these functions are inverse functions.
         From the function <m>x \mapsto y</m>, the explicit formula divides by <m>3x+4</m>.
         When <m>x=-\frac{4}{3}</m>, this would divide by zero.
         So our equation has no states with <m>x=-\frac{4}{3}</m>.
@@ -1125,6 +1147,8 @@
         Composition <m>f \circ g</m> is evaluation of the outer function <m>f</m>
         with an input using the output of the inner function <m>g</m>,
         <me>f \circ g(x) = f\big(g(x)\big)</me>.
+        As maps, if <m>g:x \mapsto u</m> and <m>f:u \mapsto y</m>, then
+        <me>x \overset{f \circ g}\mapsto y \quad = \quad x \overset{g}\mapsto u \overset{f}\mapsto y.</me>
       </li>
       <li>
         The domain of a function is the set of possible values for the input variable.
