@@ -773,7 +773,7 @@
     <figure>
       <caption>Unbounded behavior of linear functions with positive and negative slopes.</caption>
       <sidebyside>
-        <figure>
+        <figure width="40%">
           <caption>Positive slope (<m>m \gt 0</m>)</caption>
           <image>
             <latex-image-code>
@@ -787,7 +787,7 @@
             </latex-image-code>
           </image>
         </figure>
-        <figure>
+        <figure width="40%">
           <caption>Negative slope (<m>m \lt 0</m>)</caption>
           <image>
             <latex-image-code>
@@ -956,9 +956,9 @@
           The reactant concentration where the reaction rate is halfway to the maximum value is called the half-saturation value,
           and is usually represented with a constant <m>K</m>.
         </p>
-        <figure width="70%">
+        <figure>
           <caption>Michaelis<ndash/>Menten reaction kinetics with saturating rate <m>V_{\text{max}}</m> and half-saturation constant <m>K</m>.</caption>
-          <image>
+          <image width="70%">
             <latex-image-code>
             <![CDATA[\tikzset{%
             }
@@ -1393,6 +1393,70 @@
               </latex-image-code>
             </image>
           </sidebyside>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        Use the graphs to answer the questions about limits.
+        Assume that the behavior of the graph shown in the window continues
+        outside the window.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <sidebyside width="50%" margins="0% 100%">
+            <image>
+              <latex-image-code>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-5, xmax=5,
+                ymin=-10,ymax=10,
+              ]
+              \addplot [domain=-5:5, samples=101, blue, thick]
+                { x*(x^2-9)*(x^2-16)/40 };
+              \end{axis}
+              \end{tikzpicture}
+              </latex-image-code>
+            </image>
+          </sidebyside>
+          <ol>
+            <li><m>\displaystyle \lim_{x \to -\infty} f(x)</m></li>
+            <li><m>\displaystyle \lim_{x \to +\infty} f(x)</m></li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <sidebyside width="50%" margins="0% 100%">
+            <image>
+              <latex-image-code>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-5, xmax=5,
+                ymin=-10,ymax=10,
+                minor y tick num=4, minor x tick num=1,
+              ]
+              \addplot [domain=-5:-3.01, samples=101, blue, thick]
+                { 2^x/(x+3)-2 };
+              \addplot [domain=-2.99:5, samples=101, blue, thick]
+                { 2^x/(x+3)-2 };
+              \addplot [dashed, black, no marks] coordinates { (-3,-10) (-3,10) };
+              \addplot [dashed, black, no marks] coordinates { (-5,-2) (5,-2) };
+              \end{axis}
+              \end{tikzpicture}
+              </latex-image-code>
+            </image>
+          </sidebyside>
+          <ol>
+            <li><m>\displaystyle \lim_{x \to 3^-} f(x)</m></li>
+            <li><m>\displaystyle \lim_{x \to 3^+} f(x)</m></li>
+            <li><m>\displaystyle \lim_{x \to -\infty} f(x)</m></li>
+            <li><m>\displaystyle \lim_{x \to +\infty} f(x)</m></li>
+          </ol>
         </statement>
       </exercise>
     </exercisegroup>

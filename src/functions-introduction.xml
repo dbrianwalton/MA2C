@@ -316,6 +316,34 @@
         </ol>
       </solution>
     </example>
+    
+    <p>
+    Because we often have a point other than the intercept,
+    the point<ndash/>slope equation of a line is often a better choice.
+    </p>
+    
+    <theorem xml:id="point-slope-equation-of-line">
+      <statement>
+        <p>
+        A line in the <m>(x,y)</m> plane with slope <m>m</m> 
+        and passing through the point <m>(x,y)=(h,k)</m>
+        satisfies the equation <me>y = m(x-h)+k</me>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+        Because the <m>y</m>-intercept <m>b=y-mx</m>, 
+        using <m>(x,y)=(h,k)</m> yields <m>b=k-mh</m>.
+        Applying the slope-intercept form, we find
+        <md>
+          <mrow>y&amp;=mx+b</mrow>
+          <mrow> &amp;= mx+(k-mh) </mrow>
+          <mrow> &amp;= (mx-mh) + k </mrow>
+          <mrow> &amp;= m(x-h)+k.</mrow>
+        </md>
+        </p>
+      </proof>
+    </theorem>
   </subsection>
   
   <subsection>

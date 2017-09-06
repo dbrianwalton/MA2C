@@ -39,11 +39,11 @@
       <statement>
         <p>
         Suppose an extensive quantity <m>Q</m> can be subdivided into
-        increments corresponding to a partition of an independent variable <m>x</m>
+        increments corresponding to a uniform partition of an independent variable <m>x</m>
         over an interval <m>[a,b]</m>.
         If there is a function <m>f(x)</m> so that on each subinterval <m>[x_{k-1},x_k]</m>
         there is some point <m>x_k^*</m> so that
-        <me> f(x_k^*) \nabla x_k = \Delta Q_k </me>,
+        <me> f(x_k^*) \Delta x = \Delta Q_k </me>,
         then
         <me>Q = \int_a^b f(x) \, dx.</me>
         </p>
