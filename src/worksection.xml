@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./functions-behavior.xml" />
+            <xi:include href="./numbers_measurements.xml" />
 		</chapter>
 		
     </book>
