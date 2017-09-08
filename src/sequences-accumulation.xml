@@ -653,8 +653,9 @@
       </solution>
     </example>
   </subsection>
-  <conclusion>
+  <subsection>
     <title>Summary</title>
+    <p>
     <ul>
       <li>
         <p>
@@ -698,7 +699,8 @@
         </p>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   <exercises>
     <exercisegroup>
       <introduction>

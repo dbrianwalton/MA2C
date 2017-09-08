@@ -61,8 +61,8 @@
       </p>
       <sidebyside margins="auto">
         <tabular>
-          <col right="major"/>
-          <col align="left"/>
+          <col halign="center" right="major"/>
+          <col halign="left"/>
           <row bottom="major">
             <cell><m>n</m></cell>
             <cell><m>x_n</m></cell>
@@ -187,8 +187,8 @@
       </p>
       <sidebyside margins="auto">
         <tabular>
-          <col right="major"/>
-          <col align="left"/>
+          <col halign="center" right="major"/>
+          <col halign="left"/>
           <row bottom="major">
             <cell><m>n</m></cell>
             <cell><m>u_n</m></cell>
@@ -317,8 +317,8 @@
       </p>
       <sidebyside margins="auto">
         <tabular>
-          <col right="major"/>
-          <col align="left"/>
+          <col halign="center" right="major"/>
+          <col halign="left"/>
           <row bottom="major">
             <cell><m>n</m></cell>
             <cell><m>z_n</m></cell>
@@ -707,7 +707,7 @@
     
     <example>
       <statement>
-        <p>Find the appropriate limits of the following sequences.</p>
+        <p>Find the appropriate limits of the following sequences.
         <ol>
           <li><m>\displaystyle \lim_{n \to \infty} 3-4n</m></li>
           <li><m>\displaystyle \lim_{n \to \infty} 100+0.02n</m></li>
@@ -715,8 +715,10 @@
           <li><m>\displaystyle \lim_{n \to \infty} 100 \cdot (-0.75)^n</m></li>
           <li><m>\displaystyle \lim_{n \to \infty} 5 \cdot (-1.5)^n</m></li>
         </ol>
+        </p>
       </statement>
       <solution>
+        <p>
         <ol>
           <li>
             <p>
@@ -760,6 +762,7 @@
             </p>
           </li>
         </ol>
+        </p>
       </solution>
     </example>
     
@@ -779,7 +782,6 @@
         <p>
         Suppose unbounded sequences are combined using arithmetic operations. 
         Then the following arithmetic relating to limits will be valid.
-        </p>
         <md>
           <mrow>+\infty + +\infty = +\infty</mrow>
           <mrow>-\infty + -\infty = -\infty</mrow>
@@ -793,6 +795,7 @@
           <mrow>0 \cdot \pm \infty = \hbox{indeterminate}</mrow>
           <mrow>\frac{0}{0} = \hbox{indeterminate}</mrow>
         </md>
+        </p>
       </statement>
     </theorem>
     
@@ -824,14 +827,16 @@
     
     <example>
       <statement>
-        <p>Determine the following limits, if possible.</p>
+        <p>Determine the following limits, if possible.
         <ol>
           <li><m>\displaystyle \lim_{n \to \infty} 3+\frac{5}{2^n}</m></li>
           <li><m>\displaystyle \lim_{n \to \infty} \frac{n^2-3n}{5n-1}</m></li>
           <li><m>\displaystyle \lim_{n \to \infty} \frac{1+2^n}{3+5^n}</m></li>
         </ol>
+        </p>
       </statement>
       <solution>
+        <p>
         <ol>
           <li>
             <p>
@@ -911,6 +916,7 @@
             </p>
           </li>
         </ol>
+        </p>
       </solution>
     </example>
   </subsection>
@@ -962,7 +968,6 @@
         Do <em>not</em> solve <m>f(x)=0</m>!
         We are solve the equation where the input to the function <m>x</m> 
         equals the output of the function <m>f(x)</m>.
-        </p>
         <ol>
           <li>
             <p>
@@ -1062,6 +1067,7 @@
             </p>
           </li>
         </ol>
+        </p>
       </solution>
     </example>
     
@@ -1255,9 +1261,10 @@
       </solution>
     </example>
   </subsection>
-  <conclusion>
+  <subsection>
     <title>Summary</title>
     
+    <p>
     <ul>
       <li>
       A sequence has a limit, <m>x_n \to L</m>, if the values of the sequence 
@@ -1319,7 +1326,8 @@
         </p>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   <exercises>
     <exercisegroup>
       <introduction>

@@ -100,7 +100,7 @@
             </md>
             This is visualized in the following figure.
           </p>
-          <figure margins="auto">
+          <figure>
             <caption>Dynamic illustration of the function <m>f(x)=2x+1</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is increasing.</caption>
             <jsxgraph xml:id="jsx-fcn-behavior-increase-ex1" width="75%" aspect="4:1">
               <input>
@@ -125,7 +125,7 @@
             The graph shows <m>y</m>-values increasing as viewed from left to right,
             which is corresponding to <m>x</m>-values increasing.
           </p>
-          <figure margins="auto">
+          <figure>
             <caption>The graph of the function <m>y=f(x)=2x+1</m> in the <m>(x,y)</m> plane.</caption>
             <jsxgraph xml:id="jsx-fcn-behavior-increase-ex1b" width="75%">
               <input>
@@ -162,7 +162,7 @@
               <mrow>f(x_0) \gt f(x_1)</mrow>
             </md>
           </p>
-          <figure margins="auto">
+          <figure>
             <caption>Dynamic illustration of the function <m>f(x)=-2x+3</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is decreasing.</caption>
             <jsxgraph xml:id="jsx-fcn-behavior-decrease-ex2" width="75%" aspect="4:1">
               <input>
@@ -187,7 +187,7 @@
             The graph of the function in the <m>(x,y)</m> plane captures the same information.
             Viewing the graph from left to right (as <m>x</m> increases), the <m>y</m>-values decrease.
           </p>
-          <figure margins="auto">
+          <figure>
             <caption>The graph of the function <m>y=f(x)=-2x+3</m> in the <m>(x,y)</m> plane.</caption>
             <jsxgraph xml:id="jsx-fcn-behavior-decrease-ex2b" width="75%">
               <input>
@@ -227,7 +227,7 @@
             and the order is preserved.
             This function is not increasing or decreasing, but is a combination.
           </p>
-          <figure margins="auto">
+          <figure>
             <caption>Dynamic illustration of the function <m>f(x)=x^2</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is not monotone.</caption>
             <jsxgraph xml:id="jsx-fcn-behavior-monotone-ex3" width="75%" aspect="4:1">
               <input>
@@ -253,7 +253,7 @@
             because for any two inputs in that interval, the order of the outputs is preserved.
             This point where monotonicity switches corresponds to the vertex of the parabola <m>y=x^2</m>.
           </p>
-          <figure margins="auto">
+          <figure>
             <caption>Dynamic illustration of the function <m>f(x)=x^2</m> as a map <m>x \mapsto y</m> showing that <m>f</m> is not monotone.</caption>
             <jsxgraph xml:id="jsx-fcn-behavior-monotone-ex3b" width="75%">
               <input>
@@ -305,7 +305,7 @@
         If the graph bends upward, we say the function is <term>concave up</term>.
         If the graph bends downward, we say the function is <term>concave down</term>.
       </p>
-      <figure width="60%">
+      <figure>
         <caption>Comparison of concave up and concave down graphs</caption>
         <sidebyside widths="40% 40%">
           <figure>
@@ -616,7 +616,7 @@
         A curve that has a negative but increasing (becoming less negative) slope is decreasing and concave up.
         A curve that has a negative and decreasing (becoming more negative) slope is decreasing and concave down.
       </p>
-      <figure width="80%">
+      <figure>
         <caption>Basic shapes defined by monotonicity and concavity.</caption>
         <sidebyside widths="20% 20% 20% 20%">
           <figure>
@@ -772,8 +772,8 @@
     
     <figure>
       <caption>Unbounded behavior of linear functions with positive and negative slopes.</caption>
-      <sidebyside>
-        <figure width="40%">
+      <sidebyside widths="40% 40%">
+        <figure>
           <caption>Positive slope (<m>m \gt 0</m>)</caption>
           <image>
             <latex-image-code>
@@ -787,7 +787,7 @@
             </latex-image-code>
           </image>
         </figure>
-        <figure width="40%">
+        <figure>
           <caption>Negative slope (<m>m \lt 0</m>)</caption>
           <image>
             <latex-image-code>
@@ -1015,9 +1015,9 @@
           until it approaches some saturating biomass <m>B_\infty</m>,
           <me> \lim_{S \to \infty} B = B_\infty.</me>
         </p>
-        <figure width="70%">
+        <figure>
           <caption>Possible graph of <m>(S,B)</m> with maximum at <m>S=S^*</m> and inflection point at <m>S=S^\dagger</m>.</caption>
-          <image>
+          <image width="70%">
             <latex-image-code>
             <![CDATA[\tikzset{%
             }
@@ -1055,9 +1055,10 @@
     </example>
   </subsection>
     
-  <conclusion>
+  <subsection>
     <title>Summary</title>
     
+    <p>
     <ul>
       <li>
         <p>
@@ -1106,15 +1107,18 @@
         <p>Lists of intervals of monotonicity and concavity should be separated by commas and not joined by unions.</p>
       </li>
       <li>
-        <p>Limits as <m>x \to \pm\infty</m> describe end behavior.</p>
+        <p>
+        Limits as <m>x \to \pm\infty</m> describe end behavior.
         <ul>
           <li>To say <m>f(x) \to +\infty</m> means values of <m>f(x)</m> eventually rise above <em>any</em> possible value.</li>
           <li>To say <m>f(x) \to -\infty</m> means values of <m>f(x)</m> eventually fall below <em>any</em> possible value.</li>
           <li>To say <m>f(x) \to L</m> means values of <m>f(x)</m> eventually approaches a horizontal asymptote <m>y=L</m>.</li>
         </ul>
+        </p>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   
   <exercises>
     <exercisegroup>

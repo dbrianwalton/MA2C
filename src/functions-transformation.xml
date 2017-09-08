@@ -98,65 +98,66 @@
         the direction of translation is opposite the value of <m>a</m> chosen.
         The values <m>a=0</m> and <m>b=0</m> correspond to no transformation.
         </p>
+        <figure>
+          <caption/>
+          <jsxgraph xml:id="jsx-fcn-transform-translate1" width="75%">
+            <input>
+            <![CDATA[
+            JXG.Options.axis.ticks.majorHeight = 8;
+            JXG.Options.axis.ticks.minorHeight = 4;
+            JXG.Options.axis.ticks.drawZero = false;
+            jcf1 = {};
+            jcf1.b = JXG.JSXGraph.initBoard("jsx-fcn-transform-translate1", 
+              {
+                boundingbox:[-6,6,6,-6],
+                axis: true,
+                grid: false,
+                showCopyright:false,
+                showNavigation:false,
+              }
+            );
+            jcf1.b.create('text', [-5,5,"a"]);
+            jcf1.aSlider = jcf1.b.create('slider', [[-4.5,5], [-1,5], [-5,0,5]], {snapWidth:0.1} );
+            jcf1.b.create('text', [-5,4,"b"]);
+            jcf1.bSlider = jcf1.b.create('slider', [[-4.5,4], [-1,4], [-5,0,5]], {snapWidth:0.1} );
+            jcf1.b.create('functiongraph', [function(x) {return Math.sin(x);}], { strokeColor:"blue", dash:2 });
+            jcf1.b.create('functiongraph', 
+              [
+                function(x) {
+                  var a=jcf1.aSlider.Value();
+                  var b=jcf1.bSlider.Value();
+                  return Math.sin(x+a)+b;
+                }
+              ], { strokeColor:"blue" });
+            jcf1.b.create('point', [0,0], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+            jcf1.b.create('point', [Math.PI/2,1], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+            jcf1.b.create('point', 
+              [
+                function() {
+                  return -jcf1.aSlider.Value();
+                },
+                function() {
+                  return jcf1.bSlider.Value();
+                }
+              ], 
+              {strokeColor:"blue", color:"blue", withLabel:false }
+            );
+            jcf1.b.create('point', 
+              [
+                function() {
+                  return Math.PI/2-jcf1.aSlider.Value();
+                },
+                function() {
+                  return 1+jcf1.bSlider.Value();
+                }
+              ], 
+              {strokeColor:"blue", color:"blue", withLabel:false }
+            );
+            ]]>
+            </input>
+          </jsxgraph>
+        </figure>
       </statement>
-      <figure margins="auto">
-        <jsxgraph xml:id="jsx-fcn-transform-translate1" width="75%">
-          <input>
-          <![CDATA[
-          JXG.Options.axis.ticks.majorHeight = 8;
-          JXG.Options.axis.ticks.minorHeight = 4;
-          JXG.Options.axis.ticks.drawZero = false;
-          jcf1 = {};
-          jcf1.b = JXG.JSXGraph.initBoard("jsx-fcn-transform-translate1", 
-            {
-              boundingbox:[-6,6,6,-6],
-              axis: true,
-              grid: false,
-              showCopyright:false,
-              showNavigation:false,
-            }
-          );
-          jcf1.b.create('text', [-5,5,"a"]);
-          jcf1.aSlider = jcf1.b.create('slider', [[-4.5,5], [-1,5], [-5,0,5]], {snapWidth:0.1} );
-          jcf1.b.create('text', [-5,4,"b"]);
-          jcf1.bSlider = jcf1.b.create('slider', [[-4.5,4], [-1,4], [-5,0,5]], {snapWidth:0.1} );
-          jcf1.b.create('functiongraph', [function(x) {return Math.sin(x);}], { strokeColor:"blue", dash:2 });
-          jcf1.b.create('functiongraph', 
-            [
-              function(x) {
-                var a=jcf1.aSlider.Value();
-                var b=jcf1.bSlider.Value();
-                return Math.sin(x+a)+b;
-              }
-            ], { strokeColor:"blue" });
-          jcf1.b.create('point', [0,0], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
-          jcf1.b.create('point', [Math.PI/2,1], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
-          jcf1.b.create('point', 
-            [
-              function() {
-                return -jcf1.aSlider.Value();
-              },
-              function() {
-                return jcf1.bSlider.Value();
-              }
-            ], 
-            {strokeColor:"blue", color:"blue", withLabel:false }
-          );
-          jcf1.b.create('point', 
-            [
-              function() {
-                return Math.PI/2-jcf1.aSlider.Value();
-              },
-              function() {
-                return 1+jcf1.bSlider.Value();
-              }
-            ], 
-            {strokeColor:"blue", color:"blue", withLabel:false }
-          );
-          ]]>
-          </input>
-        </jsxgraph>
-      </figure>
     </example>
     
     <example>
@@ -168,54 +169,55 @@
         Notice that negative multiples result in reflections.
         The values <m>a=1</m> and <m>b=1</m> correspond to no transformation.
         </p>
+        <figure>
+          <caption/>
+          <jsxgraph xml:id="jsx-fcn-transform-scale1" width="75%">
+            <input>
+            <![CDATA[
+            JXG.Options.axis.ticks.majorHeight = 8;
+            JXG.Options.axis.ticks.minorHeight = 4;
+            JXG.Options.axis.ticks.drawZero = false;
+            jcf2 = {};
+            jcf2.b = JXG.JSXGraph.initBoard("jsx-fcn-transform-scale1", 
+              {
+                boundingbox:[-6,6,6,-6],
+                axis: true,
+                grid: false,
+                showCopyright:false,
+                showNavigation:false,
+              }
+            );
+            jcf2.b.create('text', [-5,5,"a"]);
+            jcf2.aSlider = jcf2.b.create('slider', [[-4.5,5], [-1,5], [-5,1,5]], {snapWidth:0.1} );
+            jcf2.b.create('text', [-5,4,"b"]);
+            jcf2.bSlider = jcf2.b.create('slider', [[-4.5,4], [-1,4], [-5,1,5]], {snapWidth:0.1} );
+            jcf2.b.create('functiongraph', [function(x) {return Math.sin(x);}], { strokeColor:"blue", dash:2 });
+            jcf2.b.create('functiongraph', 
+              [
+                function(x) {
+                  var a=jcf2.aSlider.Value();
+                  var b=jcf2.bSlider.Value();
+                  return Math.sin(x*a)*b;
+                }
+              ], { strokeColor:"blue" });
+            jcf2.b.create('point', [0,0], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+            jcf2.b.create('point', [Math.PI/2,1], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+            jcf2.b.create('point', 
+              [
+                function() {
+                  return Math.PI/(2*jcf2.aSlider.Value());
+                },
+                function() {
+                  return jcf2.bSlider.Value();
+                }
+              ], 
+              {strokeColor:"blue", color:"blue", withLabel:false }
+            );
+            ]]>
+            </input>
+          </jsxgraph>
+        </figure>
       </statement>
-      <figure margins="auto">
-        <jsxgraph xml:id="jsx-fcn-transform-scale1" width="75%">
-          <input>
-          <![CDATA[
-          JXG.Options.axis.ticks.majorHeight = 8;
-          JXG.Options.axis.ticks.minorHeight = 4;
-          JXG.Options.axis.ticks.drawZero = false;
-          jcf2 = {};
-          jcf2.b = JXG.JSXGraph.initBoard("jsx-fcn-transform-scale1", 
-            {
-              boundingbox:[-6,6,6,-6],
-              axis: true,
-              grid: false,
-              showCopyright:false,
-              showNavigation:false,
-            }
-          );
-          jcf2.b.create('text', [-5,5,"a"]);
-          jcf2.aSlider = jcf2.b.create('slider', [[-4.5,5], [-1,5], [-5,1,5]], {snapWidth:0.1} );
-          jcf2.b.create('text', [-5,4,"b"]);
-          jcf2.bSlider = jcf2.b.create('slider', [[-4.5,4], [-1,4], [-5,1,5]], {snapWidth:0.1} );
-          jcf2.b.create('functiongraph', [function(x) {return Math.sin(x);}], { strokeColor:"blue", dash:2 });
-          jcf2.b.create('functiongraph', 
-            [
-              function(x) {
-                var a=jcf2.aSlider.Value();
-                var b=jcf2.bSlider.Value();
-                return Math.sin(x*a)*b;
-              }
-            ], { strokeColor:"blue" });
-          jcf2.b.create('point', [0,0], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
-          jcf2.b.create('point', [Math.PI/2,1], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
-          jcf2.b.create('point', 
-            [
-              function() {
-                return Math.PI/(2*jcf2.aSlider.Value());
-              },
-              function() {
-                return jcf2.bSlider.Value();
-              }
-            ], 
-            {strokeColor:"blue", color:"blue", withLabel:false }
-          );
-          ]]>
-          </input>
-        </jsxgraph>
-      </figure>
     </example>
 
     <p>
@@ -600,8 +602,8 @@
         </p>
         <table>
           <caption>Selected body mass and resting metabolic rate of birds, as tabulated in Lasiewski and Dawson (1967).</caption>
-          <tabular>
-          <row top="medium" bottom="medium">
+          <tabular top="medium">
+          <row bottom="medium">
             <cell>Bird</cell>
             <cell><m>M</m> (kg)</cell>
             <cell><m>R</m> (kcal/day)</cell>
@@ -764,6 +766,7 @@
         </md>
         We see that the model is a power function, <m>R = 83.030 M^{0.7356}</m>.
         The figure below shows the original data using linear axes along with this approximating model.
+        </p>
         <sidebyside width="40%" margins="auto">
           <image>
             <latex-image-code>
@@ -783,14 +786,14 @@
             </latex-image-code>
           </image>
         </sidebyside>
-        </p>
       </solution>
     </example>
   </subsection>
   
-  <conclusion>
+  <subsection>
     <title>Summary</title>
     
+    <p>
     <ul>
       <li>Elementary transformations of a graph of a function include translation, scaling, and reflection.</li>
       <li>Vertical transformations are applied to the output of the function directly.</li>
@@ -822,7 +825,8 @@
         Subsequently, <m>x \mapsto y</m> will be a power function model.
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   
   <exercises>
     <exercise>

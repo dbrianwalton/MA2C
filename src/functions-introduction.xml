@@ -47,19 +47,17 @@
     The equation of a vertical line is of the form <m>x=C</m>.
     </p>
     <note>
-      <statement>
-        <p>
-        In mathematics, <term>definitions</term> provide the precise meaning of words
-        that describe mathematical objects.
-        Mathematics is a <term>deductive</term> science, meaning that mathematical truth is determined
-        by showing that definitions are satisfied using logical reasoning.
-        For example, we can think of the general equation of a line
-        in Equation <xref ref="general-eqn-line"/> as the definition of a line.
-        We can reason that what we have described as horizontal and vertical lines are actually lines.
-        For example, the equation <m>y=C</m> satisfies the general equation of a line with <m>a=0</m> and <m>b=1</m>.
-        The logical argument used to show a definition is satisfied is called a <term>proof</term>.
-        </p>
-      </statement>
+      <p>
+      In mathematics, <term>definitions</term> provide the precise meaning of words
+      that describe mathematical objects.
+      Mathematics is a <term>deductive</term> science, meaning that mathematical truth is determined
+      by showing that definitions are satisfied using logical reasoning.
+      For example, we can think of the general equation of a line
+      in Equation <xref ref="general-eqn-line"/> as the definition of a line.
+      We can reason that what we have described as horizontal and vertical lines are actually lines.
+      For example, the equation <m>y=C</m> satisfies the general equation of a line with <m>a=0</m> and <m>b=1</m>.
+      The logical argument used to show a definition is satisfied is called a <term>proof</term>.
+      </p>
     </note>
     <p>
     We say that an equation defines <m>y</m> as a function of <m>x</m> if we can solve the equation for <m>y</m>.
@@ -204,29 +202,37 @@
         For each of the following data tables, determine if the data could come from a linear relation.
         If so, give an equation of the line.
         <ol>
-          <li><tabular>
-          <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
-          <row bottom="major">
-            <cell><m>x</m></cell> <cell>1</cell> <cell>4</cell> <cell>10</cell>
-          </row>
-          <row>
-            <cell><m>y</m></cell> <cell>5</cell> <cell>3</cell> <cell>-1</cell>
-          </row>
-          </tabular></li>
-          <li><tabular>
-          <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
-          <row bottom="major">
-            <cell><m>x</m></cell> <cell>2</cell> <cell>6</cell> <cell>12</cell>
-          </row>
-          <row>
-            <cell><m>y</m></cell> <cell>11</cell> <cell>19</cell> <cell>27</cell>
-          </row>
-          </tabular></li>
+          <li>
+            <sidebyside margins="0% 100%">
+              <tabular>
+                <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
+                <row bottom="major">
+                  <cell><m>x</m></cell> <cell>1</cell> <cell>4</cell> <cell>10</cell>
+                </row>
+                <row>
+                  <cell><m>y</m></cell> <cell>5</cell> <cell>3</cell> <cell>-1</cell>
+                </row>
+              </tabular>
+            </sidebyside>
+          </li>
+          <li>
+            <sidebyside margins="0% 100%">
+              <tabular>
+                <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
+                <row bottom="major">
+                  <cell><m>x</m></cell> <cell>2</cell> <cell>6</cell> <cell>12</cell>
+                </row>
+                <row>
+                  <cell><m>y</m></cell> <cell>11</cell> <cell>19</cell> <cell>27</cell>
+                </row>
+              </tabular>
+            </sidebyside>
+          </li>
         </ol>
         </p>
       </statement>
       <solution>
-        <ol>
+        <p><ol>
           <li>
             <p>
             For the first data set, we measure the slope if we compare the first point with each of the other two points.
@@ -313,7 +319,7 @@
               </image>
             </sidebyside>
           </li>
-        </ol>
+        </ol></p>
       </solution>
     </example>
     
@@ -376,7 +382,8 @@
         or, if we didn't need the name of the dependent variable, as
         <me>x \overset{f}{\mapsto} -{\textstyle \frac{2}{3}}x+2.</me>
         </p>
-        <figure margins="auto">
+        <figure>
+          <caption/>
           <jsxgraph xml:id="jsx-fcn-intro-linear-ex1" width="75%" aspect="4:1">
             <input>
             var jcf1 = {
@@ -403,7 +410,8 @@
         so that an increment of change in <m>x</m> is always <m>-\frac{3}{2}</m>
         times the increment of change in <m>y</m>.
         </p>
-        <figure margins="auto">
+        <figure>
+          <caption/>
           <jsxgraph xml:id="jsx-fcn-intro-linear-ex2" width="75%" aspect="4:1">
             <input>
             var jcf2 = {
@@ -427,15 +435,13 @@
     </p>
   
     <note xml:id="function-notation-not-multiplication">
-      <statement>
-        <p>
-        Although writing parentheses in mathematics next to a number or a variable means multiplication,
-        a function is not a variable.
-        The parentheses after the function do <em>not</em> mean multiplication but evaluation.
-        It is unfortunate that the same symbols have different meanings,
-        so you will need to pay close attention to the context.
-        </p>
-      </statement>
+      <p>
+      Although writing parentheses in mathematics next to a number or a variable means multiplication,
+      a function is not a variable.
+      The parentheses after the function do <em>not</em> mean multiplication but evaluation.
+      It is unfortunate that the same symbols have different meanings,
+      so you will need to pay close attention to the context.
+      </p>
     </note>
   
     <p>
@@ -471,7 +477,7 @@
         </p>
       </statement>
       <solution>
-        <ol>
+        <p><ol>
           <li>
             <p>
             To simplify <m>f(4)</m>, we see that the value inside parentheses is 4.
@@ -506,19 +512,17 @@
             We are performing an actual substitution, <m>\square = 3x+1</m>.
             </p>
           </li>
-        </ol>
+        </ol></p>
       </solution>
     </example>
   
     <note>
-      <statement>
-        <p>
-        When an expression is inside the parentheses of function evaluation notation,
-        you should use parentheses at the substitution step as well
-        to ensure that the entire expression is being used.
-        Once substitution occurs, you should then be sure to apply standard algebraic rules appropriately.
-        </p>
-      </statement>
+      <p>
+      When an expression is inside the parentheses of function evaluation notation,
+      you should use parentheses at the substitution step as well
+      to ensure that the entire expression is being used.
+      Once substitution occurs, you should then be sure to apply standard algebraic rules appropriately.
+      </p>
     </note>
   
     <example>
@@ -533,7 +537,7 @@
         </p>
       </statement>
       <solution>
-        <ol>
+        <p><ol>
           <li>
             To find <m>g(x)</m> requires a simple substitution.
             <md>
@@ -558,7 +562,7 @@
               <mrow> &amp;=-9x+10</mrow>
             </md>
           </li>
-        </ol>
+        </ol></p>
       </solution>
     </example>
     
@@ -595,6 +599,7 @@
           The chain is illustrated in the figure below.
           </p>
           <figure>
+            <caption/>
             <jsxgraph xml:id="jsx-fcn-intro-chain-ex1" width="75%" aspect="4:2">
               <input>
               var jcm1 = {
@@ -624,6 +629,7 @@
           </p>
         </statement>
         <solution>
+          <p>
           <ol>
             <li>
               <p>
@@ -655,6 +661,7 @@
               </p>
             </li>
           </ol>
+          </p>
         </solution>
       </example>
     </paragraphs>
@@ -1149,8 +1156,9 @@
     </example>
   </subsection>
   
-  <conclusion>
+  <subsection>
     <title>Summary</title>
+    <p>
     <ul>
       <li>
         A function is a relation between an independent variable (input)
@@ -1209,7 +1217,8 @@
         and <m>y</m>-intercept at <m>(0,b)</m> have slope-intercept equation <m>y=mx+b</m>.
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   
   <exercises>
     <exercise>
@@ -1377,7 +1386,7 @@
         and let <m>L</m> be the corresponding location (centimeters).
         The following table is used for calibration.
         </p>
-        <table>
+        <sidebyside margins="auto">
         <tabular>
           <col right="major"/> <col right="minor"/> <col/>
           <row bottom="major">
@@ -1391,7 +1400,8 @@
             <cell>42.5</cell>
           </row>
         </tabular>
-        </table>
+        </sidebyside>
+        <p>
         <ol>
           <li>
             Find a linear equation relating the variables <m>F</m> and <m>L</m>.
@@ -1411,6 +1421,7 @@
             What was the force? Which function was used?
           </li>
         </ol>
+        </p>
       </statement>
     </exercise>
     
@@ -1441,7 +1452,6 @@
         The cost <m>C</m> of materials for a project depends on the required area <m>A</m> of materials needed.
         The unit price is <dollar/>3.50 per <quantity><unit base="meter" exp="2"/></quantity>.
         The project involves making two squares, each of them having sides with length <m>s</m> (meters).
-        </p>
         <ol>
           <li>Find <m>A \overset{f}{\mapsto} C</m>.</li>
           <li>Find <m>s \overset{g}{\mapsto} A</m>.</li>
@@ -1459,6 +1469,7 @@
             </p>
           </li>
         </ol>
+        </p>
       </statement>
     </exercise>
   </exercises>

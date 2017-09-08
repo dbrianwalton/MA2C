@@ -8,817 +8,819 @@
 <!-- See the file COPYING for copying conditions. -->
    
 <section xml:id="functions-properties">
-    <title>Algebraic Properties of Functions</title>
+  <title>Algebraic Properties of Functions</title>
 
-    <introduction>
-        <title>Overview</title>
-        
-        <p>
-        A function can have many different representations.
-        We often need to use these different representations in different settings.
-        For example, polynomials usually are written as a sum of terms.
-        Multiplication and division of polynomials usually work best in this representation.
-        However, to find the roots or zeros of a polynomial, a factored representation is preferred.
-        In order to change representations, we need to understand when two formulas represent the same function.
-        </p>
-        <p>
-        This section reviews the elementary rules of algebra and explores 
-        how these rules lead to algebraic properties of functions.
-        The fundamental properties of addition and multiplication motivate additional rules, 
-        such as rules for fractions and powers.
-        We will then apply these rules to understand properties of the exponential and logarithm functions.
-        In order to learn to apply these rules, it is essential to recognize the structure of expressions 
-        as discussed in <xref ref="subsection-combining-expressions"/>.
-        </p>
-    </introduction>
+  <introduction>
+    <title>Overview</title>
     
-    <subsection>
-        <title>Algebraic Properties</title>
-        
-        <p>
-        An algebraic representation of a function is an expression (formula) that computes 
-        the value of the dependent variable in terms of the independent variable.
-        We say that two representations are <term>equivalent</term> if they give the same values.
-        We will often need to be able to find equivalent expressions that will allow us to simplify our work.
-        To find these equivalent representations, 
-        we rely on algebraic properties of the operations and elementary functions of algebra.
-        </p>
-        
-        <p>
-        The properties of arithmetic form the foundation for all other equivalence properties.
-        The two basic arithmetic operations are addition and multiplication.
-        Subtraction and division are inverse operations and are ultimately defined in terms of addition and multiplication.
-        </p>
-        
-        <assemblage xml:id="properties-of-addition">
-            <title>Properties of Addition</title>
-            <p>
-            <ul>
-                <li>
-                    <p>
-                    <m>0</m> is Additive Identity: <m>x+0=x</m>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Additive Inverses: Every number <m>x</m> has an additive inverse <m>-x</m> 
-                    so that <m>x+-x=0</m>, namely <m>\displaystyle -x = -1 \cdot x</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Commutative Property: <m>x+y = y+x</m>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Associative Property: <m>x+(y+z) = (x+y)+z</m>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Subtraction is Addition: <m>x-y = x+-y</m>
-                    </p>
-                </li>
-            </ul>
-            </p>
-        </assemblage>
-        <assemblage xml:id="properties-of-multiplication">
-            <title>Properties of Multiplication</title>
-            <p>
-            <ul>
-                <li>
-                    <p>
-                    <m>1</m> is Multiplicative Identity: <m>x \cdot 1=x</m>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Multiplicative Inverses: Every nonzero number <m>x \ne 0</m> has a multiplicative inverse <m>\div x</m> 
-                    so that <m>x \cdot \div x=1</m>, namely <m>\displaystyle \div x = \frac{1}{x}</m> (reciprocal).
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Commutative Property: <m>x \cdot y = y \cdot x</m>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Associative Property: <m>x \cdot (y \cdot z) = (x \cdot y) \cdot z</m>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Division is Multiplication: <m>\displaystyle \frac{x}{y} = x \cdot \div y = x \cdot \frac{1}{y}</m>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                    Multiplication Distributes Over Addition: 
-                    <me>x \cdot (y + z) = x \cdot y + x \cdot z</me>
-                    </p>
-                </li>
-            </ul>
-            </p>
-        </assemblage>
-        
-        <example>
-            <statement>
-                <p>
-                The expressions <m>3(x-4)+2</m> and <m>3x-10</m> are mathematically equivalent, 
-                even though they involve different operations.
-                We show this by applying the properties in sequence.
-                <md>
-                    <mrow>3(x-4)+2 &amp;= (3x-12)+2 &amp; \text{Distributive}</mrow>
-                    <mrow> &amp;= (3x+-12)+2 &amp; \text{Additive Inverse}</mrow>
-                    <mrow> &amp;= 3x+(-12+2) &amp; \text{Associative}</mrow>
-                    <mrow> &amp;= 3x+-10 &amp; \text{Arithmetic}</mrow>
-                    <mrow> &amp;= 3x-10 &amp; \text{Subtraction}</mrow>
-                </md>
-                </p>
-            </statement>
-        </example>
-        
-        <p>
-        Students often encounter difficulties with expressions involving fractions.
-        However, all of the algebra rules for fractions really are consequences of the basic properties of multiplication.
-        Recognizing these connections and using them to guide your work will help you avoid common pitfalls.
-        The first key is to remember that fractions are division and therefore really multiplication.
-        </p>
-        
-        <theorem xml:id="fraction-properties">
-            <title>Properties of Fractions</title>
-            <statement>
-                <p>
-                <ul>
-                    <li>
-                        <p>
-                        Divisors in the Denominator.
-                        <m>(\div a) \cdot (\div b) = \div(ab)</m>, 
-                        or <m>\displaystyle \frac{1}{a} \cdot \frac{1}{b} = \frac{1}{ab}</m>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        Multiplication.
-                        <m>\displaystyle a \cdot \frac{b}{c} = \frac{ab}{c}</m> and 
-                        <m>\displaystyle \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}</m>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        Reciprocals.
-                        <m>\displaystyle \div \frac{a}{b} = \frac{b}{a}</m>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        Division.
-                        <m>\displaystyle (\frac{a}{b}) \div (\frac{c}{d}) = \frac{ad}{bc}</m>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        Cancel Common Factors.
-                        <m>\displaystyle \frac{ac}{bc} = \frac{a}{b}</m> for <m>c \ne 0</m>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        Addition with Common Denominator.
-                        <m>\displaystyle \frac{a}{b} + \frac{c}{d} = \frac{ad+bc}{bd}</m>
-                        </p>
-                    </li>
-                </ul>
-                </p>
-            </statement>
-            <proof>
-                <p>
-                Each property results from the basic properties of addition.
-                The following calculations emphasize these connections.
-                </p>
-                <ul>
-                    <li>
-                        <p>
-                        To show <m>\div(ab) = (\div a) \cdot (\div b)</m>, 
-                        we need to show that the property of a multiplicative inverse is satisfied.
-                        This requires the commutative and associative properties.
-                        <me>(ab) \cdot (\div a \cdot \div b) = (a \div a) \cdot (b \div b) = 1 \cdot 1 = 1</me>.
-                        Written in terms of fractions, this means 
-                        <m>\displaystyle \frac{1}{a} \cdot \frac{1}{b} = \frac{1}{ab}</m>.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        Multiplication is associative and commutative.
-                        <md>
-                            <mrow> a \cdot \frac{b}{c} &amp;= a (b \div c) = (a b) \div c = \frac{ab}{c}</mrow>
-                            <mrow>\frac{a}{b} \cdot \frac{c}{d} &amp;= (a {\div b}) \cdot (c {\div d}) = (ac) \cdot ({\div b} {\div d}) = (ac) {\div(bd)} = \frac{ac}{bd}</mrow>
-                        </md>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        Division is multiplication by inverse.
-                        <me>(\frac{a}{b}) \div (\frac{c}{d}) = \frac{a}{b} \cdot \frac{d}{c} = \frac{ad}{bc}</me>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                        Adding fractions applies the distributive property using the common denominator as the common factor.
-                        <md>
-                            <mrow>\frac{a}{b} + \frac{c}{d} &amp;= \frac{ad}{bd} + \frac{bc}{bd} = (ad) \,{\div(bd)} + (bc)\,{\div(bd)}</mrow>
-                            <mrow>&amp; = (ad+bc)\,{\div(bd)} = \frac{ad+bc}{bd}</mrow>
-                        </md>
-                        </p>
-                    </li>
-                </ul>
-            </proof>
-        </theorem>
-        
-        <p>
-        The basic properties of powers, shown below, can not be proved easily for all real numbers.
-        We can motivate each property with integer powers using the properties of multiplication.
-        Rational powers are more complicated and involve roots, but irrational powers are too difficult for this text.
-        </p>
-        
-        <assemblage xml:id="power-properties">
-            <title>Properties of Powers</title>
-            <p>
-            <ul>
-                <li><p>
-                Zero Power: <m>b^0 = 1</m> for <m>b \ne 0</m>
-                </p></li>
-                <li><p>
-                Inverse Power: <m>\displaystyle b^{-x} = \frac{1}{b^x}</m>
-                </p></li>
-                <li><p>
-                Product with Common Base: <m>b^x \, b^y = b^{x+y}</m>
-                </p></li>
-                <li><p>
-                Quotient with Common Base: <m>\displaystyle \frac{b^x}{b^y} = b^{x-y}</m>
-                </p></li>
-                <li><p>
-                Power of a power: <m>\displaystyle (b^x)^y = b^{xy}</m>
-                </p></li>
-                <li><p>
-                Product with Common Exponent: <m>b^x \, c^x = (bc)^x</m>
-                </p></li>
-                <li><p>
-                Quotient with Common Exponent: <m>\displaystyle \frac{b^x}{c^x} = \left(\frac{b}{c}\right)^x</m>
-                </p></li>
-            </ul>
-            </p>
-        </assemblage>
-        
-        <example>
-            <statement>
-                <p>
-                For integer exponents, a power means repeated multiplication 
-                (similar to how multiplication by an integer means repeated addition).
-                So <m>b^3 = b \cdot b \cdot b</m>.
-                The product properties are just about counting.
-                <md>
-                    <mrow>b^3 \cdot b^2 = (bbb) \cdot (bb) = b^5 = b^{3+2}</mrow>
-                    <mrow>(b^2)^3 = (bb)(bb)(bb) = b^{2 \cdot 3}</mrow>
-                    <mrow>(ab)^3 = (ab)(ab)(ab) = (aaa)(bbb) = a^3 b^3</mrow>
-                </md> 
-                (Do you see the commutative and associative properties in action?)
-                </p>
-                <p>
-                The quotient properties for integer powers result from canceling common factors followed by counting.
-                <md>
-                    <mrow> \frac{b^6}{b^2} = \frac{(bb)(bbbb)}{bb} = bbbb = b^{6-2}</mrow>
-                    <mrow> \left(\frac{b}{c}\right)^3 = \frac{b}{c} \cdot \frac{b}{c} \cdot \frac{b}{c} = \frac{b^3}{c^3}</mrow>
-                </md>
-                </p>
-            </statement>
-        </example>
-        
-        <p>
-        Addition and powers have no convenient properties.
-        Many mistakes occur when students forget this and imagine that powers distribute like multiplication.
-        (It doesn't!)
-        </p>
-        
-        <example>
-            <p>
-            To illustrate that <m>(a+b)^2 \ne a^2+b^2</m>, consider the numbers <m>a=2</m> and <m>b=3</m>.
-            The first expression gives <me>(a+b)^2 = (2+3)^2 = 5^2 = 25</me> 
-            while the second expression gives <me>a^2+b^2=2^2+3^2=4+9=13.</me> 
-            The proper way to expand the first expression is to think of the power 
-            as repeated multiplication and apply the distributive property.
-            This is often called the <c>FOIL</c> method: 
-            <me>(a+b)^2=(a+b)(a+b)=a^2+2ab+b^2</me>.
-            </p>
-        </example>
-        
-        <example>
-            <p>
-            To illustrate that <m>\sqrt{a^2+b^2} \ne a+b</m>, again consider the numbers <m>a=2</m> and <m>b=3</m>.
-            The first expression gives 
-            <me>\sqrt{a^2+b^2} = \sqrt{2^2+3^2}=\sqrt{13},</me> 
-            and the second expression gives <me>a+b=2+3=5.</me> 
-            There is no convenient way to expand a square root.
-            </p>
-        </example>
-        
-        <p>
-        If you see any operation acting on a sum (e.g., powers, roots or functions), 
-        unless you know a specific rule, you should not break up the formula into individual parts.
-        Such rules are called sum rules and will play a very important role in calculus.
-        </p>
-    </subsection>
+    <p>
+    A function can have many different representations.
+    We often need to use these different representations in different settings.
+    For example, polynomials usually are written as a sum of terms.
+    Multiplication and division of polynomials usually work best in this representation.
+    However, to find the roots or zeros of a polynomial, a factored representation is preferred.
+    In order to change representations, we need to understand when two formulas represent the same function.
+    </p>
+    <p>
+    This section reviews the elementary rules of algebra and explores 
+    how these rules lead to algebraic properties of functions.
+    The fundamental properties of addition and multiplication motivate additional rules, 
+    such as rules for fractions and powers.
+    We will then apply these rules to understand properties of the exponential and logarithm functions.
+    In order to learn to apply these rules, it is essential to recognize the structure of expressions 
+    as discussed in <xref ref="subsection-combining-expressions"/>.
+    </p>
+  </introduction>
+  
+  <subsection>
+    <title>Algebraic Properties</title>
     
-    <subsection>
-        <title>Exponential and Logarithm Properties</title>
-        
+    <p>
+    An algebraic representation of a function is an expression (formula) that computes 
+    the value of the dependent variable in terms of the independent variable.
+    We say that two representations are <term>equivalent</term> if they give the same values.
+    We will often need to be able to find equivalent expressions that will allow us to simplify our work.
+    To find these equivalent representations, 
+    we rely on algebraic properties of the operations and elementary functions of algebra.
+    </p>
+    
+    <p>
+    The properties of arithmetic form the foundation for all other equivalence properties.
+    The two basic arithmetic operations are addition and multiplication.
+    Subtraction and division are inverse operations and are ultimately defined in terms of addition and multiplication.
+    </p>
+    
+    <assemblage xml:id="properties-of-addition">
+      <title>Properties of Addition</title>
+      <p>
+      <ul>
+        <li>
+          <p>
+          <m>0</m> is Additive Identity: <m>x+0=x</m>
+          </p>
+        </li>
+        <li>
+          <p>
+          Additive Inverses: Every number <m>x</m> has an additive inverse <m>-x</m> 
+          so that <m>x+-x=0</m>, namely <m>\displaystyle -x = -1 \cdot x</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+          Commutative Property: <m>x+y = y+x</m>
+          </p>
+        </li>
+        <li>
+          <p>
+          Associative Property: <m>x+(y+z) = (x+y)+z</m>
+          </p>
+        </li>
+        <li>
+          <p>
+          Subtraction is Addition: <m>x-y = x+-y</m>
+          </p>
+        </li>
+      </ul>
+      </p>
+    </assemblage>
+    <assemblage xml:id="properties-of-multiplication">
+      <title>Properties of Multiplication</title>
+      <p>
+      <ul>
+        <li>
+          <p>
+          <m>1</m> is Multiplicative Identity: <m>x \cdot 1=x</m>
+          </p>
+        </li>
+        <li>
+          <p>
+          Multiplicative Inverses: Every nonzero number <m>x \ne 0</m> has a multiplicative inverse <m>\div x</m> 
+          so that <m>x \cdot \div x=1</m>, namely <m>\displaystyle \div x = \frac{1}{x}</m> (reciprocal).
+          </p>
+        </li>
+        <li>
+          <p>
+          Commutative Property: <m>x \cdot y = y \cdot x</m>
+          </p>
+        </li>
+        <li>
+          <p>
+          Associative Property: <m>x \cdot (y \cdot z) = (x \cdot y) \cdot z</m>
+          </p>
+        </li>
+        <li>
+          <p>
+          Division is Multiplication: <m>\displaystyle \frac{x}{y} = x \cdot \div y = x \cdot \frac{1}{y}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+          Multiplication Distributes Over Addition: 
+          <me>x \cdot (y + z) = x \cdot y + x \cdot z</me>
+          </p>
+        </li>
+      </ul>
+      </p>
+    </assemblage>
+    
+    <example>
+      <statement>
         <p>
-        The elementary exponential functions <m>\exp_b(x)=b^x</m> provide an interesting exception 
-        to the general principle that a sum inside an operation can not be simply rewritten.
-        They inherit a property from powers: <me>\exp_b(x+y) = b^{x+y} = b^x \cdot b^y</me>.
-        Such a rule might be remembered as <q>the exponential of a sum is the product of exponentials</q>.
-        Similarly, we have related properties for quotients and powers.
+        The expressions <m>3(x-4)+2</m> and <m>3x-10</m> are mathematically equivalent, 
+        even though they involve different operations.
+        We show this by applying the properties in sequence.
+        <md>
+          <mrow>3(x-4)+2 &amp;= (3x-12)+2 &amp; \text{Distributive}</mrow>
+          <mrow> &amp;= (3x+-12)+2 &amp; \text{Additive Inverse}</mrow>
+          <mrow> &amp;= 3x+(-12+2) &amp; \text{Associative}</mrow>
+          <mrow> &amp;= 3x+-10 &amp; \text{Arithmetic}</mrow>
+          <mrow> &amp;= 3x-10 &amp; \text{Subtraction}</mrow>
+        </md>
         </p>
-        
-        <assemblage xml:id="exponential-core-properties">
-            <title>Properties of Elementary Exponentials</title>
-            <p>
-            <ul>
-                <li>Exponential Sum Rule: <m>\exp_b(x+y) = \exp_b(x) \cdot \exp_b(y)</m> or <m>b^{x+y} = b^x b^y</m></li>
-                <li>Exponential Difference Rule: <m>\exp_b(x-y) = \exp_b(x) \div \exp_b(y)</m> or <m>\displaystyle b^{x-y} = \frac{b^x}{b^y}</m></li>
-                <li>Exponential of a Product: <m>\displaystyle b^{xy} = (b^x)^y</m> and <m>b^{xy} = (b^y)^x</m></li>
-            </ul>
-            </p>
-        </assemblage>
-        
+      </statement>
+    </example>
+    
+    <p>
+    Students often encounter difficulties with expressions involving fractions.
+    However, all of the algebra rules for fractions really are consequences of the basic properties of multiplication.
+    Recognizing these connections and using them to guide your work will help you avoid common pitfalls.
+    The first key is to remember that fractions are division and therefore really multiplication.
+    </p>
+    
+    <theorem xml:id="fraction-properties">
+      <title>Properties of Fractions</title>
+      <statement>
         <p>
-        The logarithm with base <m>b</m> is defined as the inverse function of the corresponding elementary exponential function.
-        Thus <m>x=\log_b(u)</m> is defined as the solving to the equation <m>b^x=u</m> for <m>x</m>.
-        For each property of the exponential, the logarithm has a related, inverse property.
-        </p>
-        
-        <assemblage xml:id="logarithm-core-properties">
-            <title>Properties of Logarithms</title>
-            <p>
-            <ul>
-                <li><p>
-                    Inverses Cancel: <m>\log_b(b^x) = x</m> (all <m>x</m>) and <m>b^{\log_b(x)} = x</m> (<m>x \gt 0</m>)
-                </p></li>
-                <li><p>
-                    Product: <m>\log_b(u \cdot v)= \log_b(u) + \log_b(v) </m>
-                </p></li>
-                <li><p>
-                    Quotient: <m>\displaystyle \log_b\left(\frac{u}{v}\right)= \log_b(u) - \log_b(v) </m>
-                </p></li>
-                <li><p>
-                    Power: <m>\log_b(u^p) = p \cdot \log_b(u)</m>
-                </p></li>
-            </ul>
-            </p>
-        </assemblage>
-        
-        <p>
-        Historically, the logarithm was invented so that multiplication and division calculations 
-        could be solved using the much simpler operations of addition and subtraction.
-        Engineers and scientists would often reference logarithm tables.
-        The slide rule was a mechanical implementation, where the lengths 
-        corresponding to logarithm values were added physically to get a new length.
-        </p>
-        
-        <example>
-            <statement>
-                <p>
-                A reference table shows <m>\log(2) \approx 0.30103</m>, <m>\log(3) \approx 0.47712</m> 
-                and <m>\log(5) \approx 0.69897</m>.
-                Use properties of logarithms to determine <m>\log(1.2)</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                Start by writing 1.2 as a product of the factors 2, 3, and 5.
-                <me>1.2 = \frac{12}{10} = \frac{4(3)}{2(5)} = \frac{2(3)}{5}</me> 
-                The properties of logarithms allow us to rewrite <m>\log(1.2)</m> as 
-                <md>
-                    <mrow> \log(1.2) &amp;= \log\left(\frac{2(3)}{5}\right) </mrow>
-                    <mrow> &amp;= \log(2(3)) - \log(5) &amp; \text{(Quotient)} </mrow>
-                    <mrow> &amp;= \log(2) + \log(3) - \log(5) &amp; \text{(Product)} </mrow>
-                    <mrow>  &amp;\approx 0.30103 + 0.47712 - 0.69897 = 0.07918.</mrow>
-                </md>
-                </p>
-            </solution>
-        </example>
-        
-        <p>
-        We still use logarithms in order to expand formulas expressed as products and powers in terms of sums and products.
-        </p>
-        
-        <example>
-            <statement>
-                <p>
-                Expand <m>\displaystyle \log\left(\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5}\right)</m> as far as possible.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                Each factor of the expression inside the logarithm will get its own term 
-                using the product and quotient rules for logarithms.
-                If we think of every division in terms of negative powers, 
-                then we only need to deal with products.
-                In particular, the inner expression can be rewritten 
-                <me>\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5} = 4x^3(2x+5)^{\frac{1}{2}}(x^2+3)^{-5}</me>.
-                The factors identified are <m>4</m>, <m>x^3</m>, <m>(2x+5)^{\frac{1}{2}}</m>, and <m>(x^2+3)^{-5}</m>.
-                Using the logarithm's product rule followed by the logarithm's power rule, we find 
-                <md>
-                    <mrow> \log\left(\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5}\right) &amp;= \log(4) + \log(x^3) + \log\left( (2x+5)^{\frac{1}{2}}\right) + \log\left( (x^2+3)^{-5} \right) </mrow>
-                    <mrow> &amp;= \log(4) + 3\log(x) + {\textstyle \frac{1}{2}}\log(2x+5) -5 \log(x^2+3).</mrow>
-                </md> 
-                Notice that we could have used the quotient rule of logarithms instead of negative powers 
-                to get the term <m>-5 \log(x^2+3)</m>.
-                </p>
-            </solution>
-        </example>
-        
-        <p>
-        The properties of logarithms help solve us equations, particularly where the variable is in an exponent.
-        Because inverse functions are one-to-one, we can apply such a function to both sides of an equation with positive values and form a new equation that is equivalent to the first.
-        The properties of the logarithm can then be used to our advantage.
-        </p>
-        
-        <example>
-            <statement>
-                <p>
-                Solve the equation <m>3 \cdot 2^{3x} = 5</m> using the logarithm base 10.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                It is usually best to isolate the exponential term first.
-                <md>
-                    <mrow> 3 \cdot 2^{3x} = 5 </mrow>
-                    <mrow> 2^{3x} = \frac{5}{3} </mrow>
-                </md> 
-                We next apply the logarithm base 10 to both sides of this equation, 
-                which then allows us to apply the logarithm power rule on the left.
-                Then we can isolate <m>x</m>.
-                <md>
-                    <mrow> \log_{10}(2^{3x}) = \log_{10}({\textstyle \frac{5}{3}}) </mrow>
-                    <mrow> 3x \cdot \log_{10}(2) = \log_{10}({\textstyle \frac{5}{3}}) </mrow>
-                    <mrow> x = \frac{\log_{10}({\textstyle \frac{5}{3}})}{3 \log_{10}(2)} </mrow>
-                </md>
-                </p>
-                <p>
-                Alternatively, we could have applied the logarithm at the very first.
-                This would require using the logarithm product rule on the left.
-                <md>
-                    <mrow> \log_{10}(3 \cdot 2^{3x}) = \log_{10}(5) </mrow>
-                    <mrow> \log_{10}(3) + \log_{10}(2^{3x}) = \log_{10}(5) </mrow>
-                    <mrow> \log_{10}(2^{3x}) = \log_{10}(5) - \log_{10}(3) </mrow>
-                    <mrow> 3x \log_{10}(2) = \log_{10}(5) - \log_{10}(3) </mrow>
-                    <mrow> x = \frac{\log_{10}(5) - \log_{10}(3)}{3\log_{10}(2)} </mrow>
-                </md>
-                </p>
-            </solution>
-        </example>
-        
-        <p>
-        The properties of logarithms allow us to compute logarithms with uncommon bases using logarithms that we know using the change of base formula.
-        </p>
-        
-        <theorem xml:id="logarithm-change-base">
-            <statement>
-                <p>
-                For any two exponential bases <m>b</m> and <m>c</m>, 
-                <me> \log_b(u) = \frac{\log_c(u)}{\log_c(b)}</me>.
-                </p>
-            </statement>
-            <proof>
-                <p>
-                Consider <m>x=\log_b(u)</m>, which solves <m>b^x=u</m>.
-                If we solve this equation using <m>\log_c</m> to both sides, 
-                we find the change of base formula.
-                <md>
-                    <mrow> b^x = u </mrow>
-                    <mrow> \log_c(b^x) = \log_c(u) </mrow>
-                    <mrow> x \log_c(b) = \log_c(u) </mrow>
-                    <mrow> x = \log_b(u) = \frac{\log_c(u)}{\log_c(b)}.</mrow>
-                </md>
-                </p>
-            </proof>
-        </theorem>
-        
-        <p>
-        Closely related to change of base formula is the fact that 
-        we can rewrite any power with a positive base using a composition with an elementary exponential.
-        We will soon discover that the number <m>e</m> is the natural exponential base.
-        Thus, every power can be rewritten in terms of the natural exponential function.
-        The logarithm with this base is the <term>natural logarithm</term> <m>\ln</m>.
-        </p>
-        
-        <example>
-            <statement>
-                <p>
-                Rewrite <m>f(x) = 4 \cdot 3^{2x}</m> using the natural exponential function.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                One approach is to use the inverse property, <m>\exp(\ln(u)) = e^{\ln(u)} = u</m>, on the factor with the power.
-                Then use logarithm properties to simplify (expand) the power.
-                <md>
-                    <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
-                    <mrow> &amp;= 4 \cdot e^{\ln(3^{2x})} &amp; \text{(Inverse)} </mrow>
-                    <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power)} </mrow>
-                    <mrow> &amp;= 4 \cdot e^{2 \ln(3) \, x} &amp; \text{(Commute)} </mrow>
-                </md>
-                </p>
-                <p>
-                Another approach is to just rewrite the base using the inverse property, 
-                <m>3 = e^{\ln(3)}</m>, 
-                and then finish by using properties of powers.
-                <md>
-                    <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
-                    <mrow> &amp;= 4 \cdot (e^{\ln(3)})^{2x} &amp; \text{(Inverse)} </mrow>
-                    <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power of Product)} </mrow>
-                    <mrow> &amp;= 4 \cdot e^{2 \ln(3) \, x} &amp; \text{(Commute)} </mrow>
-                </md>
-                </p>
-            </solution>
-        </example>
-        
-        <p>
-        We use base <m>e</m> for exponentials so much that we summarize the statement as a theorem.
-        </p>
-        
-        <theorem xml:id="exponentials-base-e">
-            <statement>
-                <p>
-                Every exponential function <m>f(x) = A b^x</m> can be written using the natural exponential 
-                <m>f(x) = Ae^{kx}</m> where <m>k = \ln(b)</m>.
-                </p>
-            </statement>
-        </theorem>
-        
-        <example>
-            <statement>
-                <p>
-                A population <m>P</m> is an exponential function of time <m>t</m>, <m>P = Ae^{kt}</m>.
-                Suppose that <m>P=500</m> when <m>t=0</m> and the population triples every 5 years, 
-                find the formula for <m>P</m>.
-                </p>
-            </statement>
-            <solution>
-                <p>
-                This is a parametrized model <m>P=Ae^{kt}</m>.
-                We use the data <m>(t,P)=(0,500)</m> and <m>(t,P)=(5,1500)</m> (population triples) 
-                to create equations based on our model.
-                <me> \left\{ \begin{matrix} 500 = Ae^{0k} \\ 1500 = Ae^{5k} \end{matrix} \right.</me> 
-                The first equation gives <m>A=500</m>.
-                Substituting that into the second equation, we can solve for <m>k</m>.
-                <md>
-                    <mrow>Ae^{5k} = 1500 </mrow>
-                    <mrow>500 e^{5k} = 1500 </mrow>
-                    <mrow>e^{5k} = 3 </mrow>
-                    <mrow>5k = \ln(3) </mrow>
-                    <mrow>k = {\textstyle \frac{1}{5}} \ln(3)</mrow>
-                </md> 
-                Using these parameters, we have our model <me>P = 500 e^{\frac{1}{5} \ln(3) t}</me>.
-                </p>
-            </solution>
-        </example>
-    </subsection>
-        
-    <conclusion>
-        <title>Summary</title>
-        
         <ul>
-            <li>The foundation for algebra begins with the properties of addition and multiplication.</li>
-            <li>
-                Subtraction and division are best understood in terms of addition and multiplication 
-                using inverses (negatives and reciprocals).
-            </li>
-            <li>Fractions are best understood in terms of the basic properties of multiplication.</li>
-            <li>The rules of powers and exponents are motivated by integer powers representing repeated multiplication.</li>
-            <li>
-                <p>
-                Properties of exponential and logarithm functions relate sums and products: 
-                <ul>
-                    <li>
-                        The exponential of a sum is equivalent to a product of exponentials.
-                        <me>b^{x+y} = b^x \cdot b^y</me>
-                    </li>
-                    <li>
-                        The exponential of a difference is equivalent to a quotient of exponentials.
-                        <me>b^{x-y} = b^x \div b^y</me>
-                    </li>
-                    <li>
-                        The logarithm of a product is equivalent to the sum of logarithms.
-                        <me>\log_b(uv) = \log_b(u) + \log_b(v)</me>
-                    </li>
-                    <li>
-                        The logarithm of a quotient is equivalent to the difference of logarithms.
-                        <me>\log_b(u \div v) = \log_b(u) - \log_b(v)</me>
-                    </li>
-                    <li>
-                        The logarithm of a base to a power is equivalent to the product of the power and the logarithm of the base.
-                        <me>\log_b(u^p) =  p \cdot \log_b(u)</me>
-                    </li>
-                </ul>
-                </p>
-            </li>
+          <li>
+            <p>
+            Divisors in the Denominator.
+            <m>(\div a) \cdot (\div b) = \div(ab)</m>, 
+            or <m>\displaystyle \frac{1}{a} \cdot \frac{1}{b} = \frac{1}{ab}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+            Multiplication.
+            <m>\displaystyle a \cdot \frac{b}{c} = \frac{ab}{c}</m> and 
+            <m>\displaystyle \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+            Reciprocals.
+            <m>\displaystyle \div \frac{a}{b} = \frac{b}{a}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+            Division.
+            <m>\displaystyle (\frac{a}{b}) \div (\frac{c}{d}) = \frac{ad}{bc}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+            Cancel Common Factors.
+            <m>\displaystyle \frac{ac}{bc} = \frac{a}{b}</m> for <m>c \ne 0</m>
+            </p>
+          </li>
+          <li>
+            <p>
+            Addition with Common Denominator.
+            <m>\displaystyle \frac{a}{b} + \frac{c}{d} = \frac{ad+bc}{bd}</m>
+            </p>
+          </li>
         </ul>
-    </conclusion>
+        </p>
+      </statement>
+      <proof>
+        <p>
+        Each property results from the basic properties of addition.
+        The following calculations emphasize these connections.
+        <ul>
+          <li>
+            <p>
+            To show <m>\div(ab) = (\div a) \cdot (\div b)</m>, 
+            we need to show that the property of a multiplicative inverse is satisfied.
+            This requires the commutative and associative properties.
+            <me>(ab) \cdot (\div a \cdot \div b) = (a \div a) \cdot (b \div b) = 1 \cdot 1 = 1</me>.
+            Written in terms of fractions, this means 
+            <m>\displaystyle \frac{1}{a} \cdot \frac{1}{b} = \frac{1}{ab}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+            Multiplication is associative and commutative.
+            <md>
+              <mrow> a \cdot \frac{b}{c} &amp;= a (b \div c) = (a b) \div c = \frac{ab}{c}</mrow>
+              <mrow>\frac{a}{b} \cdot \frac{c}{d} &amp;= (a {\div b}) \cdot (c {\div d}) = (ac) \cdot ({\div b} {\div d}) = (ac) {\div(bd)} = \frac{ac}{bd}</mrow>
+            </md>
+            </p>
+          </li>
+          <li>
+            <p>
+            Division is multiplication by inverse.
+            <me>(\frac{a}{b}) \div (\frac{c}{d}) = \frac{a}{b} \cdot \frac{d}{c} = \frac{ad}{bc}</me>
+            </p>
+          </li>
+          <li>
+            <p>
+            Adding fractions applies the distributive property using the common denominator as the common factor.
+            <md>
+              <mrow>\frac{a}{b} + \frac{c}{d} &amp;= \frac{ad}{bd} + \frac{bc}{bd} = (ad) \,{\div(bd)} + (bc)\,{\div(bd)}</mrow>
+              <mrow>&amp; = (ad+bc)\,{\div(bd)} = \frac{ad+bc}{bd}</mrow>
+            </md>
+            </p>
+          </li>
+        </ul>
+        </p>
+      </proof>
+    </theorem>
     
-    <exercises>
-        <exercise>
-            <statement>
-                <p>
-                Show using the elementary properties of addition and multiplication why <m>2(x+3)-1=2x+5</m>.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Show using the elementary properties of addition and multiplication why <m>(x+3)(x-1)=x^2+2x-3</m>.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                A student made a mistake writing <m>\displaystyle \frac{3x+1}{x} = \frac{3+1}{1} = 4</m>.
-                What did the student do? Why was it incorrect?
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                A student made a mistake writing <m>\displaystyle x \cdot \frac{2x+1}{x+3} = \frac{2x^2+x}{x^2+3x}</m>.
-                What did the student do? Why was it incorrect?
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                A student made a mistake writing <m>\displaystyle 3 \cdot 2^x = 6^x</m>.
-                What did the student do? Why was it incorrect?
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                For an unknown base <m>b</m>, we have <m>\log_b(2)=0.3</m>.
-                Use the rules of logarithms to find each of the following.
-                <ol>
-                                <li><m>\log_b(8)</m></li>
-                                <li><m>\log_b(\frac{1}{\sqrt{2}})</m></li>
-                                <li><m>\log_b(4b^2)</m></li>
-                            </ol> Can you identify the value <m>b</m>?
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                For an unknown base <m>b</m>, we have <m>\log_b(2) \approx 0.3562</m> and <m>\log_b(3) \approx 0.5646</m>.
-                Use the rules of logarithms to find each of the following.
-                <ol>
-                                <li><m>\log_b(6)</m></li>
-                                <li><m>\log_b(72)</m></li>
-                                <li><m>\log_b(\frac{4}{9})</m></li>
-                            </ol>
-                </p>
-            </statement>
-        </exercise>
-        
-        <exercise>
-            <statement>
-                <p>
-                Expand <m>\displaystyle \log\left( 3x^5(2x+1)^4 \right)</m> as far as possible.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Expand <m>\displaystyle \log\left( \frac{(x^2+4)^3}{x^4(3x+1)} \right)</m> as far as possible.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Expand <m>\displaystyle \log\left( \sqrt{5(x^2+1)} \right)</m> as far as possible.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Rewrite the expanded formula <m>\displaystyle 2 + 3\log(x) - \log(2x+1)</m> 
-                as the logarithm (base 10) of a single expression.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Rewrite the expanded formula <m>\displaystyle {\textstyle \frac{1}{2}}\ln(x) - \ln(x+1) - \ln(x-1)</m> 
-                as the logarithm (base e) of a single expression.
-                </p>
-            </statement>
-        </exercise>
-        
-        <exercise>
-            <statement>
-                <p>
-                Use the natural logarithm to solve the equation <m>4 \cdot 5^x = 3</m>.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Use the natural logarithm to solve the equation <m>2 \cdot 3^{-x} = 3 \cdot 2^{x}</m>.
-                </p>
-            </statement>
-        </exercise>
-        
-        <exercise>
-            <statement>
-                <p>
-                Write the function <m>f(x) = 4^x</m> using an exponential with base <m>e</m>.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Write the function <m>f(x) = 5 \cdot 0.25^x</m> using an exponential with base <m>e</m>.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Write the function <m>f(x) = x^4</m> using an exponential with base <m>e</m> for <m>x \gt 0</m>.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Write the function <m>f(x) = x^{2x}</m> using an exponential with base <m>e</m> for <m>x \gt 0</m>.
-                </p>
-            </statement>
-        </exercise>
-        
-        <exercise>
-            <statement>
-                <p>
-                Find an exponential model <m>y=Ae^{kx}</m> satisfying the states <m>(x,y)=(0,3)</m> and <m>(x,y)=(5,9)</m>.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                Find an exponential model <m>y=Ae^{kx}</m> satisfying the states <m>(x,y)=(1,3)</m> and <m>(x,y)=(4,6)</m>.
-                </p>
-            </statement>
-        </exercise>
-        
-        <exercise>
-            <statement>
-                <p>
-                Chemistry texts often give a formula for the mass <m>M</m> of radioactively decaying element 
-                in terms of the half-life, <me>M=M_0 e^{-\ln(2)t/\tau_{\frac12}}</me>, 
-                where <m>M_0</m> is the mass at time <m>t=0</m> and <m>\tau_{\frac12}</m> is the half-life.
-                Use the properties of exponentials and logarithms to show that this is equivalent to 
-                <me>M = M_0 \cdot \Big(\frac{1}{2}\Big)^{t/\tau_{\frac12}}</me>.
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                The isotope of plutonium Pu-239 has a half-life of 24,110 years.
-                For an initial mass of 1 kg, how much plutonium remains after 100 years? 
-                </p>
-            </statement>
-        </exercise>
-        <exercise>
-            <statement>
-                <p>
-                A population that doubles in size every 5 years currently has 1000 individuals.
-                What will the population be in 4 years?
-                </p>
-            </statement>
-        </exercise>
-    </exercises>
+    <p>
+    The basic properties of powers, shown below, can not be proved easily for all real numbers.
+    We can motivate each property with integer powers using the properties of multiplication.
+    Rational powers are more complicated and involve roots, but irrational powers are too difficult for this text.
+    </p>
+    
+    <assemblage xml:id="power-properties">
+      <title>Properties of Powers</title>
+      <p>
+      <ul>
+        <li><p>
+        Zero Power: <m>b^0 = 1</m> for <m>b \ne 0</m>
+        </p></li>
+        <li><p>
+        Inverse Power: <m>\displaystyle b^{-x} = \frac{1}{b^x}</m>
+        </p></li>
+        <li><p>
+        Product with Common Base: <m>b^x \, b^y = b^{x+y}</m>
+        </p></li>
+        <li><p>
+        Quotient with Common Base: <m>\displaystyle \frac{b^x}{b^y} = b^{x-y}</m>
+        </p></li>
+        <li><p>
+        Power of a power: <m>\displaystyle (b^x)^y = b^{xy}</m>
+        </p></li>
+        <li><p>
+        Product with Common Exponent: <m>b^x \, c^x = (bc)^x</m>
+        </p></li>
+        <li><p>
+        Quotient with Common Exponent: <m>\displaystyle \frac{b^x}{c^x} = \left(\frac{b}{c}\right)^x</m>
+        </p></li>
+      </ul>
+      </p>
+    </assemblage>
+    
+    <example>
+      <statement>
+        <p>
+        For integer exponents, a power means repeated multiplication 
+        (similar to how multiplication by an integer means repeated addition).
+        So <m>b^3 = b \cdot b \cdot b</m>.
+        The product properties are just about counting.
+        <md>
+          <mrow>b^3 \cdot b^2 = (bbb) \cdot (bb) = b^5 = b^{3+2}</mrow>
+          <mrow>(b^2)^3 = (bb)(bb)(bb) = b^{2 \cdot 3}</mrow>
+          <mrow>(ab)^3 = (ab)(ab)(ab) = (aaa)(bbb) = a^3 b^3</mrow>
+        </md> 
+        (Do you see the commutative and associative properties in action?)
+        </p>
+        <p>
+        The quotient properties for integer powers result from canceling common factors followed by counting.
+        <md>
+          <mrow> \frac{b^6}{b^2} = \frac{(bb)(bbbb)}{bb} = bbbb = b^{6-2}</mrow>
+          <mrow> \left(\frac{b}{c}\right)^3 = \frac{b}{c} \cdot \frac{b}{c} \cdot \frac{b}{c} = \frac{b^3}{c^3}</mrow>
+        </md>
+        </p>
+      </statement>
+    </example>
+    
+    <p>
+    Addition and powers have no convenient properties.
+    Many mistakes occur when students forget this and imagine that powers distribute like multiplication.
+    (It doesn't!)
+    </p>
+    
+    <example>
+      <p>
+      To illustrate that <m>(a+b)^2 \ne a^2+b^2</m>, consider the numbers <m>a=2</m> and <m>b=3</m>.
+      The first expression gives <me>(a+b)^2 = (2+3)^2 = 5^2 = 25</me> 
+      while the second expression gives <me>a^2+b^2=2^2+3^2=4+9=13.</me> 
+      The proper way to expand the first expression is to think of the power 
+      as repeated multiplication and apply the distributive property.
+      This is often called the <c>FOIL</c> method: 
+      <me>(a+b)^2=(a+b)(a+b)=a^2+2ab+b^2</me>.
+      </p>
+    </example>
+    
+    <example>
+      <p>
+      To illustrate that <m>\sqrt{a^2+b^2} \ne a+b</m>, again consider the numbers <m>a=2</m> and <m>b=3</m>.
+      The first expression gives 
+      <me>\sqrt{a^2+b^2} = \sqrt{2^2+3^2}=\sqrt{13},</me> 
+      and the second expression gives <me>a+b=2+3=5.</me> 
+      There is no convenient way to expand a square root.
+      </p>
+    </example>
+    
+    <p>
+    If you see any operation acting on a sum (e.g., powers, roots or functions), 
+    unless you know a specific rule, you should not break up the formula into individual parts.
+    Such rules are called sum rules and will play a very important role in calculus.
+    </p>
+  </subsection>
+  
+  <subsection>
+    <title>Exponential and Logarithm Properties</title>
+    
+    <p>
+    The elementary exponential functions <m>\exp_b(x)=b^x</m> provide an interesting exception 
+    to the general principle that a sum inside an operation can not be simply rewritten.
+    They inherit a property from powers: <me>\exp_b(x+y) = b^{x+y} = b^x \cdot b^y</me>.
+    Such a rule might be remembered as <q>the exponential of a sum is the product of exponentials</q>.
+    Similarly, we have related properties for quotients and powers.
+    </p>
+    
+    <assemblage xml:id="exponential-core-properties">
+      <title>Properties of Elementary Exponentials</title>
+      <p>
+      <ul>
+        <li>Exponential Sum Rule: <m>\exp_b(x+y) = \exp_b(x) \cdot \exp_b(y)</m> or <m>b^{x+y} = b^x b^y</m></li>
+        <li>Exponential Difference Rule: <m>\exp_b(x-y) = \exp_b(x) \div \exp_b(y)</m> or <m>\displaystyle b^{x-y} = \frac{b^x}{b^y}</m></li>
+        <li>Exponential of a Product: <m>\displaystyle b^{xy} = (b^x)^y</m> and <m>b^{xy} = (b^y)^x</m></li>
+      </ul>
+      </p>
+    </assemblage>
+    
+    <p>
+    The logarithm with base <m>b</m> is defined as the inverse function of the corresponding elementary exponential function.
+    Thus <m>x=\log_b(u)</m> is defined as the solving to the equation <m>b^x=u</m> for <m>x</m>.
+    For each property of the exponential, the logarithm has a related, inverse property.
+    </p>
+    
+    <assemblage xml:id="logarithm-core-properties">
+      <title>Properties of Logarithms</title>
+      <p>
+      <ul>
+        <li><p>
+          Inverses Cancel: <m>\log_b(b^x) = x</m> (all <m>x</m>) and <m>b^{\log_b(x)} = x</m> (<m>x \gt 0</m>)
+        </p></li>
+        <li><p>
+          Product: <m>\log_b(u \cdot v)= \log_b(u) + \log_b(v) </m>
+        </p></li>
+        <li><p>
+          Quotient: <m>\displaystyle \log_b\left(\frac{u}{v}\right)= \log_b(u) - \log_b(v) </m>
+        </p></li>
+        <li><p>
+          Power: <m>\log_b(u^p) = p \cdot \log_b(u)</m>
+        </p></li>
+      </ul>
+      </p>
+    </assemblage>
+    
+    <p>
+    Historically, the logarithm was invented so that multiplication and division calculations 
+    could be solved using the much simpler operations of addition and subtraction.
+    Engineers and scientists would often reference logarithm tables.
+    The slide rule was a mechanical implementation, where the lengths 
+    corresponding to logarithm values were added physically to get a new length.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        A reference table shows <m>\log(2) \approx 0.30103</m>, <m>\log(3) \approx 0.47712</m> 
+        and <m>\log(5) \approx 0.69897</m>.
+        Use properties of logarithms to determine <m>\log(1.2)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Start by writing 1.2 as a product of the factors 2, 3, and 5.
+        <me>1.2 = \frac{12}{10} = \frac{4(3)}{2(5)} = \frac{2(3)}{5}</me> 
+        The properties of logarithms allow us to rewrite <m>\log(1.2)</m> as 
+        <md>
+          <mrow> \log(1.2) &amp;= \log\left(\frac{2(3)}{5}\right) </mrow>
+          <mrow> &amp;= \log(2(3)) - \log(5) &amp; \text{(Quotient)} </mrow>
+          <mrow> &amp;= \log(2) + \log(3) - \log(5) &amp; \text{(Product)} </mrow>
+          <mrow>  &amp;\approx 0.30103 + 0.47712 - 0.69897 = 0.07918.</mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    We still use logarithms in order to expand formulas expressed as products and powers in terms of sums and products.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        Expand <m>\displaystyle \log\left(\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5}\right)</m> as far as possible.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Each factor of the expression inside the logarithm will get its own term 
+        using the product and quotient rules for logarithms.
+        If we think of every division in terms of negative powers, 
+        then we only need to deal with products.
+        In particular, the inner expression can be rewritten 
+        <me>\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5} = 4x^3(2x+5)^{\frac{1}{2}}(x^2+3)^{-5}</me>.
+        The factors identified are <m>4</m>, <m>x^3</m>, <m>(2x+5)^{\frac{1}{2}}</m>, and <m>(x^2+3)^{-5}</m>.
+        Using the logarithm's product rule followed by the logarithm's power rule, we find 
+        <md>
+          <mrow> \log\left(\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5}\right) &amp;= \log(4) + \log(x^3) + \log\left( (2x+5)^{\frac{1}{2}}\right) + \log\left( (x^2+3)^{-5} \right) </mrow>
+          <mrow> &amp;= \log(4) + 3\log(x) + {\textstyle \frac{1}{2}}\log(2x+5) -5 \log(x^2+3).</mrow>
+        </md> 
+        Notice that we could have used the quotient rule of logarithms instead of negative powers 
+        to get the term <m>-5 \log(x^2+3)</m>.
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    The properties of logarithms help solve us equations, particularly where the variable is in an exponent.
+    Because inverse functions are one-to-one, we can apply such a function to both sides of an equation with positive values and form a new equation that is equivalent to the first.
+    The properties of the logarithm can then be used to our advantage.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        Solve the equation <m>3 \cdot 2^{3x} = 5</m> using the logarithm base 10.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        It is usually best to isolate the exponential term first.
+        <md>
+          <mrow> 3 \cdot 2^{3x} = 5 </mrow>
+          <mrow> 2^{3x} = \frac{5}{3} </mrow>
+        </md> 
+        We next apply the logarithm base 10 to both sides of this equation, 
+        which then allows us to apply the logarithm power rule on the left.
+        Then we can isolate <m>x</m>.
+        <md>
+          <mrow> \log_{10}(2^{3x}) = \log_{10}({\textstyle \frac{5}{3}}) </mrow>
+          <mrow> 3x \cdot \log_{10}(2) = \log_{10}({\textstyle \frac{5}{3}}) </mrow>
+          <mrow> x = \frac{\log_{10}({\textstyle \frac{5}{3}})}{3 \log_{10}(2)} </mrow>
+        </md>
+        </p>
+        <p>
+        Alternatively, we could have applied the logarithm at the very first.
+        This would require using the logarithm product rule on the left.
+        <md>
+          <mrow> \log_{10}(3 \cdot 2^{3x}) = \log_{10}(5) </mrow>
+          <mrow> \log_{10}(3) + \log_{10}(2^{3x}) = \log_{10}(5) </mrow>
+          <mrow> \log_{10}(2^{3x}) = \log_{10}(5) - \log_{10}(3) </mrow>
+          <mrow> 3x \log_{10}(2) = \log_{10}(5) - \log_{10}(3) </mrow>
+          <mrow> x = \frac{\log_{10}(5) - \log_{10}(3)}{3\log_{10}(2)} </mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    The properties of logarithms allow us to compute logarithms with uncommon bases using logarithms that we know using the change of base formula.
+    </p>
+    
+    <theorem xml:id="logarithm-change-base">
+      <statement>
+        <p>
+        For any two exponential bases <m>b</m> and <m>c</m>, 
+        <me> \log_b(u) = \frac{\log_c(u)}{\log_c(b)}</me>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+        Consider <m>x=\log_b(u)</m>, which solves <m>b^x=u</m>.
+        If we solve this equation using <m>\log_c</m> to both sides, 
+        we find the change of base formula.
+        <md>
+          <mrow> b^x = u </mrow>
+          <mrow> \log_c(b^x) = \log_c(u) </mrow>
+          <mrow> x \log_c(b) = \log_c(u) </mrow>
+          <mrow> x = \log_b(u) = \frac{\log_c(u)}{\log_c(b)}.</mrow>
+        </md>
+        </p>
+      </proof>
+    </theorem>
+    
+    <p>
+    Closely related to change of base formula is the fact that 
+    we can rewrite any power with a positive base using a composition with an elementary exponential.
+    We will soon discover that the number <m>e</m> is the natural exponential base.
+    Thus, every power can be rewritten in terms of the natural exponential function.
+    The logarithm with this base is the <term>natural logarithm</term> <m>\ln</m>.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        Rewrite <m>f(x) = 4 \cdot 3^{2x}</m> using the natural exponential function.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        One approach is to use the inverse property, <m>\exp(\ln(u)) = e^{\ln(u)} = u</m>, on the factor with the power.
+        Then use logarithm properties to simplify (expand) the power.
+        <md>
+          <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
+          <mrow> &amp;= 4 \cdot e^{\ln(3^{2x})} &amp; \text{(Inverse)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2 \ln(3) \, x} &amp; \text{(Commute)} </mrow>
+        </md>
+        </p>
+        <p>
+        Another approach is to just rewrite the base using the inverse property, 
+        <m>3 = e^{\ln(3)}</m>, 
+        and then finish by using properties of powers.
+        <md>
+          <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
+          <mrow> &amp;= 4 \cdot (e^{\ln(3)})^{2x} &amp; \text{(Inverse)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power of Product)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2 \ln(3) \, x} &amp; \text{(Commute)} </mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    We use base <m>e</m> for exponentials so much that we summarize the statement as a theorem.
+    </p>
+    
+    <theorem xml:id="exponentials-base-e">
+      <statement>
+        <p>
+        Every exponential function <m>f(x) = A b^x</m> can be written using the natural exponential 
+        <m>f(x) = Ae^{kx}</m> where <m>k = \ln(b)</m>.
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <statement>
+        <p>
+        A population <m>P</m> is an exponential function of time <m>t</m>, <m>P = Ae^{kt}</m>.
+        Suppose that <m>P=500</m> when <m>t=0</m> and the population triples every 5 years, 
+        find the formula for <m>P</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        This is a parametrized model <m>P=Ae^{kt}</m>.
+        We use the data <m>(t,P)=(0,500)</m> and <m>(t,P)=(5,1500)</m> (population triples) 
+        to create equations based on our model.
+        <me> \left\{ \begin{matrix} 500 = Ae^{0k} \\ 1500 = Ae^{5k} \end{matrix} \right.</me> 
+        The first equation gives <m>A=500</m>.
+        Substituting that into the second equation, we can solve for <m>k</m>.
+        <md>
+          <mrow>Ae^{5k} = 1500 </mrow>
+          <mrow>500 e^{5k} = 1500 </mrow>
+          <mrow>e^{5k} = 3 </mrow>
+          <mrow>5k = \ln(3) </mrow>
+          <mrow>k = {\textstyle \frac{1}{5}} \ln(3)</mrow>
+        </md> 
+        Using these parameters, we have our model <me>P = 500 e^{\frac{1}{5} \ln(3) t}</me>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+    
+  <subsection>
+    <title>Summary</title>
+    
+    <p>
+    <ul>
+      <li>The foundation for algebra begins with the properties of addition and multiplication.</li>
+      <li>
+        Subtraction and division are best understood in terms of addition and multiplication 
+        using inverses (negatives and reciprocals).
+      </li>
+      <li>Fractions are best understood in terms of the basic properties of multiplication.</li>
+      <li>The rules of powers and exponents are motivated by integer powers representing repeated multiplication.</li>
+      <li>
+        <p>
+        Properties of exponential and logarithm functions relate sums and products: 
+        <ul>
+          <li>
+            The exponential of a sum is equivalent to a product of exponentials.
+            <me>b^{x+y} = b^x \cdot b^y</me>
+          </li>
+          <li>
+            The exponential of a difference is equivalent to a quotient of exponentials.
+            <me>b^{x-y} = b^x \div b^y</me>
+          </li>
+          <li>
+            The logarithm of a product is equivalent to the sum of logarithms.
+            <me>\log_b(uv) = \log_b(u) + \log_b(v)</me>
+          </li>
+          <li>
+            The logarithm of a quotient is equivalent to the difference of logarithms.
+            <me>\log_b(u \div v) = \log_b(u) - \log_b(v)</me>
+          </li>
+          <li>
+            The logarithm of a base to a power is equivalent to the product of the power and the logarithm of the base.
+            <me>\log_b(u^p) =  p \cdot \log_b(u)</me>
+          </li>
+        </ul>
+        </p>
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  
+  <exercises>
+    <exercise>
+      <statement>
+        <p>
+        Show using the elementary properties of addition and multiplication why <m>2(x+3)-1=2x+5</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Show using the elementary properties of addition and multiplication why <m>(x+3)(x-1)=x^2+2x-3</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        A student made a mistake writing <m>\displaystyle \frac{3x+1}{x} = \frac{3+1}{1} = 4</m>.
+        What did the student do? Why was it incorrect?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        A student made a mistake writing <m>\displaystyle x \cdot \frac{2x+1}{x+3} = \frac{2x^2+x}{x^2+3x}</m>.
+        What did the student do? Why was it incorrect?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        A student made a mistake writing <m>\displaystyle 3 \cdot 2^x = 6^x</m>.
+        What did the student do? Why was it incorrect?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        For an unknown base <m>b</m>, we have <m>\log_b(2)=0.3</m>.
+        Use the rules of logarithms to find each of the following.
+        <ol>
+                <li><m>\log_b(8)</m></li>
+                <li><m>\log_b(\frac{1}{\sqrt{2}})</m></li>
+                <li><m>\log_b(4b^2)</m></li>
+              </ol> Can you identify the value <m>b</m>?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        For an unknown base <m>b</m>, we have <m>\log_b(2) \approx 0.3562</m> and <m>\log_b(3) \approx 0.5646</m>.
+        Use the rules of logarithms to find each of the following.
+        <ol>
+                <li><m>\log_b(6)</m></li>
+                <li><m>\log_b(72)</m></li>
+                <li><m>\log_b(\frac{4}{9})</m></li>
+              </ol>
+        </p>
+      </statement>
+    </exercise>
+    
+    <exercise>
+      <statement>
+        <p>
+        Expand <m>\displaystyle \log\left( 3x^5(2x+1)^4 \right)</m> as far as possible.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Expand <m>\displaystyle \log\left( \frac{(x^2+4)^3}{x^4(3x+1)} \right)</m> as far as possible.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Expand <m>\displaystyle \log\left( \sqrt{5(x^2+1)} \right)</m> as far as possible.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Rewrite the expanded formula <m>\displaystyle 2 + 3\log(x) - \log(2x+1)</m> 
+        as the logarithm (base 10) of a single expression.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Rewrite the expanded formula <m>\displaystyle {\textstyle \frac{1}{2}}\ln(x) - \ln(x+1) - \ln(x-1)</m> 
+        as the logarithm (base e) of a single expression.
+        </p>
+      </statement>
+    </exercise>
+    
+    <exercise>
+      <statement>
+        <p>
+        Use the natural logarithm to solve the equation <m>4 \cdot 5^x = 3</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Use the natural logarithm to solve the equation <m>2 \cdot 3^{-x} = 3 \cdot 2^{x}</m>.
+        </p>
+      </statement>
+    </exercise>
+    
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = 4^x</m> using an exponential with base <m>e</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = 5 \cdot 0.25^x</m> using an exponential with base <m>e</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = x^4</m> using an exponential with base <m>e</m> for <m>x \gt 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = x^{2x}</m> using an exponential with base <m>e</m> for <m>x \gt 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    
+    <exercise>
+      <statement>
+        <p>
+        Find an exponential model <m>y=Ae^{kx}</m> satisfying the states <m>(x,y)=(0,3)</m> and <m>(x,y)=(5,9)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Find an exponential model <m>y=Ae^{kx}</m> satisfying the states <m>(x,y)=(1,3)</m> and <m>(x,y)=(4,6)</m>.
+        </p>
+      </statement>
+    </exercise>
+    
+    <exercise>
+      <statement>
+        <p>
+        Chemistry texts often give a formula for the mass <m>M</m> of radioactively decaying element 
+        in terms of the half-life, <me>M=M_0 e^{-\ln(2)t/\tau_{\frac12}}</me>, 
+        where <m>M_0</m> is the mass at time <m>t=0</m> and <m>\tau_{\frac12}</m> is the half-life.
+        Use the properties of exponentials and logarithms to show that this is equivalent to 
+        <me>M = M_0 \cdot \Big(\frac{1}{2}\Big)^{t/\tau_{\frac12}}</me>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        The isotope of plutonium Pu-239 has a half-life of 24,110 years.
+        For an initial mass of 1 kg, how much plutonium remains after 100 years? 
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        A population that doubles in size every 5 years currently has 1000 individuals.
+        What will the population be in 4 years?
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>

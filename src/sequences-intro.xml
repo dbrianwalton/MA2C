@@ -178,7 +178,7 @@
           If we look at this pattern with a table showing the index and the pattern, 
           we find a relationship.
           </p>
-          <table>
+          <sidebyside margins="auto">
             <tabular>
               <row>
                 <cell><m>n</m></cell>
@@ -195,7 +195,7 @@
                 <cell><m>\frac{1}{5^2}</m></cell>
               </row>
             </tabular>
-          </table>
+          </sidebyside>
           <p>
           The pattern is that the number that is squared is always 1 greater than the index. 
           So the explicit formula for this sequence is given by 
@@ -527,9 +527,10 @@
     </paragraphs>
   </subsection>
   
-  <conclusion>
+  <subsection>
     <title>Summary</title>
     
+    <p>
     <ul>
       <li>
         Sequences are functions with domains that are subsets of the integers.
@@ -557,7 +558,8 @@
         and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k \cdot \rho^{n-k}.</me>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   
   <exercises>
     <exercise>

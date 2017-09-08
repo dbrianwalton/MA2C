@@ -290,6 +290,7 @@
       <statement>
         <p>
         Find the area bounded by the graphs <m>y=x</m> and <m>y=x^3-4x</m>.
+        </p>
         <sidebyside width="50%" margins="auto">
           <image>
             <latex-image-code>
@@ -310,7 +311,6 @@
             </latex-image-code>
           </image>
         </sidebyside>
-        </p>
       </statement>
       <solution>
         <p>
@@ -409,13 +409,15 @@
     </p>
   </subsection>
   
-  <conclusion>
+  <subsection>
     <title>Summary</title>
+    <p>
     <ul>
       <li>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   <exercises>
     <exercisegroup>
       <introduction>

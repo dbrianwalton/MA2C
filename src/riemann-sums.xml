@@ -59,7 +59,6 @@
 
     <p>The definition of the uniform partition suggests the basic steps required
     to create such a partition.
-    </p>
     <ul>
       <li>
       <p>Identify the interval <m>[a,b]</m> and the size of partition <m>n</m>.</p>
@@ -73,6 +72,7 @@
       <m>x_0=a</m> and increment size <m>\Delta x</m> (just calculated).</p>
       </li>
     </ul>
+    </p>
     
     <example>
       <statement>
@@ -86,7 +86,7 @@
       <me> x_k = a + k \Delta x = 1 + k \cdot \frac{3}{8} = 1 + \frac{3}{8} k. </me>
       In particular, the partition includes the points shown in the table below.
       </p>
-      <table>
+      <sidebyside margins="auto">
         <tabular>
           <row><cell><m>k</m></cell> <cell><m>x_k</m></cell></row>
           <row><cell> 0 </cell><cell> <m>1</m> </cell></row>
@@ -99,7 +99,7 @@
           <row><cell> 7 </cell><cell> <m>1+\frac{21}{8} = 3 \frac{5}{8}</m> </cell></row>
           <row><cell> 8 </cell><cell> <m>1+\frac{24}{8} = 4</m> </cell></row>
         </tabular>
-      </table>
+      </sidebyside>
       </solution>
     </example>
     
@@ -170,8 +170,6 @@
     A Riemann sum requires that we choose the value to match the true function <m>f(x)</m>
     at some point within the closed subinterval <m>[x_{k-1},x_k]</m>.
     Different rules for how to choose the point define some common methods.
-    </p>
-    
     <dl>
       <li><title>Left-Hand Rule</title>
       <p> The simple function uses the value at the left end point, <m>f(x_{k-1})</m>.</p>
@@ -192,6 +190,7 @@
       <p> The simple function uses the maximum value of the function on the subinterval, <m>\max(f(x) : x \in [x_{k-1},x_k])</m>.</p>
       </li>
     </dl>
+    </p>
     
     <p>
     The left-hand rule and the right-hand rule are the simplest rules to work with algebraically.
@@ -235,7 +234,7 @@
       A graph of <m>y=f(x)</m> and the approximating simple function <m>y=\mathcal{L}_f(x)</m> is shown below.
       The shaded region corresponds to the definite integral represented by the Riemann sum.
       </p>
-      <figure>
+      <sidebyside margins="auto">
         <image width="80%">
           <latex-image-code>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -280,7 +279,7 @@
           \end{tikzpicture}]]>
           </latex-image-code>
         </image>
-      </figure>
+      </sidebyside>
       
       <p>
       The Riemann sum is the definite integral of the approximating simple function.
@@ -321,7 +320,7 @@
         <m>f(x) = \displaystyle \frac{1}{x+1}</m> at the right endpoint of each subinterval.
         The table below summarizes these computations.
         </p>
-        <table>
+        <sidebyside>
           <tabular>
             <row>
               <cell><m>k</m> (index)</cell>
@@ -354,7 +353,7 @@
               <cell><m>f(2) = \frac{1}{3} \approx 0.3333 </m></cell>
             </row>
           </tabular>
-        </table>
+        </sidebyside>
         <p>
         Knowing the constant values on each subinterval, if we called the simple function
         using the right endpoint <m>\mathcal{R}_f(x)</m>, then we have the Riemann sum
@@ -366,7 +365,7 @@
         The graph below shows the original function <m>y=f(x)</m> and the simple function
         <m>y=\mathcal{R}_f(x)</m> that was used in the Riemann sum.
         </p>
-      <figure>
+      <sidebyside margins="auto">
         <image width="80%">
           <latex-image-code>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -429,7 +428,7 @@
           \end{tikzpicture}]]>
           </latex-image-code>
         </image>
-      </figure>
+      </sidebyside>
       </solution>
     </example>
     
@@ -442,7 +441,6 @@
     
     <p>
     The basic steps for these problems are as follows.
-    </p>
     <ul>
       <li><p>
       Create a formula for the partition with increment 
@@ -469,6 +467,7 @@
       <me> \int_{a}^{b} f(x) dx = \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k^*) \Delta x, </me>
       </p></li>
     </ul>
+    </p>
     
     <example>
       <statement>
@@ -532,7 +531,7 @@
         <me> \int_{-1}^{5} f(x) dx = 12.25 + -6.25 = 6. </me>
         Thus, the limit of the Riemann sum exactly agrees with the geometric calculation of total signed area.
         </p>
-        <figure>
+        <sidebyside margins="auto">
           <image width="80%">
             <latex-image-code>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -556,12 +555,13 @@
             \end{tikzpicture}]]>
             </latex-image-code>
           </image>
-        </figure>
+        </sidebyside>
       </solution>
     </example>
   </subsection>
-  <conclusion>
+  <subsection>
     <title>Summary</title>
+    <p>
     <ul>
       <li>
         <p>
@@ -667,7 +667,13 @@
         </p>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   <exercises>
+    <exercise>
+      <statement>
+        <p>Pending.</p>
+      </statement>
+    </exercise>
   </exercises>
 </section>

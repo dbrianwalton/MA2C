@@ -86,7 +86,7 @@
         </p>
         <sidebyside margins="auto">
           <tabular>
-            <row below="major">
+            <row bottom="major">
               <cell><m>n</m></cell>
               <cell><m>x_n</m></cell>
               <cell><m>f(x_n)</m></cell>
@@ -120,7 +120,7 @@
         </p>
         <sidebyside margins="auto">
           <tabular>
-            <row below="major">
+            <row bottom="major">
               <cell><m>n</m></cell>
               <cell><m>x_n</m></cell>
               <cell><m>f(x_n)</m></cell>
@@ -196,6 +196,7 @@
     </p>
     <definition xml:id="defn-instantaneous-rate-of-change">
       <title>Instantaneous Rate of Change</title>
+      <statement>
       <p>
         Given a function <m>f</m> that relates variables <m>x \overset{f}\mapsto y</m>,
         the <term>instantaneous rate of change</term> of <m>y</m> with respect to <m>x</m>
@@ -204,6 +205,7 @@
         if the limit exists. Consequently, for sufficiently small increments <m>\Delta x</m>,
         we have <me>\Delta f \approx \frac{dy}{dx} \cdot \Delta x</me>.
       </p>
+      </statement>
     </definition>
     <p>
       The following example illustrates the role of the instantaneous rate of change 
@@ -226,20 +228,21 @@
           <quantity><mag>-32</mag><unit base="foot"/><per base="second"/></quantity>
           for small values of <m>\Delta t</m>.
         </p>
-        <figure margins="auto">
+        <figure>
+          <caption/>
           <jsxgraph xml:id="jsx-calc-overview-rate-of-change" width="75%" aspect="4:2">
             <input>
               <![CDATA[
-                       var jcf1 = { 
-                       f : function(x) 
-                       {
-                       var y=40-16*x*x;
-                       return y;
-                       },
-                       input : { name:'t', color:'blue', value:1, delta:0.25, fixed:true, min:0.67, max:1.33 },
-                       output : { name:'h', color:'red', min:10, max:35 },
-                       };
-                       createMapRateOfChange(jcf1, 'jsx-calc-overview-rate-of-change');
+              var jcf1 = { 
+              f : function(x) 
+              {
+              var y=40-16*x*x;
+              return y;
+              },
+              input : { name:'t', color:'blue', value:1, delta:0.25, fixed:true, min:0.67, max:1.33 },
+              output : { name:'h', color:'red', min:10, max:35 },
+              };
+              createMapRateOfChange(jcf1, 'jsx-calc-overview-rate-of-change');
               ]]>
             </input>
           </jsxgraph>
@@ -459,8 +462,9 @@
     </example>
   </subsection>
 
-  <conclusion>
+  <subsection>
     <title>Summary</title>
+    <p>
     <ul>
       <li>
         Calculus is developed using ideas similar to those for
@@ -510,7 +514,8 @@
         responsibility of formulating problems and interpreting the results.
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
 
   <exercises>
     <exercisegroup>

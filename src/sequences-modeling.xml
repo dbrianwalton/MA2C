@@ -128,61 +128,64 @@
     </p>
     
     <example>
-    <p>
-    This example considers a dynamic graph for constant birth and death rates.
-    There are sliders for the birth rate <m>B</m> and the death rate <m>D</m>
-    and the initial population is also adjustable.
-    The resulting population sequence automatically updates to visualize the result.
-    Such a model gives an arithmetic (linear) sequence.
-    </p>
-    <figure>
-    <jsxgraph xml:id="sequence-model-constant-birth-death" width="80%">
-    <input>
-    <![CDATA[
-    var jcbd = {};
-    jcbd.b = JXG.JSXGraph.initBoard("sequence-model-constant-birth-death", 
-    {
-    boundingbox:[-2.5, 2000, 15.5, -50],
-    axis: true,
-    grid: false,
-    showCopyright:false,
-    showNavigation:false,
-    }
-    );
-    jcbd.b.create('text', [1,1800,"B"]);
-    jcbd.birthSlider = jcbd.b.create('slider', 
-    [[2,1800], [10,1800], [0,20,100]],
-    { snapWidth:1 }
-    );
-    jcbd.b.create('text', [1,1700,"D"]);
-    jcbd.deathSlider = jcbd.b.create('slider', 
-    [[2,1700], [10,1700], [0,15,100]],
-    { snapWidth:1 }
-    );
-    jcbd.yax = jcbd.b.create('segment', [[0,0], [0,2000]]);
-    jcbd.P0 = jcbd.b.create('glider', 
-    [0, 200, jcbd.yax], 
-    { color:"red", name:"P_0", label:{offset:[-20,0]} }
-    );
-    jcbd.P = [jcbd.P0];
-    for (var i=1; i<16; i++) {
-    jcbd.P[i] = jcbd.b.create('point', 
-    [
-    i,
-    function() {
-    var t=this.X(),
-    birth = jcbd.birthSlider.Value(),
-    death = jcbd.deathSlider.Value();
-    return jcbd.P0.Y()+t*(birth-death);
-    }
-    ],
-    { color:"blue", withLabel:false }
-    );
-    }
-    ]]>
-    </input>
-    </jsxgraph>
-    </figure>
+      <statement>
+        <p>
+        This example considers a dynamic graph for constant birth and death rates.
+        There are sliders for the birth rate <m>B</m> and the death rate <m>D</m>
+        and the initial population is also adjustable.
+        The resulting population sequence automatically updates to visualize the result.
+        Such a model gives an arithmetic (linear) sequence.
+        </p>
+        <figure>
+          <caption/>
+          <jsxgraph xml:id="sequence-model-constant-birth-death" width="80%">
+            <input>
+            <![CDATA[
+            var jcbd = {};
+            jcbd.b = JXG.JSXGraph.initBoard("sequence-model-constant-birth-death", 
+            {
+            boundingbox:[-2.5, 2000, 15.5, -50],
+            axis: true,
+            grid: false,
+            showCopyright:false,
+            showNavigation:false,
+            }
+            );
+            jcbd.b.create('text', [1,1800,"B"]);
+            jcbd.birthSlider = jcbd.b.create('slider', 
+            [[2,1800], [10,1800], [0,20,100]],
+            { snapWidth:1 }
+            );
+            jcbd.b.create('text', [1,1700,"D"]);
+            jcbd.deathSlider = jcbd.b.create('slider', 
+            [[2,1700], [10,1700], [0,15,100]],
+            { snapWidth:1 }
+            );
+            jcbd.yax = jcbd.b.create('segment', [[0,0], [0,2000]]);
+            jcbd.P0 = jcbd.b.create('glider', 
+            [0, 200, jcbd.yax], 
+            { color:"red", name:"P_0", label:{offset:[-20,0]} }
+            );
+            jcbd.P = [jcbd.P0];
+            for (var i=1; i<16; i++) {
+            jcbd.P[i] = jcbd.b.create('point', 
+            [
+            i,
+            function() {
+            var t=this.X(),
+            birth = jcbd.birthSlider.Value(),
+            death = jcbd.deathSlider.Value();
+            return jcbd.P0.Y()+t*(birth-death);
+            }
+            ],
+            { color:"blue", withLabel:false }
+            );
+            }
+            ]]>
+            </input>
+          </jsxgraph>
+        </figure>
+      </statement>
     </example>
     
     <p>
@@ -215,66 +218,69 @@
     </p>
     
     <example>
-    <p>
-    This example considers a dynamic graph for constant per capita birth and death rates.
-    There are sliders for the per capita birth rate <m>b</m> and the per capita death rate <m>d</m>.
-    The initial population is also adjustable.
-    The resulting population sequence automatically updates to visualize the result.
-    Such a model gives a geometric (exponential) sequence.
-    </p>
-    <figure>
-    <jsxgraph xml:id="sequence-model-proportional-birth-death" width="80%">
-    <input>
-    <![CDATA[
-    var jpbd = {};
-    jpbd.b = JXG.JSXGraph.initBoard("sequence-model-proportional-birth-death", 
-    {
-    boundingbox:[-2.5, 2000, 15.5, -50],
-    axis: true,
-    grid: false,
-    showCopyright:false,
-    showNavigation:false,
-    }
-    );
-    jpbd.b.create('text', [1,1800,"b"]);
-    jpbd.birthSlider = jpbd.b.create('slider', 
-    [[2,1800], [10,1800], [0,0.2,4]],
-    { snapWidth:0.02 }
-    );
-    jpbd.b.create('text', [1,1700,"d"]);
-    jpbd.deathSlider = jpbd.b.create('slider', 
-    [[2,1700], [10,1700], [0,0.15,4]],
-    { snapWidth:0.02 }
-    );
-    jpbd.yax = jpbd.b.create('segment', [[0,0], [0,2000]]);
-    jpbd.P0 = jpbd.b.create('glider', 
-    [0, 200, jpbd.yax], 
-    { color:"red", name:"P_0", label:{offset:[-20,0]} }
-    );
-    jpbd.P = [jpbd.P0];
-    for (var i=1; i<16; i++) {
-    jpbd.P[i] = jpbd.b.create('point', 
-    [
-    i,
-    function() {
-    var t=this.X(),
-    birth = jpbd.birthSlider.Value(),
-    death = jpbd.deathSlider.Value(),
-    population = jpbd.P0.Y();
-    while (t > 0) {
-    population = population * (1+birth-death);
-    t--;
-    }
-    return population;
-    }
-    ],
-    { color:"blue", withLabel:false }
-    );
-    }
-    ]]>
-    </input>
-    </jsxgraph>
-    </figure>
+      <statement>
+        <p>
+        This example considers a dynamic graph for constant per capita birth and death rates.
+        There are sliders for the per capita birth rate <m>b</m> and the per capita death rate <m>d</m>.
+        The initial population is also adjustable.
+        The resulting population sequence automatically updates to visualize the result.
+        Such a model gives a geometric (exponential) sequence.
+        </p>
+        <figure>
+          <caption/>
+          <jsxgraph xml:id="sequence-model-proportional-birth-death" width="80%">
+            <input>
+            <![CDATA[
+            var jpbd = {};
+            jpbd.b = JXG.JSXGraph.initBoard("sequence-model-proportional-birth-death", 
+            {
+            boundingbox:[-2.5, 2000, 15.5, -50],
+            axis: true,
+            grid: false,
+            showCopyright:false,
+            showNavigation:false,
+            }
+            );
+            jpbd.b.create('text', [1,1800,"b"]);
+            jpbd.birthSlider = jpbd.b.create('slider', 
+            [[2,1800], [10,1800], [0,0.2,4]],
+            { snapWidth:0.02 }
+            );
+            jpbd.b.create('text', [1,1700,"d"]);
+            jpbd.deathSlider = jpbd.b.create('slider', 
+            [[2,1700], [10,1700], [0,0.15,4]],
+            { snapWidth:0.02 }
+            );
+            jpbd.yax = jpbd.b.create('segment', [[0,0], [0,2000]]);
+            jpbd.P0 = jpbd.b.create('glider', 
+            [0, 200, jpbd.yax], 
+            { color:"red", name:"P_0", label:{offset:[-20,0]} }
+            );
+            jpbd.P = [jpbd.P0];
+            for (var i=1; i<16; i++) {
+            jpbd.P[i] = jpbd.b.create('point', 
+            [
+            i,
+            function() {
+            var t=this.X(),
+            birth = jpbd.birthSlider.Value(),
+            death = jpbd.deathSlider.Value(),
+            population = jpbd.P0.Y();
+            while (t > 0) {
+            population = population * (1+birth-death);
+            t--;
+            }
+            return population;
+            }
+            ],
+            { color:"blue", withLabel:false }
+            );
+            }
+            ]]>
+            </input>
+          </jsxgraph>
+        </figure>
+      </statement>
     </example>
     
     <p>
@@ -289,186 +295,186 @@
     </p>
     
     <example>
-    <statement>
-    <p>
-    Suppose a population of 2500 has 400 births and 250 deaths in the year. 
-    Compare the model for constant births and death rates with the model 
-    for constant per capita birth and death rates over the next five years.
-    </p>
-    </statement>
-    <solution>
-    <p>
-    The model for constant birth and death rates assumes that <m>B=400</m> and <m>D=250</m> are constants. 
-    The recursive equation for the population is then given by 
-    <me>P_{t+1} = P_t + 400 - 250 = P_t + 150.</me> 
-    In this model, the population increases by a net number of 150 individuals per year 
-    with an explicit formula given by <me>P_t = 2500 + 150 t.</me>
-    </p>
-    <p>
-    The model for constant per capita birth and death rates assumes the ratios 
-    <m>b = \frac{B}{P} = \frac{400}{2500} = 0.16</m> and <m>d = \frac{D}{P} = \frac{250}{2500} = 0.1</m> 
-    are constants. 
-    The recursive equation for this model becomes <me>P_{t+1} = P_t + 0.16 P_t - 0.1 P_t = 1.06 P_t,</me> 
-    with a corresponding explicit formula given by <me>P_t = 2500 \cdot 1.06^{t}.</me>
-    </p>
-    <p>
-    The table and figure below illustrate the growth of these two models. 
-    In the table for the Malthusian model (geometric growth), 
-    the model predicts non-integer values which I have shown to two decimal places. 
-    Of course, a population itself must be integer-valued. 
-    When working with mathematical models, we will leave the values exact until we are ready to interpret.
-    </p> 
-    <table>
-    <tabular>
-    <row>
-    <cell>Year</cell>
-    <cell>Linear</cell>
-    <cell>Geometric</cell>
-    </row>
-    <row bottom="major">
-    <cell><m>t</m></cell>
-    <cell><m>P_t = 2500+150t</m></cell>
-    <cell><m>P_t = 2500 \cdot 1.06^t</m></cell>
-    </row>
-    <row>
-    <cell>0</cell> <cell>2500</cell> <cell>2500</cell>
-    </row>
-    <row>
-    <cell>1</cell> <cell>2650</cell> <cell>2650</cell>
-    </row>
-    <row>
-    <cell>2</cell> <cell>2800</cell> <cell>2809</cell>
-    </row>
-    <row>
-    <cell>3</cell> <cell>2950</cell> <cell>2977.54</cell>
-    </row>
-    <row>
-    <cell>4</cell> <cell>3100</cell> <cell>3156.19</cell>
-    </row>
-    <row>
-    <cell>5</cell> <cell>3250</cell> <cell>3345.56</cell>
-    </row>
-    </tabular>
-    </table>
+      <statement>
+        <p>
+        Suppose a population of 2500 has 400 births and 250 deaths in the year. 
+        Compare the model for constant births and death rates with the model 
+        for constant per capita birth and death rates over the next five years.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The model for constant birth and death rates assumes that <m>B=400</m> and <m>D=250</m> are constants. 
+          The recursive equation for the population is then given by 
+          <me>P_{t+1} = P_t + 400 - 250 = P_t + 150.</me> 
+          In this model, the population increases by a net number of 150 individuals per year 
+          with an explicit formula given by <me>P_t = 2500 + 150 t.</me>
+        </p>
+        <p>
+          The model for constant per capita birth and death rates assumes the ratios 
+          <m>b = \frac{B}{P} = \frac{400}{2500} = 0.16</m> and <m>d = \frac{D}{P} = \frac{250}{2500} = 0.1</m> 
+          are constants. 
+          The recursive equation for this model becomes <me>P_{t+1} = P_t + 0.16 P_t - 0.1 P_t = 1.06 P_t,</me> 
+          with a corresponding explicit formula given by <me>P_t = 2500 \cdot 1.06^{t}.</me>
+        </p>
+        <p>
+          The table and figure below illustrate the growth of these two models. 
+          In the table for the Malthusian model (geometric growth), 
+          the model predicts non-integer values which I have shown to two decimal places. 
+          Of course, a population itself must be integer-valued. 
+          When working with mathematical models, we will leave the values exact until we are ready to interpret.
+        </p> 
+        <sidebyside margins="auto">
+          <tabular>
+            <row>
+              <cell>Year</cell>
+              <cell>Linear</cell>
+              <cell>Geometric</cell>
+            </row>
+            <row bottom="major">
+              <cell><m>t</m></cell>
+              <cell><m>P_t = 2500+150t</m></cell>
+              <cell><m>P_t = 2500 \cdot 1.06^t</m></cell>
+            </row>
+            <row>
+              <cell>0</cell> <cell>2500</cell> <cell>2500</cell>
+            </row>
+            <row>
+              <cell>1</cell> <cell>2650</cell> <cell>2650</cell>
+            </row>
+            <row>
+              <cell>2</cell> <cell>2800</cell> <cell>2809</cell>
+            </row>
+            <row>
+              <cell>3</cell> <cell>2950</cell> <cell>2977.54</cell>
+            </row>
+            <row>
+              <cell>4</cell> <cell>3100</cell> <cell>3156.19</cell>
+            </row>
+            <row>
+              <cell>5</cell> <cell>3250</cell> <cell>3345.56</cell>
+            </row>
+          </tabular>
+        </sidebyside>
     
-    <figure>
-    <image width="75%">
-    <latex-image-code>
-    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-    <![CDATA[\tikzset{%
-    }
-    \begin{tikzpicture}
-    \begin{axis}[
-    %width=2.5in, height=2.5in,
-    xmin=-1,xmax=6,
-    ymin=2000,ymax=4000,
-    xtick={0,1,...,5},
-    xlabel={$t$}, ylabel={$P_t$},
-    grid=both,
-    legend pos=north west,
-    every axis legend/.append style={nodes={right}}
-    ]
-    \addplot[red, only marks] table {
-    0 2500
-    1 2650
-    2 2800
-    3 2950
-    4 3100
-    5 3250
-    };
-    \addplot[blue, only marks, mark=square, fill=blue] table {
-    0 2500
-    1 2650
-    2 2809
-    3 2977.54
-    4 3156.19
-    5 3345.56
-    };
-    \legend {linear,geometric}
-    \end{axis}
-    \end{tikzpicture}]]>
-    </latex-image-code>
-    </image>
-    </figure>
-    
-    <p>
-    The arithmetic and geometric models agree at the initial value and after the first year. 
-    But from that point, the geometric model steadily grows faster than the arithmetic model. 
-    The geometric model grows each year by the same percentage. 
-    Since the population itself is getting larger, the increment of growth is going to be larger each year. 
-    The two models diverge from one another even more dramatically as time progresses. 
-    </p>
-    <figure>
-    <image width="75%">
-    <latex-image-code>
-    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-    <![CDATA[\tikzset{%
-    }
-    \begin{tikzpicture}
-    \begin{axis}[
-    %width=2.5in, height=2.5in,
-    xmin=-1,xmax=21,
-    ymin=2000,ymax=9000,
-    xtick={0,2,...,20},
-    xlabel={$t$}, ylabel={$P_t$},
-    ymajorgrids,
-    legend pos=north west,
-    every axis legend/.append style={nodes={right}}
-    ]
-    \addplot[red, only marks] table {
-    0 2500
-    1 2650
-    2 2800
-    3 2950
-    4 3100
-    5 3250
-    6 3400
-    7 3550
-    8 3700
-    9 3850
-    10 4000
-    11 4150
-    12 4300
-    13 4450
-    14 4600
-    15 4750
-    16 4900
-    17 5050
-    18 5200
-    19 5350
-    20 5500
-    };
-    \addplot[blue, only marks, mark=square, fill=blue] table {
-    0 2500
-    1 2650
-    2 2809
-    3 2977.54
-    4 3156.192
-    5 3345.564
-    6 3546.298
-    7 3759.076
-    8 3984.62
-    9 4223.697
-    10 4477.119
-    11 4745.746
-    12 5030.491
-    13 5332.321
-    14 5652.26
-    15 5991.395
-    16 6350.879
-    17 6731.932
-    18 7135.848
-    19 7563.999
-    20 8017.839
-    };
-    \legend {linear,geometric}
-    \end{axis}
-    \end{tikzpicture}]]>
-    </latex-image-code>
-    </image>
-    </figure>
-    
-    </solution>
+        <sidebyside margins="auto">
+          <image width="75%">
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \begin{tikzpicture}
+            \begin{axis}[
+            %width=2.5in, height=2.5in,
+            xmin=-1,xmax=6,
+            ymin=2000,ymax=4000,
+            xtick={0,1,...,5},
+            xlabel={$t$}, ylabel={$P_t$},
+            grid=both,
+            legend pos=north west,
+            every axis legend/.append style={nodes={right}}
+            ]
+            \addplot[red, only marks] table {
+            0 2500\\
+            1 2650\\
+            2 2800\\
+            3 2950\\
+            4 3100\\
+            5 3250\\
+            };
+            \addplot[blue, only marks, mark=square, fill=blue] table {
+            0 2500\\
+            1 2650\\
+            2 2809\\
+            3 2977.54\\
+            4 3156.19\\
+            5 3345.56\\
+            };
+            \legend {linear,geometric}
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
+        <p>
+        The arithmetic and geometric models agree at the initial value and after the first year. 
+        But from that point, the geometric model steadily grows faster than the arithmetic model. 
+        The geometric model grows each year by the same percentage. 
+        Since the population itself is getting larger, the increment of growth is going to be larger each year. 
+        The two models diverge from one another even more dramatically as time progresses. 
+        </p>
+        <sidebyside>
+          <image width="75%">
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \begin{tikzpicture}
+            \begin{axis}[
+            %width=2.5in, height=2.5in,
+            xmin=-1,xmax=21,
+            ymin=2000,ymax=9000,
+            xtick={0,2,...,20},
+            xlabel={$t$}, ylabel={$P_t$},
+            ymajorgrids,
+            legend pos=north west,
+            every axis legend/.append style={nodes={right}}
+            ]
+            \addplot[red, only marks] table {
+            0 2500\\
+            1 2650\\
+            2 2800\\
+            3 2950\\
+            4 3100\\
+            5 3250\\
+            6 3400\\
+            7 3550\\
+            8 3700\\
+            9 3850\\
+            10 4000\\
+            11 4150\\
+            12 4300\\
+            13 4450\\
+            14 4600\\
+            15 4750\\
+            16 4900\\
+            17 5050\\
+            18 5200\\
+            19 5350\\
+            20 5500\\
+            };
+            \addplot[blue, only marks, mark=square, fill=blue] table {
+            0 2500\\
+            1 2650\\
+            2 2809\\
+            3 2977.54\\
+            4 3156.192\\
+            5 3345.564\\
+            6 3546.298\\
+            7 3759.076\\
+            8 3984.62\\
+            9 4223.697\\
+            10 4477.119\\
+            11 4745.746\\
+            12 5030.491\\
+            13 5332.321\\
+            14 5652.26\\
+            15 5991.395\\
+            16 6350.879\\
+            17 6731.932\\
+            18 7135.848\\
+            19 7563.999\\
+            20 8017.839\\
+            };
+            \legend {linear,geometric}
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
+      </solution>
     </example>
   </subsection>
    
@@ -484,119 +490,120 @@
     </p>
     
     <example>
-    <title>Car Loan</title>
-    <statement>
-    <p>
-    Suppose you want to buy a car and obtain a loan for <dollar/>10000 
-    that includes an annual interest rate of 3<percent/>. 
-    A bank charges interest in a way that the annual percentage rate is divided equally into the months.
-    The monthly rate of <m>\frac{3}{12}</m><percent/> applies to the remaining balance of your loan. 
-    If you make a monthly payment of <dollar/>250, find a model for your remaining loan balance.
-    </p>
-    </statement>
-    <solution>
-    <p>
-    Start by identifying the relevant variables. 
-    Our main concern is the outstanding balance on the loan. 
-    Let us use the variable <m>B</m> to represent our sequence. 
-    The initial balance on the loan is <m>B_0 = 10000</m>.
-    </p>
-    <p>
-    Next, we identify all sources to changes in the balance. 
-    A payment <m>P</m> on the loan reduces the loan balance.
-    Interest <m>I</m> on the loan causes the loan balance to increase.
-    If <m>t</m> represents the number of months since the loan began, 
-    then we have a recurrence relation describing how the loan changes,
-    <me>\Delta B_{t} = B_{t+1}-B_t = -P_t + I_t</me>.
-    Solving for the new balance gives the recursive equation for the loan balance 
-    <me>B_{t+1} = B_t - P_t + I_t.</me>
-    For the car loan, the monthly payment is a constant, <m>P_t = P = 250</m>. 
-    The interest accrued each month is proportional to and depends on the current balance, 
-    <m>I_t = 0.0025 B_t</m>.
-    </p>
-    <p>
-    The model for our loan balance is given by the recursive equation and the initial value:
-    <md>
-    <mrow> B_{t+1} = B_t - 250 + 0.0025 B_t, </mrow>
-    <mrow> B_0 = 10000. </mrow>
-    </md> 
-    Our model is not arithmetic or geometric but a combination of the two. 
-    The projection function, <m>f : B_t \mapsto B_{t+1}</m>, is the linear function defined by 
-    <me>f(x) = x - 250 + 0.0025x = 1.0025x - 250.</me> 
-    The values for the loan balance are plotted below.
-    </p>
+      <title>Car Loan</title>
+      <statement>
+        <p>
+        Suppose you want to buy a car and obtain a loan for <dollar/>10000 
+        that includes an annual interest rate of 3<percent/>. 
+        A bank charges interest in a way that the annual percentage rate is divided equally into the months.
+        The monthly rate of <m>\frac{3}{12}</m><percent/> applies to the remaining balance of your loan. 
+        If you make a monthly payment of <dollar/>250, find a model for your remaining loan balance.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Start by identifying the relevant variables. 
+        Our main concern is the outstanding balance on the loan. 
+        Let us use the variable <m>B</m> to represent our sequence. 
+        The initial balance on the loan is <m>B_0 = 10000</m>.
+        </p>
+        <p>
+        Next, we identify all sources to changes in the balance. 
+        A payment <m>P</m> on the loan reduces the loan balance.
+        Interest <m>I</m> on the loan causes the loan balance to increase.
+        If <m>t</m> represents the number of months since the loan began, 
+        then we have a recurrence relation describing how the loan changes,
+        <me>\Delta B_{t} = B_{t+1}-B_t = -P_t + I_t</me>.
+        Solving for the new balance gives the recursive equation for the loan balance 
+        <me>B_{t+1} = B_t - P_t + I_t.</me>
+        For the car loan, the monthly payment is a constant, <m>P_t = P = 250</m>. 
+        The interest accrued each month is proportional to and depends on the current balance, 
+        <m>I_t = 0.0025 B_t</m>.
+        </p>
+        <p>
+        The model for our loan balance is given by the recursive equation and the initial value:
+        <md>
+        <mrow> B_{t+1} = B_t - 250 + 0.0025 B_t, </mrow>
+        <mrow> B_0 = 10000. </mrow>
+        </md> 
+        Our model is not arithmetic or geometric but a combination of the two. 
+        The projection function, <m>f : B_t \mapsto B_{t+1}</m>, is the linear function defined by 
+        <me>f(x) = x - 250 + 0.0025x = 1.0025x - 250.</me> 
+        The values for the loan balance are plotted below.
+        </p>
     
-    <figure>
-    <image width="75%">
-    <latex-image-code>
-    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-    <![CDATA[\tikzset{%
-    }
-    \begin{tikzpicture}
-    \begin{axis}[
-    %width=4in, height=2.5in,
-    xmin=-1,xmax=45,
-    ymin=-1000,ymax=11000,
-    ytick={0,1000,...,10000},
-    scaled y ticks=false,
-    xlabel={$t$}, ylabel={$B_t$},
-    ymajorgrids,
-    ]
-    \addplot[blue, only marks] table {
-    0 10000
-    1 9775.000000
-    2 9549.437500
-    3 9323.311094
-    4 9096.619371
-    5 8869.360920
-    6 8641.534322
-    7 8413.138158
-    8 8184.171003
-    9 7954.631431
-    10 7724.518009
-    11 7493.829305
-    12 7262.563878
-    13 7030.720287
-    14 6798.297088
-    15 6565.292831
-    16 6331.706063
-    17 6097.535328
-    18 5862.779166
-    19 5627.436114
-    20 5391.504705
-    21 5154.983466
-    22 4917.870925
-    23 4680.165602
-    24 4441.866016
-    25 4202.970681
-    26 3963.478108
-    27 3723.386803
-    28 3482.695270
-    29 3241.402009
-    30 2999.505514
-    31 2757.004277
-    32 2513.896788
-    33 2270.181530
-    34 2025.856984
-    35 1780.921626
-    36 1535.373930
-    37 1289.212365
-    38 1042.435396
-    39 795.041485
-    40 547.029088
-    41 298.396661
-    42 49.142653
-    43 -200.734491
-    44 -451.236327
-    45 -702.364418
-    };
-    \addplot [dashed,domain=0:46,thick,samples=2] { 0 };
-    \end{axis}
-    \end{tikzpicture}]]>
-    </latex-image-code>
-    </image>
-    </figure>
-    </solution>
+        <sidebyside margins="auto">
+          <image width="75%">
+            <latex-image-code>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \begin{tikzpicture}
+            \begin{axis}[
+            %width=4in, height=2.5in,
+            xmin=-1,xmax=45,
+            ymin=-1000,ymax=11000,
+            ytick={0,1000,...,10000},
+            scaled y ticks=false,
+            xlabel={$t$}, ylabel={$B_t$},
+            ymajorgrids,
+            ]
+            \addplot[blue, only marks] table {
+            0 10000 \\
+            1 9775.000000 \\
+            2 9549.437500 \\
+            3 9323.311094 \\
+            4 9096.619371\\
+            5 8869.360920\\
+            6 8641.534322\\
+            7 8413.138158\\
+            8 8184.171003\\
+            9 7954.631431\\
+            10 7724.518009\\
+            11 7493.829305\\
+            12 7262.563878\\
+            13 7030.720287\\
+            14 6798.297088\\
+            15 6565.292831\\
+            16 6331.706063\\
+            17 6097.535328\\
+            18 5862.779166\\
+            19 5627.436114\\
+            20 5391.504705\\
+            21 5154.983466\\
+            22 4917.870925\\
+            23 4680.165602\\
+            24 4441.866016\\
+            25 4202.970681\\
+            26 3963.478108\\
+            27 3723.386803\\
+            28 3482.695270\\
+            29 3241.402009\\
+            30 2999.505514\\
+            31 2757.004277\\
+            32 2513.896788\\
+            33 2270.181530\\
+            34 2025.856984\\
+            35 1780.921626\\
+            36 1535.373930\\
+            37 1289.212365\\
+            38 1042.435396\\
+            39 795.041485\\
+            40 547.029088\\
+            41 298.396661\\
+            42 49.142653\\
+            43 -200.734491\\
+            44 -451.236327\\
+            45 -702.364418\\
+            };
+            \addplot [dashed,domain=0:46,thick,samples=2] { 0 };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
+      </solution>
     </example>
     
     <p>
@@ -912,26 +919,28 @@
   
   <figure>
     <caption>Logistic growth with <m>K=100</m> with <m>P_0=5</m> and varying values of <m>r</m>.</caption>
+    <sbsgroup>
     <sidebyside widths="40% 40%">
-    <figure>
-    <caption><m>r=0.2</m></caption>
-    <image source="images/fig_logistic_popn_r0_0_2.png"/>
-    </figure>
-    <figure>
-    <caption><m>r=1.8</m></caption>
-    <image source="images/fig_logistic_popn_r0_1_8.png"/>
-    </figure>
+      <figure>
+        <caption><m>r=0.2</m></caption>
+        <image source="images/fig_logistic_popn_r0_0_2.png"/>
+      </figure>
+      <figure>
+        <caption><m>r=1.8</m></caption>
+        <image source="images/fig_logistic_popn_r0_1_8.png"/>
+      </figure>
     </sidebyside>
     <sidebyside widths="40% 40%">
-    <figure>
-    <caption><m>r=2.2</m></caption>
-    <image source="images/fig_logistic_popn_r0_2_2.png"/>
-    </figure>
-    <figure>
-    <caption><m>r=2.6</m></caption>
-    <image source="images/fig_logistic_popn_r0_2_6.png"/>
-    </figure>
+      <figure>
+        <caption><m>r=2.2</m></caption>
+        <image source="images/fig_logistic_popn_r0_2_2.png"/>
+      </figure>
+      <figure>
+        <caption><m>r=2.6</m></caption>
+        <image source="images/fig_logistic_popn_r0_2_6.png"/>
+      </figure>
     </sidebyside>
+    </sbsgroup>
   </figure>
   
   <figure>
@@ -978,51 +987,53 @@
     </jsxgraph>
   </figure>
   </subsection>
-  <conclusion>
+  <subsection>
     <title>Summary</title>
+    <p>
     <ul>
-    <li>
-    <p>
-    Sequences can be used to model any quantities that are observed at regular intervals,
-    with populations and financial balances as typical examples.
-    </p>
-    </li>
-    <li>
-    <p>
-    A common strategy for building a recurrence model is to add rates of gain and subtract rates of loss,
-    <me>\Delta x_{t} = x_{t+1}-x_t = +\text{Gains} - \text{Losses}</me>.
-    </p>
-    </li>
-    <li>
-    <p>
-    For a population, common gain rates include births and immigration; 
-    common loss rates include deaths and emigration.
-    </p>
-    </li>
-    <li>
-    <p>
-    A per capita rate is the ratio of the total rate to the population size.
-    It represents the contribution toward the total rate for one individual.
-    The total rate equals the per capita rate times the population size.
-    </p>
-    </li>
-    <li>
-    <p>
-    Finding models for individual rates or per capita rates in terms of the population size
-    allows us to formulate a recursive equation for the population sequence.
-    Simple examples are to assume constant rates or constant per capita rates.
-    More complex models might fit models for density-dependent per capita rates.
-    </p>
-    </li>
-    <li>
-    <p>
-    We use computers to find values numerically for a sequence based on the recursive equation.
-    This might be through a spreadsheet or through a scripting language like Python.
-    These data allow us to create graphs.
-    </p>
-    </li>
+      <li>
+        <p>
+        Sequences can be used to model any quantities that are observed at regular intervals,
+        with populations and financial balances as typical examples.
+        </p>
+      </li>
+      <li>
+        <p>
+        A common strategy for building a recurrence model is to add rates of gain and subtract rates of loss,
+        <me>\Delta x_{t} = x_{t+1}-x_t = +\text{Gains} - \text{Losses}</me>.
+        </p>
+      </li>
+      <li>
+        <p>
+        For a population, common gain rates include births and immigration; 
+        common loss rates include deaths and emigration.
+        </p>
+      </li>
+      <li>
+        <p>
+        A per capita rate is the ratio of the total rate to the population size.
+        It represents the contribution toward the total rate for one individual.
+        The total rate equals the per capita rate times the population size.
+        </p>
+      </li>
+      <li>
+        <p>
+        Finding models for individual rates or per capita rates in terms of the population size
+        allows us to formulate a recursive equation for the population sequence.
+        Simple examples are to assume constant rates or constant per capita rates.
+        More complex models might fit models for density-dependent per capita rates.
+        </p>
+      </li>
+      <li>
+        <p>
+        We use computers to find values numerically for a sequence based on the recursive equation.
+        This might be through a spreadsheet or through a scripting language like Python.
+        These data allow us to create graphs.
+        </p>
+      </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   <exercises>
     <exercise>
     <statement>

@@ -48,7 +48,7 @@
         </statement>
       </definition>
       
-      <figure margins="auto">
+      <figure>
         <caption>The constant function <m>f(x)=3</m> as a map <m>x \overset{f}\mapsto 3</m>.</caption>
         <jsxgraph xml:id="jsx-fcn-construct-constant-ex1" width="75%" aspect="4:1">
           <input>
@@ -85,7 +85,7 @@
         </statement>
       </definition>
 
-      <figure margins="auto">
+      <figure>
         <caption>The identity function <m>f(x)=x</m> as a map <m>x \overset{f}\mapsto x</m>.</caption>
         <jsxgraph xml:id="jsx-fcn-construct-identity-ex1" width="75%" aspect="4:1">
           <input>
@@ -193,23 +193,21 @@
       </p>
       
       <note xml:id="note-power-domain">
-        <statement>
-          <p>
-          The domain of <m>x^p</m> depends on the form of the power <m>p</m>.
-          If <m>p</m> is a positive integer, the power represents repeated multiplication, 
-          such as <m>x^2=x \cdot x</m> and <m>x^3=x \cdot x \cdot x</m>.
-          Then domain is the set of all real numbers <m>(-\infty,\infty)</m>.
-          A negative power <m>p \lt 0</m> indicates division, 
-          <me>x^p = \frac{1}{x^{|p|}},</me> 
-          so that <m>x \ne 0</m>.
-          For negative integer powers <m>p</m>, the domain is the set of non-zero numbers <m>(-\infty,0)\cup(0,\infty)</m>.
-          If <m>p</m> is a rational number, <m>p=\frac{k}{n}</m>, 
-          then the domain depends on which root <m>n</m> is involved.
-          For even roots, <m>x^p</m> is undefined when <m>x \lt 0</m>; 
-          for odd roots, <m>x^p</m> is defined for positive and negative <m>x</m>.
-          For irrational powers <m>p</m>, we exclude all negative values <m>x</m>.
-          </p>
-        </statement>
+        <p>
+        The domain of <m>x^p</m> depends on the form of the power <m>p</m>.
+        If <m>p</m> is a positive integer, the power represents repeated multiplication, 
+        such as <m>x^2=x \cdot x</m> and <m>x^3=x \cdot x \cdot x</m>.
+        Then domain is the set of all real numbers <m>(-\infty,\infty)</m>.
+        A negative power <m>p \lt 0</m> indicates division, 
+        <me>x^p = \frac{1}{x^{|p|}},</me> 
+        so that <m>x \ne 0</m>.
+        For negative integer powers <m>p</m>, the domain is the set of non-zero numbers <m>(-\infty,0)\cup(0,\infty)</m>.
+        If <m>p</m> is a rational number, <m>p=\frac{k}{n}</m>, 
+        then the domain depends on which root <m>n</m> is involved.
+        For even roots, <m>x^p</m> is undefined when <m>x \lt 0</m>; 
+        for odd roots, <m>x^p</m> is defined for positive and negative <m>x</m>.
+        For irrational powers <m>p</m>, we exclude all negative values <m>x</m>.
+        </p>
       </note>
       
       <definition xml:id="logarithm-function">
@@ -395,6 +393,7 @@
         </p>
       </statement>
       <solution>
+        <p>
         <ol>
           <li>
             The function <m>f(x)=x^2-3x\sin(x)</m> is a <em>difference</em> of the expressions <m>x^2</m> and <m>3x\sin(x)</m>.
@@ -432,6 +431,7 @@
             <m>e^u</m>, with the expression <m>u=2x</m>.
           </li>
         </ol>
+        </p>
       </solution>
     </example>
     
@@ -682,9 +682,10 @@
     </example>
   </subsection>
   
-  <conclusion>
+  <subsection>
     <title>Summary</title>
     
+    <p>
     <ul>
       <li>
         Functions defined by formulas are typically constructed from elementary functions: 
@@ -728,7 +729,8 @@
         With enough constraints, we can often solve for the parameter values using the method of substitution.
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   
   <exercises>
     <exercise>

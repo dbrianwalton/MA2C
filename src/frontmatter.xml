@@ -106,22 +106,26 @@ when you host your project on a server.
     You can download a PDF copy of the book with the links below. 
     There are differently formatted options, depending on how you intend to use the PDF.
     </p>
-    <ul>
+    <p>
+      <ul>
         <li>
-            <p><url href="http://educ.jmu.edu/~waltondb/MA2C/model-calculus.pdf">http://educ.jmu.edu/~waltondb/MA2C/model-calculus.pdf</url> (Margins formatted to print 2-sided)</p>
+          <p><url href="http://educ.jmu.edu/~waltondb/MA2C/model-calculus.pdf">http://educ.jmu.edu/~waltondb/MA2C/model-calculus.pdf</url> (Margins formatted to print 2-sided)</p>
         </li>
         <li>
-            <p><url href="http://educ.jmu.edu/~waltondb/MA2C/model-calculus-1page.pdf">http://educ.jmu.edu/~waltondb/MA2C/model-calculus-1page.pdf</url> (Margins formatted to print 1-sided)</p>
+          <p><url href="http://educ.jmu.edu/~waltondb/MA2C/model-calculus-1page.pdf">http://educ.jmu.edu/~waltondb/MA2C/model-calculus-1page.pdf</url> (Margins formatted to print 1-sided)</p>
         </li>
-    </ul>
+      </ul>
+    </p>
     
     <p>
     In order to keep track of changes during the semester, 
     the following list describes the changes that have taken 
     place in the text since August 2017.</p>
     
-    <ul>
-        <li></li>
-    </ul>
+    <p>
+      <ul>
+          <li>Expand Example 1.2.6 to show margin of error graphically on ruler.</li>
+      </ul>
+    </p>
   </preface>
 </frontmatter>

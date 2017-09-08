@@ -114,15 +114,15 @@
         <p>Our aim in studying calculus is to understand the mathematical meaning of the derivative or rate of change. There are two primary branches of calculus. Integral calculus studies how we use a known rate of change to compute the overall change in the quantity that rate affects. For example, integral calculus answers the question: <q>Knowing the velocity of a car at all times, how would we compute how far the car has traveled?</q> Differential calculus studies how to use the relationship between two variables to find the rate of change of one with respect to the other. For the example of the car, this would address the question: <q>If we knew exactly where the car was at each instant of time, how would we compute its velocity?</q> Ultimately, both of these questions will rely on a mathematical tool at the heart of calculus, namely <term>limits</term>.</p>
     </subsection>
     
-    <conclusion>
+    <subsection>
         <title>Summary</title>
         
-        <ul>
+        <p><ul>
             <li>Mathematical models are equations that relate state variables. Constants in these equations are called parameters.</li>
             <li>Scientific laws relating measurable quantities are described using equations.</li>
             <li>Calculus explores the relationship between quantities and their rates of change, known as derivatives.</li>
-        </ul>
-    </conclusion>
+        </ul></p>
+    </subsection>
     
     <exercises>
         <exercise>

@@ -69,6 +69,7 @@
         </p>
       </statement>
       <solution>
+        <p>
         <ol>
           <li> 
             <p>
@@ -94,6 +95,7 @@
             </p>
           </li>
         </ol>
+        </p>
       </solution>
     </example>
     
@@ -247,13 +249,13 @@
           <md>
             <mrow>2k-1 = 101</mrow>
             <mrow>2k=102</mrow>
-            <mrow>k=51</mrow>,
+            <mrow>k=51,</mrow>
           </md>
           and for the upper limit we have
           <md>
             <mrow>2k-1 = 999</mrow>
             <mrow>2k=1000</mrow>
-            <mrow>k=500</mrow>.
+            <mrow>k=500.</mrow>
           </md>
           Consequently, the sum of interest is
           <me>\sum_{k=51}^{500} 2k-1 = 101 + 103 + 105 + \cdots + 997 + 999.</me>
@@ -399,7 +401,7 @@
     <theorem xml:id="thm-sum-of-constants">
       <title>Sum of Constant Sequence</title>
       <statement>
-        <me> \sum_{k=1}^{n} c = cn </me>
+        <p><me> \sum_{k=1}^{n} c = cn </me></p>
       </statement>
       <proof>
         <p>
@@ -417,7 +419,7 @@
     <theorem xml:id="thm-sum-of-integers">
       <title>Sum of Natural Numbers</title>
       <statement>
-        <me> \sum_{k=1}^{n} k = \frac{n(n+1)}{2} </me>
+        <p><me> \sum_{k=1}^{n} k = \frac{n(n+1)}{2} </me></p>
       </statement>
       <proof>
         <p>
@@ -443,7 +445,7 @@
     <theorem xml:id="thm-sum-of-squares">
       <title>Sum of Squares</title>
       <statement>
-        <me> \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6} </me>
+        <p><me> \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6} </me></p>
       </statement>
       <proof>
         <p>
@@ -472,7 +474,7 @@
     <theorem xml:id="thm-sum-of-cubes">
       <title>Sum of Cubes</title>
       <statement>
-        <me> \sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4} </me>
+        <p><me> \sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4} </me></p>
       </statement>
       <proof>
         <p>
@@ -501,7 +503,7 @@
     <theorem xml:id="thm-sum-of-geometric">
       <title>Sum of a Geometric Sequence</title>
       <statement>
-        <me> \sum_{k=0}^{n} b^k = \frac{b^{n+1}-1}{b-1} </me>
+        <p><me> \sum_{k=0}^{n} b^k = \frac{b^{n+1}-1}{b-1} </me></p>
       </statement>
       <proof>
         <p>
@@ -693,9 +695,10 @@
     </example>
   </subsection>
   
-  <conclusion>
+  <subsection>
     <title>Summary</title>
     
+    <p>
     <ul>
       <li>
         Summation of terms is equivalent to an accumulation of those terms as increments.
@@ -740,7 +743,8 @@
         </p>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   
   <exercises>
     <exercisegroup>

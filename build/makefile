@@ -4,6 +4,7 @@ XSL = $(MA2Croot)/xsl
 HTML = $(MA2Croot)/html
 
 MB = ~/mathbook
+RNG = ~/jing-trang
 
 HTML_XSL = waltbook-html.xsl
 LATEX_XSL = waltbook-latex.xsl
@@ -13,6 +14,13 @@ XML_oldbase = workbook.xml
 XML_single = worksection.xml
 LATEX_base = model-calculus
 LATEX_single = test-section
+
+.PHONY: rng ma2c.validate
+
+rng: ma2c.validate ;
+
+ma2c.validate:
+	java -classpath $(RNG)/build -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeParserConfiguration -jar $(RNG)/build/jing.jar $(MB)/Schema/pretext.rng $(XML)/ma2c.xml > ma2c.validate
 
 .PHONY: html_files html_images pdf single
 

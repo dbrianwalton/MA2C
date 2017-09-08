@@ -198,7 +198,6 @@
         with corresponding rate function <m>f('x)</m>, 
         and suppose that <m>f'(x)</m> is continuous on <m>(a,b)</m>
         with limits at the endpoints.
-        </p>
         <ul>
           <li>
             <p>
@@ -219,6 +218,7 @@
             </p>
           </li>
         </ul>
+        </p>
       </statement>
       <proof>
         <p>
@@ -458,7 +458,6 @@
         with its rate function <m>f''(x)</m>.
         Suppose that <m>f''(x)</m> is continuous on <m>(a,b)</m>
         with limits at the endpoints.
-        </p>
         <ul>
           <li>
             <p>
@@ -479,6 +478,7 @@
             </p>
           </li>
         </ul>
+        </p>
       </statement>
       <proof>
         <p>
@@ -837,8 +837,9 @@
     the behavior of a function is described in terms of an interval.
     </p>
   </subsection>
-  <conclusion>
+  <subsection>
     <title>Summary</title>
+    <p>
     <ul>
       <li>
       An accumulation function <m>A(x)</m> is a function defined using a definite integral
@@ -889,7 +890,8 @@
         </p>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   <exercises>
     <exercisegroup>
       <introduction>

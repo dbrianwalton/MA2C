@@ -392,7 +392,7 @@
         For values of the independent variable outside of the restricted domain, 
         the value of the dependent variable is undefined.
         </p>
-        <figure margins="auto">
+        <figure>
           <caption>The restricted function <m>f(x)=2x+5</m> for <m>0 \le x \le 1</m> as a map.</caption>
           <jsxgraph xml:id="jsx-fcn-piecewise-restrict-ex1" width="75%" aspect="4:1">
             <input>
@@ -779,9 +779,10 @@
     </example>
     
   </subsection>
-  <conclusion>
+  <subsection>
     <title>Summary</title>
     
+    <p>
     <ul>
       <li>
         Sets are often defined as the union of intervals.
@@ -791,12 +792,12 @@
       <li>
         <p>
         The natural domain of a function is found by determining the set of inputs for which the function output is defined.
-        </p>
         <ul>
           <li>A quotient <m>\frac{u}{w}</m> is defined for non-zero denominator <m>w \ne 0</m>.</li>
           <li>An even root (e.g., square root) <m>\sqrt{u}</m> is defined for a non-negative input <m>u \ge 0</m>.</li>
           <li>A logarithm <m>\log_b{u}</m> is defined for a positive input <m>u \gt 0</m>.</li>
         </ul>
+        </p>
       </li>
       <li>
         Inequalities related to zero can be solved by sign analysis: 
@@ -827,7 +828,8 @@
         </md>
       </li>
     </ul>
-  </conclusion>
+    </p>
+  </subsection>
   
   <exercises>
     <exercise>
@@ -852,35 +854,49 @@
         </p>
       </introduction>
       <exercise>
-        <statement><m>\displaystyle f(x) = \frac{3x}{x^2+1}</m></statement>
+        <statement>
+        <p><m>\displaystyle f(x) = \frac{3x}{x^2+1}</m></p>
+        </statement>
       </exercise>
       <exercise>
-        <statement><m>\displaystyle f(x) = \frac{3x}{x^2-1}</m></statement>
+        <statement>
+        <p><m>\displaystyle f(x) = \frac{3x}{x^2-1}</m></p>
+        </statement>
       </exercise>
       <exercise>
-        <statement><m>\displaystyle f(x) = \frac{x+2}{x^2-4x-21}</m></statement>
+        <statement>
+        <p><m>\displaystyle f(x) = \frac{x+2}{x^2-4x-21}</m></p>
+        </statement>
       </exercise>
       <exercise>
-        <statement><m>\displaystyle f(x) = \log_3(x+5)</m></statement>
+        <statement>
+        <p><m>\displaystyle f(x) = \log_3(x+5)</m></p>
+        </statement>
       </exercise>
       <exercise>
-        <statement><m>\displaystyle f(x) = \log_{10}\left(\frac{x+2}{x-1}\right)</m></statement>
+        <statement>
+        <p><m>\displaystyle f(x) = \log_{10}\left(\frac{x+2}{x-1}\right)</m></p>
+        </statement>
       </exercise>
       <exercise>
-        <statement><m>\displaystyle f(x) = \sqrt{x^2-2x-15}</m></statement>
+        <statement>
+        <p><m>\displaystyle f(x) = \sqrt{x^2-2x-15}</m></p>
+        </statement>
       </exercise>
       <exercise>
-        <statement><m>\displaystyle f(x) = \sqrt[3]{\frac{x^2-2x-3}{x^2+2x}}</m></statement>
+        <statement>
+        <p><m>\displaystyle f(x) = \sqrt[3]{\frac{x^2-2x-3}{x^2+2x}}</m></p>
+        </statement>
       </exercise>
       <exercise>
-        <statement><m>\displaystyle f(x) = \sqrt[4]{\frac{x^3-8x}{x^2-1}}</m></statement>
+        <statement>
+        <p><m>\displaystyle f(x) = \sqrt[4]{\frac{x^3-8x}{x^2-1}}</m></p>
+        </statement>
       </exercise>
     </exercisegroup>
     <exercisegroup>
       <introduction>
-        <p>
-        For each function, find the indicated values.
-        </p>
+        <p>For each function, find the indicated values.</p>
       </introduction>
       <exercise>
         <statement>

@@ -313,9 +313,9 @@
       </solution>
     </example>
   </subsection>
-  <conclusion>
+  <subsection>
     <title>Summary</title>
-    <ul>
+    <p><ul>
       <li>
         <p>
         In mathematics, numbers represent specific points on the number line. 
@@ -348,8 +348,8 @@
         for a range of values <me>\widehat{Q}-\epsilon \lt Q \lt \widehat{Q}+\epsilon.</me>
         </p>
       </li>
-    </ul>
-  </conclusion>
+    </ul></p>
+  </subsection>
     
   <exercises xml:id="exercises-numbers-measurements">
       <title>Exercises</title>

@@ -267,6 +267,7 @@
     
     <definition xml:id="defn-accumulation-simple">
       <title>Definite Integral of Simple Function</title>
+      <statement>
       <p>
         Given a simple rate function, <m>r(x)</m>, 
         on a partition <m>P</m> of size <m>n</m> of the interval <m>[a,b]</m> 
@@ -276,6 +277,7 @@
         is given by 
         <me>\int_a^b r(x) \, dx = \sum_{k=1}^{n} r_k \, \nabla x_k.</me>
       </p>
+      </statement>
     </definition>
     
     <p>
@@ -709,28 +711,28 @@
       Most graphing calculators have the ability to compute a definite integral 
       and therefore the ability to compute accumulated change or signed areas.
       In general, you will apply the following steps on a calculator.
+      <ol>
+        <li>
+          <p>
+            Identify the integrand function (i.e., the rate of change or the function defining signed area) 
+            and the limits of integration.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the graphing feature of your calculator so that the function is graphed 
+            and the interval of interest is showing.
+            You may need to change the window of you graph.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the menu system to find the integral.
+            You will need to select your function and input the end points of the interval of interest.
+          </p>
+        </li>
+      </ol>
     </p>
-    <ol>
-      <li>
-        <p>
-          Identify the integrand function (i.e., the rate of change or the function defining signed area) 
-          and the limits of integration.
-        </p>
-      </li>
-      <li>
-        <p>
-          Use the graphing feature of your calculator so that the function is graphed 
-          and the interval of interest is showing.
-          You may need to change the window of you graph.
-        </p>
-      </li>
-      <li>
-        <p>
-          Use the menu system to find the integral.
-          You will need to select your function and input the end points of the interval of interest.
-        </p>
-      </li>
-    </ol>
     
     <example>
       <statement>
@@ -742,10 +744,10 @@
         </p>
       </statement>
       <solution>
+        <p>
         <ul>
           <li>
             <p>Find the integral using a TI-83/84 graphing calculator.
-            </p>
             <ol>
               <li>
                 <p>
@@ -772,17 +774,16 @@
               <li>
                 <p>
                   Compute the definite integral.
-                </p>
-                <p>
-                  <line><c>CALC:</c> <m>\int f(x) dx</m></line>
-                  <line><c>Lower Limit?</c> 2</line>
-                  <line><c>Upper Limit?</c> 5</line>
-                </p>
-                <p>
+                  <ul label="">
+                    <li><c>CALC:</c> <m>\int f(x) dx</m></li>
+                    <li><c>Lower Limit?</c> 2</li>
+                    <li><c>Upper Limit?</c> 5</li>
+                  </ul>
                   The calculator reports back <m>\int f(x) dx=16.3954611</m>.
                 </p>
               </li>
             </ol>
+            </p>
           </li>
           <li>
             <p>
@@ -810,6 +811,7 @@
             </sage>
           </li>
         </ul>
+        </p>
       </solution>
     </example>
     
@@ -865,27 +867,29 @@
           we can compute the definite integral to get the signed area.
           Since we already have our integrand <m>f(x)=2^x-8</m> in our calculator, 
           we can just go to the compute steps.
-        </p>
         <ul>
-          <li><p>
-            <line><c>CALC:</c> <m>\int f(x) dx</m></line>
-            <line><c>Lower Limit?</c> 2</line>
-            <line><c>Upper Limit?</c> 3</line>
-          </p>
-          <p>
-            The calculator reports back <m>\int f(x) dx=-2.22922</m>.
-          </p>
+          <li>
+            <p>
+              <ul label="">
+                <li><c>CALC:</c> <m>\int f(x) dx</m></li>
+                <li><c>Lower Limit?</c> 2</li>
+                <li><c>Upper Limit?</c> 3</li>
+              </ul>
+              The calculator reports back <m>\int f(x) dx=-2.22922</m>.
+            </p>
           </li>
-          <li><p>
-            <line><c>CALC:</c> <m>\int f(x) dx</m></line>
-            <line><c>Lower Limit?</c> 3</line>
-            <line><c>Upper Limit?</c> 5</line>
-          </p>
+          <li>
           <p>
+            <ul label="">
+              <li><c>CALC:</c> <m>\int f(x) dx</m></li>
+              <li><c>Lower Limit?</c> 3</li>
+              <li><c>Upper Limit?</c> 5</li>
+            </ul>
             The calculator reports back <m>\int f(x) dx=18.624681</m>.
           </p>
           </li>
         </ul>
+        </p>
         <p>
           We interpret these results.
           The first integral was 
@@ -994,9 +998,19 @@
       </solution>
     </example>
   </subsection>
-  <conclusion>
+  <subsection>
     <title>Summary</title>
-  </conclusion>
+    <p>
+    <ul>
+      <li>Pending further edits.</li>
+    </ul>
+    </p>
+  </subsection>
   <exercises>
+    <exercise>
+      <statement>
+        <p>Pending.</p>
+      </statement>
+    </exercise>
   </exercises>
 </section>
