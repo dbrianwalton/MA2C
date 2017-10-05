@@ -1178,7 +1178,7 @@
       </introduction>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 100%">
+          <sidebyside width="50%" margins="0% 50%">
             <image>
               <latex-image-code>
               <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -1206,7 +1206,7 @@
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 100%">
+          <sidebyside width="50%" margins="0% 50%">
             <image>
               <latex-image-code>
               <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -1237,7 +1237,7 @@
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 100%">
+          <sidebyside width="50%" margins="0% 50%">
             <image>
               <latex-image-code>
               <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -1318,7 +1318,7 @@
       </introduction>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 100%">
+          <sidebyside width="50%" margins="0% 50%">
             <image>
               <latex-image-code>
               \begin{tikzpicture}
@@ -1342,7 +1342,7 @@
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 100%">
+          <sidebyside width="50%" margins="0% 50%">
             <image>
               <latex-image-code>
               \begin{tikzpicture}
@@ -1368,7 +1368,7 @@
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 100%">
+          <sidebyside width="50%" margins="0% 50%">
             <image>
               <latex-image-code>
               \begin{tikzpicture}
@@ -1410,7 +1410,7 @@
       </introduction>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 100%">
+          <sidebyside width="50%" margins="0% 50%">
             <image>
               <latex-image-code>
               \begin{tikzpicture}
@@ -1434,7 +1434,7 @@
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 100%">
+          <sidebyside width="50%" margins="0% 50%">
             <image>
               <latex-image-code>
               \begin{tikzpicture}
