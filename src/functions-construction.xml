@@ -71,7 +71,7 @@
             input : { name:'x', color:'blue', value:2 },
             output : { name:'y', color:'red' },
           };
-          createFGraph(jcf1, 'jsx-fcn-construct-constant-graph1');
+          createFGraph(jcg1, 'jsx-fcn-construct-constant-graph1');
           </input>
         </jsxgraph>
       </figure>
@@ -89,12 +89,12 @@
         <caption>The identity function <m>f(x)=x</m> as a map <m>x \overset{f}\mapsto x</m>.</caption>
         <jsxgraph xml:id="jsx-fcn-construct-identity-ex1" width="75%" aspect="4:1">
           <input>
-          var jcf1 = { 
+          var jcf2 = { 
             f : function(x) { var y; y=x; return y; },
             input : { name:'x', color:'blue', value:2 },
             output : { name:'y', color:'red' },
           };
-          createMap(jcf1, 'jsx-fcn-construct-identity-ex1');
+          createMap(jcf2, 'jsx-fcn-construct-identity-ex1');
           </input>
         </jsxgraph>
       </figure>
@@ -108,7 +108,7 @@
             input : { name:'x', color:'blue', value:2 },
             output : { name:'y', color:'red' },
           };
-          createFGraph(jcf1, 'jsx-fcn-construct-identity-graph1');
+          createFGraph(jcg2, 'jsx-fcn-construct-identity-graph1');
           </input>
         </jsxgraph>
       </figure>
@@ -271,7 +271,7 @@
       <example>
         <statement>
           <p>
-          Solve <m>\log_3(x)=3</m>.
+          Solve <m>\log_3(x)=2</m>.
           </p>
         </statement>
         <solution>
