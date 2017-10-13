@@ -59,6 +59,7 @@
     
     <chapter>
     <title>Limits and Continuity of Functions</title>
+    
     <xi:include href="./continuity_intro.xml" />
     <xi:include href="./limits-with-infinity.xml" />        
     <xi:include href="./limit_rules.xml" />            
@@ -67,8 +68,6 @@
     
     <chapter>
     <title>Modeling Rates of Change by Differentiation</title>
-    <subtitle>Models of Change</subtitle>
-    
     
     <xi:include href="./intro-optimization.xml" />
     <xi:include href="./rate-functions.xml" />
