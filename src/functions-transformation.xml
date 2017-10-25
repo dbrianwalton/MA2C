@@ -17,19 +17,32 @@
     As a final section in the chapter on functions, we turn our attention to transformations.
     We think of functions as a relation between variables, <m>x \mapsto y</m>.
     In general, a transformation maps the state <m>(x,y)</m> to another pair <m>(u,v)</m>.
-    In this section, we will consider transformations where <m>u</m> is a function of <m>x</m>, <m>x \mapsto u</m>,
-    and <m>v</m> is a function of <m>y</m>, <m>y \mapsto v</m>.
-    Physically, we might think of <m>(u,v)</m> as being physical variables
-    and <m>(x,y)</m> as being elementary variables defining a simple function.
-    We want to understand the function <m>u \mapsto v</m> based on the function <m>x \mapsto y</m>.
+    Sometimes, we will think of starting with a function <m>x \mapsto y</m>
+    and describe the transformation by describing what happens to each of the coordinates,
+    <m>x \mapsto u</m> and <m>y \mapsto v</m>.
+    This is how we might normally think about elementary transformations including
+    translations or shifts, scaling or stretching, and reflections.
     </p>
     
     <p>
-    In algebra, we would have learned about transformations of graphs.
-    Elementary transformations include translations or shifts, scaling or stretching, and reflections.
-    These transformations result from simple linear functions relating the variables.
-    In addition to using linear functions to transform graphs, 
-    we will explore some nonlinear functions that transform linear graphs.
+    In modeling settings, on the other hand, we might think of <m>(u,v)</m> as being physical variables
+    which show a relationship similar to a well-known mathematical relationship.
+    That relationship might seen in a graph as a parabola, as exponential growth or decay,
+    or as periodic cycles that look like a sine wave.
+    Here, we might think of <m>(x,y)</m> as describing the mathematically simple function.
+    In order to understand the function <m>u \mapsto v</m> based on the function <m>x \mapsto y</m>,
+    we will more naturally think of the transformation as finding a way to map <m>u \mapsto x</m>
+    and <m>y \mapsto v</m>.
+    </p>
+    
+    <p>
+    The overarching theme in transformations is that to find <m>u \mapsto v</m>,
+    we will need to compute the composition <m>u \mapsto x</m>, <m>x \mapsto y</m>, and <m>y \mapsto v</m>.
+    Elementary transformations that include translations, scaling, and reflections correspond
+    to <m>u \mapsto x</m> and <m>y \mapsto v</m> that are linear functions.
+    We will explore some examples where nonlinear transformations allow us to transform
+    a linear function <m>x \mapsto y</m> in order to find exponential and power function relations.
+    These correspond to semi-log and log-log transformations.
     </p>
     
   </introduction>
