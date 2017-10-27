@@ -11,15 +11,227 @@
     <title>Limit Rules</title>
 
     <introduction>
-    <p>So far, we have been taking advantage of the fact that simple algebraic formulas are continuous so that when taking limits all we do is use the value of the formula at the point in question. However, this is not always the case.</p>
+    <p>
+    So far, we have been taking advantage of the fact that 
+    simple algebraic formulas are continuous.
+    When taking limits so far, all we have done is 
+    use the value of the formula at the point in question.
+    However, this is not always the case.
+    </p>
     
-    <p>In principle, to find a limit <m>\displaystyle \lim_{x \to a} f(x)</m>, you would need to create a table and evaluate at a sequence of values that is converging to <m>a</m> and see what the sequence of values <m>f(x)</m> is converging toward. (And that value should not depend on which sequence you tried.) What is it that allows us to just use a formula instead of using tables every time we need to find a limit? The answer is limit rules.</p>
-
-    <p> Mathematics uses deductive reasoning (built on axioms and logical implications) to establish rules for what must be true based on our fundamental assumptions of how things work. These proven consequences are called theorems. Limit rules are a powerful collection of theorems that allow us to find limits in ways that do not require tables, but allow us to build up a collection of known limits that we can use in more complicated problems.</p>
-
-    <p> Every theorem has two parts—a hypothesis and a conclusion. A hypothesis is a  collection of conditions that must be checked to see if the theorem's conclusion can be applied. A conclusion is a statement that is guaranteed to be true whenever the hypothesis has been satisfied. Whenever, we wish to apply a theorem, it is our duty to first check that all of the conditions in the hypothesis have been satisfied. Once this is complete, then you interpret the conclusion for the context of your problem while citing the theorem as your justification.</p>
+    <p>
+    In <xref ref="calculus-overview"/>, we introduced an alternative
+    <xref ref="definition-limit-by-sequences">definition of function limits</xref>.
+    That definition stated that the value of <m>\displaystyle \lim_{x \to a} f(x)</m>
+    equals that value <m>L</m> to which a dependent sequence <m>f(x_n)</m> would converge
+    <em>for every</em> independent sequence <m>x=(x_n)</m> with <m>x_n \ne a</m> and <m>x_n \to a</m>.
+    To understand the limits of functions better,
+    we first need to recognize the rules of limits of sequences .
+    Limit rules are a powerful collection of theorems 
+    that allow us to find limits using elementary rules.
+    </p>
+    
+    <p>
+    Mathematics uses deductive reasoning (built on axioms and logical implications) 
+    to establish rules for what must be true based on our fundamental assumptions of how things work. 
+    These proven consequences are called theorems. 
+    Every theorem has two parts—a hypothesis and a conclusion.
+    A hypothesis is a  collection of conditions that must be checked 
+    to see if the theorem's conclusion can be applied. 
+    A conclusion is a statement that is guaranteed to be true 
+    so long as the hypothesis has been satisfied.
+    </p>
+    
+    <p>
+    When we wish to apply a theorem, it is our duty to first check 
+    that all of the conditions in the hypothesis have been satisfied. 
+    Once this is complete, then you interpret the conclusion for the context of your problem 
+    and cite the relevant theorem as the justification.
+    </p>
     </introduction>
     
+    <subsection>
+    <title>Limit Rules for Combining Sequences</title>
+    
+    <p>
+    We start by formalizing some rules about how limits of sequence
+    relate to arithmetic of sequences.
+    We begin each theorem with one or more sequence that is given
+    with a particular limit.
+    We then define a new sequence using arithmetic involving those sequences.
+    The conclusion of each theorem describes the limit of the new sequence.
+    </p>
+    
+    <p>
+    For a converging sequence <m>x=(x_n)</m> with <m>x_n \to L</m>, 
+    we can think of the sequence values as <em>approximating</em> <m>L</m>.
+    The absolute error of approximation <m>|x_n - L|</m> must vanish as <m>n \to \infty</m>.
+    In other words, for any margin of error <m>\epsilon \gt 0</m>,
+    there must be some index <m>N</m> so that <m>|x_n - L| \lt \epsilon</m> once <m>n \gt N</m>.
+    The proofs of these theorems rely on showing how the error of approximation
+    for the arithmetic combination of the sequences
+    can be related to the errors of approximations of the given sequences to their limits
+    in a way to show that the approximation will eventually vanish.
+    </p>
+    
+    <p>
+    The first three rules involve operations on only a single sequence.
+    </p>
+    
+    <theorem xml:id="SLC-Constant-Sum">
+      <title>Sequence Limit of a Constant Sum (SL:CS)</title>
+      <statement>
+        <p>
+        Given a sequence <m>u=(u_n)</m> with <m>u_n \to L</m> and any constant <m>k</m>,
+        the transformed sequence <m>w_n = u_n + k</m> has limit
+        <me> \lim_{n \to \infty} u_n+k = L+k.</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+        The error of approximation for <m>w_n</m> from its proposed limit <m>L+k</m> 
+        can be rewritten
+        <me>|w_n - (L+k)| = |u_n + k - L - k| = |u_n - L|</me>.
+        This is the same as the error of approximation for <m>u_n</m> from its limit <m>L</m>.
+        As soon as <m>|u_n - L| \lt \epsilon</m>, we also have <m>|w_n - (L+k)| \lt \epsilon</m>.
+        Because <m>|u_n - L| \to 0</m>, this proves
+        <me> \lim_{n \to \infty} u_n+k = L+k.</me>
+        </p>
+      </proof>
+    </theorem>
+    
+    <theorem xml:id="SLC-Constant-Multiple">
+      <title>Sequence Limit of a Constant Sum (SL:CM)</title>
+      <statement>
+        <p>
+        Given a sequence <m>u=(u_n)</m> with <m>u_n \to L</m> and any constant <m>k</m>,
+        the transformed sequence <m>w_n = k \cdot u_n</m> has limit
+        <me> \lim_{n \to \infty} k \, u_n = k \, L.</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+        The error of approximation for <m>w_n</m> from its proposed limit <m>kL</m> 
+        can be rewritten
+        <me>|w_n - kL| = |ku_n - kL| = |k(u_n - L)| = |k|\cdot |u_n - L|</me>.
+        If <m>k=0</m>, then <m>w_n = 0</m> for all <m>n</m> and <m>w_n \to 0</m> must be true.
+        If <m>k \ne 0</m>, then the error of approximation for <m>w</m> from its proposed limit
+        is exactly <m>|k|</m> times the error of approximation for <m>u</m> from its given limit.
+        As soon as <m>|u_n - L| \lt \frac{1}{|k|} \epsilon</m>, we must have <m>|w_n - kL| \lt \epsilon</m>.
+        Because <m>|u_n - L| \to 0</m>, this proves
+        <me> \lim_{n \to \infty} k \, u_n = k \, L.</me>
+        </p>
+      </proof>
+    </theorem>
+    
+    <theorem xml:id="SLC-MultInverse">
+      <title>Sequence Limit of a Reciprocal (SL:MInv)</title>
+      <statement>
+        <p>
+        Given a sequence <m>u=(u_n)</m> with <m>u_n \to L \ne 0</m>,
+        the transformed sequence of multiplicative inverses <m>w_n = \frac{1}{u_n}</m> has limit
+        <me> \lim_{n \to \infty} \frac{1}{u_n} = \frac{1}{L}.</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+        Division is not defined when the denominator equals zero.
+        Because <m>u_n \to L</m> and <m>L \ne 0</m>, we know that <m>|u_n - L| \lt \frac{1}{2}|L|</m> eventually.
+        When <m>L \gt 0</m>, this means that <m>\frac{1}{2}L \lt u_n \lt \frac{3}{2} L</m>.
+        If <m>L \lt 0</m>, then <m>\frac{3}{2}L \lt u_n \lt \frac{1}{2}L</m>.
+        Either way, <m>u_n</m> is kept away from 0 and <m>w_n = \frac{1}{u_n}</m> is guaranteed to be defined.
+        (Before this point, we might have had <m>u_n=0</m> so that <m>w_n</m> is not defined.
+        </p>
+        <p>
+        The error of approximation for <m>w_n</m> from its proposed limit <m>\frac{1}{L}</m> 
+        can be rewritten using a common denominator
+        <me>|w_n - \frac{1}{L}| = |\frac{1}{u_n} - \frac{1}{L}| = |\frac{L-u_n}{u_n L}| = |u_n - L| \cdot \frac{1}{|u_n||L|}</me>.
+        Because <m>|u_n| \gt \frac{1}{2}|L|</m>, we know that <m>\displaystyle \frac{1}{|u_n|} \lt \frac{2}{|L|}</m>.
+        Thus,
+        <me>|w_n - \frac{1}{L}| \lt |u_n - L| \cdot \frac{2}{|L|^2}</me>.
+        The error of approximation for <m>w_n</m> is always smaller than 
+        <m>\frac{2}{|L|^2}</m> times the error of approximation for <m>u_n</m> from its limit.
+        Because <m>|u_n - L| \to 0</m>, this proves
+        <me> \lim_{n \to \infty} \frac{1}{u_n} = \frac{1}{L}.</me>
+        </p>
+      </proof>
+    </theorem>
+
+    <p>
+    The second collection of limit rules tell us how we can take limits 
+    that we already know (starting with building blocks) 
+    and use them to compute more complicated limits. 
+    The first three rules take a single limit that is known to be valid 
+    and use arithmetic with a constant to find a new limit.
+    </p>
+    
+    <theorem xml:id='LC-Constant-Sum'>
+        <title>Limit of a Constant Sum (LC:CS)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>k</m> is a real number.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)+k] = L+k</m>.</p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='LC-Constant-Multiple'>
+        <title>Limit of a Constant Multiple (LC:CM)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>k</m> is a real number.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [k \cdot f(x)] = k \cdot L</m>.</p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='LC-Reciprocal'>
+        <title>Limit of a Reciprocal or Multiplicative Inverse (LC:MInv)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>L \ne 0</m>.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} \frac{1}{f(x)} = \frac{1}{L}</m>.</p>
+        </statement>
+    </theorem>
+
+    <p>The next limit rules of combination allow us to take two limits that we know and combine them with arithmetic. In each of the cases, note that both limits in the hypothesis have <m>x \to a</m> (i.e., <m>x</m> approaches the same value in both limits).</p>
+
+    <theorem xml:id='LC-Sum'>
+        <title>Limit of a Sum (LC:Sum)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)+g(x)] = L+M</m>.</p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='LC-Difference'>
+        <title>Limit of a Difference (LC:Diff)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)-g(x)] = L-M</m>.</p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='LC-Product'>
+        <title>Limit of a Product (LC:Prod)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M</m>.</p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='LC-Quotient'>
+        <title>Limit of a Quotient (LC:Quot)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m> 
+            and <m>M \ne 0</m>.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}</m>.</p>
+        </statement>
+    </theorem>
+    </subsection>
+
     <subsection>
     <title>Elementary Limit Rules</title>
     

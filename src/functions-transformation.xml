@@ -17,17 +17,32 @@
     As a final section in the chapter on functions, we turn our attention to transformations.
     We think of functions as a relation between variables, <m>x \mapsto y</m>.
     In general, a transformation maps the state <m>(x,y)</m> to another pair <m>(u,v)</m>.
-    In this section, we will consider transformations where <m>u</m> is a function of <m>x</m>, <m>x \mapsto u</m>,
-    and <m>v</m> is a function of <m>y</m>, <m>y \mapsto v</m>.
-    We want to understand the function <m>u \mapsto v</m> based on the function <m>x \mapsto y</m>.
+    Sometimes, we will think of starting with a function <m>x \mapsto y</m>
+    and describe the transformation by describing what happens to each of the coordinates,
+    <m>x \mapsto u</m> and <m>y \mapsto v</m>.
+    This is how we might normally think about elementary transformations including
+    translations or shifts, scaling or stretching, and reflections.
     </p>
     
     <p>
-    In algebra, we would have learned about transformations of graphs.
-    Elementary transformations include translations or shifts, scaling or stretching, and reflections.
-    These transformations result from simple linear functions relating the variables.
-    In addition to using linear functions to transform graphs, 
-    we will explore some nonlinear functions that transform linear graphs.
+    In modeling settings, on the other hand, we might think of <m>(u,v)</m> as being physical variables
+    which show a relationship similar to a well-known mathematical relationship.
+    That relationship might seen in a graph as a parabola, as exponential growth or decay,
+    or as periodic cycles that look like a sine wave.
+    Here, we might think of <m>(x,y)</m> as describing the mathematically simple function.
+    In order to understand the function <m>u \mapsto v</m> based on the function <m>x \mapsto y</m>,
+    we will more naturally think of the transformation as finding a way to map <m>u \mapsto x</m>
+    and <m>y \mapsto v</m>.
+    </p>
+    
+    <p>
+    The overarching theme in transformations is that to find <m>u \mapsto v</m>,
+    we will need to compute the composition <m>u \mapsto x</m>, <m>x \mapsto y</m>, and <m>y \mapsto v</m>.
+    Elementary transformations that include translations, scaling, and reflections correspond
+    to <m>u \mapsto x</m> and <m>y \mapsto v</m> that are linear functions.
+    We will explore some examples where nonlinear transformations allow us to transform
+    a linear function <m>x \mapsto y</m> in order to find exponential and power function relations.
+    These correspond to semi-log and log-log transformations.
     </p>
     
   </introduction>
@@ -228,30 +243,43 @@
 
     <p>
     We start by thinking of the original graph <m>y=f(x)</m> as a relation between two variables.
-    The transformation will define a relation between two other variables.
-    If we would normally use the same variable names in both instances, such as <m>x</m> and <m>y</m>,
-    then we need a way to distinguish between the original relation and the transformed relation.
-    You could choose completely different variables, such as <m>u</m> and <m>v</m>,
-    or you could choose to style the variables differently, such as using uppercase <m>X</m> and <m>Y</m>.
+    The transformation will define a relation between two other variables, 
+    which usually will have some physical interpretation that we want to model.
+    In this section, we will name the physical variables <m>u</m> and <m>v</m>.
+    If our physical variables should be named <m>x</m> and <m>y</m>,
+    then we need a way to distinguish between the original relation 
+    and the transformed relation representing physical variables.
+    We might use uppercase <m>X</m> and <m>Y</m> or decorate the variables <m>\tilde{x}</m> and <m>\tilde{y}</m>.
     </p>
     
     <p>
     In our general approach to transformations, we will describe the transformation
-    according to what happens to each coordinate, mapping points <m>(x,y)</m> to <m>(X,Y)</m>.
-    Let <m>x \overset{f}\mapsto y</m> be the untransformed function.
-    Now, suppose the transformation on the variables can be described by functions 
-    <m>x \overset{T_{x}}\mapsto X</m> and <m>y \overset{T_{y}}\mapsto Y</m>.
-    If <m>T_{x}</m> has an inverse, 
-    then the relation <m>X \mapsto Y</m> can be found using composition,
-    <me>X \overset{T_{x}^{-1}} \mapsto x \overset{f}\mapsto y \overset{T_{y}}\mapsto Y.</me>
-    In other words, <me>Y = T_y \circ f\big( T_x^{-1}(X) \big).</me>
+    as the composition of a chain of mappings.
+    Because we ultimately want a function <m>u \mapsto v</m>, 
+    we start with the physical variable <m>u</m> 
+    and need to map it to the mathematical variable <m>x</m>, <m>u \mapsto x</m>.
+    The original function <m>f</m> provides the relation <m>x \overset{f}\mapsto y</m>.
+    Then we need to find a map from the mathematical dependent variable <m>y</m> 
+    to the physical dependent variable <m>v</m>, <m>y \mapsto v</m>.
+    This is summarized by the following notation:
+    <me> u \mapsto x \overset{f} \mapsto y \mapsto v. </me>
     </p>
     
     <p>
-    The elementary transformations correspond to coordinates that are mapped using linear functions.
-    The slope affects scaling and a non-zero intercept corresponds affects translation.
+    On the other hand, when we geometrically describe a transformation, 
+    we usually describe how we take the original graph in <m>(x,y)</m>-coordinates
+    in order to find the graph for the physical relation in <m>(u,v)</m>-coordinates.
+    Describing the horizontal transformation corresponds to a mapping <m>x \mapsto u</m>.
+    Our composition requires the inverse mapping <m>u \mapsto x</m>, which explains
+    why horizontal transformations use operations that are the inverse of what we expect.
+    </p>
+    
+    <p>
+    The elementary transformations correspond to coordinates that are mapped using linear functions
+    for <m>u \mapsto x</m> and <m>y \mapsto v</m>.
+    The slope affects scaling and reflection and a non-zero intercept corresponds affects translation.
     If we know where corresponding points are found in the original and the transformed graphs,
-    then we can find linear functions mapping the coordinates.
+    then we can find linear functions that map the coordinates.
     We use these functions to find the equation of the transformed graph.
     </p>
     
@@ -266,17 +294,17 @@
       <solution>
         <p>
         Our original graph uses coordinates <m>(x,y)</m>.
-        To distinguish variables, our transformed graph will use coordinates <m>(X,Y)</m>.
+        For our transformed graph, we will use coordinates <m>(u,v)</m>.
         Based on the description of the problem, we need a transformation of coordinates
-        <me>(x,y)=(0,0) \mapsto (X,Y)=(2,3)</me>
-        and <me>(x,y)=(1,1) \mapsto (X,Y)=(4,5)</me>.
+        <me>(x,y)=(0,0) \mapsto (u,v)=(2,3)</me>
+        and <me>(x,y)=(1,1) \mapsto (u,v)=(4,5)</me>.
         We will work with one coordinate variable at a time.
         </p>
         <p>
-        The transformation of <m>x</m>-coordinates, <m>x \overset{T_x}\mapsto X</m>,
+        The transformation of <m>x</m>-coordinates, <m>u \mapsto x</m>,
         is illustrated in the following map.
-        We have <m>0 \overset{T_x} \mapsto 2</m> (for the vertex) 
-        and <m>1 \overset{T_x} \mapsto 4</m> (for the second point).
+        The <m>u</m>-coordinate <m>u=2</m> of the vertex should map to the <m>x</m>-coordinate <m>x=0</m>,
+        and the <m>u</m>-coordinate <m>u=4</m> of the second point should map to the <m>x=1</m>.
         </p>
         <sidebyside width="60%">
           <image>
@@ -285,14 +313,14 @@
             <![CDATA[\tikzset{%
             }
             \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[<->] (-4,1.5) -- (4,1.5) node[pos=1, above right] {$u$};
+            \draw (1,1.6) -- (1,1.4) node[pos=1, below] {$2$};
+            \draw (2,1.6) -- (2,1.4) node[pos=1, below] {$4$};
             \draw[<->] (-4,0) -- (4,0) node[pos=1, above right] {$x$};
             \draw (0,-.1) -- (0,.1) node[pos=0, below] {$0$};
             \draw (0.5,-.1) -- (0.5,.1) node[pos=0, below] {$1$};
-            \draw[<->] (-4,-1.5) -- (4,-1.5) node[pos=1, above right] {$X$};
-            \draw (1,-1.6) -- (1,-1.4) node[pos=0, below] {$2$};
-            \draw (2,-1.6) -- (2,-1.4) node[pos=0, below] {$4$};
-            \draw [->] (0,-0.6) -- (1,-1.3);
-            \draw [->] (0.5,-0.6) -- (2,-1.3);
+            \draw [<-] (0,0.6) -- (1,1.3);
+            \draw [<-] (0.5,0.6) -- (2,1.3);
             \end{tikzpicture}]]>
             </latex-image-code>
           </image>
@@ -300,18 +328,14 @@
         <p>
         This map is a linear function.
         To find the equation of the function, we need the slope,
-        <me> \frac{\Delta X}{\Delta x} = \frac{4-2}{1-0} = 2.</me>
-        Using the given point <m>(x,X)=(0,2)</m> and the point<ndash/>slope equation, we find
-        <me>X = 2(x-0)+2 = 2x+2</me>.
-        This is the map <m>T_x(x) = 2x+2</m>.
-        The inverse map is found by solving for <m>x</m> as a function of <m>X</m>,
-        <me>T_x^{-1}(X) = x = \frac{X-2}{2} = .</me>
-        We could have found this map directly by thinking about <m>X \mapsto x</m>.
+        <me> \frac{\Delta x}{\Delta u} = \frac{1-0}{4-2} = \frac{1}{2}.</me>
+        Using the given point <m>(u,x)=(2,0)</m> and the point<ndash/>slope equation, we find
+        <me>x = \frac{1}{2}(u-2) = \frac{u-2}{2}</me>.
         </p>
         <p>
-        The transformation of <m>y</m>-coordinates is similar, illustrated as a map below.
-        The given points correspond to <m>y=0 \overset{T_y} \mapsto Y=3</m>
-        and <m>y=1 \overset{T_y} \mapsto Y=5</m>.
+        The transformation of <m>y</m>-coordinates is similar, illustrated as another map below.
+        The given points correspond to <m>y=0 \mapsto v=3</m>
+        and <m>y=1 \mapsto v=5</m>.
         </p>
         <sidebyside width="60%">
           <image>
@@ -323,7 +347,7 @@
             \draw[<->] (-4,0) -- (4,0) node[pos=1, above right] {$y$};
             \draw (0,-.1) -- (0,.1) node[pos=0, below] {$0$};
             \draw (0.5,-.1) -- (0.5,.1) node[pos=0, below] {$1$};
-            \draw[<->] (-4,-1.5) -- (4,-1.5) node[pos=1, above right] {$Y$};
+            \draw[<->] (-4,-1.5) -- (4,-1.5) node[pos=1, above right] {$v$};
             \draw (1.5,-1.6) -- (1.5,-1.4) node[pos=0, below] {$3$};
             \draw (2.5,-1.6) -- (2.5,-1.4) node[pos=0, below] {$5$};
             \draw [->] (0,-0.6) -- (1.5,-1.3);
@@ -333,18 +357,21 @@
           </image>
         </sidebyside>
         <p>
-        The equation for the map <m>T_y</m> requires the slope,
-        <me> \frac{\Delta Y}{\Delta y} = \frac{5-3}{1-0} = 2, </me>
-        and the known point <m>(y,Y)=(0,3)</m>.
-        The transformation is given by <me>T_y(y) = Y = 2y+3.</me>
+        The equation for the map <m>y \mapsto v</m> requires the slope,
+        <me> \frac{\Delta v}{\Delta y} = \frac{5-3}{1-0} = 2, </me>
+        and the known point <m>(y,v)=(0,3)</m>.
+        The transformation is given by <me>v = 2y+3.</me>
         </p>
         <p>
         We find the equation of the transformation by finding the composition
         represented by the chain,
-        <me> \begin{cases} \displaystyle x = T_x^{-1}(X) = \frac{X-2}{2}, \\ y=f(x)=x^2, \\ Y=T_y(y) = 2y+3. \end{cases} </me>
+        <me> \begin{cases} \displaystyle x = \frac{u-2}{2}, \\ y=f(x)=x^2, \\ v = 2y+3. \end{cases} </me>
         Simplifying this composition gives
-        <me>Y = 2 \Big( \frac{X-2}{2} \Big)^2 + 3.</me>
-        A graph of <m>y=x^2</m> and <m>\displaystyle y=2\Big(\frac{x-2}{2}\Big)^2+3</m> are shown in the figure below.
+        <me>v = 2 \Big( \frac{u-2}{2} \Big)^2 + 3.</me>
+        If we wanted our transformed variables to be <m>(x,y)</m>,
+        then the resulting equation would be
+        <me>y = 2 \Big( \frac{x-2}{2} \Big)^2 + 3.</me>
+        A graph of <m>y=x^2</m> and the transformation are shown in the figure below.
         </p>
         <sidebyside width="60%">
           <image>
@@ -372,8 +399,11 @@
     </example>
     
     <p>
-    To find the equations used in the composition for a transformation, you don't need to use the same points.
+    To find the equations used in the composition for a transformation, 
+    you don't need to use the same points for both maps.
     All that you need to do is find the linear equation required to transform each coordinate separately.
+    Sometimes, it is more convenient to choose different features to describe <m>u \mapsto x</m>
+    and <m>y \mapsto y</m>.
     The following example illustrates this for a sinusoidal graph.
     </p>
     
@@ -483,6 +513,27 @@
         </sidebyside>
       </solution>
     </example>
+    
+    <p>
+    In general, a sinusoidal graph can be characterized by a centerline <m>v=c</m>, 
+    an amplitude <m>A</m>, a period <m>p</m>, and a phase shift <m>u=\phi</m>.
+    The standard period of the elementary sine and cosine functions is <m>2\pi</m>.
+    The phase shift <m>\phi</m> is the value of the physical variable <m>u=\phi</m> that corresponds to <m>x=0</m>.
+    These two pieces of information completely determine the map <m>u \mapsto x</m>,
+    with slope <m>\frac{\Delta x}{\Delta u} = \frac{2\pi}{p}</m>, with a point<ndash/>slope equation
+    <me> x = \frac{2 \pi}{p}(u-\phi). </me>
+    The centerline <m>v=c</m> physically corresponds to the elementary centerline of <m>y=0</m>.
+    The amplitude <m>A</m> corresponds to the elementary amplitude of 1.
+    Consequently, the slope of the transformation map <m>y \mapsto v</m> is
+    <m>\frac{\Delta v}{\Delta y} = A</m> so that the point<ndash/>slope equation of the map is
+    <me>v = Ay + c.</me>
+    The composition of the chain of mappings with the sine function results in
+    <me> v = A \sin\left( \frac{2\pi}{p}(u-\phi)\right) + c, </me>
+    while a composition with the cosine function results in 
+    <me> v = A \cos\left( \frac{2\pi}{p}(u-\phi)\right) + c. </me>
+    We use the sine function when the phase shift corresponds to where the graph crosses the centerline <m>v=c</m>;
+    the cosine function is used when the phase shift corresponds to the locations of maximum values at <m>v=c+A</m>.
+    </p>
   </subsection>
   
   <subsection>

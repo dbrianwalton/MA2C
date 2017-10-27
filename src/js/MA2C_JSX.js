@@ -38,6 +38,14 @@ createTicks = function(board, axis, info) {
 
 createFGraph = function(jcf, idName)
 {
+    if (jcf.input.min == undefined || jcf.input.max == undefined) {
+        jcf.input.min = -5.5;
+        jcf.input.max = 5.5;
+    }
+    if (jcf.output.min == undefined || jcf.output.max == undefined) {
+        jcf.output.min = jcf.input.min;
+        jcf.output.max = jcf.input.max;
+    }
     JXG.Options.axis.ticks.majorHeight = 8;
     JXG.Options.axis.ticks.minorHeight = 4;
     JXG.Options.axis.ticks.drawZero = false;
@@ -119,6 +127,14 @@ createFGraph = function(jcf, idName)
 
 createFGraphMulti = function(jcf, idName)
 {
+    if (jcf.input.min == undefined || jcf.input.max == undefined) {
+        jcf.input.min = -5.5;
+        jcf.input.max = 5.5;
+    }
+    if (jcf.output.min == undefined || jcf.output.max == undefined) {
+        jcf.output.min = jcf.input.min;
+        jcf.output.max = jcf.input.max;
+    }
     JXG.Options.axis.ticks.majorHeight = 8;
     JXG.Options.axis.ticks.minorHeight = 4;
     JXG.Options.axis.ticks.drawZero = false;

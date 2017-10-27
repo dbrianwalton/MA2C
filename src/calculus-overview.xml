@@ -49,7 +49,7 @@
     <definition xml:id="definition-limit-by-sequences">
       <title>Limits of Function</title>
       <statement>
-	<p>
+        <p>
           For a function <m>f</m> defined on intervals to the left and right of <m>c</m>,
           we say <me>\lim_{x \to c} f(x) = L</me> to mean that
           for <em>every</em> independent sequence <m>x</m> such that <m>x_n \ne c</m> and <m>x_n \to c</m>,
