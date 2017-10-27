@@ -41,6 +41,16 @@ createFGraph = function(jcf, idName)
     JXG.Options.axis.ticks.majorHeight = 8;
     JXG.Options.axis.ticks.minorHeight = 4;
     JXG.Options.axis.ticks.drawZero = false;
+
+    if (jcf.input.min == undefined || jcf.input.max == undefined) {
+        jcf.input.min = -5.5;
+        jcf.input.max = 5.5;
+    }
+    if (jcf.output.min == undefined || jcf.output.max == undefined) {
+        jcf.output.min = jcf.input.min;
+        jcf.output.max = jcf.input.max;
+    }
+
     jcf.b = JXG.JSXGraph.initBoard(idName, 
         {
             boundingbox:[
@@ -112,6 +122,16 @@ createFGraphMulti = function(jcf, idName)
     JXG.Options.axis.ticks.majorHeight = 8;
     JXG.Options.axis.ticks.minorHeight = 4;
     JXG.Options.axis.ticks.drawZero = false;
+
+    if (jcf.input.min == undefined || jcf.input.max == undefined) {
+        jcf.input.min = -5.5;
+        jcf.input.max = 5.5;
+    }
+    if (jcf.output.min == undefined || jcf.output.max == undefined) {
+        jcf.output.min = jcf.input.min;
+        jcf.output.max = jcf.input.max;
+    }
+
     jcf.b = JXG.JSXGraph.initBoard(idName, 
         {
             boundingbox:[
