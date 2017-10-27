@@ -292,6 +292,8 @@
         <me>x_{n+1} = f(x_n).</me>
         The function <m>f</m> defining the relation <m>x_{n} \mapsto x_{n+1}</m> 
         is called the <term>projection function</term>.
+        Equivalently, we could write the recurrence relation as
+        <me>x_{n} = f(x_{n-1})</me>.
         </p>
       </statement>
     </definition>
@@ -382,6 +384,21 @@
       </solution>
     </example>
     
+    <p>
+    In the previous example, the recurrence relation looked forward, in that the equation
+    related <m>x_n</m> (the present) and <m>x_{n+1}</m> (the future). 
+    Every recurrence can be recast looking backward by shifting our reference.
+    The forward recurrence,
+    <me>u_{n+1}-u_n = 1.4 u_n - \frac{3}{u_n}, \quad n \ge -1,</me>
+    can be shifted to a backward recurrence as
+    <me>u_{n}-u_{n-1} = 1.4 u_{n-1} - \frac{3}{u_{n-1}}, \quad n \ge 0.</me>
+    Instead of thinking of using the present to predict the immediate future, 
+    we are using the immediate past to predict the present.
+    Note in particular that the requirement on the index was chosen 
+    so that the first equation of the recurrence from either perspective is
+    <me>u_{0} - u_{-1} = 1.4 u_{-1} - \frac{3}{u_{-1}}.</me>
+    </p>
+    
     <paragraphs>
       <title>Arithmetic Sequences</title>
       <p>
@@ -399,7 +416,7 @@
       This infinite collection of equations is captured as a pattern with a single formula, 
       <me> x_{n+1} - x_n = 4, \quad n=1, 2, 3, \ldots. </me> 
       This equation is a <term>recurrence relation</term>.
-      Alternatively, we could also represent the same pattern with a slightly different recurrence relation, 
+      Alternatively, we could also represent the same pattern with the recurrence relation, 
       <me> x_{n} - x_{n-1} = 4, \quad n=2, 3, 4, \ldots. </me> 
       The first equation is interpreted as looking forward in the sequence 
       (<m>x_{n+1}</m> is future relative to <m>x_n</m>) 
@@ -550,7 +567,7 @@
       <li>
         An arithmetic sequence with common difference <m>c</m> has a projection function <m>f(x)=x+c</m>,
         a recursive relation <me>x_{n+1}=x_n + c</me>,
-        and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k + \beta(n-1).</me>
+        and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k + \beta(n-k).</me>
       </li>
       <li>
         A geometric sequence with common ratio <m>\rho</m> has a projection function <m>f(x)=\rho x</m>,
