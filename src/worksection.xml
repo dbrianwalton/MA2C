@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./numbers_measurements.xml" />
+            <xi:include href="./accumulation-rates.xml" />
 		</chapter>
 		
     </book>
