@@ -197,7 +197,35 @@
         </p>
       </solution>
     </example>
-
+  </subsection>
+  
+  <subsection>
+    <title>Using the Rate of Accumulation</title>
+    
+    <p>
+    Now that we know how to find the rate of accumulation for simple polynomials,
+    we can express a polynomial as an accumulation with that rate.
+    </p>
+    
+    <example>
+      <statement>
+        <p>Express <m>f(x)=x^3 + 6x^2 - 4</m> as an accumulation from <m>x=1</m>.</p>
+      </statement>
+      <solution>
+        <p>
+        Start by finding the rate of accumulation.
+        <me>f'(x)=3x^2 + 6(2x) + 0 = 3x^2 + 12x</me>
+        The rate of accumulation becomes the integrand of the accumulation.
+        Because the integral will start at <m>x=1</m>, the initial value will be
+        <me>f(1) = 1^3 + 6 \cdot 1^2 - 4 = 3.</me>
+        We can now write <m>f(x)</m> as an accumulation from <m>x=1</m>:
+        <md>
+          <mrow>f(x) &amp;= f(1) + \int_1^x f'(z) \, dz</mrow>
+          <mrow>&amp;= 3 + \int_1^x 3z^2 + 12z \, dz.</mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
   </subsection>
   
   <subsection>
