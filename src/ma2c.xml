@@ -53,8 +53,13 @@
     <xi:include href="./accumulate-change.xml" />
     <xi:include href="./riemann-sums.xml" />            
     <xi:include href="./integral-properties.xml" />            
-    <xi:include href="./accumulation-functions.xml" />            
-    <xi:include href="./accumulation-applications.xml" />            
+    </chapter>
+    
+    <chapter>
+    <title>Functions Defined as Accumulation</title>
+
+    <xi:include href="./accumulation-functions.xml" />
+    <xi:include href="./accumulation-rates.xml" />
     </chapter>
     
     <chapter>
@@ -97,6 +102,7 @@
     <xi:include href="./antiderivatives.xml" />
     <xi:include href="./ftc.xml" />
     <xi:include href="./integrals-substitution.xml" />
+    <xi:include href="./accumulation-applications.xml" />            
     </chapter>
     
     <appendix>

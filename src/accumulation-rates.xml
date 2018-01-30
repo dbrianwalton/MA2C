@@ -170,7 +170,8 @@
       </statement>
       <proof>
         <p>
-        Because <m>\displaystyle \int_a^b 0 \, dx = 0</m>, we can write <m>f(x) = c + \int_{a}^{x} 0 \, dz</m> for any value <m>a</m>.
+        Because <m>\displaystyle \int_a^b 0 \, dx = 0</m>, we can write 
+        <m>\displaystyle f(x) = c + \int_{a}^{x} 0 \, dz</m> for any value <m>a</m>.
         Thus, the rate of accumulation <m>f'(x) = 0</m>.
         </p>
       </proof>
@@ -189,11 +190,13 @@
       </statement>
       <solution>
         <p>
-        We look at <m>f(x)</m> as a sum of three terms: <m>f_1(x)=x^2</m>, <m>f_2(x)=-6x</m>, and <m>f_3(x)=5</m>.
+        We look at <m>f(x)</m> as a sum of three terms: 
+        <me>f(x) = \underset{f_1(x)}{\underbrace{x^2}} + \underset{f_2(x)}{\underbrace{-6x}} + \underset{f_3(x)}{\underbrace{5}}</me>.
         First, <m>f_1(x)=x^2</m> is an elementary power for which we know <m>f_1'(x)=2x</m>.
         Next, <m>f_2(x)=-6x</m> is a constant <m>-6</m> times <m>x</m>, so <m>f_2'(x)</m> is the same constant times <m>1</m>, <m>f_2'(x)=-6\cdot 1 = -6</m>.
         Finally, <m>f_3(x)=5</m> is a constant function so that <m>f_3'(x)=0</m>.
-        The linearity for rates of accumulation implies <m>f'(x)=2x-6+0 = 2x-6</m>.
+        The linearity for rates of accumulation implies 
+        <me>f'(x)=\underset{f_1'(x)}{\underbrace{2x}} + \underset{f_2'(x)}{\underbrace{-6}}+\underset{f_3'(x)}{\underbrace{0}} = 2x-6</me>.
         </p>
       </solution>
     </example>
@@ -260,7 +263,7 @@
         </p>
         
         <sidebyside margins="auto">
-          <image width="70%">
+          <image>
             <latex-image-code>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
@@ -275,9 +278,9 @@
             \draw (4, -0.1) -- (4,0.1)
               node[pos=0, below] {$4$}
               node[pos=1, above] {$0$};
-            \node [above] at (-1,0.1) {$+$};
-            \node [above] at (1,0.1) {$-$};
-            \node [above] at (5,0.1) {$+$};
+            \node [above] at (-2,0.1) {$+$};
+            \node [above] at (2,0.1) {$-$};
+            \node [above] at (6,0.1) {$+$};
             \end{tikzpicture}]]>
             </latex-image-code>
           </image>
@@ -366,11 +369,35 @@
     <title>Summary</title>
     <p>
     <ul>
+      <li>The rate of accumulation <m>f'(x)</m> is the integrand function of an accumulation function <m>f(x)</m>,
+      <me>f(x) = f(a) + \int_a^x f'(z) \,dz</me></li>
+      <li>We will later discover that the derivative of a function is equivalent to the rate of accumulation,
+      so we also call the rate of accumulation <m>f'(x)</m> the derivative of <m>f(x)</m>.
+      We will show that they are equivalent when we prove the Fundamental Theorem of Calculus.</li>
+      <li>Rates of accumulation (or derivatives) satisfy the linear properties of a sum rule 
+      and a constant multiple rule.</li>
       <li>
+        <p>
+        Our known accumulation formulas have a complementary interpretation as derivatives:
+        <ul>
+          <li><m>f(x)=x</m> has derivative <m>f'(x)=1</m></li>
+          <li><m>f(x)=x^2</m> has derivative <m>f'(x)=2x</m></li>
+          <li><m>f(x)=x^3</m> has derivative <m>f'(x)=3x^2</m></li>
+          <li><m>f(x)=x^4</m> has derivative <m>f'(x)=4x^3</m></li>
+        </ul>
+        A pattern in these derivatives suggest a conjecture (which we later prove)
+        that any power <m>f(x)=x^n</m> has derivative <m>f'(x)=nx^{n-1}</m>.
+        </p>
+        <p>In addition, any constant function <m>f(x)=c</m> has derivative <m>f'(x)=0</m>.</p>
+      </li>
+      <li>For simple polynomials <m>f(x)</m>, we can now compute <m>f'(x)</m> as a related polynomial
+      in order to answer questions about monotonicity. 
+      Because <m>f'(x)</m> is a polynomial, it also has its own derivative <m>f''(x)</m>
+      (called the second derivative of <m>f(x)</m>). 
+      The sign of <m>f''(x)</m> determines the monotonicity of <m>f'(x)</m>, 
+      which in turn determines the concavity of <m>f(x)</m>.
       </li>
     </ul>
     </p>
   </subsection>
-  <exercises>
-  </exercises>
 </section>
