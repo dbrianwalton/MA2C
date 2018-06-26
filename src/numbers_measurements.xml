@@ -13,58 +13,213 @@
   <subsection>
     <title>Overview</title>
     
-    <p>Numbers play a fundamental role in science because they allow us to quantify observations. That is, instead of saying things are big or small, we can assign numbers to measurements. Standards of measurement allow us to have confidence that repeated measurements will result in the same values, albeit with some variation due to measurement error. Science in large part has progressed because of our ability to determine mathematical relationships between different measurements that make prediction possible.</p>
+    <p>
+      Numbers play a fundamental role in science because they allow us to quantify observations.
+      That is, instead of saying things are big or small, we can assign numbers to measurements.
+      Standards of measurement allow us to have confidence that repeated measurements will result in the same values, albeit with some variation due to measurement error.
+      Science in large part has progressed because of our ability to determine mathematical relationships between different measurements that make prediction possible.
+    </p>
     
-    <p>Mathematics admittedly takes a different view of numbers than just their ability to serve as measurements. A measurement can only be determined to some degree of accuracy. But for a mathematician, a number is an exact entity and other numbers, regardless of how close, are different. In addition, mathematicians are concerned with how a number is defined. So mathematicians classify different numbers according to the complexity of their definition.</p>
+    <p>
+      Mathematics admittedly takes a different view of numbers than just their ability to serve as measurements.
+      A measurement can only be determined to a degree of accuracy that depends on the instrument and environment.
+      For a mathematician, a number is an exact entity, and other numbers, regardless of how close they might be, are different.
+      Consequently, a mathematical answer should always be left in an exact representation.
+    </p>
     
-    <p>An appendix (<xref ref="appendix-numbers-arithmetic"/>) reviews more details on the development of different number sets. This section introduces basic ideas of number classification and how basic formulas represent exact numerical values. Once this introduction is complete, we look at measurement, which requires introducing ideas of precision and error.</p> 
-    </subsection>
+    <p>
+      Mathematicians classify numbers according to the complexity of their definition. 
+      This section provides a brief review of the most important classifications of numbers.
+      An appendix (<xref ref="appendix-numbers-arithmetic"/>) reviews more details on the development of these different number sets.
+      This section also reviews how basic formulas represent exact numerical values and how they can be simplified.
+      Next, the section considers measurements.
+      Because measurements are always inexact, many numbers will have values consistent with a given measurement.
+      Thus, we introduce the ideas of precision and error.
+    </p> 
+  </subsection>
     
-    <subsection>
+  <subsection>
     <title>Numbers in Mathematics</title>
 
-    <p>In mathematics, numbers have precise meanings and classifications. Here, we review the basic <term>sets</term> of numbers. The <term>natural numbers</term> are the positive integers <me>\mathbb{N} = \{1, 2, 3, \ldots\}.</me> Including the number zero gives us all <term>counting numbers</term> <me>\mathbb{N}_0 = \{0, 1, 2, 3, \ldots\}.</me> The set of all integers is written <me>\mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}.</me> The <term>rational numbers</term> are all numbers that can be represented as a ratio of integers <me>\mathbb{Q} = \{ \frac{p}{q} : p \in \mathbb{Z}, q \in \mathbb{N} \}.</me></p>
+    <p>
+      In mathematics, numbers have precise meanings and classifications.
+      Here, we review the basic <term>sets</term> of numbers.
+      The <term>natural numbers</term> are the positive integers <me>\mathbb{N} = \{1, 2, 3, \ldots\}.</me>
+      Including the number zero gives us all <term>counting numbers</term> <me>\mathbb{N}_0 = \{0, 1, 2, 3, \ldots\}.</me>
+      The set of all <term>integers</term> is written <me>\mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\}.</me>
+      The <term>rational numbers</term> are all numbers that can be represented as a ratio of integers
+      <me>\mathbb{Q} = \{ \frac{p}{q} : p \in \mathbb{Z}, q \in \mathbb{N} \}.</me>
+    </p>
     
-    <p>When we think of the real numbers geometrically using the number line, the integers are equally spaced by a unit length. Subdividing the unit length into a whole number of equal parts generates additional points that are rational numbers. However, even when all rational numbers are included, there are infinitely many points on the line that are never covered. These are the <term>irrational numbers</term>, which include algebraic numbers like <m>\sqrt{2}</m> or <m>\sqrt{3}</m> as well as transcendental numbers like <m>\pi</m> and <m>e</m>. The set of <term>real numbers</term> is written <m>\mathbb{R}</m> and consists of both rational and irrational numbers.</p>
+    <p>
+      We often visualize numbers geometrically using a number line.
+      On the number line, the integers are equally spaced by a unit length.
+      Subdividing the unit length into a whole number of equal parts generates additional points that are rational numbers.
+      However, even when all rational numbers are included,
+      there are infinitely many points on the line that are never covered.
+      These are the <term>irrational numbers</term>, which include algebraic numbers like <m>\sqrt{2}</m> or <m>\sqrt{3}</m>, as well as transcendental numbers like <m>\pi</m> and <m>e</m>.
+      The set of <term>real numbers</term> is written <m>\mathbb{R}</m> and consists of both rational and irrational numbers.
+    </p>
     
-    <p>Every mathematical expression represents a specific point on the number line. Mathematics expects exactness. To replace an expression with a number that is not exactly the same is to say that two different points are the same. Calculators give decimal approximations for numbers. Because many numbers of interest are irrational and can not be represented exactly using decimals, you should not replace an expression with a decimal value unless the application represents a measurement where an approximation would be adequate.</p>
+    <p>
+      Every mathematical expression represents a specific point on the number line.
+      A mathematical value represents that expression only when it refers to the very same point on the line.
+      To replace an expression with a number that is not exactly the same would be to say that two different points are the same.
+      Calculators give decimal approximations for numbers.
+      Many numbers of interest are irrational and can not be represented exactly using decimals.
+      You should not replace an expression with a decimal value.
+      You should also not rely on calculator features that rewrite decimal values as fractions.
+      In applications where an answer represents a measurement, decimal approximations can be used, particularly when the calculations were based on other measurements.
+    </p>
     
-    <p>Simplification of numbers corresponds to finding a new representation of a number in a reduced form. For example, a rational number has many different representations of the form <m>p/q</m> with <m>p \in \mathbb{Z}</m> and <m>q \in \mathbb{N}</m>, but only one where <m>p</m> and <m>q</m> have no common factors. Canceling the common factors would be simplification, as would be simplifying a root or rationalizing a denominator.</p>
+    <p>
+      Simplification of numbers corresponds to finding a new representation of a number in a reduced form.
+      For example, a rational number has many different representations of the form <m>p/q</m> with <m>p \in \mathbb{Z}</m> and <m>q \in \mathbb{N}</m>.
+      But there is only one representation where <m>p</m> and <m>q</m> have no common factors.
+      Canceling any common factors to find this representation would be simplification.
+      Other examples of simplification include simplifying a root or rationalizing a denominator.
+    </p>
     
     <example>
-        <p>The fraction <m>\frac{126}{24}</m> is not simplified. If we find the prime factorization of the numerator and denominator, we find <md>
-            <mrow>126 = 6 \cdot 21 = 2 \cdot 3^2 \cdot 7, </mrow>
-            <mrow>24 = 3 \cdot 8 = 2^3 \cdot 3. </mrow>
-        </md> The fraction simplifies by canceling all common factors: <me>\frac{126}{24} = \frac{2 \cdot 3^2 \cdot 7}{2^3 \cdot 3} = \frac{3 \cdot 7}{2^2} = \frac{21}{4}.</me></p>
-        <p>In practice, we don't usually find the prime factorization. Instead, we just find common factors one-at-a-time. For example, since 126 and 24 are both even, we would write <me>\frac{126}{24} = \frac{63}{12}.</me> Then, we look at 63 and 12 and recognize that they are both divisible by 3, allowing us to rewrite the fraction as <me>\frac{126}{24} = \frac{63}{12} = \frac{21}{4}.</me> Because <m>21=3 \cdot 7</m> and <m>4=2^2</m> do not have common factors, we know this is simplified.</p>
+      <p>
+        The fraction <m>\frac{126}{24}</m> is not simplified.
+        If we find the prime factorization of the numerator and denominator, we find <md>
+          <mrow>126 = 6 \cdot 21 = 2 \cdot 3^2 \cdot 7, </mrow>
+          <mrow>24 = 3 \cdot 8 = 2^3 \cdot 3. </mrow>
+        </md>
+        The fraction simplifies by canceling all common factors: <me>\frac{126}{24} = \frac{2 \cdot 3^2 \cdot 7}{2^3 \cdot 3} = \frac{3 \cdot 7}{2^2} = \frac{21}{4}.</me>
+      </p>
+      <p>
+        In practice, we don't always have to find the prime factorization.
+        Instead, we can find one common factor at a time until no common factors remain.
+        For example, since 126 and 24 are both even, we would write <me>\frac{126}{24} = \frac{63}{12}.</me>
+        Then, we look at 63 and 12 and recognize that they are both divisible by 3,
+        allowing us to rewrite the fraction as <me>\frac{126}{24} = \frac{63}{12} = \frac{21}{4}.</me>
+        Because <m>21=3 \cdot 7</m> and <m>4=2^2</m> do not have common factors, we know this is simplified.
+      </p>
+    </example>
+    
+    <p>
+      A square root is not simplified if there is a factor inside the root that is a perfect square.
+      Similarly, a cube root is not simplified if there is a factor inside that is a perfect cube.
+      We use the factors of the value inside a root to determine if we can simplify it.
+    </p>
+    
+    <example>
+      <p>
+        The square root <m>\sqrt{126}</m> is not simplified.
+        A square root is the inverse operation of squaring numbers (for non-negative numbers) so that <m>\sqrt{3^2} = 3</m>.
+        Because <m>\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}</m> (for <m>a,b \ge 0</m>),
+        we can simplify as <me>\sqrt{126} = \sqrt{2 \cdot 3^2 \cdot 7} = \sqrt{9} \cdot \sqrt{14} = 3 \sqrt{14}.</me>
+      </p>
     </example>
     
     <example>
-        <p>The square root <m>\sqrt{126}</m> is not simplified. A square root is the inverse operation of squaring numbers (for non-negative numbers) so that <m>\sqrt{3^2} = 3</m>. Because <m>\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}</m> (for <m>a,b \ge 0</m>), we can simplify as <me>\sqrt{126} = \sqrt{2 \cdot 3^2 \cdot 7} = \sqrt{9} \cdot \sqrt{14} = 3 \sqrt{14}.</me></p>
+      <p>
+        The cube root <m>\sqrt[3]{48}</m> is not simplified.
+        We start by factoring: <me>48=2 \cdot 24 = 2 \cdot 3 \cdot 8 = 2^4 \cdot 3.</me>
+        A cube root is the inverse operation of cubing numbers so that for every perfect cube,
+        we can simplify <m>\sqrt[3]{a^3} = a</m>.
+        We have <me> \sqrt[3]{48} = \sqrt[3]{2^4 \cdot 3} = \sqrt[3]{2^3 \cdot 2 \cdot 3} = 2 \sqrt[3]{6}.</me>
+      </p>
     </example>
     
-    <example>
-        <p>The cube root <m>\sqrt[3]{48}</m> is not simplified. We start by factoring: <me>48=2 \cdot 24 = 2 \cdot 3 \cdot 8 = 2^4 \cdot 3.</me> A cube root is the inverse operation of cubing numbers so that for every perfect cube, we can simplify <m>\sqrt[3]{a^3} = a</m>. We have <me> \sqrt[3]{48} = \sqrt[3]{2^4 \cdot 3} = \sqrt[3]{2^3 \cdot 2 \cdot 3} = 2 \sqrt[3]{6}.</me></p>
-    </example>
+    <p>
+      Some rules of simplification you may have learned were created when fast calculators and computers were not accessible.
+      These rules were taught so that scientists and engineers could express an answer
+      that would be in a form where it would be faster to use the tables and slide rules available at the time.
+      We no longer need the rules for efficiency, but they often illustrate important algebra rules.
+    </p>
+    
+    <p>
+      One example of such a rule is the simplification of fractions with square roots, called rationalizing a fraction.
+      It was much more costly to use a table or slide rule if the root was in the denominator.
+      The practice was developed to rewrite such an answer so that the root was in the numerator.
+      This could be accomplished by multiplying the fraction on top and bottom by a factor that would eliminate the undesired root.
+    </p>
     
     <example>
-        <statement>
-        <p>Thanks to Pythagorus, the ancient Greeks knew that <m>\sqrt{2}</m> was a number that represented the hypotenuse of an isosceles right triangle with legs of unit length. However, they originally thought that all numbers would ultimately be rational numbers. Realizing that <m>\sqrt{2}</m> was irrational was so shocking that according to legend, the discoverer of this fact was drowned at sea.</p>
-        <p>The basic argument is to consider a rational number that <em>might</em> represent <m>\sqrt{2}</m> and then proceed to show that such a representation doesn't make sense. The detailed argument is shown below.</p>
-        </statement>
-        <solution>
-        <p>Suppose that <m>\sqrt{2}</m> is a rational number. Then it can be written as the ratio of two integers <m>\sqrt{2} = \frac{p}{q}</m> in reduced form, meaning <m>p</m> and <m>q</m> do not have common factors. By definition of square roots, we must have <m>\frac{p^2}{q^2} = 2</m> which implies <me>p^2 = 2 q^2</me> so that <m>p^2</m> is an even number. The only way that <m>p^2</m> can be even is if <m>p</m> itself is even, since the product of two odd numbers is always odd.</p>
-        <p>Once we know <m>p</m> is even, we can factor out 2 and write <m>p=2k</m> where <m>k</m> is also an integer. Now <m>p^2 = 4k^2</m> which implies <m>4k^2=2q^2</m> or <me>q^2 = 2k^2.</me> This means <m>q</m> would also be an even number. This is where the contradiction occurs<mdash/>since <m>p</m> and <m>q</m> were to have had no common factors, they couldn't both be even. This means that <m>\sqrt{2}</m> can be written as a reduced fraction, which means it is not a rational number.</p>
-        </solution>
+      <statement>
+        <p>Simplify <m>\displaystyle \frac{4}{3\sqrt{2}}</m> by rationalizing the denominator.</p>
+      </statement>
+      <solution>
+        <p>
+          A square root can simplify if there is a perfect square inside.
+          The square root in this denominator <m>\sqrt{2}</m> would need another 2 inside to have a perfect square.
+          Multiply numerator and denominator by the extra <m>\sqrt{2}</m> to get a square in the denominator.
+          <me>\frac{4}{3\sqrt{2}} = \frac{4 \sqrt{2}}{3 \sqrt{2} \sqrt{2}} = \frac{4 \sqrt{2}}{3 \cdot 2}</me>
+          Now we can finish simplifying the fraction by canceling common factors:
+          <me>\frac{4}{3\sqrt{2}} = \frac{4 \sqrt{2}}{6} = \frac{2 \sqrt{2}}{3}.</me>
+        </p>
+      </solution>
     </example>
-
-    <p>When answering mathematical questions, leave your answers in a simplified mathematical form rather than use your calculator to get a decimal approximation. This is especially true if you use a calculator to find just part of an answer and then continue the problem with a decimal approximation. This introduces unnecessary errors in your calculation. Avoid the bad habit of relying on a calculator's feature that converts decimal values back to fractions.</p>
+    
+    <p>
+      In the previous example, the two expressions <m>\displaystyle \frac{4}{3\sqrt{2}}</m> and <m>\displaystyle \frac{2 \sqrt{2}}{3}</m>
+      are equally simplified.
+      The first expression has a rationalized numerator.
+      The second expression has a rationalized denominator.
+      The rationalized denominator is only preferred for efficient computation.
+      You should ask your instructor whether they expect a preferred simplified form.
+    </p>
+    
+    <p>
+      We close this subsection to illustrate that not all numbers are rational.
+      Thanks to Pythagorus, the ancient Greeks knew that <m>\sqrt{2}</m> was a number that represented the hypotenuse of an isosceles right triangle with legs of unit length.
+      However, they originally thought that all numbers would ultimately be rational numbers.
+      Realizing that <m>\sqrt{2}</m> was irrational was so shocking that, according to legend,
+      the discoverer of this fact was drowned at sea.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          The basic argument is to consider a rational number that <em>might</em> represent <m>\sqrt{2}</m>
+          and then proceed to show that such a representation doesn't make sense.
+          The detailed argument is shown below.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Suppose that <m>\sqrt{2}</m> is a rational number.
+          Then it can be written as the ratio of two integers <m>\sqrt{2} = \frac{p}{q}</m> in reduced form,
+          meaning <m>p</m> and <m>q</m> do not have common factors.
+          By definition of square roots, we must have <m>\frac{p^2}{q^2} = 2</m> which implies <me>p^2 = 2 q^2</me>
+          so that <m>p^2</m> is an even number.
+          The only way that <m>p^2</m> can be even is if <m>p</m> itself is even,
+          since the product of two odd numbers is always odd.
+        </p>
+        <p>
+          Once we know <m>p</m> is even, we can factor out 2 and write <m>p=2k</m> where <m>k</m> is also an integer.
+          Now <m>p^2 = 4k^2</m> which implies <m>4k^2=2q^2</m> or <me>q^2 = 2k^2.</me>
+          This means <m>q</m> would also be an even number.
+          This is where the contradiction occurs<mdash/>since <m>p</m> and <m>q</m> were to have had no common factors,
+          they couldn't both be even.
+          This means that <m>\sqrt{2}</m> can be written as a reduced fraction,
+          which in turn means that <m>\sqrt{2}</m> is not a rational number.
+        </p>
+      </solution>
+    </example>
   </subsection>
     
   <subsection xml:id="section-numbers-as-measurements">
     <title>Numbers as Measurements</title>
 
-    <p>In science, numbers often arise from measurements. The most elementary physical measurement is a measurement of length. In fact a ruler and a number line have many similar features. A ruler has a standard unit, such as an inch or centimeter, with fractional marks. Measurements that are on the actual units correspond to numbers that are integers. Measurements that are on exact subdivisions of the unit correspond to rational numbers. However, there is always uncertainty in measurement. A length can not be measured to an exact value. Given a ruler, the observer must choose a length based on the existing rulings. Consequently, there is a distinction between the actual length and the measured length. The difference between these lengths is called an <term>error</term>.</p>
+    <p>
+      In science, numbers often arise from measurements.
+      The most elementary physical measurement is a measurement of length.
+      In fact a ruler and a number line have many similar features.
+      A ruler has a standard unit, such as an inch or centimeter, with fractional marks.
+      Measurements that are on the actual units correspond to numbers that are integers.
+      Measurements that are on exact subdivisions of the unit correspond to rational numbers.
+    </p>
+    <p>
+      However, there is always uncertainty in measurement.
+      A length can not be measured to an exact value.
+      Given a ruler, the observer must choose a length based on the existing rulings.
+      Consequently, there is a distinction between the actual length and the measured length.
+      The difference between these lengths is called an <term>error</term>.
+    </p>
     
     <definition xml:id="definition-error">
       <statement>
@@ -146,18 +301,18 @@
     <example>
       <statement>
         <p>
-        The length of the hypotenuse of a right triangle with legs of lengths 
-        4 <quantity><unit prefix="centi" base="meter"/></quantity> 
-        and 6 <quantity><unit prefix="centi" base="meter"/></quantity> 
-        is <m>H = \sqrt{4^2+6^2} = \sqrt{52} = 2 \sqrt{13}</m> 
-        <quantity><unit prefix="centi" base="meter"/></quantity>.
-        A calculator shows the decimal approximation is <m>H \approx 7.211103</m>
-        <quantity><unit prefix="centi" base="meter"/></quantity>.
+          The length of the hypotenuse of a right triangle with legs of lengths 
+          4 <quantity><unit prefix="centi" base="meter"/></quantity> 
+          and 6 <quantity><unit prefix="centi" base="meter"/></quantity> 
+          is <m>H = \sqrt{4^2+6^2} = \sqrt{52} = 2 \sqrt{13}</m> 
+          <quantity><unit prefix="centi" base="meter"/></quantity>.
+          A calculator shows the decimal approximation is <m>H \approx 7.211103</m>
+          <quantity><unit prefix="centi" base="meter"/></quantity>.
         </p>
         <p>
-        Now, suppose we use a ruler using centimeters but showing millimeters to measure the length.
-        Different ways of describing the measurement with a margin of error
-        give different information about the length.
+          Now, suppose we use a ruler using centimeters but showing millimeters to measure the length.
+          Different ways of describing the measurement with a margin of error
+          give different information about the length.
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
@@ -312,6 +467,69 @@
         </p>
       </solution>
     </example>
+    
+    <p>
+      When measurements are given with margins of error,
+      dependent quantities calculated from them also have margins of error.
+      Those errors need to be computed based on the margins of error that we know.
+      One of the outcomes from calculus is understanding the relationships between these margins of error.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          Suppose that we have a square whose length is side <m>s</m>.
+          From measurement, we have <m>s = 5.3 \pm 0.025</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+          What are the possible values for the perimeter <m>P</m> and the area <m>A</m>?
+          Write them using a margin of error. 
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The perimeter is the sum of the lengths of the sides.
+          For a square, we have <m>P = 4s</m>.
+          Because our measurement for <m>s</m> is <m>\widehat{s} = 5.3</m> <quantity><unit prefix="centi" base="meter"/></quantity>,
+          our estimate of the perimeter is <m>\widehat{P} = 4(5.3) = 21.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+        </p>
+        <p>
+          This does not capture the margin of error.
+          A common mistake is to use the same margin of error as we had for <m>s</m>.
+          A better approach is to think about the entire range of possible values.
+          The smallest possible value for <m>s</m> would be <m>s=5.3-0.025 = 5.275</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+          Using that value, the perimeter would be <m>P=4(5.275) = 21.1</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+          Similarly, the largest possible value for <m>s</m> would be <m>s=5.3+0.025 = 5.325</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+          Using this value, the perimeter would be <m>P=4(5.325) = 21.3</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+          The true perimeter must be a value in the range <m>21.1 \lt P \lt 21.3</m>.
+        </p>
+        <p>
+          Using the estimate <m>\widehat{P} = 21.2</m>, we measure the distance to each edge of the possible range.
+          Both edges are a distance 0.1 away from the estimate, so we can write
+          <m>P = 21.2 \pm 0.1</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+          What do you notice about the margin of error for <m>P</m> in comparison to the margin of error for <m>s</m>?
+        </p>
+        <p>
+          The area of a square is the square of the length of its side, <m>A = s^2</m>.
+          Using the measurement <m>\widehat{s} = 5.3</m> <quantity><unit prefix="centi" base="meter"/></quantity>,
+          we obtain an estimate <m>\widehat{A} = (5.3)^2 = 28.09</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>.
+          To find the margin of error, we first need to consider the range of possible values.
+          Using the smallest possible side <m>s = 5.275</m> <quantity><unit prefix="centi" base="meter"/></quantity>,
+          we obtain an area <m>A = 27.825625</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>.
+          The largest square gives <m>A = 28.355625</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>.
+          We now know <m>27.825625 \lt A \lt 28.355625</m>.
+        </p>
+        <p>
+          To consider the margin of error, we need to measure the distance
+          from the estimate <m>\widehat{A} = 28.09</m> to each edge of the range.
+          <md>
+            <mrow>| 27.825625 - 28.09 | = 0.264375 </mrow>
+            <mrow>| 28.355625 - 28.09 | = 0.265625 </mrow>
+          </md>
+          We can see that the range of possible values is not symmetric around the estimate.
+          The margin of error will be the <em>largest</em> distance to an edge:
+          <me>| A - 28.09 | < 0.265625</me>.
+        </p>
+      </solution>
+    </example>
   </subsection>
   <subsection>
     <title>Summary</title>
@@ -385,6 +603,33 @@
             <statement><p><m>\frac{\sqrt{864}}{15}</m></p></statement>
         </exercise>
       </exercisegroup>
+      <exercisegroup xml:id="eg-rationalize-denominator-roots">
+
+        <introduction>
+            <p>Simplify the following values by rationalizing the denominator.</p>
+        </introduction>
+        <exercise>
+            <statement><p><m>\displaystyle \frac{6}{5\sqrt{3}}</m></p></statement>
+        </exercise>
+        <exercise>
+            <statement><p><m>\displaystyle \frac{10}{\sqrt[3]{2}}</m></p></statement>
+        </exercise>
+        <exercise>
+            <statement><p><m>\displaystyle \frac{4\sqrt{2}}{\sqrt{3}}</m></p></statement>
+        </exercise>
+      </exercisegroup>
+
+        <introduction>
+            <p>Simplify the following values by rationalizing the numerator.</p>
+        </introduction>
+        <exercise>
+            <statement><p><m>\displaystyle \frac{4\sqrt{2}}{\sqrt{3}}</m></p></statement>
+        </exercise>
+        <exercise>
+            <statement><p><m>\displaystyle \frac{5 \sqrt[3]{4}}{\sqrt[3]{3}}</m></p></statement>
+        </exercise>
+      </exercisegroup>
+
       <exercise>
         <statement>
           <p>
