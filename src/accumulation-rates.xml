@@ -170,7 +170,7 @@
       </statement>
       <proof>
         <p>
-        Because <m>\displaystyle \int_a^b 0 \, dx = 0</m>, we can write <m>f(x) = c + \int_{a}^{x} 0 \, dz</m> for any value <m>a</m>.
+        Because <m>\displaystyle \int_a^b 0 \, dx = 0</m>, we can write <m>\displaystyle f(x) = c + \int_{a}^{x} 0 \, dz</m> for any value <m>a</m>.
         Thus, the rate of accumulation <m>f'(x) = 0</m>.
         </p>
       </proof>

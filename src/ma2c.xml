@@ -47,16 +47,21 @@
     </chapter>
     
     <chapter xml:id="chapter-definite-integrals">
-    <title>Modeling Accumulation by Integration</title>
+    <title>Continuous Accumulation and Integration</title>
     
     <xi:include href="./calculus-overview.xml" />
     <xi:include href="./accumulate-change.xml" />
     <xi:include href="./riemann-sums.xml" />            
     <xi:include href="./integral-properties.xml" />            
-    <xi:include href="./accumulation-functions.xml" />            
-    <xi:include href="./accumulation-applications.xml" />            
     </chapter>
     
+    <chapter xml:id="chapter-accumulation-functions">
+    <title>Functions Defined by Accumulation</title>
+    
+    <xi:include href="./accumulation-functions.xml" />
+    <xi:include href="./accumulation-rates.xml" />
+    </chapter>
+        
     <chapter>
     <title>Limits and Continuity of Functions</title>
     
@@ -79,6 +84,7 @@
     <xi:include href="./chain-rule.xml" />            
     <xi:include href="./exponential_derivative.xml" />            
     <xi:include href="./implicit-differentiation.xml" />            
+    <xi:include href="./accumulation-applications.xml" />            
     </chapter>
     
     <chapter>
