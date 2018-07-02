@@ -22,7 +22,7 @@
         
         <p>What does it mean to learn? Can we become more effective at learning?</p>
         
-        <p>Studies of brain activity reveal that learning physically changes the structure of the brain. The brain consist of neurons (brain cells) that form networks. Any particular neuron has dendrites which receive signals from other neurons. When the total signal received by a neuron reaches a critical threshold, the neuron will produce its own signal which it transmits along its axon to synaptic connections with the dendrites of other neurons. External stimuli trigger patterns of neuron firing responses which are ultimately translated into memories and actions. Learning consists of transforming these networks so that the firing patterns change. Feedback (both positive and negative) is necessary to weaken connections that are not desired and to strengthen connections that are desired.</p>
+        <p>Studies of brain activity reveal that learning physically changes the structure of the brain. The brain consist of neurons (brain cells) that form networks. Any particular neuron has dendrites which receive signals from other neurons. When the total signal received by a neuron reaches a critical threshold, the neuron will produce its own signal which it transmits along its axon to synaptic connections with the dendrites of other neurons. External stimuli trigger patterns of neuron firing responses which are ultimately translated into memories and actions. Learning consists of transforming these networks so that the firing patterns change. Feedback (both positive and negative) is necessary to weaken connections that are not desired and to create and strengthen connections that are desired.</p>
         
         <p>Early attempts to measure learning (which pre-date the understanding of the brain), especially when studying animal models like rats in maze, considered learning as behavior that is reinforced by a stimulus. An example is given of a cat trapped in box with an exit that opens when a particular string is pulled. By (frantic) trial and error, the cat eventually opens the box. When put back in the box, the cat will not immediately repeat the necessary action to escape; it takes a number of repetitions for the action to be reinforced by the reward before the cat learns to attempt the particular action immediately in order to escape. Using modern understanding of the brain's neural networks, the negative feedback from being trapped and the positive feedback from being released and receiving a reward established new neural connections that triggered pulling the release when the cat found itself in the trapped environment.</p>
         
@@ -40,7 +40,6 @@
         <p>Views of learning have expanded to consider learning with understanding wherein learning is not just a reinforced behavior but a cognitive effort (thought) built on a framework (understanding). Learning therefore is not just a filing system of individual memories; it is structured according to some organizational process that itself involves neural feedback. One of the key distinctions that has been identified between a novice and an expert in a problem-solving area is that an expert has a rich body of knowledge that is organized around core concepts as opposed to a list of facts or strategies.</p>
         
         <p>Thus, we see that learning requires more than just the memorization of facts, processes and strategies; it requires developing a mental framework by which information is organized. These steps require that we undertake processes by which neural network connections in our brain are rewired, breaking connections that correspond to misconceptions and poor organization and developing new connections that correspond to more effective knowledge and organization. For most of us, this requires a significant level of interaction with the material that we wish to learn in order to effect such a change.</p>
-        
     </subsection>
     
     <!-- Best Practices for Quality Learning -->
@@ -59,11 +58,26 @@
                 <p>Students should take control of their own learning by defining learning goals and monitoring their progress in achieving them.</p>
             </li>
         </ol> We should attempt to frame our learning experiences so that these three principles are implemented.</p>
+        
+        <p>One key aspect of this framing has to do with our mindset.
+        Mindset refers to our own ideas about how we learn.
+        We have a fixed mindset when we believe that our intelligence is predetermined
+        and our ability to learn is limited.
+        We have a growth mindset when we believe that our intelligence can grow
+        and we can learn anything with enough effort.</p>
+        
+        <p>Jo Boaler, a mathematics education expert on mindset, has a fascinating project
+        on mathematical mindset and mathematical learning, <url href="https://www.youcubed.org">youcubed.org</url>,
+        in which she emphasizes the following <url href="https://www.youcubed.org/resource/brain-science/">three key points</url> about our attitude and approaches to learning. <ol>
+          <li>Anyone can learn to high levels.</li>
+          <li>Mistakes and struggle are good for brain growth.</li>
+          <li>Visualization of mathematics helps develop our brain connections.</li>
+        </ol> I highly recommend watching some of the videos that she has developed.</p>
         </introduction>
         
         <subsubsection>
         <title>Engaging Preconceptions</title>
-        <p>Preconceptions represent the sum of all knowledge accumulated as well as the manner in which that knowledge is organized and interpreted. Valid preconceptions provide the necessary foundation on which additional knowledge accumulates. Unfortunately, it is often the case that preconceptions become an obstacle for learning. This may be due to something learned incorrectly. But it can just as often be something learned correctly but organized in a way that obscures generalizations necessary to advance in learning.</p>
+        <p>Preconceptions represent the sum of all knowledge accumulated as well as the manner in which that knowledge is organized and interpreted. Valid preconceptions provide the necessary foundation on which additional knowledge accumulates. Unfortunately, it is often the case that preconceptions might also be an obstacle for learning. This may be due to something learned incorrectly. But it can just as often be something learned correctly but organized in a way that obscures generalizations necessary to advance in learning.</p>
         
         <p>Engaging our preconceptions involves recognizing exactly what our preconceptions may be. For valid preconceptions, we integrate new knowledge into our system of understanding and it is held more tightly than if we did not connect it to our existing knowledge. For invalid or obstructive preconceptions, we face an uncomfortable <q>cognitive dissonance</q> that may require dismantling and reconstructing our framework of understanding so that future learning can proceed.</p>
         </subsubsection>
@@ -88,14 +102,37 @@
     <subsection>
         <title>What's Class Got to Do With It?</title>
         
-        <p>[This section needs to be expanded into meaningful writing. For now, it is just a summary of the key ideas.]</p>
-        <p>Learner-centered: pay attention to students' ideas, knowledge, skills, and attitudes. Awareness that existing ideas can lead to misconceptions as well as a path to new understanding. Experiences and norms about reflecting and understanding these experiences will be different for different individuals.</p>
+        <p>As our understanding of how we learn has grown, 
+        experts recommend that our educational settings and environments 
+        be designed to facilitate effective learning.
+        Four design characteristics summarize what we want
+        to create effective learning.
+        The environment should be (1) learner-centered, (2) knowledge-centered, (3) assessment-centered, and (4) community-centered.
+        </p>
         
-        <p>Knowledge-centered: pay attention to what is intended for learning, including what is taught (knowledge), why it is taught (understanding), how the knowledge should be organized (curriculum) and how it can be assessed. Identify a core of <q>enduring connected ideas</q>.</p>
+        <p>In a learner-centered classroom, the educational experiences give attention to students' ideas, knowledge, skills, and attitudes.
+        There is an awareness that existing ideas can lead to misconceptions as well as a path to new understanding.
+        Student experiences as well as the ways students reflect and understand these experiences will be different for different individuals.
+        Consequently, students must be individually engaged in the educational experience.
+        This is strongly related to the idea that brain growth occurs during the struggle of learning new things.</p>
         
-        <p>Assessment-centered: make learning and understanding visible to both the student and the teacher. Use feedback in designing instruction that is responsive to student progress. Give students opportunities to revise and improve their thinking. Guide students in developing metacognitive abilities, including helping them assess their strategies in learning.</p>
+        <p>In a knowledge-centered classroom, the educational experiences provide clear guidance on what is intended for learning, 
+        and those experiences are designed to develop understanding of that knowledge.
+        Effective knowledge involves both the content matter and an understanding of the context, relationship, and application of that matter.
+        Knowledge-centered learning helps students create an effective mental organization by identifying core connected ideas.</p>
         
-        <p>Community-centered: establish norms of behavior and connections to the world that support core learning values. Encourage the processes of development, questioning and progress. Mistakes not measures of inadequacy but helpful contributions in search for knowledge, so encourage taking risks like asking questions.</p>
+        <p>Assessment-centered education emphasizes that both the learner and the educator need to assess the progress of learning and understanding.
+        Assessment helps make learning and understanding visible to both the student and the teacher during the learning process and not just through formal evaluation.
+        Instruction that helps students become aware of their own progress through informal assessments provides them with opportunities to revise and improve their thinking.
+        In-class activities where students engage in material and evaluate their own progress are examples of such informal assessment opportunities.
+        In response to these assessment opportunities, students can develop their metacognitive abilities and learn to evaluate the effectiveness of their strategies in learning.</p>
+        
+        <p>A community-centered classroom establishes norms of behavior and connections to the world that support core learning values.
+        In our classes, we encourage the processes of development, questioning and progress.
+        Because our minds grow more when we make mistakes, we welcome mistakes.
+        They do not measure inadequacy but are evidence of a healthy struggle to learn.
+        We also encourage taking emotional risks that are part of asking questions or suggesting alternative approaches.
+        In summary, a community-centered classroom seeks to establish an environment that encourages a growth mindset.</p>
         
     </subsection>
 </section>
