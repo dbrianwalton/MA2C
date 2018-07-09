@@ -36,7 +36,7 @@
             in standard position.</caption>
             <image xml:id="fig-right-triangle-stdpos">
                 <description>Right triangle in standard position, as described in paragraph above.</description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -54,7 +54,7 @@
                 \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
                 \node at ($ (A) + 0.75*(20:1) $) {$\theta$};
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
         </figure>
 
@@ -140,7 +140,7 @@
 	            Figure showing an isosceles 45-45-90 right triangle and
 	            a 30-60-90 right triangle formed from an equilateral triangle.
 	            </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -179,7 +179,7 @@
                 \node[align=left] at ($ (c2) + (15:1) $) {$30^\circ$};
                 \node[align=right] at ($ (Q) + (-0.25,-0.45) $) {$60^\circ$};
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
 	        </image>
 	    </figure>
 	    
@@ -214,7 +214,7 @@
         require less mental effort to recall.
         </p>
 
-        <table>
+        <sidebyside>
             <tabular top="major" halign="center">
                 <row bottom="minor">
                     <cell><m>\theta</m></cell>
@@ -241,7 +241,7 @@
                     <cell><m>\tan 60^{\circ} = \frac{\frac{\sqrt{3}}{2}}{\frac{1}{2}} = \sqrt{3}</m></cell>
                 </row>
             </tabular>
-        </table>
+        </sidebyside>
 	</subsection>
 	
 	<subsection>
@@ -266,13 +266,13 @@
 	        a variable, say <m>c</m>.
 	        </p>
 	        
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-triangle-unknowns">
                     <description>
                     Figure showing a right triangle with legs 3 and 5 and a hypotenuse
                     with unknown length labeled c.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -286,9 +286,9 @@
                     \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
                     \node at ($ (A) + 0.5*(40:1) $) {$\theta$};
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             
             <p>
             Using the Pythagorean theorem, we can find the length of the hypotenuse.
@@ -337,13 +337,13 @@
 	        the vertical velocity <m>v_y</m>.
 	        </p>
 	        
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-velocity-decomposition">
                     <description>
                     Figure showing a right triangle representing a velocity of 80 ft/s
                     and unknown horizontal and vertical velocity components.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -358,9 +358,9 @@
                     \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
                     \node at ($ (A) + 0.75*(20:1) $) {$40^{\circ}$};
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             
             <p>
             The trigonometric values for <m>\theta=40^{\circ}</m> can be easily found

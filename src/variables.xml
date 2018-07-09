@@ -238,7 +238,7 @@
       <description>
       Scatter plot of electrophoresis data, displacement vs size and size vs displacement.
       </description>
-      <latex-image-code>
+      <latex-image>
       <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
       <![CDATA[\tikzset{%
       /pgfplots/table/row sep=crcr
@@ -288,7 +288,7 @@
       };
       \end{axis}
       \end{tikzpicture}]]>
-      </latex-image-code>
+      </latex-image>
     </image>
   </figure>
 
@@ -299,7 +299,7 @@
       <description>
       Scatter plot of population, births and deaths with respect to time.
       </description>
-      <latex-image-code>
+      <latex-image>
       <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
       <![CDATA[\tikzset{%
       }
@@ -334,7 +334,7 @@
       ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
       \end{axis}
       \end{tikzpicture}]]>
-      </latex-image-code>
+      </latex-image>
     </image>
   </sidebyside>
   
@@ -346,7 +346,7 @@
       Scatter plot of population, births and deaths
       with respect to each other.
       </description>
-      <latex-image-code>
+      <latex-image>
       <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
       <![CDATA[\tikzset{%
       }
@@ -381,7 +381,7 @@
       ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
       \end{axis}
       \end{tikzpicture}]]>
-      </latex-image-code>
+      </latex-image>
     </image>
   </sidebyside>
   </subsection>
@@ -403,7 +403,7 @@
       <description>
       Graph of solutions to 2x+3y=12.
       </description>
-      <latex-image-code>
+      <latex-image>
       <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
       <![CDATA[\tikzset{%
       /pgfplots/table/row sep=crcr
@@ -433,7 +433,7 @@
         ({x}, {(12-2*x)/3});
       \end{axis}
       \end{tikzpicture}]]>
-      </latex-image-code>
+      </latex-image>
     </image>
     </sidebyside>
   </example>
@@ -449,7 +449,7 @@
         <description>
         Graph of solutions to u^2+v^2=16+6u.
         </description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         /pgfplots/table/row sep=crcr
@@ -475,7 +475,7 @@
           ({3+5*cos(x)}, {5*sin(x)});
         \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
     </sidebyside>
   </example>
@@ -514,7 +514,7 @@
       <p>In this problem, we need to identify the relevant variables for the system and the equations that constrain the state. We are working with a rectangle, which is characterized by a length and a width. Let us draw a figure and use variables <m>L</m> for the length and <m>W</m> for the width.</p>
       <sidebyside margins="auto">
         <image width="50%"> 
-          <latex-image-code>
+          <latex-image>
           <![CDATA[\tikzset{%
           }
           \begin{tikzpicture}
@@ -522,7 +522,7 @@
           -- (4,3) node[pos=0.5,right] {$W$}
           -- (0,3) -- (0,0);
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       <p>We have two more state variables, the perimeter <m>P</m> and the area <m>A</m>. Geometry gives us two equations that constrain the state of the system <m>(L,W,P,A)</m>: <md>
@@ -562,7 +562,7 @@
         Scatter plot of population, births and deaths
         with respect to each other.
         </description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -583,7 +583,7 @@
           ({x}, {0.004867*x+992711});
         \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
     </sidebyside>
     
@@ -600,7 +600,7 @@
         <description>
         Scatter plot of electrophoresis data, size vs displacement, with trend.
         </description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         /pgfplots/table/row sep=crcr
@@ -630,7 +630,7 @@
           ({x}, {0.0573*x^2-43.381*x+8241.6});
         \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
     </sidebyside>
     
@@ -689,7 +689,7 @@
       <p>Is it possible to enclose an area of 50 <quantity><unit base="meter" exp="2"/></quantity> in two congruent rectangles that share an edge such that the total length of edges is 40 <quantity><unit base="meter"/></quantity> (counting the shared edge only once)? If so, how? You will need to choose your variables and construct appropriate model equations.</p>
       <sidebyside margins="auto">
         <image width="40%"> 
-          <latex-image-code>
+          <latex-image>
           <![CDATA[\tikzset{%
           }
           \begin{tikzpicture}
@@ -698,7 +698,7 @@
           -- (0,3) -- (0,0);
           \draw (2,0) -- (2,3);
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       </statement>

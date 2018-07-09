@@ -20,9 +20,9 @@
     
     <p>Graphically, this is illustrated in the figure below. The inputs and outputs of the functions for <m>g</m> and <m>f</m> are illustrated as number lines. The input <m>a</m> to the function <m>g</m> is mapped to the output <m>g(a)</m>. A nearby input <m>x</m> is mapped to an output <m>g(x)</m> that is not too far from <m>g(a)</m>. The differences are the values <m>\Delta x = x-a</m> and <m>\Delta u = g(x)-g(a)</m>. In composition, the outputs <m>g(a)</m> and <m>g(x)</m> act as inputs to <m>f</m>.</p>
     
-    <figure>
+    <sidebyside>
         <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -47,9 +47,9 @@
             \draw (3.5,3) node[right] {$\displaystyle \Delta u \approx g'(a) \cdot \Delta x$};
             \draw (3.5,1) node[right] {$\displaystyle \Delta y \approx f'(g(a)) \cdot \Delta u$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
-    </figure>
+    </sidebyside>
     
     <p>The derivative provides an approximate ratio in the changes of output values to the changes of input values. The smaller the input, the closer the approximation. (This is why the derivative must be defined as a limit of the average rate of change.) When functions are in composition, each function effectively amplifies the difference in output by the factor of the derivative. So the overall change in the output is a result of the product of the derivatives.</p>
     

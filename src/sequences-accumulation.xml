@@ -44,7 +44,7 @@
       </p>
       <sidebyside width="80%">
         <image>
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -59,7 +59,7 @@
           \draw [->] (x2) -- (x3) node[pos=0.5,above] {$+6$};
           \draw [->] (x3) -- (x4) node[pos=0.5,above] {$+8$};
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       <p>
@@ -464,7 +464,7 @@
         </sidebyside>
         <sidebyside>
           <image>
-            <latex-image-code>
+            <latex-image>
             <![CDATA[\tikzset{%
             }
             \begin{tikzpicture}
@@ -490,7 +490,7 @@
               };
               \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -630,7 +630,7 @@
         </p>
         <sidebyside margins="auto" width="60%">
           <image>
-            <latex-image-code>
+            <latex-image>
             <![CDATA[\tikzset{%
             }
             \begin{tikzpicture}
@@ -647,7 +647,7 @@
                 { x*(x+1)*(2*x+1)/6 - 90*x*(x+1)/2 + 1600*x };
               \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>

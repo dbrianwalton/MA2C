@@ -84,7 +84,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -98,7 +98,7 @@
             \draw [blue, thick] (2,0.2) circle (0.1);
             \draw [->, blue, thick] (2.1,0.2) -- (4,0.2) node [right] {$D$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -137,7 +137,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -152,7 +152,7 @@
               node[pos=0, below] {$3$}
               node[pos=1, above] {$0$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -168,7 +168,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -186,7 +186,7 @@
             \node [above] at (0,0.1) {$-$};
             \node [above] at (4,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -199,7 +199,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -212,7 +212,7 @@
             \draw [blue, thick] (3,0.2) circle (0.1);
             \draw [->, blue, thick] (3.1,0.2) -- (4,0.2) node [right] {$D$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -246,7 +246,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -265,7 +265,7 @@
               node[pos=0, below] {$3$}
               node[pos=1, above] {und};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -281,7 +281,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -303,7 +303,7 @@
             \node [above] at (1,0.1) {$-$};
             \node [above] at (4,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -316,7 +316,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -332,7 +332,7 @@
             \draw [blue, fill, thick] (0,0.2) circle (0.1);
             \draw [blue, thick] (3,0.2) circle (0.1);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -523,7 +523,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -540,7 +540,7 @@
             \addplot [domain=2:5, blue, thick] {4-x};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -623,7 +623,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -641,7 +641,7 @@
             \addplot [only marks, mark=*, mark options={fill=white}, blue] coordinates { (0,3) (0,0) (2,2) };
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -757,7 +757,7 @@
         </p>
         <sidebyside width="75%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -772,7 +772,7 @@
             \addplot [domain=2:5, blue, thick] {-3*x+7};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>

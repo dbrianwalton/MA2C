@@ -50,9 +50,9 @@
             </statement>
             <solution>
                 <p>The denominator of <m>f'(x)</m> is never zero because <m>x^2+3 \ge 3</m> will never equal zero. So the sign can only change where <m>3-x^2=0</m> which occurs at two values, <m>x=\pm\sqrt{3}</m>. There are three intervals of interest. We can find the signs of <m>f'(x)</m> using the values <m>x=-2</m>, <m>x=0</m> and <m>x=2</m>. The signs are summarized in the number line summary below.</p>
-                <figure>
+                <sidebyside>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -66,16 +66,16 @@
                         \node [above] at (0,0) {$+$};
                         \node [above] at (2.2,0) {$-$};
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
                 <p>We finish by interpreting our results. <ul>
                     <li>Because <m>f'(x) \lt 0</m> on <m>(-\infty,-\sqrt{3})</m> and <m>f'(x) \gt 0</m> on <m>(-\sqrt{3},\sqrt{3})</m>, we know <m>f(x)</m> has a local minimum at <m>x=-\sqrt{3}</m>. (Minimum over the interval <m>(-\infty,+\sqrt{3})</m>)</li>
                     <li>Because <m>f'(x) \gt 0</m> on <m>(-\sqrt{3},\sqrt{3})</m> and <m>f'(x) \lt 0</m> on <m>(\sqrt{3},\infty)</m>, we know <m>f(x)</m> has a local maximum at <m>x=\sqrt{3}</m>. (Maximum over the interval <m>(-\sqrt{3},\infty)</m>)</li>
                 </ul> A graph of the function is illustrated below.</p>
-                <figure>
+                <sidebyside>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <![CDATA[\tikzset{%
                         }
                         \begin{tikzpicture}
@@ -91,9 +91,9 @@
                         \end{axis}
                         \end{tikzpicture}
                         ]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
         
@@ -122,9 +122,9 @@
                 </ul> Once we have identified our variables, we need to find a formula for the cost because that is what we want to minimize. Let <m>p</m> be the unit cost for a vertical cut of 1 cm so that <m>2p</m> is the cost of a horizontal cut of 1 cm. The rectangle involves two horizontal cuts and two vertical cuts. So the total cost is given by <me>C = 2h \cdot 2p + 2v \cdot p = (4h+2v) p.</me> The value of <m>p</m> is just the unit cost, so we really want to minimize <m>C = 4h+2v</m> (measured in <m>p</m> units).</p>
                 <p>Our objective function involves two independent variables. This means there must be an additional constraint. Reviewing the problem, we recall that the total area needs to be <m>500 \; cm^2</m>. The area is computed by <m>A=h \cdot v = 500</m> so that we can treat <m>v</m> as another dependent variable, <me>v = \frac{500}{h}.</me> Substituting this formula into our objective function, we can rewrite it involving only a single independent variable <m>h</m>: <me>C = 4h + 2 \cdot \frac{500}{h} = 4h + \frac{1000}{h}.</me></p>
                 <p>Next, we find the derivative: <me>C'(h) = 4 - \frac{1000}{h^2}.</me> We want to see where the derivative is positive and negative, so we find a common denominator and then factor: <me>C'(h) = \frac{4h^2-1000}{h^2} = \frac{4(h^2-250)}{h^2}.</me> As a mathematical function, there is a vertical asymptote at <m>h=0</m> and intercepts at <m>h= \pm \sqrt{250}</m>. Geometrically, only <m>h \gt 0</m> makes physical sense, so we do sign analysis on <m>(0,\sqrt{250})</m> and <m>(\sqrt{250},\infty)</m>.</p>
-                <figure>
+                <sidebyside>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -136,13 +136,13 @@
                         \node [above] at (1.2,0) {$-$};
                         \node [above] at (3.2,0) {$+$};
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
                 <p>The sign analysis of <m>C'(h)</m> informs us that <m>C(h)</m> is decreasing on <m>(0,\sqrt{250})</m> and increasing on <m>(\sqrt{250},\infty)</m>. The first derivative test then guarantees that <m>C(h)</m> has a local minimum at <m>h=\sqrt{250}</m> over the interval <m>(0,\infty)</m> which is the entire physically relevant domain. A graph of the cost as a function of <m>h</m> illustrates our result.</p>
-                <figure>
+                <sidebyside>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <![CDATA[\tikzset{%
                         }
                         \begin{tikzpicture}
@@ -155,9 +155,9 @@
                         \end{axis}
                         \end{tikzpicture}
                         ]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
                 <p>We finish by interpreting our mathematics. The question was how to cut the rectangle. Our analysis gave us a value for <m>h=\sqrt{250} \approx 15.81 \; cm</m>. We also need <m>v</m>, which was another dependent variable: <me>v=\frac{500}{h} = \frac{500}{\sqrt{250}} = 2 \sqrt{250} \approx 31.62 \; cm.</me> The minimal cost rectangle would have a horizontal cut of 15.81 cm and a vertical cut of 31.62 cm.</p>
             </solution>
         </example>
@@ -171,9 +171,9 @@
             <solution>
                 <p>First, identify the variables. The objective function is the fitness <m>F</m>. This depends on both <m>f</m> (fecundity) and <m>s</m> (survival probability) through <m>F = f \cdot s</m>. The given relation between <m>f</m> and <m>s</m> expresses <m>s</m> as a dependent variable so that we treat <m>f</m> as the independent variable. Then we can write <me>F = f \cdot e^{-0.012f}.</me></p>
                 <p>Second, we compute a derivative to determine the extreme values. We find <me>F'(f) = e^{-0.012f} - 0.012f e^{-0.012f}.</me> Our strategy is always to factor the formula in order to find intercepts. In this case, the common factor is the exponential term so that <me>F'(f) = e^{-0.012f}\cdot(1-0.012f).</me> The exponential term is always positive, so the only intercept is when <m>1-0.012f = 0</m> which has a solution <m>f = \frac{1}{0.012} = \frac{250}{3}</m>. Using this, our sign analysis for <m>F'(f)</m> consists of two intervals.</p>
-                <figure>
+                <sidebyside>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -184,9 +184,9 @@
                         \node [above] at (-0.5,0) {$+$};
                         \node [above] at (2.5,0) {$-$};
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
                 <p>The sign analysis implies that <m>F</m> is increasing on <m>(-\infty,\frac{250}{3})</m> and decreasing on <m>(\frac{250}{3},\infty)</m>. The first derivative test then implies that <m>F</m> has a maximum value when <m>f=\frac{250}{3}\approx 83.33</m> on the interval <m>(-\infty,\infty)</m>. We only needed a maximum on <m>[0,\infty)</m> (physically relevant), so this is result is appropriate. The organism will optimize fitness if the average number of offspring is 83.33 individuals.</p>
             </solution>
         </example>

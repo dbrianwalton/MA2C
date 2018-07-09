@@ -236,7 +236,7 @@
       </p>
       <sidebyside margins="auto">
         <image width="80%">
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -277,7 +277,7 @@
               -- (axis cs: 5, 18.0625) -- (axis cs: 5,0) -- cycle;
           \end{axis}
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       
@@ -367,7 +367,7 @@
         </p>
       <sidebyside margins="auto">
         <image width="80%">
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -426,7 +426,7 @@
 
           \end{axis}
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       </solution>
@@ -533,7 +533,7 @@
         </p>
         <sidebyside margins="auto">
           <image width="80%">
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -553,7 +553,7 @@
                 -- (axis cs: 5,-5) -- cycle;
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>

@@ -51,6 +51,7 @@
     </introduction>
     
     <subsection>
+
     <title>Limit Rules for Combining Sequences</title>
     
     <p>
@@ -158,11 +159,101 @@
     </theorem>
 
     <p>
-    The second collection of limit rules tell us how we can take limits 
-    that we already know (starting with building blocks) 
-    and use them to compute more complicated limits. 
-    The first three rules take a single limit that is known to be valid 
-    and use arithmetic with a constant to find a new limit.
+      The second group of limit rules of combination allow us to take two limits that we know and combine them with arithmetic.
+    </p>
+
+    <theorem xml:id='SLC-Sum'>
+        <title>Sequence Limit of a Sum (SLC:Sum)</title>
+        <statement>
+            <p>
+              Given sequences <m>u=(u_n)</m> with <m>u_n \to L</m> and <m>v=(v_n)</m> with <m>v_n \to M</m>,
+              the sequence defined by the sum <m>w_n = u_n + v_n</m> has limit
+              <me> \lim_{n \to \infty} [ u_n + v_n ] = L+M.</me>
+            </p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='SLC-Difference'>
+        <title>Sequence Limit of a Difference (SLC:Diff)</title>
+        <statement>
+            <p>
+              Given sequences <m>u=(u_n)</m> with <m>u_n \to L</m> and <m>v=(v_n)</m> with <m>v_n \to M</m>,
+              the sequence defined by the difference <m>w_n = u_n - v_n</m> has limit
+              <me> \lim_{n \to \infty} [ u_n - v_n ] = L-M.</me>
+            </p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='SLC-Product'>
+        <title>Sequence Limit of a Product (SLC:Prod)</title>
+        <statement>
+            <p>
+              Given sequences <m>u=(u_n)</m> with <m>u_n \to L</m> and <m>v=(v_n)</m> with <m>v_n \to M</m>,
+              the sequence defined by the product <m>w_n = u_n \cdot v_n</m> has limit
+              <me> \lim_{n \to \infty} [ u_n \cdot v_n ] = L \cdot M.</me>
+            </p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='SLC-Quotient'>
+        <title>Sequence Limit of a Quotient (SLC:Quot)</title>
+        <statement>
+            <p>
+              Given sequences <m>u=(u_n)</m> with <m>u_n \to L</m> and <m>v=(v_n)</m> with <m>v_n \to M</m> and <m>M \ne 0</m>,
+              the sequence defined by the sum <m>\displaystyle w_n = \frac{u_n}{v_n}</m> has limit
+              <me> \lim_{n \to \infty} \frac{u_n}{v_n} = \frac{L}{M}.</me>
+            </p>
+        </statement>
+    </theorem>
+    </subsection>
+
+    <subsection>
+    <title>Elementary Limit Rules</title>
+    
+    <p>
+      The first collection of limit rules are some basic limits.
+      We can think of them as our building blocks for more complicated limits.
+      In reality, each of these limit rules are really statements about continuity of these very elementary functions.
+    </p>
+
+    <theorem xml:id='LE-Constant'>
+        <title>Limit of a Constant (LE:Const)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>k</m> is a real number.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} k = k</m>.</p>
+        </statement>
+    </theorem>
+
+    <theorem xml:id='LE-Identity'>
+        <title>Limit of the Identity (LE:Ident)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: none</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} x = a</m>.</p>
+        </statement>
+    </theorem>
+    
+    <p>
+      Note: The name of the previous theorem is based on the function <m>f(x)=x</m> being called the identity function because the output is exactly the input.
+    </p>
+
+    <theorem xml:id='LE-Linear'>
+        <title>Limit of a Linear Function (LE:Line)</title>
+        <statement>
+            <p>Hypothesis: <m>m</m> and <m>b</m> are real numbers.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [mx+b] = ma+b</m>.</p>
+        </statement>
+        </theorem>
+    </subsection>
+    
+    <subsection>
+    <title>Limit Rules of Combination</title>
+    
+    <p>
+      The second collection of limit rules tell us how we can take limits that we already know (starting with building blocks)
+      and use them to compute more complicated limits.
+      The first three rules take a single limit that is known to be valid and use arithmetic with a constant to find a new limit.
     </p>
     
     <theorem xml:id='LC-Constant-Sum'>
@@ -192,162 +283,55 @@
         </statement>
     </theorem>
 
-    <p>The next limit rules of combination allow us to take two limits that we know and combine them with arithmetic. In each of the cases, note that both limits in the hypothesis have <m>x \to a</m> (i.e., <m>x</m> approaches the same value in both limits).</p>
+    <p>
+      The next limit rules of combination allow us to take two limits that we know and combine them with arithmetic.
+      In each of the cases, note that both limits in the hypothesis have <m>x \to a</m> (i.e., <m>x</m> approaches the same value in both limits).
+    </p>
 
     <theorem xml:id='LC-Sum'>
-        <title>Limit of a Sum (LC:Sum)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)+g(x)] = L+M</m>.</p>
-        </statement>
+      <title>Limit of a Sum (LC:Sum)</title>
+      <statement>
+        <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+        <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)+g(x)] = L+M</m>.</p>
+      </statement>
     </theorem>
 
     <theorem xml:id='LC-Difference'>
-        <title>Limit of a Difference (LC:Diff)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)-g(x)] = L-M</m>.</p>
-        </statement>
+      <title>Limit of a Difference (LC:Diff)</title>
+      <statement>
+        <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+        <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)-g(x)] = L-M</m>.</p>
+      </statement>
     </theorem>
 
     <theorem xml:id='LC-Product'>
         <title>Limit of a Product (LC:Prod)</title>
         <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M</m>.</p>
+          <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+          <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M</m>.</p>
         </statement>
     </theorem>
 
     <theorem xml:id='LC-Quotient'>
-        <title>Limit of a Quotient (LC:Quot)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m> 
-            and <m>M \ne 0</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}</m>.</p>
-        </statement>
-    </theorem>
-    </subsection>
-
-    <subsection>
-    <title>Elementary Limit Rules</title>
-    
-    <p>The first collection of limit rules are some basic limits. We can think of them as our building blocks for more complicated limits. In reality, each of these limit rules are really statements about continuity of these very elementary functions.</p>
-
-    <theorem xml:id='LE-Constant'>
-        <title>Limit of a Constant (LE:Const)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>k</m> is a real number.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} k = k</m>.</p>
-        </statement>
-    </theorem>
-
-    <theorem xml:id='LE-Identity'>
-        <title>Limit of the Identity (LE:Ident)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: none</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} x = a</m>.</p>
-        </statement>
+      <title>Limit of a Quotient (LC:Quot)</title>
+      <statement>
+        <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m> and <m>M \ne 0</m>.</p>
+        <p>Conclusion: <m>\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}</m>.</p>
+      </statement>
     </theorem>
     
-    <p>Note: The name of the previous theorem is based on the function <m>f(x)=x</m>
-    being called the identity function because the output is exactly the input.</p>
-
-    <theorem xml:id='LE-Linear'>
-        <title>Limit of a Linear Function (LE:Line)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>m</m> and <m>b</m> are real numbers.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [mx+b] = ma+b</m>.</p>
-        </statement>
-        </theorem>
-    </subsection>
-    
-    <subsection>
-    <title>Limit Rules of Combination</title>
-    
-    <p>The second collection of limit rules tell us how we can take limits that we already know (starting with building blocks) and use them to compute more complicated limits. The first three rules take a single limit that is known to be valid and use arithmetic with a constant to find a new limit.</p>
-    
-    <theorem xml:id='LC-Constant-Sum'>
-        <title>Limit of a Constant Sum (LC:CS)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>k</m> is a real number.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)+k] = L+k</m>.</p>
-        </statement>
-    </theorem>
-
-    <theorem xml:id='LC-Constant-Multiple'>
-        <title>Limit of a Constant Multiple (LC:CM)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>k</m> is a real number.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [k \cdot f(x)] = k \cdot L</m>.</p>
-        </statement>
-    </theorem>
-
-    <theorem xml:id='LC-Reciprocal'>
-        <title>Limit of a Reciprocal or Multiplicative Inverse (LC:MInv)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>L \ne 0</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} \frac{1}{f(x)} = \frac{1}{L}</m>.</p>
-        </statement>
-    </theorem>
-
-    <p>The next limit rules of combination allow us to take two limits that we know and combine them with arithmetic. In each of the cases, note that both limits in the hypothesis have <m>x \to a</m> (i.e., <m>x</m> approaches the same value in both limits).</p>
-
-    <theorem xml:id='LC-Sum'>
-        <title>Limit of a Sum (LC:Sum)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)+g(x)] = L+M</m>.</p>
-        </statement>
-    </theorem>
-
-    <theorem xml:id='LC-Difference'>
-        <title>Limit of a Difference (LC:Diff)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x)-g(x)] = L-M</m>.</p>
-        </statement>
-    </theorem>
-
-    <theorem xml:id='LC-Product'>
-        <title>Limit of a Product (LC:Prod)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M</m>.</p>
-        </statement>
-    </theorem>
-
-    <theorem xml:id='LC-Quotient'>
-        <title>Limit of a Quotient (LC:Quot)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m> 
-            and <m>M \ne 0</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}</m>.</p>
-        </statement>
-    </theorem>
-    
-    <p>In addition to the arithmetic of functions, composition of functions plays an important role in algebra and calculus. So we need a limit rule associated with composition. Recall that for composition, the output of one function becomes the input to another function.</p>
+    <p>
+      In addition to the arithmetic of functions, composition of functions plays an important role in algebra and calculus.
+      So we need a limit rule associated with composition.
+      Recall that for composition, the output of one function becomes the input to another function.
+    </p>
     
     <theorem xml:id='LC-Continuous-Composition'>
-        <title>Limit of a Continuous Composition (LC:Comp)</title>
-        <statement>
-            <p></p>
-            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>g</m> is continuous at <m>L</m>, or in other words, <m>\displaystyle \lim_{u \to L} g(u) = g(L)</m>.</p>
-            <p>Conclusion: <m>\displaystyle \lim_{x \to a} g \circ f(x) = \lim_{x \to a} g(f(x)) = g(L)</m>.</p>
-        </statement>
+      <title>Limit of a Continuous Composition (LC:Comp)</title>
+      <statement>
+        <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>g</m> is continuous at <m>L</m>, or in other words, <m>\displaystyle \lim_{u \to L} g(u) = g(L)</m>.</p>
+        <p>Conclusion: <m>\displaystyle \lim_{x \to a} g \circ f(x) = \lim_{x \to a} g(f(x)) = g(L)</m>.</p>
+      </statement>
     </theorem>
     
     <p>If <m>f</m> is continuous at <m>a</m> so that <m>\displaystyle \lim_{x \to a} f(x) = f(a)</m> then we have <m>\displaystyle \lim_{x \to a} g \circ f(x) = g \circ f(a)</m>. In other words, the composition of continuous functions is a continuous function.</p>

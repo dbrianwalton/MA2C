@@ -87,7 +87,7 @@
         </p>
         <sidebyside width="50%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             \begin{tikzpicture}
             \begin{axis}
             [
@@ -103,7 +103,7 @@
             \addplot [blue, fill opacity=0.25] fill between [of=A and B];
             \end{axis};
             \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </statement>
@@ -124,7 +124,7 @@
         </p>
         <sidebyside width="50%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             \begin{tikzpicture}
             \begin{axis}
             [
@@ -145,7 +145,7 @@
             }
             \end{axis};
             \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -209,7 +209,7 @@
         </p>
         <sidebyside width="50%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             \begin{tikzpicture}
             \begin{axis}
             [
@@ -222,7 +222,7 @@
             \addplot [blue, fill opacity=0.25] fill between [of=Up and Down];
             \end{axis};
             \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </statement>
@@ -236,7 +236,7 @@
         </p>
         <sidebyside width="50%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             \begin{tikzpicture}
             \begin{axis}
             [
@@ -254,7 +254,7 @@
             }
             \end{axis};
             \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -293,7 +293,7 @@
         </p>
         <sidebyside width="50%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             \begin{tikzpicture}
             \begin{axis}
             [
@@ -308,7 +308,7 @@
             \addplot [blue, fill opacity=0.25] fill between [of=A and B];
             \end{axis};
             \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </statement>

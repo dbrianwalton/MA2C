@@ -52,7 +52,7 @@
     
     <p>Knowing just one antiderivative allows us to determine all possible antiderivatives by adding some constant. Suppose <m>F(x)</m> is an antiderivative of <m>f(x)</m>. Then any other antiderivative must be <m>F(x)+C</m> for some constant <m>C</m>. If we leave the constant as an unspecified parameter, we call this the <term>general antiderivative</term>. Graphically, different antiderivatives correspond to a vertical translation of the graph. That is, all antiderivatives have the same graph shifted up or down relative to one another.</p>
     
-    <p>The <xref ref='fundamental-theorem-calculus' autoname='title'>Fundamental Theorem of Calculus</xref> will show that every <xref ref='defn-accumulation-function' autoname='title'>accumulation function</xref> is an antiderivative of the rate function in the integral. Consequently, there is a close connection between antiderivatives and integrals. This motivates the standard notation for finding antiderivatives.</p>
+    <p>The <xref ref='fundamental-theorem-calculus' text='title'>Fundamental Theorem of Calculus</xref> will show that every <xref ref='defn-accumulation-function' text='title'>accumulation function</xref> is an antiderivative of the rate function in the integral. Consequently, there is a close connection between antiderivatives and integrals. This motivates the standard notation for finding antiderivatives.</p>
 
     <definition xml:id='defn-indefinite-integral'>
         <title>Indefinite Integrals</title>

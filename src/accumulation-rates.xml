@@ -170,12 +170,8 @@
       </statement>
       <proof>
         <p>
-<<<<<<< HEAD
-        Because <m>\displaystyle \int_a^b 0 \, dx = 0</m>, we can write <m>\displaystyle f(x) = c + \int_{a}^{x} 0 \, dz</m> for any value <m>a</m>.
-=======
         Because <m>\displaystyle \int_a^b 0 \, dx = 0</m>, we can write 
         <m>\displaystyle f(x) = c + \int_{a}^{x} 0 \, dz</m> for any value <m>a</m>.
->>>>>>> refs/remotes/origin/master
         Thus, the rate of accumulation <m>f'(x) = 0</m>.
         </p>
       </proof>
@@ -268,7 +264,7 @@
         
         <sidebyside margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -286,7 +282,7 @@
             \node [above] at (2,0.1) {$-$};
             \node [above] at (6,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         
@@ -312,7 +308,7 @@
         
         <sidebyside margins="auto">
           <image width="70%">
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -326,7 +322,7 @@
             \node [above] at (-1,0.1) {$-$};
             \node [above] at (5,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         
@@ -348,7 +344,7 @@
           <caption>Graph of <m>y=f(x)=x^3-6x^2-4</m>, including turning points at <m>x=0</m> and <m>x=4</m>
           and an inflection point at <m>x=2</m>.</caption>
           <image width="70%">
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -362,7 +358,7 @@
             \addplot [samples at={0,2,4}, only marks] {x^3-6*x^2-4};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </figure>
       </solution>

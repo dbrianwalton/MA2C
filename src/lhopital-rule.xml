@@ -32,7 +32,7 @@
         </statement>
         <proof>
             <p>Consider the case where <m>f(x) \to 0</m> and <m>g(x) \to 0</m> as <m>x \to a</m> but <m>f'(x) \to L</m> and <m>g'(x) \to M \ne 0</m> as <m>x \to 0</m>. If the functions <m>f</m> and <m>g</m> are continuous, then we must have <m>f(a)=0</m> and <m>g(a)=0</m>. If not, the discontinuity is removable and we can modify <m>f</m> and <m>g</m> so that this is true without changing the limit. Since <m>f'(x)</m> and <m>g'(x)</m> both have limits, <m>f</m> and <m>g</m> must both be differentiable (and continuous) in a neighborhood of <m>x=a</m>.</p>
-            <p>The <xref ref='mean-value-theorem' autoname='title'>Mean Value Theorem</xref> implies that for each <m>x</m>, <m>f(x) = f(x)-f(a) = f'(\xi)\cdot(x-a)</m> for some value <m>\xi</m> between <m>x</m> and <m>a</m>. Similarly, <m>g(x)=g(x)-g(a)=g'(\zeta)\cdot(x-a)</m> for some <m>\zeta</m> between <m>x</m> and <m>a</m>. Then, the ratio becomes <me>\frac{f(x)}{g(x)} = \frac{f'(\xi) \cdot (x-a)}{g'(\zeta)\cdot(x-a)} = \frac{f'(\xi)}{g'(\zeta)}.</me> Using the limits of <m>f'(x) \to L</m> and <m>g'(x) \to M</m>, we obtain <me>\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(\xi)}{g'(\zeta)} = \frac{L}{M} = \lim_{x \to a} \frac{f'(x)}{g'(x)}</me> since <m>M \ne 0</m>.</p>
+            <p>The <xref ref='mean-value-theorem' text='title'>Mean Value Theorem</xref> implies that for each <m>x</m>, <m>f(x) = f(x)-f(a) = f'(\xi)\cdot(x-a)</m> for some value <m>\xi</m> between <m>x</m> and <m>a</m>. Similarly, <m>g(x)=g(x)-g(a)=g'(\zeta)\cdot(x-a)</m> for some <m>\zeta</m> between <m>x</m> and <m>a</m>. Then, the ratio becomes <me>\frac{f(x)}{g(x)} = \frac{f'(\xi) \cdot (x-a)}{g'(\zeta)\cdot(x-a)} = \frac{f'(\xi)}{g'(\zeta)}.</me> Using the limits of <m>f'(x) \to L</m> and <m>g'(x) \to M</m>, we obtain <me>\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(\xi)}{g'(\zeta)} = \frac{L}{M} = \lim_{x \to a} \frac{f'(x)}{g'(x)}</me> since <m>M \ne 0</m>.</p>
             <p>A more general proof requires a more general statement of the mean value theorem. The problem with the current proof is that <m>\xi</m> and <m>\zeta</m> are unrelated. The more general mean value theorem, called Cauchy's Mean Value Theorem, allows us to choose a single point <m>\xi</m> between <m>x</m> and <m>a</m> where <me>\frac{f(x)-f(a)}{g(x)-g(a)} = \frac{f'(\xi)}{g'(\xi)}.</me> Then the limit follows. </p>
         </proof>
     </theorem>
@@ -132,7 +132,7 @@
                 <mrow> &amp;\overset{\hbox{L'H}}{=} \lim_{x \to \infty} \frac{t \cdot \frac{1}{1+rx^{-1}} \cdot \frac{d}{dx}[1+rx^{-1}]}{-x^{-2}} </mrow>
                 <mrow> &amp;= \lim_{x \to \infty} \frac{t \cdot \frac{1}{1+rx^{-1}} \cdot (-rx^{-2})}{-x^{-2}} </mrow>
                 <mrow> &amp;= \lim_{x \to \infty} t \cdot \frac{1}{1+rx^{-1}} \cdot (r) \to t \cdot \frac{1}{1+0} \cdot r = rt</mrow>
-            </md> Using the <xref ref='LC-Continuous-Composition' autoname='title'>Limit of a Continuous Composition</xref>, we conclude <md>
+            </md> Using the <xref ref='LC-Continuous-Composition' text='title'>Limit of a Continuous Composition</xref>, we conclude <md>
                 <mrow> \lim_{x \to \infty} \exp\big(xt \ln(1+rx^{-1})\big) &amp;= \exp\big( \lim_{x \to \infty} xt \ln(1+rx^{-1})\big) </mrow>
                 <mrow> &amp;= \exp(rt) = e^{rt}.</mrow>
             </md></p>

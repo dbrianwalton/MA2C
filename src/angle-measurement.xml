@@ -126,14 +126,19 @@
 		</mdn>
 		</p>
 		
-		<p>How did you read that last sentence? Did you visualize and interpret what it says, and not just read the symbols? What does each equation mean? Below is a figure illustrating the examples <m>\theta=1</m>, <m>\theta=\frac{1}{4}\tau</m> and <m>\theta=\frac{1}{2}\tau</m>. Could you draw a similar figure showing angles corresponding to 30, 45 and 60 degrees? What is the radian measure of those angles?
+		<p>
+		  How did you read that last sentence?
+		  Did you visualize and interpret what it says, and not just read the symbols?
+		  What does each equation mean? Below is a figure illustrating the examples <m>\theta=1</m>, <m>\theta=\frac{1}{4}\tau</m> and <m>\theta=\frac{1}{2}\tau</m>.
+		  Could you draw a similar figure showing angles corresponding to 30, 45 and 60 degrees?
+		  What is the radian measure of those angles?
 		</p>
 		
         <figure>
             <caption>Important arcs measured in radians.</caption>
             <image xml:id="fig-arcs-in-radians">
                 <description>Arcs of 1 radian, a quarter rotation and a half rotation, illustrated and measured in radians.</description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -157,7 +162,7 @@
                 		arc (0:180:2) node [pos=0.5,above] {$\begin{matrix} s=\frac{2 \pi r}{2} = \pi r \\ \theta=\pi = \frac{1}{2}\tau\end{matrix}$};
                 \draw [dotted] ($ (c3) + (180:2) $) -- (c3);
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
         </figure>
 	</subsection>
@@ -238,7 +243,7 @@
 					<description>To show the terminal position of 28 pi over 3 radians,
 					complete 4 full rotations (complete circles) followed by another
 					two thirds of a rotation.</description>
-					<latex-image-code>
+					<latex-image>
 					<!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
 					<![CDATA[\tikzset{%
 					}
@@ -260,7 +265,7 @@
 						arc (0:240:\rad);
 					\draw (c1) -- ($ (c1) + (240:\rad) $);
 					\end{tikzpicture}]]>
-					</latex-image-code>
+					</latex-image>
 				</image>
 			</figure>
 		</solution>

@@ -167,12 +167,12 @@
             </md>
             So our function is given by
             <me> f(x) = -\frac{2}{3}x(x-4). </me>
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-polynomial-example1">
                     <description>
                     Graph of y=-2/3x(x-4).
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -194,9 +194,9 @@
                     };
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             </li>
 
             <li> The desired model will be the same as the previous solution
@@ -209,12 +209,12 @@
             </md>
             Consequently, the function is given by
             <me> f(x) = -\frac{1}{2} (x+2)(x-3). </me>
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-polynomial-example2">
                     <description>
                     Graph of y=-2/3x(x-4).
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -236,9 +236,9 @@
                     };
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             </li>
 
             <li> The function will be of the form
@@ -250,12 +250,12 @@
             </md>
             Consequently, the function is given by
             <me> f(x) = 2(x+1)(x-1)(x-3). </me>
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-polynomial-example3">
                     <description>
                     Graph of y=-2/3x(x-4).
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -278,9 +278,9 @@
                     };
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             </li>
         </ol>
         </solution>
@@ -301,14 +301,14 @@
             the <m>x</m>-axis at <m>x=-2</m> and at <m>x=3</m>, and crosses
             the axis at <m>x=0</m>, similar to the graph shown below, with
             a value <m>f(1)=5</m>.
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-polynomial-example4">
                     <description>
                     Graph of a polynomial that touches the axis
                     like a parabola at x=-2 and at x=3 and crosses
                     the axes like a line at x=1 with f(1)=5.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -331,9 +331,9 @@
                     };
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
         </statement>
         <solution>
             <p>
@@ -456,12 +456,12 @@
             (for the left side of the graph) and that <m>y \to +\infty</m> as
             <m>x \to +\infty</m> (for the right side of the graph).
             
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-parabola-endbehavior">
                     <description>
                     Graph of y=x^2.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -477,9 +477,9 @@
                     \addplot[mark=none, black] {0};
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
         </solution>
         </example>
 
@@ -494,12 +494,12 @@
             (for the left side of the graph, which goes down) and that <m>y \to +\infty</m> as
             <m>x \to +\infty</m>  (for the right side of the graph, which goes up).
             
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-cubic-endbehavior">
                     <description>
                     Graph of y=x^3.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -515,9 +515,9 @@
                     \addplot[mark=none, black] {0};
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
         </solution>
         </example>
         
@@ -579,12 +579,12 @@
             Compare that to the graph shown below.
             </p>
 
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-factored-poly-endbehavior">
                     <description>
                     Graph of y=-3x^2(x-4)(x+1)^2.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -600,9 +600,9 @@
                     \addplot[mark=none, black] {0};
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
         </solution>
         </example>
         

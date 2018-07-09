@@ -44,8 +44,9 @@
         <p>Suppose that a quantity has a positive rate of change (increasing) and is also concave up (an increasing rate of change). This would be like a car moving forward (positive rate) with a rocket pushing it forward (positive acceleration). The result would be that the car continues to go faster (increasing rate), covering ever increasing distances per unit time. A graph of the position would be rising (increasing) and bending up (concave up).</p>
         
         <figure xml:id="fig-prototype-incr-ccu">
+            <caption><m>Q</m> is an increasing and concave up function of <m>x</m>. The rate is positive and increasing.</caption>
             <image width="50%">
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -54,16 +55,16 @@
                 \draw[->] (0,0) -- (0,4) node[above] {$Q$};
                 \draw (1,1) .. controls (3,1) and (3.75,2) .. (4,3);
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-            <caption><m>Q</m> is an increasing and concave up function of <m>x</m>. The rate is positive and increasing.</caption>
         </figure>
         
         <p>Next, suppose that a quantity has a positive rate of change (increasing) but is concave down (a decreasing rate of change). This would be like a car moving forward (positive rate) but with a rocket in reverse (negative acceleration). The car would still be moving forward, but the rocket is slowing it down. A graph of position in this case would be rising (increasing) but bending down (concave down).</p>
         
         <figure xml:id="fig-prototype-incr-ccd">
+            <caption><m>Q</m> is an increasing and concave down function of <m>x</m>. The rate is positive but decreasing.</caption>
             <image width="50%">
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -72,16 +73,16 @@
                 \draw[->] (0,0) -- (0,4) node[above] {$Q$};
                 \draw (1,1) .. controls (1.75,2.5) and (2.75,2.8) .. (4,3);
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-            <caption><m>Q</m> is an increasing and concave down function of <m>x</m>. The rate is positive but decreasing.</caption>
         </figure>
         
         <p>If the rocket continues to exert a negative force, there will be a moment when all of the forward momentum is gone and then the car begins to go backwards. Consequently, we learn that a quantity that is concave down can switch from increasing to decreasing. Graphically, this is exactly what a parabola that opens down does. However, if the rocket is gradually reduced, we might be able to slow the car down without ever changing direction.</p>
         
         <figure xml:id="fig-prototype-ccd-incr-decr">
+            <caption><m>Q</m> is a concave down function of <m>x</m> that is increasing for <m>x \lt a</m> and decreasing for <m>x \gt a</m>.</caption>
             <image width="50%">
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -93,9 +94,8 @@
                 \fill (2.5,3)  circle[radius=2pt];
                 \draw[-] (2.5,-0.2) -- (2.5,0.2) node[pos=1,above] {$a$};
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-            <caption><m>Q</m> is a concave down function of <m>x</m> that is increasing for <m>x \lt a</m> and decreasing for <m>x \gt a</m>.</caption>
         </figure>
         
         <p>Similar behaviors might be described for negative rates of change. This would correspond to a car that is already going backwards. Being concave up (increasing rate of change) corresponds to a positive acceleration (rocket force), which in this case is opposite the motion and would serve to slow the car down maybe to the point of reversing direction. Graphically, this corresponds to a dropping graph that is bending up (moving toward flat). Being concave down (decreasing rate of change) corresponds to negative acceleration (rocket force) which now is the same direction as the motion. This would cause the car to speed up (in the negative direction). Graphically, being concave down corresponds to a graph that is bending down and growing ever steeper.</p>
@@ -113,8 +113,9 @@
                 </md> Testing the sign of <m>R(t)</m> when <m>t \lt 40</m>, we find, for example <m>R(20) = 10-0.25(20) = 5</m>, that the rate is positive. Consequently, <m>V</m> is increasing when <m>t \lt 40</m>. On the other hand, testing the sign of <m>R(t)</m> when <m>t \gt 40</m>, such as <m>R(60) = 0-0.25(60)=-5</m>, we find that the rate is negative so that the volume is decreasing when <m>t \gt 40</m>.</p>
                 <p>The graph of <m>R(t)</m>, shown below, is consistent with these analyses. The graph is decreasing (corresponding to the negative slope), above the axis for <m>t \lt 40</m> and below the axis for <m>t \gt 40</m>.</p>
                 <figure>
+                    <caption>A graph of the rate of change of volume of water as a function of time.</caption>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -128,17 +129,17 @@
                         \addplot[thick, blue, domain=-5:75] (\x, 10-0.25*\x);
                         \end{axis}
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                    <caption>A graph of the rate of change of volume of water as a function of time.</caption>
                 </figure>
-                <p>The graph of the volume therefore needs to be concave down, increasing for <m>t \lt 40</m> and decreasing for <m>t \gt 40</m>. We do not know the starting volume (it wasn't given), so we might measure the change of volume from the initial value. That is, <m>V=0</m> on the graph will mean the volume is the same as the initial volume, rather than meaning there is no water. Using our knowledge of <xref ref="thm-elementary-definite-integrals" autoname="title">definite integrals of elementary algebraic formulas</xref> and the <xref ref="thm-definite-integral-linearity" autoname="title">linearity of definite integrals</xref>, we can find an explicit formula for our volume: <md>
+                <p>The graph of the volume therefore needs to be concave down, increasing for <m>t \lt 40</m> and decreasing for <m>t \gt 40</m>. We do not know the starting volume (it wasn't given), so we might measure the change of volume from the initial value. That is, <m>V=0</m> on the graph will mean the volume is the same as the initial volume, rather than meaning there is no water. Using our knowledge of <xref ref="thm-elementary-definite-integrals" text="title">definite integrals of elementary algebraic formulas</xref> and the <xref ref="thm-definite-integral-linearity" text="title">linearity of definite integrals</xref>, we can find an explicit formula for our volume: <md>
                     <mrow>V(t) &amp;= \int_0^t R(z) \, dz = \int_0^t 10-0.25z \, dz</mrow>
                     <mrow> &amp;= \int_0^t 10 \, dz - 0.25 \int_0^t z \, dz  = 10t - 0.25 \frac{t^2}{2}.</mrow>
                 </md> The graph of this functions is shown below.</p>
                 <figure>
+                    <caption>A graph of the change in volume of water as a function of time.</caption>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -152,9 +153,8 @@
                         \addplot[thick, blue, domain=-5:75] (\x, 10*\x-0.125*\x^2);
                         \end{axis}
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                    <caption>A graph of the change in volume of water as a function of time.</caption>
                 </figure>
             </solution>
         </example>
@@ -200,9 +200,9 @@
         <example>
             <statement>
                 <p>Consider an autonomous differential equation <me>\frac{dy}{dx} = f(y)</me> where the rate function <m>f(y)</m> is illustrated below. Create a phase line and use it to sketch expected shapes for solutions representing initial values in the different regions identified in the phase line.</p>
-                <figure>
-                    <image width="60%">
-                        <latex-image-code>
+                <sidebyside width="60%">
+                    <image>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -220,14 +220,14 @@
                         \draw[fill] (0, 0) circle (2pt);
                         \draw[fill] (3, 0) circle (2pt);
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </statement>
             <solution>
                 <p>The graph of <m>\frac{dy}{dx}=f(y)</m> has zeros at <m>y=0</m> and <m>y=\pm 3</m>. These correspond to equilibrium solutions of the differential equation. That is, <m>y(x)=3</m> (constant function) is one of the possible solutions. If the initial value is <m>y(0)=3</m>, then <m>y(x)=3</m> for all other values of <m>x</m> as well. Similarly for <m>y(0)=0</m> or <m>y(0)=-3</m>. These will be the points shown on the phase line.</p>
                 <p>The three equilibrium points divide the phase line into four intervals: <m>(-\infty, -3)</m>, <m>(-3,0)</m>, <m>(0,3)</m> and <m>(3,\infty)</m>. The graph of <m>\frac{dy}{dx}=f(y)</m> allows us to look at the sign of <m>\frac{dy}{dx}</m> for each of those regions. We see that <m>\frac{dy}{dx} \gt 0</m> for <m>y \in (-\infty,-3)</m>, so <m>y(x)</m> will be an increasing function if the initial value starts in this interval. We summarize the behavior in each interval with the following table.</p>
-                <table>
+                <sidebyside>
                     <tabular>
                         <row>
                             <cell>Interval</cell>
@@ -251,12 +251,12 @@
                             <cell>decreasing</cell>
                         </row>
                     </tabular>
-                </table>
+                </sidebyside>
                 <p>The phase line is a graphical summary of the table. Marked points on the line represent the equilibrium solutions. Arrows above the line represent the behavior as direction of motion. We will also include the locations of extreme rates, namely <m>y=\pm \sqrt{3}</m>, on the phase line as tick marks (not points) to indicate the locations of inflection points.</p>
 
-                <figure>
+                <sidebyside>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -277,15 +277,15 @@
                         \draw[->, thick] (1,0.25) -- (2,0.25);
                         \draw[<-, thick] (3.5,0.25) -- (4.5,0.25);
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
                 
                 <p>When we translate the information in the phase line to a sketch of the graph of solutions, we think of the phase line as the <m>y</m>-axis. The information about whether the function is increasing or decreasing is translated into the graph. Equilibrium solutions are also horizontal asymptotes for the solutions in the adjacent intervals. So we need to level off whenever the solution gets close to an equilibrium.</p>
                 
-                <figure>
+                <sidebyside>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -320,9 +320,9 @@
                         \addplot[red] table[x=t, y=x4] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
                         \end{axis}
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
     </subsection>

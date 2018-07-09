@@ -37,7 +37,7 @@
                 <description>The standard position of an acute angle in standard position
                 shows the terminal point has cosine as x-coordinate and sine as y-coordinate.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -63,7 +63,7 @@
                     -- (c3) node [pos=0.5, right] {$\sin \theta$}
                     -- (c1) node [pos=0.5, below] {$\cos \theta$};
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
         </figure>
         
@@ -167,7 +167,7 @@
             <image xml:id="fig-basic-trig-periodic">
                 <description>The graphs of cosine, sine and tangent functions are shown.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -227,7 +227,7 @@
                     \draw (8, -0.1) -- (8, 0.1) node[above] {$4 \pi$};
                 \end{scope}
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
         </figure>
         

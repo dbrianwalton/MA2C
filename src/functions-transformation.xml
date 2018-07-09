@@ -308,7 +308,7 @@
         </p>
         <sidebyside width="60%">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -322,7 +322,7 @@
             \draw [<-] (0,0.6) -- (1,1.3);
             \draw [<-] (0.5,0.6) -- (2,1.3);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -339,7 +339,7 @@
         </p>
         <sidebyside width="60%">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -353,7 +353,7 @@
             \draw [->] (0,-0.6) -- (1.5,-1.3);
             \draw [->] (0.5,-0.6) -- (2.5,-1.3);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -375,7 +375,7 @@
         </p>
         <sidebyside width="60%">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -392,7 +392,7 @@
             \addplot [only marks] coordinates { (2,3) (4,5) };
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -416,7 +416,7 @@
         </p>
         <sidebyside width="60%">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -435,7 +435,7 @@
             \addplot [samples=2, dashed] {1};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -491,7 +491,7 @@
         </p>
         <sidebyside width="60%">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -508,7 +508,7 @@
             \addplot [only marks] coordinates { (0,2) (2,2) };
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -614,7 +614,7 @@
         </p>
         <sidebyside width="60%">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -629,7 +629,7 @@
             \addplot [only marks] coordinates { (5,500) (12,1500) };
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -733,7 +733,7 @@
         </p>
         <sidebyside widths="40% 40%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -746,10 +746,10 @@
             \addplot [only marks,blue] table [x=M, y=R] {data/bird-mass-rate.dat};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -762,7 +762,7 @@
             \addplot [only marks,blue] table [x={M}, y={R}] {data/bird-mass-rate.dat};
             \end{loglogaxis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -787,7 +787,7 @@
         </p>
         <sidebyside width="40%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -801,7 +801,7 @@
             \addplot [domain=-6:3,samples=2,red] {0.7356*x+4.4192};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -820,7 +820,7 @@
         </p>
         <sidebyside width="40%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -834,7 +834,7 @@
             \addplot [domain=0:12,samples=101,red] {83.03*exp(0.7356*ln(x))};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>

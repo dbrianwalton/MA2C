@@ -359,7 +359,7 @@
     
         <sidebyside margins="auto">
           <image width="75%">
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             /pgfplots/table/row sep=crcr
@@ -394,7 +394,7 @@
             \legend {linear,geometric}
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -406,7 +406,7 @@
         </p>
         <sidebyside>
           <image width="75%">
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             /pgfplots/table/row sep=crcr
@@ -471,7 +471,7 @@
             \legend {linear,geometric}
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -534,7 +534,7 @@
     
         <sidebyside margins="auto">
           <image width="75%">
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             /pgfplots/table/row sep=crcr
@@ -600,7 +600,7 @@
             \addplot [dashed,domain=0:46,thick,samples=2] { 0 };
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>

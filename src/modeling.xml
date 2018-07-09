@@ -62,7 +62,7 @@
                     Illustration showing a sink with water, arrows corresponding to
                     water flowing in and out, and variables labeling key quantities.
                 </description>
-                <latex-image-code>
+                <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -103,7 +103,7 @@
 
                     \end{tikzpicture}
                     ]]>
-                </latex-image-code>
+                </latex-image>
             </image>
         </figure>
         

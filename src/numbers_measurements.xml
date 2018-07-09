@@ -316,7 +316,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -337,7 +337,7 @@
             \draw[-, black] (7.5,-0.15) -- (7.5,0);
             \draw[-, black] (8.5,-0.15) -- (8.5,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -365,7 +365,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -383,7 +383,7 @@
               node[pos=0, below] {7};
             \draw[-, black] (7.5,-0.15) -- (7.5,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -400,7 +400,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -418,7 +418,7 @@
               node[pos=0, below] {7};
             \draw[-, black] (7.5,-0.15) -- (7.5,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -437,7 +437,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -455,7 +455,7 @@
               node[pos=0, below] {7};
             \draw[-, black] (7.5,-0.15) -- (7.5,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -526,7 +526,7 @@
           </md>
           We can see that the range of possible values is not symmetric around the estimate.
           The margin of error will be the <em>largest</em> distance to an edge:
-          <me>| A - 28.09 | < 0.265625</me>.
+          <me>| A - 28.09 | \lt 0.265625</me>.
         </p>
       </solution>
     </example>
@@ -573,7 +573,6 @@
       <title>Exercises</title>
 
       <exercisegroup xml:id="eg-simplify-arithmetic">
-
         <introduction>
             <p>Simplify the following values.</p>
         </introduction>
@@ -604,7 +603,6 @@
         </exercise>
       </exercisegroup>
       <exercisegroup xml:id="eg-rationalize-denominator-roots">
-
         <introduction>
             <p>Simplify the following values by rationalizing the denominator.</p>
         </introduction>
@@ -618,7 +616,7 @@
             <statement><p><m>\displaystyle \frac{4\sqrt{2}}{\sqrt{3}}</m></p></statement>
         </exercise>
       </exercisegroup>
-
+      <exercisegroup xml:id="eg-rationalize-numerator-roots">
         <introduction>
             <p>Simplify the following values by rationalizing the numerator.</p>
         </introduction>

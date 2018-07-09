@@ -33,9 +33,9 @@
         
         <example>
             <p>Consider the function that is formed by joining line segments that alternately go up and down over shorter and shorter intervals given in the graph below. The peaks in the graph are given by the sequence of points defined by <me>\{(\frac{1}{n}, n) : n=1, 2, 3, \ldots\}</me> while the minimum points are defined halfway between these points by <me>\{(\frac{1}{2}(\frac{1}{n}+\frac{1}{n+1}), n-1) : n=1, 2, 3, \ldots\}.</me></p>
-            <figure>
-                <image width="75%">
-                    <latex-image-code>
+            <sidebyside width="75%">
+                <image>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -57,9 +57,9 @@
                         };
                         \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             <p>If we considered values of <m>x</m> approaching <m>0</m> from the right, <m>x \to 0+</m>, the values of <m>f(x)</m> might alternately go up and down. Overall, the value of <m>f(x)</m> increases without bound because the graph will eventually surpass every positive real number. Consequently, this function has a limit <me>\lim_{x \to 0+}f(x) = +\infty.</me></p>
         </example>
         
@@ -98,9 +98,9 @@
                 </md> The discontinuity at <m>x=3</m> is removable. The nonremovable discontinuities at <m>x=0</m> and <m>x=-2</m> will be infinite discontinuities corresponding to vertical asymptotes.</p>
                 <p>We finish classifying the removable discontinuity by evaluating the limit. This limit will be the output value of the simplified (and continuous) formula: <me>\lim_{x \to 3} f(x) = \lim_{x \to 3} \frac{x+3}{x(x+2)} = \frac{6}{3(5)} = \frac{2}{5}.</me></p>
                 <p>The infinite discontinuities are analyzed by determining if the unbounded growth is positive or negative. This is usually different on each side, so we check the signs. Because we already factored <m>f(x)</m>, we can use the factors to quickly determine a sign analysis summary.</p>
-                <figure>
-                    <image width="75%">
-                    <latex-image-code>
+                <sidebyside width="75%">
+                    <image>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -115,9 +115,9 @@
                     \node [above] at (-1,0) {$\frac{(+)}{(-)(+)}$};
                     \node [above] at (1,0) {$\frac{(+)}{(+)(+)}$};
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
                 <p>We will now interpret the signs as we evaluate the limits at the discontinuities. First consider <m>x \to -2</m>. If we attempt to evaluate the limit directly, we find <me> \lim_{x \to -2} \frac{x+3}{x(x+2)} \to \frac{1}{0}, </me> and this division by zero is precisely the hallmark of infinite limits. Our sign analysis summary shows that the denominator has a positive sign <m>(-)(-)=(+)</m> for <m>x \to -2-</m> and has a negative sign <m>(-)(+)=(-)</m> for <m>x \to -2+</m>. Consequently, our one-sided limits give <md>
                     <mrow> \lim_{x \to -2-} f(x) &amp;= \lim_{x \to -2-} \frac{x+3}{x(x+2)} \to \frac{1}{0+} = +\infty </mrow>
                     <mrow> \lim_{x \to -2+} f(x) &amp;= \lim_{x \to -2+} \frac{x+3}{x(x+2)} \to \frac{1}{0-} = -\infty </mrow>
@@ -128,9 +128,9 @@
                     <mrow> \lim_{x \to 0} f(x) &amp; \hbox{ does not exist}. </mrow>
                 </md></p>
                 <p>The graph <m>y=f(x)</m> is given below. Make note how the infinite limits correspond to the vertical asymptotes <m>x=-2</m> and <m>x=0</m>. Be sure to connect in your mind how the sign of the infinite limit corresponds to the direction in which the graph of the function approaches the asymptote.</p>
-                <figure>
-                    <image width="75%">
-                    <latex-image-code>
+                <sidebyside width="75%">
+                    <image>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -149,9 +149,9 @@
                         \addplot [only marks, blue, fill=white] coordinates { (3, 0.4) } node [above,black] {$(3,\frac{2}{5})$};
                         \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
         
@@ -169,9 +169,9 @@
                     <mrow> &amp;= \frac{x+2}{x^2(x-5)}, \quad x \ne 2</mrow>
                 </md> There is a removable discontinuity at <m>x=2</m> with limit <me>\lim_{x \to 2} f(x) = \lim_{x \to 2} \frac{x+2}{x^2(x-5)} = \frac{4}{4(-3)} = -\frac{1}{3}.</me> There are infinite discontinuities at <m>x=0</m> and <m>x=5</m> corresponding to vertical asymptotes.</p>
                 <p>Sign analysis:</p>
-                <figure>
-                    <image width="75%">
-                    <latex-image-code>
+                <sidebyside width="75%">
+                    <image>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -186,9 +186,9 @@
                     \node [above] at (2.5,0) {\tiny $\frac{(+)}{(+)(-)}$};
                     \node [above] at (6,0) {\tiny $\frac{(+)}{(+)(+)}$};
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
                 <p>The limits associated with the vertical asymptote <m>x=0</m>: <md>
                     <mrow>\lim_{x \to 0-} f(x) = \lim_{x \to 0-} \frac{x+2}{x^2(x-5)} = \frac{2}{0-} = -\infty, </mrow>
                     <mrow>\lim_{x \to 0+} f(x) = \lim_{x \to 0+} \frac{x+2}{x^2(x-5)} = \frac{2}{0-} = -\infty, </mrow>
@@ -198,9 +198,9 @@
                     <mrow>\lim_{x \to 5+} f(x) = \lim_{x \to 5+} \frac{x+2}{x^2(x-5)} = \frac{7}{0+} = +\infty, </mrow>
                     <mrow>\lim_{x \to 5} f(x) \hbox{ does not exist}.</mrow>
                 </md> A graph illustrates the results below.</p>
-                <figure>
-                    <image width="75%">
-                    <latex-image-code>
+                <sidebyside width="75%">
+                    <image>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -219,9 +219,9 @@
                         \addplot [only marks, blue, fill=white] coordinates { (2, -0.3333) } node [above,black] {$(2,-\frac{1}{3})$};
                         \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
     </subsection>
@@ -240,9 +240,9 @@
         
         <example>
             <p>Consider the function illustrated in the graph below. Notice that the function goes above and below the value <m>y=-1</m> but that the size of the difference is shrinking in size as <m>x \to +\infty</m>. Consequently, we would say <m>y=-1</m> is a horizontal asymptote and <me>\lim_{x \to \infty} f(x) = -1.</me> In the other direction, notice that the function approaches another horizontal asymptote <m>y=1</m> as <m>x \to -\infty</m>, corresponding to a limit <me>\lim_{x \to -\infty} f(x) = -1.</me></p>
-            <figure>
-                <image width="75%">
-                <latex-image-code>
+            <sidebyside width="75%">
+                <image>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -259,9 +259,9 @@
                     \addplot [-, dashed, red] coordinates { (-10,1) (10,1) };
                     \end{axis}
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
         </example>
         
         <p>For functions defined algebraically, we find limits at infinity by identifying terms that go to zero. These are often identified as being the multiplicative inverse of terms that are unbounded. If <m>p(x) \to \infty</m>, then <m>1/p(x) \to 0</m>. For algebraic formulas, we can use limit arithmetic involving infinity to compute determinate limits.</p>
@@ -286,9 +286,9 @@
                     <mrow> \lim_{x \to \infty} f(x) &amp;= \lim_{x \to \infty} 4-3e^{-2x} = 4-3e^{-2(\infty)} = 4 - 3e^{-\infty} = 4-0 = 4 </mrow>
                     <mrow> \lim_{x \to -\infty} f(x) &amp;= \lim_{x \to -\infty} 4-3e^{-2x} = 4-3e^{-2(-\infty)} = 4 - 3e^{+\infty} = 4-\infty = -\infty </mrow>
                 </md> So <m>y=4</m> is a horizontal asymptote of <m>f(x)</m> as <m>x \to +\infty</m>. There is no horizontal asymptote as <m>x \to -\infty</m> since <m>f(x) \to -\infty</m>. A graph is shown below.</p>
-                <figure>
-                    <image width="75%">
-                    <latex-image-code>
+                <sidebyside width="75%">
+                    <image>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -303,9 +303,9 @@
                         \addplot [-, dashed, red] coordinates { (-10,4) (10,4) };
                         \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
         
@@ -324,9 +324,9 @@
                     <mrow> \lim_{x \to \infty} f(x) = \lim_{x \to \infty} \frac{1-\frac{3}{x}+\frac{1}{x^2}}{4+\frac{5}{x}+\frac{7}{x^2}} = \frac{1-0+0}{4+0+0} = \frac{1}{4} </mrow>
                     <mrow> \lim_{x \to -\infty} f(x) = \lim_{x \to -\infty} \frac{1-\frac{3}{x}+\frac{1}{x^2}}{4+\frac{5}{x}+\frac{7}{x^2}} = \frac{1-0+0}{4+0+0} = \frac{1}{4} </mrow>
                 </md> So <m>y=\frac{1}{4}</m> is a horizontal asymptote of <m>f(x)</m> on both sides.</p>
-                <figure>
-                    <image width="75%">
-                    <latex-image-code>
+                <sidebyside width="75%">
+                    <image>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -341,9 +341,9 @@
                         \addplot [-, dashed, red] coordinates { (-10,.25) (10,.25) };
                         \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
     </subsection>
