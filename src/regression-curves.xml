@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="regression-curves">
+  <title>Trend Lines and Regression</title>
+
+  <subsection>
+  <title>Trend Lines and Regression Curves</title>
+
+  <p>Mathematical equations are exact. Real data exhibit uncertainty and randomness. Although they do not capture the uncertainty of data, equations can be used to model the trend or average presented by the data. A <term>trend line</term> or <term>trend curve</term> (if not linear) is a model that captures the general behavior of the data and stays close to the scatter points. Most spreadsheets and graphing calculators have an option to show a <term>line of best fit</term> for a scatter plot, which is an example of a trend line. The process these programs use is called <term>regression</term>. They usually report the equation of the regression curve using the generic variable symbols <m>x</m> and <m>y</m>, so it is the researcher's responsibility to interpret the equation in terms of the true variables.</p>
+  
+  <p>A trend line or a trend curve allow us to predict values where there are not observed data. When the prediction occurs between observed data, such prediction is called <term>interpolation</term>. If the prediction is occurring beyond the extremes of the data, such prediction is called <term>extrapolation</term>. Often, a formula may not describe all of the data but provides a good approximation for certain values. Interpolation is usually safer than extrapolation, which might attempt to use the formula in a region where the approximation is not good.</p>
+
+  <example>
+    <p>Consider the population example with the scatter plot of the number of deaths plotted with respect to the total population size, and predict the number of deaths in a year if the population were 300 million.</p>
+    <p>A spreadsheet reported the trend line of this data set with an equation <me>y=0.0049x+992711.</me> Because the scatter plot had <m>P</m> on the horizontal axis and <m>D</m> on the vertical axis, the more appropriate equation would be <me>D=0.0049P+992711.</me> A spreadsheet may not give enough precision in the model equation when using the default settings. Note that the equation reported above only has two significant digits in the slope value but an apparent 6 significant digits in the intercept. By changing the settings for the equation of the trend line, we get a more precise model <me> D = 4.86666 \times 10^{-3} P + 9.92711 \times 10^5. </me> Depending on the values of the data, the greater accuracy might make a significant difference.</p>
+    
+    <sidebyside width="50%" margins="auto">
+      <image>
+        <description>
+        Scatter plot of population, births and deaths
+        with respect to each other.
+        </description>
+        <latex-image-code>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Population},
+          ylabel={Deaths},
+          legend style={at={(0.95,0.05)},
+          anchor=south east,
+          legend entries={Deaths,Trend}},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
+        \addplot[black, samples=100, domain=2.5e8:3.2e8]
+          ({x}, {0.004867*x+992711});
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image-code>
+      </image>
+    </sidebyside>
+    
+    <p>Let us compare the two models with a population of 300 million, <m>P=300\times 10^6</m>. The first model, which only has two significant digits in the first coefficient, gives <me>D = 0.0049(3\times 10^8) + 992711 = 2462711.</me> Because one coefficient only had two significant digits, we can only expect the first two digits are accurate, thus predicting <m>D=2.5</m> million deaths in the year. Using the second model with six digits of accuracy in both coefficients, we find <me>D = 4.86666 \times 10^{-3} \cdot 3 \times 10^{8} + 992711 = 2452709.</me> With six digits of accuracy, this predicts <m>D=2,452,710</m> deaths in the year.</p>
+  </example>
+  
+  <p>Regression models do not really predict actual outcomes. They are generally based on noisy data, including measurement errors and randomness in sampling. Rather, they might be better interpreted as an expected average prediction. Having an actual value that is different from the value predicted by the regression model is expected. One of the key questions that statistics helps address is understanding when observed outcomes are sufficiently different from a prediction that we might reasonably reject our model as being inappropriate.</p>
+
+  <example>
+    <p>Consider the electrophoresis gel scatter plot with the length of the DNA <m>L</m> graphed with respect to the distance traveled in the gel <m>D</m>. The data appear to follow a nice curve without a lot of uncertainty. Using a polynomial trend, a spreadsheet reports the following equation for the data: <me> y = 0.0573x^2-43.381x+8241.6.</me> Using the appropriate variables for the problem, this equation should be rewritten as <me> L = 0.0573D^2-43.381D+8241.6.</me> The graph of the data with the trend curve is shown below.</p>
+
+    <sidebyside width="50%">
+      <image>
+        <description>
+        Scatter plot of electrophoresis data, size vs displacement, with trend.
+        </description>
+        <latex-image-code>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={$D$},
+          ylabel={$L$},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table {
+          342 100\\
+          327 200\\
+          312 300\\
+          299 400\\
+          288 500\\
+          278 600\\
+          270 700\\
+          263 800\\
+          256 900\\
+          249 1000\\
+        };
+        \addplot[black, samples=100, domain=240:350]
+          ({x}, {0.0573*x^2-43.381*x+8241.6});
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image-code>
+      </image>
+    </sidebyside>
+    
+    <p>Knowing a model equation that conveniently characterizes a data set allows us to use that equation to predict values that do not occur within the data set itself. For example, suppose we had another DNA sample of unknown length that traveled a distance of <m>D=282</m> pixels. Using our value for <m>D</m>, we can find the value of <m>L</m> using the model, <me>L = 0.0573(282)^2 - 43.381(282)+8241.6 = 564.8832.</me> Since our original data had 3 significant digits, we would estimate the length of the DNA in question as <m>L \approx 565</m> nucleotides.</p>
+  </example>    
+
+  <p>Again, you should note that the number of significant digits reported is not the same as the uncertainty in the prediction. The degree to which the original data vary around the trend curve leads to uncertainty in the coefficients of the regression model and subsequent uncertainty to the trend curve itself. However, analysis of this uncertainty is a topic for statistics and is outside the scope of this text.</p>
+  
+  </subsection>
+  
+  <subsection>
+    <title>Summary</title>
+    
+    <p>
+      <ul>
+        <li>
+          <p>
+            Using regression to find a trend line or regression curve can give an approximate relation corresponding to observed data.
+            Treating the resulting equation as a model equation can give approximate predictions of states of the system.
+          </p>
+        </li>
+      </ul
+    ></p>
+  </subsection>
+  
+  <exercises>
+    <exercisegroup>
+      <title>A Voltage<ndash/>Resistance<ndash/>Current Relationship</title>
+      <introduction>
+        <p>A simple electric circuit has an applied voltage <m>V</m> (volts) and a variable load resistance <m>R</m> (kilohms). When the circuit is closed, current flows through the circuit, measured as the current <m>I</m> (amperes). When the voltage was held constant at <m>V = 9</m> <quantity><unit base="volt"/></quantity>, the resistance and current were measured with values recorded in the table below. The following group of problems are based on these data.</p>
+        <sidebyside margins="auto">
+        <tabular top="major" halign="center">
+          <col right="minor"/> <col right="minor"/> <col/>
+          <row bottom="minor">
+            <cell><m>V</m> (<quantity><unit base="volt"/></quantity>)</cell>
+            <cell><m>R</m> (<quantity><unit prefix="kilo" base="ohm"/></quantity>)</cell>
+            <cell><m>I</m> (<quantity><unit base="ampere"/></quantity>)</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>0.84</cell>
+            <cell>0.0107</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>1.2</cell>
+            <cell>0.0073</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>1.8</cell>
+            <cell>0.0050</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>2.7</cell>
+            <cell>0.0033</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>3.4</cell>
+            <cell>0.0026</cell>
+          </row>
+        </tabular>
+        </sidebyside>
+      </introduction>
+
+      <exercise>
+        <statement><p> Create a scatter plot of <m>(R,I)</m>. Would a trend line make sense for this data? Explain.</p></statement>
+      </exercise>
+      <exercise>
+        <statement><p> Conductance <m>G</m> is the reciprocal of resistance, <m>G=1/R</m>. Create a scatter plot of <m>(G,I)</m>. Would a trend line make sense for this data? Explain.</p></statement>
+      </exercise>
+      <exercise>
+        <statement><p> One of the previous scatter plots should have had a meaningful trend line. State the appropriate regression equation as a model and use it to predict the current <m>I</m> when the resistance is <m>R=2.1</m> <quantity><unit prefix="kilo" base="ohm"/></quantity>.</p></statement>
+      </exercise>
+    </exercisegroup>
+    
+    <exercisegroup>
+      <title>Population-Growth Relationships</title>
+      <introduction>
+        <p>The number of births and of deaths in a population generally depends on the size of the population. The table below gives population data for ten of the twelve highest population cities in the state of Virginia for the year 2012. The data include the population <m>P</m> and the total number of births <m>B</m> and deaths <m>D</m> for the year recorded for each city. The following group of exercises are based on these data.</p>
+        <sidebyside>
+        <tabular top="major" halign="center">
+          <col right="minor"/> <col right="minor"/> <col right="minor"/> <col/>
+          <row bottom="minor">
+            <cell>City</cell>
+            <cell><m>P</m></cell>
+            <cell><m>B</m></cell>
+            <cell><m>D</m></cell>
+          </row>
+          <row>
+            <cell>Virginia Beach</cell>
+            <cell>447021</cell>
+            <cell>6270</cell>
+            <cell>2828</cell>
+          </row>
+          <row>
+            <cell>Norfolk</cell>
+            <cell>245782</cell>
+            <cell>3773</cell>
+            <cell>1827</cell>
+          </row>
+          <row>
+            <cell>Chesapeake</cell>
+            <cell>228417</cell>
+            <cell>2805</cell>
+            <cell>1582</cell>
+          </row>
+          <row>
+            <cell>Richmond</cell>
+            <cell>210309</cell>
+            <cell>2939</cell>
+            <cell>1849</cell>
+          </row>
+          <row>
+            <cell>Newport News</cell>
+            <cell>180726</cell>
+            <cell>2905</cell>
+            <cell>1438</cell>
+          </row>
+          <row>
+            <cell>Alexandria</cell>
+            <cell>146294</cell>
+            <cell>2763</cell>
+            <cell>686</cell>
+          </row>
+          <row>
+            <cell>Hampton</cell>
+            <cell>136836</cell>
+            <cell>1825</cell>
+            <cell>1139</cell>
+          </row>
+          <row>
+            <cell>Roanoke</cell>
+            <cell>97469</cell>
+            <cell>1492</cell>
+            <cell>1172</cell>
+          </row>
+          <row>
+            <cell>Portsmouth</cell>
+            <cell>96470</cell>
+            <cell>1534</cell>
+            <cell>980</cell>
+          </row>
+          <row>
+            <cell>Suffolk</cell>
+            <cell>85181</cell>
+            <cell>1087</cell>
+            <cell>726</cell>
+          </row>
+          <row>
+            <cell>Lynchburg</cell>
+            <cell>77113</cell>
+            <cell>1062</cell>
+            <cell>779</cell>
+          </row>
+          <row>
+            <cell>Harrisonburg</cell>
+            <cell>50981</cell>
+            <cell>579</cell>
+            <cell>253</cell>
+          </row>
+        </tabular>
+        </sidebyside>
+      </introduction>
+
+      <exercise>
+        <statement><p>Create a scatter plot of <m>(P,B)</m> and find the equation of the trend line. The cities of Hampton and Harrisonburg were left off the list with populations of <m>P=136836</m> and <m>P=50981</m>, respectively. Use the trend line regression model to predict the number of births in these cities during 2012. Which calculation is an example of interpolation and which is extrapolation?</p></statement>
+      </exercise>
+      <exercise>
+        <statement><p>Create a scatter plot of <m>(P,D)</m> and find the equation of the trend line. Use the trend line regression model to predict the number of births in Hampton and Harrisonburg during 2012. (See the previous problem for population values.) Which calculation is an example of interpolation and which is extrapolation?</p></statement>
+      </exercise>
+      <conclusion>
+      <p>Which of the calculations were examples of interpolation and which were examples of extrapolation?</p>
+      </conclusion>
+    </exercisegroup>
+  </exercises>
+</section>

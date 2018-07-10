@@ -314,10 +314,10 @@
                         \addplot[dashed] coordinates {
                             (-0.25,-1.732) (1.5,-1.732)
                         };
-                        \addplot[red] table[x=t, y=x1] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
-                        \addplot[red] table[x=t, y=x2] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
-                        \addplot[red] table[x=t, y=x3] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
-                        \addplot[red] table[x=t, y=x4] {/Users/waltondb/Dropbox/ModelCalculus/data/ode-example-trajectories.txt};
+                        \addplot[red] table[x=t, y=x1] {data/ode-example-trajectories.txt};
+                        \addplot[red] table[x=t, y=x2] {data/ode-example-trajectories.txt};
+                        \addplot[red] table[x=t, y=x3] {data/ode-example-trajectories.txt};
+                        \addplot[red] table[x=t, y=x4] {data/ode-example-trajectories.txt};
                         \end{axis}
                         \end{tikzpicture}]]>
                         </latex-image-code>

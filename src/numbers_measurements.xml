@@ -526,7 +526,7 @@
           </md>
           We can see that the range of possible values is not symmetric around the estimate.
           The margin of error will be the <em>largest</em> distance to an edge:
-          <me>| A - 28.09 | < 0.265625</me>.
+          <me>| A - 28.09 | \lt 0.265625</me>.
         </p>
       </solution>
     </example>
@@ -572,7 +572,7 @@
   <exercises xml:id="exercises-numbers-measurements">
       <title>Exercises</title>
 
-      <exercisegroup xml:id="eg-simplify-arithmetic">
+      <exercisegroup xml:id="exercise-simplify-arithmetic">
 
         <introduction>
             <p>Simplify the following values.</p>
@@ -603,7 +603,7 @@
             <statement><p><m>\frac{\sqrt{864}}{15}</m></p></statement>
         </exercise>
       </exercisegroup>
-      <exercisegroup xml:id="eg-rationalize-denominator-roots">
+      <exercisegroup xml:id="exercise-rationalize-denominator-roots">
 
         <introduction>
             <p>Simplify the following values by rationalizing the denominator.</p>
@@ -619,6 +619,7 @@
         </exercise>
       </exercisegroup>
 
+     <exercisegroup xml:id="exercise-rationalize-numerator-roots">
         <introduction>
             <p>Simplify the following values by rationalizing the numerator.</p>
         </introduction>

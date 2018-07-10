@@ -11,443 +11,297 @@
   <title>Variables and Relationships</title>
 
   <subsection>
-  <title>Overview</title>
-  
-  <p>In physical settings, we usually consider measurements of multiple quantities at the same time. We do this because we are interested in the relationships between these different quantities. We think of each quantity of interest as a <term>variable</term>;  the collection of all such variables under consideration is called the <term>system</term>. At any instant, the variables of the system will each have a particular value and the collection of those values at that instant is called the <term>state</term> of the system.</p>
-  
-  <p>In this section, we introduce the idea of different variables in a system having a relation. Specifically, this means that knowing the value of one variable in a particular state of the system gives us information about the value of another variable. Relations are often explored using a scatter plot. Mathematically, a relation is usually described by an equation. Solving an equation for a variable is mathematically how we determine the value of a variable for a given state of the system.</p>
-  
+    <title>Overview</title>
+    <p>
+      In physical settings, we usually consider measurements of multiple quantities at the same time.
+      We do this because we are interested in the relationships between these different quantities.
+      We think of each quantity of interest as a <term>variable</term>;
+      the collection of all such variables under consideration is called the <term>system</term>.
+      At any instant, the variables of the system will each have a particular value
+      and the collection of those values at that instant is called the <term>state</term> of the system.
+    </p>
+    <p>
+      In this section, we introduce the idea of different variables in a system having a relation.
+      Specifically, this means that knowing the value of one variable in a particular state of the system gives us information about the value of another variable.
+      Relations are often explored using a scatter plot.
+      Mathematically, a relation is usually described by an equation.
+      Solving an equation for a variable is mathematically how we determine the value of a variable for a given state of the system.
+    </p>
   </subsection>
   
   <subsection>
-  <title>Systems, States and Variables</title>
+    <title>Systems, States and Variables</title>
+    <p>
+      In the course of an experiment, or even just in observation,
+      many different quantities typically are covarying, or changing with one another.
+      For example, an object in motion has changing position, changing velocity, and changing forces.
+      In the course of a chemical reaction, there are changing concentrations of the different reactants and products as well as possibly changing temperature, pH, and volume, for example.
+      While observing a changing population, there could be changing population numbers, total biomass, birth and death rates, consumption of resources, and production of products and waste.
+    </p>
+    <p>
+      Mathematically, the <term>system</term> consists of all possible observable quantities associated with the experiment or observed physical system.
+      The <term>state</term> of the system refers to the collection of instantaneous values of all such quantities at a particular instant or configuration of the system.
+      A <term>variable</term> represents a single quantity that is or could be observed in the system.
+    </p>
+  
+    <example>
+      <p>
+        Consider the following data about the population, births and deaths in the United States.
+        To conserve space, the data are given using scientific notation expressed in the standard machine form
+        where the power of 10 follows the letter E, so that <m>2.521 \times 10^8</m> would be written 2.521E8.
+      </p>
+      <sidebyside margins="auto">
+        <tabular top="major" halign="center">
+          <col/> <col/> <col/> <col right="minor"/> <col right="minor"/>
+          <col/> <col/> <col/><col/>
+          <row bottom="minor">
+            <cell>Year</cell>
+            <cell>Population</cell>
+            <cell>Births</cell>
+            <cell>Deaths</cell>
+            <cell></cell>
+            <cell>Year</cell>
+            <cell>Population</cell>
+            <cell>Births</cell>
+            <cell>Deaths</cell>
+          </row>
+          <row>
+            <cell>1991</cell>
+            <cell>2.521E8</cell>
+            <cell>4.111E6</cell>
+            <cell>2.170E6</cell>
+            <cell></cell>
+            <cell>2001</cell>
+            <cell>2.850E8</cell>
+            <cell>4.026E6</cell>
+            <cell>2.416E6</cell>
+          </row>
+          <row>
+            <cell>1992</cell>
+            <cell>2.550E8</cell>
+            <cell>4.065E6</cell>
+            <cell>2.176E6</cell>
+            <cell></cell>
+            <cell>2002</cell>
+            <cell>2.876E8</cell>
+            <cell>4.022E6</cell>
+            <cell>2.443E6</cell>
+          </row>
+          <row>
+            <cell>1993</cell>
+            <cell>2.577E8</cell>
+            <cell>4.000E6</cell>
+            <cell>2.269E6</cell>
+            <cell></cell>
+            <cell>2003</cell>
+            <cell>2.901E8</cell>
+            <cell>4.090E6</cell>
+            <cell>2.448E6</cell>
+          </row>
+          <row>
+            <cell>1994</cell>
+            <cell>2.602E8</cell>
+            <cell>3.953E6</cell>
+            <cell>2.279E6</cell>
+            <cell></cell>
+            <cell>2004</cell>
+            <cell>2.928E8</cell>
+            <cell>4.112E6</cell>
+            <cell>2.397E6</cell>
+          </row>
+          <row>
+            <cell>1995</cell>
+            <cell>2.628E8</cell>
+            <cell>3.900E6</cell>
+            <cell>2.312E6</cell>
+            <cell></cell>
+            <cell>2005</cell>
+            <cell>2.955E8</cell>
+            <cell>4.138E6</cell>
+            <cell>2.448E6</cell>
+          </row>
+          <row>
+            <cell>1996</cell>
+            <cell>2.652E8</cell>
+            <cell>3.891E6</cell>
+            <cell>2.315E6</cell>
+            <cell></cell>
+            <cell>2006</cell>
+            <cell>2.984E8</cell>
+            <cell>4.266E6</cell>
+            <cell>2.426E6</cell>
+          </row>
+          <row>
+            <cell>1997</cell>
+            <cell>2.677E8</cell>
+            <cell>3.881E6</cell>
+            <cell>2.314E6</cell>
+            <cell></cell>
+            <cell>2007</cell>
+            <cell>3.012E8</cell>
+            <cell>4.316E6</cell>
+            <cell>2.424E6</cell>
+          </row>
+          <row>
+            <cell>1998</cell>
+            <cell>2.703E8</cell>
+            <cell>3.942E6</cell>
+            <cell>2.337E6</cell>
+            <cell></cell>
+            <cell>2008</cell>
+            <cell>3.041E8</cell>
+            <cell>4.248E6</cell>
+            <cell>2.472E6</cell>
+          </row>
+          <row>
+            <cell>1999</cell>
+            <cell>2.727E8</cell>
+            <cell>3.959E6</cell>
+            <cell>2.391E6</cell>
+            <cell></cell>
+            <cell>2009</cell>
+            <cell>3.068E8</cell>
+            <cell>4.131E6</cell>
+            <cell>2.437E6</cell>
+          </row>
+          <row bottom="medium">
+            <cell>2000</cell>
+            <cell>2.822E8</cell>
+            <cell>4.059E6</cell>
+            <cell>2.403E6</cell>
+            <cell></cell>
+            <cell>2010</cell>
+            <cell>3.094E8</cell>
+            <cell>3.999E6</cell>
+            <cell>2.468E6</cell>
+          </row>
+        </tabular>
+      </sidebyside>
+      <p>
+        Each row (corresponding to the population in a given year) represents a distinct state of the system.
+        The system is characterized by the observed values, which consist of the year itself, the total population, the total number of births in the year, and the total number of deaths in the year.
+        These three measurements are the variables of the system.
+        The year should also be considered one of the variables (an independent variable) because we think of the other variables changing with respect to time.
+      </p>
+    </example>
+  
+    <p>
+      A symbol is often used to represent, or name, a variable.
+      The symbol is often a letter, but could also be a Greek letter, an abbreviation, or a word.
+      The choice of symbol should generally be related to the meaning of the variable.
+      Uppercase and lowercase letters are different symbols and should not be interchanged with one another.
+      An important part of communication is in stating clearly the variables of a system and identifying the symbols that are chosen to represent them.
+    </p>
+    <p>
+      In the previous example, the population variable might be represented by the symbol <m>P</m> while the births and deaths might be represented by the symbols <m>B</m> and <m>D</m>.
+      The year might be represented by the symbol <m>Y</m>.
+    </p>
 
-  <p>In the course of an experiment, or even just in observation, many different quantities typically are covarying, or changing with one another. For example, an object in motion has changing position, changing velocity, and changing forces. In the course of a chemical reaction, there are changing concentrations of the different reactants and products as well as possibly changing temperature, pH, and volume, for example. While observing a changing population, there could be changing population numbers, total biomass, birth and death rates, consumption of resources, and production of products and waste.</p>
-  <p>Mathematically, the <term>system</term> consists of all possible observable quantities associated with the experiment or observed physical system. The <term>state</term> of the system refers to the collection of instantaneous values of all such quantities at a particular instant or configuration of the system. A <term>variable</term> represents a single quantity that is or could be observed in the system.</p>
-  
-  <example>
-  <p>Consider the following data about the population, births and deaths in the United States. To conserve space, the data are given using scientific notation expressed in the standard machine form where the power of 10 follows the letter E, so that <m>2.521 \times 10^8</m> would be written 2.521E8.</p>
-  <sidebyside margins="auto">
-    <tabular top="major" halign="center">
-      <col/> <col/> <col/> <col right="minor"/> <col right="minor"/>
-      <col/> <col/> <col/><col/>
-      <row bottom="minor">
-        <cell>Year</cell>
-        <cell>Population</cell>
-        <cell>Births</cell>
-        <cell>Deaths</cell>
-        <cell></cell>
-        <cell>Year</cell>
-        <cell>Population</cell>
-        <cell>Births</cell>
-        <cell>Deaths</cell>
-      </row>
-      <row>
-        <cell>1991</cell>
-        <cell>2.521E8</cell>
-        <cell>4.111E6</cell>
-        <cell>2.170E6</cell>
-        <cell></cell>
-        <cell>2001</cell>
-        <cell>2.850E8</cell>
-        <cell>4.026E6</cell>
-        <cell>2.416E6</cell>
-      </row>
-      <row>
-        <cell>1992</cell>
-        <cell>2.550E8</cell>
-        <cell>4.065E6</cell>
-        <cell>2.176E6</cell>
-        <cell></cell>
-        <cell>2002</cell>
-        <cell>2.876E8</cell>
-        <cell>4.022E6</cell>
-        <cell>2.443E6</cell>
-      </row>
-      <row>
-        <cell>1993</cell>
-        <cell>2.577E8</cell>
-        <cell>4.000E6</cell>
-        <cell>2.269E6</cell>
-        <cell></cell>
-        <cell>2003</cell>
-        <cell>2.901E8</cell>
-        <cell>4.090E6</cell>
-        <cell>2.448E6</cell>
-      </row>
-      <row>
-        <cell>1994</cell>
-        <cell>2.602E8</cell>
-        <cell>3.953E6</cell>
-        <cell>2.279E6</cell>
-        <cell></cell>
-        <cell>2004</cell>
-        <cell>2.928E8</cell>
-        <cell>4.112E6</cell>
-        <cell>2.397E6</cell>
-      </row>
-      <row>
-        <cell>1995</cell>
-        <cell>2.628E8</cell>
-        <cell>3.900E6</cell>
-        <cell>2.312E6</cell>
-        <cell></cell>
-        <cell>2005</cell>
-        <cell>2.955E8</cell>
-        <cell>4.138E6</cell>
-        <cell>2.448E6</cell>
-      </row>
-      <row>
-        <cell>1996</cell>
-        <cell>2.652E8</cell>
-        <cell>3.891E6</cell>
-        <cell>2.315E6</cell>
-        <cell></cell>
-        <cell>2006</cell>
-        <cell>2.984E8</cell>
-        <cell>4.266E6</cell>
-        <cell>2.426E6</cell>
-      </row>
-      <row>
-        <cell>1997</cell>
-        <cell>2.677E8</cell>
-        <cell>3.881E6</cell>
-        <cell>2.314E6</cell>
-        <cell></cell>
-        <cell>2007</cell>
-        <cell>3.012E8</cell>
-        <cell>4.316E6</cell>
-        <cell>2.424E6</cell>
-      </row>
-      <row>
-        <cell>1998</cell>
-        <cell>2.703E8</cell>
-        <cell>3.942E6</cell>
-        <cell>2.337E6</cell>
-        <cell></cell>
-        <cell>2008</cell>
-        <cell>3.041E8</cell>
-        <cell>4.248E6</cell>
-        <cell>2.472E6</cell>
-      </row>
-      <row>
-        <cell>1999</cell>
-        <cell>2.727E8</cell>
-        <cell>3.959E6</cell>
-        <cell>2.391E6</cell>
-        <cell></cell>
-        <cell>2009</cell>
-        <cell>3.068E8</cell>
-        <cell>4.131E6</cell>
-        <cell>2.437E6</cell>
-      </row>
-      <row bottom="medium">
-        <cell>2000</cell>
-        <cell>2.822E8</cell>
-        <cell>4.059E6</cell>
-        <cell>2.403E6</cell>
-        <cell></cell>
-        <cell>2010</cell>
-        <cell>3.094E8</cell>
-        <cell>3.999E6</cell>
-        <cell>2.468E6</cell>
-      </row>
-    </tabular>
-  </sidebyside>
-  
-  <p>Each row (corresponding to the population in a given year) represents a distinct state of the system. The system is characterized by the observed values, which consist of the year itself, the total population, the total number of births in the year, and the total number of deaths in the year. These three measurements are the variables of the system. The year should also be considered one of the variables (an independent variable) because we think of the other variables changing with respect to time.</p>
-  </example>
-  
-  <p>A symbol is often used to represent, or name, a variable. The symbol is often a letter, but could also be a Greek letter, an abbreviation, or a word. The choice of symbol should generally be related to the meaning of the variable. Uppercase and lowercase letters are different symbols and should not be interchanged with one another. An important part of communication is in stating clearly the variables of a system and identifying the symbols that are chosen to represent them.</p>
-  
-  <p>In the previous example, the population variable might be represented by the symbol <m>P</m> while the births and deaths might be represented by the symbols <m>B</m> and <m>D</m>. The year might be represented by the symbol <m>Y</m>. </p>
-
-  <example>
-    <p>In biology, scientists run electrophoresis gels to determine the size of polymers, such as proteins or DNA strands. The gel provides a porous structure for the polymers to travel through while an electric potential (voltage) creates a force that pulls the polymers through the gel. Different size polymers travel at different speeds.  The experiment is setup with all polymers starting at one end of the gel, the voltage is turned on for a certain amount of time and then disconnected. Clusters of similarly sized polymers are identified visually as bands on the gel, with smaller polymers traveling a greater distance. The following paragraph illustrates how variables might be introduced with their chosen symbols.</p>
-    
-    <p>The image below represents an electrophoresis gel run on a standardized collection of DNA of fixed sizes. Because the image does not show a length scale, the distances traveled by the different lengths are measured in image pixels and recorded in the table below. The variables for the experiment are the length of DNA segments and the distance traveled through the gel. Let <m>L</m> represent the length of the segment (in nucleotides) and let <m>D</m> represent the distance traveled (in pixels), measured from the center of the starting well to the center of the corresponding band in the image. Each row represents a single state <m>(L,D)</m> of the system. </p>
-    
-    <sidebyside margins="auto">
-      <image width="50%" source="images/ladder-gel.png" />
-    </sidebyside>
-    
-    <sidebyside margins="auto">
-      <tabular top="major" halign="center">
-        <row bottom="minor">
-          <cell><m>L</m> (nts)</cell>
-          <cell><m>D</m> (px)</cell>
-        </row>
-        <row>
-          <cell>100</cell>
-          <cell>342</cell>
-        </row>
-        <row>
-          <cell>200</cell>
-          <cell>327</cell>
-        </row>
-        <row>
-          <cell>300</cell>
-          <cell>312</cell>
-        </row>
-        <row>
-          <cell>400</cell>
-          <cell>299</cell>
-        </row>
-        <row>
-          <cell>500</cell>
-          <cell>288</cell>
-        </row>
-        <row>
-          <cell>600</cell>
-          <cell>278</cell>
-        </row>
-        <row>
-          <cell>700</cell>
-          <cell>270</cell>
-        </row>
-        <row>
-          <cell>800</cell>
-          <cell>263</cell>
-        </row>
-        <row>
-          <cell>900</cell>
-          <cell>256</cell>
-        </row>
-        <row bottom="medium">
-          <cell>1000</cell>
-          <cell>249</cell>
-        </row>
-      </tabular>
-    </sidebyside>
-    <p>Please note that without the earlier descriptive paragraph introducing the variables, this table  would have no context and would not be helpful to a reader. Any time you have data and refer to the data by variables, you need a few sentences that introduce the meaning of each variable along with the units of measurement.</p>
-  </example>
+    <example>
+      <p>
+        In biology, scientists run electrophoresis gels to determine the size of polymers, such as proteins or DNA strands.
+        The gel provides a porous structure for the polymers to travel through while an electric potential (voltage) creates a force that pulls the polymers through the gel.
+        Different size polymers travel at different speeds.
+        The experiment is setup with all polymers starting at one end of the gel, the voltage is turned on for a certain amount of time and then disconnected.
+        Clusters of similarly sized polymers are identified visually as bands on the gel, with smaller polymers traveling a greater distance.
+        The following paragraph illustrates how variables might be introduced with their chosen symbols.
+      </p>
+      <p>
+        The image below represents an electrophoresis gel run on a standardized collection of DNA of fixed sizes.
+        Because the image does not show a length scale, the distances traveled by the different lengths are measured in image pixels and recorded in the table below.
+        The variables for the experiment are the length of DNA segments and the distance traveled through the gel.
+        Let <m>L</m> represent the length of the segment (in nucleotides) and let <m>D</m> represent the distance traveled (in pixels), measured from the center of the starting well to the center of the corresponding band in the image.
+        Each row represents a single state <m>(L,D)</m> of the system.
+      </p>
+      <sidebyside margins="auto">
+        <image width="50%" source="images/ladder-gel.png" />
+      </sidebyside>
+      <sidebyside margins="auto">
+        <tabular top="major" halign="center">
+          <row bottom="minor">
+            <cell><m>L</m> (nts)</cell>
+            <cell><m>D</m> (px)</cell>
+          </row>
+          <row>
+            <cell>100</cell>
+            <cell>342</cell>
+          </row>
+          <row>
+            <cell>200</cell>
+            <cell>327</cell>
+          </row>
+          <row>
+            <cell>300</cell>
+            <cell>312</cell>
+          </row>
+          <row>
+            <cell>400</cell>
+            <cell>299</cell>
+          </row>
+          <row>
+            <cell>500</cell>
+            <cell>288</cell>
+          </row>
+          <row>
+            <cell>600</cell>
+            <cell>278</cell>
+          </row>
+          <row>
+            <cell>700</cell>
+            <cell>270</cell>
+          </row>
+          <row>
+            <cell>800</cell>
+            <cell>263</cell>
+          </row>
+          <row>
+            <cell>900</cell>
+            <cell>256</cell>
+          </row>
+          <row bottom="medium">
+            <cell>1000</cell>
+            <cell>249</cell>
+          </row>
+        </tabular>
+      </sidebyside>
+      <p>
+        Please note that without the earlier descriptive paragraph introducing the variables, this table  would have no context and would not be helpful to a reader.
+        Any time you have data and refer to the data by variables, you need a few sentences that introduce the meaning of each variable along with the units of measurement.
+      </p>
+    </example>
   </subsection>
   
   <subsection>
-  <title>Relationships Between Variables</title>
+    <title>Relationships Between Variables</title>
   
-  <p>The primary motivation for collecting data regarding different variables in the state of a system is to determine relationships between those variables. One of the ways that we look for relationships is using a <term>scatter plot</term>. A scatter plot is a graph showing the relationship between two variables. Suppose the two variables use symbols <m>x</m> and <m>y</m>. For each state of the system, there will have been observed values for both <m>x</m> and <m>y</m>. The graph will include points for each pair <m>(x,y)</m>.</p>
+    <p>
+      The primary motivation for collecting data regarding different variables in the state of a system is to determine relationships between those variables.
+      One of the ways that we look for relationships is using a <term>scatter plot</term>.
+      A scatter plot is a graph showing the relationship between two variables.
+      Suppose the two variables use symbols <m>x</m> and <m>y</m>.
+      For each state of the system, there will have been observed values for both <m>x</m> and <m>y</m>.
+      The graph will include points for each pair <m>(x,y)</m>.
+    </p>
+    <p>
+      Spreadsheets (like Microsoft Excel, Apple Numbers or Google Sheets) are a common tool to generate scatter plots.
+      The data are first put in a table.
+      The first column of data will correspond to the variable used for the horizontal axis (<m>x</m>) and the second column of data will correspond to the variable for the vertical axis (<m>y</m>).
+      Select the two columns at the same time and add a chart to your spreadsheet, choosing the scatter plot style of graph.
+      You should become familiar with how to create a scatter plot.
+      Always be sure that you label your axes.
+      You should always use the variables of the system rather than the generic names of <m>x</m> and <m>y</m>.
+    </p>
+    <p>
+      The following figure shows two different scatter plots for the electrophoresis gel data above.
+      One plot is based on the pairs <m>(L,D)</m> whereas the other is based on the pairs <m>(D,L)</m>.
+      These graphs contains the same information but viewed from a reverse perspective.
+    </p>
   
-  <p>Spreadsheets (like Microsoft Excel, Apple Numbers or Google Sheets) are a common tool to generate scatter plots. The data are first put in a table. The first column of data will correspond to the variable used for the horizontal axis (<m>x</m>) and the second column of data will correspond to the variable for the vertical axis (<m>y</m>). Select the two columns at the same time and add a chart to your spreadsheet, choosing the scatter plot style of graph. You should become familiar with how to create a scatter plot. Always be sure that you label your axes. You should always use the variables of the system rather than the generic names of <m>x</m> and <m>y</m>.</p>
-  
-  <p>The following figure shows two different scatter plots for the electrophoresis gel data above. One plot is based on the pairs <m>(L,D)</m> whereas the other is based on the pairs <m>(D,L)</m>. These graphs contains the same information but viewed from a reverse perspective.</p>
-  
-  <figure>
-    <caption>Scatter plot of electrophoresis data, displacement vs size and size vs displacement.</caption>
-    <image width="80%">
-      <description>
-      Scatter plot of electrophoresis data, displacement vs size and size vs displacement.
-      </description>
-      <latex-image-code>
-      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-      <![CDATA[\tikzset{%
-      /pgfplots/table/row sep=crcr
-      }
-      \pgfplotsset{ width=6cm }
-      \begin{tikzpicture}
-      \begin{axis}[
-        xlabel={$L$},
-        ylabel={$D$},
-      ]
-      \addplot[
-        only marks,
-        color=blue
-      ] table {
-        100 342\\
-        200 327\\
-        300 312\\
-        400 299\\
-        500 288\\
-        600 278\\
-        700 270\\
-        800 263\\
-        900 256\\
-        1000 249\\
-      };
-      \end{axis}
-      \end{tikzpicture}
-      \begin{tikzpicture}
-      \begin{axis}[
-        xlabel={$D$},
-        ylabel={$L$},
-      ]
-      \addplot[
-        only marks,
-        color=blue
-      ] table {
-        342 100\\
-        327 200\\
-        312 300\\
-        299 400\\
-        288 500\\
-        278 600\\
-        270 700\\
-        263 800\\
-        256 900\\
-        249 1000\\
-      };
-      \end{axis}
-      \end{tikzpicture}]]>
-      </latex-image-code>
-    </image>
-  </figure>
-
-  <p>When a system has a state defined by more than two variables, scatter plots can be defined for each pair of state variables. For example, the population data has four state variables, <m>(Y,P,B,D)</m>. Three scatter plots can be formed by plotting the population, the total births and the total deaths versus the year, giving graphs of points <m>(Y,P)</m>, <m>(Y,B)</m>, <m>(Y,D)</m>. Because the births and deaths are on the same scale, we can combine the plots as one. We could also plot the inverse relationships <m>(P,Y)</m>, <m>(B,Y)</m> and <m>(D,Y)</m>, but these really contain the same information from a different view.</p>
-  
-  <sidebyside margins="auto">
-    <image width="80%">
-      <description>
-      Scatter plot of population, births and deaths with respect to time.
-      </description>
-      <latex-image-code>
-      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-      <![CDATA[\tikzset{%
-      }
-      \pgfplotsset{ width=6cm }
-      \begin{tikzpicture}
-      \begin{axis}[
-        xlabel={Year},
-        ylabel={Population},
-      ]
-      \addplot[
-        only marks,
-        color=blue
-      ] table [x=Y, y=P] {data/pop-birth-death-demo.dat};
-      \end{axis}
-      \end{tikzpicture}
-      \begin{tikzpicture}
-      \begin{axis}[
-        xlabel={Year},
-        ylabel={Number},
-        ymin=0,
-        legend style={at={(0.95,0.05)},
-        anchor=south east,
-        legend entries={Births,Deaths}},
-      ]
-      \addplot[
-        only marks,
-        color=blue
-      ] table [x=Y, y=B] {data/pop-birth-death-demo.dat};
-      \addplot[
-        only marks,
-        color=red
-      ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
-      \end{axis}
-      \end{tikzpicture}]]>
-      </latex-image-code>
-    </image>
-  </sidebyside>
-  
-  <p>We can also look at relationships between other pairs of variables. For example, we can look at how the number of births or deaths relate to the population, plotting <m>(P,B)</m> and <m>(P,D)</m>, or how the number of births relate to the number of deaths with <m>(B,D)</m>. The graph showing the relation between births and deaths to time (above) is very similar to the graph showing the relation between births and deaths to population (below). However, the relation between the births and deaths illustrates that sometimes variables do not show a clear relation.</p>
-  
-  <sidebyside>
-    <image width="80%">
-      <description>
-      Scatter plot of population, births and deaths
-      with respect to each other.
-      </description>
-      <latex-image-code>
-      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-      <![CDATA[\tikzset{%
-      }
-      \pgfplotsset{ width=6cm }
-      \begin{tikzpicture}
-      \begin{axis}[
-        xlabel={Population},
-        ylabel={Number},
-        ymin=0,
-        legend style={at={(0.95,0.05)},
-        anchor=south east,
-        legend entries={Births,Deaths}},
-      ]
-      \addplot[
-        only marks,
-        color=blue
-      ] table [x=P, y=B] {data/pop-birth-death-demo.dat};
-      \addplot[
-        only marks,
-        color=red
-      ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
-      \end{axis}
-      \end{tikzpicture}
-      \begin{tikzpicture}
-      \begin{axis}[
-        xlabel={Births},
-        ylabel={Deaths},
-      ]
-      \addplot[
-        only marks,
-        color=blue
-      ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
-      \end{axis}
-      \end{tikzpicture}]]>
-      </latex-image-code>
-    </image>
-  </sidebyside>
-  </subsection>
-  
-  <subsection>
-  <title>Equations as Relations</title>
-  
-  <p>An equation gives an abstract representation of a relationship between variables. An <term>expression</term> is any formula involving numbers and variables. An <term>equation</term> is a statement that two expressions are equal. For some values of the variables, the equation may be false; for other values, the equation will be true. A <term>solution</term> to the equation is a set of values for the variables in the equation that makes the statement true. The <term>solution set</term> of an equation is the set of all possible solutions.</p>
-  
-  <p>Just as the state of an experimental system is defined by the value of the variables defining the state, an equation can be considered as a mathematical way to define relationships between variables of an abstract system. A scatter plot of data is generalized for an equation as a graph of all solutions.  If we choose an ordering for the variables (e.g., alphabetical),  the values for the variables can be conveniently listed as an ordered list. When two variables are involved in an equation, the ordered list is called an ordered pair or point, like <m>(x,y)</m>, and the graph of the equation is typically a curve in the plane.</p>
-  
-  <example>
-    <p>The equation <me>2x+3y = 12</me> involves two variables, <m>x</m> and <m>y</m>. The expressions in the equation are <m>2x+3y</m> and <m>12</m>. The values <m>x=3</m> and <m>y=2</m>, corresponding to the ordered pair <m>(x,y)=(3,2)</m>, provide one solution because for those values, <me>2x+3y = 2(3)+3(2)=12,</me> so that the equation is true. On the other hand, <m>(x,y)=(4,1)</m> is not a solution because  for that state, <me>2x+3y = 2(4)+3(1)=11</me> and <m>11 \ne 12</m>. Some other solutions include the points <m>(6,0)</m> and <m>(0,4)</m>.</p>
-    
-    <p>You should have recognized that this equation is an equation of a line. (See Appendix <xref ref="appendix-linear-functions"/>.) That is, the solutions we identified above of <m>(3,2)</m>, <m>(6,0)</m> and <m>(0,4)</m>, along with all other solutions, will lie on the same line in the plane.</p>
-    
-    <sidebyside margins="auto">
-    <image width="50%">
-      <description>
-      Graph of solutions to 2x+3y=12.
-      </description>
-      <latex-image-code>
-      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-      <![CDATA[\tikzset{%
-      /pgfplots/table/row sep=crcr
-      }
-      \pgfplotsset{ width=6cm }
-      \begin{tikzpicture}
-      \begin{axis}[
-        xmin=-2, xmax=8,
-        xlabel={$x$},
-        ylabel={$y$},
-      ]
-      \addplot[
-        only marks,
-        color=blue
-      ] table {
-        0 4\\
-        3 2\\
-        6 0\\
-      };
-      \addplot[
-        only marks,
-        color=red
-      ] table {
-        4 1 \\
-      };
-      \addplot[blue, samples=100, domain=-3:9]
-        ({x}, {(12-2*x)/3});
-      \end{axis}
-      \end{tikzpicture}]]>
-      </latex-image-code>
-    </image>
-    </sidebyside>
-  </example>
-
-  <example>
-    <p>The equation <me>u^2+v^2=16+6u</me> also involves two variables, <m>u</m> and <m>v</m>. The expressions in the equation are <m>u^2+v^2</m> and <m>16+6u</m>. Using ordered pairs <m>(u,v)</m>, the points <m>(3,5)</m> and <m>(3,-5)</m> are solutions. That is, if <m>(u,v)=(3,5)</m>, the expressions have the same value: <md>
-      <mrow> u^2+v^2 &amp;= 3^2+5^2=9+25 = 34,</mrow>
-      <mrow> 16+6u &amp;= 16+6(3) = 16+18 = 34.</mrow>
-    </md> It is possible to show that the graph of solutions for this equation is a circle centered at <m>(3,0)</m> with radius 5. Other points on this circle include such points as <m>(-2,0)</m> and <m>(6,-4)</m>. You should verify that these are also solutions, at least for one or two points to reinforce the idea that a solution makes the statement of the equation true.</p>
-    
-    <sidebyside margins="auto">
-      <image width="50%">
+    <figure>
+      <caption>Scatter plot of electrophoresis data, displacement vs size and size vs displacement.</caption>
+      <image width="80%">
         <description>
-        Graph of solutions to u^2+v^2=16+6u.
+        Scatter plot of electrophoresis data, displacement vs size and size vs displacement.
         </description>
         <latex-image-code>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -457,155 +311,26 @@
         \pgfplotsset{ width=6cm }
         \begin{tikzpicture}
         \begin{axis}[
-          xmin=-4, xmax=10,
-          xlabel={$u$},
-          ylabel={$v$},
+          xlabel={$L$},
+          ylabel={$D$},
         ]
         \addplot[
           only marks,
           color=blue
         ] table {
-          3 5\\
-          3 -5\\
-          -2 0\\
-          -1 3\\
-          6 -4\\
+          100 342\\
+          200 327\\
+          300 312\\
+          400 299\\
+          500 288\\
+          600 278\\
+          700 270\\
+          800 263\\
+          900 256\\
+          1000 249\\
         };
-        \addplot[blue, samples=100, domain=0:360]
-          ({3+5*cos(x)}, {5*sin(x)});
         \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image-code>
-      </image>
-    </sidebyside>
-  </example>
-  
-  <p>An equation gives us a constraint on the relationships between a system's variables. Knowing values of other variables or additional constraints, we are able to solve an equation to gain additional information.</p>
-  
-  <example>
-    <statement>
-      <p>Consider the equation of the circle <me>u^2+v^2=16+6u</me> used in the previous example. Find the solutions for which <m>u=-1</m> and then find the solutions for which <m>v=2</m>.</p>
-    </statement>
-    <solution>
-      <p>First, to solve the equation when <m>u=-1</m>, we substitute the value of <m>u=-1</m> and then use algebra to isolate <m>v</m>. <md>
-        <mrow>u^2+v^2=16+6u</mrow>
-        <mrow>(-1)^2+v^2 = 16 + 6(-1)</mrow>
-        <mrow>1+v^2=10</mrow>
-        <mrow>v^2=9</mrow>
-        <mrow>v=\pm 3</mrow>
-      </md> There are two values for <m>v</m> when <m>u=-1</m>. The solutions are the states <m>(u,v)=(-1,3)</m> and <m>(u,v)=(-1,-3)</m>.</p>
-      <p>Next, to solve the equation when <m>v=2</m>, we substitute the value <m>v=2</m>. However, because <m>u</m> appears in the equation with terms <m>u^2</m> and <m>6u</m>, we can not combine terms to isolate <m>u</m>. Instead, we need to use the <xref ref="quadratic-formula">quadratic formula</xref>.<md>
-        <mrow>u^2+v^2=16+6u</mrow>
-        <mrow>u^2+(2)^2 = 16 + 6u</mrow>
-        <mrow>u^2+4=16+6u</mrow>
-        <mrow>u^2-6u-12=0</mrow>
-        <mrow>u=\frac{6 \pm \sqrt{(-6)^2-4(-12)}}{2}</mrow>
-        <mrow>u=\frac{6 \pm \sqrt{84}}{2} = \frac{6 \pm 2\sqrt{21}}{2}</mrow>
-        <mrow>u=3 \pm \sqrt{21}</mrow>
-      </md> Again, two states are solutions, <m>(u,v)=(3+\sqrt{21},2)</m> and <m>(u,v)=(3-\sqrt{21},2)</m>.</p>
-    </solution>
-  </example>
-  
-  <example>
-    <statement>
-      <p>Is it possible to enclose an area of 25 <quantity><unit base="meter" exp="2"/></quantity> in a rectangle with perimeter of 18 <quantity><unit base="meter"/></quantity>? If so, how?</p>
-    </statement>
-    <solution>
-      <p>In this problem, we need to identify the relevant variables for the system and the equations that constrain the state. We are working with a rectangle, which is characterized by a length and a width. Let us draw a figure and use variables <m>L</m> for the length and <m>W</m> for the width.</p>
-      <sidebyside margins="auto">
-        <image width="50%"> 
-          <latex-image-code>
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}
-          \draw (0,0) -- (4,0) node[pos=0.5,above] {$L$}
-          -- (4,3) node[pos=0.5,right] {$W$}
-          -- (0,3) -- (0,0);
-          \end{tikzpicture}]]>
-          </latex-image-code>
-        </image>
-      </sidebyside>
-      <p>We have two more state variables, the perimeter <m>P</m> and the area <m>A</m>. Geometry gives us two equations that constrain the state of the system <m>(L,W,P,A)</m>: <md>
-        <mrow>P=2L+2W,</mrow>
-        <mrow>A=L \cdot W.</mrow>
-      </md> The problem gives us two additional pieces of information, <m>P=18</m> and <m>A=25</m>. When we substitute those values of the state into the equations, we have two equations for two variables: <me>2L+2W=18, \qquad L \cdot W = 25.</me> In order to solve these equations, we use one equation to isolate one of the variables, say <m>L</m>, and then substitute the resulting expression into the other equation. <md>
-        <mrow>2L+2W=18 \qquad \Rightarrow \qquad L=9-W</mrow>
-        <mrow>L\cdot W = 25 \qquad \Rightarrow \qquad (9-W)W = 25</mrow>
-      </md> Then we solve the equation that only involves <m>W</m>. <md>
-        <mrow>(9-W)W = 25</mrow>
-        <mrow>9W-W^2=25</mrow>
-        <mrow>W^2-9W+25=0</mrow>
-        <mrow>W=\frac{9 \pm \sqrt{(-9)^2-4(25)}}{2}</mrow>
-        <mrow>W=\frac{9 \pm \sqrt{81-100}}{2}=\frac{9\pm \sqrt{-19}}{2}</mrow>
-      </md> When solving this quadratic formula, we have the square-root of a negative number giving complex numbers.</p>
-      <p>In conclusion, we found that there are no real solutions. This means that it is not possible to create a rectangle with a perimeter of 18 <quantity><unit base="meter"/></quantity> and an area of 25 <quantity><unit base="meter" exp="2"/></quantity>.</p>
-    </solution>
-  </example>
-  
-  <p>For a review on algebra strategies for solving equations, refer to the appendix.</p>
-  
-  </subsection>
-  <subsection>
-  <title>Trend Lines and Regression Curves</title>
-
-  <p>Mathematical equations are exact. Real data exhibit uncertainty and randomness. Although they do not capture the uncertainty of data, equations can be used to model the trend or average presented by the data. A <term>trend line</term> or <term>trend curve</term> (if not linear) is a model that captures the general behavior of the data and stays close to the scatter points. Most spreadsheets and graphing calculators have an option to show a <term>line of best fit</term> for a scatter plot, which is an example of a trend line. The process these programs use is called <term>regression</term>. They usually report the equation of the regression curve using the generic variable symbols <m>x</m> and <m>y</m>, so it is the researcher's responsibility to interpret the equation in terms of the true variables.</p>
-  
-  <p>A trend line or a trend curve allow us to predict values where there are not observed data. When the prediction occurs between observed data, such prediction is called <term>interpolation</term>. If the prediction is occurring beyond the extremes of the data, such prediction is called <term>extrapolation</term>. Often, a formula may not describe all of the data but provides a good approximation for certain values. Interpolation is usually safer than extrapolation, which might attempt to use the formula in a region where the approximation is not good.</p>
-
-  <example>
-    <p>Consider the population example with the scatter plot of the number of deaths plotted with respect to the total population size, and predict the number of deaths in a year if the population were 300 million.</p>
-    <p>A spreadsheet reported the trend line of this data set with an equation <me>y=0.0049x+992711.</me> Because the scatter plot had <m>P</m> on the horizontal axis and <m>D</m> on the vertical axis, the more appropriate equation would be <me>D=0.0049P+992711.</me> A spreadsheet may not give enough precision in the model equation when using the default settings. Note that the equation reported above only has two significant digits in the slope value but an apparent 6 significant digits in the intercept. By changing the settings for the equation of the trend line, we get a more precise model <me> D = 4.86666 \times 10^{-3} P + 9.92711 \times 10^5. </me> Depending on the values of the data, the greater accuracy might make a significant difference.</p>
-    
-    <sidebyside margins="auto">
-      <image width="50%">
-        <description>
-        Scatter plot of population, births and deaths
-        with respect to each other.
-        </description>
-        <latex-image-code>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \pgfplotsset{ width=6cm }
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Population},
-          ylabel={Deaths},
-          legend style={at={(0.95,0.05)},
-          anchor=south east,
-          legend entries={Deaths,Trend}},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
-        \addplot[black, samples=100, domain=2.5e8:3.2e8]
-          ({x}, {0.004867*x+992711});
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image-code>
-      </image>
-    </sidebyside>
-    
-    <p>Let us compare the two models with a population of 300 million, <m>P=300\times 10^6</m>. The first model, which only has two significant digits in the first coefficient, gives <me>D = 0.0049(3\times 10^8) + 992711 = 2462711.</me> Because one coefficient only had two significant digits, we can only expect the first two digits are accurate, thus predicting <m>D=2.5</m> million deaths in the year. Using the second model with six digits of accuracy in both coefficients, we find <me>D = 4.86666 \times 10^{-3} \cdot 3 \times 10^{8} + 992711 = 2452709.</me> With six digits of accuracy, this predicts <m>D=2,452,710</m> deaths in the year.</p>
-  </example>
-  
-  <p>Regression models do not really predict actual outcomes. They are generally based on noisy data, including measurement errors and randomness in sampling. Rather, they might be better interpreted as an expected average prediction. Having an actual value that is different from the value predicted by the regression model is expected. One of the key questions that statistics helps address is understanding when observed outcomes are sufficiently different from a prediction that we might reasonably reject our model as being inappropriate.</p>
-
-  <example>
-    <p>Consider the electrophoresis gel scatter plot with the length of the DNA <m>L</m> graphed with respect to the distance traveled in the gel <m>D</m>. The data appear to follow a nice curve without a lot of uncertainty. Using a polynomial trend, a spreadsheet reports the following equation for the data: <me> y = 0.0573x^2-43.381x+8241.6.</me> Using the appropriate variables for the problem, this equation should be rewritten as <me> L = 0.0573D^2-43.381D+8241.6.</me> The graph of the data with the trend curve is shown below.</p>
-
-    <sidebyside>
-      <image width="50%">
-        <description>
-        Scatter plot of electrophoresis data, size vs displacement, with trend.
-        </description>
-        <latex-image-code>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        /pgfplots/table/row sep=crcr
-        }
-        \pgfplotsset{ width=6cm }
+        \end{tikzpicture}
         \begin{tikzpicture}
         \begin{axis}[
           xlabel={$D$},
@@ -626,19 +351,392 @@
           256 900\\
           249 1000\\
         };
-        \addplot[black, samples=100, domain=240:350]
-          ({x}, {0.0573*x^2-43.381*x+8241.6});
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image-code>
+      </image>
+    </figure>
+    <p>
+      When a system has a state defined by more than two variables, scatter plots can be defined for each pair of state variables.
+      For example, the population data has four state variables, <m>(Y,P,B,D)</m>.
+      Three scatter plots can be formed by plotting the population, the total births and the total deaths versus the year, giving graphs of points <m>(Y,P)</m>, <m>(Y,B)</m>, <m>(Y,D)</m>.
+      Because the births and deaths are on the same scale, we can combine the plots as one.
+      We could also plot the inverse relationships <m>(P,Y)</m>, <m>(B,Y)</m> and <m>(D,Y)</m>, but these really contain the same information from a different view.
+    </p>
+    <sidebyside margins="auto">
+      <image width="80%">
+        <description>
+        Scatter plot of population, births and deaths with respect to time.
+        </description>
+        <latex-image-code>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Year},
+          ylabel={Population},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table [x=Y, y=P] {data/pop-birth-death-demo.dat};
+        \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Year},
+          ylabel={Number},
+          ymin=0,
+          legend style={at={(0.95,0.05)},
+          anchor=south east,
+          legend entries={Births,Deaths}},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table [x=Y, y=B] {data/pop-birth-death-demo.dat};
+        \addplot[
+          only marks,
+          color=red
+        ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
         \end{axis}
         \end{tikzpicture}]]>
         </latex-image-code>
       </image>
     </sidebyside>
-    
-    <p>Knowing a model equation that conveniently characterizes a data set allows us to use that equation to predict values that do not occur within the data set itself. For example, suppose we had another DNA sample of unknown length that traveled a distance of <m>D=282</m> pixels. Using our value for <m>D</m>, we can find the value of <m>L</m> using the model, <me>L = 0.0573(282)^2 - 43.381(282)+8241.6 = 564.8832.</me> Since our original data had 3 significant digits, we would estimate the length of the DNA in question as <m>L \approx 565</m> nucleotides.</p>
-  </example>    
-
-  <p>Again, you should note that the number of significant digits reported is not the same as the uncertainty in the prediction. The degree to which the original data vary around the trend curve leads to uncertainty in the coefficients of the regression model and subsequent uncertainty to the trend curve itself. However, analysis of this uncertainty is a topic for statistics and is outside the scope of this text.</p>
   
+    <p>
+      We can also look at relationships between other pairs of variables.
+      For example, we can look at how the number of births or deaths relate to the population, plotting <m>(P,B)</m> and <m>(P,D)</m>, or how the number of births relate to the number of deaths with <m>(B,D)</m>.
+      The graph showing the relation between births and deaths to time (above) is very similar to the graph showing the relation between births and deaths to population (below).
+      However, the relation between the births and deaths illustrates that sometimes variables do not show a clear relation.
+    </p>
+  
+    <sidebyside width="80%">
+      <image>
+        <description>
+        Scatter plot of population, births and deaths with respect to each other.
+        </description>
+        <latex-image-code>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Population},
+          ylabel={Number},
+          ymin=0,
+          legend style={at={(0.95,0.05)},
+          anchor=south east,
+          legend entries={Births,Deaths}},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table [x=P, y=B] {data/pop-birth-death-demo.dat};
+        \addplot[
+          only marks,
+          color=red
+        ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
+        \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Births},
+          ylabel={Deaths},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image-code>
+      </image>
+    </sidebyside>
+  </subsection>
+  
+  <subsection>
+    <title>Expressions and Properties of Algebra</title>
+    <p>
+      In algebra, we often use variables as placeholders for numerical values.
+      The variable is given a symbol, usually a letter like <m>x</m>, that takes the place of the value.
+      Some times, this is because we want to describe a calculation without referencing a specific value.
+      Other times, we want a specific but unknown value and use a variable as a name.
+    </p>
+    <p>
+      An <term>expression</term> is any formula involving numbers and variables.
+      An expression itself represents a numerical value.
+      When an expression involves variables, the value of the expression itself is unknown until the values of all variables are known.
+      We say that the expression is a <term>dependent variable</term> and often represent its value by a symbol.
+    </p>
+    <example>
+      <p>
+        For a business that earns money by selling a number of items each of which is sold for the same price,
+        the <term>revenue</term> (money brought in through sales) is computed by multiplying the number of items sold by the price of each item.
+        We can summarize this statement defining revenue using algebra if we represent the state variables by symbols.
+        Let <m>R</m> represent the revenue, let <m>n</m> represent the number of items sold, and let <m>p</m> represent the price of each item.
+        The product <m>n \cdot p</m> is the expression representing the product of the number of items and the price per item.
+        We use the equation <me>R = n \cdot p</me> to describe that the revenue is computed by this expression.
+      </p>
+      <p>
+        We see that the revenue <m>R</m> is defined here as a dependent variable based on the values of <m>n</m> and <m>p</m>.
+        If we know the value of both <m>n</m> and <m>p</m>, then we will know the value of <m>R</m>.
+        For example, if the company sells <m>n=1000</m> items and sets a price of <m>p=1.25</m> dollars,
+        then the revenue is <m>R = 1000 \cdot 1.25 = 1250</m> dollars.
+      </p>
+    </example>
+    <p>
+      Different expressions can represent the same value.
+      For example, <m>x+x</m> and <m>2x</m> are different expressions<mdash/>they describe different calculations<mdash/>but they always have the same value.
+      We say that two expressions are <term>equivalent</term> if they result in the same value for all possible values of the involved variables.
+      The properties of algebra describe the rules for how to create equivalent expressions.
+    </p>
+    <assemblage xml:id="assemblage-algebra-properties">
+      <title>Elementary Properties of Algebra</title>
+      <p>
+        For any expressions <m>x</m>, <m>y</m>, and <m>z</m>, the following expressions are equivalent.
+        <ul>
+          <li><term>Additive identity</term> (zero): <m>x+0=x</m>.</li>
+          <li><term>Multiplicative identity</term> (one): <m>1 \cdot x = x</m>.</li>
+          <li>
+            For every value <m>x</m>, there is an <term>additive inverse</term> value 
+            written <m>-x</m> so that <m>x+-x=0</m>.
+            It is always the case that <m>-x = -1 \cdot x</m>.
+          </li>
+          <li>
+            For every non-zero value <m>x</m> (<m>x \ne 0</m>), 
+            there is a <term>multiplicative inverse</term> value
+            written <m>\div x</m> so that <m>x \cdot \div x=1</m>.
+            When <m>x \ne 0</m>, we have <m>\div x = \frac{1}{x}</m>, 
+            which is why the inverse of <m>x</m> is also called the <term>reciprocal</term>.
+          </li>
+          <li><term>Commutative properties</term>: <m>x+y = y+x</m> and <m>x \cdot y = y \cdot x</m>.</li>
+          <li><term>Associative properties</term>: <m>(x+y)+z = x+(y+z)</m> and <m>(x \cdot y) \cdot z = (x \cdot y) \cdot z</m>.</li>
+          <li><term>Distributive property</term> of multiplication over addition: <m>x \cdot (y+z) = x \cdot y + x \cdot z</m>.</li>
+        </ul>
+      </p>
+    </assemblage>
+    <p>
+      An equation gives an abstract representation of a relationship between variables.
+      An <term>expression</term> is any formula involving numbers and variables.
+      An <term>equation</term> is a statement that two expressions are equal.
+      For some values of the variables, the equation may be false; for other values, the equation will be true.
+      A <term>solution</term> to the equation is a set of values for the variables in the equation that makes the statement true.
+      The <term>solution set</term> of an equation is the set of all possible solutions.
+    </p>
+    <p>
+      Just as the state of an experimental system is defined by the value of the variables defining the state, an equation can be considered as a mathematical way to define relationships between variables of an abstract system.
+      A scatter plot of data is generalized for an equation as a graph of all solutions.
+      If we choose an ordering for the variables (e.g., alphabetical),  the values for the variables can be conveniently listed as an ordered list.
+      When two variables are involved in an equation, the ordered list is called an ordered pair or point, like <m>(x,y)</m>, and the graph of the equation is typically a curve in the plane.
+    </p>
+    <example>
+      <p>
+        The equation <me>2x+3y = 12</me> involves two variables, <m>x</m> and <m>y</m>.
+        The expressions in the equation are <m>2x+3y</m> and <m>12</m>.
+        The values <m>x=3</m> and <m>y=2</m>, corresponding to the ordered pair <m>(x,y)=(3,2)</m>, provide one solution because for those values, <me>2x+3y = 2(3)+3(2)=12,</me> so that the equation is true.
+        On the other hand, <m>(x,y)=(4,1)</m> is not a solution because  for that state, <me>2x+3y = 2(4)+3(1)=11</me> and <m>11 \ne 12</m>.
+        Some other solutions include the points <m>(6,0)</m> and <m>(0,4)</m>.
+      </p>
+      <p>
+        You should have recognized that this equation is an equation of a line.
+        (See Appendix <xref ref="appendix-linear-functions"/>.)
+        That is, the solutions we identified above of <m>(3,2)</m>, <m>(6,0)</m> and <m>(0,4)</m>, along with all other solutions, will lie on the same line in the plane.
+      </p>
+      <sidebyside width="50%" margins="auto">
+        <image>
+          <description>
+          Graph of solutions to 2x+3y=12.
+          </description>
+          <latex-image-code>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          /pgfplots/table/row sep=crcr
+          }
+          \pgfplotsset{ width=6cm }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xmin=-2, xmax=8,
+            xlabel={$x$},
+            ylabel={$y$},
+          ]
+          \addplot[
+            only marks,
+            color=blue
+          ] table {
+            0 4\\
+            3 2\\
+            6 0\\
+          };
+          \addplot[
+            only marks,
+            color=red
+          ] table {
+            4 1 \\
+          };
+          \addplot[blue, samples=100, domain=-3:9]
+            ({x}, {(12-2*x)/3});
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image-code>
+        </image>
+      </sidebyside>
+    </example>
+    <example>
+      <p>
+        The equation <me>u^2+v^2=16+6u</me> also involves two variables, <m>u</m> and <m>v</m>.
+        The expressions in the equation are <m>u^2+v^2</m> and <m>16+6u</m>.
+        Using ordered pairs <m>(u,v)</m>, the points <m>(3,5)</m> and <m>(3,-5)</m> are solutions.
+        That is, if <m>(u,v)=(3,5)</m>, the expressions have the same value:
+        <md>
+          <mrow> u^2+v^2 &amp;= 3^2+5^2=9+25 = 34,</mrow>
+          <mrow> 16+6u &amp;= 16+6(3) = 16+18 = 34.</mrow>
+        </md>
+        It is possible to show that the graph of solutions for this equation is a circle centered at <m>(3,0)</m> with radius 5.
+        Other points on this circle include such points as <m>(-2,0)</m> and <m>(6,-4)</m>.
+        You should verify that these are also solutions, at least for one or two points to reinforce the idea that a solution makes the statement of the equation true.
+      </p>
+      <sidebyside width="50%" margins="auto">
+        <image>
+          <description>
+          Graph of solutions to u^2+v^2=16+6u.
+          </description>
+          <latex-image-code>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          /pgfplots/table/row sep=crcr
+          }
+          \pgfplotsset{ width=6cm }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xmin=-4, xmax=10,
+            xlabel={$u$},
+            ylabel={$v$},
+          ]
+          \addplot[
+            only marks,
+            color=blue
+          ] table {
+            3 5\\
+            3 -5\\
+            -2 0\\
+            -1 3\\
+            6 -4\\
+          };
+          \addplot[blue, samples=100, domain=0:360]
+            ({3+5*cos(x)}, {5*sin(x)});
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image-code>
+        </image>
+      </sidebyside>
+    </example>
+    <p>
+      An equation gives us a constraint on the relationships between a system's variables.
+      Knowing values of other variables or additional constraints, we are able to solve an equation to gain additional information.
+    </p>  
+    <example>
+      <statement>
+        <p>
+          Consider the equation of the circle <me>u^2+v^2=16+6u</me> used in the previous example.
+          Find the solutions for which <m>u=-1</m> and then find the solutions for which <m>v=2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, to solve the equation when <m>u=-1</m>, we substitute the value of <m>u=-1</m> and then use algebra to isolate <m>v</m>.
+          <md>
+            <mrow>u^2+v^2=16+6u</mrow>
+            <mrow>(-1)^2+v^2 = 16 + 6(-1)</mrow>
+            <mrow>1+v^2=10</mrow>
+            <mrow>v^2=9</mrow>
+            <mrow>v=\pm 3</mrow>
+          </md>
+          There are two values for <m>v</m> when <m>u=-1</m>.
+          The solutions are the states <m>(u,v)=(-1,3)</m> and <m>(u,v)=(-1,-3)</m>.
+        </p>
+        <p>
+          Next, to solve the equation when <m>v=2</m>, we substitute the value <m>v=2</m>.
+          However, because <m>u</m> appears in the equation with terms <m>u^2</m> and <m>6u</m>, we can not combine terms to isolate <m>u</m>.
+          Instead, we need to use the <xref ref="quadratic-formula">quadratic formula</xref>.
+          <md>
+            <mrow>u^2+v^2=16+6u</mrow>
+            <mrow>u^2+(2)^2 = 16 + 6u</mrow>
+            <mrow>u^2+4=16+6u</mrow>
+            <mrow>u^2-6u-12=0</mrow>
+            <mrow>u=\frac{6 \pm \sqrt{(-6)^2-4(-12)}}{2}</mrow>
+            <mrow>u=\frac{6 \pm \sqrt{84}}{2} = \frac{6 \pm 2\sqrt{21}}{2}</mrow>
+            <mrow>u=3 \pm \sqrt{21}</mrow>
+          </md>
+          Again, two states are solutions, <m>(u,v)=(3+\sqrt{21},2)</m> and <m>(u,v)=(3-\sqrt{21},2)</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Is it possible to enclose an area of 25 <quantity><unit base="meter" exp="2"/></quantity> in a rectangle with perimeter of 18 <quantity><unit base="meter"/></quantity>?
+          If so, how?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In this problem, we need to identify the relevant variables for the system and the equations that constrain the state.
+          We are working with a rectangle, which is characterized by a length and a width.
+          Let us draw a figure and use variables <m>L</m> for the length and <m>W</m> for the width.
+        </p>
+        <sidebyside width="50%" margins="auto">
+          <image> 
+            <latex-image-code>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw (0,0) -- (4,0) node[pos=0.5,above] {$L$}
+            -- (4,3) node[pos=0.5,right] {$W$}
+            -- (0,3) -- (0,0);
+            \end{tikzpicture}]]>
+            </latex-image-code>
+          </image>
+        </sidebyside>
+        <p>
+          We have two more state variables, the perimeter <m>P</m> and the area <m>A</m>.
+          Geometry gives us two equations that constrain the state of the system <m>(L,W,P,A)</m>:
+          <md>
+            <mrow>P=2L+2W,</mrow>
+            <mrow>A=L \cdot W.</mrow>
+          </md>
+          The problem gives us two additional pieces of information, <m>P=18</m> and <m>A=25</m>.
+          When we substitute those values of the state into the equations, we have two equations for two variables:
+          <me>2L+2W=18, \qquad L \cdot W = 25.</me>
+          In order to solve these equations, we use one equation to isolate one of the variables,
+          say <m>L</m>, and then substitute the resulting expression into the other equation.
+          <md>
+            <mrow>2L+2W=18 \qquad \Rightarrow \qquad L=9-W</mrow>
+            <mrow>L\cdot W = 25 \qquad \Rightarrow \qquad (9-W)W = 25</mrow>
+          </md>
+          Then we solve the equation that only involves <m>W</m>.
+          <md>
+            <mrow>(9-W)W = 25</mrow>
+            <mrow>9W-W^2=25</mrow>
+            <mrow>W^2-9W+25=0</mrow>
+            <mrow>W=\frac{9 \pm \sqrt{(-9)^2-4(25)}}{2}</mrow>
+            <mrow>W=\frac{9 \pm \sqrt{81-100}}{2}=\frac{9\pm \sqrt{-19}}{2}</mrow>
+          </md>
+          When solving this quadratic formula, we have the square-root of a negative number giving complex numbers.
+        </p>
+        <p>
+          In conclusion, we found that there are no real solutions.
+          This means that it is not possible to create a rectangle with a perimeter of 18 <quantity><unit base="meter"/></quantity> and an area of 25 <quantity><unit base="meter" exp="2"/></quantity>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      For a review on algebra strategies for solving equations, refer to the appendix.
+    </p>
   </subsection>
   
   <subsection>
@@ -650,7 +748,6 @@
       <li><p>A relation between two variables can often be visualized graphically using a scatterplot. An equation is the mathematical idealization of a relation.</p></li>
       <li><p>A solution to an equation is a state (values specified for all variables) that makes the equation true. The solution set is the set of all possible solutions.</p></li>
       <li><p>Solving an equation for the value of one variable when the value of the other variable is given allows us to predict the state of a system.</p></li>
-      <li><p>Using regression to find a trend line or regression curve can give an approximate relation corresponding to observed data. Treating the resulting equation as a model equation can give approximate predictions of states of the system.</p></li>
     </ul></p>
   </subsection>
   
@@ -687,8 +784,8 @@
     <exercise>
       <statement>
       <p>Is it possible to enclose an area of 50 <quantity><unit base="meter" exp="2"/></quantity> in two congruent rectangles that share an edge such that the total length of edges is 40 <quantity><unit base="meter"/></quantity> (counting the shared edge only once)? If so, how? You will need to choose your variables and construct appropriate model equations.</p>
-      <sidebyside margins="auto">
-        <image width="40%"> 
+      <sidebyside width="40%" margins="auto">
+        <image> 
           <latex-image-code>
           <![CDATA[\tikzset{%
           }
