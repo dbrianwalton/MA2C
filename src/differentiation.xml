@@ -65,7 +65,7 @@
     <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>. Further, <m>k</m> is
     assumed to be a constant.
     </p>
-    <table xml:id="table-derivative-rules">
+    <sidebyside xml:id="table-derivative-rules">
         <tabular top="major" halign="left">
         <row>
             <cell>
@@ -110,7 +110,7 @@
             <cell>Chain Rule</cell>
         </row>
         </tabular>
-    </table>
+    </sidebyside>
     </statement>
     </theorem>
     
@@ -345,9 +345,9 @@
     So the change in area is <m>25 \: \hbox{mi}^2</m> over 10 years so the average
     rate of change of area is <m>\frac{25}{10} = 2.5\: \hbox{mi}^2/\hbox{yr}</m>.
     </p>
-    <figure>
+    <sidebyside>
         <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -359,9 +359,9 @@
             \draw[<->] (-0.15,0) -- (-0.15,1.5) node [pos=0.5, left] {$H(0)=3$};
             \draw[<->] (4.15,0) -- (4.15,2.5) node [pos=0.5, right] {$H(10)=5$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
-    </figure>
+    </sidebyside>
     <p>
     To connect our intuition with functions and to prepare for the
     next calculations, let us introduce some variables. The 
@@ -419,9 +419,9 @@
     while the small rectangle leads to a term that has a limit of zero in the calculation
     of the derivative.
     </p>
-    <figure>
+    <sidebyside>
         <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -436,9 +436,9 @@
             \draw[<-] (-0.05, 3.05) -- (-0.5, 3) node[left] {$\Delta H$};
             \draw[<-] (5.075, -0.05) -- (5.15,-0.5) node[below] {$\Delta W$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
-    </figure>
+    </sidebyside>
     </solution>
     </example>
     

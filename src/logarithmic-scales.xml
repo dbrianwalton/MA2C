@@ -64,15 +64,12 @@
         </p>
         
         <figure>
-            <caption>
-            Addition of the numbers 8 and -3 using arithmetic number lines 
-            ends at <m>8+-3=5</m>.
-            </caption>
+            <caption>Addition of the numbers 8 and -3 using arithmetic number lines ends at <m>8+-3=5</m>.</caption>
             <image xml:id="fig-number-line-addition">
                 <description>
                 Addition of the numbers 8 and -3 using arithmetic number lines.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -86,7 +83,7 @@
                     \draw ($ (\x+8,-1+0.1) $) -- ($ (\x+8,-1-0.1) $) node[below] {\x};
                 \draw [very thick, red, ->] (8,-1) -- (5,-1);
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
         </figure>
         
@@ -112,15 +109,12 @@
         </p>
 
         <figure>
-            <caption>
-            Multiplication of the numbers 3 and 5 using logarithmic number lines 
-            ends at <m>3 \cdot 5=15</m>.
-            </caption>
+            <caption>Multiplication of the numbers 3 and 5 using logarithmic number lines ends at <m>3 \cdot 5=15</m>.</caption>
             <image xml:id="fig-lognumber-line-multiplication">
                 <description>
                 Multiplication of the numbers 3 and 5 using logarithmic number lines.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -140,7 +134,7 @@
                 \draw [very thick, red, ->] ($ ({ln(3)/ln(2)},-1) $) -- ($ ({ln(15)/ln(2)},-1) $);
 
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
         </figure>
         
@@ -161,15 +155,13 @@
         </p>
 
         <figure>
-            <caption>
-            The logarithm base <m>b=3</m> uses the logarithmic scale
-            with a unit length corresponding to <m>b=3</m>.
+            <caption>The logarithm base <m>b=3</m> uses the logarithmic scale with a unit length corresponding to <m>b=3</m>.
             </caption>
             <image xml:id="fig-logarithm-by-numberline">
                 <description>
                 Logarithm base 3 as appearing on a number line.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -189,7 +181,7 @@
                     \draw (\x, -0.9) -- (\x, -1.1)
                     node [below] {\x};
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
         </figure>
         

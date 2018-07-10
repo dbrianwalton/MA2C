@@ -23,10 +23,10 @@
             <mrow> y &amp;= 9(x-2)+2. </mrow>
         </md></p>
         
-        <figure>
+        <sidebyside>
             <image xml:id="fig-derivative-from-graph">
                 <description>Graph of a function with tangent lines and their corresponding slopes shown at several points.</description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -56,9 +56,9 @@
                 \addplot[mark=none, black] {0};
                 \end{axis}
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
         
         <definition xml:id='defn-derivative'>
             <title>The Derivative</title>

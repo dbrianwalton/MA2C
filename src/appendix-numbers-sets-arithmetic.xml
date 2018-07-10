@@ -45,13 +45,10 @@
     <p>A new interpretation of number requires a new interpretation of arithmetic. Addition of numbers corresponds to combining lengths, with 3+5 meaning we find the number which is found by starting at 0 (the origin), moving three units to the right (to find 3) and then moving five more units to the right (to add 5). Since this the same as the number 8 (starting at 0 and moving 8 units to the right), we know 3+5=8. Multiplication (by integers) will still mean repeated addition, just repeating the displacement interpretation of addition instead of groups.</p>
     
     <figure>
-    <caption> The integers are placed on the real number line with a spacing
-    defined by the unit length.</caption>
-    <image>
-        <description>
-        Integers on the number line.
-        </description>
-        <latex-image-code>
+      <caption> The integers are placed on the real number line with a spacing defined by the unit length.</caption>
+      <image>
+        <description>Integers on the number line.</description>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -61,20 +58,17 @@
             \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
         \draw[<->] (0,0.12) -- (1,0.12) node[pos=0.5,above] {1};
         \end{tikzpicture}]]>
-        </latex-image-code>
-    </image>
+        </latex-image>
+      </image>
     </figure>
     
     <p>If we consider the property of consecutive inverse operations, we know that we should get <m>1 \div 5 \times 5 = 1</m>. So if we think about the intermediate value <m>a=1 \div 5</m> (which is not an integer), we can see that it is a value such that <m>a \times 5 = 1</m>. In the geometric interpretation, <m>a</m> is a length such that when it is repeated five times, we recover the unit length. This is the unit fraction <m>\frac{1}{5}</m>, which is also called the <term>multiplicative inverse</term> (or reciprocal) of the integer 5. Other fractions have a similar interpretation, such as <m>3 \div 4 = \frac{3}{4}</m> (dividing three into fourths) being the length such that when it is repeated four times is equivalent to three units.</p>
     
     <figure>
-    <caption> Rational numbers are placed on the real number line using a
-    fractional unit length based on the denominator.</caption>
-    <image>
-        <description>
-        Rational numbers on the number line.
-        </description>
-        <latex-image-code>
+    <caption> Rational numbers are placed on the real number line using a fractional unit length based on the denominator.</caption>
+      <image>
+        <description>Rational numbers on the number line.</description>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -88,8 +82,8 @@
             \draw (-0.25*\x,-0.1) -- (-0.25*\x,0.1) node[above] {$-\frac{\x}{4}$};
         \draw[<->] (0,-0.12) -- (0.25,-0.12) node[pos=0.5,below] {$\frac{1}{4}$};
         \end{tikzpicture}]]>
-        </latex-image-code>
-    </image>
+        </latex-image>
+      </image>
     </figure>
 
     <p>Just as subtraction was found (or defined) to be equivalent to addition by an additive inverse, division is also equivalent to multiplication by a multiplicative inverse. Given any non-zero number <m>a \ne 0</m>, the multiplicative inverse <m>\div a</m> <notation><usage>\div a</usage> <description>multiplicative inverse of <m>a</m></description></notation> is that number so that <me>a \cdot \div a = 1.</me> Then division <m>a \div b</m> is defined by <me>a \div b = a \cdot \div b.</me></p>

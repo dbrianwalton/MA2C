@@ -13,7 +13,7 @@
     <introduction>
     <p>Every rule for differentiation has a corresponding rule for integrals or antidifferentiation. This section focuses on the integration rule that corresponds to the chain rule.</p>
     
-    <p>Recall that the <xref ref='thm-chain-rule' autoname='title'>chain rule</xref> states that if <m>F(x)</m> is a function with a derivative <m>F'(x)</m> and <m>u</m> is any expression (or function), then <me>\frac{d}{dx}[F(u)] = F'(u) \frac{du}{dx}.</me> The corresponding antidifferentiation rule says that if we have a function <m>f(x)</m> with an antiderivative <m>F(x)</m> (<m>F'(x)=f(x)</m>), then <me>\int f(u) \frac{du}{dx} dx = F(u) + C.</me></p>
+    <p>Recall that the <xref ref='thm-chain-rule' text='title'>chain rule</xref> states that if <m>F(x)</m> is a function with a derivative <m>F'(x)</m> and <m>u</m> is any expression (or function), then <me>\frac{d}{dx}[F(u)] = F'(u) \frac{du}{dx}.</me> The corresponding antidifferentiation rule says that if we have a function <m>f(x)</m> with an antiderivative <m>F(x)</m> (<m>F'(x)=f(x)</m>), then <me>\int f(u) \frac{du}{dx} dx = F(u) + C.</me></p>
     
     <p>Usually, the integrand does not appear so obviously in the form of the chain rule. The method of substitution provides a formalized method to guide the process. The method relies on transforming the integral from an integrand in terms of the independent variable, say <m>x</m>, as a new integral with an integrand in terms of the chain variable <m>u</m>. For the transformation to be valid, we must account for the chain rule factor <m>\frac{du}{dx} = u'</m>. We use the substitution rule for differentials <me>du = u' \cdot dx \qquad \Leftrightarrow \qquad dx = \frac{du}{u'}.</me></p>
     </introduction>

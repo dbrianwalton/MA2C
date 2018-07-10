@@ -45,12 +45,12 @@
         
                 <p>If we looked at the graph of the height as a function of time, we would actually see that the ball was initially going up and then came down. So over those three minutes, the ball started going up and then fell enough so that the overall change was a decrease of 48 feet, even though the total distance traveled was much higher.</p>
         
-                <figure>
+                <sidebyside>
                     <image xml:id="fig-projectile-ave-velocity">
                         <description>
                         Graph of y=x^2.
                         </description>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -73,9 +73,9 @@
                         \addplot[mark=none, black] {0};
                         \end{axis}
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
     </subsection>
@@ -153,6 +153,7 @@
         
         <p>We can also visualize the calculation graphically. The figure below is a dynamic plot. The function <m>f(x)=x^3-4x</m> from the example is shown and the point at <m>(1,f(1))</m> is labeled <m>A</m>. There is a slider for the value of <m>h</m>, the displacement of the second point <m>B</m> from <m>x=1</m>. The value for <m>h</m> is allowed to be negative to allow for points on the left of 1. The average rate of change on each interval corresponds to the slope of the chord or secant line joining the two points. As <m>h \to 0</m>, this slope approaches the value of the instantaneous rate of change.</p>
         <figure>
+          <caption/>
             <jsxgraph xml:id="deriv-intro-sliding-secant-ex1">
                 <input>
                 <![CDATA[// Put variables in object to isolate.
@@ -269,6 +270,7 @@
         </example>
         <p>A dynamic graph of this calculation is illustrated below.</p>
         <figure>
+          <caption/>
             <jsxgraph xml:id="deriv-intro-sliding-secant-ex2">
                 <input>
                 <![CDATA[// Put variables in object to isolate.

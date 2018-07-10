@@ -38,7 +38,7 @@
     The following table illustrates the value of this limit for a variety of bases.
     </p>
     
-    <table>
+    <sidebyside>
         <tabular>
             <row>
                 <cell> <m>h</m> </cell>
@@ -83,7 +83,7 @@
                 <cell> 2.30259 </cell>
             </row>
         </tabular>
-    </table>
+    </sidebyside>
     
     <p>
     Every positive real number <m>b</m> has such a limit, <m>L(b)</m>. 

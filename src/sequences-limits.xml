@@ -135,7 +135,7 @@
       </sidebyside>
       <sidebyside width="70%" margins="auto">
         <image xml:id="fig-demo-sequence-limits">
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -165,7 +165,7 @@
             };
             \end{axis}
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
 
@@ -261,7 +261,7 @@
       </sidebyside>
       <sidebyside width="70%" margins="auto">
         <image xml:id="fig-demo-sequence-no-limits">
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -291,7 +291,7 @@
             };
             \end{axis}
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       <p>
@@ -411,7 +411,7 @@
       </sidebyside>
       <sidebyside width="70%" margins="auto">
         <image xml:id="fig-demo-sequence-limits-2">
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -446,7 +446,7 @@
             };
             \end{axis}
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       <p>
@@ -580,7 +580,7 @@
       </p>
       <sidebyside width="50%">
         <image>
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -623,7 +623,7 @@
               (255, 0.49902153)                        };
             \end{axis}
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       <p>

@@ -230,7 +230,7 @@
                 <caption>Two similar quadrilaterals</caption>
                 <image xml:id="similar-quadrilaterals">
                     <description>Two quadrilaterals are similar as they are of the same shape but different scale.</description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -256,7 +256,7 @@
                     \coordinate [label=left:$D$] (D) at ($ (P) + \s*(-90+\phi:3) $);
                     \filldraw[fill=red!20!white] (A) -- (B) -- (C) -- (D) -- cycle;
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
             </figure>
             
@@ -300,7 +300,7 @@
                     <caption>Two similar triangles <m>ABC \sim PQS</m>.</caption>
                     <image xml:id="similar-triangles">
                         <description>Two triangles ABC and PQS are shown.</description>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -327,7 +327,7 @@
                         \coordinate [label=right:$S$] (S) at ($ (c2) + \s*(\angleC+\phi:1) $);
                         \filldraw[fill=red!20!white] (P) -- (Q) -- (S) -- cycle;
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
                 </figure>
             
@@ -357,7 +357,7 @@
                 <image xml:id="similar-3-4-5-triangles">
                     <description>ABC is a right triangle with lengths AB=5, BC=3 and AC=4. 
                     PQS is similar to ABC with PS=6.</description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -382,7 +382,7 @@
                         (P) -- cycle;
                     
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
             </figure>
             

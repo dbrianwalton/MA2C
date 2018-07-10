@@ -18,7 +18,7 @@
         <caption>The restricted domain for sine is the interval <m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m>.</caption>
         <image xml:id="fig-restrict-domain-sine">
             <description>The restricted domain for sine is the interval from -pi/2 to pi/2.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -32,14 +32,14 @@
             \fill [red] ($ (c1) + (-90:\rad) $) circle [radius=2pt];
             \fill [red] ($ (c1) + (90:\rad) $) circle [radius=2pt];
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     <figure>
         <caption>The sine function restricted to the domain <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m>.</caption>
         <image xml:id="fig-restricted-sine">
             <description>The restricted sine function.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -58,7 +58,7 @@
             \legend {$y=\sin(\theta)$};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     
@@ -68,7 +68,7 @@
         <caption>The arcsine function, which is the inverse of the restricted sine.</caption>
         <image xml:id="fig-arcsine">
             <description>The inverse of the restricted sine function, the arcsine function.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -87,7 +87,7 @@
             \legend {$\theta=\sin^{-1}(y)$};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     
@@ -97,7 +97,7 @@
         <caption>The restricted domain for cosine is the interval <m>[0,\pi]</m>.</caption>
         <image xml:id="fig-restrict-domain-cosine">
             <description>The restricted domain for cosine is the interval from 0 to pi.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -111,14 +111,14 @@
             \fill [red] ($ (c1) + (0:\rad) $) circle [radius=2pt];
             \fill [red] ($ (c1) + (180:\rad) $) circle [radius=2pt];
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     <figure>
         <caption>The cosine function restricted to the domain <m>[0,\pi]</m>.</caption>
         <image xml:id="fig-restricted-cosine">
             <description>The restricted cosine function.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -137,7 +137,7 @@
             \legend {$x=\cos(\theta)$};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     
@@ -147,7 +147,7 @@
         <caption>The arccosine function, which is the inverse of the restricted cosine.</caption>
         <image xml:id="fig-arccosine">
             <description>The inverse of the restricted cosine function, the arccosine function.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -166,7 +166,7 @@
             \legend {$\theta=\cos^{-1}(y)$};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     
@@ -176,7 +176,7 @@
         <caption>The restricted domain for tangent is the interval <m>(-\frac{\pi}{2},\frac{\pi}{2})</m>.</caption>
         <image xml:id="fig-restrict-domain-tangent">
             <description>The restricted domain for tangent is the open interval from -pi/2 to pi/2.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -190,14 +190,14 @@
             \draw [red] ($ (c1) + (-90:\rad) $) circle [radius=2pt];
             \draw [red] ($ (c1) + (90:\rad) $) circle [radius=2pt];
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     <figure>
         <caption>The tangent function restricted to the domain <m>(-\frac{\pi}{2},\frac{\pi}{2})</m>.</caption>
         <image xml:id="fig-restricted-tangent">
             <description>The restricted tangent function.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -218,7 +218,7 @@
             \legend {$m=\tan(\theta)$};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     
@@ -228,7 +228,7 @@
         <caption>The arctangent function, which is the inverse of the restricted tangent.</caption>
         <image xml:id="fig-arctangent">
             <description>The arctangent function.</description>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -245,13 +245,13 @@
             \legend {$\theta=\tan^{-1}(m)$};
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
     </figure>
     
     <p>The secant, cosecant, and cotangent functions also have restricted domains and corresponding inverse functions. The table below summarizes the restricted domains and ranges for each of the trigonometric functions.</p>
     
-    <table>
+    <sidebyside>
         <tabular>
             <row below="major">
                 <cell>Restricted Function</cell>
@@ -289,9 +289,9 @@
                 <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
             </row>
         </tabular>
-    </table>
+    </sidebyside>
     <p>The domain and range for the inverse functions are exactly the reverse of the restricted trigonometric functions. The inverse trigonometric functions have multiple representations. For example, the arcsine is sometimes written <m>\sin^{-1}</m> but is also written either <m>\arcsin</m> or <m>\mathrm{asin}</m>. The table summarizes the information about the inverse trigonometric functions.</p>
-    <table>
+    <sidebyside>
         <tabular>
             <row below="major">
                 <cell>Inverse Functions</cell>
@@ -329,6 +329,6 @@
                 <cell><m>[-\frac{\pi}{2},0) \cup (0,\frac{\pi}{2}]</m></cell>
             </row>
         </tabular>
-    </table>
+    </sidebyside>
         
 </section>

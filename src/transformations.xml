@@ -62,9 +62,9 @@
             <mrow> \tilde{y} &amp;= 2y. </mrow>
         </md> That is, the relation is a composition of three operations: subtracting 1, taking an absolute value, and multiplying by 2. The following diagram illustrates this composition as mappings.</p> 
 
-        <figure>
+        <sidebyside>
             <image>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -106,9 +106,9 @@
                 \foreach \x in {0, 2, 4}
                     \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
         
         <p>The data that were shown in the table were highlighted. If we extended the table for the same five labeled states to include <m>\tilde{x}</m> and <m>\tilde{y}</m>, we can see the relationship begin to appear. The ordering of the columns was chosen to match the mapping <m>\tilde{x} \mapsto x \mapsto y \mapsto \tilde{y}</m>.</p>
 
@@ -173,9 +173,9 @@
         
         <p>If we were to graph the relationship for <m>(\tilde{x},\tilde{y})</m> as shown below, we can see the transformation consists of shifting the graph to the right 1 unit (adding 1 to all <m>x</m> values) and stretching the graph vertically by a factor of 2 (multiplying all <m>y</m> values by 2). These are precisely the relationships <m>\tilde{x} = x+1</m> (the inverse of <m>x = \tilde{x}-1</m>) and <m>\tilde{y} = 2y</m>.</p>
         
-        <figure>
+        <sidebyside>
             <image>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -248,9 +248,9 @@
                 \legend {$\tilde{y}=2|\tilde{x}-1|$}
                 \end{axis}
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
 
         <p>By identifying the composition in an equation involving a known function, we can describe the transformation of the graph. The inverse of the composition involved on the input of the function corresponds to the horizontal transformations (<m>x</m>-axis); the composition involved on the output of the function corresponds to the vertical transformations (<m>y</m>-axis).</p>
         
@@ -298,9 +298,9 @@
                 
                 <p>The graph of the function <m>y=x^2</m> and the transformation <m>\tilde{y} = -3(\tilde{x}+2)^2+4</m> are shown below.</p>
 
-                <figure>
+                <sidebyside>
                     <image>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -359,9 +359,9 @@
                         \legend {$\tilde y=-3(\tilde x+2)^2+4$};
                         \end{axis}
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
         
@@ -401,9 +401,9 @@
                 </tabular>
             </table>
             
-            <figure>
+            <sidebyside>
                 <image>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -455,9 +455,9 @@
                     
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             
             <p>Transformations correspond to a composition <me>\tilde{x} \mapsto x \overset{y=x^2}{\mapsto} y \mapsto \tilde{y}.</me> We only need to find the linear functions that relate <m>\tilde{x} \mapsto x</m> and <m>y \mapsto \tilde{y}</m>. Rewriting the table of points in terms of the variables, we can see the input and output values of these functions.</p>
             
@@ -525,9 +525,9 @@
         <theorem>
         <statement>
             <p>The function <me>y = A(x-h)^2+k</me> is a transformation of the standard parabola <m>y=x^2</m> so that the vertex is moved to <m>(h,k)</m> and stretched so that the point 1 unit away is at <m>(h+1, k+A)</m>. We call <m>A</m> the amplitude of the parabola.</p>
-            <figure>
+            <sidebyside>
                 <image>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -543,9 +543,9 @@
                         \draw[fill,color=blue] (1,1.5) circle (2pt) node[right] {$(h,k)$};
                         \draw[fill,color=blue] (2,3) circle (2pt) node[right] {$(h+1,k+A)$};
                         \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
         </statement>
         </theorem>
         
@@ -556,11 +556,9 @@
             <solution>
                 <p>The graph of <m>y=-2(x+1)^2+5</m> can be sketched if we rewrite <m>x+1</m> as subtraction, <m>x+1 = x--1</m> to get <me>y=-2(x--1)^2+5.</me> This is a parabola with vertex at <m>(-1,5)</m> and which has been reflected down and stretched by a factor 2.</p>
             
-                <figure>
-                    <caption>
-                    </caption>
+                <sidebyside>
                     <image xml:id="fig-quadratic-transform">
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -583,9 +581,9 @@
                         \draw[fill,color=blue] (-1,5) circle (2pt);
                         \draw[fill,color=blue] (0,3) circle (2pt);
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </solution>
         </example>
         
@@ -605,11 +603,9 @@
             </proof>
         </theorem>
         
-        <figure>
-            <caption>
-            </caption>
+        <sidebyside>
             <image xml:id="fig-exponential-transform">
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -662,9 +658,9 @@
                 \legend {$y=A b^{(x-h)/k}$};
                 \end{axis}
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
         
         <example>
             <statement>
@@ -698,11 +694,9 @@
             </p>
             
             <figure>
-                <caption>
-                Graph of <m>y=f(x)=\dfrac{x}{1+x}</m> for <m>x \in [0,\infty)</m>.
-                </caption>
+                <caption>Graph of <m>y=f(x)=\dfrac{x}{1+x}</m> for <m>x \in [0,\infty)</m>.</caption>
                 <image xml:id="fig-simple-rate-saturation">
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -720,7 +714,7 @@
                     \draw[fill,color=blue] (1,1) circle (0.05);
                 
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
             </figure>
             
@@ -769,7 +763,7 @@
                 Graph of relation for <m>(C,V)</m>.
                 </caption>
                 <image xml:id="fig-simple-rate-saturation-b">
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -787,7 +781,7 @@
                     \draw[fill,color=blue] (1,1) circle (0.05);
                 
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
             </figure>
             
@@ -820,11 +814,11 @@
         
         <p>Graphs of sine and cosine are shown below. These have a center line <m>y=0</m> and an amplitude <m>A=1</m> (since the maximum is <m>y=1</m> and the minimum is <m>y=-1</m>). The period is <m>p=2\pi</m>. Since the functions are not transformed, the phase shift must be <m>\phi=0</m>. For the sine function, the phase shift corresponds to where the graph is crossing the center line in an upward direction. For the cosine function, the phase shift corresponds to where the graph is at its maximum value.</p>
 
-        <figure>
+        <sidebyside>
             <image xml:id="fig-sine-reference">
                 <description>The sine function.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -852,14 +846,14 @@
                 \draw[fill] (4, 0) circle (2pt);
                 
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
-        <figure>
+        </sidebyside>
+        <sidebyside>
             <image xml:id="fig-cosine-reference">
                 <description>The cosine function.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -887,20 +881,20 @@
                 \draw[fill] (4, 1) circle (2pt);
                 
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
         
         <p>To apply the idea of transformations to model periodic data with sine and cosine, we need to identify the same key features of the data: center line, amplitude, period and phase shift. Finding maximum and minimum values allow us to determine the center line and amplitude. If it is easy to find the value of the independent variable for the maximum or minimum value, then using cosine is a good choice. If it is easy to find the value where the graph up-crosses the center line, then using sine is a good choice. The transformation can then be determined by finding the map between the center lines and extremes (<m>y</m>-axis) and based on the phase shift and period (<m>x</m>-axis).</p>
         
         <example>
             <statement>
                 <p>You are standing on a boat that is rocking every six seconds such that your height alternates between 5 and 10 feet above sea level. Find a sinusoidal model for your height <m>h</m> (feet) as a function of time <m>t</m> (seconds) and where <m>t=0</m> corresponded to one of the lows, <m>h=5</m>.</p>
-                <figure>
+                <sidebyside>
                     <image xml:id="fig-cosine-shiprock">
                         <description>A sinusoidal model of height on a rocking ship.
                         </description>
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -919,15 +913,15 @@
                             \addplot[blue, dashed, thin] coordinates { (-1,10) (17,10) };
                         \end{axis}
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
             </statement>
             <solution>
                 <p>When modeling a sinusoidal curve, we need to choose either a sine or cosine. In this example, it is easiest to identify when the model is at an extreme (high or low). So we will model using the cosine function, <m>y=\cos(x)</m>. Our model uses time <m>t</m> as the independent variable and height <m>h</m> as the dependent variable. The transformation will be based on finding linear mappings, <me> t \mapsto x \overset{\cos}{\mapsto} y \mapsto h.</me></p>
                 <p>To find the linear maps, we identify features of cosine and the corresponding features of our model. The minimum and maximum values for cosine are <m>y=-1</m> and <m>y=1</m> while the corresponding values for the model are <m>h=5</m> and <m>h=10</m>. Similarly, the period of cosine is <m>2 \pi</m> with the maximum at <m>x=0</m> and the subsequent minimum at <m>x=\pi</m>. For our model, the period is <m>6</m> (s) with minima at <m>t=0</m> and <m>t=6</m> (a period later). The maximum must occur at <m>t=3</m>. Since the cosine begins at its maximum, this value <m>t=3</m> is the phase shift.</p>
-                <p>We find a linear map <m>y \mapsto h</m>, which involves the slope <me>\frac{\Delta h}{\Delta y} = \frac{10-5}{1--1} = \frac{5}{2}.</me> Consequently, using the <xref ref="point-slope-line" autoname="title">point<ndash/>slope equation of a line</xref>, we write <me>h-5 = \frac{5}{2}(y--1) \quad \Leftrightarrow \quad h = \frac{5}{2} y + \frac{15}{2} = 2.5 y + 7.5.</me> The value <m>h=7.5</m> is the center line (midpoint between extremes) and <m>A=2.5</m> is the amplitude of oscillation from the center line.</p>
-                <p>We also find a linear map <m>t \mapsto x</m>, which needs to map <m>t=3 \mapsto x=0</m> (cosine maximum) and <m>t=6 \mapsto x=\pi</m> (cosine minimum). The slope for this map is <me>\frac{\Delta x}{\Delta t} = \frac{\pi-0}{6-3} = \frac{\pi}{3}.</me> Again using the <xref ref="point-slope-line" autoname="title">point<ndash/>slope equation of a line</xref>, we obtain <me>x-0 = \frac{\pi}{3}(t-3) \quad \Leftrightarrow \quad x = \frac{\pi}{3}(t-3).</me></p>
+                <p>We find a linear map <m>y \mapsto h</m>, which involves the slope <me>\frac{\Delta h}{\Delta y} = \frac{10-5}{1--1} = \frac{5}{2}.</me> Consequently, using the <xref ref="point-slope-line" text="title">point<ndash/>slope equation of a line</xref>, we write <me>h-5 = \frac{5}{2}(y--1) \quad \Leftrightarrow \quad h = \frac{5}{2} y + \frac{15}{2} = 2.5 y + 7.5.</me> The value <m>h=7.5</m> is the center line (midpoint between extremes) and <m>A=2.5</m> is the amplitude of oscillation from the center line.</p>
+                <p>We also find a linear map <m>t \mapsto x</m>, which needs to map <m>t=3 \mapsto x=0</m> (cosine maximum) and <m>t=6 \mapsto x=\pi</m> (cosine minimum). The slope for this map is <me>\frac{\Delta x}{\Delta t} = \frac{\pi-0}{6-3} = \frac{\pi}{3}.</me> Again using the <xref ref="point-slope-line" text="title">point<ndash/>slope equation of a line</xref>, we obtain <me>x-0 = \frac{\pi}{3}(t-3) \quad \Leftrightarrow \quad x = \frac{\pi}{3}(t-3).</me></p>
                 <p>Using composition of our maps, we arrive at the overall model. The maps are summarized by <md>
                     <mrow>t \mapsto x = \frac{\pi}{3}(t-3),</mrow>
                     <mrow>x \mapsto y = \cos(x),</mrow>
@@ -942,11 +936,11 @@
             <title>Equations for Sinusoidal Models</title>
             <statement>
                 <p>A sinusoidal model with center line <m>y=k</m> and amplitude <m>A</m> and with period <m>p</m> and phase shift <m>x=\phi</m> is modeled by <me>y = A \sin\Big(\frac{2 \pi}{p}(x-\phi)\Big) + k</me> when the model is up-crossing the center line at <m>x=\phi</m> or by <me>y=A \cos\Big(\frac{2 \pi}{p}(x-\phi)\Big) + k</me> when the model is at a maximum at <m>x=\phi</m>.</p>
-        <figure>
+        <sidebyside>
             <image xml:id="fig-sinusoidal-general">
                 <description>The sine function.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -980,9 +974,9 @@
                 
                 
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
             </statement>
             <proof>
                 <p>Using a reference curve <m>\tilde y = \sin(\tilde x)</m> (sine) or <m>\tilde y = \cos(\tilde x)</m> (cosine), our transformation will be found with linear mappings <m>x \mapsto \tilde x</m> and <m>\tilde y \mapsto y</m> such that <m>x=\phi \mapsto \tilde x=0</m> and <m>x=\phi+p \mapsto \tilde x = 2\pi</m>. This corresponds to the mapping <me>\tilde x = \frac{2\pi}{p}(x-\phi).</me> Using the center line and maximum values, we require <m>\tilde y = 0 \mapsto y=k</m> and <m>\tilde y = 1 \mapsto y=k+A</m>. These give the second transformation mapping <me>y = A\tilde y + k.</me> Composition of the maps gives the required formulas.</p>

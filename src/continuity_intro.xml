@@ -60,7 +60,7 @@
     <sidebyside>
       <image>
         <description>Graph of y=1/((x-3)(x+2)).</description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -80,7 +80,7 @@
             ({x}, {1/(x-3)/(x+2)});
           \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
     </sidebyside>
   </subsection>
@@ -102,10 +102,10 @@
     <p>A polynomial, like <m>3x^2-x-2</m>, will have a factor of <m>x-1</m> if and only if that polynomial has a value of 0 when <m>x=1</m>. So we can see if it will cancel a factor by checking <m>3(1)^2-(1)-2 = 0</m>. Knowing this factor, we can soon find <m>3x^2-x-2 = (x-1)(3x+2)</m>. For all <m>x \ne 1</m>, we have <me> f(x) = \frac{3x^2-x-2}{x-1} = \frac{(x-1)(3x+2)}{x-1} = 3x+2. </me> We can only say this for <m>x \ne 1</m> since the domain of <m>f</m> is <m>(-\infty,1) \cup (1,\infty)</m>. That is, <me> f(x) = 3x+2, \quad x \ne 1. </me></p>
     <p>This new formula for <m>f(x)</m> requires an explicit domain in order to have the same domain as the original. This new formula with explicit domain makes it clear why we say <m>f</m> has a hole at <m>x=1</m>. Our function <m>f(x)</m> has the same graph as <m>y=3x+2</m> except it has a hole at <m>x=1</m>.</p>
     
-    <figure>
+    <sidebyside>
       <image>
         <description>Graph of y=3x+2 with a hole at x=1.</description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -121,9 +121,9 @@
           \addplot[mark=*, red, fill=white] coordinates {(1,5)};
           \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
-    </figure>
+    </sidebyside>
   </solution>
   </example>
   
@@ -150,10 +150,10 @@
       <mrow> &amp;= \frac{x(x-3)}{x+3}, \quad x \ne 2. </mrow>
     </md> Because the new formula has an implicit domain involving only <m>x=-3</m>, the discontinuity at <m>x=2</m> was removable. The graph has a hole at <m>x=2</m> and a vertical asymptote at <m>x=-3</m>. (Notice the addition of an explicit domain on the last step when we canceled, corresponding  to the hole.)</p>
 
-    <figure>
+    <sidebyside>
       <image>
         <description>Graph of y=(x^3-5x^2+6x)/(x^2+x-6).</description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -172,9 +172,9 @@
           \addplot[mark=*, red, fill=white] coordinates {(2,-0.4)};
           \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
-    </figure>
+    </sidebyside>
   </solution>
   </example>
   </subsection>
@@ -191,10 +191,10 @@
     <mrow> \lim_{x \to a^{+}} f(x) = 2. </mrow>
   </md></p>
   
-  <figure>
+  <sidebyside>
     <image>
       <description>Graph of a function showing a discontinuity.</description>
-      <latex-image-code>
+      <latex-image>
       <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
       <![CDATA[\tikzset{%
       }
@@ -213,9 +213,9 @@
         \draw[white,fill] (1,1) circle[radius=0.1];
         \draw[orange,thick] (1,1) circle[radius=0.1];
       \end{tikzpicture}]]>
-      </latex-image-code>
+      </latex-image>
     </image>
-  </figure>
+  </sidebyside>
 
   <definition>
     <title>Intuitive Definition of a Function Limit</title>
@@ -242,12 +242,12 @@
   <example>
   <statement>
     <p>For the function whose graph is shown below, determine the limits and whether the function is continuous at each of the points, <m>x \in \{-1, 0, 2, 3, 4\}</m>.</p>
-    <figure>
+    <sidebyside>
       <image>
         <description>
         Graph of a function.
         </description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -272,9 +272,9 @@
           \addplot[mark=*, red, fill=white] coordinates {(2,-2)};
           \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
-    </figure>
+    </sidebyside>
   </statement>
   <solution>
     <ul>

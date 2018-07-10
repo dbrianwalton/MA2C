@@ -18,7 +18,7 @@
     <subsection>
         <title> How People Learn </title>
         
-        <p>This section is based on my reading, understanding and interpretation of a report issued by the National Research Council in 2000 called <url href="http://www.nap.edu/catalog/9853/how-people-learn-brain-mind-experience-and-school-expanded-edition"> <booktitle>How People Learn: Brain, Mind, Experience and School</booktitle></url> and a follow-up report in 2005 focused more directly on mathematics, <url href="http://www.nap.edu/catalog/11101/how-students-learn-mathematics-in-the-classroom"> <booktitle>How Students Learn: Mathematics in the Classroom</booktitle></url>. There is a lot to digest, and I would encourage you to read some of this if you want more background. I hope to convey some key points that I hope will be especially helpful in focusing our efforts in learning.</p>
+        <p>This section is based on my reading, understanding and interpretation of a report issued by the National Research Council in 2000 called <url href="http://www.nap.edu/catalog/9853/how-people-learn-brain-mind-experience-and-school-expanded-edition"> <pubtitle>How People Learn: Brain, Mind, Experience and School</pubtitle></url> and a follow-up report in 2005 focused more directly on mathematics, <url href="http://www.nap.edu/catalog/11101/how-students-learn-mathematics-in-the-classroom"> <pubtitle>How Students Learn: Mathematics in the Classroom</pubtitle></url>. There is a lot to digest, and I would encourage you to read some of this if you want more background. I hope to convey some key points that I hope will be especially helpful in focusing our efforts in learning.</p>
         
         <p>What does it mean to learn? Can we become more effective at learning?</p>
         
@@ -47,7 +47,7 @@
         <title>Best Practices for Learning</title>
         
         <introduction>
-        <p><booktitle>How People Learn</booktitle> identified three basic principles to guide effective learning.<ol>
+        <p><pubtitle>How People Learn</pubtitle> identified three basic principles to guide effective learning.<ol>
             <li>
                 <p>Because students approach learning with preconceptions, these understandings must be engaged or else learning will be superficial or thwarted.</p>
             </li>

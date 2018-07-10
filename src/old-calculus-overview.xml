@@ -61,7 +61,7 @@
       </p>
       <p>
 	<image>
-	  <latex-image-code>
+	  <latex-image>
 	    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
 	    <![CDATA[\tikzset{%
 		     }
@@ -79,7 +79,7 @@
 		     \draw (5.5,-0.775) node {concave up};
 		     \draw (8,-0.775) node {concave up};
 		     \end{tikzpicture}]]>
-	  </latex-image-code>
+	  </latex-image>
 	</image>
       </p>
     </assemblage>
@@ -188,7 +188,7 @@
 	</p>
 	<figure>
 	  <image>
-	    <latex-image-code>
+	    <latex-image>
 	      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
 	      <![CDATA[\tikzset{%
 		       }
@@ -201,7 +201,7 @@
 \node [above] at (-1.16,0) {$(-)(+)$};
 \node [above] at (1,0) {$(+)(+)$};
 \end{tikzpicture}]]>
-	    </latex-image-code>
+	    </latex-image>
 	  </image>
 	</figure>
 	<p>
@@ -219,7 +219,7 @@
 	</p>
 	<figure>
 	  <image>
-	    <latex-image-code>
+	    <latex-image>
 	      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
 	      <![CDATA[\tikzset{%
 		       }
@@ -230,7 +230,7 @@
 \node [above] at (-3,0) {$-$};
 \node [above] at (1,0) {$+$};
 \end{tikzpicture}]]>
-	    </latex-image-code>
+	    </latex-image>
 	  </image>
 	</figure>
 	<p>
@@ -252,7 +252,7 @@
 	</p>
 	<figure>
 	  <image>
-	    <latex-image-code>
+	    <latex-image>
 	      <!-- CDATA to protect xml interpretation -->
 	      <![CDATA[
 		       \tikzset{%
@@ -272,7 +272,7 @@
 		       \end{axis}
 		       \end{tikzpicture}
 	      ]]>
-	    </latex-image-code>
+	    </latex-image>
 	  </image>
 	</figure>
 	

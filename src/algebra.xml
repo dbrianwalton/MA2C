@@ -732,7 +732,7 @@ Brian Walton          -->
       (When <m>b=1</m>, the function is constant.) 
       That exponential functions are either increasing or decreasing means that they are one-to-one.
       For <m>b \ne 1</m>, an elementary exponential function has 
-      a <xref ref="domain-and-range" autoname="title">range</xref> of <m>(0,\infty)</m> 
+      a <xref ref="domain-and-range" text="title">range</xref> of <m>(0,\infty)</m> 
       so that for any value <m>y \gt 0</m>, 
       there is a unique value <m>x</m> such that <m>b^x = y</m>.
       This value of <m>x</m> is how we define a logarithm.
@@ -938,7 +938,7 @@ Brian Walton          -->
       <caption>Graph of the absolute value, <m>y=|x|</m></caption>
       <image>
         <description>graph of the absolute value</description>
-        <latex-image-code>
+        <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -962,7 +962,7 @@ Brian Walton          -->
             ({x}, {abs(x)});
           \end{axis}
           \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
     </figure>
     
@@ -1054,10 +1054,10 @@ Brian Walton          -->
       so that instead of measuring the distance of <m>x</m> from 0 it measure the distance of <m>x</m> from 2.
     </p>
     
-    <figure>
+    <sidebyside>
       <image>
         <description>graph of y=abs(x-2)</description>
-        <latex-image-code>
+        <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           }
@@ -1081,9 +1081,9 @@ Brian Walton          -->
             ({x}, {abs(x-2)});
           \end{axis}
           \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
-    </figure>
+    </sidebyside>
     
     <theorem xml:id="thm-absolute-value-distance">
       <statement>

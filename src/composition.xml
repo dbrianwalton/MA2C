@@ -26,9 +26,9 @@
         <example>
             <p>Consider the function <m>f : x \mapsto y = f(x)=2x-5</m>. The function itself contains two operations: multiply by 2 and subtract 5. However, we think of the function <m>f</m> as a single operation that takes a number <m>x</m> (whatever its value) and returns a new number which has the related value <m>2x-5</m>. Even though our usual steps of computation to arrive at <m>2x-5</m> requires two operations, the function accomplishes this in a single step. It is like a specialized mathematics machine whose sole task is to accomplish this operation.</p>
 
-            <figure>
+            <sidebyside>
                 <image>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -42,9 +42,9 @@
                     \foreach \x in {0, 1, 2, 3}
                         \draw [thick, black, ->] (\x,-0.15) -- (2*\x-5,-0.85)  node[pos=0.5, right] {$f$};
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
         </example>
         
         <p>The idea of composition of functions is to take the operations associated with two functions and combine them in sequence to form a new function. This new function, called the composition, has as its operation the consecutive application of the more elementary functions.</p>
@@ -55,9 +55,9 @@
                 <mrow>\mathrm{subt}_5 : u \mapsto y = u-5.</mrow>
             </md> The first function <m>\mathrm{mult}_2</m> has an operation that doubles the value of its input. The second function <m>\mathrm{subt}_5</m> has an operation that subtracts 5 from its input. The function <m>f</m> is the composition of these two more elementary functions, illustrated by the map diagram below.</p>
 
-            <figure>
+            <sidebyside>
                 <image>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -78,9 +78,9 @@
                         \draw [thick, black, ->] (2*\x,-1.15) -- (2*\x-5,-1.85);
                     \draw [thick, black, ->] (6,-1.15) -- (1,-1.85) node[pos=0.5, right] {$\mathrm{subt}_5$};
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
         </example>
         
     </subsection>

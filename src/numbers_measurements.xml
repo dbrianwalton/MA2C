@@ -316,7 +316,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -337,7 +337,7 @@
             \draw[-, black] (7.5,-0.15) -- (7.5,0);
             \draw[-, black] (8.5,-0.15) -- (8.5,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -365,7 +365,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -383,7 +383,7 @@
               node[pos=0, below] {7};
             \draw[-, black] (7.5,-0.15) -- (7.5,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -400,7 +400,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -418,7 +418,7 @@
               node[pos=0, below] {7};
             \draw[-, black] (7.5,-0.15) -- (7.5,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -437,7 +437,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -455,7 +455,7 @@
               node[pos=0, below] {7};
             \draw[-, black] (7.5,-0.15) -- (7.5,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -573,7 +573,6 @@
       <title>Exercises</title>
 
       <exercisegroup xml:id="exercise-simplify-arithmetic">
-
         <introduction>
             <p>Simplify the following values.</p>
         </introduction>
@@ -604,7 +603,6 @@
         </exercise>
       </exercisegroup>
       <exercisegroup xml:id="exercise-rationalize-denominator-roots">
-
         <introduction>
             <p>Simplify the following values by rationalizing the denominator.</p>
         </introduction>

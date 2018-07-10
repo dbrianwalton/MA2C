@@ -230,7 +230,7 @@
           </p>
           <sidebyside widths="50%">
             <image>
-              <latex-image-code>
+              <latex-image>
               <![CDATA[\tikzset{%
               }
               \begin{tikzpicture}
@@ -246,7 +246,7 @@
                 { x/(x+1) };
               \end{axis}
               \end{tikzpicture}]]>
-              </latex-image-code>
+              </latex-image>
             </image>
           </sidebyside>
         </solution>
@@ -347,7 +347,7 @@
         </p>
         <sidebyside widths="70%">
           <image>
-            <latex-image-code>
+            <latex-image>
             <![CDATA[\tikzset{%
             }
             \begin{tikzpicture}
@@ -378,7 +378,7 @@
               node [pos=1, above] {$u_{1}$}
             ;
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>

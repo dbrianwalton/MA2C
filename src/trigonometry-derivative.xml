@@ -28,8 +28,9 @@
         <proof>
             <p>The following geometric proof is valid for acute angles, <m>0 \lt \alpha,\beta \lt \frac{\pi}{2}</m>. Consider the location of the angle <m>\alpha</m> and <m>\alpha+\beta</m> on the unit circle, illustrated as points <m>A</m> and <m>B</m>, respectively. The origin at <m>(0,0)</m> will be the point <m>O</m> and the point <m>(1,0)</m> will be the point <m>P</m>. Construct a line segment from <m>B</m> to intersect <m>\overline{OA}</m> at a right angle; call the point of intersection <m>C</m>. Draw a vertical line from <m>C</m> which intersects <m>OP</m> at a point <m>Q</m>. Finally draw a horizontal line through <m>C</m> and a vertical line through <m>B</m>, which intersect at a point <m>D</m>.</p>
             
-            <p><image xml:id="fig-angle-sum">
-                <latex-image-code>
+            <sidebyside>
+              <image xml:id="fig-angle-sum">
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -62,8 +63,9 @@
                 \coordinate (c2c) at (-\angleA:\rad);
                 \coordinate (c3) at ($ (c2)!0.5!(c2c) $);
                 \end{tikzpicture}]]>
-                </latex-image-code>
-            </image></p>
+                </latex-image>
+              </image>
+            </sidebyside>
                         
             <p>By construction, we know <m>m \angle POA = \alpha</m> and <m>m \angle AOB = \beta</m>. Because <m>OB=1</m>, we know that <m>OC=\cos(\beta)</m> and <m>BC=\sin(\beta)</m>. By geometry, we can prove that triangle <m>BDC</m> is a right triangle with <m>m \angle DBC = \alpha</m>. Consequently, <md>
                 <mrow>BD = BC \cos(\alpha) = \cos(\alpha) \sin(\beta),</mrow>
@@ -121,9 +123,9 @@
             <proof>
                 <p>By definition, <me>\displaystyle \sin'(0) = \lim_{h \to 0} \frac{\sin(0+h) - \sin(0)}{h}.</me> Since <m>\sin(0) = 0</m>, we can rewrite <me>\lim_{h \to 0} \frac{\sin(h)}{h} = \lim_{x \to 0}\frac{\sin(x)}{x},</me> since the variable name does not affect the value of the limit.</p>
                 <p>Consider the figure below with angle <m>x \gt 0</m>. The point <m>A</m> is on the unit circle and has coordinates <m>(\cos(x),\sin(x))</m>. Consequently, triangle <m>OBA</m> has area <m>\frac{1}{2} \sin(x) \cos(x)</m>. The point <m>Q</m> has coordinates <m>(1, \tan(x))</m>, so triangle <m>OPQ</m> has area <m>\frac{1}{2} \tan(x)</m>. If we consider the sector of the circle <m>OAP</m>, it has an area that is the corresponding fraction  <m>\frac{x}{2\pi}</m> of the area of the unit circle, <m>\pi</m>, which has the value <m>\frac{x}{2}</m>.</p>
-                <figure>
+                <sidebyside>
                     <image xml:id="fig-angle-area-compare">
-                        <latex-image-code>
+                        <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
@@ -142,13 +144,13 @@
                         \draw (c1) -- (c3) node[right] {$Q$} -- (\rad,0) node[below right] {$P$} -- (c1);
                         \draw (c2) node[above] {$A$} -- ({\rad*cos(\angleA)},0) node[below] {$B$};
                         \end{tikzpicture}]]>
-                        </latex-image-code>
+                        </latex-image>
                     </image>
-                </figure>
+                </sidebyside>
                 <p>Comparing the areas leads to the inequality, <me>\frac{1}{2} \sin(x) \cos(x) \lt \frac{1}{2} x \lt \frac{1}{2} \tan(x).</me> Multiplying by 2 and dividing by <m>\sin(x)</m>, we have another inequality <me> \cos(x) \lt \frac{x}{\sin(x)} \lt \frac{1}{\cos(x)}.</me> Since <m>\cos(x)</m> is continuous at <m>x=0</m>, we know <md>
                     <mrow>\lim_{x \to 0} \cos(x) = \cos(0) = 1,</mrow>
                     <mrow>\lim_{x \to 0} \frac{1}{\cos(x)} = 1.</mrow>
-                </md> Using the <xref ref='thm-limit-squeeze' autoname='title'>Limit Squeeze Theorem</xref> and the <xref ref='LC-Reciprocal' autoname='title'>Limit of a Reciprocal</xref>, we then know <me>\lim_{x \to 0} \frac{x}{\sin(x)} = 1 \qquad \Rightarrow \qquad \sin'(0) = \lim_{x \to 0}\frac{\sin(x)}{x} = 1.</me></p>
+                </md> Using the <xref ref='thm-limit-squeeze' text='title'>Limit Squeeze Theorem</xref> and the <xref ref='LC-Reciprocal' text='title'>Limit of a Reciprocal</xref>, we then know <me>\lim_{x \to 0} \frac{x}{\sin(x)} = 1 \qquad \Rightarrow \qquad \sin'(0) = \lim_{x \to 0}\frac{\sin(x)}{x} = 1.</me></p>
             </proof>
         </theorem>
         
@@ -159,7 +161,7 @@
                 <p><me>\cos'(0) = \lim_{x \to 0} \frac{\cos(x)-1}{x} = 0</me></p>
             </statement>
             <proof>
-                <p>By definition, <me>\displaystyle \cos'(0) = \lim_{h \to 0} \frac{\cos(0+h) - \cos(0)}{h}.</me> Since <m>\cos(0) = 1</m>, we can rewrite <me>\cos'(0)=\lim_{h \to 0} \frac{\cos(h)-1}{h} = \lim_{x \to 0}\frac{\cos(x)-1}{x}.</me> Multiplying the numerator and denominator by <m>\cos(x)+1</m>, we find <me>\cos'(0) = \lim_{x \to 0}\frac{(\cos(x)-1)(\cos(x)+1)}{x(\cos(x)+1)} = \lim_{x \to 0} \frac{\cos^2(x)-1}{x(\cos(x)+1)}.</me> By the <xref ref='thm-pythagorean-identity' autoname='title'>Pythagorean identity</xref>, we know <m>\cos^2(x)-1=-\sin^2(x)</m> so that we can rewrite <me>\cos'(0) = \lim_{x \to 0}\frac{\sin(x)}{x}\frac{-\sin(x)}{\cos(x)+1}.</me> Since <m>\displaystyle \lim_{x \to 0}\frac{\sin(x)}{x} = \sin'(0) = 1</m> and <me>\displaystyle \lim_{x \to 0}\frac{-\sin(x)}{\cos(x)+1} = \frac{-\sin(0)}{\cos(0)+1} = \frac{0}{2} = 0,</me> the limit rule for a product guarantees <m>\cos'(0) = 0</m>.</p>
+                <p>By definition, <me>\displaystyle \cos'(0) = \lim_{h \to 0} \frac{\cos(0+h) - \cos(0)}{h}.</me> Since <m>\cos(0) = 1</m>, we can rewrite <me>\cos'(0)=\lim_{h \to 0} \frac{\cos(h)-1}{h} = \lim_{x \to 0}\frac{\cos(x)-1}{x}.</me> Multiplying the numerator and denominator by <m>\cos(x)+1</m>, we find <me>\cos'(0) = \lim_{x \to 0}\frac{(\cos(x)-1)(\cos(x)+1)}{x(\cos(x)+1)} = \lim_{x \to 0} \frac{\cos^2(x)-1}{x(\cos(x)+1)}.</me> By the <xref ref='thm-pythagorean-identity' text='title'>Pythagorean identity</xref>, we know <m>\cos^2(x)-1=-\sin^2(x)</m> so that we can rewrite <me>\cos'(0) = \lim_{x \to 0}\frac{\sin(x)}{x}\frac{-\sin(x)}{\cos(x)+1}.</me> Since <m>\displaystyle \lim_{x \to 0}\frac{\sin(x)}{x} = \sin'(0) = 1</m> and <me>\displaystyle \lim_{x \to 0}\frac{-\sin(x)}{\cos(x)+1} = \frac{-\sin(0)}{\cos(0)+1} = \frac{0}{2} = 0,</me> the limit rule for a product guarantees <m>\cos'(0) = 0</m>.</p>
             </proof>
         </theorem>
         

@@ -303,7 +303,7 @@
         <description>
         Scatter plot of electrophoresis data, displacement vs size and size vs displacement.
         </description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         /pgfplots/table/row sep=crcr
@@ -353,7 +353,7 @@
         };
         \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
     </figure>
     <p>
@@ -368,7 +368,7 @@
         <description>
         Scatter plot of population, births and deaths with respect to time.
         </description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -403,7 +403,7 @@
         ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
         \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
     </sidebyside>
   
@@ -419,7 +419,7 @@
         <description>
         Scatter plot of population, births and deaths with respect to each other.
         </description>
-        <latex-image-code>
+        <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
         <![CDATA[\tikzset{%
         }
@@ -454,7 +454,7 @@
         ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
         \end{axis}
         \end{tikzpicture}]]>
-        </latex-image-code>
+        </latex-image>
       </image>
     </sidebyside>
   </subsection>
@@ -795,7 +795,7 @@
           -- (0,3) -- (0,0);
           \draw (2,0) -- (2,3);
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
       </statement>

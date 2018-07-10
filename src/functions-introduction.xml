@@ -255,7 +255,7 @@
             </p>
             <sidebyside width="50%" margins="auto">
               <image>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -278,7 +278,7 @@
                 \addplot [domain=-4:12,samples=2] {(-2*x+17)/3};
                 \end{axis}
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
               </image>
             </sidebyside>
           </li>
@@ -296,7 +296,7 @@
             </p>
             <sidebyside width="50%" margins="auto">
               <image>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -315,7 +315,7 @@
                 \addplot [domain=-4:18,samples=2] {2*(x-2)+11};
                 \end{axis}
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
               </image>
             </sidebyside>
           </li>
@@ -876,7 +876,7 @@
         </p>
         <sidebyside width="50%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -893,7 +893,7 @@
             \addplot [no marks, dashed] coordinates { (-1.333,-4) (-1.333,4) };
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -940,7 +940,7 @@
         </p>
         <sidebyside width="50%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -956,7 +956,7 @@
             \addplot [domain=-5:5,samples=40] ({2.5-(x-1)^2/2},x);
             \end{axis}
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>

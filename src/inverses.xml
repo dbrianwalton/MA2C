@@ -14,9 +14,9 @@
     
     <p>Suppose <m>f : x \mapsto y</m> has an inverse function <m>f^{-1}: y \mapsto x</m>. The equivalent inverse equations are given by <me>y=f(x) \quad \Leftrightarrow \quad x=f^{-1}(y).</me> When viewed as a map, these functions reverse one another's operations.</p>
     
-    <figure>
+    <sidebyside>
         <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -30,9 +30,9 @@
             \draw [thick, black, ->] (0.9,-0.15) -- (2.9,-0.85) node[pos=0.5, left] {$f$};
             \draw [thick, black, <-] (1.1,-0.15) -- (3.1,-0.85) node[pos=0.5, right] {$f^{-1}$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
         </image>
-    </figure>
+    </sidebyside>
     
     <p>When inverse operations are applied in sequence (composition), there is no net change. We call the function that does not change the input the <term>identity function</term>, <me>\mathrm{id}(x) = x.</me> An alternate definition of an inverse function is through composition and the identity function.</p>
 

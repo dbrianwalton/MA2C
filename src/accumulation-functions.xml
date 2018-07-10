@@ -292,7 +292,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -310,7 +310,7 @@
             \node [above] at (2.5,0.1) {$-$};
             \node [above] at (4,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -333,7 +333,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
               \begin{tikzpicture}
               \begin{axis}
               [
@@ -350,7 +350,7 @@
                 node [pos=1,below] {$x=3$};
               \end{axis};
               \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -386,7 +386,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -403,7 +403,7 @@
             \node [above] at (1,0.1) {$-$};
             \node [above] at (6,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -424,7 +424,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
               \begin{tikzpicture}
               \begin{axis}
               [
@@ -440,7 +440,7 @@
                 node [pos=1,below] {$x=4$};
               \end{axis};
               \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -552,7 +552,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -570,7 +570,7 @@
             \node [above] at (0,0.1) {$-$};
             \node [above] at (2,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -602,7 +602,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -616,7 +616,7 @@
             \node [above] at (-2,0.1) {$-$};
             \node [above] at (2,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -634,7 +634,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
               \begin{tikzpicture}
               \begin{axis}[
                 axis lines=center,
@@ -648,7 +648,7 @@
                 node [pos=1,below,black] {$x=\frac{2}{\sqrt{3}}$};
               \end{axis}
               \end{tikzpicture}
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -671,7 +671,7 @@
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
               <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
               <![CDATA[\tikzset{%
               }
@@ -694,7 +694,7 @@
               };
               \end{axis}
               \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </statement>
@@ -713,7 +713,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
             }
@@ -735,7 +735,7 @@
             \node [above] at (4,0.1) {$-$};
             \node [above] at (5.5,0.1) {$+$};
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -802,7 +802,7 @@
         </p>
         <sidebyside width="70%" margins="auto">
           <image>
-            <latex-image-code>
+            <latex-image>
               <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
               <![CDATA[\tikzset{%
               }
@@ -832,7 +832,7 @@
               \addplot[orange,thick,domain=4:6,samples=21] {9+(x-5)^2};
               \end{axis}
               \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
       </solution>
@@ -1044,7 +1044,7 @@
         <statement>
           <sidebyside width="60%" margins="auto">
             <image>
-              <latex-image-code>
+              <latex-image>
                 \begin{tikzpicture}
                 \begin{axis}
                 [
@@ -1052,7 +1052,7 @@
                 ]
                 \end{axis};
                 \end{tikzpicture}
-              </latex-image-code>
+              </latex-image>
             </image>
           </sidebyside>
           <p>
@@ -1060,7 +1060,7 @@
           </p>
           <sidebyside width="60%" margins="0% 100%">
             <image>
-              <latex-image-code>
+              <latex-image>
               \begin{tikzpicture}
               \begin{axis}
                 [
@@ -1074,7 +1074,7 @@
                 };
               \end{axis}
               \end{tikzpicture}
-              </latex-image-code>
+              </latex-image>
             </image>
           </sidebyside>
         </statement>
@@ -1086,7 +1086,7 @@
           </p>
           <sidebyside width="60%" margins="0% 100%">
             <image>
-              <latex-image-code>
+              <latex-image>
               \begin{tikzpicture}
               \begin{axis}
                 [
@@ -1106,7 +1106,7 @@
                 };
               \end{axis}
               \end{tikzpicture}
-              </latex-image-code>
+              </latex-image>
             </image>
           </sidebyside>
         </statement>
@@ -1118,7 +1118,7 @@
           </p>
           <sidebyside width="60%" margins="0% 100%">
             <image>
-              <latex-image-code>
+              <latex-image>
               \begin{tikzpicture}
               \begin{axis}
                 [
@@ -1133,7 +1133,7 @@
                 };
               \end{axis}
               \end{tikzpicture}
-              </latex-image-code>
+              </latex-image>
             </image>
           </sidebyside>
         </statement>

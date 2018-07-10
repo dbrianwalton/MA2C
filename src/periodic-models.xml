@@ -71,9 +71,9 @@
         <me>-1 \le \sin(x) \le 1 \qquad -1 \le \cos(x) \le 1. </me>
         </p>
         
-        <figure>
+        <sidebyside>
             <image xml:id="fig-unit-circle-trig">
-                <latex-image-code>
+                <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -99,9 +99,9 @@
                     \draw[fill] (50:1) circle (2pt);
 
                     \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
         
         <p>
         As soon as the point travels a distance of <m>2\pi</m>, it has completed a full
@@ -109,11 +109,11 @@
         This is why the sine and cosine functions are periodic with a period <m>2 \pi</m>.
         </p>
         
-        <figure>
+        <sidebyside>
             <image xml:id="fig-sine-cosine">
                 <description>The graphs of cosine and sine functions.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -140,9 +140,9 @@
                 \draw [color=red] (8.5,0.6) -- (9,0.6) node [right] {$y=\sin(x)$};
                 
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
 
         <p>
         As a consequence of their unit circle definitions,
@@ -156,11 +156,11 @@
         (changing only the <m>x</m>-coordinate) is also in the graph.
         </p>
         
-        <figure>
+        <sidebyside>
             <image xml:id="fig-cosine-even">
                 <description>The cosine function is even (horizontal reflection symmetry).
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -185,9 +185,9 @@
                 \draw[fill] (-2.5, {cos(-2.5*90)}) circle (2pt) node [left] {$(-a,\cos(-a))$};
                 
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
 
         <p>
         How do you read or interpret that equation? On the left, we see the expression
@@ -218,11 +218,11 @@
         is also on the graph.
         </p>
         
-        <figure>
+        <sidebyside>
             <image xml:id="fig-sine-odd">
                 <description>The sine function is odd (symmetry across the origin).
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -247,9 +247,9 @@
                 \draw[fill] (-2.5, {sin(-2.5*90)}) circle (2pt) node [right] {$(-a,\sin(-a))$};
                 
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
 
         <p>
         Because a circle is rotationally symmetric,
@@ -321,7 +321,7 @@
         any repeating point on the graph.
         </p>
         
-        <figure>
+        <sidebyside>
             <caption>
             Neuron spiking given by the Hodgkin--Huxley model of ion channels.
             </caption>
@@ -329,7 +329,7 @@
                 <description>
                 Neuron spiking modeled by the Hodgkin--Huxley model of ion channels.
                 </description>
-                <latex-image-code>
+                <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
@@ -347,9 +347,9 @@
                 };
                 \end{axis}
                 \end{tikzpicture}]]>
-                </latex-image-code>
+                </latex-image>
             </image>
-        </figure>
+        </sidebyside>
 
         <p>
         Finding the period from such a graph is challenging because we can only estimate
@@ -400,13 +400,13 @@
             <statement>
             Find the formula for the sinusoidal function shown in the following graph.
             
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-sinusoidal-example">
                     <description>
                     A sinusoidal graph with a centerline at y=10, a minimum at y=7 
                     and maximum at y=13, a period of 8 and maximum at x=1.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -435,9 +435,9 @@
                     ;
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             </statement>
             <solution>
             <p>
@@ -449,14 +449,14 @@
             is shown in the figure below, along with a single corresponding cycle
             for our transformed data.
             </p>
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-sinusoidal-example-cycles">
                     <description>
                     Single cycles of the cosine and of the example
                     sinusoidal graph with a centerline at y=10, a minimum at y=7 
                     and maximum at y=13, a period of 8 and maximum at x=1.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -517,9 +517,9 @@
                     };
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             
             <p>
             If we think of <m>(x,y)</m> based on <m>y=\cos(x)</m> as the 
@@ -644,12 +644,12 @@
             that our period does not change as we draw.
             </p>
             
-            <figure>
+            <sidebyside>
                 <image xml:id="fig-sinusoidal-sketch">
                     <description>
                     Graph of y=3sin(6x+pi)-3.
                     </description>
-                    <latex-image-code>
+                    <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
                     }
@@ -683,9 +683,9 @@
                     };
                     \end{axis}
                     \end{tikzpicture}]]>
-                    </latex-image-code>
+                    </latex-image>
                 </image>
-            </figure>
+            </sidebyside>
             </solution>
         </example>
     </subsection>
