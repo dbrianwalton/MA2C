@@ -23,7 +23,7 @@
     <p>
       Mathematics admittedly takes a different view of numbers than just their ability to serve as measurements.
       A measurement can only be determined to a degree of accuracy that depends on the instrument and environment.
-      For a mathematician, a number is an exact entity, and other numbers, regardless of how close they might be, are different.
+      For a mathematician, a number is an exact entity<mdash/>other numbers, regardless of how close they might be, are different.
       Consequently, a mathematical answer should always be left in an exact representation.
     </p>
     
@@ -53,13 +53,37 @@
     
     <p>
       We often visualize numbers geometrically using a number line.
-      On the number line, the integers are equally spaced by a unit length.
+      On the number line, the integers are equally spaced by a unit length starting at an origin of zero.
+      (See <xref ref="fig-number-line-integers"/>.)
       Subdividing the unit length into a whole number of equal parts generates additional points that are rational numbers.
+      (See <xref ref="fig-number-line-rational"/>.)
       However, even when all rational numbers are included,
       there are infinitely many points on the line that are never covered.
       These are the <term>irrational numbers</term>, which include algebraic numbers like <m>\sqrt{2}</m> or <m>\sqrt{3}</m>, as well as transcendental numbers like <m>\pi</m> and <m>e</m>.
       The set of <term>real numbers</term> is written <m>\mathbb{R}</m> and consists of both rational and irrational numbers.
     </p>
+    
+    <figure xml:id="fig-number-line-example">
+      <caption> The number line graphically represents real numbers, both rational and irrational.</caption>
+      <image>
+        <description>Illustration of the real number line.</description>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \begin{tikzpicture}[x=1.6cm]
+        \draw[<->] (-3.5,0) -- (3.5,0);
+        \foreach \x in {-3, -2, ..., 3}
+            \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+        \draw (0.75,-0.1) -- (0.75,0.1) node [above] {$\frac{3}{4}$};
+        \draw (-1.667,-0.1) -- (-1.667,0.1) node [above] {$-\frac{5}{3}$};
+        \draw (1.414,-0.1) -- (1.414,0.1) node [above] {$\sqrt{2}$};
+        \draw (2.718,-0.1) -- (2.718,0.1) node [above] {$e$};
+        \draw (3.142,-0.1) -- (3.142,0.1) node [above] {$\pi$};
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
     
     <p>
       Every mathematical expression represents a specific point on the number line.
@@ -235,6 +259,8 @@
       </statement>
     </definition>
     
+    <subsubsection xml:id="subsection-significant-digits">
+    <title>Significant Digits</title>
     <p>
       In science, the precision of a measurement is often described using <term>significant digits</term>. 
       Significant digits are those digits which represent the value measured up to the accuracy of the measurement. 
@@ -253,6 +279,59 @@
     </p>
     
     <p>
+      We can think of a measurement with its given precision as representing many possible exact lengths.
+      These possible lengths correspond to <term>intervals</term> on the number line.
+      On a ruler measuring in centimeters, all lengths between 14.5 and 15.5 centimeters would be represented by the measurement of 15 centimeters.
+      Consequently, a measurement of 15 cm corresponds to the interval of possible lengths <m>[14.5,15.5)</m> (centimeters).
+      We include the left end-point because we round round the number 5 up, and an exact length of 15.5 would round up to 16.
+      (We'd actually have a hard time knowing exactly where those lengths are because of measurement error;
+      we should probably flip a coin if we can't decide which side is closer.)
+    </p>
+    <sidebyside margins="auto">
+      <image>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \begin{tikzpicture}[x=1cm,y=1cm]
+        \draw[-] (12.2,0) -- (17.8,0);
+        \draw[(-), thick, red] (14.5,0) -- (15.5,0);
+        \draw[->, black] (15,0.5) -- (15,0.2)
+          node [pos=0, above] {$\widehat{L}=15$};
+        \foreach \x in {13,14,...,17} {
+          \draw[-, black] (\x,-0.1) -- (\x,0) node [pos=0, below] {\x};
+        }
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </sidebyside>
+    <p>
+      Similarly, if the ruler showed millimeters, all lengths between 15.25 and 15.35 centimeters would be represented by the measurement of 15.3 centimeters.
+      A measurement of 15.3 cm then corresponds to the interval <m>[15.25,15.35)</m> (centimeters).
+    </p>
+    <sidebyside margins="auto">
+      <image>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \begin{tikzpicture}[x=4cm,y=1cm]
+        \draw[-] (14.73,0) -- (16.07,0);
+        \draw[(-), thick, red] (15.25,0) -- (15.35,0);
+        \draw[->, black] (15.3,0.5) -- (15.3,0.2)
+          node [pos=0, above] {$\widehat{L}=15.3$};
+        \foreach \x in {15,16} {
+          \draw[-, black] (\x,-0.15) -- (\x,0) node [pos=0, below] {\x};
+        }
+        \foreach \x in {14.8,14.9,...,16.0} {
+          \draw[-, black] (\x,-0.05) -- (\x,0);
+        }
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </sidebyside>
+    
+    <p>
       Significant digits with zeros have some trickier rules. 
       For example, in the previous example, 
       if the length were reported in microns instead of centimeters, 
@@ -264,6 +343,10 @@
       So a measurement of <m>2.530 \times 10^4</m> would have four significant digits 
       but <m>2.53 \times 10^4</m> would only have three significant digits.
     </p>
+    </subsubsection>
+    
+    <subsubsection xml:id="subsection-margin-of-error">
+    <title>Margin of Error</title>
     
     <p>
       An alternative to using significant digits is to state explicitly a <term>margin of error</term>. 
@@ -286,8 +369,8 @@
     <p>
       We can write a statement about the margin of error using absolute values. 
       Suppose that a quantity <m>Q</m> is being measured 
-      and we have a margin of error measurement <m>Q = 15.3 \pm 0.1</m>. 
-      This is not a true equation. 
+      and we have measurement with a margin of error <m>Q = 15.3 \pm 0.1</m>. 
+      This is not an ordinary mathematical equation. 
       Rather, it is saying that we have an approximate measurement 
       <m>\widehat{Q}=15.3</m> and that the margin of error is between <m>\pm 0.1</m>. 
       Writing the error as <m>Q-\widehat{Q} = Q-15.3</m>, 
@@ -530,6 +613,7 @@
         </p>
       </solution>
     </example>
+    </subsubsection>
   </subsection>
   <subsection>
     <title>Summary</title>

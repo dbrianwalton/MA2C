@@ -29,6 +29,7 @@
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
+                /pgfplots/table/row sep=crcr
                 }
                 \begin{tikzpicture}
                 \begin{axis}[
@@ -41,11 +42,11 @@
                 \addplot[blue, thick, samples=100]
                     ({x}, {x^3-3*x});
                 \addplot[only marks, blue] table {
-                    -2 -2
-                    -1 2
-                    0 0
-                    1 -2
-                    2 2
+                    -2 -2\\
+                    -1 2\\
+                    0 0\\
+                    1 -2\\
+                    2 2\\
                 };
                 \addplot[dashed, thick, red, domain=-1.5:-0.5]
                     ({x}, {2});

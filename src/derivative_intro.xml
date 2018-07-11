@@ -53,6 +53,7 @@
                         <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
+                        /pgfplots/table/row sep=crcr
                         }
                         \begin{tikzpicture}
                         \begin{axis}[
@@ -61,14 +62,13 @@
                             xlabel={$t$},
                             ylabel={$h$},
                         ]
-
                         \addplot[blue, thick, samples=100]
                             ({x}, {5+64*x-16*x^2});
                         \addplot[red, samples=10]
                             ({x}, {53-16*(x-1)});
                         \addplot[only marks, blue] table {
-                            1 53
-                            4 5
+                          1 53\\
+                          4 5\\
                         };
                         \addplot[mark=none, black] {0};
                         \end{axis}

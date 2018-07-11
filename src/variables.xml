@@ -179,18 +179,18 @@
       </sidebyside>
       <p>
         Each row (corresponding to the population in a given year) represents a distinct state of the system.
-        The system is characterized by the observed values, which consist of the year itself, the total population, the total number of births in the year, and the total number of deaths in the year.
-        These three measurements are the variables of the system.
-        The year should also be considered one of the variables (an independent variable) because we think of the other variables changing with respect to time.
+        The observed values in the state are the <term>variables</term>: 
+        the year, the total population at the beginning of the year, the total number of births in the year, and the total number of deaths in the year.
+        The year is included as one of the variables<mdash/>an independent variable<mdash/>in order to distinguish the different states with respect to time.
       </p>
     </example>
   
     <p>
-      A symbol is often used to represent, or name, a variable.
-      The symbol is often a letter, but could also be a Greek letter, an abbreviation, or a word.
-      The choice of symbol should generally be related to the meaning of the variable.
+      We often represent a variable by a symbol.
+      The symbol is often a letter, but could also be a Greek letter, an abbreviation, or a word and becomes a name for the variable.
       Uppercase and lowercase letters are different symbols and should not be interchanged with one another.
-      An important part of communication is in stating clearly the variables of a system and identifying the symbols that are chosen to represent them.
+      The choice of symbol should generally be related to the meaning of the variable.
+      An important part of communication in modeling is in stating clearly the variables of a system and identifying the symbols that are chosen to represent them.
     </p>
     <p>
       In the previous example, the population variable might be represented by the symbol <m>P</m> while the births and deaths might be represented by the symbols <m>B</m> and <m>D</m>.
@@ -265,7 +265,8 @@
         </tabular>
       </sidebyside>
       <p>
-        Please note that without the earlier descriptive paragraph introducing the variables, this table  would have no context and would not be helpful to a reader.
+        Please note how the descriptive paragraph introducing the variables provides the context for this table.
+        Without that explanation, the table would not be as helpful to a reader.
         Any time you have data and refer to the data by variables, you need a few sentences that introduce the meaning of each variable along with the units of measurement.
       </p>
     </example>
@@ -295,10 +296,11 @@
       The following figure shows two different scatter plots for the electrophoresis gel data above.
       One plot is based on the pairs <m>(L,D)</m> whereas the other is based on the pairs <m>(D,L)</m>.
       These graphs contains the same information but viewed from a reverse perspective.
+      When we switch the order of the variables, we call the relationships <term>inverse relations</term>.
     </p>
   
     <figure>
-      <caption>Scatter plot of electrophoresis data, displacement vs size and size vs displacement.</caption>
+      <caption>Scatter plot of electrophoresis data, displacement vs size and the inverse relation size vs displacement.</caption>
       <image width="80%">
         <description>
         Scatter plot of electrophoresis data, displacement vs size and size vs displacement.
@@ -361,7 +363,7 @@
       For example, the population data has four state variables, <m>(Y,P,B,D)</m>.
       Three scatter plots can be formed by plotting the population, the total births and the total deaths versus the year, giving graphs of points <m>(Y,P)</m>, <m>(Y,B)</m>, <m>(Y,D)</m>.
       Because the births and deaths are on the same scale, we can combine the plots as one.
-      We could also plot the inverse relationships <m>(P,Y)</m>, <m>(B,Y)</m> and <m>(D,Y)</m>, but these really contain the same information from a different view.
+      We could also plot the inverse relations <m>(P,Y)</m>, <m>(B,Y)</m> and <m>(D,Y)</m>, but these really contain the same information from a different view.
     </p>
     <sidebyside margins="auto">
       <image width="80%">
@@ -467,11 +469,51 @@
       Some times, this is because we want to describe a calculation without referencing a specific value.
       Other times, we want a specific but unknown value and use a variable as a name.
     </p>
+    <example>
+      <statement>
+        <p>
+          Maybe you have seen a calculation described similarly to the following.
+        </p>
+        <p>
+          Think of a number.
+          Add five.
+          Double the result.
+          Subtract four.
+          Divide the answer in half.
+          Subtract your original number.
+        </p>
+        <p>
+          Use the variable <m>x</m> to represent the number chosen.
+          Write out the formula that describes this calculation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We use parentheses to emphasize the order of calculations.
+          Start with <m>x</m> and add five to get <m>x+5</m>.
+          Doubling this means to multiply by two to get <m>2(x+5)</m>.
+          Subtracting four gives <m>2(x+5)-4</m>.
+          Dividing in half means divide this by two, resulting in a fraction, <m>\displaystyle  \frac{2(x+5)-4}{2}</m>.
+          We end by subtracting the original value <m>x</m>.
+          The formula that matches this calculation would be
+          <me>\frac{2(x+5)-4}{2}-x</me>.
+        </p>
+      </solution>
+    </example>
     <p>
-      An <term>expression</term> is any formula involving numbers and variables.
+      An <term>expression</term> is any formula involving numbers and variables, such as the formula in the previous example.
       An expression itself represents a numerical value.
       When an expression involves variables, the value of the expression itself is unknown until the values of all variables are known.
       We say that the expression is a <term>dependent variable</term> and often represent its value by a symbol.
+    </p>
+    <example>
+      <p>
+        For the previous example, we could introduce a variable <m>y</m> to represent the final number.
+        That gives a dependent variable defined by the expression <me>y=\frac{2(x+5)-4}{2}-x</me>.
+      </p>
+    </example>
+    <p>
+      Dependent variables often depend on more than one variable.
     </p>
     <example>
       <p>
@@ -520,10 +562,42 @@
         </ul>
       </p>
     </assemblage>
+    <example>
+      <statement>
+        <p>
+          Our pick-a-number example with the dependent variable <me>y=\frac{2(x+5)-4}{2}-x</me>
+          could be used as a mind-reader trick.
+          If a volunteer does the math correctly, you can always guess the final number <m>y</m>.
+          Use algebra properties to determine what you should predict.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start with the distributive property to rewrite <m>2(x+5) = 2x+10</m>.
+          Subtracting 4 is equivalent to adding <m>-4</m>.
+          We can then use the associative property to rewrite <m>(2x+10)+-4 = 2x+(10+-4) = 2x+6</m>.
+          Dividing by two is equivalent to multiplying by <m>\frac{1}{2}</m>.
+          This allows us to use the distributive property again,
+          <md>
+            <mrow>\frac{2(x+5)-4} = \frac{2x+6}{2} &amp;= \frac{1}{2}(2x+6) = \frac{1}{2}(2x) + \frac{1}{2}(6)</mrow>
+            <mrow> &amp;= (\frac{1}{2} \cdot 2) x + \frac{6}{2} = x + 3 </mrow>
+          </md>
+          The second line used the associative property and the multiplicative identity.
+          Can you see where?
+          The final step in the calculation is to subtract <m>x</m>.
+        </p>
+        <p>
+          In conclusion, we have discovered <m>y=3</m>.
+          No matter what number is originally chosen, the final result of the described calculation will always be three.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Equations</title>
     <p>
-      An equation gives an abstract representation of a relationship between variables.
-      An <term>expression</term> is any formula involving numbers and variables.
       An <term>equation</term> is a statement that two expressions are equal.
+      An equation gives an abstract representation of a relationship between variables.
       For some values of the variables, the equation may be false; for other values, the equation will be true.
       A <term>solution</term> to the equation is a set of values for the variables in the equation that makes the statement true.
       The <term>solution set</term> of an equation is the set of all possible solutions.
@@ -552,7 +626,7 @@
           <description>
           Graph of solutions to 2x+3y=12.
           </description>
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           /pgfplots/table/row sep=crcr
@@ -582,7 +656,7 @@
             ({x}, {(12-2*x)/3});
           \end{axis}
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
     </example>
@@ -605,7 +679,7 @@
           <description>
           Graph of solutions to u^2+v^2=16+6u.
           </description>
-          <latex-image-code>
+          <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
           <![CDATA[\tikzset{%
           /pgfplots/table/row sep=crcr
@@ -631,7 +705,7 @@
             ({3+5*cos(x)}, {5*sin(x)});
           \end{axis}
           \end{tikzpicture}]]>
-          </latex-image-code>
+          </latex-image>
         </image>
       </sidebyside>
     </example>
@@ -691,7 +765,7 @@
         </p>
         <sidebyside width="50%" margins="auto">
           <image> 
-            <latex-image-code>
+            <latex-image>
             <![CDATA[\tikzset{%
             }
             \begin{tikzpicture}
@@ -699,7 +773,7 @@
             -- (4,3) node[pos=0.5,right] {$W$}
             -- (0,3) -- (0,0);
             \end{tikzpicture}]]>
-            </latex-image-code>
+            </latex-image>
           </image>
         </sidebyside>
         <p>
@@ -786,7 +860,7 @@
       <p>Is it possible to enclose an area of 50 <quantity><unit base="meter" exp="2"/></quantity> in two congruent rectangles that share an edge such that the total length of edges is 40 <quantity><unit base="meter"/></quantity> (counting the shared edge only once)? If so, how? You will need to choose your variables and construct appropriate model equations.</p>
       <sidebyside width="40%" margins="auto">
         <image> 
-          <latex-image-code>
+          <latex-image>
           <![CDATA[\tikzset{%
           }
           \begin{tikzpicture}

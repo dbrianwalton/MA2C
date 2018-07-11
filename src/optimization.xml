@@ -307,6 +307,7 @@
                         <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
+                        /pgfplots/table/row sep=crcr
                         }
                         \begin{tikzpicture}
                         \begin{axis}[
@@ -315,11 +316,11 @@
                             xlabel={$P$ (population size)}, ylabel={$b$ (per capita birth rate)},
                         ]
                         \addplot [only marks, blue] table {
-                            100 0.01905 
-                            200 0.01575 
-                            300 0.01455 
-                            400 0.0133875 
-                            500 0.01202                         
+                            100 0.01905\\
+                            200 0.01575\\
+                            300 0.01455\\
+                            400 0.0133875\\
+                            500 0.01202\\
                         };
                         \end{axis}
                         \end{tikzpicture}]]>
@@ -338,6 +339,7 @@
                         <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
+                        /pgfplots/table/row sep=crcr
                         }
                         \begin{tikzpicture}
                         \begin{axis}[
@@ -347,11 +349,11 @@
                             legend style={at={(1,1)}, anchor=north east}
                         ]
                         \addplot [only marks, blue] table {
-                            100 0.01905 
-                            200 0.01575 
-                            300 0.01455 
-                            400 0.0133875 
-                            500 0.01202                         
+                            100 0.01905\\
+                            200 0.01575\\
+                            300 0.01455\\
+                            400 0.0133875\\
+                            500 0.01202\\
                         };
                         \addplot [-, dashed, blue, domain=0:700, samples=51] { -0.000016423*x+0.019878 };
                         \addplot [-, red, domain=0:700, samples=51] { 0.020688*exp(-0.0011254*x) };

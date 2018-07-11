@@ -44,7 +44,7 @@
     
     <p>A new interpretation of number requires a new interpretation of arithmetic. Addition of numbers corresponds to combining lengths, with 3+5 meaning we find the number which is found by starting at 0 (the origin), moving three units to the right (to find 3) and then moving five more units to the right (to add 5). Since this the same as the number 8 (starting at 0 and moving 8 units to the right), we know 3+5=8. Multiplication (by integers) will still mean repeated addition, just repeating the displacement interpretation of addition instead of groups.</p>
     
-    <figure>
+    <figure xml:id="fig-number-line-integers">
       <caption> The integers are placed on the real number line with a spacing defined by the unit length.</caption>
       <image>
         <description>Integers on the number line.</description>
@@ -64,7 +64,7 @@
     
     <p>If we consider the property of consecutive inverse operations, we know that we should get <m>1 \div 5 \times 5 = 1</m>. So if we think about the intermediate value <m>a=1 \div 5</m> (which is not an integer), we can see that it is a value such that <m>a \times 5 = 1</m>. In the geometric interpretation, <m>a</m> is a length such that when it is repeated five times, we recover the unit length. This is the unit fraction <m>\frac{1}{5}</m>, which is also called the <term>multiplicative inverse</term> (or reciprocal) of the integer 5. Other fractions have a similar interpretation, such as <m>3 \div 4 = \frac{3}{4}</m> (dividing three into fourths) being the length such that when it is repeated four times is equivalent to three units.</p>
     
-    <figure>
+    <figure xml:id="fig-number-line-rational">
     <caption> Rational numbers are placed on the real number line using a fractional unit length based on the denominator.</caption>
       <image>
         <description>Rational numbers on the number line.</description>
