@@ -596,13 +596,101 @@
   <subsection>
     <title>Equations</title>
     <p>
-      An <term>equation</term> is a statement that two expressions are equal.
-      An equation gives an abstract representation of a relationship between variables.
+      An <term>equation</term> is a logical statement that two expressions are equal.
+      As a logical statement, an equation can be <term>true</term> or <term>false</term>.
+    </p>
+    <example>
+      <p>
+        <m>1+1=3</m> is an equation.
+        The two expressions are <m>1+1</m> and <m>3</m>.
+        This equation is a false statement because the values of the expressions are different.
+      </p>
+    </example>
+    <p>
+      When an equation involves variables, the truth of the statement depends on the values of the variables.
+      If we specify particular values for each variable, then we calculate the exact numerical value of each expression and then test if the values are equal.
       For some values of the variables, the equation may be false; for other values, the equation will be true.
+      If the equation is true for all possible values of the variables, the equation is called an <term>identity</term>.
       A <term>solution</term> to the equation is a set of values for the variables in the equation that makes the statement true.
       The <term>solution set</term> of an equation is the set of all possible solutions.
     </p>
+    <example>
+      <p>
+        The statement <m>2x+5=13</m> is an equation involving a single variable, <m>x</m>.
+        We can test the equation using different values for <m>x</m>.
+        For <m>x=1</m>, the expression <m>2x+5</m> has a value <m>2(1)+5=7</m>.
+        Since <m>7 \ne 13</m>, the equation is false and <m>x=1</m> is not a solution.
+        For <m>x=4</m>, the expression <m>2x+5</m> has a value <m>2(4)+5=13</m>.
+        We see that <m>x=1</m> is a solution because the expressions <m>2x+5</m> and <m>13</m> have the same value.
+      </p>
+    </example>
     <p>
+      Testing values to find solutions is impractical because there are infinitely many different values possible for each variable.
+      Finding a solution by guessing would be a stroke of luck.
+      In addition, finding one solution would not tell you if there were more solutions not yet found.
+      Instead, we use algebra to find solutions by <term>solving</term> the equation.
+      You would have learned many strategies for solving equations in an earlier algebra class.
+      Rather than attempt to address every strategy, we will focus on the overarching principles.
+    </p>
+      Most of these strategies rely on a principle of finding <term>equivalent</term> equations.
+      Equations are equivalent when they true or false for exactly the same values of variables.
+      The symbol <m>\Leftrightarrow</m> can be used to say that statements are equivalent.
+    </p>
+    <p>
+      You may have learned that an equation is like a balance or scale.
+      The two expressions are like two masses being balanced against one another.
+      The equation is true if the masses are in balance.
+      We create an equivalent equation if we apply the same operation to both sides of the equation,
+      so long as the operation is invertible.
+    </p>
+    <assemblage>
+      <title>Balanced Operations Result in Equivalent Equations</title>
+      <p>
+        The following operations can be used to create equivalent equations, where each variable represents arbitrary expressions.
+        <ul>
+          <li>Balanced Addition: <m>a=b</m> is equivalent to <m>a+c=b+c</m>.</li>
+          <li>Balanced Subtraction: <m>a=b</m> is equivalent to <m>a+c=b+c</m>.</li>
+          <li>Balanced Multiplication: <m>a=b</m> is equivalent to <m>a \cdot c=b \cdot c</m>, so long as <m>c \ne 0</m>.</li>
+          <li>Balanced Division: <m>a=b</m> is equivalent to <m>\displaystyle \frac{a}{c}=\frac{b}{c}</m>, so long as <m>c \ne 0</m>.</li>
+        </ul>
+        Because multiplication and division include a condition <m>c \ne 0</m>,
+        the new equation might have extra solutions corresponding to values where <m>c=0</m> that are not solutions to the original equation.
+        These <term>extraneous</term> should not be confused with actual solutions.
+      </p>
+    </assemblage>
+    <p>
+      The primary strategy for solving an equation is to create an equivalent equation where the variable is isolated.
+      If a variable appears only once in an equation,
+      then our strategy would be to apply balanced operations until one side of the equation only has that variable.
+      Generally, we can use the <term>inverse operation</term> for the last operation in the expression based on the order of operations.
+    </p>
+    <example>
+      <statement>
+        <p>Consider the earlier equation <m>2x+5=13</m>. Use balanced operations to solve the equation.</p>
+      </statement>
+      <solution>
+        <p>
+          The variable <m>x</m> only appears in the expression <m>2x+5</m>.
+          Because order of operations applies multiplication before addition, the operation of addition <m>+5</m> would be the last operation.
+          The <term>inverse operation</term> is to add <m>-5</m>, which we do in a balanced way.
+          <me>2x+5 = 13 \quad \Leftrightarrow \quad 2x+5+-5=13+-5 \quad \Leftrightarrow \quad 2x=8</me>
+          The last operation in the expression <m>2x</m> is now multiplication by 2.
+          The next balanced operation is to multiply by the inverse <m>\frac{1}{2}</m>.
+          <me>2x+5 = 13 \quad \Leftrightarrow \quad 2x=8 \quad \Leftrightarrow \quad \frac{1}{2} \cdot 2x = \frac{1}{2} \cdot 8 \quad \Leftrightarrow \quad x = 4</me>
+          The equation <m>x=4</m> has isolated the variable, so the only solution is <m>x=4</m>.
+          The solution set <m>\{x : 2x+5=13\}</m><mdash/>the set of values <m>x</m> that make <m>2x+5=13</m> true<mdash/>has a single value <m>\{x : 2x+5=13\} = \{4\}</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      If an equation has the variable appearing in multiple locations, we generally have two strategies to consider.
+      One strategy is to find an equivalent equation where the variable only appears once.
+      To do this, we use balanced operations to put terms with the variable on the same side of the equation.
+      We then use algebra properties, if possible, to rewrite the expression so that the variable appears once.
+      The other strategy would be to find an equivalent equation with one expression exactly zero and then use factoring.
+    </p>
+    <p>
+      An equation gives an abstract representation of a relationship between variables.
       Just as the state of an experimental system is defined by the value of the variables defining the state, an equation can be considered as a mathematical way to define relationships between variables of an abstract system.
       A scatter plot of data is generalized for an equation as a graph of all solutions.
       If we choose an ordering for the variables (e.g., alphabetical),  the values for the variables can be conveniently listed as an ordered list.
