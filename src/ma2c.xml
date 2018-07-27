@@ -22,6 +22,7 @@
     <xi:include href="./learn_math.xml" />
     <xi:include href="./numbers_measurements.xml" />
     <xi:include href="./variables.xml" />            
+    <xi:include href="./graphs-relations.xml" />            
     <xi:include href="./modeling.xml" />            
     </chapter>
     

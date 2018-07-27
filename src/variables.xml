@@ -7,458 +7,18 @@
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
    
-<section xml:id="systems-variables">
-  <title>Variables and Relationships</title>
+<section xml:id="math-variables">
+  <title>Variables, Expressions, and Equations</title>
 
   <subsection>
     <title>Overview</title>
     <p>
-      In physical settings, we usually consider measurements of multiple quantities at the same time.
-      We do this because we are interested in the relationships between these different quantities.
-      We think of each quantity of interest as a <term>variable</term>;
-      the collection of all such variables under consideration is called the <term>system</term>.
-      At any instant, the variables of the system will each have a particular value
-      and the collection of those values at that instant is called the <term>state</term> of the system.
+      In algebra, a variable represents a number whose value is not specified.
+      Sometimes, variables are introduced to describe the process for a calculation
+      that depends on another value.
+      Other times, variables are used to find a quantity of interest that makes an equation true.
+      In this section, we review the concepts of variables, expressions, equations, and basic strategies for solving equations.
     </p>
-    <p>
-      In this section, we introduce the idea of different variables in a system having a relation.
-      Specifically, this means that knowing the value of one variable in a particular state of the system gives us information about the value of another variable.
-      Relations are often explored using a scatter plot.
-      Mathematically, a relation is usually described by an equation.
-      Solving an equation for a variable is mathematically how we determine the value of a variable for a given state of the system.
-    </p>
-  </subsection>
-  
-  <subsection>
-    <title>Systems, States and Variables</title>
-    <p>
-      In the course of an experiment, or even just in observation,
-      many different quantities typically are covarying, or changing with one another.
-      For example, an object in motion has changing position, changing velocity, and changing forces.
-      In the course of a chemical reaction, there are changing concentrations of the different reactants and products as well as possibly changing temperature, pH, and volume, for example.
-      While observing a changing population, there could be changing population numbers, total biomass, birth and death rates, consumption of resources, and production of products and waste.
-    </p>
-    <p>
-      Mathematically, the <term>system</term> consists of all possible observable quantities associated with the experiment or observed physical system.
-      The <term>state</term> of the system refers to the collection of instantaneous values of all such quantities at a particular instant or configuration of the system.
-      A <term>variable</term> represents a single quantity that is or could be observed in the system.
-    </p>
-  
-    <example>
-      <p>
-        Consider the following data about the population, births and deaths in the United States.
-        To conserve space, the data are given using scientific notation expressed in the standard machine form
-        where the power of 10 follows the letter E, so that <m>2.521 \times 10^8</m> would be written 2.521E8.
-      </p>
-      <sidebyside margins="auto">
-        <tabular top="major" halign="center">
-          <col/> <col/> <col/> <col right="minor"/> <col right="minor"/>
-          <col/> <col/> <col/><col/>
-          <row bottom="minor">
-            <cell>Year</cell>
-            <cell>Population</cell>
-            <cell>Births</cell>
-            <cell>Deaths</cell>
-            <cell></cell>
-            <cell>Year</cell>
-            <cell>Population</cell>
-            <cell>Births</cell>
-            <cell>Deaths</cell>
-          </row>
-          <row>
-            <cell>1991</cell>
-            <cell>2.521E8</cell>
-            <cell>4.111E6</cell>
-            <cell>2.170E6</cell>
-            <cell></cell>
-            <cell>2001</cell>
-            <cell>2.850E8</cell>
-            <cell>4.026E6</cell>
-            <cell>2.416E6</cell>
-          </row>
-          <row>
-            <cell>1992</cell>
-            <cell>2.550E8</cell>
-            <cell>4.065E6</cell>
-            <cell>2.176E6</cell>
-            <cell></cell>
-            <cell>2002</cell>
-            <cell>2.876E8</cell>
-            <cell>4.022E6</cell>
-            <cell>2.443E6</cell>
-          </row>
-          <row>
-            <cell>1993</cell>
-            <cell>2.577E8</cell>
-            <cell>4.000E6</cell>
-            <cell>2.269E6</cell>
-            <cell></cell>
-            <cell>2003</cell>
-            <cell>2.901E8</cell>
-            <cell>4.090E6</cell>
-            <cell>2.448E6</cell>
-          </row>
-          <row>
-            <cell>1994</cell>
-            <cell>2.602E8</cell>
-            <cell>3.953E6</cell>
-            <cell>2.279E6</cell>
-            <cell></cell>
-            <cell>2004</cell>
-            <cell>2.928E8</cell>
-            <cell>4.112E6</cell>
-            <cell>2.397E6</cell>
-          </row>
-          <row>
-            <cell>1995</cell>
-            <cell>2.628E8</cell>
-            <cell>3.900E6</cell>
-            <cell>2.312E6</cell>
-            <cell></cell>
-            <cell>2005</cell>
-            <cell>2.955E8</cell>
-            <cell>4.138E6</cell>
-            <cell>2.448E6</cell>
-          </row>
-          <row>
-            <cell>1996</cell>
-            <cell>2.652E8</cell>
-            <cell>3.891E6</cell>
-            <cell>2.315E6</cell>
-            <cell></cell>
-            <cell>2006</cell>
-            <cell>2.984E8</cell>
-            <cell>4.266E6</cell>
-            <cell>2.426E6</cell>
-          </row>
-          <row>
-            <cell>1997</cell>
-            <cell>2.677E8</cell>
-            <cell>3.881E6</cell>
-            <cell>2.314E6</cell>
-            <cell></cell>
-            <cell>2007</cell>
-            <cell>3.012E8</cell>
-            <cell>4.316E6</cell>
-            <cell>2.424E6</cell>
-          </row>
-          <row>
-            <cell>1998</cell>
-            <cell>2.703E8</cell>
-            <cell>3.942E6</cell>
-            <cell>2.337E6</cell>
-            <cell></cell>
-            <cell>2008</cell>
-            <cell>3.041E8</cell>
-            <cell>4.248E6</cell>
-            <cell>2.472E6</cell>
-          </row>
-          <row>
-            <cell>1999</cell>
-            <cell>2.727E8</cell>
-            <cell>3.959E6</cell>
-            <cell>2.391E6</cell>
-            <cell></cell>
-            <cell>2009</cell>
-            <cell>3.068E8</cell>
-            <cell>4.131E6</cell>
-            <cell>2.437E6</cell>
-          </row>
-          <row bottom="medium">
-            <cell>2000</cell>
-            <cell>2.822E8</cell>
-            <cell>4.059E6</cell>
-            <cell>2.403E6</cell>
-            <cell></cell>
-            <cell>2010</cell>
-            <cell>3.094E8</cell>
-            <cell>3.999E6</cell>
-            <cell>2.468E6</cell>
-          </row>
-        </tabular>
-      </sidebyside>
-      <p>
-        Each row (corresponding to the population in a given year) represents a distinct state of the system.
-        The observed values in the state are the <term>variables</term>: 
-        the year, the total population at the beginning of the year, the total number of births in the year, and the total number of deaths in the year.
-        The year is included as one of the variables<mdash/>an independent variable<mdash/>in order to distinguish the different states with respect to time.
-      </p>
-    </example>
-  
-    <p>
-      We often represent a variable by a symbol.
-      The symbol is often a letter, but could also be a Greek letter, an abbreviation, or a word and becomes a name for the variable.
-      Uppercase and lowercase letters are different symbols and should not be interchanged with one another.
-      The choice of symbol should generally be related to the meaning of the variable.
-      An important part of communication in modeling is in stating clearly the variables of a system and identifying the symbols that are chosen to represent them.
-    </p>
-    <p>
-      In the previous example, the population variable might be represented by the symbol <m>P</m> while the births and deaths might be represented by the symbols <m>B</m> and <m>D</m>.
-      The year might be represented by the symbol <m>Y</m>.
-    </p>
-
-    <example>
-      <p>
-        In biology, scientists run electrophoresis gels to determine the size of polymers, such as proteins or DNA strands.
-        The gel provides a porous structure for the polymers to travel through while an electric potential (voltage) creates a force that pulls the polymers through the gel.
-        Different size polymers travel at different speeds.
-        The experiment is setup with all polymers starting at one end of the gel, the voltage is turned on for a certain amount of time and then disconnected.
-        Clusters of similarly sized polymers are identified visually as bands on the gel, with smaller polymers traveling a greater distance.
-        The following paragraph illustrates how variables might be introduced with their chosen symbols.
-      </p>
-      <p>
-        The image below represents an electrophoresis gel run on a standardized collection of DNA of fixed sizes.
-        Because the image does not show a length scale, the distances traveled by the different lengths are measured in image pixels and recorded in the table below.
-        The variables for the experiment are the length of DNA segments and the distance traveled through the gel.
-        Let <m>L</m> represent the length of the segment (in nucleotides) and let <m>D</m> represent the distance traveled (in pixels), measured from the center of the starting well to the center of the corresponding band in the image.
-        Each row represents a single state <m>(L,D)</m> of the system.
-      </p>
-      <sidebyside margins="auto">
-        <image width="50%" source="images/ladder-gel.png" />
-      </sidebyside>
-      <sidebyside margins="auto">
-        <tabular top="major" halign="center">
-          <row bottom="minor">
-            <cell><m>L</m> (nts)</cell>
-            <cell><m>D</m> (px)</cell>
-          </row>
-          <row>
-            <cell>100</cell>
-            <cell>342</cell>
-          </row>
-          <row>
-            <cell>200</cell>
-            <cell>327</cell>
-          </row>
-          <row>
-            <cell>300</cell>
-            <cell>312</cell>
-          </row>
-          <row>
-            <cell>400</cell>
-            <cell>299</cell>
-          </row>
-          <row>
-            <cell>500</cell>
-            <cell>288</cell>
-          </row>
-          <row>
-            <cell>600</cell>
-            <cell>278</cell>
-          </row>
-          <row>
-            <cell>700</cell>
-            <cell>270</cell>
-          </row>
-          <row>
-            <cell>800</cell>
-            <cell>263</cell>
-          </row>
-          <row>
-            <cell>900</cell>
-            <cell>256</cell>
-          </row>
-          <row bottom="medium">
-            <cell>1000</cell>
-            <cell>249</cell>
-          </row>
-        </tabular>
-      </sidebyside>
-      <p>
-        Please note how the descriptive paragraph introducing the variables provides the context for this table.
-        Without that explanation, the table would not be as helpful to a reader.
-        Any time you have data and refer to the data by variables, you need a few sentences that introduce the meaning of each variable along with the units of measurement.
-      </p>
-    </example>
-  </subsection>
-  
-  <subsection>
-    <title>Relationships Between Variables</title>
-  
-    <p>
-      The primary motivation for collecting data regarding different variables in the state of a system is to determine relationships between those variables.
-      One of the ways that we look for relationships is using a <term>scatter plot</term>.
-      A scatter plot is a graph showing the relationship between two variables.
-      Suppose the two variables use symbols <m>x</m> and <m>y</m>.
-      For each state of the system, there will have been observed values for both <m>x</m> and <m>y</m>.
-      The graph will include points for each pair <m>(x,y)</m>.
-    </p>
-    <p>
-      Spreadsheets (like Microsoft Excel, Apple Numbers or Google Sheets) are a common tool to generate scatter plots.
-      The data are first put in a table.
-      The first column of data will correspond to the variable used for the horizontal axis (<m>x</m>) and the second column of data will correspond to the variable for the vertical axis (<m>y</m>).
-      Select the two columns at the same time and add a chart to your spreadsheet, choosing the scatter plot style of graph.
-      You should become familiar with how to create a scatter plot.
-      Always be sure that you label your axes.
-      You should always use the variables of the system rather than the generic names of <m>x</m> and <m>y</m>.
-    </p>
-    <p>
-      The following figure shows two different scatter plots for the electrophoresis gel data above.
-      One plot is based on the pairs <m>(L,D)</m> whereas the other is based on the pairs <m>(D,L)</m>.
-      These graphs contains the same information but viewed from a reverse perspective.
-      When we switch the order of the variables, we call the relationships <term>inverse relations</term>.
-    </p>
-  
-    <figure>
-      <caption>Scatter plot of electrophoresis data, displacement vs size and the inverse relation size vs displacement.</caption>
-      <image width="80%">
-        <description>
-        Scatter plot of electrophoresis data, displacement vs size and size vs displacement.
-        </description>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        /pgfplots/table/row sep=crcr
-        }
-        \pgfplotsset{ width=6cm }
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={$L$},
-          ylabel={$D$},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table {
-          100 342\\
-          200 327\\
-          300 312\\
-          400 299\\
-          500 288\\
-          600 278\\
-          700 270\\
-          800 263\\
-          900 256\\
-          1000 249\\
-        };
-        \end{axis}
-        \end{tikzpicture}
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={$D$},
-          ylabel={$L$},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table {
-          342 100\\
-          327 200\\
-          312 300\\
-          299 400\\
-          288 500\\
-          278 600\\
-          270 700\\
-          263 800\\
-          256 900\\
-          249 1000\\
-        };
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </figure>
-    <p>
-      When a system has a state defined by more than two variables, scatter plots can be defined for each pair of state variables.
-      For example, the population data has four state variables, <m>(Y,P,B,D)</m>.
-      Three scatter plots can be formed by plotting the population, the total births and the total deaths versus the year, giving graphs of points <m>(Y,P)</m>, <m>(Y,B)</m>, <m>(Y,D)</m>.
-      Because the births and deaths are on the same scale, we can combine the plots as one.
-      We could also plot the inverse relations <m>(P,Y)</m>, <m>(B,Y)</m> and <m>(D,Y)</m>, but these really contain the same information from a different view.
-    </p>
-    <sidebyside margins="auto">
-      <image width="80%">
-        <description>
-        Scatter plot of population, births and deaths with respect to time.
-        </description>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \pgfplotsset{ width=6cm }
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Year},
-          ylabel={Population},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=Y, y=P] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Year},
-          ylabel={Number},
-          ymin=0,
-          legend style={at={(0.95,0.05)},
-          anchor=south east,
-          legend entries={Births,Deaths}},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=Y, y=B] {data/pop-birth-death-demo.dat};
-        \addplot[
-          only marks,
-          color=red
-        ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
-  
-    <p>
-      We can also look at relationships between other pairs of variables.
-      For example, we can look at how the number of births or deaths relate to the population, plotting <m>(P,B)</m> and <m>(P,D)</m>, or how the number of births relate to the number of deaths with <m>(B,D)</m>.
-      The graph showing the relation between births and deaths to time (above) is very similar to the graph showing the relation between births and deaths to population (below).
-      However, the relation between the births and deaths illustrates that sometimes variables do not show a clear relation.
-    </p>
-  
-    <sidebyside width="80%">
-      <image>
-        <description>
-        Scatter plot of population, births and deaths with respect to each other.
-        </description>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \pgfplotsset{ width=6cm }
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Population},
-          ylabel={Number},
-          ymin=0,
-          legend style={at={(0.95,0.05)},
-          anchor=south east,
-          legend entries={Births,Deaths}},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=P, y=B] {data/pop-birth-death-demo.dat};
-        \addplot[
-          only marks,
-          color=red
-        ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Births},
-          ylabel={Deaths},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
   </subsection>
   
   <subsection>
@@ -579,12 +139,13 @@
           Dividing by two is equivalent to multiplying by <m>\frac{1}{2}</m>.
           This allows us to use the distributive property again,
           <md>
-            <mrow>\frac{2(x+5)-4} = \frac{2x+6}{2} &amp;= \frac{1}{2}(2x+6) = \frac{1}{2}(2x) + \frac{1}{2}(6)</mrow>
+            <mrow>\frac{2(x+5)-4}{2} = \frac{2x+6}{2} &amp;= \frac{1}{2}(2x+6) = \frac{1}{2}(2x) + \frac{1}{2}(6)</mrow>
             <mrow> &amp;= (\frac{1}{2} \cdot 2) x + \frac{6}{2} = x + 3 </mrow>
           </md>
           The second line used the associative property and the multiplicative identity.
           Can you see where?
-          The final step in the calculation is to subtract <m>x</m>.
+          The final step in the calculation is to subtract <m>x</m>,
+          <me>y = \frac{2(x+5)-4}{2}-x = x+3 - x = (x+-x)+3 = 3</me>.
         </p>
         <p>
           In conclusion, we have discovered <m>y=3</m>.
@@ -616,12 +177,22 @@
     </p>
     <example>
       <p>
+        <m>x+1=3</m> is an equation with a variable <m>x</m>.
+        When <m>x=1</m>, or when <m>x</m> represents the value 1, the equation is the same as our earlier example.
+        In that case, the equation is false.
+        However, when <m>x=2</m>, the equation corresponds to <m>2+1=3</m>, which is true.
+        The value <m>2</m> is in the solution set.
+      </p>
+    </example>
+    <example>
+      <p>
         The statement <m>2x+5=13</m> is an equation involving a single variable, <m>x</m>.
         We can test the equation using different values for <m>x</m>.
         For <m>x=1</m>, the expression <m>2x+5</m> has a value <m>2(1)+5=7</m>.
         Since <m>7 \ne 13</m>, the equation is false and <m>x=1</m> is not a solution.
         For <m>x=4</m>, the expression <m>2x+5</m> has a value <m>2(4)+5=13</m>.
         We see that <m>x=1</m> is a solution because the expressions <m>2x+5</m> and <m>13</m> have the same value.
+        The value <m>1</m> is in the solution set.
       </p>
     </example>
     <p>
@@ -632,6 +203,7 @@
       You would have learned many strategies for solving equations in an earlier algebra class.
       Rather than attempt to address every strategy, we will focus on the overarching principles.
     </p>
+    <p>
       Most of these strategies rely on a principle of finding <term>equivalent</term> equations.
       Equations are equivalent when they true or false for exactly the same values of variables.
       The symbol <m>\Leftrightarrow</m> can be used to say that statements are equivalent.
@@ -656,6 +228,12 @@
         Because multiplication and division include a condition <m>c \ne 0</m>,
         the new equation might have extra solutions corresponding to values where <m>c=0</m> that are not solutions to the original equation.
         These <term>extraneous</term> should not be confused with actual solutions.
+      </p>
+      <p>
+        In addition to the balanced arithmetic operations,
+        we will later learn about invertible or one-to-one functions.
+        An invertible function can be applied to both sides of an equation to create an equivalent equation,
+        so long as the expressions have values in the function domain.
       </p>
     </assemblage>
     <p>
@@ -684,133 +262,233 @@
     </example>
     <p>
       If an equation has the variable appearing in multiple locations, we generally have two strategies to consider.
-      One strategy is to find an equivalent equation where the variable only appears once.
+      One strategy<mdash/>isolating a variable<mdash/>is to find an equivalent equation where the variable only appears once.
       To do this, we use balanced operations to put terms with the variable on the same side of the equation.
-      We then use algebra properties, if possible, to rewrite the expression so that the variable appears once.
-      The other strategy would be to find an equivalent equation with one expression exactly zero and then use factoring.
+      We then use algebra properties, if possible, to solve for that variable.
     </p>
-    <p>
-      An equation gives an abstract representation of a relationship between variables.
-      Just as the state of an experimental system is defined by the value of the variables defining the state, an equation can be considered as a mathematical way to define relationships between variables of an abstract system.
-      A scatter plot of data is generalized for an equation as a graph of all solutions.
-      If we choose an ordering for the variables (e.g., alphabetical),  the values for the variables can be conveniently listed as an ordered list.
-      When two variables are involved in an equation, the ordered list is called an ordered pair or point, like <m>(x,y)</m>, and the graph of the equation is typically a curve in the plane.
-    </p>
-    <example>
-      <p>
-        The equation <me>2x+3y = 12</me> involves two variables, <m>x</m> and <m>y</m>.
-        The expressions in the equation are <m>2x+3y</m> and <m>12</m>.
-        The values <m>x=3</m> and <m>y=2</m>, corresponding to the ordered pair <m>(x,y)=(3,2)</m>, provide one solution because for those values, <me>2x+3y = 2(3)+3(2)=12,</me> so that the equation is true.
-        On the other hand, <m>(x,y)=(4,1)</m> is not a solution because  for that state, <me>2x+3y = 2(4)+3(1)=11</me> and <m>11 \ne 12</m>.
-        Some other solutions include the points <m>(6,0)</m> and <m>(0,4)</m>.
-      </p>
-      <p>
-        You should have recognized that this equation is an equation of a line.
-        (See Appendix <xref ref="appendix-linear-functions"/>.)
-        That is, the solutions we identified above of <m>(3,2)</m>, <m>(6,0)</m> and <m>(0,4)</m>, along with all other solutions, will lie on the same line in the plane.
-      </p>
-      <sidebyside width="50%" margins="auto">
-        <image>
-          <description>
-          Graph of solutions to 2x+3y=12.
-          </description>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          /pgfplots/table/row sep=crcr
-          }
-          \pgfplotsset{ width=6cm }
-          \begin{tikzpicture}
-          \begin{axis}[
-            xmin=-2, xmax=8,
-            xlabel={$x$},
-            ylabel={$y$},
-          ]
-          \addplot[
-            only marks,
-            color=blue
-          ] table {
-            0 4\\
-            3 2\\
-            6 0\\
-          };
-          \addplot[
-            only marks,
-            color=red
-          ] table {
-            4 1 \\
-          };
-          \addplot[blue, samples=100, domain=-3:9]
-            ({x}, {(12-2*x)/3});
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
-    </example>
-    <example>
-      <p>
-        The equation <me>u^2+v^2=16+6u</me> also involves two variables, <m>u</m> and <m>v</m>.
-        The expressions in the equation are <m>u^2+v^2</m> and <m>16+6u</m>.
-        Using ordered pairs <m>(u,v)</m>, the points <m>(3,5)</m> and <m>(3,-5)</m> are solutions.
-        That is, if <m>(u,v)=(3,5)</m>, the expressions have the same value:
-        <md>
-          <mrow> u^2+v^2 &amp;= 3^2+5^2=9+25 = 34,</mrow>
-          <mrow> 16+6u &amp;= 16+6(3) = 16+18 = 34.</mrow>
-        </md>
-        It is possible to show that the graph of solutions for this equation is a circle centered at <m>(3,0)</m> with radius 5.
-        Other points on this circle include such points as <m>(-2,0)</m> and <m>(6,-4)</m>.
-        You should verify that these are also solutions, at least for one or two points to reinforce the idea that a solution makes the statement of the equation true.
-      </p>
-      <sidebyside width="50%" margins="auto">
-        <image>
-          <description>
-          Graph of solutions to u^2+v^2=16+6u.
-          </description>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          /pgfplots/table/row sep=crcr
-          }
-          \pgfplotsset{ width=6cm }
-          \begin{tikzpicture}
-          \begin{axis}[
-            xmin=-4, xmax=10,
-            xlabel={$u$},
-            ylabel={$v$},
-          ]
-          \addplot[
-            only marks,
-            color=blue
-          ] table {
-            3 5\\
-            3 -5\\
-            -2 0\\
-            -1 3\\
-            6 -4\\
-          };
-          \addplot[blue, samples=100, domain=0:360]
-            ({3+5*cos(x)}, {5*sin(x)});
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
-    </example>
-    <p>
-      An equation gives us a constraint on the relationships between a system's variables.
-      Knowing values of other variables or additional constraints, we are able to solve an equation to gain additional information.
-    </p>  
     <example>
       <statement>
         <p>
-          Consider the equation of the circle <me>u^2+v^2=16+6u</me> used in the previous example.
-          Find the solutions for which <m>u=-1</m> and then find the solutions for which <m>v=2</m>.
+          Solve the equation <m>\displaystyle \frac{3x}{x+2} = 2</m>.
         </p>
       </statement>
       <solution>
         <p>
-          First, to solve the equation when <m>u=-1</m>, we substitute the value of <m>u=-1</m> and then use algebra to isolate <m>v</m>.
+          The equation has the variable <m>x</m> appear twice.
+          For the expression on the left to be defined, we know <m>x+2 \ne 0</m>.
+          We can use balanced multiplication and multiply both sides of the equation by <m>x+2</m>
+          to find an equivalent equation
+          <me>3x = 2(x+2)</me>.
+          (This is also called cross-multiplication.)
+          The right expression can be rewritten to obtain
+          <me>3x=2x+4</me>,
+          which can be solved as
+          <me>x=4</me>.
+        </p>
+        <p>
+          We check our answer by testing the truth of the original equation.
+          With <m>x=4</m>, our equation is
+          <me>\frac{3(4)}{4+2} = 2</me>.
+          Because <m>3(4)=12</m> and <m>4+2=6</m> and <m>12 \div 6 = 2</m>, the equation is true.
+          The solution set is 
+          <me>\{x : \frac{3x}{x+2}=2 \} = \{4\}</me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The other common strategy<mdash/>factoring<mdash/>is to find an equivalent equation with one expression exactly zero and the other expression is factored.
+      The factoring strategy is based on the properties of zero in relation to multiplication.
+      When <em>non-zero</em> numbers are multiplied, the product is also non-zero.
+      The only way a product can equal zero is if one of the factors is zero.
+      Consequently, when an equation is written as a product equalling zero,
+      we can identify all solutions for each factor individually equal to zero.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Solve the equation <m>x^3=4x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Because the variable <m>x</m> appears as a cube <m>x^3</m> and alone as <m>x</m>,
+          isolating the variable will not be a successful strategy.
+          We use factoring instead, which requires moving all terms to one side.
+          The balanced operation would be to add <m>-4x</m> to both sides,
+          <me>x^3 - 4x = 0</me>.
+        </p>
+        <p>
+          Now that we have an equivalent equation written as an expression equal to zero,
+          we need to factor our expression.
+          The expression has a common factor <m>x</m> in all terms, so we write
+          <me>x(x^2-4) = 0</me>.
+          The factoring principle tells us that solutions satisfy either <m>x=0</m> or <m>x^2-4=0</m>.
+          We can continue to factor:
+          <me>x(x+2)(x-2)=0</me>.
+          Now, each factor might equal zero leading to a different solution:
+          <m>x=0</m>, <m>x=-2</m>, or <m>x=2</m>.
+          Because these are the only values that make a factor equal zero, they are the only solutions.
+          The solution set is
+          <me>\{x : x^3-4x \} = \{-2, 0, 2\}</me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      In addition to the general strategies of isolating a variable and factoring an expression equal to zero,
+      we have a special strategy for solving a quadratic polynomial equal to zero, even when it does not easily factor.
+      This strategy is to use the quadratic formula.
+    </p>
+    <theorem xml:id="thm-quadratic-formula">
+      <title>Quadratic Formula</title>
+      <statement>
+      <p>
+        Suppose <m>a</m>, <m>b</m>, and <m>c</m> are numbers with <m>a \ne 0</m>.
+        The equation <m>ax^2+bx+c=0</m> has solutions
+        <me>x=\frac{-b \pm \sqrt{b^2-4ac}}{2a}</me>.
+        If <m>b^2-4ac \lt 0</m> (negative discriminant),
+        then the solutions are complex numbers and there are no real solutions.
+        If <m>b^2-4ac = 0</m> (zero discriminant),
+        then the solutions are the same numbers and there is exactly one real solutions.
+        If <m>b^2-4ac \gt 0</m> (positive discriminant),
+        then there are two different real solutions.
+      </p>
+      </statement>
+    </theorem>
+    <p>
+      I like to remember the quadratic formula using the tune to <q>Pop Goes the Weasel</q>:
+      <dq><m>x</m> equals negative <m>b</m> plus or minus square-root <m>b</m>-squared minus <m>4ac</m>
+      all over <m>2a</m>.</dq>
+    </p>
+    <example>
+      <statement>
+        Solve <m>2x^2 = 3x + 5</m>.
+      </statement>
+      <solution>
+        <p>
+          First, we need to write an equivalent equation that is in the standard quadratic form.
+          This requires all terms on the left side of the equation,
+          <me>2x^2 - 3x - 5 =0</me>.
+          Once in this form, we identify <m>a=2</m>, <m>b=-3</m> and <m>c=-5</m>.
+          Knowing the coefficients <m>a</m>, <m>b</m>, and <m>c</m>, we can apply the quadratic formula:
+          <me>x = \frac{+3 \pm \sqrt{(-3)^2-4(2)(-5)}}{2(2)}</me>.
+          We then simplify the terms
+          <me>x = \frac{3 \pm \sqrt{9+40}}{4} = \frac{3 \pm \sqrt{49}}{4}</me>.
+          The notation <m>\pm</m> indicates that we find two solutions be either adding or subtracting the square-root.
+          So one solution will be
+          <me>x = \frac{3 + 7}{4} = \frac{10}{4} = \frac{5}{2}</me>,
+          and the other solution will be
+          <me>x = \frac{3 - 7}{4} = \frac{-4}{4} = -1</me>.
+        </p>
+        <p>
+          Simple quadratic problems can often be solved directly by factoring.
+          In this case, we would have the following equivalent equations
+          <md>
+            <mrow>2x^2-3x-5 = 0</mrow>
+            <mrow>2x^2-5x+2x-5 = 0</mrow>
+            <mrow>x(2x-5) + (2x-5) = 0</mrow>
+            <mrow>(x+1)(2x-5) = 0</mrow>
+          </md>
+          The solutions then solve <m>x+1=0</m> or <m>2x-5=0</m>, giving <m>x=-1</m> and <m>x=\frac{5}{2}</m>.
+        </p>
+        <p>
+          This example illustrates a strategy of grouping to factor quadratics.
+          We multiplied the coefficients <m>a=2</m> and <m>c=-5</m> to get <m>ac=-10</m>.
+          We then looked for factors of <m>-10</m> that added to <m>-3</m>, in this case <m>-5+2=-3</m>.
+          Once we pull out common factors from the groups, we can identify the factors which are used in simpler equations.
+        </p>
+      </solution>
+    </example>
+    <p>The next example reminds you to be careful about what you think will be equivalent equations.</p>
+    <example>
+      <statement>
+        <p>
+          Solve the equation <me>\frac{x}{x-3} = \frac{3x-4}{x-3}</me>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A common strategy for this equation that two fractions are equal is to cross-multiply.
+          That is, multiply the <m>x</m> in the numerator on the left by the <m>x-3</m> in the denominator on the right,
+          and then multiply the <m>3x-4</m> in the numerator on the right by the <m>x-3</m> in the denominator on the left.
+          Then we can use the factoring method.
+          <md>
+            <mrow>x(x-3) = (3x-4)(x-3)</mrow>
+            <mrow>x^2-3x = 3x^2-9x-4x+12</mrow>
+            <mrow>x^2-3x = 3x^2-13x+12</mrow>
+            <mrow>0 = 2x^2-10x+12</mrow>
+            <mrow>2(x^2-5x+6) = 0</mrow>
+            <mrow>2(x-2)(x-3) = 0</mrow>
+          </md>
+          This final equation is factored.
+          The equation <m>2=0</m> has <em>no solution</em>.
+          The equations <m>x-2=0</m> and <m>x-3=0</m> have solutions <m>x=2</m> and <m>x=3</m>, respectively.
+          However, because the denominators were the same, <m>x-3</m>, our solution <m>x=3</m> was actually an extraneous solution.
+        </p>
+        <p>
+          Multiplying an equation involving fractions by an expression involving <m>x</m>
+          always risks introducing extraneous solutions, particularly if it changes the domain of the expressions.
+          Factoring is always preferable and only slightly more challenging.
+          To use factoring, we find an equivalent equation by adding expressions to get zero on one side,
+          <me>\frac{x}{x-3} - \frac{3x-4}{x-3} = 0</me>.
+          The common denominator is a common inverse factor, allowing us to combine the fractions,
+          <me>\frac{x}{x-3} - \frac{3x-4}{x-3} = \frac{x-(3x-4)}{x-3} = \frac{x-3x+4}{x-3} = \frac{-2x+4}{x-3}</me>.
+          Consequently, our equation is equivalent to 
+          <me>\frac{-2x+4}{x-3} = 0</me>.
+          The factors are <m>-2x+4</m> and the multiplicative inverse of <m>x-3</m>, which can never equal zero.
+          The only solution is the solution to <m>-2x+4=0</m> or <m>x=2</m>.
+          (A quotient equals zero only if the numerator equals zero and the denominator is non-zero.)
+        </p>
+      </solution>
+    </example>
+    <p>
+      Finally, if an equation is equivalent to an equation that is always false,
+      then the equation has no solutions.
+      The solution set is the empty set, <m>\varnothing = \{\}</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the solution set for the equation <m>\displaystyle \frac{c}{c+3} = 1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          When we cross-multiply the equation by the expression <m>c+3</m> (assuming <m>c \ne -3</m>),
+          we get an equation
+          <me>c = c+3</me>
+          which is equivalent to
+          <me>0 = 3</me>.
+          Both of these equivalent equations are never true.
+          There are no solutions to the original equation.
+          The solution set is the empty set <m>\varnothing</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Systems of Equations and Constraints</title>
+    <p>
+      An equation involving multiple variables establishes a relation between the variables.
+      We often have multiple equations, each of which constrains the possible values for the variables.
+      A useful strategy for solving equations is to isolate a dependent variable in one equation
+      and then substitute the resulting value or formula into the other equation.
+      That equation then has one variable which can be solved using the usual means.
+    </p>  
+    <example>
+      <statement>
+        <p>
+          The equation <me>u^2+v^2=16+6u</me> forms a relation between variables <m>u</m> and <m>v</m>.
+          <ul>
+            <li>Find the possible values for <m>v</m> when <m>u=-1</m>.</li>
+            <li>Find the possible values for <m>u</m> when <m>v=2</m>.</li>
+            <li>Find the possible values for <m>u</m> and <m>v</m> when <m>u=v</m>.</li>
+          </ul>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, to solve the equation when <m>u=-1</m>, we substitute the value of <m>u=-1</m>
+          and then use algebra to isolate <m>v</m>.
           <md>
             <mrow>u^2+v^2=16+6u</mrow>
             <mrow>(-1)^2+v^2 = 16 + 6(-1)</mrow>
@@ -836,8 +514,27 @@
           </md>
           Again, two states are solutions, <m>(u,v)=(3+\sqrt{21},2)</m> and <m>(u,v)=(3-\sqrt{21},2)</m>.
         </p>
+        <p>
+          Finally, the equation <m>u=v</m> is a constraint involving both variables.
+          Because <m>v</m> is shown as a dependent variable in the constraint <m>v=u</m>,
+          we substitute <m>u</m> in place of <m>v</m> in the original equation.
+          <md>
+            <mrow>u^2+v^2=16+6u</mrow>
+            <mrow>u^2+(u)^2 = 16 + 6u</mrow>
+            <mrow>2u^2-6u-16=0</mrow>
+            <mrow>u^2-3u-8=0</mrow>
+            <mrow>u=\frac{3 \pm \sqrt{(-3)^2-4(1)(-8)}}{2}</mrow>
+            <mrow>u=\frac{3 \pm \sqrt{9+32}}{2} = \frac{3 \pm \sqrt{41}}{2}</mrow>
+          </md>
+          For each value of <m>u</m>, we have <m>v=u</m>.
+          One solution would be <m>(u,v) = (\frac{3 + \sqrt{41}}{2},\frac{3 + \sqrt{41}}{2})</m>
+          while the other solution would be <m>(u,v) = (\frac{3 - \sqrt{41}}{2},\frac{3 - \sqrt{41}}{2})</m>.
+        </p>
       </solution>
     </example>
+    <p>
+      Equations allow us to answer questions involving variables whose relation is known.
+    </p>
     <example>
       <statement>
         <p>
@@ -865,8 +562,8 @@
           </image>
         </sidebyside>
         <p>
-          We have two more state variables, the perimeter <m>P</m> and the area <m>A</m>.
-          Geometry gives us two equations that constrain the state of the system <m>(L,W,P,A)</m>:
+          The perimeter <m>P</m> and the area <m>A</m> can be considered to be dependent variables, 
+          defined by the equations
           <md>
             <mrow>P=2L+2W,</mrow>
             <mrow>A=L \cdot W.</mrow>
@@ -896,222 +593,280 @@
         </p>
       </solution>
     </example>
-    <p>
-      For a review on algebra strategies for solving equations, refer to the appendix.
-    </p>
   </subsection>
   
   <subsection>
     <title>Summary</title>
-    
-    <p><ul>
-      <li><p>Quantities that can be measured correspond to variables. The system is the collection of all possible variable. The state of the system is the collection of values measured for all of the variables in a particular instance.</p></li>
-      <li><p>Variable names can be letters, symbols, or words. Uppercase and lowercase letters are different symbols and should not be interchanged. An important part of communication is describing all relevant variables and introducing their names.</p></li>
-      <li><p>A relation between two variables can often be visualized graphically using a scatterplot. An equation is the mathematical idealization of a relation.</p></li>
-      <li><p>A solution to an equation is a state (values specified for all variables) that makes the equation true. The solution set is the set of all possible solutions.</p></li>
-      <li><p>Solving an equation for the value of one variable when the value of the other variable is given allows us to predict the state of a system.</p></li>
-    </ul></p>
+    <p>
+    <ul>
+      <li>
+        <p>
+          Variables in algebra are symbols that represent a placeholder for a number.
+          Variable names can be letters, symbols, or words.
+          Uppercase and lowercase letters are different symbols and should not be interchanged.
+        </p>
+      </li>
+      <li>
+        <p>
+          An expression is any value or a formula that represents a value.
+          An equation is a logical statement that two expressions are equal.
+        </p>
+      </li>
+      <li>
+        <p>
+          A solution to an equation is a state (values specified for all variables) that makes the equation true.
+          The solution set is the set of all possible solutions.
+        </p>
+      </li>
+      <li>
+        <p>
+          Solving an equation for the value of one variable when the value of the other variable is given allows us to predict the state of a system.
+        </p>
+      </li>
+    </ul>
+    </p>
   </subsection>
   
   <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Rewrite each of the following expressions as an equivalent sum instead of as a product.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>4(x+3)</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>3(x-2)(x+4)</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>(x-1)(x-2)(x-3)</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Rewrite each of the following expressions as an equivalent factored expression.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>3x-15</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>4x^2-6x</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^2-5x-14</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>5x^2-8x+3</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>5x^2-8x+3</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Without solving the equation, which of the following values are in the solution set?
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^2-2x = x+4</m>
+            <ol>
+              <li><m>x=-2</m></li>
+              <li><m>x=-1</m></li>
+              <li><m>x=0</m></li>
+              <li><m>x=1</m></li>
+              <li><m>x=2</m></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>z^3-5z = 2z^2-6</m>
+            <ol>
+              <li><m>z=-2</m></li>
+              <li><m>z=-1</m></li>
+              <li><m>z=0</m></li>
+              <li><m>z=1</m></li>
+              <li><m>z=2</m></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Find the solution set for each equation.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>3t+5 = t-2</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \frac{4u}{u+5} = 3</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^2-2x = x+4</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>y^2-y = y+5</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>p^2-1 = 3(p-2)</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>z^3-5z = 2z^2-6</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \frac{2x^2+3x}{x+1} = 2x</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \frac{4x^2-5x}{x-2} = 4x+3</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Find the solutions to the system of equations.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>3x+2y=15</m> and <m>y=3</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>2x-5y=7</m> and <m>x+2y=9</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>x^2-y=4x</m> and <m>2x+y=3</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
     <exercise>
-      <statement><p>Which of the following states <m>(x,y)</m> are solutions to <m>3x-2y=8</m>? <ol>
-        <li><m>(x,y)=(0,-4)</m></li>
-        <li><m>(x,y)=(1,-2)</m></li>
-        <li><m>(x,y)=(4,2)</m></li>
-      </ol></p></statement>
-    </exercise>
-    <exercise>
-      <statement><p>Which of the following states <m>(w,z)</m> are solutions to <m>2w+5z-3=w^2+z^2</m>? <ol>
-        <li><m>(w,z)=(-2,2)</m></li>
-        <li><m>(w,z)=(-1,3)</m></li>
-        <li><m>(w,z)=(3,2)</m></li>
-      </ol></p></statement>
-    </exercise>
-    <exercise>
-      <statement><p>For each of the following constraints, find all states <m>(x,y)</m> satisfying the model equation <m>2x+3y=12</m>.<ol>
-        <li><m>x=-2</m></li>
-        <li><m>y=5</m></li>
-      </ol></p></statement>
-    </exercise>
-    <exercise>
-      <statement><p>For each of the following constraints, find all states <m>(u,v)</m> satisfying the model equation <m>u^2+v^2=16+6u</m>.<ol>
-        <li><m>v=4</m></li>
-        <li><m>u=1</m></li>
-      </ol></p></statement>
-    </exercise>
-    <exercise>
-      <statement><p>Is it possible to enclose an area of 25 <quantity><unit base="meter" exp="2"/></quantity> in a rectangle with perimeter of 25 <quantity><unit base="meter"/></quantity>? If so, how?</p></statement>
+      <statement>
+        <p>
+          Is it possible to enclose an area of 25 <quantity><unit base="meter" exp="2"/></quantity> using a rectangle with perimeter of 25 <quantity><unit base="meter"/></quantity>?
+          If so, how?
+        </p>
+      </statement>
     </exercise>
     <exercise>
       <statement>
-      <p>Is it possible to enclose an area of 50 <quantity><unit base="meter" exp="2"/></quantity> in two congruent rectangles that share an edge such that the total length of edges is 40 <quantity><unit base="meter"/></quantity> (counting the shared edge only once)? If so, how? You will need to choose your variables and construct appropriate model equations.</p>
-      <sidebyside width="40%" margins="auto">
-        <image> 
-          <latex-image>
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}
-          \draw (0,0) -- (4,0)
-          -- (4,3)
-          -- (0,3) -- (0,0);
-          \draw (2,0) -- (2,3);
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
+        <p>
+          Is it possible to enclose an area of 50 <quantity><unit base="meter" exp="2"/></quantity> in two congruent rectangles that share an edge such that the total length of edges is 40 <quantity><unit base="meter"/></quantity> (counting the shared edge only once)?
+          If so, how?
+        </p>
+        <sidebyside width="40%" margins="auto">
+          <image> 
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw (0,0) -- (4,0)
+            -- (4,3)
+            -- (0,3) -- (0,0);
+            \draw (2,0) -- (2,3);
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
       </statement>
     </exercise>
-    <exercisegroup>
-      <title>A Voltage<ndash/>Resistance<ndash/>Current Relationship</title>
-      <introduction>
-        <p>A simple electric circuit has an applied voltage <m>V</m> (volts) and a variable load resistance <m>R</m> (kilohms). When the circuit is closed, current flows through the circuit, measured as the current <m>I</m> (amperes). When the voltage was held constant at <m>V = 9</m> <quantity><unit base="volt"/></quantity>, the resistance and current were measured with values recorded in the table below. The following group of problems are based on these data.</p>
-        <sidebyside margins="auto">
-        <tabular top="major" halign="center">
-          <col right="minor"/> <col right="minor"/> <col/>
-          <row bottom="minor">
-            <cell><m>V</m> (<quantity><unit base="volt"/></quantity>)</cell>
-            <cell><m>R</m> (<quantity><unit prefix="kilo" base="ohm"/></quantity>)</cell>
-            <cell><m>I</m> (<quantity><unit base="ampere"/></quantity>)</cell>
-          </row>
-          <row>
-            <cell>9.0</cell>
-            <cell>0.84</cell>
-            <cell>0.0107</cell>
-          </row>
-          <row>
-            <cell>9.0</cell>
-            <cell>1.2</cell>
-            <cell>0.0073</cell>
-          </row>
-          <row>
-            <cell>9.0</cell>
-            <cell>1.8</cell>
-            <cell>0.0050</cell>
-          </row>
-          <row>
-            <cell>9.0</cell>
-            <cell>2.7</cell>
-            <cell>0.0033</cell>
-          </row>
-          <row>
-            <cell>9.0</cell>
-            <cell>3.4</cell>
-            <cell>0.0026</cell>
-          </row>
-        </tabular>
+      <statement>
+        <p>
+          Is it possible to enclose an area of 50 <quantity><unit base="meter" exp="2"/></quantity> in two congruent rectangles that share an edge such that the total length of edges is 40 <quantity><unit base="meter"/></quantity> (counting the shared edge only once)?
+          If so, how?
+        </p>
+        <sidebyside width="40%" margins="auto">
+          <image> 
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw (0,0) -- (4,0)
+            -- (4,3)
+            -- (0,3) -- (0,0);
+            \draw (2,0) -- (2,3);
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
         </sidebyside>
-      </introduction>
-
-      <exercise>
-        <statement><p> Create a scatter plot of <m>(R,I)</m>. Would a trend line make sense for this data? Explain.</p></statement>
-      </exercise>
-      <exercise>
-        <statement><p> Conductance <m>G</m> is the reciprocal of resistance, <m>G=1/R</m>. Create a scatter plot of <m>(G,I)</m>. Would a trend line make sense for this data? Explain.</p></statement>
-      </exercise>
-      <exercise>
-        <statement><p> One of the previous scatter plots should have had a meaningful trend line. State the appropriate regression equation as a model and use it to predict the current <m>I</m> when the resistance is <m>R=2.1</m> <quantity><unit prefix="kilo" base="ohm"/></quantity>.</p></statement>
-      </exercise>
-    </exercisegroup>
-    
-    <exercisegroup>
-      <title>Population-Growth Relationships</title>
-      <introduction>
-        <p>The number of births and of deaths in a population generally depends on the size of the population. The table below gives population data for ten of the twelve highest population cities in the state of Virginia for the year 2012. The data include the population <m>P</m> and the total number of births <m>B</m> and deaths <m>D</m> for the year recorded for each city. The following group of exercises are based on these data.</p>
-        <sidebyside>
-        <tabular top="major" halign="center">
-          <col right="minor"/> <col right="minor"/> <col right="minor"/> <col/>
-          <row bottom="minor">
-            <cell>City</cell>
-            <cell><m>P</m></cell>
-            <cell><m>B</m></cell>
-            <cell><m>D</m></cell>
-          </row>
-          <row>
-            <cell>Virginia Beach</cell>
-            <cell>447021</cell>
-            <cell>6270</cell>
-            <cell>2828</cell>
-          </row>
-          <row>
-            <cell>Norfolk</cell>
-            <cell>245782</cell>
-            <cell>3773</cell>
-            <cell>1827</cell>
-          </row>
-          <row>
-            <cell>Chesapeake</cell>
-            <cell>228417</cell>
-            <cell>2805</cell>
-            <cell>1582</cell>
-          </row>
-          <row>
-            <cell>Richmond</cell>
-            <cell>210309</cell>
-            <cell>2939</cell>
-            <cell>1849</cell>
-          </row>
-          <row>
-            <cell>Newport News</cell>
-            <cell>180726</cell>
-            <cell>2905</cell>
-            <cell>1438</cell>
-          </row>
-          <row>
-            <cell>Alexandria</cell>
-            <cell>146294</cell>
-            <cell>2763</cell>
-            <cell>686</cell>
-          </row>
-          <row>
-            <cell>Hampton</cell>
-            <cell>136836</cell>
-            <cell>1825</cell>
-            <cell>1139</cell>
-          </row>
-          <row>
-            <cell>Roanoke</cell>
-            <cell>97469</cell>
-            <cell>1492</cell>
-            <cell>1172</cell>
-          </row>
-          <row>
-            <cell>Portsmouth</cell>
-            <cell>96470</cell>
-            <cell>1534</cell>
-            <cell>980</cell>
-          </row>
-          <row>
-            <cell>Suffolk</cell>
-            <cell>85181</cell>
-            <cell>1087</cell>
-            <cell>726</cell>
-          </row>
-          <row>
-            <cell>Lynchburg</cell>
-            <cell>77113</cell>
-            <cell>1062</cell>
-            <cell>779</cell>
-          </row>
-          <row>
-            <cell>Harrisonburg</cell>
-            <cell>50981</cell>
-            <cell>579</cell>
-            <cell>253</cell>
-          </row>
-        </tabular>
-        </sidebyside>
-      </introduction>
-
-      <exercise>
-        <statement><p>Create a scatter plot of <m>(P,B)</m> and find the equation of the trend line. The cities of Hampton and Harrisonburg were left off the list with populations of <m>P=136836</m> and <m>P=50981</m>, respectively. Use the trend line regression model to predict the number of births in these cities during 2012. Which calculation is an example of interpolation and which is extrapolation?</p></statement>
-      </exercise>
-      <exercise>
-        <statement><p>Create a scatter plot of <m>(P,D)</m> and find the equation of the trend line. Use the trend line regression model to predict the number of births in Hampton and Harrisonburg during 2012. (See the previous problem for population values.) Which calculation is an example of interpolation and which is extrapolation?</p></statement>
-      </exercise>
-      <conclusion>
-      <p>Which of the calculations were examples of interpolation and which were examples of extrapolation?</p>
-      </conclusion>
-    </exercisegroup>
+      </statement>
+    <exercise>
+    </exercise>
   </exercises>
 </section>

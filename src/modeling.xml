@@ -54,10 +54,10 @@
         
         <p>In our example, the variables correspond to the measurements. For simplicity of communication, we often associate a single symbol (usually a letter) to represent that variable. We might use <m>t</m> to represent our measurement associated with the time of observation, <m>V</m> to represent the volume of water, <m>h</m> to represent the height of water in the sink, <m>F_{\hbox{in}}</m> to represent the rate of water flowing in and <m>F_{\hbox{out}}</m> to represent the rate of water flowing out. We might consider a situation in which the spigot has water flowing at a constant rate. In this case, the variable <m>F_{\hbox{in}}</m> is never changing; we could call this a state parameter instead of a state variable. A diagram can often help summarize this information.</p>
 
-        <figure>
+        <figure xml:id="figure-sink-flow-diagram">
             <caption>Diagram illustrating the variables associated with the water
             in a sink.</caption>
-            <image width="40%" xml:id="figure-sink-flow-diagram">
+            <image width="40%">
                 <description>
                     Illustration showing a sink with water, arrows corresponding to
                     water flowing in and out, and variables labeling key quantities.

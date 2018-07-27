@@ -228,7 +228,7 @@
     
   <subsection xml:id="section-numbers-as-measurements">
     <title>Numbers as Measurements</title>
-
+    <introduction>
     <p>
       In science, numbers often arise from measurements.
       The most elementary physical measurement is a measurement of length.
@@ -258,7 +258,7 @@
         </p>
       </statement>
     </definition>
-    
+    </introduction>
     <subsubsection xml:id="subsection-significant-digits">
     <title>Significant Digits</title>
     <p>
@@ -277,13 +277,12 @@
       <quantity><mag>15.3</mag><unit prefix="centi" base="meter"/></quantity> 
       with three significant digits.
     </p>
-    
     <p>
       We can think of a measurement with its given precision as representing many possible exact lengths.
       These possible lengths correspond to <term>intervals</term> on the number line.
       On a ruler measuring in centimeters, all lengths between 14.5 and 15.5 centimeters would be represented by the measurement of 15 centimeters.
       Consequently, a measurement of 15 cm corresponds to the interval of possible lengths <m>[14.5,15.5)</m> (centimeters).
-      We include the left end-point because we round round the number 5 up, and an exact length of 15.5 would round up to 16.
+      We include the left end-point because we round the digit 5 up, and an exact length of 15.5 would round up to 16.
       (We'd actually have a hard time knowing exactly where those lengths are because of measurement error;
       we should probably flip a coin if we can't decide which side is closer.)
     </p>
