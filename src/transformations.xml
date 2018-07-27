@@ -557,7 +557,7 @@
                 <p>The graph of <m>y=-2(x+1)^2+5</m> can be sketched if we rewrite <m>x+1</m> as subtraction, <m>x+1 = x--1</m> to get <me>y=-2(x--1)^2+5.</me> This is a parabola with vertex at <m>(-1,5)</m> and which has been reflected down and stretched by a factor 2.</p>
             
                 <sidebyside>
-                    <image xml:id="fig-quadratic-transform">
+                    <image xml:id="img-quadratic-transform">
                         <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
@@ -604,7 +604,7 @@
         </theorem>
         
         <sidebyside>
-            <image xml:id="fig-exponential-transform">
+            <image xml:id="img-exponential-transform">
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
@@ -693,9 +693,9 @@
             when <m>x=1</m> since <m>f(1)=\frac{1}{2}</m>.
             </p>
             
-            <figure>
+            <figure xml:id="fig-simple-rate-saturation">
                 <caption>Graph of <m>y=f(x)=\dfrac{x}{1+x}</m> for <m>x \in [0,\infty)</m>.</caption>
-                <image xml:id="fig-simple-rate-saturation">
+                <image xml:id="img-simple-rate-saturation">
                     <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
@@ -758,11 +758,11 @@
             <me> V = \frac{50C}{200+C}. </me>
             </p>
             
-            <figure>
+            <figure xml:id="fig-simple-rate-saturation-b">
                 <caption>
                 Graph of relation for <m>(C,V)</m>.
                 </caption>
-                <image xml:id="fig-simple-rate-saturation-b">
+                <image xml:id="img-simple-rate-saturation-b">
                     <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
@@ -815,7 +815,7 @@
         <p>Graphs of sine and cosine are shown below. These have a center line <m>y=0</m> and an amplitude <m>A=1</m> (since the maximum is <m>y=1</m> and the minimum is <m>y=-1</m>). The period is <m>p=2\pi</m>. Since the functions are not transformed, the phase shift must be <m>\phi=0</m>. For the sine function, the phase shift corresponds to where the graph is crossing the center line in an upward direction. For the cosine function, the phase shift corresponds to where the graph is at its maximum value.</p>
 
         <sidebyside>
-            <image xml:id="fig-sine-reference">
+            <image xml:id="img-sine-reference">
                 <description>The sine function.
                 </description>
                 <latex-image>
@@ -850,7 +850,7 @@
             </image>
         </sidebyside>
         <sidebyside>
-            <image xml:id="fig-cosine-reference">
+            <image xml:id="img-cosine-reference">
                 <description>The cosine function.
                 </description>
                 <latex-image>
@@ -891,7 +891,7 @@
             <statement>
                 <p>You are standing on a boat that is rocking every six seconds such that your height alternates between 5 and 10 feet above sea level. Find a sinusoidal model for your height <m>h</m> (feet) as a function of time <m>t</m> (seconds) and where <m>t=0</m> corresponded to one of the lows, <m>h=5</m>.</p>
                 <sidebyside>
-                    <image xml:id="fig-cosine-shiprock">
+                    <image xml:id="img-cosine-shiprock">
                         <description>A sinusoidal model of height on a rocking ship.
                         </description>
                         <latex-image>
@@ -937,7 +937,7 @@
             <statement>
                 <p>A sinusoidal model with center line <m>y=k</m> and amplitude <m>A</m> and with period <m>p</m> and phase shift <m>x=\phi</m> is modeled by <me>y = A \sin\Big(\frac{2 \pi}{p}(x-\phi)\Big) + k</me> when the model is up-crossing the center line at <m>x=\phi</m> or by <me>y=A \cos\Big(\frac{2 \pi}{p}(x-\phi)\Big) + k</me> when the model is at a maximum at <m>x=\phi</m>.</p>
         <sidebyside>
-            <image xml:id="fig-sinusoidal-general">
+            <image xml:id="img-sinusoidal-general">
                 <description>The sine function.
                 </description>
                 <latex-image>

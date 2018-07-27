@@ -24,7 +24,7 @@
         </md></p>
         
         <sidebyside>
-            <image xml:id="fig-derivative-from-graph">
+            <image>
                 <description>Graph of a function with tangent lines and their corresponding slopes shown at several points.</description>
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->

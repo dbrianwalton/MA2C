@@ -228,7 +228,7 @@
 
             <figure xml:id="figure-similar-quadrilaterals">
                 <caption>Two similar quadrilaterals</caption>
-                <image xml:id="similar-quadrilaterals">
+                <image>
                     <description>Two quadrilaterals are similar as they are of the same shape but different scale.</description>
                     <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -298,7 +298,7 @@
                 </p>
                 <figure xml:id="figure-similar-triangles">
                     <caption>Two similar triangles <m>ABC \sim PQS</m>.</caption>
-                    <image xml:id="similar-triangles">
+                    <image>
                         <description>Two triangles ABC and PQS are shown.</description>
                         <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -354,7 +354,7 @@
 
             <figure xml:id="figure-similar-3-4-5-triangles">
                 <caption>Triangles <m>ABC</m> and <m>PQS</m> are similar.</caption>
-                <image xml:id="similar-3-4-5-triangles">
+                <image>
                     <description>ABC is a right triangle with lengths AB=5, BC=3 and AC=4. 
                     PQS is similar to ABC with PS=6.</description>
                     <latex-image>

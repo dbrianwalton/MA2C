@@ -63,9 +63,9 @@
         That number will be <m>a+b</m>.
         </p>
         
-        <figure>
+        <figure xml:id="fig-number-line-addition">
             <caption>Addition of the numbers 8 and -3 using arithmetic number lines ends at <m>8+-3=5</m>.</caption>
-            <image xml:id="fig-number-line-addition">
+            <image>
                 <description>
                 Addition of the numbers 8 and -3 using arithmetic number lines.
                 </description>
@@ -108,9 +108,9 @@
         on the original line.
         </p>
 
-        <figure>
+        <figure xml:id="fig-lognumber-line-multiplication">
             <caption>Multiplication of the numbers 3 and 5 using logarithmic number lines ends at <m>3 \cdot 5=15</m>.</caption>
-            <image xml:id="fig-lognumber-line-multiplication">
+            <image>
                 <description>
                 Multiplication of the numbers 3 and 5 using logarithmic number lines.
                 </description>
@@ -154,10 +154,10 @@
         The following figure illustrates this with a base <m>b=3</m>.
         </p>
 
-        <figure>
+        <figure xml:id="fig-logarithm-by-numberline">
             <caption>The logarithm base <m>b=3</m> uses the logarithmic scale with a unit length corresponding to <m>b=3</m>.
             </caption>
-            <image xml:id="fig-logarithm-by-numberline">
+            <image>
                 <description>
                 Logarithm base 3 as appearing on a number line.
                 </description>

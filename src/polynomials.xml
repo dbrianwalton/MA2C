@@ -168,7 +168,7 @@
             So our function is given by
             <me> f(x) = -\frac{2}{3}x(x-4). </me>
             <sidebyside>
-                <image xml:id="fig-polynomial-example1">
+                <image>
                     <description>
                     Graph of y=-2/3x(x-4).
                     </description>
@@ -210,7 +210,7 @@
             Consequently, the function is given by
             <me> f(x) = -\frac{1}{2} (x+2)(x-3). </me>
             <sidebyside>
-                <image xml:id="fig-polynomial-example2">
+                <image>
                     <description>
                     Graph of y=-2/3x(x-4).
                     </description>
@@ -251,7 +251,7 @@
             Consequently, the function is given by
             <me> f(x) = 2(x+1)(x-1)(x-3). </me>
             <sidebyside>
-                <image xml:id="fig-polynomial-example3">
+                <image>
                     <description>
                     Graph of y=-2/3x(x-4).
                     </description>
@@ -302,7 +302,7 @@
             the axis at <m>x=0</m>, similar to the graph shown below, with
             a value <m>f(1)=5</m>.
             <sidebyside>
-                <image xml:id="fig-polynomial-example4">
+                <image>
                     <description>
                     Graph of a polynomial that touches the axis
                     like a parabola at x=-2 and at x=3 and crosses
@@ -457,7 +457,7 @@
             <m>x \to +\infty</m> (for the right side of the graph).
             
             <sidebyside>
-                <image xml:id="fig-parabola-endbehavior">
+                <image>
                     <description>
                     Graph of y=x^2.
                     </description>
@@ -495,7 +495,7 @@
             <m>x \to +\infty</m>  (for the right side of the graph, which goes up).
             
             <sidebyside>
-                <image xml:id="fig-cubic-endbehavior">
+                <image>
                     <description>
                     Graph of y=x^3.
                     </description>
@@ -580,7 +580,7 @@
             </p>
 
             <sidebyside>
-                <image xml:id="fig-factored-poly-endbehavior">
+                <image>
                     <description>
                     Graph of y=-3x^2(x-4)(x+1)^2.
                     </description>

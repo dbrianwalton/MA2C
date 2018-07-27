@@ -166,7 +166,7 @@
             Approximate how much water was in the container after 35 seconds.
             </p>
             <sidebyside>
-                <image xml:id="fig-interpolate-volume">
+                <image>
                     <description>
                     Data points at (0, 6.4), (20, 4.8), (40, 3.6), (60, 2.7).
                     </description>
@@ -317,7 +317,7 @@
             <sidebyside>
               <caption>Plot illustrating data from Table<nbsp /><xref ref="table-test-linear-ex-1" />
               with the line passing through points 1, 3 and 4, but not 2.</caption>
-              <image xml:id="figure-test-linear-ex-1">
+              <image>
                 <description>One point is not collinear with the other three points.</description>
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->

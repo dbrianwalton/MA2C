@@ -31,10 +31,10 @@
 		angle is the hypotenuse (hyp).
 		</p>
 		
-        <figure>
+        <figure xml:id="fig-right-triangle-stdpos">
             <caption>An illustration of similar right triangles with base angle <m>\theta</m>
             in standard position.</caption>
-            <image xml:id="fig-right-triangle-stdpos">
+            <image xml:id="img-right-triangle-stdpos">
                 <description>Right triangle in standard position, as described in paragraph above.</description>
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -132,10 +132,10 @@
 	    and is called a 30<ndash />60<ndash />90 right triangle.
 	    </p>
 	    
-	    <figure>
+	    <figure xml:id="fig-simple-right-triangles">
 	        <caption>Illustration of 45<ndash />45<ndash />90 and
 	        30<ndash />60<ndash />90 right triangles.</caption>
-	        <image xml:id="fig-simple-right-triangles">
+	        <image xml:id="img-simple-right-triangles">
 	            <description>
 	            Figure showing an isosceles 45-45-90 right triangle and
 	            a 30-60-90 right triangle formed from an equilateral triangle.
@@ -267,7 +267,7 @@
 	        </p>
 	        
             <sidebyside>
-                <image xml:id="fig-triangle-unknowns">
+                <image xml:id="img-triangle-unknowns">
                     <description>
                     Figure showing a right triangle with legs 3 and 5 and a hypotenuse
                     with unknown length labeled c.
@@ -338,7 +338,7 @@
 	        </p>
 	        
             <sidebyside>
-                <image xml:id="fig-velocity-decomposition">
+                <image xml:id="img-velocity-decomposition">
                     <description>
                     Figure showing a right triangle representing a velocity of 80 ft/s
                     and unknown horizontal and vertical velocity components.

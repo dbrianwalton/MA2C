@@ -29,7 +29,7 @@
             <p>The following geometric proof is valid for acute angles, <m>0 \lt \alpha,\beta \lt \frac{\pi}{2}</m>. Consider the location of the angle <m>\alpha</m> and <m>\alpha+\beta</m> on the unit circle, illustrated as points <m>A</m> and <m>B</m>, respectively. The origin at <m>(0,0)</m> will be the point <m>O</m> and the point <m>(1,0)</m> will be the point <m>P</m>. Construct a line segment from <m>B</m> to intersect <m>\overline{OA}</m> at a right angle; call the point of intersection <m>C</m>. Draw a vertical line from <m>C</m> which intersects <m>OP</m> at a point <m>Q</m>. Finally draw a horizontal line through <m>C</m> and a vertical line through <m>B</m>, which intersect at a point <m>D</m>.</p>
             
             <sidebyside>
-              <image xml:id="fig-angle-sum">
+              <image xml:id="img-angle-sum">
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
@@ -124,7 +124,7 @@
                 <p>By definition, <me>\displaystyle \sin'(0) = \lim_{h \to 0} \frac{\sin(0+h) - \sin(0)}{h}.</me> Since <m>\sin(0) = 0</m>, we can rewrite <me>\lim_{h \to 0} \frac{\sin(h)}{h} = \lim_{x \to 0}\frac{\sin(x)}{x},</me> since the variable name does not affect the value of the limit.</p>
                 <p>Consider the figure below with angle <m>x \gt 0</m>. The point <m>A</m> is on the unit circle and has coordinates <m>(\cos(x),\sin(x))</m>. Consequently, triangle <m>OBA</m> has area <m>\frac{1}{2} \sin(x) \cos(x)</m>. The point <m>Q</m> has coordinates <m>(1, \tan(x))</m>, so triangle <m>OPQ</m> has area <m>\frac{1}{2} \tan(x)</m>. If we consider the sector of the circle <m>OAP</m>, it has an area that is the corresponding fraction  <m>\frac{x}{2\pi}</m> of the area of the unit circle, <m>\pi</m>, which has the value <m>\frac{x}{2}</m>.</p>
                 <sidebyside>
-                    <image xml:id="fig-angle-area-compare">
+                    <image xml:id="img-angle-area-compare">
                         <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%

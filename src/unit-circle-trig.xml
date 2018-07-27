@@ -29,11 +29,11 @@
         the cosine (adjacent) and the sine (opposite) of the angle.
         </p>
         
-        <figure>
+        <figure xml:id="fig-angle-standard-position">
             <caption>
             An acute angle on the unit circle and with an associated right triangle in standard position.
             </caption>
-            <image xml:id="fig-angle-standard-position">
+            <image xml:id="img-angle-standard-position">
                 <description>The standard position of an acute angle in standard position
                 shows the terminal point has cosine as x-coordinate and sine as y-coordinate.
                 </description>
@@ -160,11 +160,11 @@
         angle is in the first or third quadrants.
         </p>
         
-        <figure>
+        <figure xml:id="fig-basic-trig-periodic">
             <caption>
             Periodic graphs of the cosine, sine and tangent functions.
             </caption>
-            <image xml:id="fig-basic-trig-periodic">
+            <image xml:id="img-basic-trig-periodic">
                 <description>The graphs of cosine, sine and tangent functions are shown.
                 </description>
                 <latex-image>

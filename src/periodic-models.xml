@@ -72,7 +72,7 @@
         </p>
         
         <sidebyside>
-            <image xml:id="fig-unit-circle-trig">
+            <image>
                 <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                     <![CDATA[\tikzset{%
@@ -110,7 +110,7 @@
         </p>
         
         <sidebyside>
-            <image xml:id="fig-sine-cosine">
+            <image>
                 <description>The graphs of cosine and sine functions.
                 </description>
                 <latex-image>
@@ -157,7 +157,7 @@
         </p>
         
         <sidebyside>
-            <image xml:id="fig-cosine-even">
+            <image>
                 <description>The cosine function is even (horizontal reflection symmetry).
                 </description>
                 <latex-image>
@@ -219,7 +219,7 @@
         </p>
         
         <sidebyside>
-            <image xml:id="fig-sine-odd">
+            <image>
                 <description>The sine function is odd (symmetry across the origin).
                 </description>
                 <latex-image>
@@ -321,11 +321,11 @@
         any repeating point on the graph.
         </p>
         
-        <sidebyside>
+        <figure xml:id="fig-neuron-spiking">
             <caption>
             Neuron spiking given by the Hodgkin--Huxley model of ion channels.
             </caption>
-            <image xml:id="fig-neuron-spiking">
+            <image>
                 <description>
                 Neuron spiking modeled by the Hodgkin--Huxley model of ion channels.
                 </description>
@@ -340,7 +340,7 @@
                     xlabel={time (ms)},
                     ylabel={potential (V)},
                 ]
-                \addplot[blue] table {/Users/waltondb/Dropbox/ModelCalculus/data/hodgkin-huxley-data.dat};
+                \addplot[blue] table {data/hodgkin-huxley-data.dat};
                 \addplot[black] table {
                     0 0
                     100 0
@@ -349,7 +349,7 @@
                 \end{tikzpicture}]]>
                 </latex-image>
             </image>
-        </sidebyside>
+        </figure>
 
         <p>
         Finding the period from such a graph is challenging because we can only estimate
@@ -401,7 +401,7 @@
             Find the formula for the sinusoidal function shown in the following graph.
             
             <sidebyside>
-                <image xml:id="fig-sinusoidal-example">
+                <image>
                     <description>
                     A sinusoidal graph with a centerline at y=10, a minimum at y=7 
                     and maximum at y=13, a period of 8 and maximum at x=1.
@@ -450,7 +450,7 @@
             for our transformed data.
             </p>
             <sidebyside>
-                <image xml:id="fig-sinusoidal-example-cycles">
+                <image>
                     <description>
                     Single cycles of the cosine and of the example
                     sinusoidal graph with a centerline at y=10, a minimum at y=7 
@@ -645,7 +645,7 @@
             </p>
             
             <sidebyside>
-                <image xml:id="fig-sinusoidal-sketch">
+                <image>
                     <description>
                     Graph of y=3sin(6x+pi)-3.
                     </description>

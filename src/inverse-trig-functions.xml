@@ -14,9 +14,9 @@
     
     <p>Recall that the sine function represents the <m>y</m>-coordinate of the point on the unit circle of an angle's terminal edge. The range consists of all numbers in the interval <m>[-1,1]</m>. The first quadrant of angles 0 to <m>\frac{\pi}{2}</m> leads to points on the unit circle with <m>y</m>-values from 0 to 1. Angles just beyond <m>\frac{\pi}{2}</m> repeat the same <m>y</m>-values. We instead use angles in the fourth quadrant from <m>-\frac{\pi}{2}</m> to <m>0</m>. Altogether, the restricted domain will be <m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m>.</p>
     
-    <figure>
+    <figure xml:id="fig-restrict-domain-sine">
         <caption>The restricted domain for sine is the interval <m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m>.</caption>
-        <image xml:id="fig-restrict-domain-sine">
+        <image>
             <description>The restricted domain for sine is the interval from -pi/2 to pi/2.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -35,9 +35,9 @@
             </latex-image>
         </image>
     </figure>
-    <figure>
+    <figure xml:id="fig-restricted-sine">
         <caption>The sine function restricted to the domain <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m>.</caption>
-        <image xml:id="fig-restricted-sine">
+        <image>
             <description>The restricted sine function.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -64,9 +64,9 @@
     
     <p>The inverse function for the restricted sine function is called the arcsine function or inverse sine function. Because $\sin$ takes an angle <m>\theta</m> in radians as the input and gives the <m>y</m>-coordinate on the unit circle as the output, we have <m>\sin : \theta \mapsto y</m>. The inverse takes a <m>y</m>-coordinate on the unit circle as the input and gives an angle <m>\theta</m> in the interval <m>[-\frac{\pi}{2},\frac{\pi}{2}]</m> as output, we have <m>\sin^{-1} : y \mapsto \theta</m>. The graph of the arcsine is shown below.</p>
     
-    <figure>
+    <figure xml:id="fig-arcsine">
         <caption>The arcsine function, which is the inverse of the restricted sine.</caption>
-        <image xml:id="fig-arcsine">
+        <image>
             <description>The inverse of the restricted sine function, the arcsine function.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -93,9 +93,9 @@
     
     <p>The cosine function takes an angle <m>\theta</m> as the input and returns the <m>x</m>-coordinate of the corresponding point on the unit circle. The first quadrant angles between <m>\theta=0</m> and <m>\theta=\frac{\pi}{2}</m> have <m>x</m>-coordinates between 0 and 1. To obtain the <m>x</m>-coordinates between <m>-1</m> and 0 come from angles in the second quadrant. The restricted domain will be the interval <m>[0,\pi]</m>.</p>
 
-    <figure>
+    <figure xml:id="fig-restrict-domain-cosine">
         <caption>The restricted domain for cosine is the interval <m>[0,\pi]</m>.</caption>
-        <image xml:id="fig-restrict-domain-cosine">
+        <image>
             <description>The restricted domain for cosine is the interval from 0 to pi.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -114,9 +114,9 @@
             </latex-image>
         </image>
     </figure>
-    <figure>
+    <figure xml:id="fig-restricted-cosine">
         <caption>The cosine function restricted to the domain <m>[0,\pi]</m>.</caption>
-        <image xml:id="fig-restricted-cosine">
+        <image>
             <description>The restricted cosine function.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -143,9 +143,9 @@
     
     <p>The inverse function for the restricted cosine function is called the arccosine function or inverse cosine function. Because $\cos$ takes an angle <m>\theta</m> in radians as the input and gives the <m>x</m>-coordinate on the unit circle as the output, we have <m>\cos : \theta \mapsto x</m>. The inverse takes an <m>x</m>-coordinate on the unit circle as the input and gives an angle <m>\theta</m> in the interval <m>[0,\pi]</m> as output, so we have <m>\cos^{-1} : x \mapsto \theta</m>. The graph of the arccosine is shown below.</p>
     
-    <figure>
+    <figure xml:id="fig-arccosine">
         <caption>The arccosine function, which is the inverse of the restricted cosine.</caption>
-        <image xml:id="fig-arccosine">
+        <image>
             <description>The inverse of the restricted cosine function, the arccosine function.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -172,9 +172,9 @@
     
     <p>The tangent function takes an angle <m>\theta</m> as the input and returns the ratio <m>\frac{y}{x}</m> for the coordinates <m>(x,y)</m> of the corresponding point on the unit circle. This ratio is exactly the slope <m>m=\frac{y}{x}</m> of the line joining <m>(0,0)</m> and <m>(x,y)</m>. The first quadrant angles between <m>\theta=0</m> and <m>\theta=\frac{\pi}{2}</m> correspond to all of the possible positive slopes. To obtain negative slopes, we could use either the second or fourth quadrant. So that the function will be continuous, the restricted domain is chosen as the interval <m>(-\frac{\pi}{2}, \frac{\pi}{2})</m>. The end-points are not included because the tangent is not defined at those angles.</p>
     
-    <figure>
+    <figure xml:id="fig-restrict-domain-tangent">
         <caption>The restricted domain for tangent is the interval <m>(-\frac{\pi}{2},\frac{\pi}{2})</m>.</caption>
-        <image xml:id="fig-restrict-domain-tangent">
+        <image>
             <description>The restricted domain for tangent is the open interval from -pi/2 to pi/2.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -193,9 +193,9 @@
             </latex-image>
         </image>
     </figure>
-    <figure>
+    <figure xml:id="fig-restricted-tangent">
         <caption>The tangent function restricted to the domain <m>(-\frac{\pi}{2},\frac{\pi}{2})</m>.</caption>
-        <image xml:id="fig-restricted-tangent">
+        <image>
             <description>The restricted tangent function.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -224,9 +224,9 @@
     
     <p>The inverse function for the restricted tangent function is called the arctangent function or inverse tangent function. Because $\tan$ takes an angle <m>\theta</m> in radians as the input and gives the slope <m>m</m> of the angle, <m>\tan : \theta \mapsto m</m>. The inverse takes a slope <m>m</m> as the input and gives an angle <m>\theta</m> in the interval <m>(-\frac{\pi}{2},\frac{\pi}{2})</m> the has this slope, so we have <m>\tan^{-1} : m \mapsto \theta</m>. The graph of the arctangent is shown below.</p>
     
-    <figure>
+    <figure xml:id="fig-arctangent">
         <caption>The arctangent function, which is the inverse of the restricted tangent.</caption>
-        <image xml:id="fig-arctangent">
+        <image>
             <description>The arctangent function.</description>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->

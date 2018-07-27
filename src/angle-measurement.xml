@@ -134,9 +134,9 @@
 		  What is the radian measure of those angles?
 		</p>
 		
-        <figure>
+        <figure xml:id="fig-arcs-in-radians">
             <caption>Important arcs measured in radians.</caption>
-            <image xml:id="fig-arcs-in-radians">
+            <image>
                 <description>Arcs of 1 radian, a quarter rotation and a half rotation, illustrated and measured in radians.</description>
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -237,9 +237,9 @@
 			a half rotation and 30 degrees short of vertical.
 			</p>
 			
-			<figure>
+			<figure xml:id="fig-terminal-angle-example">
 				<caption>Terminal position of <m>\theta = \frac{28 \pi}{3}</m>.</caption>
-				<image xml:id="fig-terminal-angle-example">
+				<image>
 					<description>To show the terminal position of 28 pi over 3 radians,
 					complete 4 full rotations (complete circles) followed by another
 					two thirds of a rotation.</description>
