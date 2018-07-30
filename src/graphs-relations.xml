@@ -693,7 +693,7 @@
             \addplot[red, samples=100, domain=-3:5]
               ({x}, {3*x+5});
             \addplot [black, only marks] coordinates { (-1,2) (2.5,12.5) }
-              node [pos=0, below left] {$(1,2)$}
+              node [pos=0, below] {$(-1,2)$}
               node [pos=1, below right] {$(\frac{5}{2},\frac{25}{2})$};
             \end{axis}
             \end{tikzpicture}]]>
@@ -1120,8 +1120,32 @@
       <exercise>
         <statement>
           <p>
-            Given the equation <m>\frac{ac}{c+50} = 200</m>, find <m>c</m> for each value <m>a \in \{100, 200, 300, 400\}</m>.
+            Given the equation <m>\displaystyle \frac{ac}{c+50} = 200</m>, find <m>c</m> for each value <m>a \in \{100, 200, 300, 400\}</m>.
           </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Graph two dependent variables representing the expressions on each side of the equation.
+          Use the points of intersection to identify solutions to the equation.
+          Verify that the values you identify are solutions by testing whether make the equation true.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>3x-5 = x+2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{20x}{x+4} = x+3</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>4x^3-9x^2 = x-6</m></p>
         </statement>
       </exercise>
     </exercisegroup>

@@ -89,13 +89,14 @@
       Every mathematical expression represents a specific point on the number line.
       A mathematical value represents that expression only when it refers to the very same point on the line.
       To replace an expression with a number that is not exactly the same would be to say that two different points are the same.
+    </p>
+    <p>
       Calculators give decimal approximations for numbers.
       Many numbers of interest are irrational and can not be represented exactly using decimals.
       You should not replace an expression with a decimal value.
       You should also not rely on calculator features that rewrite decimal values as fractions.
       In applications where an answer represents a measurement, decimal approximations can be used, particularly when the calculations were based on other measurements.
     </p>
-    
     <p>
       Simplification of numbers corresponds to finding a new representation of a number in a reduced form.
       For example, a rational number has many different representations of the form <m>p/q</m> with <m>p \in \mathbb{Z}</m> and <m>q \in \mathbb{N}</m>.
@@ -152,7 +153,7 @@
       Some rules of simplification you may have learned were created when fast calculators and computers were not accessible.
       These rules were taught so that scientists and engineers could express an answer
       that would be in a form where it would be faster to use the tables and slide rules available at the time.
-      We no longer need the rules for efficiency, but they often illustrate important algebra rules.
+      We no longer need such rules for efficiency, but they often illustrate important algebra rules.
     </p>
     
     <p>
@@ -183,7 +184,6 @@
       are equally simplified.
       The first expression has a rationalized numerator.
       The second expression has a rationalized denominator.
-      The rationalized denominator is only preferred for efficient computation.
       You should ask your instructor whether they expect a preferred simplified form.
     </p>
     
@@ -232,7 +232,7 @@
     <p>
       In science, numbers often arise from measurements.
       The most elementary physical measurement is a measurement of length.
-      In fact a ruler and a number line have many similar features.
+      In fact, a ruler and a number line have many similar features.
       A ruler has a standard unit, such as an inch or centimeter, with fractional marks.
       Measurements that are on the actual units correspond to numbers that are integers.
       Measurements that are on exact subdivisions of the unit correspond to rational numbers.
@@ -286,7 +286,7 @@
       (We'd actually have a hard time knowing exactly where those lengths are because of measurement error;
       we should probably flip a coin if we can't decide which side is closer.)
     </p>
-    <sidebyside margins="auto">
+    <sidebyside width="50%" margins="auto">
       <image>
         <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -308,7 +308,7 @@
       Similarly, if the ruler showed millimeters, all lengths between 15.25 and 15.35 centimeters would be represented by the measurement of 15.3 centimeters.
       A measurement of 15.3 cm then corresponds to the interval <m>[15.25,15.35)</m> (centimeters).
     </p>
-    <sidebyside margins="auto">
+    <sidebyside width="50%" margins="auto">
       <image>
         <latex-image>
         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->

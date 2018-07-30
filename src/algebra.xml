@@ -162,24 +162,8 @@ Brian Walton          -->
       and whether the parabola opens up or down,
       the graph can cross the <m>x</m>-axis twice, once or never.
       The location of these points are called <m>x</m>-intercepts, <term>roots</term> or <term>zeros</term> of the function.
+      The values of the roots can always be found using the <xref ref="thm-quadratic-formula" text="title">quadratic formula</xref>.
     </p>
-    
-    <theorem xml:id="quadratic-formula">
-      <title>Quadratic Formula</title>
-      <statement>
-        <p>
-          The roots of a quadratic function <m>f(x)=ax^2+bx+c</m> are
-          <men>x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.</men>
-          The formula under the square root is called the <term>discriminant</term> and the number of real roots are based on the sign of the discriminant:
-          <md>
-            <mrow>b^2-4ac \gt 0 \quad &amp;\implies \quad \hbox{2 roots}</mrow>
-            <mrow>b^2-4ac = 0 \quad &amp;\implies \quad \hbox{1 root (double)}</mrow>
-            <mrow>b^2-4ac \lt 0 \quad &amp;\implies \quad \hbox{0 roots}</mrow>
-          </md>
-          In the case of no real roots, there are two complex roots involving real and imaginary numbers.
-        </p>
-      </statement>
-    </theorem>
     
     <p>
       Zeros are closely related to factoring.

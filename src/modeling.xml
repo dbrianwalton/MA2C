@@ -9,119 +9,214 @@
    
 <section xml:id="dynamic-modeling">
     <title>Models and Dynamics</title>
-
     <!-- What is a Model? -->
     <introduction>
-        <title>What is a Model?</title>
-        
-        <p>Models are simplified abstract representations of something of interest. Airplane and automobile manufacturers create scale models to test aerodynamics in wind tunnels. Architects build models of future projects, whether a physical mock-up or a computerized 3-d representation, to see how plan will fit together and give clients a vision of what they will get. The models do not need to include every detail of the actual object of interest, just those details that are relevant to the purpose of the model.</p>
-        
-        <p>Scientists also regularly use models. Physicists use high energy collisions of extremely fast particles to create conditions that they expect are comparable to the moments immediately after the big bang. A biologist may use mice from a well-controlled population as a model to study cancer, considering its biology to mimic that of humans at some level of approximation. A climatologist might use a computational model where a computer program tracks changes in the makeup of the air, pollutant levels and air and ocean temperatures according to known and assumed interactions.</p>
+      <title>What is a Model?</title>
+      <p>
+        Models are simplified abstract representations of something of interest.
+        Airplane and automobile manufacturers create scale models to test aerodynamics in wind tunnels.
+        Architects build models of future projects, whether a physical mock-up or a computerized 3-d representation,
+        to see how plan will fit together and give clients a vision of what they will get.
+        The models do not need to include every detail of the actual object of interest,
+        just those details that are relevant to the purpose of the model.
+      </p>
+      
+      <p>
+        Scientists also regularly use models.
+        Physicists use high energy collisions of extremely fast particles to create conditions
+        that they expect are comparable to the moments immediately after the big bang.
+        A biologist may use mice from a well-controlled population as a model to study cancer,
+        considering its biology to mimic that of humans at some level of approximation.
+        A climatologist might use a computational model where a computer program tracks changes
+        in the makeup of the air, pollutant levels and air and ocean temperatures
+        according to known and assumed interactions.
+      </p>
     </introduction>
-    
     <subsection>
-        <title>Mathematical Models</title>
-        
-        <p>A <term>mathematical model</term> is an abstract representation of measurable phenomena that is characterized through mathematical equations. Recall that we think of a <term>system</term> as the collection of all possible measurements associated with the objects and environment involved in the phenomenon. A <term>state variable</term> is any particular measurable quantity, whether or not we have a direct way to measure the value. The <term>state</term> of the system is the collection of all such measurable quantities. When the phenomenon is considered under a single environmental condition, there may be measurements of those environmental conditions. Since they are controlled to have no variability, these measurements are called <term>state parameters</term>. From a mathematical perspective, both state variables and state parameters are variables.</p>
-        
-        <p>Many laws of science are described using mathematical equations. These are examples of mathematical models. Knowing the value of one state variable, we can use the model to predict the value of other variables.</p>
-        
-        <example>
-            <statement>
-                <p>In thermodynamics, the ideal gas law is described as an equation <me>PV = nRT.</me> This law relates the state variables of a contained volume of a gas according to pressure <m>P</m>, volume <m>V</m>, absolute temperature <m>T</m>, and quantity <m>n</m> (moles) of the gas. If the temperature and quantity of the gas is held constant, we think of only <m>P</m> and <m>V</m> as state variables and <m>n</m> and <m>T</m> as state parameters. The other variable, <m>R</m>, is called the ideal gas constant and is a model parameter. This model helps scientists and engineers understand the expected behavior of gases in different settings.</p>
-                <p>Have you microwaved a container with the lid attached and let it cool? As the temperature decreases, the quantity on the right side of the equation <m>nRT</m> decreases. This means that the product <m>PV</m> must also decrease. For a sturdy container, the volume will be constant meaning the pressure inside decreases creating vacuum suction. The lid will be much harder to detach. If the container is not rigid, the volume itself might decrease, such as water bottle that implodes on itself.</p>
-                <p>However, the value of the law is not just general arguments like those made above. It is a precise mathematical relationship about actual quantities. This allows very specific predictions about measurements. For some gases, the predictions do not work properly. These gases must have properties that make them deviate from the law, and that makes these gases particularly interesting. Scientists can then study their properties and develop corrected models that take those properties into account.</p>
-            </statement>
-        </example>
-        
-        <example>
-            <statement>
-                <p>Hooke's law, <me>F=-kx,</me> is an equation describing the strength of a force exerted by a stiff spring based on how far it is stretched or compressed. The state variables are the force exerted by the spring <m>F</m> and the displacement of the end of the spring from its equilibrium position <m>x</m>. The model parameter <m>k</m> determines the strength of the spring. The negative sign in the equation indicates that the force and the displacement are in opposite directions.</p>
-                <p>Using known forces, we can measure the displacement of the spring and estimate the value of the model parameter <m>k</m>. Once the parameter is known, the model allows us to know the force required for every displacement. This is how a force scale can be created.</p>
-            </statement>
-        </example>
+      <title>Mathematical Models</title>
+      <p>
+        A <term>mathematical model</term> is an abstract representation of measurable phenomena that is characterized through mathematical equations.
+        Recall that we think of a <term>system</term> as the collection of all possible measurements associated with the objects and environment involved in the phenomenon.
+        A <term>state variable</term> is any particular measurable quantity, whether or not we have a direct way to measure the value.
+        The <term>state</term> of the system is the collection of all such measurable quantities.
+        When the phenomenon is considered under a single environmental condition, there may be measurements of those environmental conditions.
+        Since they are controlled to have no variability, these measurements are called <term>state parameters</term>.
+        From a mathematical perspective, both state variables and state parameters are variables.
+      </p>
+      <p>
+        Many laws of science are described using mathematical equations.
+        These are examples of mathematical models.
+        Knowing the value of one state variable, we can use the model to predict the value of other variables.
+      </p>
+      <example>
+        <statement>
+          <p>In thermodynamics, the ideal gas law is described as an equation <me>PV = nRT.</me> This law relates the state variables of a contained volume of a gas according to pressure <m>P</m>, volume <m>V</m>, absolute temperature <m>T</m>, and quantity <m>n</m> (moles) of the gas. If the temperature and quantity of the gas is held constant, we think of only <m>P</m> and <m>V</m> as state variables and <m>n</m> and <m>T</m> as state parameters. The other variable, <m>R</m>, is called the ideal gas constant and is a model parameter. This model helps scientists and engineers understand the expected behavior of gases in different settings.</p>
+          <p>Have you microwaved a container with the lid attached and let it cool? As the temperature decreases, the quantity on the right side of the equation <m>nRT</m> decreases. This means that the product <m>PV</m> must also decrease. For a sturdy container, the volume will be constant meaning the pressure inside decreases creating vacuum suction. The lid will be much harder to remove. If the container is not rigid, the volume itself might decrease, such as water bottle that implodes on itself.</p>
+          <p>However, the value of the law is not just general arguments like those made above. It is a precise mathematical relationship about actual quantities. This allows very specific predictions about measurements. For some gases, the predictions do not work properly. These gases must have properties that make them deviate from the law, and that makes these gases particularly interesting. Scientists can then study their properties and develop corrected models that take those properties into account.</p>
+        </statement>
+      </example>
+      <example>
+        <statement>
+          <p>
+            Hooke's law, <me>F=-kx,</me> is an equation describing the strength of a force exerted by a stiff spring
+            based on how far it is stretched or compressed.
+            The state variables are the force exerted by the spring <m>F</m>
+            and the displacement of the end of the spring from its equilibrium position <m>x</m>.
+            The model parameter <m>k</m> determines the strength of the spring.
+            The negative sign in the equation indicates that the force and the displacement are in opposite directions.
+          </p>
+          <p>
+            Using known forces, we can measure the displacement of the spring and estimate the value of the model parameter <m>k</m>.
+            Once the parameter is known, the model allows us to know the force required for every displacement.
+            This is how a force scale can be created.
+          </p>
+        </statement>
+      </example>
     </subsection>
     <subsection>
-        <title>Dynamic Models</title>
-        
-        <p>Calculus is the study of how variables change in relationship to one another. In particular, we are often interested in how variables change with respect to time. Calculus provides a way of thinking about a <term>rate of change</term> as a variable that relates covarying quantities. This variable is called the <term>derivative</term>.</p>
-        
-        <p>Consider driving in a car along a road. At each instant in time, the car has a location on the road which might be measured according to mileage markings. The natural state variables are the position, say <m>D</m> (for distance), and the time, <m>t</m>. The distance moved is related to the time spent moving according to the speed or velocity of the car. A common formula relating these variables is often learned as <q>distance equals rate times time.</q> However, this formula only works when the rate is constant. In reality, the rate changes as we drive. We have a new state variable, the velocity <m>V</m>. Calculus introduces the idea that the velocity is the <term>derivative</term> of the car's position with respect to time, expressed using the notation <me>V = \frac{dD}{dt}.</me></p>
-        
-        <p>Dynamic models are mathematical models that consider models or equations for how variables change. Calculus, using the concepts of rates of change and derivatives, provides the language for describing these models.</p>
-        
-        <p>To help think about this, consider the physical example of a sink being filled with water. At each instant in time, the sink is in a different state. The state can be characterized by measurements at that time, which might include the height of water in the sink, the volume of water in the sink, the rate of water flowing into the sink from the spigot and the rate of water flowing out of the sink through the drain. We might also measure things like water temperature or the dilution of some substance or chemical in the water.</p>
-        
-        <p>In our example, the variables correspond to the measurements. For simplicity of communication, we often associate a single symbol (usually a letter) to represent that variable. We might use <m>t</m> to represent our measurement associated with the time of observation, <m>V</m> to represent the volume of water, <m>h</m> to represent the height of water in the sink, <m>F_{\hbox{in}}</m> to represent the rate of water flowing in and <m>F_{\hbox{out}}</m> to represent the rate of water flowing out. We might consider a situation in which the spigot has water flowing at a constant rate. In this case, the variable <m>F_{\hbox{in}}</m> is never changing; we could call this a state parameter instead of a state variable. A diagram can often help summarize this information.</p>
-
-        <figure xml:id="figure-sink-flow-diagram">
-            <caption>Diagram illustrating the variables associated with the water
-            in a sink.</caption>
-            <image width="40%">
-                <description>
-                    Illustration showing a sink with water, arrows corresponding to
-                    water flowing in and out, and variables labeling key quantities.
-                </description>
-                <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                \definecolor{cc2a380}{RGB}{194,163,128}
-                \definecolor{ca1d7fd}{RGB}{161,215,253}
-
-               \begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-0.500000, xscale=0.500000, inner sep=0pt, outer sep=0pt]
-                    \begin{scope}[shift={(-105.58451,-272.90444)}]
-                      \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
-                        width=1.600pt] (120.0282,332.4185) -- (159.1549,512.9256) --
-                        (369.0141,512.9256) -- (406.5916,333.0101);
-                      \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
-                        width=1.600pt] (137.2113,410.7002) -- (390.7324,409.8833);
-                      \path[draw=black,fill=cc2a380,line join=miter,line cap=butt,miter
-                        limit=4.00,line width=1.600pt] (287.3239,512.1087) -- (287.3239,532.6439) --
-                        (333.8028,532.6439) -- (333.8028,511.5171);
-                      \path[draw=black,fill=ca1d7fd,line join=miter,line cap=butt,line width=0.800pt]
-                        (137.2113,408.7002) -- (159.1549,512.1087) -- (368.1972,512.1087) --
-                        (390.7324,408.7002) -- cycle;
-                      \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
-                        width=4.000pt] (202.8169,334.1087) -- (204.0000,400.6720);
-                      \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
-                        width=4.000pt] (309.8591,512.9256) -- (311.0423,579.4889);
-                      \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
-                        width=1.600pt] (388.7324,409.2918) -- (433.8028,409.2918);
-                      \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
-                        width=1.600pt] (388.7324,511.2918) -- (433.8028,511.2918);
-                      \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
-                        width=1.562pt] (411.2676,413.2804) -- (411.2676,507.2918);
-                      \path[draw=black,fill=cc2a380,line join=miter,line cap=butt,line width=0.800pt]
-                        (116.9014,311.5734) -- (180.2817,311.5734) -- (180.2817,334.1087) --
-                        (221.1268,334.1087) -- (221.1268,283.4044) -- (116.0845,283.4044) -- cycle;
-                      \path[fill=black] (418.3099,466.4467) node[above right] (text5699) {$h$};
-                      \path[fill=black] (328.0715,448.3255) node[above right] (text5703) {$V$};
-                      \path[fill=black] (232.3944,349.5453) node[above right] (text5707) {$F_{\hbox{in}}$};
-                      \path[fill=black] (335.2113,565.0383) node[above right] (text5715) {$F_{\hbox{out}}$};
-                    \end{scope}
-
-                    \end{tikzpicture}
-                    ]]>
-                </latex-image>
-            </image>
-        </figure>
-        
-        <p>The volume of water in the sink is changing and so there is a rate of change of the volume expressed in calculus as a derivative <m>\frac{dV}{dt}</m>. This rate of change must be equal to the rate at which water flows in <m>F_{\text{in}}</m> minus the rate of water flowing out through the drain <m>F_{\text{out}}</m>, giving a general dynamic model equation <me>\frac{dV}{dt} = F_{\text{in}} - F_{\text{out}}.</me></p>
-        
-        <p>The rate at which water drains might change depending on how much water there is in the sink, which could be measured by either the volume <m>V</m> or the height <m>h</m> of water in the sink. An experiment might be performed to measure <m>F_{\text{out}}</m> at different heights of water in the sink. We might then formulate a model equation. For example, we might discover from this experiment that <m>F_{\hbox{out}} = \alpha V</m> for some model parameter <m>\alpha</m>. Using this, our dynamic model would be <me> \frac{dV}{dt} = F_{\hbox{in}} - \alpha V.</me></p>
-        
-        <p>Our aim in studying calculus is to understand the mathematical meaning of the derivative or rate of change. There are two primary branches of calculus. Integral calculus studies how we use a known rate of change to compute the overall change in the quantity that rate affects. For example, integral calculus answers the question: <q>Knowing the velocity of a car at all times, how would we compute how far the car has traveled?</q> Differential calculus studies how to use the relationship between two variables to find the rate of change of one with respect to the other. For the example of the car, this would address the question: <q>If we knew exactly where the car was at each instant of time, how would we compute its velocity?</q> Ultimately, both of these questions will rely on a mathematical tool at the heart of calculus, namely <term>limits</term>.</p>
+      <title>Dynamic Models</title>
+      <p>
+        Calculus is the study of how variables change in relationship to one another. 
+        In particular, we are often interested in how variables change with respect to time.
+        Calculus provides a way of thinking about a <term>rate of change</term> as a variable that relates covarying quantities.
+        This variable is called the <term>derivative</term>.
+      </p>
+      <p>
+        Consider driving in a car along a road.
+        At each instant in time, the car has a location on the road which might be measured according to mileage markings.
+        The natural state variables are the position, say <m>D</m> (for distance), and the time, <m>t</m>.
+        The distance moved is related to the time spent moving according to the speed or velocity of the car.
+        A common formula relating these variables is often learned as <q>distance equals rate times time.</q>
+        However, this formula only works when the rate is constant.
+        In reality, the rate changes as we drive.
+        We have a new state variable, the velocity <m>V</m>.
+        Calculus introduces the idea that the velocity is the <term>derivative</term> of the car's position with respect to time, expressed using the notation <me>V = \frac{dD}{dt}.</me>
+      </p>
+      <p>
+        Dynamic models are mathematical models that consider models or equations for how variables change.
+        Calculus, using the concepts of rates of change and derivatives, provides the language for describing these models.
+      </p>
+      <p>
+        To help think about this, consider the physical example of a sink being filled with water.
+        At each instant in time, the sink is in a different state.
+        The state can be characterized by measurements at that time,
+        which might include the height of water in the sink, the volume of water in the sink,
+        the rate of water flowing into the sink from the spigot,
+        and the rate of water flowing out of the sink through the drain.
+        We might also measure things like water temperature or the dilution of some substance or chemical in the water.
+      </p>
+      <p>
+        In our example, the variables correspond to the measurements.
+        For simplicity of communication, we often associate a single symbol (usually a letter) to represent that variable.
+        We might use <m>t</m> to represent our measurement associated with the time of observation,
+        <m>V</m> to represent the volume of water,
+        <m>h</m> to represent the height of water in the sink,
+        <m>F_{\hbox{in}}</m> to represent the rate of water flowing in,
+        and <m>F_{\hbox{out}}</m> to represent the rate of water flowing out.
+        We might consider a situation in which the spigot has water flowing at a constant rate.
+        In this case, the variable <m>F_{\hbox{in}}</m> is never changing;
+        we could call this a state parameter instead of a state variable.
+        A diagram can often help summarize this information.
+      </p>
+      <figure xml:id="figure-sink-flow-diagram">
+        <caption>Diagram illustrating the variables associated with the water in a sink.</caption>
+        <image width="40%">
+          <description>
+              Illustration showing a sink with water, arrows corresponding to
+              water flowing in and out, and variables labeling key quantities.
+          </description>
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \definecolor{cc2a380}{RGB}{194,163,128}
+            \definecolor{ca1d7fd}{RGB}{161,215,253}
+            \begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-0.500000, xscale=0.500000, inner sep=0pt, outer sep=0pt]
+            \begin{scope}[shift={(-105.58451,-272.90444)}]
+              \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
+                width=1.600pt] (120.0282,332.4185) -- (159.1549,512.9256) --
+                (369.0141,512.9256) -- (406.5916,333.0101);
+              \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
+                width=1.600pt] (137.2113,410.7002) -- (390.7324,409.8833);
+              \path[draw=black,fill=cc2a380,line join=miter,line cap=butt,miter
+                limit=4.00,line width=1.600pt] (287.3239,512.1087) -- (287.3239,532.6439) --
+                (333.8028,532.6439) -- (333.8028,511.5171);
+              \path[draw=black,fill=ca1d7fd,line join=miter,line cap=butt,line width=0.800pt]
+                (137.2113,408.7002) -- (159.1549,512.1087) -- (368.1972,512.1087) --
+                (390.7324,408.7002) -- cycle;
+              \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
+                width=4.000pt] (202.8169,334.1087) -- (204.0000,400.6720);
+              \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
+                width=4.000pt] (309.8591,512.9256) -- (311.0423,579.4889);
+              \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
+                width=1.600pt] (388.7324,409.2918) -- (433.8028,409.2918);
+              \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
+                width=1.600pt] (388.7324,511.2918) -- (433.8028,511.2918);
+              \path[draw=black,line join=miter,line cap=butt,miter limit=4.00,line
+                width=1.562pt] (411.2676,413.2804) -- (411.2676,507.2918);
+              \path[draw=black,fill=cc2a380,line join=miter,line cap=butt,line width=0.800pt]
+                (116.9014,311.5734) -- (180.2817,311.5734) -- (180.2817,334.1087) --
+                (221.1268,334.1087) -- (221.1268,283.4044) -- (116.0845,283.4044) -- cycle;
+              \path[fill=black] (418.3099,466.4467) node[above right] (text5699) {$h$};
+              \path[fill=black] (328.0715,448.3255) node[above right] (text5703) {$V$};
+              \path[fill=black] (232.3944,349.5453) node[above right] (text5707) {$F_{\hbox{in}}$};
+              \path[fill=black] (335.2113,565.0383) node[above right] (text5715) {$F_{\hbox{out}}$};
+            \end{scope}
+            \end{tikzpicture}
+            ]]>
+          </latex-image>
+        </image>
+      </figure>
+      <p>
+        The volume of water in the sink is changing,
+        so there is a rate of change of the volume expressed in calculus as a derivative <m>\frac{dV}{dt}</m>.
+        The rate of change <m>\frac{dV}{dt}</m> must be equal to the rate at which water flows in <m>F_{\text{in}}</m> minus the rate of water flowing out through the drain <m>F_{\text{out}}</m>.
+        This allows us to write a general dynamic model equation <me>\frac{dV}{dt} = F_{\text{in}} - F_{\text{out}}.</me>
+      </p>
+      <p>
+        The rate at which water drains might change depending on how much water there is in the sink,
+        which could be measured by either the volume <m>V</m> or the height <m>h</m> of water in the sink.
+        An experiment might be performed to measure <m>F_{\text{out}}</m> at different heights of water in the sink.
+        We might then formulate a model equation.
+        For example, we might discover from this experiment that <m>F_{\hbox{out}} = \alpha V</m> for some model parameter <m>\alpha</m>.
+        Using this, our dynamic model would be <me> \frac{dV}{dt} = F_{\hbox{in}} - \alpha V.</me>
+      </p>
+      <p>
+        Our aim in studying calculus is to understand the mathematical meaning of the derivative or rate of change.
+        There are two primary branches of calculus.
+        Integral calculus studies how we use a known rate of change to compute the overall change in the quantity that rate affects.
+        For example, integral calculus answers the question:
+        <q>Knowing the velocity of a car at all times, how would we compute how far the car has traveled?</q>
+        Differential calculus studies how to use the relationship between two variables to find the rate of change of one with respect to the other.
+        For the example of the car, this would address the question:
+        <q>If we knew exactly where the car was at each instant of time, how would we compute its velocity?</q>
+        Ultimately, both of these questions will rely on a mathematical tool at the heart of calculus, namely <term>limits</term>.
+      </p>
     </subsection>
     
     <subsection>
-        <title>Summary</title>
-        
-        <p><ul>
-            <li>Mathematical models are equations that relate state variables. Constants in these equations are called parameters.</li>
-            <li>Scientific laws relating measurable quantities are described using equations.</li>
-            <li>Calculus explores the relationship between quantities and their rates of change, known as derivatives.</li>
-        </ul></p>
+      <title>Summary</title>
+      
+      <p>
+        <ul>
+          <li>
+            <p>
+              Mathematical models are equations that relate state variables.
+              Constants in these equations are called parameters.
+            </p>
+          </li>
+          <li>
+            <p>
+              Scientific laws relating measurable quantities are described using equations.
+            </p>
+          </li>
+          <li>
+            <p>
+              Calculus explores the relationship between quantities and their rates of change, known as derivatives.
+            </p>
+          </li>
+        </ul>
+      </p>
     </subsection>
     
     <exercises>
