@@ -37,22 +37,46 @@
       <p>
         A <term>mathematical model</term> is an abstract representation of measurable phenomena that is characterized through mathematical equations.
         Recall that we think of a <term>system</term> as the collection of all possible measurements associated with the objects and environment involved in the phenomenon.
-        A <term>state variable</term> is any particular measurable quantity, whether or not we have a direct way to measure the value.
-        The <term>state</term> of the system is the collection of all such measurable quantities.
-        When the phenomenon is considered under a single environmental condition, there may be measurements of those environmental conditions.
-        Since they are controlled to have no variability, these measurements are called <term>state parameters</term>.
+        Each quantity is a <term>state variable</term>, even if we do not have a physical way to obtain the measurement.
+        When the phenomenon is considered under a single environmental condition,
+        the measurements relating to that condition which do not change are called <term>state parameters</term>.
         From a mathematical perspective, both state variables and state parameters are variables.
       </p>
       <p>
-        Many laws of science are described using mathematical equations.
-        These are examples of mathematical models.
+        Many laws of science are described using mathematical equations that relate state variables.
+        These equations are examples of mathematical models.
         Knowing the value of one state variable, we can use the model to predict the value of other variables.
+        Often the equations involve additional coefficients or constants.
+        These constants are called <term>model parameters</term>.
       </p>
       <example>
         <statement>
-          <p>In thermodynamics, the ideal gas law is described as an equation <me>PV = nRT.</me> This law relates the state variables of a contained volume of a gas according to pressure <m>P</m>, volume <m>V</m>, absolute temperature <m>T</m>, and quantity <m>n</m> (moles) of the gas. If the temperature and quantity of the gas is held constant, we think of only <m>P</m> and <m>V</m> as state variables and <m>n</m> and <m>T</m> as state parameters. The other variable, <m>R</m>, is called the ideal gas constant and is a model parameter. This model helps scientists and engineers understand the expected behavior of gases in different settings.</p>
-          <p>Have you microwaved a container with the lid attached and let it cool? As the temperature decreases, the quantity on the right side of the equation <m>nRT</m> decreases. This means that the product <m>PV</m> must also decrease. For a sturdy container, the volume will be constant meaning the pressure inside decreases creating vacuum suction. The lid will be much harder to remove. If the container is not rigid, the volume itself might decrease, such as water bottle that implodes on itself.</p>
-          <p>However, the value of the law is not just general arguments like those made above. It is a precise mathematical relationship about actual quantities. This allows very specific predictions about measurements. For some gases, the predictions do not work properly. These gases must have properties that make them deviate from the law, and that makes these gases particularly interesting. Scientists can then study their properties and develop corrected models that take those properties into account.</p>
+          <p>
+            In thermodynamics, the ideal gas law is described as an equation <me>PV = nRT.</me>
+            This law relates the state variables of a contained volume of a gas according to pressure <m>P</m>, volume <m>V</m>, absolute temperature <m>T</m>, and quantity <m>n</m> (moles) of the gas.
+            If the temperature and quantity of the gas is held constant,
+            we think of only <m>P</m> and <m>V</m> as state variables and <m>n</m> and <m>T</m> as state parameters.
+            The other variable, <m>R</m>, is a model parameter and is called the ideal gas constant
+            because the same value is used for every gas.
+            This model helps scientists and engineers understand the expected behavior of gases in different settings.
+          </p>
+          <p>
+            Have you microwaved a container with the lid attached and let it cool?
+            As the temperature decreases, the quantity on the right side of the equation <m>nRT</m> decreases.
+            This means that the product <m>PV</m> must also decrease to remain in balance.
+            For a sturdy container, the volume will be constant meaning the pressure inside decreases creating vacuum suction.
+            The lid will be much harder to remove.
+            If the container is not rigid, the volume itself might decrease, such as water bottle that collapses on itself.
+          </p>
+          <p>
+            However, the value of the law is not just general arguments like those made above.
+            It is a precise mathematical relationship about actual quantities.
+            This allows very specific predictions about measurements.
+            For some gases, the predictions do not work properly.
+            These gases must have properties that make them deviate from the law,
+            and that makes these gases particularly interesting.
+            Scientists can then study their properties and develop corrected models that take those properties into account.
+          </p>
         </statement>
       </example>
       <example>
@@ -76,9 +100,9 @@
     <subsection>
       <title>Dynamic Models</title>
       <p>
-        Calculus is the study of how variables change in relationship to one another. 
-        In particular, we are often interested in how variables change with respect to time.
-        Calculus provides a way of thinking about a <term>rate of change</term> as a variable that relates covarying quantities.
+        Calculus allows us to study how variables change in relationship to one another. 
+        We are often interested in how variables change with respect to time.
+        Calculus provides a way of thinking about a <term>rate of change</term> as a new variable that relates covarying quantities.
         This variable is called the <term>derivative</term>.
       </p>
       <p>
@@ -87,43 +111,41 @@
         The natural state variables are the position, say <m>D</m> (for distance), and the time, <m>t</m>.
         The distance moved is related to the time spent moving according to the speed or velocity of the car.
         A common formula relating these variables is often learned as <q>distance equals rate times time.</q>
-        However, this formula only works when the rate is constant.
+        However, this formula only works when the rate is constant and the car has the same speed at all times.
+      </p>
+      <p>
         In reality, the rate changes as we drive.
-        We have a new state variable, the velocity <m>V</m>.
-        Calculus introduces the idea that the velocity is the <term>derivative</term> of the car's position with respect to time, expressed using the notation <me>V = \frac{dD}{dt}.</me>
+        The velocity <m>V</m> which measures how fast we are moving is another state variable.
+        Calculus introduces the <term>derivative</term> of the car's position with respect to time, written <m>\frac{dD}{dt}</m>,
+        and allows us to know that the velocity and the derivative measure the same thing, <me>V = \frac{dD}{dt}</me>.
       </p>
       <p>
         Dynamic models are mathematical models that consider models or equations for how variables change.
         Calculus, using the concepts of rates of change and derivatives, provides the language for describing these models.
       </p>
       <p>
-        To help think about this, consider the physical example of a sink being filled with water.
-        At each instant in time, the sink is in a different state.
-        The state can be characterized by measurements at that time,
+        To help think about this, consider another physical example, that of a sink being filled with water.
+        At each instant in time, the sink has a different state.
+        The state can be characterized by possible measurements at that time,
         which might include the height of water in the sink, the volume of water in the sink,
         the rate of water flowing into the sink from the spigot,
         and the rate of water flowing out of the sink through the drain.
-        We might also measure things like water temperature or the dilution of some substance or chemical in the water.
+        More sophisticated problems might also involve the water temperature or the dilution of some substance or chemical in the water.
       </p>
       <p>
-        In our example, the variables correspond to the measurements.
-        For simplicity of communication, we often associate a single symbol (usually a letter) to represent that variable.
-        We might use <m>t</m> to represent our measurement associated with the time of observation,
-        <m>V</m> to represent the volume of water,
-        <m>h</m> to represent the height of water in the sink,
+        The diagram shown in <xref ref="figure-sink-flow-diagram"/> illustrates the system and shows some of these variables.
+        We let <m>t</m> represent the elapsed time from the start of our experiment and the time of the state's observation.
+        We also use <m>V</m> to represent the volume of water,
+        <m>h</m> to represent the height of the water in the sink,
         <m>F_{\hbox{in}}</m> to represent the rate of water flowing in,
         and <m>F_{\hbox{out}}</m> to represent the rate of water flowing out.
-        We might consider a situation in which the spigot has water flowing at a constant rate.
-        In this case, the variable <m>F_{\hbox{in}}</m> is never changing;
-        we could call this a state parameter instead of a state variable.
-        A diagram can often help summarize this information.
       </p>
-      <figure xml:id="figure-sink-flow-diagram">
+      <figure xml:id="figure-sink-flow-diagram" width="40%">
         <caption>Diagram illustrating the variables associated with the water in a sink.</caption>
-        <image width="40%">
+        <image xml:id="img-sink-flow-diagram">
           <description>
-              Illustration showing a sink with water, arrows corresponding to
-              water flowing in and out, and variables labeling key quantities.
+            Illustration showing a sink with water, arrows corresponding to
+            water flowing in and out, and variables labeling key quantities.
           </description>
           <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -168,35 +190,76 @@
         </image>
       </figure>
       <p>
-        The volume of water in the sink is changing,
-        so there is a rate of change of the volume expressed in calculus as a derivative <m>\frac{dV}{dt}</m>.
-        The rate of change <m>\frac{dV}{dt}</m> must be equal to the rate at which water flows in <m>F_{\text{in}}</m> minus the rate of water flowing out through the drain <m>F_{\text{out}}</m>.
+        We might consider a situation in which the spigot has water flowing at a constant rate.
+        In this case, the variable <m>F_{\hbox{in}}</m> is never changing;
+        we could call this a state parameter instead of a state variable.
+        A diagram can often help summarize this information.
+      </p>
+      <p>
+        Because water is flowing in and out of the sink, the volume of water in the sink is a dynamic variable.
+        Unless the rates of water flowing in and out are the same, the volume will be changing.
+        The derivatives <m>\frac{dV}{dt}</m> and <m>\frac{dh}{dt}</m> are additional state variables,
+        the rate of change of the volume and the rate of change of the height, respectively.
+        We obtain an equation by recognizing that the total rate of change
+        will always be equal to the sum of the rate of water flowing in and subtracting the rate of water flowing out.
         This allows us to write a general dynamic model equation <me>\frac{dV}{dt} = F_{\text{in}} - F_{\text{out}}.</me>
       </p>
       <p>
-        The rate at which water drains might change depending on how much water there is in the sink,
+        Different models can be formed by establishing model equations relating the flow rates with other state variables.
+        For example, the rate at which water drains might change depending on how much water there is in the sink,
         which could be measured by either the volume <m>V</m> or the height <m>h</m> of water in the sink.
         An experiment might be performed to measure <m>F_{\text{out}}</m> at different heights of water in the sink.
-        We might then formulate a model equation.
-        For example, we might discover from this experiment that <m>F_{\hbox{out}} = \alpha V</m> for some model parameter <m>\alpha</m>.
-        Using this, our dynamic model would be <me> \frac{dV}{dt} = F_{\hbox{in}} - \alpha V.</me>
+        We might then formulate a model equation based on our data.
+        For example, we might discover from this experiment that the rate of water flowing out is proportional to the volume in the sink,
+        <m>F_{\hbox{out}} = \alpha V</m> for some model parameter <m>\alpha</m>.
+        Using this model equation and substitution, our dynamic model would become <me> \frac{dV}{dt} = F_{\hbox{in}} - \alpha V.</me>
+        A dynamic model involving a derivative is called a <term>differential equation</term>.
       </p>
+    </subsection>
+    <subsection>
+      <title>Where Are We Going?</title>
       <p>
         Our aim in studying calculus is to understand the mathematical meaning of the derivative or rate of change.
         There are two primary branches of calculus.
-        Integral calculus studies how we use a known rate of change to compute the overall change in the quantity that rate affects.
+        Integral calculus studies how we use a known rate of change for a quantity to compute the overall change in that quantity.
         For example, integral calculus answers the question:
-        <q>Knowing the velocity of a car at all times, how would we compute how far the car has traveled?</q>
+        <q>Knowing the velocity of a car at every instant between two moments, how would we compute how far the car has traveled between those moments?</q>
         Differential calculus studies how to use the relationship between two variables to find the rate of change of one with respect to the other.
         For the example of the car, this would address the question:
         <q>If we knew exactly where the car was at each instant of time, how would we compute its velocity?</q>
         Ultimately, both of these questions will rely on a mathematical tool at the heart of calculus, namely <term>limits</term>.
       </p>
+      <p>
+        In this text, we will first study discrete dynamic models first using sequences to develop our conceptual understanding.
+        We previously learned that the number line represents a continuum of real numbers.
+        Calculus concerns functions that are defined on intervals from this continuum.
+        Suppose we have a system where we can record the state after manipulating an independent state variable to a specified value.
+        We can not physically record all possible states because that variable has infinitely many possibilities.
+        Instead, we might increase the value of the control variable by a predetermined increment and record the state and then repeat this process.
+        This use of an increment to change an independent variable is what we mean by a <term>discrete model</term>.
+        Often the independent variable is time, and the discrete model represents the state of the system at equally spaced increments of time.
+      </p>
+      <p>
+        A sequence can often be described directly by a formula.
+        Such an explicit representation of a sequence will be analogous to how we describe functions using formulas.
+        We can also represent a sequence by describing a pattern in how terms are found.
+        One of the most common representations is by describing the increments, or values added, to get each term.
+        The process of using increments to find a sequence is analogous to the calculus concept.
+        The reverse process is also possible, to take a given sequence and compute the increments.
+        Knowing formulas for the increments allows us to analyze the properties of the original sequence.
+        This reverse process is analogous to the calculus concept of differentiation.
+      </p>
+      <p>
+        As you work through this text, make note of these overarching concepts and their relationships.
+        Understanding the concepts of sequences, including the properties of their increments,
+        will help you make better sense of the concepts of calculus.
+        You should also focus on how calculus extends the ideas we learn about sequences.
+        In addition, we will explore how both discrete sequences and functions defined on intervals can be used in modeling.
+      </p>
     </subsection>
     
     <subsection>
       <title>Summary</title>
-      
       <p>
         <ul>
           <li>
@@ -213,6 +276,11 @@
           <li>
             <p>
               Calculus explores the relationship between quantities and their rates of change, known as derivatives.
+            </p>
+          </li>
+          <li>
+            <p>
+              Sequences will provide motivating examples and concepts for studying calculus.
             </p>
           </li>
         </ul>
