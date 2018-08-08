@@ -14,154 +14,433 @@
     <title>Overview</title>
     
     <p>
-    Sequences are often introduced to us as young children as a tool to look for basic numerical patterns.
-    We are shown the start to a list of numbers and asked if we can identify the next few numbers in the list or are asked to identify the rule being used to generate the sequence.
-    <md>
-      <mrow>1, 5, 9, 13, \ldots</mrow>
-      <mrow>2, 6, 18, 54, \ldots</mrow>
-    </md>
-    You probably recognized that in the first sequence,
-    the next number would be 17 because the pattern involved adding 4 to the previous number.
-    In the second sequence, you probably saw that we were multiplying by the value 3,
-    so that the next number would have been 162.
-    These patterns help motivate the mathematical definition of a sequence.
+      Sequences are often introduced to us as examples for finding basic numerical patterns.
+      We are shown the start to a list of numbers and asked if we can identify the next few numbers in the list
+      or are asked to identify the rule being used to generate the sequence.
+      <md>
+        <mrow>1, 5, 9, 13, \ldots</mrow>
+        <mrow>2, 6, 18, 54, \ldots</mrow>
+      </md>
     </p>
-    
     <p>
-    We study sequences because they illustrate a number of ideas we will use in calculus.
-    We eventually want to describe functions as dynamic models.
-    Dynamical models for sequences are easier to illustrate than for general functions.
-    We want a clearer definition for limits.
-    Limits for sequences introduce the ideas of approximation that are necessary for limits of functions.
-    Finally, in calculus we will measure the accumulated change of a quantity when we know its rate.
-    Accumulation formulas for sequences will provide the tools we need to define more general accumulations.
+      Do you see the patterns?
     </p>
-    
     <p>
-    This section introduces the basic terminology for sequences.
-    It explains how a sequence is a special type of function, where the domain is a set of integers.
-    We will learn about explicit formulas for a sequence and recursive formulas for a sequence, 
-    using arithmetic and geometric sequences as our original motivation.
+      You probably recognized that in the first sequence,
+      the next number would be 17 because the pattern involved adding 4 to the previous number.
+      In the second sequence, you probably saw that we were multiplying by the value 3,
+      so that the next number would have been 162.
+      Not all sequences follow patterns.
+      However, we use examples such as these to motivate the mathematical definition of a sequence.
+    </p>
+    <p>
+      We study sequences because they illustrate a number of ideas we will use in calculus.
+      We eventually want to describe functions as dynamic models.
+      Dynamic models for sequences are easier to illustrate than for general functions.
+    </p>
+    <p>
+      This section introduces the basic terminology for sequences.
+      It explains how a sequence is a special type of function, where the domain is a set of integers.
+      We will learn about explicit formulas for a sequence and recursive formulas for a sequence, 
+      using arithmetic and geometric sequences as our original motivation.
+    </p>
+    <p>
+      Later in this chapter, we will explore the dynamic ideas that will motivate calculus.
+      Sequences that converge to a single value will be used to introduce the concept of limits.
+      Recursive formulas for sequences will be used to introduce the ideas of accumulation
+      which ultimately motivates the concept of integration.
+      The dynamic behavior of a sequence will be analyzed in terms of its increment sequence
+      which will motivate the calculus concept of the derivative.
     </p>
   </introduction>
   
   <subsection>
-    <title>Basic Terminology</title>
-    
+    <title>Basic Terminology and Notation</title>
     <p>
-    A <term>sequence</term> is an ordered set of numbers.
-    The idea of being ordered is that we can say what the first number is, what the second number is, and so forth.
-    To emphasize that the number have assigned positions, a sequence can be written as an ordered list using parentheses.
-    The entire sequence can be assigned a symbol, just like a variable, 
-    so that a sequence assigned a symbol <m>x</m> and given by the values 1, 5, 9, 13, etc., would be written
-    <me> x = (1, 5, 9, 13, \ldots).</me>
+      A <term>sequence</term> is an ordered collection of numbers.
+      The idea of being ordered is that we can say what the first number is, what the second number is, and so forth.
+      To emphasize that the number have assigned positions, a sequence can be written as an <term>ordered list</term> using parentheses.
+      The entire sequence can be assigned a symbol, just like a variable, 
+      so that a sequence assigned a symbol <m>x</m> and given by the values 1, 5, 9, 13, etc., would be written
+      <me> x = (1, 5, 9, 13, \ldots).</me>
     </p>
-    
     <p>
-    Because the sequence has a specific order, we use an <term>index</term> as a way of counting through the sequence.
-    For a given sequence, the term with index 1 is the first number of the sequence, 
-    the term with index 2 is the second number, 
-    the term with index 3 is the third number, and so forth.
-    We use subscripts on a sequence to refer to an indexed value.
-    So <m>x_1</m> is the first value of sequence <m>x</m> 
-    and <m>x_5</m> refers to the value of the sequence <m>x</m> with index 5.
+      Because the sequence has a specific order, we use an <term>index</term> as a way of counting through the sequence.
+      For a given sequence, the term with index 1 is the first number of the sequence, 
+      the term with index 2 is the second number, 
+      the term with index 3 is the third number, and so forth.
+      We use subscripts on a sequence to refer to an indexed value.
+      So <m>x_1</m> is the first value of sequence <m>x</m> 
+      and <m>x_5</m> refers to the value of the sequence <m>x</m> with index 5.
     </p>
-    
     <example>
       <statement>
         <p>
-        For the sequence <m>x = (1,5,9,13,\ldots)</m>, 
+        For the sequence <m>x = (1,5,9,13,\ldots)</m> and assuming the pattern continues,
         find each of the following values: <m>x_1</m>, <m>x_3</m>, and <m>x_5</m>.
         </p>
       </statement>
       <solution>
         <p>
-        We can create a mapping between the index (ordering) and the values of the sequence.
-        <me>\begin{matrix}
-          n &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
-          \downarrow \\
-          x_n &amp; 1 &amp; 5 &amp; 9 &amp; 13 &amp; 17 &amp; 21
-        \end{matrix}</me>
-        From this relation, we can identify the values.
-        <md>
-          <mrow>x_1 &amp; = 1</mrow>
-          <mrow>x_3 &amp; = 9</mrow>
-          <mrow>x_5 &amp; = 17</mrow>
-        </md>
+          The ordering of the list of values in the sequence can be made explicit with a table.
+        </p>
+        <sidebyside margins="auto">
+          <tabular>
+            <row>
+              <cell>ordinal position</cell>
+              <cell>index</cell>
+              <cell>sequence value</cell>
+            </row>
+            <row>
+              <cell>first</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+            </row>
+            <row>
+              <cell>second</cell>
+              <cell>2</cell>
+              <cell>5</cell>
+            </row>
+            <row>
+              <cell>third</cell>
+              <cell>3</cell>
+              <cell>9</cell>
+            </row>
+            <row>
+              <cell>fourth</cell>
+              <cell>4</cell>
+              <cell>13</cell>
+            </row>
+            <row>
+              <cell>fifth</cell>
+              <cell>5</cell>
+              <cell>17</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          Of course, you probably thought through the ordering in your head rather than make a table.
+          From this ordering, we know that <m>x_1=1</m>, <m>x_3=9</m>, and <m>x_5=17</m>.
         </p>
       </solution>
     </example>
+    <p>
+      The table in the solution for the previous example illustrates an explicit association between the index and the sequence value.
+      We could reorganize this table to create a <term>mapping</term> between values.
+      <me>\begin{matrix}
+        n &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
+        \downarrow \\
+        x_n &amp; 1 &amp; 5 &amp; 9 &amp; 13 &amp; 17 &amp; 21
+      \end{matrix}</me>
+      The mapping can be illustrated using two number lines, one for the index and the other for the sequence values,
+      with arrows drawn from the index to the corresponding sequence value.
+      We write <m>n \mapsto x_n</m> to indicate that we have a mapping that goes from a value of <m>n</m> to a value <m>x_n</m>.
+    </p>
+    <figure xml:id="fig-example-sequence-map">
+      <caption>
+        Illustration of the example sequence as a map <m>n \mapsto x_n</m>.
+      </caption>
+      <image width="70%">
+        <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=0.8cm]
+          \draw[<->] (-3.5,0) -- (7.5,0) node[pos=0, left] {$n$};
+          \foreach \x in {-3, -2, ..., 7}
+              \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+          \foreach \x in {1, 2, ..., 7}
+              \fill (\x,0) circle [radius=2pt];
+          \draw[<-> ](-3.5,-2) -- (7.5,-2) node[pos=0,left] {$x_n$};
+          \foreach \x in {1, 2, ..., 7} {
+              \pgfmathtruncatemacro{\u}{4 * \x - 3};
+              \pgfmathsetmacro{\y}{1.2 * \x - 2};
+              \draw (\y,-1.9) -- (\y,-2.1) node[below] {\u};
+              \draw [->] (\x,-0.8) -- (\y,-1.8);
+          }
+          \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
     
     <p>
-    Once we recognize that a sequence has an association between an index 
-    (the integer counting through the terms) and the values of the sequence, 
-    we should be able to recognize that every sequence corresponds to a function.
-    In fact, this leads to the formal definition of a sequence.
+      Another name for a mapping is a <term>function</term>.
+      Sequences are functions whose domains correspond to an interval of the integers.
+      The <term>domain</term> for a sequence is the set of possible values for the index.
+      An interval of integers corresponds to a subset of integers with no gaps.
+      The interval could be finite, as in <m>\{4, \ldots, 10\}</m>,
+      or it could be infinite, as in <m>\{4, \ldots, \infty\}</m>.
+      The usual domain for sequences is the set of natural numbers <m>D=\mathbb{N}=\{1,2,3,\ldots,\infty\}</m>.
+      We often also want to include an initial value corresponding to an index value <m>n=0</m>,
+      in which case our domain is the extended natural numbers <m>D=\mathbb{N}_0 = \{0,1,2,3,\ldots\}</m>.
     </p>
     
     <definition xml:id="definition-sequence">
+      <title>Sequence</title>
       <statement>
         <p>
-        A sequence <m>x</m> is a function with a domain <m>D</m> that is a subset of integers 
-        (usually <m>D=\mathbb{N}=\{1,2,3,\ldots\}</m> or <m>D=\mathbb{N}_0 = \{0,1,2,3,\ldots\}</m>) 
+        A <term>sequence</term> <m>x</m> is a function with a domain <m>D</m> that is an interval of integers 
         and values that are real numbers.
-        <me> x : D \to \mathbb{R}, n \mapsto x_n. </me>
-        The value of the sequence is a function of the index.
+        We can write this in symbols using mapping notation,
+        <me> x : n \in D \mapsto x_n \in \mathbb{R}. </me>
         </p>
       </statement>
     </definition>
-    
     <p>
-    In the definition of a sequence, the first index value does not need to be <m>1</m>.
-    Any integer could be the first value in the domain.
-    Also, the variable of the index is not always <m>n</m>.
-    By convention, however, it is most often a letter from the middle of the alphabet.
-    We show that a sequence starts with a particular index value, say <m>n_0</m>,
-    by including the following additional notation:
-    <me>x = (x_n)_{n=n_0}^{\infty}.</me>
+      The mapping notation used in the definition of a sequence is a symbolic representation of the statement that a sequence is a function or a map.
+      In particular, it says there is a map (<m>\mapsto</m>) named <m>x</m>
+      that takes a value <m>n</m> from the set <m>D</m> (<m>n \in D</m>)
+      and returns a value <m>x_n</m> from the set of real numbers <m>\mathbb{R}</m> (<m>x_n \in \mathbb{R}</m>).
     </p>
-    
+    <p>
+      Defining a sequence as a function allows us more flexibility in what we include as sequences.
+      The new definition allows us to have our first index value start at a value other than <m>1</m>.
+      It also allows us to use other variables for our index.
+      The variable used for an index is most often a letter from the middle of the alphabet.
+    </p>
+    <example>
+      <statement>
+        <p>Interpret the statement <m>u : k \in \{0, \ldots,10\} \mapsto u_k \in \mathbb{R}</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          The map <m>u</m> defines a sequence with index values <m>k</m> going from <m>k=0</m> to <m>k=10</m>.
+          Because we do not have more information, we do not yet know the values of this sequence.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Although mapping notation is useful to remind us that a sequence is a map or function,
+      it can be a little cumbersome to use all the time.
+      Mathematicians developed a more concise representation that reminds us of an ordered list.
+      If we consider an interval of integers <m>\{n_i, \ldots, n_f\}</m> 
+      (<m>n_i</m> is the <em>initial</em> value in the interval and <m>n_f</m> is the <em>final</em> value in the interval),
+      then the mapping notation
+      <me> x : n \in \{n_i,\ldots,n_f\} \mapsto x_n \in \mathbb{R} </me>
+      is equivalent to the more compact sequence notation
+      <me> x = (x_n)_{n=n_i}^{n_f}</me>.
+    </p>
+    <example>
+      <statement>
+        <p>Rewrite <m>u : k \in \{0, \ldots,10\} \mapsto u_k \in \mathbb{R}</m> using sequence notation.</p>
+      </statement>
+      <solution>
+        <p>
+          We would write <m>u = (u_k)_{k=0}^{10}</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Sequence notation can be coupled with an ordered list of values to define a sequence that follows a pattern
+      with an index that starts at a value other than <m>1</m>.
+    </p>
+    <example>
+      <statement>
+        <p>Interpret <me>w = (w_j)_{j=4}^{\infty} = (1, 2, 4, 8, 16, \ldots)</me>,
+        assuming the sequence follows a simple pattern.</p>
+      </statement>
+      <solution>
+        <p>
+          This sequence notation tells us that <m>w</m> is a sequence,
+          the index variable is <m>j</m>, and the interval of integers used for the index starts at <m>j=4</m>
+          and continues through all integers greater than 4.
+          The first few terms in a table showing the mapping are given below.
+          <me>\begin{matrix}
+            j &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 \\
+            \downarrow \\
+            w_j &amp; 1 &amp; 2 &amp; 4 &amp; 8 &amp; 16 &amp; 32
+          \end{matrix}</me>
+          For this sequence, <m>w_1</m>, <m>w_2</m>, and <m>w_3</m> are not defined
+          because the values 1, 2, and 3 are not in the domain interval.
+        </p>
+      </solution>
+    </example>
     <example>
       <statement>
         <p>
-        The sequence 
-        <me>u=(u_k)_{k=-1}^{\infty} = (8, 5, 2, -1, -4, \ldots)</me>
-        follows a simple pattern.
+        Interpret the sequence 
+        <me>u=(u_k)_{k=-1}^{\infty} = (8, 5, 2, -1, -4, \ldots)</me>,
+        assuming the sequence follows a simple pattern.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        We have defined a sequence <m>u</m> with an index variable <m>k</m>.
         The first index value is <m>k=-1</m>.
         The sequence has the following values:
         <md>
           <mrow>u_{-1} = 8, </mrow>
           <mrow>u_{0} = 5, </mrow>
           <mrow>u_{1} = 2, </mrow>
-          <mrow>u_{2} = -1. </mrow>
+          <mrow>u_{2} = -1, </mrow>
+          <mrow>u_{3} = -4, </mrow>
+          <mrow>u_{4} = -7. </mrow>
         </md>
         </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Graphs of Sequences</title>
+    <p>
+      We can create a graph anytime we can find a relation between two variables.
+      For a sequence <m>x</m>, there is a natural choice for the two variables<mdash/>the index <m>n</m> and the value <m>x_n</m>.
+      The natural graph for a sequence <m>x</m> consists of the points <m>(n, x_n)</m>.
+      Because the index comes from a domain that is an interval of integers,
+      the graph will be a collection of isolated points.
+      This is why a sequence is called a discrete model.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The graph of the sequence <m>x=(1,5,9,13,\ldots)</m> consists of the points <m>(n,x_n)</m>.
+          The first few points of the graph<mdash/><m>(1,1)</m>, <m>(2,5)</m>, <m>(3,9)</m>, and <m>(4,13)</m><mdash/>are shown in the figure below.
+          The sequence continues with addition points for <m>n \gt 4</m>, but there are no points with <m>n \lt 1</m>.
+        </p>
+        <sidebyside width="50%">
+          <image>
+            <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              /pgfplots/table/row sep=crcr
+              }
+              \pgfplotsset{ width=6cm }
+              \begin{tikzpicture}
+              \begin{axis}[
+                xlabel={$n$},
+                ylabel={$x_n$},
+                xmin=-3.5, xmax=7.5,
+                ymin=-4.5, ymax=27.5,
+              ]
+              \addplot[
+                only marks,
+                color=blue
+              ] table {
+                1 1\\
+                2 5\\
+                3 9\\
+                4 13\\
+                5 17\\
+                6 21\\
+                7 25\\
+              };
+              \end{axis}
+              \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
       </statement>
     </example>
-    
-    <paragraphs>
-      <title>Explicit Representations</title>
+    <example>
+      <statement>
+        <p>Create the graph for <m>u=(u_k)_{k=-1}^{\infty} = (8, 5, 2, -1, -4, \ldots)</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          The points in the graph use an index starting at <m>k=-1</m>.
+          They include <m>(-1,8)</m>, <m>(0,5)</m>, <m>(1,2)</m>, <m>(2,-1)</m>, and <m>(3,-4)</m>.
+          The sequence continues to the right of these points.
+        </p>
+        <sidebyside width="50%">
+          <image>
+            <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              /pgfplots/table/row sep=crcr
+              }
+              \pgfplotsset{ width=6cm }
+              \begin{tikzpicture}
+              \begin{axis}[
+                xlabel={$n$},
+                ylabel={$x_n$},
+                xmin=-3.5, xmax=5.5,
+                ymin=-17.5, ymax=12.5,
+              ]
+              \addplot[
+                only marks,
+                color=blue
+              ] table {
+                -1 8\\
+                0 5\\
+                1 2\\
+                2 -1\\
+                3 -4\\
+                4 -7\\
+                5 -10\\
+                6 -13\\
+                7 -16\\
+              };
+              \end{axis}
+              \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+      <title>Explicit Sequence Representations</title>
       <p>
-      Because a sequence is a function of the index, 
-      we sometimes have <term>explicit</term> definitions for sequence values. 
-      A sequence might be defined through a simple formula and the domain, 
-      <me> x_n = \frac{n}{n+1}, \quad n \in D=\{1, 2, 3, \ldots\}.</me> 
-      The formula acts like a function, but instead of writing <m>x(n)</m>,
-      a sequence uses subscript notation.
-      Values of the sequence can be found just like for functions.
-      <md>
-        <mrow> x_1 &amp;= x(1) = \frac{1}{1+1} = \frac{1}{2}, </mrow>
-        <mrow> x_2 &amp;= x(2) = \frac{2}{2+1} = \frac{2}{3}, </mrow>
-        <mrow> x_{10} &amp;= x(10) = \frac{10}{10+1} = \frac{10}{11}. </mrow>
-      </md>
-      With this interpretation, we can even do composition to find the sequence value at an index defined by a formula.
-      <md>
-        <mrow> x_{n+1} &amp;= x(n+1) = \frac{(n+1)}{(n+1)+1} = \frac{n+1}{n+2}, </mrow>
-        <mrow> x_{2n} &amp;= x(2n) = \frac{2n}{2n+1}, </mrow>
-        <mrow> x_{n^2} &amp;= x(n^2) = \frac{n^2}{n^2+1}. </mrow>
-      </md>
+        We sometimes have an <term>explicit representation</term> for a sequence,
+        where the value of the sequence is a dependent variable in terms of the index as the independent variable.
+        The expression defining the dependent variable could be used with each of the different notations.
       </p>
-    
+      <example>
+        <statement>
+          <p>
+            Each of the following notations define the same sequence.
+            <md>
+              <mrow>x : n \in \{1, \ldots, \infty\} \mapsto x_n = \frac{n}{n+1}</mrow>
+              <mrow>x = \left( x_n = \frac{n}{n+1} \right)_{n=1}^{\infty}</mrow>
+              <mrow>x = \left(\frac{n}{n+1} \right)_{n=1}^{\infty}</mrow>
+            </md>
+            We could simplify even further and write
+            <me>x_n = \frac{n}{n+1}, n=1,\ldots,\infty,</me>
+            as the subscript notation <m>x_n</m> itself implies we have a sequence.
+          </p>
+          <p>
+            Writing the sequence value as a dependent variable provides a compact way of representing the entire sequence.
+            To find a particular value of the sequence, we substitute the value for the independent variable into the expression.
+            <md>
+              <mrow> x_1 &amp;= x(1) = \frac{1}{1+1} = \frac{1}{2}, </mrow>
+              <mrow> x_2 &amp;= x(2) = \frac{2}{2+1} = \frac{2}{3}, </mrow>
+              <mrow> x_{10} &amp;= x(10) = \frac{10}{10+1} = \frac{10}{11}. </mrow>
+            </md>
+          </p>
+        </statement>
+      </example>
+      <p>
+        In addition to substitution using actual integer values, we can also use substitution of expressions that have integer values.
+        This includes using other variables that have integer values.
+        To do this, we substitute the expression that appears in the subscript for every occurrence of the index in the expression.
+      </p>
+      <example>
+        <statement>
+          <p>
+            For the sequence defined by
+            <me>x_n = \frac{n}{n+1}, n=1,\ldots,\infty,</me>
+            find the expressions defined by <m>x_k</m>, <m>x_{n+1}</m>, <m>x_{2n}</m>, and <m>x_{n^2}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            With this interpretation, we can even do composition to find the sequence value at an index defined by a formula.
+            Substituting the variable <m>k</m> for the index <m>n</m> in the dependent variable's expression, we find
+            <me> x_{k} = \frac{k}{k+1}. </me>
+            In a similar way, we substitute the expressions <m>n+1</m>, <m>2n</m>, and <m>n^2</m> in the formula
+            where <m>n</m> originally appeared to obtain
+            <md>
+              <mrow> x_{n+1} &amp;= \frac{(n+1)}{(n+1)+1} = \frac{n+1}{n+2}, </mrow>
+              <mrow> x_{2n} &amp;= x(2n) = \frac{2n}{2n+1}, </mrow>
+              <mrow> x_{n^2} &amp;= x(n^2) = \frac{n^2}{n^2+1}. </mrow>
+            </md>
+          </p>
+        </solution>
+      </example>
+      <p>
+        Some sequences have patterns where we can easily find an explicit formula
+        by recognizing how the numbers defining the sequence values relate to the index.
+      </p>
       <example>
         <statement>
           <p>
@@ -173,7 +452,9 @@
         <solution>
           <p>
           To find the explicit formula, we look for a pattern in the sequence 
-          and then try to find a relationship between the index and the pattern. 
+          and then try to find a relationship between the index and the pattern.
+          Because the sequence domain was not specified,
+          it is understood to be the natural numbers <m>\mathbb{N}=(1, \ldots,\infty)</m>.
           In this case, every sequence value is the reciprocal of a perfect square. 
           If we look at this pattern with a table showing the index and the pattern, 
           we find a relationship.
@@ -189,10 +470,10 @@
               </row>
               <row>
                 <cell><m>x_n</m></cell>
-                <cell><m>\frac{1}{2^2}</m></cell>
-                <cell><m>\frac{1}{3^2}</m></cell>
-                <cell><m>\frac{1}{4^2}</m></cell>
-                <cell><m>\frac{1}{5^2}</m></cell>
+                <cell><m>\frac{1}{4} = \frac{1}{2^2}</m></cell>
+                <cell><m>\frac{1}{9} = \frac{1}{3^2}</m></cell>
+                <cell><m>\frac{1}{16} = \frac{1}{4^2}</m></cell>
+                <cell><m>\frac{1}{25} = \frac{1}{5^2}</m></cell>
               </row>
             </tabular>
           </sidebyside>
@@ -208,12 +489,9 @@
           </p>
         </solution>
       </example>
-      
       <p>
-      The graph of a sequence corresponds to the points <m>(n, x_n)</m>.
-      This graph will be discrete points because the domain only includes integers.
+        Knowing the explicit formula for a sequence, we can compute the values of the sequence to use in a graph.
       </p>
-      
       <example>
         <statement>
           <p>
@@ -251,453 +529,139 @@
           </sidebyside>
         </solution>
       </example>
-    </paragraphs>
   </subsection>
-  
-  <subsection>
-    <title>Arithmetic and Geometric Sequences</title>
-    
-    <p>
-    For ordinary functions, we usually expect them to be represented using an explicit formula.
-    But we often think of sequences in terms of a pattern for finding a value based on the previous value.
-    Such a representation is called <term>recursive</term>.
-    The simplest sequences follow simple recursive patterns.
-    </p>
-    
-    <p>
-    An <term>arithmetic sequence</term> is a sequence whose terms change by a fixed increment or difference.
-    For example, consider the first sequence introduced in the section, <me>x = (1, 5, 9, 13, \ldots).</me>
-    The pattern for this sequence was that we add 4 to each term in the sequence to find the next term.
-    The value 4 is called the <term>difference</term> of the sequence.
-    </p>
-    
-    <p>
-    A <term>geometric sequence</term> is a sequence whose terms change by a fixed multiple or ratio. 
-    The second sequence of the section was a geometric sequence, <me> u= (2, 6, 18, 54, \ldots).</me>
-    Each term is found by multiplying the previous term by 3, which is the <term>ratio</term> of the sequence.
-    </p>
-    
-    <p>
-    For recursively defined sequences, the equation that describes the relationship 
-    between consecutive terms of the sequence is called the <term>recurrence relation</term>.
-    When the equation is solved for the new term as a function of the previous term, 
-    we have a recursive formula that uses a projection function.
-    </p>
-    
-    <definition xml:id="defn-projection-function">
-      <title>Projection Function</title>
-      <statement>
-        <p>
-        Suppose a sequence <m>x</m> is defined by a recurrence relation of the form 
-        <me>x_{n+1} = f(x_n).</me>
-        The function <m>f</m> defining the relation <m>x_{n} \mapsto x_{n+1}</m> 
-        is called the <term>projection function</term>.
-        Equivalently, we could write the recurrence relation as
-        <me>x_{n} = f(x_{n-1})</me>.
-        </p>
-      </statement>
-    </definition>
-    
-    <p>
-    To make sense of recursive formulas,
-    we first need to understand the notation <m>x_{n+1}</m> and <m>x_{n-1}</m>.
-    For a specific value of <m>n</m>, say <m>n=3</m>, we have <m>n+1=4</m> and <m>n-1=2</m>.
-    Thus for <m>n=3</m> so that <m>x_n=x_3</m>, 
-    we must have <m>x_{n+1} = x_{4}</m> and <m>x_{n-1}=x_2</m>.
-    Just as <m>x_4</m> is the term after <m>x_3</m> and <m>x_2</m> is the term before <m>x_3</m>,
-    the general formula <m>x_{n+1}</m> refers to the term after <m>x_n</m> 
-    and <m>x_{n-1}</m> is the term before <m>x_n</m>, speaking of a generic index <m>n</m>.
-    Similarly, <m>x_{n+3}</m> would refer to the value 3 terms after <m>x_n</m>.
-    </p>
-    
-    <example>
-      <statement>
-        <p>
-        A sequence is defined by the recurrence relation
-        <me>u_{n+1}-u_n = 1.4 u_n - \frac{3}{u_n}, \quad n \ge -1,</me>
-        and an initial value <m>u_{-1}=1</m>.
-        Find the recursive equation corresponding to the projection function,
-        <m>u_n \mapsto u_{n+1}</m>, and find <m>f(x)</m>. 
-        Use this to find <m>u_0</m> and <m>u_1</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-        To find the recursive equation, we need to solve for <m>u_{n+1}</m>.
-        <md>
-          <mrow>u_{n+1}-u_n = 1.4 u_n - \frac{3}{u_n}</mrow>
-          <mrow>u_{n+1} = 2.4 u_n - \frac{3}{u_n}</mrow>
-        </md>
-        This recursive equation gives us a map from a current value <m>u_n</m>
-        to the next value <m>u_{n+1}</m> in the sequence, <m>u_n \mapsto u_{n+1}</m>,
-        which is the projection function
-        <me>u_{n+1} = f(u_n) = 2.4 u_n - \frac{3}{u_n}.</me>
-        This means that using an input <m>x</m> gives
-        <me>f(x) = 2.4 x - \frac{3}{x}.</me>
-        </p>
-        <p>
-        As a map, we can repeatedly use this function to find subsequent values of the sequence.
-        <md>
-          <mrow>u_{-1} &amp;= 1</mrow>
-          <mrow> u_{0} &amp;= f(u_{-1}) = f(1)</mrow>
-          <mrow> &amp;= 2.4(1)-\frac{3}{1} = -0.6</mrow>
-          <mrow>u_{1} &amp;= f(u_0) = f(-0.6)</mrow>
-          <mrow> &amp;= 2.4(-0.6)-\frac{3}{-0.6} = 3.56</mrow>
-        </md>
-        </p>
-        <sidebyside widths="70%">
-          <image>
-            <latex-image>
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \draw [<->] (-2.5,0) -- (4.5,0) node [right] {$u_n$};
-            \draw [<->] (-2.5,-2) -- (4.5,-2) node [right] {$u_{n+1}$};
-            \draw (1,-0.1) -- (1,0.1) 
-              node [pos=0, below] {$1$}
-              node [pos=1, above] {$u_{-1}$}
-            ;
-            \draw [->] (1,-0.5) -- (-0.6,-1.5);
-            \draw (-0.6,-2.1) -- (-0.6,-1.9) 
-              node [pos=0, below] {$-0.6$}
-              node [pos=1, above] {$u_{0}$}
-            ;
-            \draw [dashed] (-0.6,-0.5) -- (-0.6,-1.5);
-            \draw (-0.6,-0.1) -- (-0.6,0.1) 
-              node [pos=0, below] {$-0.6$}
-              node [pos=1, above] {$u_{0}$}
-            ;
-            \draw [->] (-0.6,-0.5) -- (3.56,-1.5);
-            \draw (3.56,-2.1) -- (3.56,-1.9) 
-              node [pos=0, below] {$3.56$}
-              node [pos=1, above] {$u_{1}$}
-            ;
-            \draw [dashed] (3.56,-0.5) -- (3.56,-1.5);
-            \draw (3.56,-0.1) -- (3.56,0.1) 
-              node [pos=0, below] {$3.56$}
-              node [pos=1, above] {$u_{1}$}
-            ;
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
-      </solution>
-    </example>
-    
-    <p>
-    In the previous example, the recurrence relation looked forward, in that the equation
-    related <m>x_n</m> (the present) and <m>x_{n+1}</m> (the future). 
-    Every recurrence can be recast looking backward by shifting our reference.
-    The forward recurrence,
-    <me>u_{n+1}-u_n = 1.4 u_n - \frac{3}{u_n}, \quad n \ge -1,</me>
-    can be shifted to a backward recurrence as
-    <me>u_{n}-u_{n-1} = 1.4 u_{n-1} - \frac{3}{u_{n-1}}, \quad n \ge 0.</me>
-    Instead of thinking of using the present to predict the immediate future, 
-    we are using the immediate past to predict the present.
-    Note in particular that the requirement on the index was chosen 
-    so that the first equation of the recurrence from either perspective is
-    <me>u_{0} - u_{-1} = 1.4 u_{-1} - \frac{3}{u_{-1}}.</me>
-    </p>
-    
-    <paragraphs>
-      <title>Arithmetic Sequences</title>
-      <p>
-      Because an arithmetic sequence has a constant difference between terms, 
-      the recurrence relation is defined through the difference. 
-      Consider our arithmetic sequence above, <m>x=(1,5,9,13,\ldots)</m>, 
-      which has a constant difference of 4 between terms. 
-      That is, all of the following equations are true about our sequence: 
-      <md>
-        <mrow> x_2 - x_1 &amp;= 5-1 = 4, </mrow>
-        <mrow> x_3 - x_2 &amp;= 9-5 = 4, </mrow>
-        <mrow> x_4 - x_3 &amp;= 13-9 = 4, </mrow>
-        <mrow> &amp; \vdots </mrow>
-      </md> 
-      This infinite collection of equations is captured as a pattern with a single formula, 
-      <me> x_{n+1} - x_n = 4, \quad n=1, 2, 3, \ldots. </me> 
-      This equation is a <term>recurrence relation</term>.
-      Alternatively, we could also represent the same pattern with the recurrence relation, 
-      <me> x_{n} - x_{n-1} = 4, \quad n=2, 3, 4, \ldots. </me> 
-      The first equation is interpreted as looking forward in the sequence 
-      (<m>x_{n+1}</m> is future relative to <m>x_n</m>) 
-      while the second equation is interpreted as looking backward 
-      (<m>x_{n-1}</m> is prior to <m>x_n</m>). 
-      </p>
-    
-      <p>
-      The recursive formula is defined by solving the recurrence relation in terms of the later term in the sequence. 
-      The first equation, solved for <m>x_{n+1}</m>, gives one possible recursive formula, 
-      <me> x_{n+1} = x_n + 4, \quad n=1, 2, 3, \ldots. </me> 
-      Solving the second equation for <m>x_n</m> gives an equivalent recursive formula 
-      <me> x_{n} = x_{n-1} + 4, \quad n=2, 3, 4, \ldots. </me> 
-      In either case, the projection function defining the recursive formula is the same, 
-      <me> f(x) = x+4. </me> 
-      </p>
-    
-      <p>
-      The same pattern generalizes for every arithmetic sequence.
-      </p>
-    
-      <theorem xml:id="thm-arithmetic-sequence-recursion">
-        <statement>
-          <p>
-          An arithmetic sequence <m>x</m> with domain <m>D=\{1,2,3,\ldots\}</m> 
-          and defined with constant difference <m>c</m> has a recurrence relation 
-          <m>x_{n+1} - x_n = c</m> 
-          and a recursive formula for the next term given by 
-          <me> x_{n+1} = x_n + c, \quad n=1, 2, 3, \ldots. </me> 
-          The projection function is <m>f(x) = x+c</m>.
-          </p>
-        </statement>
-      </theorem>
-    
-      <p>
-      Because arithmetic sequences result from repeated addition of the same value, 
-      such sequences can be written explicitly as linear functions of the index. 
-      Consider a general arithmetic sequence with recursive definition 
-      <me> x_{n+1} = x_n + \beta, \quad n=1, 2, 3, \ldots, 
-      </me> with initial value <m>x_1=c</m>. 
-      Look at the pattern of values for the sequence. 
-      <md>
-        <mrow> x_1 &amp;= c </mrow>
-        <mrow> x_2 &amp;= x_1 + \beta = c+\beta </mrow>
-        <mrow> x_3 &amp;= x_2+ \beta = (c+\beta)+\beta = c + 2\beta </mrow>
-        <mrow> x_4 &amp;= x_3+ \beta = (c+2\beta)+\beta = c + 3\beta </mrow>
-        <mrow> x_5 &amp;= x_4+ \beta = (c+3\beta)+\beta = c + 4\beta </mrow>
-      </md> 
-      Notice that for a given index <m>n</m>, the term <m>x_n</m> includes <m>(n-1)\beta</m>, 
-      so that the explicit formula is given by <me> x_n = \beta(n-1) + c. </me>
-      </p>
-    
-      <p>
-      An alternative approach to this formula is to recognize that a graph of an arithmetic sequence 
-      using points <m>(n, x_n)</m> will be on a line with slope <m>\beta</m>. 
-      Further, we know the point from the first index is <m>(n,x_n)=(1,c)</m>. 
-      The <xref text="title" ref="point-slope-line">point<ndash/>slope equation</xref> of this line is given by 
-      <me> x_n = \beta(n-1)+c.</me>
-      </p>
-    </paragraphs>
-    
-    <paragraphs>
-    <title>Geometric Sequences</title>
-      <p>
-      A geometric sequence is defined by a constant ratio between terms. 
-      The constant ratio is defined with the future term on top and the previous term on bottom. 
-      For our example geometric sequence, <m>u=(2,6,18,54,\ldots)</m>, our constant ratio is 3: 
-      <me> \frac{u_2}{u_1} = \frac{6}{2} = 3, \quad \frac{u_3}{u_2} = \frac{18}{6} = 3, \quad \ldots </me> 
-      Generalizing this patterns gives us one possible recurrence relation,
-      <me> \frac{u_{n+1}}{u_n} = 3, \quad n=1, 2, 3, \ldots. </me>
-      Cross-multiplying gives us another possible recurrence formula that is also a recursive definition for our sequence, 
-      <me> u_{n+1} = 3 u_n, \quad n=1, 2, 3, \ldots. </me>
-      This corresponds to a projection function <m>f(x) = 3x</m>.
-      </p>
-    
-      <theorem xml:id="thm-geometric-sequence-recursion">
-        <statement>
-          <p>
-          A geometric sequence <m>x</m> with domain <m>D=\{1,2,3,\ldots\}</m> 
-          and defined with constant ratio <m>\rho</m> has a recurrence relation 
-          <m>\displaystyle \frac{x_{n+1}}{x_n} = \rho</m> 
-          and a recursive formula for the next term given by 
-          <me> x_{n+1} = \rho x_n, \quad n=1, 2, 3, \ldots. </me> 
-          The projection function is <m>f(x) = \rho x</m>.
-          </p>
-        </statement>
-      </theorem>
-    
-      <p>
-      Geometric sequences result from repeated multiplication by the same value. 
-      Consider a general geometric sequence with recursive definition 
-      <me> x_{n+1} = \alpha \cdot x_n, \quad n=1, 2, 3, \ldots, </me>
-      with initial value <m>x_1=c</m>. 
-      Since repeated multiplication corresponds to powers, 
-      we can find a pattern that leads to the general explicit formula for the sequence value as a function of the index. 
-      <md>
-        <mrow> x_1 &amp;= c </mrow>
-        <mrow> x_2 &amp;= \alpha x_1 = \alpha c </mrow>
-        <mrow> x_3 &amp;= \alpha x_2 = \alpha(\alpha c) = \alpha^2 c </mrow>
-        <mrow> x_4 &amp;= \alpha x_3 = \alpha(\alpha^2 c) = \alpha^3 c </mrow>
-        <mrow> x_5 &amp;= \alpha x_4 = \alpha(\alpha^3 c) = \alpha^4 c </mrow>
-      </md> 
-      The power of <m>\alpha</m> is always one smaller than the value of the index. 
-      Our general explicit formula for the sequence value as a function of the index is given by 
-      <me> x_n = c \cdot \alpha^{n-1}. </me> 
-      </p>
-      
-      <p>
-      These results generalize to being given any particular value in the sequence. 
-      We state this as a theorem for later reference.
-      </p>
-      
-      <theorem xml:id="theorem-explicit-sequences">
-        <statement>
-          <p>
-          An arithmetic sequence with increment <m>\beta</m> and given value <m>x_k</m> 
-          satisfies the explicit formula <me>x_n = x_k + \beta(n-k).</me>
-          </p>
-          <p>
-          A geometric sequence with ratio <m>\rho</m> and given value <m>x_k</m> 
-          satisfies the explicit formula <me>x_n = x_k \cdot \rho^{n-k}.</me>
-          </p>
-        </statement>
-      </theorem>
-    </paragraphs>
-  </subsection>
-  
   <subsection>
     <title>Summary</title>
-    
     <p>
     <ul>
       <li>
-        Sequences are functions with domains that are subsets of the integers.
-        The independent variable (input) is called the <term>index</term>
+        Sequences are functions with domains that are intervals of integers.
+        The independent variable (input) is called the <term>index</term>,
         and the dependent variable (output) is called the <term>value</term>.
+        The value of a sequence <m>x</m> at index <m>n</m> is represented using subscripts for the index <m>x_n</m>.
       </li>
       <li>
         An <term>explicit representation</term> of a sequence <m>x</m> is when 
-        there is a function for the mapping <m>n \mapsto x_n</m>.
-        Sequence evaluation, including composition, follow standard function rules.
+        the function or map <m>n \mapsto x_n</m> can be written with <m>x_n</m> as a dependent variable in terms of the index <m>n</m>.
       </li>
       <li>
-        A <term>recursive representation</term> of a sequence <m>x</m> is when 
-        there is a function relating consecutive values <m>x_n \mapsto x_{n+1}</m>.
-        This function is called the <term>projection function</term>.
+        Sequence evaluation with an explicit formula involves substitution of the index variable
+        by whatever expression appears in the subscript position.
       </li>
       <li>
-        An arithmetic sequence with common difference <m>c</m> has a projection function <m>f(x)=x+c</m>,
-        a recursive relation <me>x_{n+1}=x_n + c</me>,
-        and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k + \beta(n-k).</me>
-      </li>
-      <li>
-        A geometric sequence with common ratio <m>\rho</m> has a projection function <m>f(x)=\rho x</m>,
-        a recursive relation <me>x_{n+1}=\rho \cdot x_n</me>,
-        and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k \cdot \rho^{n-k}.</me>
+        The standard graph of a sequence <m>x</m> uses the points <m>(n,x_n)</m>
+        where <m>n</m> is chosen from the domain set of the sequence.
       </li>
     </ul>
     </p>
   </subsection>
-  
   <exercises>
-    <exercise>
-      <statement>
+    <exercisegroup>
+      <introduction>
         <p>
-        Find an explicit formula for each of the following sequences.
-        <ol>
-          <li><m>x = (x_n)_{n=0}^{\infty} = (1, 4, 9, 16, 25, \ldots)</m></li>
-          <li><m>y = (y_n)_{n=1}^{\infty} = (\frac{1}{4}, \frac{2}{9}, \frac{3}{16}, \frac{4}{25}, \ldots)</m></li>
-          <li><m>z = (z_n)_{n=0}^{\infty} = (0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \ldots)</m></li>
-        </ol>
+          In the following group of exercises, a sequence is defined.
+          Identify the variable representing the sequence, the variable representing the index,
+          and the domain or interval of integers the values of the index come from.
         </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>u : i \in \{-3, -2, \ldots, 5\} \mapsto u_i \in \mathbb{R}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>v : n \in \{5,\ldots,\infty\} \mapsto v_n \in \mathbb{R}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>z = (z_k)_{k=2}^{\infty}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>M = (M_t)_{t=-\infty}^{10}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
         <p>
-        A sequence is defined explicitly with the formula
-        <me>x_n = -3n+20, \qquad n=0, 1, 2, 3, \ldots.</me>
-        <ol>
-          <li>List the first five values in the sequence.</li>
-          <li>Compute <m>x_{n+1}</m> and then simplify <m>x_{n+1}-x_n</m>.</li>
-          <li>Use the previous result to write down a recurrence relation.</li>
-        </ol>
+          In the following group of exercises, a sequence with a pattern is given.
+          Identify the values of the requested terms from the sequence.
+          Create a graph that includes the first ten values from the sequence.
         </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>x = (x_n)_{n=1}^{\infty} = (2, 4, 6, 8, \ldots)</m></p>
+          <p>Find <m>x_3</m>, <m>x_5</m>, and <m>x_7</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>y = (y_k)_{k=0}^{\infty} = (12, 9, 6, 3, \ldots)</m></p>
+          <p>Find <m>y_1</m>, <m>y_4</m>, and <m>y_6</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>w = (w_i)_{i=-2}^{\infty} = (24, 12, 6, 3, \ldots)</m></p>
+          <p>Find <m>w_0</m>, <m>w_2</m>, and <m>w_4</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>P = (P_t)_{t=0}^{\infty} = (100, 110, 125, 145, 170, \ldots)</m></p>
+          <p>Find <m>P_1</m>, <m>P_4</m>, and <m>P_6</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
         <p>
-        A sequence is defined explicitly with the formula
-        <me>y_k = \frac{2^{k-2}}{3^{k}}, \qquad k=0, 1, 2, 3, \ldots.</me>
-        <ol>
-          <li>List the first five values in the sequence.</li>
-          <li>Compute <m>y_{k+1}</m> and then simplify <m>\displaystyle \frac{y_{k+1}}{y_k}</m>.</li>
-          <li>Use the previous result to write down a recurrence relation.</li>
-        </ol>
+        Find an explicit formula for each of the following sequences by identifying patterns
+        relating the index and the expressions shown for the values.
         </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>x = (x_n)_{n=0}^{\infty} = (1, 4, 9, 16, 25, \ldots)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>y = (y_n)_{n=1}^{\infty} = (\frac{1}{4}, \frac{2}{9}, \frac{3}{16}, \frac{4}{25}, \ldots)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>z = (z_n)_{n=0}^{\infty} = (0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \ldots)</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
         <p>
-        A sequence is defined recursively by
-        <me>x_{n+1} = 2x_n - 5, \quad n=0, 1, 2, \ldots,</me>
-        with an initial value <m>x_0=6</m>.
-        <ol>
-          <li>If <m>f : x_n \mapsto x_{n+1}</m> is the projection function, find <m>f(x)</m>.</li>
-          <li>Find <m>x_1</m>, <m>x_2</m>, and <m>x_3</m>.</li>
-        </ol>
+          In each of the following exercises, a sequence is defined explicitly.
+          Evaluate the requested expressions.
         </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-        A sequence is defined recursively by
-        <me>u_{k+1} = \frac{u_k}{2} + \frac{3}{u_k}, \quad k=0, 1, 2, \ldots,</me>
-        with an initial value <m>u_0=6</m>.
-        <ol>
-          <li>If <m>f</m> is the projection function  <m>u_k \mapsto u_{k+1}</m>, find <m>f(x)</m>.</li>
-          <li>Find <m>u_1</m>, <m>u_2</m>, and <m>u_3</m>.</li>
-        </ol>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-        For the sequence <m>x=(x_k)_{k=0}^{\infty} = (2, 4, 6, 8, 10, 12, \ldots)</m>,
-        answer the following questions.
-        <ol>
-          <li>What is the name of the sequence? the index of the sequence? the first index value?</li>
-          <li>What are <m>x_1</m>, <m>x_2</m>, and <m>x_5</m>?</li>
-          <li>What is the recursive formula? What is the projection function?</li>
-          <li>What is the explicit formula? What is <m>x_{10}</m>?</li>
-        </ol>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-        For the sequence <m>y=(y_i)_{i=-2}^{\infty} = (20, 13, 6, -1, \ldots)</m>,
-        answer the following questions.
-        <ol>
-          <li>What is the name of the sequence? the index of the sequence? the first index value?</li>
-          <li>What are <m>y_0</m>, <m>y_1</m>, and <m>y_3</m>?</li>
-          <li>What is the recursive formula? What is the projection function?</li>
-          <li>What is the explicit formula? What is <m>y_{10}</m>?</li>
-        </ol>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-        For the sequence <m>z=(z_m)_{m=1}^{\infty} = (\frac{2}{9}, \frac{4}{3}, 8, 48, \ldots)</m>,
-        answer the following questions.
-        <ol>
-          <li>What is the name of the sequence? the index of the sequence? the first index value?</li>
-          <li>What are <m>z_1</m>, <m>z_2</m>, and <m>z_5</m>?</li>
-          <li>What is the recursive formula? What is the projection function?</li>
-          <li>What is the explicit formula? What is <m>z_{10}</m>?</li>
-        </ol>
-        </p>
-      </statement>
-    </exercise>
-    <exercise>
-      <statement>
-        <p>
-        For the sequence <m>w=(w_n)_{n=0}^{\infty} = (24, -12, 6, -3, \ldots)</m>,
-        answer the following questions.
-        <ol>
-          <li>What is the name of the sequence? the index of the sequence? the first index value?</li>
-          <li>What are <m>w_1</m>, <m>w_3</m>, and <m>w_5</m>?</li>
-          <li>What is the recursive formula? What is the projection function?</li>
-          <li>What is the explicit formula? What is <m>w_{10}</m>?</li>
-        </ol>
-        </p>
-      </statement>
-    </exercise>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>x_n = -3n+20, \qquad n=0, 1, 2, 3, \ldots</m></p>
+          <p>Find <m>x_0</m>, <m>x_1</m>, and <m>x_2</m>.</p>
+          <p>Evaluate <m>x_{k+2}</m> and <m>x_k+2</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>y_k = \frac{2^{k-2}}{3^{k}}, \qquad k=0, 1, 2, 3, \ldots</m></p>
+          <p>Find <m>y_0</m>, <m>y_1</m>, and <m>y_2</m>.</p>
+          <p>Evaluate <m>y_{n+1}</m>, <m>y_{k+1}</m>, and <m>\displaystyle \frac{y_{k+1}}{y_k}</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
   </exercises>
  </section>

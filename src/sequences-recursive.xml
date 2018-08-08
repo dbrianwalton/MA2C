@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2017  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="sequences-recursive">
+  <title>Recursive Sequences and Projection Functions</title>
+  <introduction>
+    <title>Overview</title>
+    <p>
+      When looking for patterns in sequences, we usually explore two possibilities.
+      One approach is to look at the values of individual terms
+      and see if there is an explicit formula relating the index with the formula.
+      There were several examples of this in the previous section.
+      Another approach is to look for a pattern in how terms are generated from earlier terms.
+      For example, the sequence <m>(7,10,13,16,\ldots)</m> is easy to recognize that each term is found by adding <m>3</m> to the previous term.
+    </p>
+    <p>
+      In this section, we consider recursively defined sequences.
+      Arithmetic and geometric sequences are two familiar examples of sequences with recursive definitions.
+      We will learn about projection functions used in such recursive definitions.
+      We also review the basic ideas of function notation and inverse functions.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Arithmetic and Geometric Sequences</title>
+    <p>
+      We often think of sequences in terms of a pattern for how to find the values.
+      When a sequence can be defined so that the next value can found knowing only the previous value,
+      we say the sequence has a <term>recursive definition</term>.
+      The simplest pattern-based sequences follow simple recursive patterns.
+    </p>
+    <p>
+      An <term>arithmetic sequence</term> is a sequence whose terms change by a fixed increment or difference.
+      For example, consider the sequence introduced above, <me>x = (7, 10, 13, 16, \ldots).</me>
+      The pattern for this sequence was that we add 3 to each term in the sequence to find the next term.
+      The value 3 is called the <term>increment</term> or <term>difference</term> of the sequence.
+      It is called the increment because there is a pattern
+      <md>
+        <mrow>x_2=x_1 + 3 = 7+3,</mrow>
+        <mrow>x_3 = x_2 + 3 = 10+3,</mrow>
+        <mrow>x_4=x_3+3 = 13+3,</mrow>
+        <mrow>\vdots</mrow>
+      </md>
+      It is called the difference because each of those equations can be rewritten as a difference of values
+      <md>
+        <mrow>x_2-x_1 = 3,</mrow>
+        <mrow>x_3 - x_2 = 3,</mrow>
+        <mrow>x_4-x_3=3,</mrow>
+        <mrow>\vdots</mrow>
+      </md>
+    </p>
+    <p>
+      A <term>geometric sequence</term> is a sequence whose terms change by a fixed multiple or ratio. 
+      An example of a geometric sequence is given by <me> u= (2, 6, 18, 54, \ldots).</me>
+      Each term is found by multiplying the previous term by 3, which is the <term>multiple</term> or <term>ratio</term> of the sequence.
+      We call the value 3 the multiple because of the pattern
+      <md>
+        <mrow>u_2 = 3 u_1 = 3 \cdot 2,</mrow>
+        <mrow>u_3 = 3 u_2 = 3 \cdot 6,</mrow>
+        <mrow>u_4 = 3 u_3 = 3 \cdot 18,</mrow>
+        <mrow>\vdots</mrow>
+      </md>
+      It is call the ratio if we rewrite the equations as a ratio of a value to its previous value
+      <md>
+        <mrow>\frac{u_2}{u_1} = 3,</mrow>
+        <mrow>\frac{u_3}{u_2} = 3,</mrow>
+        <mrow>\frac{u_4}{u_3} = 3,</mrow>
+        <mrow>\ldots</mrow>
+      </md>
+    </p>
+    
+    <p>
+      For recursively defined sequences, the equation that describes the relationship 
+      between consecutive terms of the sequence is called the <term>recurrence relation</term>.
+      When the recurrence relation for a sequence <m>x</m> is solved for the next value as a dependent variable in terms of an expression involving of the previous term,
+      we call this map or function the <term>projection function</term>.
+    </p>
+  </subsection>
+  <subsection>
+      <title>Functions as Maps</title>
+      <p>
+        Before we discuss more about projection functions,
+        we take a short diversion to review some core concepts about functions in general.
+        Functions are at the heart of everything we do in calculus.
+        Unfortunately, many students have subtle misconceptions about how to think about functions.
+        We want to use our emphasis on sequences to come to terms with these ideas.
+        Be prepared to think about functions from many different points of view.
+        We begin by thinking of a function as a map between variables.
+      </p>
+      <definition xml:id="defn-function-as-map">
+        <title>Function</title>
+        <statement>
+          <p>
+            Given two related variables, say <m>x</m> and <m>y</m>,
+            such that there is a rule or relation that defines a map <m>x \mapsto y</m>,
+            we say that the map is a <term>function</term>.
+            (We will make this more precise later.<fn xml:id="footnote-function-as-map">The precise definition needs to address the domain of the function and clarify what is a map when there is no defining expression.</fn>)
+          </p>
+        </statement>
+      </definition>
+      <p>
+        Similar to other mathematical objects like variables and sequences,
+        functions are usually represented by symbols for their names.
+        Letter symbols like <m>f</m> or <m>g</m> are particularly common.
+        We would write <m>f : x \mapsto y</m> to say that the name of the function
+        representing the map from a variable <m>x</m> to <m>y</m>  is <m>f</m>.
+        The independent variable <m>x</m> is the <term>input</term> for the function;
+        the dependent variable <m>y</m> is the <term>output</term> of the function.
+      </p>
+      <p>
+        We often use <term>function notation</term>, writing <m>y = f(x)</m>.
+        The parentheses in function notation indicate that whatever is inside is the value for the input, <em>not</em> multiplication.
+        So this equation says that the dependent variable <m>y</m> is equal to the output of the function <m>f</m> when the input has the value represented by <m>x</m>.
+        We usually read the equation, <q><m>y</m> equals the value of <m>f</m> of <m>x</m>.</q>
+        When we have an equation expressing <m>y</m> as an explicit expression involving <m>x</m>,
+        that expression can be used to define the function.
+      </p>
+      <example>
+        <statement>
+          <p>
+            Consider the equation <m>2x+5y = 10</m>, which relates the variables <m>x</m> and <m>y</m>.
+            Because we can solve for the variable <m>y</m> to be a dependent variable,
+            <me>y = -\frac{2}{5}x + 2,</me>
+            the equation defines a function <m>x \mapsto y</m>.
+            We can choose any name for this function (other than the symbols <m>x</m> or <m>y</m>, obviously).
+            We might want to use the name <m>P</m> and write this as a map
+            <me>P : x \mapsto y = -\frac{2}{5}x+2</me>.
+            Using the usual function notation, we would instead write
+            <me>y = P(x) = -\frac{2}{5}x+2</me>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        When we wrote explicit formulas for the value of a sequence with the index as the independent variable,
+        we noted that we had a map from the index to the value of the sequence.
+        That was an example of a function.
+      </p>
+      <example>
+        <statement>
+          <p>
+            For the explicitly defined sequence <m>x_n = 3n-2</m>, <m>n=1, 2, 3, \ldots</m>,
+            the equation defines a map <m>n \mapsto x_n = 3n-2</m>.
+            We could name the function <m>S</m>, for example, and write <m>S(n) = 3n-2</m> so that <m>x_n = S(n)</m>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        The arithmetic and geometric sequences have simple explicit formulas.
+        We use these formulas to illustrate the idea of a sequence as a map from the index to the sequence value.
+      </p>
+      <p>
+        The explicit formula for an arithmetic sequence is a special case of a linear function.
+        The increment of the sequence represents the slope.
+        The initial value gives us a known point.
+        Knowing how many steps away from the given point along with the increment allows us to compute other sequence values.
+      </p>
+      <example>
+        <statement>
+          <p>
+            Find the explicit formula for the arithmetic sequence <m>x=(7,10,13,16,\ldots)</m>.
+            Use the formula to find <m>x_{100}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The initial value <m>x_1=7</m> means our function will be a map <m>n \mapsto x_n</m> that takes an input <m>n=1</m> to an output <m>x_1=7</m>.
+            The increment of 3 that appears in the recursive equation <m>x_{n+1} = x_n + 3</m>
+            means that the function increases by 3 for every increment of the index by 1.
+            That is, the slope is <m>m=+3</m>.
+            The value of <m>x_n</m> will equal 7 plus 3 times the number of increments in the index,
+            <me>x_n = 7 + 3(n-1)</me>.
+            We could find an equivalent expression after using the distributive property,
+            <me>x_n = 4 + 3n</me>.
+          </p>
+          <p>
+            Because we now have the function <m>n \mapsto x_n</m>,
+            we can find the value of the sequence for any index using this expression.
+            To find <m>x_{100}</m>, we use <m>n=100</m> and the map <m>n \mapsto x_n</m>,
+            <me>x_{100} = 4 + 3 \cdot 100 = 304</me>.
+          </p>
+        </solution>
+      </example>
+      <p>
+        The following theorem provides the formula for the explicit formula of any arithmetic sequence.
+      </p>
+      <theorem xml:id="theorem-arithmetic-explicit-sequence">
+        <title>Explicit Formula of Arithmetic Sequences</title>
+        <statement>
+          <p>
+            An arithmetic sequence <m>x</m> with an increment <m>\beta</m> so that <m>x_{n+1} = x_n + \beta</m>
+            and with a given initial value <m>x_{k}</m> has an explicit representation <m>n \mapsto x_n</m> given by
+            <me>x_n = x_{k} + \beta \cdot (n - k)</me>.
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        The explicit formula for a geometric sequence is a special case of an exponential function.
+        The multiple for the sequence corresponds to the base of the exponential.
+        An initial value gives us a known point.
+        The formula will count how many increments the index has changed and multiply by the base to that power.
+      </p>
+      <example>
+        <statement>
+          <p>
+            Find the explicit formula for the geometric sequence <m>u=(48,24,12,6,3,\ldots)</m>.
+            Use the formula to find <m>u_{20}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The sequence <m>u</m> is geometric because the ratio of the sequence value to its predecessor is always the same.
+            <md>
+              <mrow>\frac{u_2}{u_1} = \frac{24}{48} = \frac{1}{2}</mrow>
+              <mrow>\frac{u_3}{u_2} = \frac{12}{24} = \frac{1}{2}</mrow>
+              <mrow>\frac{u_4}{u_3} = \frac{6}{12} = \frac{1}{2}</mrow>
+              <mrow>\frac{u_5}{u_4} = \frac{3}{6} = \frac{1}{2}</mrow>
+            </md>
+            The recursive formula for the sequence multiplies the previous sequence value by <m>\rho=\frac{1}{2}</m>,
+            <me>u_{n+1} = \frac{1}{2} \cdot u_n</me>.
+            The initial value <m>u_1=48</m> means our function will be a map <m>n \mapsto x_n</m> that takes an input <m>n=1</m> to an output <m>x_1=48</m>.
+          </p>
+          <p>
+            Each time the index is incremented by 1, the value of the sequence is multiplied by <m>\rho=\frac{1}{2}</m>.
+            We can count the number of increments for the index <m>n</m> by the expression <m>n-1</m>.
+            Because repeated multiplication is a power, we obtain an explicit formula
+            <me>u_{n} = u_1 \cdot \rho^{n-1} = 48 \cdot \left( \frac{1}{2} \right)^{n-1}</me>.
+            Using the properties of powers, this is equivalent to
+            <me>u_{n} = \frac{48}{2^{n-1}}.</me>
+          </p>
+          <p>
+            With the function <m>n \mapsto u_n</m>,
+            we can find the value of the sequence for any index using this expression.
+            To find <m>u_{20}</m>, we use <m>n=20</m> and the map <m>n \mapsto u_n</m>,
+            <me>u_{20} = \frac{48}{2^{19}}.</me>
+            If we rewrite <m>48 = 16 \cdot 3 = 2^4 \cdot 3</m> and then simplify the fraction,
+            this is equivalent to
+            <me>u_{20} = \frac{3}{2^{15}} = \frac{3}{32768}.</me>
+          </p>
+        </solution>
+      </example>
+      <p>
+        The general formula for a geometric sequence is provided in the following theorem.
+      </p>
+      <theorem xml:id="theorem-geometric-explicit-sequence">
+        <title>Explicit Formula of Geometric Sequences</title>
+        <statement>
+          <p>
+            A geometric sequence <m>x</m> with a multiple <m>\rho</m> so that <m>x_{n+1} = \rho \cdot x_n</m>
+            and with a given initial value <m>x_{k}</m> has an explicit representation <m>n \mapsto x_n</m> given by
+            <me>x_n = x_{k}\cdot \rho^{(n - k)}</me>.
+          </p>
+        </statement>
+      </theorem>
+  </subsection>
+  <subsection>
+    <title>Projection Functions</title>
+    <p>
+      We now return to the concept of a recursively defined sequence and the projection function.
+      A sequence is recursive if the <em>same</em> rule is used to go from one value of the sequence to the next.
+      For our earlier example of an arithmetic sequence, we had a pattern of equations
+      <md>
+        <mrow>x_2=x_1 + 3,</mrow>
+        <mrow>x_3 = x_2 + 3,</mrow>
+        <mrow>x_4=x_3+3,</mrow>
+        <mrow>\vdots</mrow>
+      </md>
+      The rule was always the same, but the symbols were different because they involved different index values.
+    </p>
+    <p>
+      We need some notation to capture the idea of consecutive values of a sequence.
+      If <m>n</m> represents the value of the index for a sequence,
+      then <m>n+1</m> represents the value of the index for the subsequent term of the sequence.
+      For example, if <m>n=3</m>, then <m>x_n</m> would be <m>x_3</m> and <m>x_{n+1}</m> would be <m>x_4</m>.
+      All of our equations follow the pattern
+      <me>x_{n+1} = x_n + 3</me>,
+      for <m>n=1, 2, 3, \ldots</m>.
+      This equation which relates <m>x_{n}</m> and <m>x_{n+1}</m> is called a <term>recurrence relation</term> or <term>recursive equation</term> for the sequence.
+      Because the equation has been written with <m>x_{n+1}</m> as a dependent variable in terms of the value of <m>x_n</m>,
+      we actually have a projection function.
+    </p>
+    <definition xml:id="defn-projection-function">
+      <title>Projection Function</title>
+      <statement>
+        <p>
+        Suppose a sequence <m>x</m> is defined by a recurrence relation of the form 
+        <me>x_{n+1} = f(x_n).</me>
+        The function <m>f</m> defining the relation <m>x_{n} \mapsto x_{n+1}</m> is called the <term>projection function</term>.
+        Equivalently, we could write the recurrence relation in terms of a previous value as
+        <me>x_{n} = f(x_{n-1})</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      For a sequence with a recurrence relation <m>x_{n+1} = x_n + 3</m>,
+      the projection function is <m>f : x_n \mapsto x_{n+1} = x_n + 3</m>.
+      The function <m>f</m> takes a value as an input and maps it to an output that is that value plus 3.
+      I find it useful to imagine the independent variable in a function as if it were a box,
+      as in <me>f(x_n) = x_n + 3 \quad \Leftrightarrow \quad f(\square) = \square + 3</me>.
+      Whatever is between the parentheses for the input of a function will go in the box of the formula.
+      With this understanding, any variable can be used as a placeholder for the input:
+      <m>f(x) = x+3</m> and <m>f(a)=a+3</m> describe the same mapping rule.
+    </p>
+    <p>
+      When we have a projection function for a sequence defined recursively,
+      we can apply the function repeatedly to calculate values for the sequence.
+      Many sequences can use the same projection function.
+      We need an <term>initial value</term> to begin the process.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A sequence <m>u = (u_n)_{n=0}^{\infty}</m> is defined recursively by the projection function <m>f(x)=2x-5</m> and an initial value <m>u_0 = 3</m>.
+          Find the next four terms of the sequence.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The projection function defines the map <m>u_{n} \mapsto u_{n+1}</m> 
+          according to the rule <m>f(x)=2x-5</m> or <m>f(\square) = 2 \cdot \square - 5</m>.
+          It tells us that if we use an input coming from a sequence value,
+          the output of the function will be the next sequence value.
+          We were given an initial value <m>u_0 = 3</m>.
+          Using this <m>u_0=3</m> as the input to <m>f</m>, the output will be the value <m>u_1</m>:
+          <me>u_1 = f(u_0) = f(3) = 2(3) - 5 = 1</me>.
+          Now that we know <m>u_1</m>, we can use that value as an input to get <m>u_2</m>, and so on:
+          <md>
+            <mrow>u_2 &amp;= f(u_1) = 2(1) - 5 = -3</mrow>,
+            <mrow>u_3 &amp;= f(u_2) = 2(-3) - 5 = -11</mrow>,
+            <mrow>u_4 &amp;= f(u_3) = 2(-11) - 5 = -27</mrow>.
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Sometimes, a recurrence relation is not written with the new sequence value isolated.
+      To identify the projection function, we need to solve for the new value of the sequence.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A sequence is defined by the recurrence relation
+          <me>w_{n+1}-w_n = 1.4 w_n - \frac{3}{w_n}, \quad n \ge -1,</me>
+          and an initial value <m>w_{-1}=1</m>.
+          Find the recursive equation corresponding to the projection function,
+          <m>w_n \mapsto w_{n+1}</m>, and find <m>f(x)</m>. 
+          Use this to find <m>w_0</m> and <m>w_1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To find the recursive equation, we need to solve for <m>w_{n+1}</m>.
+          <md>
+            <mrow>w_{n+1}-w_n = 1.4 w_n - \frac{3}{w_n}</mrow>
+            <mrow>w_{n+1} = 2.4 w_n - \frac{3}{w_n}</mrow>
+          </md>
+          This recursive equation gives us a map from a current value <m>w_n</m>
+          to the next value <m>w_{n+1}</m> in the sequence, <m>w_n \mapsto w_{n+1}</m>,
+          which is the projection function
+          <me>w_{n+1} = f(w_n) = 2.4 w_n - \frac{3}{w_n}.</me>
+          This means that using an input <m>x</m> gives
+          <me>f(x) = 2.4 x - \frac{3}{x}.</me>
+        </p>
+        <p>
+          Once we have the map, we can repeatedly use the projection function to find subsequent values of the sequence.
+          <md>
+            <mrow>w_{-1} &amp;= 1</mrow>
+            <mrow> w_{0} &amp;= f(w_{-1}) = f(1)</mrow>
+            <mrow> &amp;= 2.4(1)-\frac{3}{1} = -0.6</mrow>
+            <mrow>w_{1} &amp;= f(w_0) = f(-0.6)</mrow>
+            <mrow> &amp;= 2.4(-0.6)-\frac{3}{-0.6} = 3.56</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Graphical Representations of Projections</title>
+    <p>
+      If we think about a function as a map between two number lines,
+      then the process of using a projection function to find values in a sequence
+      can be visualized using such a mapping.
+      Consider two number lines.
+      The top number line will represent the current value of the sequence or the input of the function.
+      The bottom number line will represent the next value of the sequence or the output of the function.
+      The projection function defines the rule for how we go from the input to the output.
+      Because the process repeats, we also go from the output number line to the same value on the input number line.
+    </p>
+    <example>
+      <statement>
+        <p>
+        For the sequence defined by the projection function <m>f(x) = 2x-5</m> and initial value <m>u_0 = 3</m>,
+        the mapping used to generate the first few terms of the sequence can be represented graphically as shown below.
+        </p>
+        <sidebyside widths="70%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1.5cm]
+            \draw [<->] (-3.5,0) -- (0.5,0) node [right] {$u_n$};
+            \draw [<->] (-3.5,-2) -- (0.5,-2) node [right] {$u_{n+1}$};
+            \draw (0.3,-0.1) -- (0.3,0.1) 
+              node [pos=0, below] {$3$}
+              node [pos=1, above] {$u_{0}$}
+            ;
+            \draw [->] (0.3,-0.5) -- (0.1,-1.5);
+            \draw (0.1,-2.1) -- (0.1,-1.9) 
+              node [pos=0, below] {$1$}
+              node [pos=1, above] {$u_{1}$}
+            ;
+            \draw [dashed] (0.1,-0.5) -- (0.1,-1.5);
+            \draw (0.1,-0.1) -- (0.1,0.1) 
+              node [pos=0, below] {$1$}
+              node [pos=1, above] {$u_{1}$}
+            ;
+            \draw [->] (0.1,-0.5) -- (-0.3,-1.5);
+            \draw (-0.3,-2.1) -- (-0.3,-1.9) 
+              node [pos=0, below] {$-3$}
+              node [pos=1, above] {$u_{2}$}
+            ;
+            \draw [dashed] (-0.3,-0.5) -- (-0.3,-1.5);
+            \draw (-0.3,-0.1) -- (-0.3,0.1) 
+              node [pos=0, below] {$-3$}
+              node [pos=1, above] {$u_{2}$}
+            ;
+            \draw [->] (-0.3,-0.5) -- (-1.1,-1.5);
+            \draw (-1.1,-2.1) -- (-1.1,-1.9) 
+              node [pos=0, below] {$-11$}
+              node [pos=1, above] {$u_{3}$}
+            ;
+            \draw [dashed] (-1.1,-0.5) -- (-1.1,-1.5);
+            \draw (-1.1,-0.1) -- (-1.1,0.1) 
+              node [pos=0, below] {$-11$}
+              node [pos=1, above] {$u_{3}$}
+            ;
+            \draw [->] (-1.1,-0.5) -- (-2.7,-1.5);
+            \draw (-2.7,-2.1) -- (-2.7,-1.9) 
+              node [pos=0, below] {$-27$}
+              node [pos=1, above] {$u_{4}$}
+            ;
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+        For the sequence defined by the projection function <me>w_{n+1} = 2.4 w_n - \frac{3}{w_n}</me>
+        and initial value <m>w_{-1} = 1</m>,
+        the mapping used to generate the first few terms of the sequence can be represented graphically as shown below.
+        </p>
+        <sidebyside widths="70%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw [<->] (-2.5,0) -- (4.5,0) node [right] {$w_n$};
+            \draw [<->] (-2.5,-2) -- (4.5,-2) node [right] {$w_{n+1}$};
+            \draw (1,-0.1) -- (1,0.1) 
+              node [pos=0, below] {$1$}
+              node [pos=1, above] {$w_{-1}$}
+            ;
+            \draw [->] (1,-0.5) -- (-0.6,-1.5);
+            \draw (-0.6,-2.1) -- (-0.6,-1.9) 
+              node [pos=0, below] {$-0.6$}
+              node [pos=1, above] {$w_{0}$}
+            ;
+            \draw [dashed] (-0.6,-0.5) -- (-0.6,-1.5);
+            \draw (-0.6,-0.1) -- (-0.6,0.1) 
+              node [pos=0, below] {$-0.6$}
+              node [pos=1, above] {$w_{0}$}
+            ;
+            \draw [->] (-0.6,-0.5) -- (3.56,-1.5);
+            \draw (3.56,-2.1) -- (3.56,-1.9) 
+              node [pos=0, below] {$3.56$}
+              node [pos=1, above] {$w_{1}$}
+            ;
+            \draw [dashed] (3.56,-0.5) -- (3.56,-1.5);
+            \draw (3.56,-0.1) -- (3.56,0.1) 
+              node [pos=0, below] {$3.56$}
+              node [pos=1, above] {$w_{1}$}
+            ;
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </statement>
+    </example>
+    <p>
+      The graph of a function <m>f</m> shows all points <m>(x,y)</m> in the plane where <m>y=f(x)</m>.
+      Where a mapping visualizes a function as going from the input number line to the output number line,
+      a graph visualizes a function by thinking of the <m>x</m>-axis as the input number line
+      and the vertical position of the graph in the <m>y</m>-direction as the output.
+      It is as if there were a separate vertical number line parallel to the <m>y</m>-axis
+      (and perpendicular to the <m>x</m>-axis) through every value on the <m>x</m>-axis.
+      The point on the graph corresponds precisely to the location of the output for the function.
+    </p>
+    <p>
+      We can use the graph of a projection function to visualize how to generate a recursive sequence.
+      The algorithm we use follows the same pattern as we used in the mapping
+      and generates what is called a <term>cobweb diagram</term> in the plane.
+    </p>
+    <algorithm xml:id="algorithm-generate-cobweb">
+      <title>Generating a Cobweb Diagram</title>
+      <p>
+        A cobweb diagram for a sequence <m>x</m> with projection function <m>f</m> and initial value <m>x_0</m>
+        is generated by the following steps.
+        <ol>
+          <li>Graph <m>y=f(x)</m> and <m>y=x</m> in the same plane.</li>
+          <li>Label the <m>x</m>-axis <m>x_n</m> (for the current value) and the <m>y</m>-axis <m>x_{n+1}</m> (for the next value).</li>
+          <li>
+            <p>
+            Find the initial value <m>x_0</m> on the <m>x</m>-axis.
+            The initial point will be <m>(x_0,0)</m> representing the <em>current sequence value</em>.
+            </p>
+          </li>
+          <li>
+            <p>
+            Draw a <em>vertical line</em> from the point representing the current sequence value to the graph <m>y=f(x)</m>.
+            This corresponds to using the map to find the <em>next sequence value</em>.
+            </p>
+          </li>
+          <li>
+            <p>
+            Draw a <em>horizontal line</em> from the point for the next sequence value to the graph <m>y=x</m>.
+            This corresponds to resetting the current sequence value based on the most recent next sequence value.
+            </p>
+          </li>
+          <li>Repeat the last two steps as many times as desired.</li>
+        </ol>
+      </p>
+    </algorithm>
+    <example>
+      <statement>
+        <p>
+        Draw the first four iterations of the cobweb diagram for the sequence <m>u</m> with projection function <m>f(x) = 2x-5</m> and initial value <m>u_0=3</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by drawing the graphs <m>y=f(x)=2x-5</m> and <m>y=x</m> on the same graph.
+          We then start with a point on the <m>x</m>-axis at <m>x=3</m> corresponding to the value of <m>u_0=3</m>.
+          We want to use this value to find the next value in the sequence <m>u_1</m>.
+          This use the projection function, so we go up to the value of the function <m>f(3)=1</m>, drawing a vertical line segment to the point <m>(3,1)</m>.
+          We now know <m>u_1=1</m> and we need to use this as a new input for the projection function.
+          So the next step is to draw a horizontal segment to <m>y=x</m> at the point <m>(1,1)</m>.
+          Now that our <m>x</m>-value is <m>1</m>, we can repeat the process and use the function to find <m>u_2=f(1)=-3</m>,
+          drawing a vertical segment down to the point <m>(1,-3)</m> and then a horizontal segment to <m>(-3,-3)</m>.
+        </p>
+        <figure width="70%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [ xmin=-30, xmax=10, ymin=-30, ymax=10,
+              xlabel={$u_n$}, ylabel={$u_{n+1}$},
+            ]
+            \addplot [black, no marks] coordinates { (-30,0) (10,0) }; 
+            \addplot [domain=-30:10, samples=10, thick, blue] { 2*x-5 };
+            \addplot [domain=-30:10, samples=2, dashed, red] {x};
+            \addplot [violet, thick] coordinates {
+              (3,0) (3,1) (1,1) (1,-3) (-3,-3) (-3,-11) (-11,-11) (-11,-27) (-27,-27) (-27,-30)
+            };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+    <ul>
+      <li>
+        A sequence <m>x</m> is recursive when 
+        the relation between consecutive values of the sequence is the same for every index.
+        An equation describing this relation is called a <term>recurrence relation</term>.
+        If we can solve for <m>x_{n+1}</m> as a dependent variable with <m>x_n</m> as the independent variable,
+        the corresponding equation is called the <term>recursive equation</term>.
+      </li>
+      <li>
+        An arithmetic sequence with common difference <m>c</m> has a projection function <m>f(x)=x+c</m>,
+        a recursive relation <me>x_{n+1}=x_n + c</me>,
+        and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k + \beta(n-k).</me>
+      </li>
+      <li>
+        A geometric sequence with common ratio <m>\rho</m> has a projection function <m>f(x)=\rho x</m>,
+        a recursive relation <me>x_{n+1}=\rho \cdot x_n</me>,
+        and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k \cdot \rho^{n-k}.</me>
+      </li>
+      <li>
+        We think of functions as maps from the value of one variable to the value of another variable.
+        For a sequence <m>x</m>, the map from the index <m>n</m> to the sequence value <m>x_n</m> is called the explicit function of the sequence.
+        For a recursive sequence, the map from one sequence value <m>x_n</m> to the next sequence value <m>x_{n+1}</m> is called the projection function.
+      </li>
+      <li>
+        The graph of a function uses values on the <m>x</m>-axis as input values and the vertical position of the graph as output values.
+        A cobweb diagram uses the graph of a projection function with repeatedly updated inputs
+        to generate a visual representation of a recursive sequence.
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Determine if each sequence is arithmetic, geometric, or neither.
+          For each sequence that is arithmetic or geometric, 
+          (i) state the recursive equation for the sequence, 
+          (ii) find the projection function <m>f(x)</m>,
+          and (iii) state an explicit formula for the sequence.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>u = (u_n)_{n=0}^{\infty} = (-8, -2, 4, 10, \ldots)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>t = (t_k)_{k=2}^{\infty} = (27, 23, 19, 15, \ldots)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>v = (v_k)_{k=-2}^{\infty} = (12, 16, 21, 27, \ldots)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>w = (w_k)_{k=1}^{\infty} = (4, 20, 100, 500, \ldots)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>z = (z_i)_{i=0}^{\infty} = (27, 18, 12, 8, \ldots)</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Each problem gives a projection function and an initial value
+          that together determine a sequence recursively.
+          Find the four terms following the initial value.
+          Illustrate the sequence as a map between two number lines.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>P = (P_t)_{t=0}^{\infty}</m> with <m>P_0 = 400</m> and projection function <m>f(x) = x + 25</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>u = (u_n)_{n=0}^{\infty}</m> with <m>u_0 = 3</m> and projection function <m>f(x) = 1.5x + 1</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>u = (u_n)_{n=0}^{\infty}</m> with <m>u_0 = -3</m> and projection function <m>f(x) = 1.5x + 1</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>w = (w_i)_{i=1}^{\infty}</m> with <m>w_{1} = 4</m> and projection function <m>f(x) = 2.5x - 6</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>w = (w_i)_{i=1}^{\infty}</m> with <m>w_{1} = 5</m> and projection function <m>f(x) = 2.5x - 6</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>z = (z_j)_{j=0}^{\infty}</m> with <m>z_{0} = 16</m> and projection function <m>f(x) = \sqrt{x}</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Each problem defines a sequence recursively.
+          Give the formula of the projection function <m>f(x)</m>.
+          Create the cobweb diagram for the sequence corresponding to the first five values of the sequence.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>Q = (Q_t)_{t=0}^{\infty}</m> with <m>Q_{0} = 3</m> and <m>Q_{t+1} = Q_t + 4</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>c = (c_k)_{k=0}^{\infty}</m> with <m>c_{0} = 10</m> and <m>c_{k+1} = 0.75 c_k</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>S = (S_n)_{n=0}^{\infty}</m> with <m>S_{0} = 10</m> and <m>S_{n+1} = 0.8 S_n + 4</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>P = (P_t)_{t=0}^{\infty}</m> with <m>P_{0} = 1</m> and <m>\displaystyle P_{t+1} = \frac{20 P_t}{P_t + 10}</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
+ </section>

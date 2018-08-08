@@ -26,6 +26,17 @@
     <xi:include href="./modeling.xml" />            
     </chapter>
     
+    <chapter xml:id="chapter-sequences">
+    <title>Discrete Dynamic Models</title>
+    
+    <xi:include href="./sequences-intro.xml" />
+    <xi:include href="./sequences-recursive.xml" />            
+    <xi:include href="./sequences-modeling.xml" />            
+    <xi:include href="./sequences-limits.xml" />            
+    <xi:include href="./sequences-accumulation.xml" />            
+    <xi:include href="./sequences-summation.xml" />            
+    </chapter>
+    
     <chapter xml:id="chapter-functions">
     <title>Functions</title>
     
@@ -35,16 +46,6 @@
     <xi:include href="./functions-properties.xml" />            
     <xi:include href="./functions-behavior.xml" />            
     <xi:include href="./functions-transformation.xml" />            
-    </chapter>
-    
-    <chapter xml:id="chapter-sequences">
-    <title>Discrete Dynamic Models</title>
-    
-    <xi:include href="./sequences-intro.xml" />
-    <xi:include href="./sequences-modeling.xml" />            
-    <xi:include href="./sequences-limits.xml" />            
-    <xi:include href="./sequences-accumulation.xml" />            
-    <xi:include href="./sequences-summation.xml" />            
     </chapter>
     
     <chapter xml:id="chapter-definite-integrals">

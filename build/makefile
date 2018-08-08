@@ -24,6 +24,15 @@ ma2c.validate:
 
 .PHONY: html_files html_images pdf single
 
+html_single: $(HTML)
+	cp -a ${XML}/js ${HTML}/
+	cd $(HTML) && xsltproc --xinclude $(XSL)/$(HTML_XSL) $(XML)/$(XML_single)
+
+html_single_images: $(HTML)/images
+	cp -a $(MA2Croot)/img/ $(HTML)/images/
+	$(MB)/script/mbx --include $(MA2Croot)/src/data/ -c latex-image -d $(HTML)/images/ -f svg $(XML)/$(XML_single)
+
+
 html_files: $(HTML)
 	cp -a ${XML}/js ${HTML}/
 	cd $(HTML) && xsltproc --xinclude $(XSL)/$(HTML_XSL) $(XML)/$(XML_base)
@@ -32,7 +41,7 @@ $(HTML):
 	mkdir $(HTML)
 
 $(HTML)/images: $(HTML)
-	if [ ! -d "$(HTML)/images"] ; then mkdir $(HTML)/images ; fi
+	if [ ! -d "$(HTML)/images" ] ; then mkdir $(HTML)/images ; fi
 
 html_images: $(HTML)/images
 	cp -a $(MA2Croot)/img/ $(HTML)/images/

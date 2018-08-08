@@ -140,9 +140,9 @@
         <m>F_{\hbox{in}}</m> to represent the rate of water flowing in,
         and <m>F_{\hbox{out}}</m> to represent the rate of water flowing out.
       </p>
-      <figure xml:id="figure-sink-flow-diagram" width="40%">
+      <figure xml:id="figure-sink-flow-diagram">
         <caption>Diagram illustrating the variables associated with the water in a sink.</caption>
-        <image xml:id="img-sink-flow-diagram">
+        <image xml:id="img-sink-flow-diagram" width="40%">
           <description>
             Illustration showing a sink with water, arrows corresponding to
             water flowing in and out, and variables labeling key quantities.

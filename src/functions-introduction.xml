@@ -686,16 +686,16 @@
           Composition <m>y=g \circ f(a)</m>, corresponding to chain <m>a \overset{f}\mapsto b \overset{g}\mapsto y</m>.
           As the functions are inverses, this always yields <m>y=a</m>.
         </caption>
-        <jsxgraph xml:id="jsx-fcn-intro-chain-inverse1" width="75%" aspect="4:2">
+        <jsxgraph xml:id="jsx-fcn-intro-chain-inverse1" platform="jsxgraph" width="75%" aspect="4:2">
           <input>
-          var jcm2 = {
-            outer : function(a) { var b; b=3*a+2; return b; },
-            inner : function(b) { var a; a=(b-2)/3; return a; },
-            input : { name:'a', color:'blue', value:0 },
-            middle : { name:'b', color:'orange'},
-            output : { name:'y', color:'red' },
-          };
-          createChainMap(jcm2, 'jsx-fcn-intro-chain-inverse1');
+            var jcm2 = {
+              outer : function(a) { var b; b=3*a+2; return b; },
+              inner : function(b) { var a; a=(b-2)/3; return a; },
+              input : { name:'a', color:'blue', value:0 },
+              middle : { name:'b', color:'orange'},
+              output : { name:'y', color:'red' },
+            };
+            createChainMap(jcm2, 'jsx-fcn-intro-chain-inverse1');
           </input>
         </jsxgraph>
       </figure>
@@ -718,7 +718,6 @@
           </input>
         </jsxgraph>
       </figure>
-    
       <p>
       Simplifying the composition of inverse functions gives an algebraic interpretation of functions canceling.
       </p>

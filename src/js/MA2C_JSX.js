@@ -262,12 +262,23 @@ createMap = function(jcf, idName)
     }
     createTicks(jcf.b, jcf.yaxis, jcf.output);
 
+    if (jcf.input.snap == undefined) {
+        jcf.input.snap = false;
+    }
+    if (jcf.input.snap) {
+      // Create points on the axis on which to snap.
+      for (i=Math.ceil(jcf.input.min); i <= Math.floor(jcf.input.max); i++) {
+        jcf.b.create('point', [i, 2, jcf.xaxis],
+          {showInfobox:false});
+      }
+    }
     jcf.xV = jcf.b.create('glider', 
         [getCoord(jcf.input.value, jcf.input), 2, jcf.xaxis],
         {
             name:jcf.input.name,
             color:jcf.input.color,
             showInfobox:false,
+            snapWidth:1,
         }
     );
     jcf.b.create('text', 
@@ -642,3 +653,59 @@ createChainMap = function(jcf, idName)
         }
     );
 }
+
+
+// The "cw" object passed in should have information about the cobweb.
+// cw.f = projection function
+// cw.xmin, cw.xmax = min/max for the window (will be square)
+// cw.n = number of points (default=10)
+// cw.x0 = starting value
+createCobweb = function(cw, idName) {
+  if (cw.n == undefined) {
+    cw.n = 10
+  }
+  cw.board = JXG.JSXGraph.initBoard(
+                idName, 
+                {
+                  boundingbox: [-0.25, 1.5, 2, -0.25], 
+                  axis:true, 
+                  showNavigation:false
+                }
+              );
+  cw.x0 = cw.board.create('slider', 
+      [[0,0],[2,0],[0,0.25,2]],{name:'x0', precision:2});
+  cw.f = function(x) { return 1 + cw.a.Value()*(x-1); };
+  cw.board.create('line', [[0,0], [1,1]], {color:'red',fixed:true});
+  cw.project = cw.board.create('functiongraph', 
+      [cw.f], {strokeColor:'blue', strokeWidth:2});
+  // Build the points used for the cobweb.
+  cw.x = [];
+  cw.x[0] = cw.board.create('point', [ function() {return cw.x0.Value();}, 0], {name:0, visible:false});
+  for (var i=1; i<=cw.n; i++) {
+      cw.x[i] = cw.board.create('point',
+          [ function() {var j=this.name; return cw.f(cw.x[j-1].X());}, 0 ], 
+          {name:i, visible:false}
+      );
+  }
+  cw.y = [];
+  for (var i=0; i<=cw.n; i++) {
+      cw.y[i] = cw.board.create('transform', 
+          [ 0, "X("+i+")"],
+          {name:i, type:'translate'}
+      );
+  }
+  // Now construct the actual cobweb diagram.
+  for (var i=0; i<cw.n; i++) {
+      var a = cw.board.create('point', 
+          [cw.x[i], cw.y[i]], {visible:false});
+      var b = cw.board.create('point', 
+          [cw.x[i], cw.y[i+1]], {visible:false});
+      var c = cw.board.create('point', 
+          [cw.x[i+1], cw.y[i+1]], {visible:false});
+      cw.board.create('segment',
+          [a, b], {color:'black',fixed:true});
+      cw.board.create('segment',
+          [b, c], {color:'black',fixed:true});
+  }
+}
+

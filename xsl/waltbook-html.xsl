@@ -19,6 +19,8 @@ This file a customization file to work with MathBook XML.
 <xsl:param name="html.knowl.example" select="'no'" />
 <xsl:param name="html.knowl.exercise" select="'no'" />
 
+<xsl:variable name="b-has-jsxgraph" select="boolean($document-root//interactive[@platform='jsxgraph'] or $document-root//jsxgraph)" />
+
 <xsl:template match="section" mode="summary-nav">
     <xsl:apply-imports />
     <xsl:variable name="num"><xsl:apply-templates select="." mode="number" /></xsl:variable>
@@ -31,10 +33,15 @@ This file a customization file to work with MathBook XML.
 </xsl:template>
 
 <!-- Override template for jsxgraph so that includes my localized files -->
+<xsl:template match="interactive[@platform = 'jsxgraph']" mode="header-libraries">
+    <xsl:apply-imports />
+    <script type="text/javascript" src="./js/MA2C_JSX.js"></script>
+</xsl:template>
+
 <xsl:template name="jsxgraph">
     <xsl:if test="$b-has-jsxgraph">
-        <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
-        <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.6/jsxgraph.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.6/jsxgraphcore.js"></script>
         <script type="text/javascript" src="./js/MA2C_JSX.js"></script>
     </xsl:if>
 </xsl:template>

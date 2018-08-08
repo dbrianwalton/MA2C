@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./accumulation-rates.xml" />
+            <xi:include href="./sequences-recursive.xml" />
 		</chapter>
 		
     </book>
