@@ -642,6 +642,36 @@
   </subsection>
   
   <exercises>
+    <exercise>
+      <statement>
+        <p>
+        Show using the elementary properties of addition and multiplication why <m>2(x+3)-1=2x+5</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Show using the elementary properties of addition and multiplication why <m>(x+3)(x-1)=x^2+2x-3</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        A student made a mistake writing <m>\displaystyle \frac{3x+1}{x} = \frac{3+1}{1} = 4</m>.
+        What did the student do? Why was it incorrect?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        A student made a mistake writing <m>\displaystyle x \cdot \frac{2x+1}{x+3} = \frac{2x^2+x}{x^2+3x}</m>.
+        What did the student do? Why was it incorrect?
+        </p>
+      </statement>
+    </exercise>
     <exercisegroup>
       <introduction>
         <p>

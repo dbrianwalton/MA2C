@@ -8,7 +8,7 @@
 <!-- See the file COPYING for copying conditions. -->
    
 <section xml:id="logarithm-properties">
-  <title>Properties of Logarithms</title>
+  <title>Logarithms and Their Properties</title>
   <introduction>
     <p>
       In the previous section, we learned about the algebraic properties of exponents.
@@ -24,7 +24,7 @@
     </p>
   </introduction>
   <subsection>
-    <title>Relating Multiplication and Addition</title>
+    <title>The Logarithmic Scale</title>
     
     <p>
       Historically, the logarithm was invented so that calculations involving multiplication and division 
@@ -73,53 +73,222 @@
       </md>
       These simple logarithms are illustrated in the following map.
     </p>
-    <!--
     <sidebyside width="70%">
       <image>
+        <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=0.5cm]
+          \draw[<->] (-3,0) -- (18,0) node[pos=0, left] {$u$};
+          \foreach \x in {0.5, 1, 2, 4, 8} {
+              \draw ({2*\x},0.1) -- ({2*\x},-0.1) node[below] {\x};
+              \fill ({2*\x},0) circle [radius=2pt];
+          }
+          \draw[<-> ](-3,-2) -- (18,-2) node[pos=0,left] {$x$};
+          \foreach \x in {-2,...,8} {
+              \draw ({2*\x+2},-1.9) -- ({2*\x+2},-2.1) node[below] {\x};
+              \fill ({2*\x+2},-2) circle [radius=2pt];
+          }
+          \draw [->, dashed] (0.5,-0.2) -- (-2, -1.8);
+          \draw [->] (1,-0.8) -- (0, -1.8);
+          \draw [->] (2,-0.8) -- (2, -1.8);
+          \draw [->] (4,-0.8) -- (4, -1.8);
+          \draw [->] (8,-0.8) -- (6, -1.8);
+          \draw [->] (16,-0.8) -- (8, -1.8);
+          \draw [->, dashed] (18,-1.4) -- (10, -1.8);
+          \draw [->] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$\log_2$};
+          \end{tikzpicture}]]>
+        </latex-image>
       </image>
     </sidebyside>
-    -->
     <p>
       Now, instead of drawing two number lines, let us use a single number line labeling the points with the input above the line and the output below the line.
     </p>
-    <!--
     <sidebyside width="70%">
       <image>
+        <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=1cm]
+          \draw[<->] (-2.5,0) -- (4.5,0)
+            node[pos=0, above left] {$u$}
+            node[pos=0, below left] {$x$};
+          \foreach \x in {-2,-1} {
+            \pgfmathsetmacro{\u}{2^\x};
+              \draw (\x,0.1) -- (\x,-0.1)
+                node[pos=0, above] {\u}
+                node[pos=1, below] {\x};
+          }
+          \foreach \x in {0,1,...,4} {
+            \pgfmathtruncatemacro{\u}{2^\x};
+              \draw (\x,0.1) -- (\x,-0.1)
+                node[pos=0, above] {\u}
+                node[pos=1, below] {\x};
+          }
+          \end{tikzpicture}]]>
+        </latex-image>
       </image>
     </sidebyside>
-    -->
     <p>
-      Engineers and scientists would often reference logarithm tables.
-      The slide rule was a mechanical implementation, where the lengths 
-      corresponding to logarithm values were added physically to get a new length.
+      This relation could be extended to <em>every</em> point on the number line.
+      The value above the number line is just the value <m>2^x</m> where <m>x</m> is the value below the number line.
+      Some special values should be explicitly identified.
+      The point with <m>x=\frac{1}{2}</m> corresponds to <m>u=2^{1/2}=\sqrt{2} \approx 1.4142</m>.
+      Similarly, the point with <m>x=\frac{3}{2}</m> corresponds to <m>u=2^{3/2}= \sqrt{8} \approx 2.8284</m>.
     </p>
-
     <p>
-    The logarithm with base <m>b</m> is defined as the inverse function of the corresponding elementary exponential function.
-    Thus <m>x=\log_b(u)</m> is defined as the solving to the equation <m>b^x=u</m> for <m>x</m>.
-    For each property of the exponential, the logarithm has a related, inverse property.
+      The resulting locations of numbers above the number line is called a <term>logarithmic scale</term>.
+      A more detailed logarithmic scale is provided below.
+      Because consecutive integers are closer and closer together in a logarithmic scale,
+      the figure only shows the tick mark location for some of the values.
     </p>
-    
-    <assemblage xml:id="logarithm-core-properties">
+    <figure xml:id="figure-base2-logarithmic-scale">
+      <caption>
+        Logarithmic scale showing the logarithm base two, <m>b=2</m>.
+      </caption>
+      <image width="70%">
+        <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=1cm]
+          \draw[<->] (-2.5,0) -- (4.5,0)
+            node[pos=0, above left] {$u$}
+            node[pos=0, below left] {$\log_2(u)$};
+          \foreach \u in {0.25,0.5,1,2,...,8,16} {
+            \pgfmathsetmacro{\x}{ln(\u)/ln(2)};
+            \draw (\x,0) -- (\x,0.1)
+              node[pos=1, above] {\u};
+          }
+          \foreach \u in {9,10,...,20} {
+            \pgfmathsetmacro{\x}{ln(\u)/ln(2)};
+            \draw (\x,0) -- (\x,0.1);
+          }
+          \foreach \x in {-2,-1,...,4} {
+            \draw (\x,0) -- (\x,-0.1)
+              node[pos=1, below] {\x};
+          }
+          \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      In our example, we developed the logarithmic scale using a base <m>b=2</m>.
+      We could have done it with any base.
+      The logarithmic scale with base <m>b=10</m>, corresponding to the common logarithm, is shown below.
+    </p>
+    <figure xml:id="figure-common-logarithmic-scale">
+      <caption>
+        Logarithmic scale showing the common logarithm, <m>b=10</m>.
+      </caption>
+      <image width="90%">
+        <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=3cm]
+          \draw[<->] (-1.1,0) -- (1.5,0)
+            node[pos=0, above left] {$u$}
+            node[pos=0, below left] {$\log(u)$};
+          \foreach \u in {0.1,0.2,0.5,1,2,3,4,5,10,20,30} {
+            \pgfmathsetmacro{\x}{ln(\u)/ln(10)};
+            \draw (\x,0) -- (\x,0.2)
+              node[pos=1, above] {\u};
+          }
+          \foreach \u in {0.3,0.4,0.6,0.7,0.8,0.9,6,7,8,9,11,12,...,19,21,22,...,29} {
+            \pgfmathsetmacro{\x}{ln(\u)/ln(10)};
+            \draw (\x,0) -- (\x,0.1);
+          }
+          \foreach \x in {-1,0,1} {
+            \draw (\x,0) -- (\x,-0.1)
+              node[pos=1, below] {\x};
+          }
+          \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      Comparing the logarithmic scales for bases <m>b=2</m> and <m>b=10</m>,
+      you should notice that the logarithmic scale itself appears to be the same.
+      The only thing that is different is the scale of the tick marks below the number line
+      corresponding to the value of the logarithm.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Properties of the Logarithm</title>
+    <p>
+      When considering the logarithmic scales, we always had <m>\log_b(1) = 0</m>.
+      This is because <m>b^0 = 1</m> for every valid base.
+      This creates a mapping from the multiplicative identity <m>u=1</m> to the additive identity <m>x=0</m>.
+      That is, the value <m>u=1</m> becomes the origin of the logarithmic scale.
+    </p>
+    <p>
+      In a similar way, because <m>b^1 = b</m>, the logarithm will always have <m>\log_b(b) = 1</m>.
+      Be careful that you do not think of this as a cancellation.
+      Instead, think of the logarithmic scale.
+      The value <m>u=1</m> sets the origin.
+      The logarithm measures the position of each number as if using a ruler starting at <m>u=1</m>.
+      The value <m>u=b</m> sets the length scale for the ruler.
+    </p>
+    <p>
+      The core properties of logarithms are summarized below.
+    </p>
+    <theorem xml:id="logarithm-core-properties">
       <title>Properties of Logarithms</title>
-      <p>
-      <ul>
-        <li><p>
-          Inverses Cancel: <m>\log_b(b^x) = x</m> (all <m>x</m>) and <m>b^{\log_b(x)} = x</m> (<m>x \gt 0</m>)
-        </p></li>
-        <li><p>
-          Product: <m>\log_b(u \cdot v)= \log_b(u) + \log_b(v) </m>
-        </p></li>
-        <li><p>
-          Quotient: <m>\displaystyle \log_b\left(\frac{u}{v}\right)= \log_b(u) - \log_b(v) </m>
-        </p></li>
-        <li><p>
-          Power: <m>\log_b(u^p) = p \cdot \log_b(u)</m>
-        </p></li>
-      </ul>
-      </p>
-    </assemblage>
-    
+      <statement>
+        <p>
+        For every base <m>b \gt 0</m> with <m>b \ne 1</m> and values <m>u \gt 0</m> and <m>v \gt 0</m>,
+        logarithms satisfy the following properties.
+        <ul>
+          <li>
+            <p>Identities Map: <m>\log_b(1) = 0</m>.</p>
+          </li>
+          <li>
+            <p>The Base Sets the Scale: <m>\log_b(b) = 1</m>.</p>
+          </li>
+          <li>
+            <p>Inverse Property: <m>b^{\log_b(u)} = u</m> and <m>\log_b(b^x) = x</m>.</p>
+          </li>
+          <li>
+            <p>Product Rule: <m>\log_b(u \cdot v)= \log_b(u) + \log_b(v)</m>.</p>
+          </li>
+          <li>
+            <p>Quotient Rule: <m>\displaystyle \log_b\left(\frac{u}{v}\right)= \log_b(u) - \log_b(v)</m>.</p>
+          </li>
+          <li>
+            <p>Power Rule: <m>\log_b(u^p) = p \cdot \log_b(u)</m>.</p>
+          </li>
+        </ul>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The first two properties were proved in the paragraphs preceding the theorem.
+          For the remaining three properties, because <m>u \gt 0</m>, we know that <m>b^x=u</m> has a solution <m>x=\log_b(u)</m>.
+          Similarly, for <m>v \gt 0</m>, we know that there is a value <m>y=\log_b(v)</m> so that <m>b^y = v</m>.
+          The inverse property is simply stating what it means to be a logarithm.
+        </p>
+        <p>
+          The power rule considers the logarithm of the value <m>u^p</m>.
+          By rewriting <m>u = b^x</m>, we are looking for the logarithm of <m>u^p = (b^x)^p</m>.
+          By the <xref text="title" ref="power-properties">Power of a Power property</xref>, we have <m>u^p = b^{(xp)}</m>,
+          which means that <m>\log(u^p) = x p = p \cdot \log_b(u)</m>.
+        </p>
+        <p>
+          The product rule considers the logarithm of the value <m>u \cdot v</m>.
+          By rewriting <m>u = b^x</m> and <m>v=b^y</m>, we are looking for the logarithm of <m>uv = b^x \cdot b^y</m>.
+          By the <xref text="title" ref="power-properties">Product with a Common Base property</xref>, we have <m>uv = b^{x+y}</m>,
+          which means that <m>\log(uv) = x+y = \log_b(u) + \log_b(v)</m>.
+          The proof of the quotient rule for logarithms is proved in a similar way.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      The properties of logarithms allow us to compute the logarithm of a product (and quotient)
+      in terms of the logarithms of the individuals factors.
+    </p>
     <example>
       <statement>
         <p>
@@ -144,9 +313,16 @@
     </example>
     
     <p>
-    We still use logarithms in order to expand formulas expressed as products and powers in terms of sums and products.
+      Historically, the logarithm was invented so that multiplication and division calculations could be solved using the much simpler operations of addition and subtraction.
+      Engineers and scientists would often reference logarithm tables to find the logarithms of the factors and add the values by hand.
+      Then they would look in the table for the number that had the resulting logarithm.
+      The slide rule was a mechanical implementation, where the lengths corresponding to logarithm values were added physically to get a new length.
+      For an interactive demonstration, check out <url href="http://educ.jmu.edu/~waltondb/webapp/log_scale_explore.html"/>.
     </p>
-    
+    <p>
+      Although modern calculators and computers have eliminated this particular need for logarithms in calculations,
+      we still use logarithms in order to expand symbolic formulas expressed as products and powers in terms of sums of the logarithms of the factors.
+    </p>
     <example>
       <statement>
         <p>
@@ -157,8 +333,7 @@
         <p>
         Each factor of the expression inside the logarithm will get its own term 
         using the product and quotient rules for logarithms.
-        If we think of every division in terms of negative powers, 
-        then we only need to deal with products.
+        If we think of every division in terms of negative powers, then we only need to deal with products.
         In particular, the inner expression can be rewritten 
         <me>\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5} = 4x^3(2x+5)^{\frac{1}{2}}(x^2+3)^{-5}</me>.
         The factors identified are <m>4</m>, <m>x^3</m>, <m>(2x+5)^{\frac{1}{2}}</m>, and <m>(x^2+3)^{-5}</m>.
@@ -167,18 +342,15 @@
           <mrow> \log\left(\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5}\right) &amp;= \log(4) + \log(x^3) + \log\left( (2x+5)^{\frac{1}{2}}\right) + \log\left( (x^2+3)^{-5} \right) </mrow>
           <mrow> &amp;= \log(4) + 3\log(x) + {\textstyle \frac{1}{2}}\log(2x+5) -5 \log(x^2+3).</mrow>
         </md> 
-        Notice that we could have used the quotient rule of logarithms instead of negative powers 
-        to get the term <m>-5 \log(x^2+3)</m>.
+        Notice that we could have used the quotient rule of logarithms instead of negative powers to get the term <m>-5 \log(x^2+3)</m>.
         </p>
       </solution>
     </example>
-    
     <p>
-    The properties of logarithms help solve us equations, particularly where the variable is in an exponent.
-    Because inverse functions are one-to-one, we can apply such a function to both sides of an equation with positive values and form a new equation that is equivalent to the first.
-    The properties of the logarithm can then be used to our advantage.
+      The properties of logarithms help solve us equations, particularly where the variable is in an exponent.
+      Because inverse functions are one-to-one, we can apply such a function to both sides of an equation with positive values and form a new equivalent equation.
+      The properties of the logarithm can then be used to our advantage.
     </p>
-    
     <example>
       <statement>
         <p>
@@ -214,11 +386,9 @@
         </p>
       </solution>
     </example>
-    
     <p>
-    The properties of logarithms allow us to compute logarithms with uncommon bases using logarithms that we know using the change of base formula.
+      The properties of logarithms allow us to compute logarithms with uncommon bases using logarithms that we know using the change of base formula.
     </p>
-    
     <theorem xml:id="logarithm-change-base">
       <statement>
         <p>
@@ -240,15 +410,21 @@
         </p>
       </proof>
     </theorem>
-    
     <p>
-    Closely related to change of base formula is the fact that 
-    we can rewrite any power with a positive base using a composition with an elementary exponential.
-    We will soon discover that the number <m>e</m> is the natural exponential base.
-    Thus, every power can be rewritten in terms of the natural exponential function.
-    The logarithm with this base is the <term>natural logarithm</term> <m>\ln</m>.
+      This theorem has a nice geometric interpretation in relation to the logarithmic scale.
+      The value <m>\log_b(u)</m> measures the distance in the logarithmic scale from the origin at <m>1</m> to the location of <m>u</m>
+      in terms of the scale set by the location of <m>b</m>.
+      The change of base formula is based on knowing the positions of <m>u</m> and <m>b</m> on the logarithmic scale in terms of the base <m>c</m>.
+      We take the position of <m>u</m> and divide it by the length to get to <m>b</m>.
+      In effect, this is a change of units calculation, similar to finding a distance measured in inches when we know the distance measured in centimeters.
     </p>
-    
+    <p>
+      Closely related to the change of base formula is the fact that 
+      we can rewrite any power with a positive base using a composition with an elementary exponential.
+      We will soon discover that the number <m>e</m> is the natural exponential base.
+      Thus, every power can be rewritten in terms of the natural exponential function.
+      The logarithm with this base is the <term>natural logarithm</term> <m>\ln</m>.
+    </p>
     <example>
       <statement>
         <p>
@@ -257,12 +433,12 @@
       </statement>
       <solution>
         <p>
-        One approach is to use the inverse property, <m>\exp(\ln(u)) = e^{\ln(u)} = u</m>, on the factor with the power.
+        One approach is to use the inverse property, <m>e^{\ln(u)} = u</m>, on the factor with the power.
         Then use logarithm properties to simplify (expand) the power.
         <md>
           <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
-          <mrow> &amp;= 4 \cdot e^{\ln(3^{2x})} &amp; \text{(Inverse)} </mrow>
-          <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{\ln(3^{2x})} &amp; \text{(Inverse Property)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power Rule)} </mrow>
           <mrow> &amp;= 4 \cdot e^{2 \ln(3) \, x} &amp; \text{(Commute)} </mrow>
         </md>
         </p>
@@ -272,40 +448,37 @@
         and then finish by using properties of powers.
         <md>
           <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
-          <mrow> &amp;= 4 \cdot (e^{\ln(3)})^{2x} &amp; \text{(Inverse)} </mrow>
+          <mrow> &amp;= 4 \cdot (e^{\ln(3)})^{2x} &amp; \text{(Inverse Property)} </mrow>
           <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power of Product)} </mrow>
           <mrow> &amp;= 4 \cdot e^{2 \ln(3) \, x} &amp; \text{(Commute)} </mrow>
         </md>
         </p>
       </solution>
     </example>
-    
     <p>
-    We use base <m>e</m> for exponentials so much that we summarize the statement as a theorem.
+      We use base <m>e</m> for exponentials so much that we summarize the statement as a theorem.
     </p>
-    
     <theorem xml:id="exponentials-base-e">
       <statement>
         <p>
-        Every exponential function <m>f(x) = A b^x</m> can be written using the natural exponential 
-        <m>f(x) = Ae^{kx}</m> where <m>k = \ln(b)</m>.
+          Every exponential function <m>f(x) = A b^x</m> can be written using the natural exponential 
+          <m>f(x) = Ae^{kx}</m> where <m>k = \ln(b)</m>.
         </p>
       </statement>
     </theorem>
-    
     <example>
       <statement>
         <p>
-        A population <m>P</m> is an exponential function of time <m>t</m>, <m>P = Ae^{kt}</m>.
-        Suppose that <m>P=500</m> when <m>t=0</m> and the population triples every 5 years, 
-        find the formula for <m>P</m>.
+          A population <m>P</m> is an exponential function of time <m>t</m>, <m>P = Ae^{kt}</m>.
+          Suppose that <m>P=500</m> when <m>t=0</m> and the population triples every 5 years.
+          Find the formula for <m>P</m>.
         </p>
       </statement>
       <solution>
         <p>
-        This is a parametrized model <m>P=Ae^{kt}</m>.
-        We use the data <m>(t,P)=(0,500)</m> and <m>(t,P)=(5,1500)</m> (population triples) 
-        to create equations based on our model.
+        This is an exponential model <m>P=Ae^{kt}</m> with unknown parameters <m>A</m> and <m>k</m>.
+        We use the data <m>(t,P)=(0,500)</m> and <m>(t,P)=(5,1500)</m> (the population triples in 5 years) 
+        to create equations based on our model that constrain the parameters.
         <me> \left\{ \begin{matrix} 500 = Ae^{0k} \\ 1500 = Ae^{5k} \end{matrix} \right.</me> 
         The first equation gives <m>A=500</m>.
         Substituting that into the second equation, we can solve for <m>k</m>.
@@ -321,4 +494,201 @@
       </solution>
     </example>
   </subsection>
+  <subsection>
+    <title>Summary</title>
+    
+    <p>
+    <ul>
+      <li>
+        The logarithmic scale is based on the inverse map of an exponential function.
+        The multiplicative identity <m>u=1</m> represents the origin of the scale.
+        The base <m>b</m> establishes the length scale used to calculate logarithms.
+      </li>
+      <li>
+        <p>
+        The properties of logarithms are consequences of properties of exponents. 
+        <ul>
+          <li>
+          <p>
+            <m>\log_b(1) = 0</m> (Identities Map) and <m>\log_b(b) = 1</m> (Base Sets Scale).
+          </p>
+          </li>
+          <li>
+          <p>
+            <m>b^{\log_b(u)} = u</m> and <m>\log_b(b^x) = x</m> (Inverse Property).
+          </p>
+          </li>
+          <li>
+          <p>
+            <m>\log_b(uv) = \log_b(u) + \log_b(v)</m> (Product Rule).
+          </p>
+          </li>
+          <li>
+          <p>
+            <m>\log_b(u \div v) = \log_b(u) - \log_b(v)</m> (Quotient Rule).
+          </p>
+          </li>
+          <li>
+          <p>
+            <m>\log_b(u^p) =  p \cdot \log_b(u)</m> (Power Rule).
+          </p>
+          </li>
+        </ul>
+        </p>
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercise>
+      <statement>
+        <p>
+        For an unknown base <m>b</m>, we have <m>\log_b(2)=0.3</m>.
+        Use the rules of logarithms to find each of the following.
+        <ol>
+                <li><m>\log_b(8)</m></li>
+                <li><m>\log_b(\frac{1}{\sqrt{2}})</m></li>
+                <li><m>\log_b(4b^2)</m></li>
+              </ol> Can you identify the value <m>b</m>?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        For an unknown base <m>b</m>, we have <m>\log_b(2) \approx 0.3562</m> and <m>\log_b(3) \approx 0.5646</m>.
+        Use the rules of logarithms to find each of the following.
+        <ol>
+                <li><m>\log_b(6)</m></li>
+                <li><m>\log_b(72)</m></li>
+                <li><m>\log_b(\frac{4}{9})</m></li>
+              </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Expand <m>\displaystyle \log\left( 3x^5(2x+1)^4 \right)</m> as far as possible.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Expand <m>\displaystyle \log\left( \frac{(x^2+4)^3}{x^4(3x+1)} \right)</m> as far as possible.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Expand <m>\displaystyle \log\left( \sqrt{5(x^2+1)} \right)</m> as far as possible.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Rewrite the expanded formula <m>\displaystyle 2 + 3\log(x) - \log(2x+1)</m> 
+        as the logarithm (base 10) of a single expression.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Rewrite the expanded formula <m>\displaystyle {\textstyle \frac{1}{2}}\ln(x) - \ln(x+1) - \ln(x-1)</m> 
+        as the logarithm (base e) of a single expression.
+        </p>
+      </statement>
+    </exercise>
+    
+    <exercise>
+      <statement>
+        <p>
+        Use the natural logarithm to solve the equation <m>4 \cdot 5^x = 3</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Use the natural logarithm to solve the equation <m>2 \cdot 3^{-x} = 3 \cdot 2^{x}</m>.
+        </p>
+      </statement>
+    </exercise>
+    
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = 4^x</m> using an exponential with base <m>10</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = 4^x</m> using an exponential with base <m>e</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = 5 \cdot 0.25^x</m> using an exponential with base <m>e</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = x^4</m> using an exponential with base <m>e</m> for <m>x \gt 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Write the function <m>f(x) = x^{2x}</m> using an exponential with base <m>e</m> for <m>x \gt 0</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Find an exponential model <m>y=Ae^{kx}</m> satisfying the states <m>(x,y)=(0,3)</m> and <m>(x,y)=(5,9)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        Find an exponential model <m>y=Ae^{kx}</m> satisfying the states <m>(x,y)=(1,3)</m> and <m>(x,y)=(4,6)</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          In a living organism, 1 gram of carbon would result in about 840 carbon-14 atoms disintegrating per hour.
+          After death, the rate of radiocarbon disintegrations decays exponentially.
+          Carbon-14 has a half-life of 5730 years, meaning the rate has dropped to half its original value after this time.
+          Determine the radioactive disintegration rate for 1 gram of carbon using the natural exponential base <m>e</m>.
+          What is the radioactive disintegration rate of the sample after 1000 years?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+        A money market account starting at <dollar/>2000 grew by 10<percent/> in one year.
+        Determine the value of the money market account assuming the rate of growth remains constant
+        by using an exponential growth model.
+        What will be the value in 4 years?
+        How long does it take for the value to double?
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>
