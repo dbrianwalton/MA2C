@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2017  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="logarithm-properties">
+  <title>Properties of Logarithms</title>
+  <introduction>
+    <p>
+      In the previous section, we learned about the algebraic properties of exponents.
+      Because logarithms are the inverses of elementary exponential functions,
+      they inherit related algebraic properties.
+      The properties of logarithms allow us to rewrite expressions involving products and exponents in new ways.
+    </p>
+    <p>
+      In this section, we will introduce the properties of logarithms and how they relate to the properties of exponents.
+      As a consequence of these properties, we will learn new methods for solving equations involving exponentials.
+      In addition, we will learn how to rewrite exponential functions in terms of other bases
+      and justify the change of base formula for logarithms.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Relating Multiplication and Addition</title>
+    
+    <p>
+      Historically, the logarithm was invented so that calculations involving multiplication and division 
+      could be solved using the much simpler operations of addition and subtraction.
+      Addition and multiplication share many of the same properties<mdash/>commutativity, associativity, and the existence of an identity and inverses.
+      These shared properties suggest that there might be a way to think about multiplication in terms of addition.
+    </p>
+    <p>
+      The properties of exponents establish the relationship required to make this connection.
+      When two numbers can be written as powers of the same base, say <m>u=b^x</m> and <m>v=b^y</m>,
+      then the product <m>uv</m> can be written as a power of that base as <m>uv = b^{x+y}</m>.
+      Division <m>u \div v</m> can similarly be written as a power, <m>u \div v = b^{x-y}</m>.
+      In this way, multiplication and division of numbers directly corresponds to addition and subtraction of their associated powers for a given base.
+      The logarithm is the map from a number and its associated power for a given base.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          For every number <m>u \gt 0</m> and base <m>b \gt 0</m> with <m>b \ne 1</m>,
+          the equation <m>b^x = u</m> has a solution and <m>x = \log_b(u)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      This theorem states that the logarithm can be computed for positive numbers.
+      It does not yet tell us how to find the value of that logarithm.
+      I hope you are curious about how someone would be able to guarantee that such a number always exists.
+      Some values are easy to see, but it is not going to be obvious why it always works.
+    </p>
+    <p>
+      We will try to develop an intuition by creating the map between a number and its logarithm.
+      In the process, we will develop something called a logarithmic number line or logarithmic scale.
+      To make our example precise, we will create the map for a base <m>b=2</m>.
+      However, the process could be done for any base <m>b \gt 0</m> with <m>b \ne 1</m>.
+    </p>
+    <p>
+      With a base <m>b=2</m>, we find <m>\log_2(u)</m> by solving the equation <m>2^x = u</m>.
+      The logarithm is the map <m>u \mapsto x</m>.
+      The equation is easy to solve when <m>u</m> is a known power of 2.
+      <md>
+        <mrow>1 = 2^0 \quad &amp;\Leftrightarrow (u,x)=(1,0) \quad \Leftrightarrow \quad \log_2(1) = 0</mrow>
+        <mrow>2 = 2^1 \quad &amp;\Leftrightarrow (u,x)=(2,1) \quad \Leftrightarrow \quad \log_2(2) = 1</mrow>
+        <mrow>4 = 2^2 \quad &amp;\Leftrightarrow (u,x)=(4,2) \quad \Leftrightarrow \quad \log_2(4) = 2</mrow>
+        <mrow>8 = 2^3 \quad &amp;\Leftrightarrow (u,x)=(8,3) \quad \Leftrightarrow \quad \log_2(8) = 3</mrow>
+        <mrow>{\textstyle \frac{1}{2}} = 2^{-1} \quad &amp;\Leftrightarrow (u,x)=({\textstyle \frac{1}{2}},-1) \quad \Leftrightarrow \quad \log_2({\textstyle \frac{1}{2}}) = -1</mrow>
+      </md>
+      These simple logarithms are illustrated in the following map.
+    </p>
+    <!--
+    <sidebyside width="70%">
+      <image>
+      </image>
+    </sidebyside>
+    -->
+    <p>
+      Now, instead of drawing two number lines, let us use a single number line labeling the points with the input above the line and the output below the line.
+    </p>
+    <!--
+    <sidebyside width="70%">
+      <image>
+      </image>
+    </sidebyside>
+    -->
+    <p>
+      Engineers and scientists would often reference logarithm tables.
+      The slide rule was a mechanical implementation, where the lengths 
+      corresponding to logarithm values were added physically to get a new length.
+    </p>
+
+    <p>
+    The logarithm with base <m>b</m> is defined as the inverse function of the corresponding elementary exponential function.
+    Thus <m>x=\log_b(u)</m> is defined as the solving to the equation <m>b^x=u</m> for <m>x</m>.
+    For each property of the exponential, the logarithm has a related, inverse property.
+    </p>
+    
+    <assemblage xml:id="logarithm-core-properties">
+      <title>Properties of Logarithms</title>
+      <p>
+      <ul>
+        <li><p>
+          Inverses Cancel: <m>\log_b(b^x) = x</m> (all <m>x</m>) and <m>b^{\log_b(x)} = x</m> (<m>x \gt 0</m>)
+        </p></li>
+        <li><p>
+          Product: <m>\log_b(u \cdot v)= \log_b(u) + \log_b(v) </m>
+        </p></li>
+        <li><p>
+          Quotient: <m>\displaystyle \log_b\left(\frac{u}{v}\right)= \log_b(u) - \log_b(v) </m>
+        </p></li>
+        <li><p>
+          Power: <m>\log_b(u^p) = p \cdot \log_b(u)</m>
+        </p></li>
+      </ul>
+      </p>
+    </assemblage>
+    
+    <example>
+      <statement>
+        <p>
+        A reference table shows <m>\log(2) \approx 0.30103</m>, <m>\log(3) \approx 0.47712</m> 
+        and <m>\log(5) \approx 0.69897</m>.
+        Use properties of logarithms to determine <m>\log(1.2)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Start by writing 1.2 as a product of the factors 2, 3, and 5.
+        <me>1.2 = \frac{12}{10} = \frac{4(3)}{2(5)} = \frac{2(3)}{5}</me> 
+        The properties of logarithms allow us to rewrite <m>\log(1.2)</m> as 
+        <md>
+          <mrow> \log(1.2) &amp;= \log\left(\frac{2(3)}{5}\right) </mrow>
+          <mrow> &amp;= \log(2(3)) - \log(5) &amp; \text{(Quotient)} </mrow>
+          <mrow> &amp;= \log(2) + \log(3) - \log(5) &amp; \text{(Product)} </mrow>
+          <mrow>  &amp;\approx 0.30103 + 0.47712 - 0.69897 = 0.07918.</mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    We still use logarithms in order to expand formulas expressed as products and powers in terms of sums and products.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        Expand <m>\displaystyle \log\left(\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5}\right)</m> as far as possible.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Each factor of the expression inside the logarithm will get its own term 
+        using the product and quotient rules for logarithms.
+        If we think of every division in terms of negative powers, 
+        then we only need to deal with products.
+        In particular, the inner expression can be rewritten 
+        <me>\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5} = 4x^3(2x+5)^{\frac{1}{2}}(x^2+3)^{-5}</me>.
+        The factors identified are <m>4</m>, <m>x^3</m>, <m>(2x+5)^{\frac{1}{2}}</m>, and <m>(x^2+3)^{-5}</m>.
+        Using the logarithm's product rule followed by the logarithm's power rule, we find 
+        <md>
+          <mrow> \log\left(\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5}\right) &amp;= \log(4) + \log(x^3) + \log\left( (2x+5)^{\frac{1}{2}}\right) + \log\left( (x^2+3)^{-5} \right) </mrow>
+          <mrow> &amp;= \log(4) + 3\log(x) + {\textstyle \frac{1}{2}}\log(2x+5) -5 \log(x^2+3).</mrow>
+        </md> 
+        Notice that we could have used the quotient rule of logarithms instead of negative powers 
+        to get the term <m>-5 \log(x^2+3)</m>.
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    The properties of logarithms help solve us equations, particularly where the variable is in an exponent.
+    Because inverse functions are one-to-one, we can apply such a function to both sides of an equation with positive values and form a new equation that is equivalent to the first.
+    The properties of the logarithm can then be used to our advantage.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        Solve the equation <m>3 \cdot 2^{3x} = 5</m> using the logarithm base 10.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        It is usually best to isolate the exponential term first.
+        <md>
+          <mrow> 3 \cdot 2^{3x} = 5 </mrow>
+          <mrow> 2^{3x} = \frac{5}{3} </mrow>
+        </md> 
+        We next apply the logarithm base 10 to both sides of this equation, 
+        which then allows us to apply the logarithm power rule on the left.
+        Then we can isolate <m>x</m>.
+        <md>
+          <mrow> \log_{10}(2^{3x}) = \log_{10}({\textstyle \frac{5}{3}}) </mrow>
+          <mrow> 3x \cdot \log_{10}(2) = \log_{10}({\textstyle \frac{5}{3}}) </mrow>
+          <mrow> x = \frac{\log_{10}({\textstyle \frac{5}{3}})}{3 \log_{10}(2)} </mrow>
+        </md>
+        </p>
+        <p>
+        Alternatively, we could have applied the logarithm at the very first.
+        This would require using the logarithm product rule on the left.
+        <md>
+          <mrow> \log_{10}(3 \cdot 2^{3x}) = \log_{10}(5) </mrow>
+          <mrow> \log_{10}(3) + \log_{10}(2^{3x}) = \log_{10}(5) </mrow>
+          <mrow> \log_{10}(2^{3x}) = \log_{10}(5) - \log_{10}(3) </mrow>
+          <mrow> 3x \log_{10}(2) = \log_{10}(5) - \log_{10}(3) </mrow>
+          <mrow> x = \frac{\log_{10}(5) - \log_{10}(3)}{3\log_{10}(2)} </mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    The properties of logarithms allow us to compute logarithms with uncommon bases using logarithms that we know using the change of base formula.
+    </p>
+    
+    <theorem xml:id="logarithm-change-base">
+      <statement>
+        <p>
+        For any two exponential bases <m>b</m> and <m>c</m>, 
+        <me> \log_b(u) = \frac{\log_c(u)}{\log_c(b)}</me>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+        Consider <m>x=\log_b(u)</m>, which solves <m>b^x=u</m>.
+        If we solve this equation using <m>\log_c</m> to both sides, 
+        we find the change of base formula.
+        <md>
+          <mrow> b^x = u </mrow>
+          <mrow> \log_c(b^x) = \log_c(u) </mrow>
+          <mrow> x \log_c(b) = \log_c(u) </mrow>
+          <mrow> x = \log_b(u) = \frac{\log_c(u)}{\log_c(b)}.</mrow>
+        </md>
+        </p>
+      </proof>
+    </theorem>
+    
+    <p>
+    Closely related to change of base formula is the fact that 
+    we can rewrite any power with a positive base using a composition with an elementary exponential.
+    We will soon discover that the number <m>e</m> is the natural exponential base.
+    Thus, every power can be rewritten in terms of the natural exponential function.
+    The logarithm with this base is the <term>natural logarithm</term> <m>\ln</m>.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        Rewrite <m>f(x) = 4 \cdot 3^{2x}</m> using the natural exponential function.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        One approach is to use the inverse property, <m>\exp(\ln(u)) = e^{\ln(u)} = u</m>, on the factor with the power.
+        Then use logarithm properties to simplify (expand) the power.
+        <md>
+          <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
+          <mrow> &amp;= 4 \cdot e^{\ln(3^{2x})} &amp; \text{(Inverse)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2 \ln(3) \, x} &amp; \text{(Commute)} </mrow>
+        </md>
+        </p>
+        <p>
+        Another approach is to just rewrite the base using the inverse property, 
+        <m>3 = e^{\ln(3)}</m>, 
+        and then finish by using properties of powers.
+        <md>
+          <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
+          <mrow> &amp;= 4 \cdot (e^{\ln(3)})^{2x} &amp; \text{(Inverse)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2x \ln(3)} &amp; \text{(Power of Product)} </mrow>
+          <mrow> &amp;= 4 \cdot e^{2 \ln(3) \, x} &amp; \text{(Commute)} </mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    We use base <m>e</m> for exponentials so much that we summarize the statement as a theorem.
+    </p>
+    
+    <theorem xml:id="exponentials-base-e">
+      <statement>
+        <p>
+        Every exponential function <m>f(x) = A b^x</m> can be written using the natural exponential 
+        <m>f(x) = Ae^{kx}</m> where <m>k = \ln(b)</m>.
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <statement>
+        <p>
+        A population <m>P</m> is an exponential function of time <m>t</m>, <m>P = Ae^{kt}</m>.
+        Suppose that <m>P=500</m> when <m>t=0</m> and the population triples every 5 years, 
+        find the formula for <m>P</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        This is a parametrized model <m>P=Ae^{kt}</m>.
+        We use the data <m>(t,P)=(0,500)</m> and <m>(t,P)=(5,1500)</m> (population triples) 
+        to create equations based on our model.
+        <me> \left\{ \begin{matrix} 500 = Ae^{0k} \\ 1500 = Ae^{5k} \end{matrix} \right.</me> 
+        The first equation gives <m>A=500</m>.
+        Substituting that into the second equation, we can solve for <m>k</m>.
+        <md>
+          <mrow>Ae^{5k} = 1500 </mrow>
+          <mrow>500 e^{5k} = 1500 </mrow>
+          <mrow>e^{5k} = 3 </mrow>
+          <mrow>5k = \ln(3) </mrow>
+          <mrow>k = {\textstyle \frac{1}{5}} \ln(3)</mrow>
+        </md> 
+        Using these parameters, we have our model <me>P = 500 e^{\frac{1}{5} \ln(3) t}</me>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+</section>

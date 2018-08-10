@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2017  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="sequences-exponents-logarithms">
+  <title>Exponents, Inverses and Logarithms</title>
+
+  <introduction>
+    <title>Overview</title>
+    
+    <p>
+      We saw that geometric sequences involved powers of the common ratio.
+      Powers play a very important role in many mathematical models.
+      There are two major families of functions that involve powers: the power functions and the exponential functions.
+    </p>
+    <p>
+      Because a function defines a map from one variable to another variable, say <m>x \mapsto y</m>,
+      we are often interested in the inverse relation, <m>y \mapsto x</m>.
+      When the inverse relation defines a function it is called the inverse function.
+      The inverse functions associated with power functions are roots;
+      the inverse functions associated with exponential functions are logarithms.
+    </p>
+    <p>
+      In this section, we review the properties of exponents and characterize power and exponential functions.
+      We discuss the concept of inverse functions
+      and introduce roots and logarithms as inverse to elementary power and exponential function, respectively.
+      We learn to use inverse functions to answer questions associated with reverse maps in sequences.
+    </p>
+  </introduction>
+  
+  <subsection>
+    <title>Properties of Exponents</title>
+    <p>
+      Consider the geometric sequence defined recursively by <m>x_{n+1} = 3 x_n</m> and initial value <m>x_2 = 4</m>.
+      We know how to generate additional sequence values from the recursive equation:
+      <md>
+        <mrow>x_3 = 3 x_2 = 3 \cdot 4 = 12 </mrow>
+        <mrow>x_4 = 3 x_3 = 3 \cdot 12 = 36 </mrow>
+        <mrow>x_5 = 3 x_4 = 3 \cdot 36 = 108 </mrow>
+        <mrow>\vdots</mrow>
+      </md>
+      We are used to multiplying out the values to get a simple final value.
+      Look at what happens if we suspend the arithmetic facts and just write out the formulas.
+      <md>
+        <mrow>x_3 &amp;= 3 x_2 = 3 \cdot 4 </mrow>
+        <mrow>x_4 &amp;= 3 x_3 = 3 \cdot 3 \cdot 4 </mrow>
+        <mrow>x_5 &amp;= 3 x_4 = 3 \cdot 3 \cdot 3 \cdot 4 </mrow>
+        <mrow>\vdots</mrow>
+      </md>
+      Repeated multiplication corresponds to integer powers, so that we can identify a pattern.
+      <md>
+        <mrow>x_3 &amp;= 3^1 \cdot 4 </mrow>
+        <mrow>x_4 &amp;= 3^2 \cdot 4 </mrow>
+        <mrow>x_5 &amp;= 3^3 \cdot 4 </mrow>
+        <mrow>\vdots</mrow>
+      </md>
+      The power on the multiple 3 is always the index value minus 2,
+      <me> x_n = 3^{(n-2)} \cdot 4, </me>
+      which is precisely what we would get using the <xref ref="theorem-geometric-explicit-sequence">explicit formula for geometric sequences</xref>
+    </p>
+    <p>
+      The basic properties of powers are all motivated by the idea that an integer power corresponds to repeated multiplication.
+      Rational powers are more complicated and involve roots.
+      Irrational powers are beyond the scope of this text.
+    </p>
+    <assemblage xml:id="power-properties">
+      <title>Properties of Powers</title>
+      <p>
+      <ul>
+        <li><p>
+        Zero Power: <m>b^0 = 1</m> for <m>b \ne 0</m>
+        </p></li>
+        <li><p>
+        Inverse Power: <m>\displaystyle b^{-x} = \frac{1}{b^x}</m>
+        </p></li>
+        <li><p>
+        Product with Common Base: <m>b^x \, b^y = b^{x+y}</m>
+        </p></li>
+        <li><p>
+        Quotient with Common Base: <m>\displaystyle \frac{b^x}{b^y} = b^{x-y}</m>
+        </p></li>
+        <li><p>
+        Power of a power: <m>\displaystyle (b^x)^y = b^{xy}</m>
+        </p></li>
+        <li><p>
+        Product with Common Exponent: <m>b^x \, c^x = (bc)^x</m>
+        </p></li>
+        <li><p>
+        Quotient with Common Exponent: <m>\displaystyle \frac{b^x}{c^x} = \left(\frac{b}{c}\right)^x</m>
+        </p></li>
+      </ul>
+      </p>
+    </assemblage>
+    <p>
+      We illustrate several of the properties in the context of integer powers.
+      For integer exponents, a power means repeated multiplication 
+      (similar to how multiplication by an integer means repeated addition).
+      So <m>b^3 = b \cdot b \cdot b</m>.
+      The product properties are just about counting.
+    </p>
+    <example>
+      <statement>
+        <p>
+        <md>
+          <mrow>b^3 \cdot b^2 = (bbb) \cdot (bb) = b^5 = b^{3+2}</mrow>
+          <mrow>(b^2)^3 = (bb)(bb)(bb) = b^{2 \cdot 3}</mrow>
+          <mrow>(ab)^3 = (ab)(ab)(ab) = (aaa)(bbb) = a^3 b^3</mrow>
+        </md> 
+        </p>
+      </statement>
+    </example>
+    <p>
+      The quotient properties for integer powers result from simplifying fractions,
+      canceling common factors when possible.
+    </p>
+    <example>
+      <statement>
+        <p>
+        <md>
+          <mrow> \frac{b^6}{b^2} = \frac{(bb)(bbbb)}{bb} = bbbb = b^{6-2}</mrow>
+          <mrow> \left(\frac{b}{c}\right)^3 = \frac{b}{c} \cdot \frac{b}{c} \cdot \frac{b}{c} = \frac{b^3}{c^3}</mrow>
+        </md>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The zero power property is necessary for the power of a sum rule to remain consistent.
+      We know that <m>b^{x+0}=b^x</m>.
+      But the properties of powers also mean <m>b^{x+0} = b^x \cdot b^0</m>.
+      For these to both be true requires <m>b^x = b^x \cdot b^0</m> or that <m>b^0 = 1</m>.
+    </p>
+    <p>
+      Addition and powers have no convenient properties.
+      Many mistakes occur when students forget this and imagine that powers distribute like multiplication.
+      (It doesn't!)
+    </p>
+    <example>
+      <p>
+        To illustrate that <m>(a+b)^2 \ne a^2+b^2</m>, consider the numbers <m>a=2</m> and <m>b=3</m>.
+        The first expression gives <me>(a+b)^2 = (2+3)^2 = 5^2 = 25</me> 
+        while the second expression gives <me>a^2+b^2=2^2+3^2=4+9=13.</me> 
+        The proper way to expand the first expression is to think of the power 
+        as repeated multiplication and apply the distributive property.
+        This is often called the <c>FOIL</c> method: 
+        <me>(a+b)^2=(a+b)(a+b)=a^2+2ab+b^2</me>.
+      </p>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exponential and Power Functions</title>
+    <p>
+      A geometric sequence <m>x</m> with a constant multiple <m>\rho</m> and a given initial value <m>x_k</m>
+      has an explicit formula <me>x_n = x_k \cdot \rho^{n-k}</me>.
+      Applying the properties of powers, this can be rewritten
+      <me>x_n = x_k \cdot \frac{\rho^n}{\rho^k} = \frac{x_k}{\rho^k} \cdot \rho^n.</me>
+      Notice that the independent variable, the index <m>n</m>, appears in the power of the expression <m>\rho^n</m>.
+      The other expression <m>\displaystyle \frac{x_k}{\rho^k}</m> depends only on the initial value.
+      That is, every geometric sequence <m>x</m> can be written in the form
+      <me> x_n = A \cdot \rho^n </me>
+      where <m>A</m> is a constant that depends on the initial value.
+      We call such a function an <term>exponential function</term>.
+    </p>
+    <definition xml:id="definition-exponential-function">
+      <title>Exponential Function</title>
+      <statement>
+        <p>
+          An <term>exponential function</term> with <term>base</term> <m>b \gt 0</m> and independent variable <m>t</m>
+          is a function of the form <me>f(t) = A \cdot b^t</me>, where <m>A</m> is a constant.
+        </p>
+        <p>
+          When the constant <m>A=1</m>, we call the function an <term>elementary exponential function</term>
+          and write <me>\exp_b(t) = b^t</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The distinguishing feature of an exponential function is that the base is a constant and the independent variable is the exponent.
+      When the base of a power is the independent variable and the exponent is constant, we have a power function.
+    </p>
+    <definition xml:id="definition-power-function">
+      <title>Power Function</title>
+      <statement>
+        <p>
+          A <term>power function</term> with <term>power</term> <m>p</m> and independent variable <m>t</m>
+          is a function of the form <me>f(t) = A \cdot t^k</me>, where <m>A</m> is a constant.
+        </p>
+        <p>
+          When the constant <m>A=1</m>, we call the function an <term>elementary power function</term>
+          and write <me>\mathrm{pow}_p(t) = t^p</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Where exponential functions naturally arise in geometric sequences,
+      power functions often appear in scaling relations.
+      The elementary power with <m>p=2</m> is called the square, <m>\mathrm{pow}_2(x)=x^2</m>,
+      because it is the function that maps from the length of the side <m>L</m> to the area <m>A</m> of a square,
+      <me>\mathrm{pow}_2 : L \mapsto A = L^2</me>.
+      The elementary power with <m>p=3</m> is called the cube, <m>\mathrm{pow}_3(x)=x^3</m>,
+      because it is the function that maps from the length of the side <m>L</m> to the volume <m>V</m> of a cube,
+      <me>\mathrm{pow}_3 : L \mapsto V = L^3</me>.
+    </p>
+    <p>
+      For other geometric shapes, the scaling relations involve an additional constant multiple.
+      The area of a circle, for example, is a power function of radius with <m>p=2</m> but with a constant multiple <m>\pi</m>,
+      <me>r \mapsto A = \pi r^2</me>.
+      The volume of a sphere is also a power function of radius with <m>p=3</m>,
+      <me>r \mapsto V = \frac{4\pi}{3} r^3</me>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Inverse Functions</title>
+    <p>
+      When we think of a function as a map between variables, say <m>f : A \mapsto C</m>,
+      we think of <m>f</m> as the rule that goes from an input value on the <m>A</m> number line
+      to a corresponding predicted output value on the <m>C</m> number line.
+      An <term>inverse function</term> would be a rule that goes in the reverse direction, <m>C \mapsto A</m>.
+      A function and its inverse function allow us to go back and forth between the two variables in either direction.
+    </p>
+    <definition xml:id="definition-inverse-as-reverse-map">
+      <statement>
+        <p>
+          A function representing a map <m>f : A \mapsto C</m> has an <term>inverse function</term>,
+          which we write <m>f^{-1} : C \mapsto A</m>,
+          if the equation <m>f(a)=c</m> is equivalent to <m>f^{-1}(c)=a</m> for every state <m>(A,C)=(a,c)</m>.
+          <fn xml:id="footnote-inverse-as-reverse-map-domain">
+          This condition on the state will correspond to a requirement on the domain and range of a function and its inverse.
+          </fn>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We first illustrate the idea of an inverse function with a function defined by a simple map and no formula.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Imagine a theater that has a promotional wheel so that the price of a ticket is based on which number you spin.
+          The prices are listed in the table below.
+        </p>
+        <sidebyside>
+          <tabular>
+            <row below="major">
+              <cell>Spin</cell><cell>Price</cell>
+            </row>
+            <row>
+              <cell>1</cell><cell><dollar/>2</cell>
+            </row>
+            <row>
+              <cell>2</cell><cell><dollar/>5</cell>
+            </row>
+            <row>
+              <cell>3</cell><cell><dollar/>8</cell>
+            </row>
+            <row>
+              <cell>4</cell><cell><dollar/>10</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          We introduce variables for the system.
+          Let <m>S</m> represent the result of the spin and let <m>P</m> represent the price of a ticket.
+          The map <m>f : S \mapsto P</m> can be visualized using number lines.
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}[x=0.5cm]
+              \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
+              \foreach \x in {1, 2, 3, 4} {
+                  \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
+                  \fill ({2*\x-3},0) circle [radius=2pt];
+              }
+              \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
+              \foreach \x in {2, 5, 8, 10} {
+                  \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                  \fill (\x,-2) circle [radius=2pt];
+              }
+              \draw [->] (-1,-0.8) -- (2, -1.8);
+              \draw [->] (1,-0.8) -- (5, -1.8);
+              \draw [->] (3,-0.8) -- (8, -1.8);
+              \draw [->] (5,-0.8) -- (10, -1.8);
+              \draw [->] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f$};
+              \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          The inverse map <m>f^{-1} : P \mapsto S</m> reverses the direction of the arrows.
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}[x=0.5cm]
+              \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
+              \foreach \x in {1, 2, 3, 4} {
+                  \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
+                  \fill ({2*\x-3},0) circle [radius=2pt];
+              }
+              \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
+              \foreach \x in {2, 5, 8, 10} {
+                  \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                  \fill (\x,-2) circle [radius=2pt];
+              }
+              \draw [<-] (-1,-0.8) -- (2, -1.8);
+              \draw [<-] (1,-0.8) -- (5, -1.8);
+              \draw [<-] (3,-0.8) -- (8, -1.8);
+              \draw [<-] (5,-0.8) -- (10, -1.8);
+              \draw [<-] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f^{-1}$};
+              \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          Based on this system, we see that <m>f(1)=2</m> because when <m>S=1</m> we have <m>P=2</m>.
+          The equivalent inverse equation is <m>f^{-1}(2)=1</m> because a price <m>P=2</m> comes from <m>S=1</m>.
+          Similarly, <m>f(2)=5</m> and <m>f^{-1}(5)=2</m> are equivalent.
+          Because the system is defined by the table and not formula, <m>f(5)</m> and <m>f^{-1}(3)</m> each have no meaning.
+          In the first case, <m>f(5)</m> has no meaning because <m>S=5</m> is not a possibile spin.
+          In the second case, <m>f^{-1}(3)</m> has no meaning because <m>P=3</m> is not a possible ticket price.
+        </p>
+      </statement>
+    </example>
+    <p>
+      You might have realized a possible problem.
+      What happens if two input values map to the same output value?
+      We wouldn't know which arrow to follow for the reverse mapping.
+      A function that guarantees that different input values always have different output values is called <term>one-to-one</term>.
+      A function that is <em>not</em> one-to-one has at least one value that is the output to two or more different input values.
+    </p>
+    <theorem xml:id="theorem-invertible-one-to-one">
+      <statement>
+        <p>
+          If a function <m>f : A \mapsto C</m> is one-to-one, then the inverse <m>f^{-1}: C \mapsto A</m> is also a function.
+          If <m>f</m> is not one-to-one, then the inverse relation is not a function.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      When an algebraic equation defines the relation between the variables, we can attempt to solve the equation for either of the variables.
+      If both variables can successfully be written as dependent variables, the corresponding formulas define the inverse functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A rope of length 100 centimeters is cut into exactly five pieces
+          Two of the pieces are of one length, and the other three pieces are of another length.
+          Let <m>d</m> be the length of the ropes in the group of two.
+          Let <m>t</m> be the length of the ropes in the group of three.
+        </p>
+        <p>
+          Find the functions <m>f : d \mapsto t</m> and <m>g : t \mapsto d</m>.
+          Interpret the meaning of <m>f(10)</m> and <m>g(10)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by finding an equation relating <m>d</m> and <m>t</m>.
+          The total length of the five pieces of rope added together must equal the original length of rope.
+          This results in an equation
+          <me>2d + 3t = 100</me>.
+        </p>
+        <p>
+          With this equation, we can solve for each of the state variables in turn.
+          Solving for <m>d</m>, we subtract <m>3t</m> and divide by <m>2</m>:
+          <me>d = \frac{100-3t}{2}</me>.
+          Solving for <m>t</m>, we subtract <m>2d</m> and divide by <m>3</m>:
+          <me>t = \frac{100-2d}{3}</me>.
+        </p>
+        <p>
+          The function <m>f</m> was defined as the map <m>d \mapsto t</m>,
+          so we use the equation with <m>t</m> as the dependent variable,
+          <me>t = f(d) = \frac{100-2d}{3}</me>.
+          We can find and interpret <m>f(10)</m>.
+          With <m>10</m> as an input, we find <m>f(10) = \frac{100-2(10)}{3} = \frac{80}{3} = 26 \frac{2}{3}</m>.
+          To interpret this, we recall that the input represents a value for <m>d</m>.
+          The equation represents the state <m>d=10</m> and <m>t=26 \frac{2}{3}</m>
+          If the group of two has length 10 centimeters, then the group of three has length <m>26 \frac{2}{3}</m> centimeters.
+        </p>
+        <p>
+          The function <m>g</m> was defined as the map <m>t \mapsto d</m>,
+          so we now use the equation with <m>d</m> as the dependent variable,
+          <me>d = g(t) = \frac{100-3t}{2}</me>.
+          With <m>t=10</m> as an input, we find <m>g(10) = \frac{100-3(10)}{2} = \frac{70}{2} = 35</m>.
+          The function tells us that <m>d=35</m> when <m>t=10</m>.
+          The group of two has length 35 centimeters whenever the group of three has length <m>10</m> centimeters.
+        </p>
+        <p>
+          The functions <m>f</m> and <m>g</m> are inverse functions to each other.
+          If we used a placeholder variable instead of the state variables,
+          we would write
+          <me>f(x) = \frac{100-2x}{3}</me>
+          with its inverse function
+          <me>f^{-1}(x) = g(x) = \frac{100-3x}{2}</me>.
+          Similarly, <m>g^{-1}(x) = f(x)</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Roots and Logarithms</title>
+    <p>
+      Power and exponential functions have corresponding inverse functions.
+      A root provides the inverse operation to an integer power.
+      A logarithm provides the inverse operation to an exponential.
+    </p>
+    <definition xml:id="definition-root-as-function">
+      <statement>
+        <p>
+          For an integer <m>n \gt 1</m>, the <m>n</m>th root <m>y=\sqrt[n]{x}</m> is the value such that <m>y^n=x</m>.
+          If <m>n</m>is even, we require <m>x \ge 0</m> and <m>y \ge 0</m>.
+          If <m>n</m> is odd, there is no restriction.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      For even values <m>n</m> and <m>x \gt 0</m>, the equation <m>y^n=x</m> has two solutions, 
+      <m>y = \pm \sqrt[n]{x}</m>, 
+      because multiplying an even number of negative values is positive, <m>(-1)^n=1</m>.
+      There are no real solutions to <m>y^n=x</m> when <m>x \lt 0</m> for an even power <m>n</m>.
+    </p>
+    <p>
+      A root can be written as a fractional power.
+      The properties of exponents imply that <m>(x^p)^n = x^{pn}</m>.
+      If <m>p=\frac{1}{n}</m>, then <m>(x^{\frac{1}{n}})^n = x</m>.
+      That is, <m>x^{\frac{1}{n}} = \sqrt[n]{x}</m>.
+      This equivalence means that for any rational number <m>p=\frac{k}{n}</m>, 
+      the power <m>x^p</m> can be computed using integer powers (repeated multiplication) and extracting roots: 
+      <me>x^{\frac{k}{n}} = (\sqrt[n]{x})^k</me>.
+    </p>
+    <definition xml:id="logarithm-function">
+      <statement>
+        <p>
+        For any base <m>b</m> with <m>b \gt 0</m> and <m>b \ne 1</m>, 
+        the elementary exponential <m>\exp_b(x)=b^x</m> has an inverse function, <m>\log_b(x)</m>, 
+        which is called the logarithm of base <m>b</m>.
+        The value <m>y=\log_b(x)</m> is defined for <m>x \gt 0</m> as that value <m>y</m> 
+        such that <m>b^y = x</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Notice that both roots and logarithms are defined through the equation that they solve.
+      We will often convert equations using these inverses to simplify our work.
+      Inverse functions can be used in balanced operations to create equivalent equations
+      in order to remove the operations they undo from one side of the equation.
+    </p>
+    <example>
+      <statement>
+        <p>
+        Solve <m>\sqrt[3]{x}=2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        The equation <m>\sqrt[3]{x} = 2</m> has an isolated cube root on the left.
+        The inverse operation is cubing, so we get an equivalent equation by cubing both sides.
+        <md>
+          <mrow>\sqrt[3]{x}=2</mrow>
+          <mrow>(\sqrt[3]{x})^3 = 2^3</mrow>
+          <mrow>x=2^3</mrow>
+        </md> The solution is <m>x=8</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+        Solve <m>x^4=4</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        The equation <m>x^4 = 4</m> has an isolated integer power on the left.
+        The inverse operation is a fourth root.
+        Because the power is even, there are two solutions.
+        <md>
+          <mrow>x^4=4</mrow>
+          <mrow>\sqrt[4]{x^4} = \sqrt[4]{4}</mrow>
+          <mrow>x = \pm \sqrt[4]{4}</mrow>
+        </md> 
+        Because <m>4=2^2</m>, we could rewrite this as 
+        <me>x = \pm(2^2)^{\frac{1}{4}} = \pm 2^{\frac{2}{4}} = \pm 2^{\frac{1}{2}} = \pm \sqrt{2}</me>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+       Solve <m>\log_3(x)=2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        The equation <m>\log_3(x)=2</m> has an isolated logarithm.
+        The inverse operation is an exponential with the same base <m>b=3</m>.
+        An equivalent equation is formed by applying this exponential to both sides of the equation. 
+        <md>
+          <mrow>\log_3(x)=2</mrow>
+          <mrow>\exp_3(\log_3(x)) = \exp_3(2) = 3^2</mrow>
+          <mrow>x = 9</mrow>
+        </md> 
+        This is saying that the equation <m>\log_3(9)=2</m> is equivalent to <m>3^2=9</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+        Solve <m>4^x=8</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        The equation <m>4^x=8</m> has an isolated exponential.
+        The inverse operation is a logarithm with the same base <m>b=4</m>.
+        <md>
+          <mrow>4^x=8</mrow>
+          <mrow>\log_4(\exp_4(x)) = \log_4(8)</mrow>
+          <mrow>x = \log_4(8)</mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
+    <p>
+      We will learn techniques for simplifying logarithms later.
+      Most scientific calculators only have logarithms for base <m>b=10</m> and for base <m>b=e</m>.
+      The logarithm for <m>b=10</m> is called the common logarithm
+      and appears on a calculator with out a base <c>log</c>.
+      The logarithm for <m>b=e</m> is called the natural logarithm
+      and appears on a calculator as <c>ln</c>.
+      We will later prove that every logarithm can be found using one of these 
+      by the <xref text="title" ref="logarithm-change-base">change of base formula</xref> 
+      <me> \log_b(x) = \frac{\log(x)}{\log(b)} = \frac{\ln(x)}{\ln(b)}</me>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Inverse Questions for Sequences</title>
+    <p>
+      In our discussions about sequences, we introduced two maps.
+      The first was in relation to an explicit definition of a sequence, 
+      where we mapped from the index to the sequence value, <m>n \mapsto x_n</m>.
+      The second was in relation to a recursive definition of a sequence by a projection function, <m>x_{n} \mapsto x_{n+1}</m>.
+      The inverse map for these functions can help answer interesting questions for sequences.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose you start with one cent.
+          Each day your money doubles.
+          When will you have a million dollars?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by identifying our sequence.
+          We might choose the name <m>W</m> for our sequence to represent our wealth.
+          Because the sequence doubles each day, our index <m>n</m> will represent the day
+          and the sequence has recursive equation <m>W_{n+1} = 2 W_n</m>.
+          This means our sequence is a geometric sequence.
+          The initial value is <m>W_1 = 0.01</m> (dollars).
+          We can then write down the explicit formula using <xref ref="theorem-geometric-explicit-sequence"/>,
+          <me>W_n = 0.01 \cdot 2^{(n-1)}</me>.
+          The properties of exponents allow us to rewrite this as an equivalent expression
+          <me>W_n = 0.01 \cdot \frac{2^n}{2^1} = 0.005 \cdot 2^n</me>.
+        </p>
+        <p>
+          The question is when the value of our wealth is a million dollars.
+          That is, we want to know the day <m>n</m> when <m>W_n = 1000000</m>.
+          This is an inverse function question.
+          To answer a single question like this, we do not need to know the actual function.
+          We can just solve for <m>n</m>, using balanced operations until <m>n</m> is isolated.
+          <md>
+            <mrow>W_n = 0.005 \cdot 2^n</mrow>
+            <mrow>0.005 \cdot 2^n = 10^6</mrow>
+            <mrow>2^n=\frac{10^6}{0.005}</mrow>
+            <mrow>2^n = 2 \times 10^8</mrow>
+          </md>
+          On the left, we have an elementary exponential with base <m>b=2</m>.
+          To isolate <m>n</m>, we need to use the logarithm with base <m>b=2</m>.
+          <md>
+            <mrow>\log_2( 2^n) = \log_2( 2 \times 10^8 ) </mrow>
+            <mrow>n = \log_2( 2 \times 10^8 ) </mrow>
+          </md>
+          Using the change of base rule for logarithms, we can use a calculator to identify the value.
+          <me>n = \frac{\log(2 \times 10^8)}{\log(2)} \approx 27.5754</me>
+        </p>
+        <p>
+          We try to interpret the result.
+          The value <m>n \approx 27.5754</m> is not possible an index, which must be an integer.
+          That means that our wealth is never exactly a million dollars.
+          We need to reinterpret the question as saying when we first <em>exceed</em> a million dollars.
+          Because our solution is between <m>n=27</m> and <m>n=28</m> and the value doubles each day,
+          we can see that day <m>n=27</m> will be the last day we have a wealth below a million dollars
+          and that day <m>n=28</m> will be the first day when our wealth is above a million dollars.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          A population of insects is tracked weekly and found to follow a recursive model.
+          We let <m>P</m> be the sequence of population measurements with an index <m>n</m> counting the number of weeks.
+          The insect population follows the recurrence relation
+          <me>P_{n+1} = 1.5 P_n - 100</me>
+          with a value of <m>P_0 = 5000</m>, the population recorded for the first week of observation.
+          What was the population two weeks before observations began?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The recurrence relation shows that <m>P</m> is not arithmetic nor is it geometric.
+          We do not yet know how to find an explicit formula.
+          However, we do know the projection function <m>f : P_n \mapsto P_{n+1}</m>.
+          The inverse of the projection function would reverse the direction of projection,
+          allowing us to determine the preceding value of the sequence instead of the subsequent value.
+        </p>
+        <p>
+          We find the inverse function (the reverse projection function) by solving the recurrent relation for <m>P_n</m>.
+          <md>
+            <mrow>P_{n+1} = 1.5 P_n - 100</mrow>
+            <mrow>P_{n+1} + 100 = 1.5 P_n = \frac{3}{2} P_n</mrow>
+            <mrow>\frac{2}{3}(P_{n+1} + 100) = P_n</mrow>
+          </md>
+          Consequently, the inverse projection function is <m>f^{-1}(x) = \frac{2}{3}(x+100)</m>.
+        </p>
+        <p>
+          With the inverse projection function, we can work the sequence backwards from the initial value.
+          Starting with <m>P_0 = 5000</m>, we find
+          <md>
+            <mrow>P_{-1} = f^{-1}(5000) = \frac{2}{3}(5000+100) = 3400</mrow>
+            <mrow>P_{-2} = f^{-1}(3400) = \frac{2}{3}(3400+100) = \frac{7000}{3}</mrow>
+          </md>
+          The exact value from our model is approximately <m>P_{-2} \approx 2333.33</m>.
+          Even though a population has integer values and this prediction is definitely not an integer,
+          we would report our model value unless we had information on how many significant digits to keep.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          A chemical reaction is tracked with concentrations measured every five minutes.
+          The concentration of one reactant is predicted to follow an exponential decay.
+          Let <m>R</m> be the concentration of that reactant in moles per liter as a function of time <m>t</m> in minutes.
+          When <m>t=0</m>, the concentration was <m>R=2.5</m>.
+          When <m>t=5</m>, the concentration was <m>R=2.1</m>.
+          At what time will the concentration be <m>R=1.0</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This question is a bit more challenging as it will involve several stages.
+          We begin by looking at the question.
+          We want to find the time <m>t</m> knowing the concentration <m>R</m>.
+          That is, we would like to apply a map <m>R \mapsto t</m> which would be the inverse of <m>t \mapsto R</m>.
+          To find our answer, we will first need to write <m>R</m> as a dependent variable with <m>t</m> as the independent variable.
+        </p>
+        <p>
+          Next, we look at the given information to see what it says about the relation <m>f: t \mapsto R</m>.
+          Because the problem states that the reactant follows exponential decay,
+          we interpret this as telling us that <m>R = f(t)</m> is an exponential function.
+          The general exponential function has the form
+          <me>f(t) = A \cdot b^{t}</me>
+          where <m>A</m> and <m>b</m> are the model parameters (constants).
+        </p>
+        <p>
+          We use the given information to determine the values of <m>A</m> and <m>b</m>.
+          Each state will give us an equation that can be used to constrain the values of the parameters.
+          The state <m>(t,R) = (0,2.5)</m> corresponds to the equation <m>f(0) = 2.5</m>.
+          The exponential function applied to this equation gives
+          <me>f(0) = A \cdot b^0 = A \qquad \Rightarrow \qquad A = 2.5</me>.
+          The state <m>(t,R) = (5,2.1)</m> corresponds to the equation <m>f(5)=2.1</m>,
+          which gives an equation
+          <me>f(5) = A \cdot b^5 \qquad \Rightarrow \qquad A \cdot b^5 = 2.1</me>.
+          Substituting <m>A=2.5</m> into the second equation, we can then solve for <m>b</m>.
+          <md>
+            <mrow>2.5 \cdot b^5 = 2.1</mrow>
+            <mrow>b^5 = \frac{2.1}{2.5} = 0.84</mrow>
+          </md>
+          The inverse operation of a power <m>p=5</m> is a fifth-root or a power <m>p=\frac{1}{5}</m>.
+          <me>b = \sqrt[5]{0.84} = 0.84^{1/5} \approx 0.96573</me>
+          We will use the exact value.
+        </p>
+        <p>
+          Knowing <m>A=2.5</m> and <m>b = 0.84^{1/5}</m>, we have our function <m>f : t \mapsto R</m>,
+          <me>R = f(t) = 2.5 \cdot (0.84^{1/5})^{t} = 2.5 \cdot 0.84^{t/5}.</me>
+          The inverse function <m>f^{-1} : R \mapsto t</m> can be used to take a concentration and report back a time.
+          We need to solve the equation for <m>t</m> as the dependent variable.
+          When choosing what operation to apply an inverse, we first need to isolate the exponential.
+          <md>
+            <mrow>R = 2.5 \cdot 0.84^{t/5}</mrow>
+            <mrow>\frac{R}{2.5} = 0.84^{t/5}</mrow>
+          </md>
+          We now have an exponential with base <m>b=0.84</m> on the right.
+          The balanced inverse operation would be to use a logarithm with <m>b=0.84</m> on both sides.
+          <md>
+            <mrow>\log_{0.84}(\frac{R}{2.5}) = \frac{t}{5}</mrow>
+            <mrow>5 \log_{0.84}(\frac{R}{2.5}) = t</mrow>
+          </md>
+          We finish by using the change of base formula for logarithms:
+          <me>t = 5 \cdot \frac{\log(R/2.5)}{\log(0.84)}</me>.
+        </p>
+        <p>
+          To answer the question, we use the inverse relation with <m>R=1.0</m> and compute <m>t</m>.
+          <md>
+            <mrow>t &amp;= 5 \cdot \frac{\log(1.0/2.5)}{\log(0.84)}</mrow>
+            <mrow>&amp;= 5 \cdot \frac{\log(0.4)}{\log(0.84)}</mrow>
+            <mrow>&amp;\approx 26.277</mrow>
+          </md>
+          The concentration will be <m>R=1.0</m> approximately 26.277 minutes after the experiment begins.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+    <ul>
+      <li>
+        Properties of exponents are motivated by the idea that integer powers correspond to repeated multiplication.
+      </li>
+      <li>
+        Exponential functions (exponential growth or exponential decay) have the form <m>f(x) = A \cdot b^x</m>, with the independent variable in the exponent.
+      </li>
+      <li>
+        Power functions have the form <m>f(x) = A \cdot x^p</m>, with the independent variable as the base of the power.
+      </li>
+      <li>
+        The inverse for a function <m>f : A \mapsto C</m> is a function <m>f^{-1} : C \mapsto A</m>.
+        This requires that <m>f</m> is one-to-one, so that different inputs always result in different outputs.
+      </li>
+      <li>
+        We use inverse functions to solve equations by creating equivalent equations that eliminate a function from one side:
+        <me>f(x) = y \qquad \Leftrightarrow \qquad x = f^{-1}(y).</me>
+      </li>
+      <li>
+        Roots, such as the square root or cube root, are inverse functions for elementary power functions:
+        <me>x^n = y \qquad \Leftrightarrow \qquad x = \sqrt[n]{y}</me>.
+        When <m>n</m> is an even integer, we require <m>x \ge 0</m> and <m>y \ge 0</m>.
+      </li>
+      <li>
+        Roots can be written as reciprocal powers:
+        <me>\sqrt[n]{x} = x^{1/n}</me>.
+      </li>
+      <li>
+        Logarithms are inverse functions for elementary exponential functions, defined for every base <m>b \gt 0</m> and <m>b \ne 1</m>:
+        <me>b^x = y \qquad \Leftrightarrow \qquad x = \log_b(y)</me>.
+      </li>
+      <li>
+        The change of base rule allows us to find decimal approximations for any base using the common or natural logarithm:
+        <me>\log_b(x) = \frac{\log(x)}{\log(b)} = \frac{\ln(x)}{\ln(b)}</me>.
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Identify a property of exponents to rewrite an equivalent expression.
+          Note that each property can be applied in either direction.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>3^{x+2}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>(2x)^{3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>2^x \cdot 3^x</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{x^3}{4^3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{3^u}{3^4}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle 2^{3x}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        In each problem, a relation between two variables is defined by a table of data.
+        Illustrate the relations using arrows between two number lines.
+        In which direction does the relation define a map corresponding to a function?
+        Does that function have an inverse function?
+        Explain why or why not.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <sidebyside>
+            <tabular>
+              <row bottom="major">
+                <cell><m>A</m></cell><cell><m>C</m></cell>
+              </row>
+              <row>
+                <cell>0</cell><cell>5</cell>
+              </row>
+              <row>
+                <cell>1</cell><cell>8</cell>
+              </row>
+              <row>
+                <cell>2</cell><cell>9</cell>
+              </row>
+              <row>
+                <cell>3</cell><cell>8</cell>
+              </row>
+              <row>
+                <cell>4</cell><cell>11</cell>
+              </row>
+            </tabular>
+          </sidebyside>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <sidebyside>
+            <tabular>
+              <row bottom="major">
+                <cell><m>x</m></cell><cell><m>E</m></cell>
+              </row>
+              <row>
+                <cell>0</cell><cell>1</cell>
+              </row>
+              <row>
+                <cell>1</cell><cell>2</cell>
+              </row>
+              <row>
+                <cell>2</cell><cell>4</cell>
+              </row>
+              <row>
+                <cell>3</cell><cell>8</cell>
+              </row>
+              <row>
+                <cell>4</cell><cell>16</cell>
+              </row>
+            </tabular>
+          </sidebyside>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <sidebyside>
+            <tabular>
+              <row bottom="major">
+                <cell><m>t</m></cell><cell><m>Q</m></cell>
+              </row>
+              <row>
+                <cell>0</cell><cell>8</cell>
+              </row>
+              <row>
+                <cell>1</cell><cell>5</cell>
+              </row>
+              <row>
+                <cell>2</cell><cell>2</cell>
+              </row>
+              <row>
+                <cell>0</cell><cell>-1</cell>
+              </row>
+              <row>
+                <cell>1</cell><cell>-4</cell>
+              </row>
+              <row>
+                <cell>2</cell><cell>-7</cell>
+              </row>
+            </tabular>
+          </sidebyside>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        For each equation defining a relation between two variables, find the pair of inverse functions.
+        Identify each function as a map, showing clearly the input and output variables.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>4x-5y=2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>2L+2W=20</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>2rs - 6 = 4r - 3s</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>P=20 \cdot 2^{t/8}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        Solve the equations.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>3x^2 - x^6 = 0</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>4 \cdot x^5 = 3</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>4 \cdot 5^x = 3</m>, writing solutions in terms of the natural logarithm <c>ln</c>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>2 \cdot 3^{-x} = 3 \cdot 2^{x}</m>, writing solutions in terms of the natural logarithm <c>ln</c>.
+          Hint: Find an equivalent equation with a single exponential after using properties of exponents.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Applications.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            Temperature can be measured in degrees Celsius and degrees Fahrenheit.
+            Let <m>C</m> be the temperature measured in degrees Celsius,
+            and let <m>F</m> be the temperature measured in degrees Fahrenheit.
+            Under standard conditions, water freezes at the state <m>(C,F) = (0,32)</m>
+            and boils at the state <m>(C,F)=(100,212)</m>.
+            The relation between <m>F</m> and <m>C</m> is a linear relation.
+          </p>
+          <p>
+            Answer the following questions.
+            <ol>
+              <li>
+                Explain what the states <m>(C,F)=(0,32)</m> and <m>(C,F)=(100,212)</m> means in terms of individual variables.
+              </li>
+              <li>
+                Show that both given states satisfy the equation <m>5F-9C=160</m>.
+              </li>
+              <li>
+                Find explicit functions <m>g : F \mapsto C</m> and
+                <m>h : C \mapsto F</m>.
+              </li>
+              <li>
+                Compute <m>g(45)</m>.
+                What does this calculation represent?
+              </li>
+              <li>
+                Compute <m>h(45)</m>.
+                What does this calculation represent?
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          Find an exponential model <m>y=A \cdot b^x</m> satisfying the states <m>(x,y)=(0,3)</m> and <m>(x,y)=(5,9)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          Find an exponential model <m>y=A \cdot b^x</m> satisfying the states <m>(x,y)=(1,3)</m> and <m>(x,y)=(4,6)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          Radioactive masses decay according to an exponential function of time.
+          The isotope of plutonium Pu-239 has a half-life of 24,110 years,
+          which is the time after which half of the mass has decayed.
+          For an initial mass of 1 kg, how much plutonium remains after 100 years? 
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          An exponentially growing population that doubles in size every 5 years currently has 1000 individuals.
+          <ol>
+            <li>What will the population be in 4 years?</li>
+            <li>How long does it take for the population to triple?</li>
+          </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
+</section>

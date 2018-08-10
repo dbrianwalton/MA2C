@@ -653,10 +653,10 @@
     we first need to understand that some sequences grow without bound, 
     which is written <m>x_n \to \infty</m> when the sequence grows in a positive direction 
     or <m>x_n \to -\infty</m> when the sequence grows in a negative direction. 
-    Arithmetic sequences with increments <m>c \ne 0</m> 
-    (recall <xref ref="thm-arithmetic-sequence-recursion"/>) 
-    must either steadily increase (<m>c \gt 0</m>) or steadily decrease (<m>c \lt 0</m>). 
-    The special case that <m>c=0</m> is somewhat boring, 
+    Arithmetic sequences with increments <m>\beta \ne 0</m> 
+    (recall <xref ref="theorem-arithmetic-explicit-sequence"/>) 
+    must either steadily increase (<m>\beta \gt 0</m>) or steadily decrease (<m>\beta \lt 0</m>). 
+    The special case that <m>\beta=0</m> is somewhat boring, 
     as this corresponds to a constant sequence so that the limit is just the constant value.
     </p>
     
@@ -678,7 +678,7 @@
     
     <p>
     Geometric sequences are a little more complicated, depending on the ratio <m>\rho</m> 
-    (recall <xref ref="thm-geometric-sequence-recursion"/>) and the initial value. 
+    (recall <xref ref="theorem-geometric-explicit-sequence"/>) and the initial value. 
     Repeated multiplication by a number whose magnitude is larger than 1 
     makes the resulting magnitude increase without bound. 
     Repeated multiplication by a number whose magnitude is smaller than 1 

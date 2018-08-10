@@ -22,8 +22,9 @@
     <p>
       In this section, we consider recursively defined sequences.
       Arithmetic and geometric sequences are two familiar examples of sequences with recursive definitions.
+      We review some basic ideas about functions.
       We will learn about projection functions used in such recursive definitions.
-      We also review the basic ideas of function notation and inverse functions.
+      We visualize the role of projection functions as maps between sequence values and through cobweb diagrams.
     </p>
   </introduction>
   <subsection>
@@ -39,14 +40,14 @@
       For example, consider the sequence introduced above, <me>x = (7, 10, 13, 16, \ldots).</me>
       The pattern for this sequence was that we add 3 to each term in the sequence to find the next term.
       The value 3 is called the <term>increment</term> or <term>difference</term> of the sequence.
-      It is called the increment because there is a pattern
+      It is called the increment because there is a pattern of adding the same value to values in the sequence:
       <md>
         <mrow>x_2=x_1 + 3 = 7+3,</mrow>
         <mrow>x_3 = x_2 + 3 = 10+3,</mrow>
         <mrow>x_4=x_3+3 = 13+3,</mrow>
         <mrow>\vdots</mrow>
       </md>
-      It is called the difference because each of those equations can be rewritten as a difference of values
+      It is called the difference because each of those equations can be rewritten as a difference of values:
       <md>
         <mrow>x_2-x_1 = 3,</mrow>
         <mrow>x_3 - x_2 = 3,</mrow>
@@ -128,7 +129,7 @@
             <me>y = -\frac{2}{5}x + 2,</me>
             the equation defines a function <m>x \mapsto y</m>.
             We can choose any name for this function (other than the symbols <m>x</m> or <m>y</m>, obviously).
-            We might want to use the name <m>P</m> and write this as a map
+            We might choose to use the name <m>P</m> and write this as a map
             <me>P : x \mapsto y = -\frac{2}{5}x+2</me>.
             Using the usual function notation, we would instead write
             <me>y = P(x) = -\frac{2}{5}x+2</me>.
@@ -401,7 +402,7 @@
             <latex-image>
             <![CDATA[\tikzset{%
             }
-            \begin{tikzpicture}[x=1.5cm]
+            \begin{tikzpicture}[x=2cm]
             \draw [<->] (-3.5,0) -- (0.5,0) node [right] {$u_n$};
             \draw [<->] (-3.5,-2) -- (0.5,-2) node [right] {$u_{n+1}$};
             \draw (0.3,-0.1) -- (0.3,0.1) 
@@ -555,7 +556,7 @@
           Now that our <m>x</m>-value is <m>1</m>, we can repeat the process and use the function to find <m>u_2=f(1)=-3</m>,
           drawing a vertical segment down to the point <m>(1,-3)</m> and then a horizontal segment to <m>(-3,-3)</m>.
         </p>
-        <figure width="70%">
+        <sidebyside width="70%">
           <image>
             <latex-image>
             <![CDATA[\tikzset{%
@@ -575,7 +576,7 @@
             \end{tikzpicture}]]>
             </latex-image>
           </image>
-        </figure>
+        </sidebyside>
       </solution>
     </example>
   </subsection>
@@ -621,7 +622,8 @@
           For each sequence that is arithmetic or geometric, 
           (i) state the recursive equation for the sequence, 
           (ii) find the projection function <m>f(x)</m>,
-          and (iii) state an explicit formula for the sequence.
+          (iii) state an explicit formula for the sequence,
+          and (iv) use the explicit formula to find the value with index 20.
         </p>
       </introduction>
       <exercise>

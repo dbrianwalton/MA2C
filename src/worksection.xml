@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./sequences-recursive.xml" />
+            <xi:include href="./logarithm-properties.xml" />
 		</chapter>
 		
     </book>

@@ -121,7 +121,7 @@
     For such a model, the forward difference is also constant, <m>\Delta P_t = \Delta P = B-D</m>.
     The resulting recursive equation becomes <me>P_{t+1}= P_t + \Delta P</me>, 
     which we recognize as an arithmetic sequence with an increment <m>\Delta P</m>.
-    Using <xref ref="theorem-explicit-sequences"/>, 
+    Using <xref ref="theorem-arithmetic-explicit-sequence"/>, 
     we know the explicit formula for this sequence is given by <me>P_t = P_0 + \Delta P \cdot t.</me>
     Such a population either increases linearly (if <m>B \gt D</m>), decreases linearly (if <m>B \lt D</m>),
     or is constant (if <m>B = D</m>).
@@ -211,7 +211,7 @@
     The recursive equation becomes 
     <me>P_{t+1} = P_t + (b-d) P_t = (1+b-d) P_t</me>.
     We recognize this as the equation of a geometric sequence with the ratio <m>\rho = 1+b-d</m>. 
-    Again using <xref ref="theorem-explicit-sequences"/>, 
+    Using <xref ref="theorem-geometric-explicit-sequence"/>, 
     we know the explicit formula for this sequence is given by 
     <me>P_t = P_0 \cdot (1+b-d)^{t}.</me> 
     This form of growth for the sequence is often called <term>Malthusian growth</term>.
@@ -806,7 +806,7 @@
     <mrow>S_0 = 200.</mrow>
     </md> 
     Thus our model is a simple geometric sequence. 
-    We have an explicit solution using <xref ref="theorem-explicit-sequences"/>: 
+    We have an explicit solution using <xref ref="theorem-geometric-explicit-sequence"/>: 
     <me>S_n = 200 \cdot 0.75^n.</me> 
     </p>
     </solution>

@@ -27,18 +27,25 @@
     </chapter>
     
     <chapter xml:id="chapter-sequences">
-    <title>Discrete Dynamic Models</title>
+    <title>Sequences as Models</title>
     
     <xi:include href="./sequences-intro.xml" />
-    <xi:include href="./sequences-recursive.xml" />            
-    <xi:include href="./sequences-modeling.xml" />            
+    <xi:include href="./sequences-recursive.xml" />
+    <xi:include href="./sequences-exponents-logarithms.xml" />
+    <xi:include href="./logarithm-properties.xml" />
+    <xi:include href="./sequences-modeling.xml" />
+    </chapter>
+    
+    <chapter xml:id="chapter-discrete-calculus">
+    <title>Discrete Calculus</title>
+    
     <xi:include href="./sequences-limits.xml" />            
     <xi:include href="./sequences-accumulation.xml" />            
     <xi:include href="./sequences-summation.xml" />            
     </chapter>
     
     <chapter xml:id="chapter-functions">
-    <title>Functions</title>
+    <title>Functions as Continuous Models</title>
     
     <xi:include href="./functions-introduction.xml" />            
     <xi:include href="./functions-construction.xml" />            
@@ -130,11 +137,6 @@
     <section>
     <title>Notation</title>
     <notation-list />
-    </section>
-
-    <section>
-    <title>Solutions to Selected Exercises</title>
-    <solution-list />
     </section>
 
     </backmatter>
