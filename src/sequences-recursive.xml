@@ -150,113 +150,6 @@
           </p>
         </statement>
       </example>
-      <p>
-        The arithmetic and geometric sequences have simple explicit formulas.
-        We use these formulas to illustrate the idea of a sequence as a map from the index to the sequence value.
-      </p>
-      <p>
-        The explicit formula for an arithmetic sequence is a special case of a linear function.
-        The increment of the sequence represents the slope.
-        The initial value gives us a known point.
-        Knowing how many steps away from the given point along with the increment allows us to compute other sequence values.
-      </p>
-      <example>
-        <statement>
-          <p>
-            Find the explicit formula for the arithmetic sequence <m>x=(7,10,13,16,\ldots)</m>.
-            Use the formula to find <m>x_{100}</m>.
-          </p>
-        </statement>
-        <solution>
-          <p>
-            The initial value <m>x_1=7</m> means our function will be a map <m>n \mapsto x_n</m> that takes an input <m>n=1</m> to an output <m>x_1=7</m>.
-            The increment of 3 that appears in the recursive equation <m>x_{n+1} = x_n + 3</m>
-            means that the function increases by 3 for every increment of the index by 1.
-            That is, the slope is <m>m=+3</m>.
-            The value of <m>x_n</m> will equal 7 plus 3 times the number of increments in the index,
-            <me>x_n = 7 + 3(n-1)</me>.
-            We could find an equivalent expression after using the distributive property,
-            <me>x_n = 4 + 3n</me>.
-          </p>
-          <p>
-            Because we now have the function <m>n \mapsto x_n</m>,
-            we can find the value of the sequence for any index using this expression.
-            To find <m>x_{100}</m>, we use <m>n=100</m> and the map <m>n \mapsto x_n</m>,
-            <me>x_{100} = 4 + 3 \cdot 100 = 304</me>.
-          </p>
-        </solution>
-      </example>
-      <p>
-        The following theorem provides the formula for the explicit formula of any arithmetic sequence.
-      </p>
-      <theorem xml:id="theorem-arithmetic-explicit-sequence">
-        <title>Explicit Formula of Arithmetic Sequences</title>
-        <statement>
-          <p>
-            An arithmetic sequence <m>x</m> with an increment <m>\beta</m> so that <m>x_{n+1} = x_n + \beta</m>
-            and with a given initial value <m>x_{k}</m> has an explicit representation <m>n \mapsto x_n</m> given by
-            <me>x_n = x_{k} + \beta \cdot (n - k)</me>.
-          </p>
-        </statement>
-      </theorem>
-      <p>
-        The explicit formula for a geometric sequence is a special case of an exponential function.
-        The multiple for the sequence corresponds to the base of the exponential.
-        An initial value gives us a known point.
-        The formula will count how many increments the index has changed and multiply by the base to that power.
-      </p>
-      <example>
-        <statement>
-          <p>
-            Find the explicit formula for the geometric sequence <m>u=(48,24,12,6,3,\ldots)</m>.
-            Use the formula to find <m>u_{20}</m>.
-          </p>
-        </statement>
-        <solution>
-          <p>
-            The sequence <m>u</m> is geometric because the ratio of the sequence value to its predecessor is always the same.
-            <md>
-              <mrow>\frac{u_2}{u_1} = \frac{24}{48} = \frac{1}{2}</mrow>
-              <mrow>\frac{u_3}{u_2} = \frac{12}{24} = \frac{1}{2}</mrow>
-              <mrow>\frac{u_4}{u_3} = \frac{6}{12} = \frac{1}{2}</mrow>
-              <mrow>\frac{u_5}{u_4} = \frac{3}{6} = \frac{1}{2}</mrow>
-            </md>
-            The recursive formula for the sequence multiplies the previous sequence value by <m>\rho=\frac{1}{2}</m>,
-            <me>u_{n+1} = \frac{1}{2} \cdot u_n</me>.
-            The initial value <m>u_1=48</m> means our function will be a map <m>n \mapsto x_n</m> that takes an input <m>n=1</m> to an output <m>x_1=48</m>.
-          </p>
-          <p>
-            Each time the index is incremented by 1, the value of the sequence is multiplied by <m>\rho=\frac{1}{2}</m>.
-            We can count the number of increments for the index <m>n</m> by the expression <m>n-1</m>.
-            Because repeated multiplication is a power, we obtain an explicit formula
-            <me>u_{n} = u_1 \cdot \rho^{n-1} = 48 \cdot \left( \frac{1}{2} \right)^{n-1}</me>.
-            Using the properties of powers, this is equivalent to
-            <me>u_{n} = \frac{48}{2^{n-1}}.</me>
-          </p>
-          <p>
-            With the function <m>n \mapsto u_n</m>,
-            we can find the value of the sequence for any index using this expression.
-            To find <m>u_{20}</m>, we use <m>n=20</m> and the map <m>n \mapsto u_n</m>,
-            <me>u_{20} = \frac{48}{2^{19}}.</me>
-            If we rewrite <m>48 = 16 \cdot 3 = 2^4 \cdot 3</m> and then simplify the fraction,
-            this is equivalent to
-            <me>u_{20} = \frac{3}{2^{15}} = \frac{3}{32768}.</me>
-          </p>
-        </solution>
-      </example>
-      <p>
-        The general formula for a geometric sequence is provided in the following theorem.
-      </p>
-      <theorem xml:id="theorem-geometric-explicit-sequence">
-        <title>Explicit Formula of Geometric Sequences</title>
-        <statement>
-          <p>
-            A geometric sequence <m>x</m> with a multiple <m>\rho</m> so that <m>x_{n+1} = \rho \cdot x_n</m>
-            and with a given initial value <m>x_{k}</m> has an explicit representation <m>n \mapsto x_n</m> given by
-            <me>x_n = x_{k}\cdot \rho^{(n - k)}</me>.
-          </p>
-        </statement>
-      </theorem>
   </subsection>
   <subsection>
     <title>Projection Functions</title>
@@ -265,7 +158,7 @@
       A sequence is recursive if the <em>same</em> rule is used to go from one value of the sequence to the next.
       For our earlier example of an arithmetic sequence, we had a pattern of equations
       <md>
-        <mrow>x_2=x_1 + 3,</mrow>
+        <mrow>x_2 = x_1 + 3,</mrow>
         <mrow>x_3 = x_2 + 3,</mrow>
         <mrow>x_4=x_3+3,</mrow>
         <mrow>\vdots</mrow>
@@ -275,13 +168,17 @@
     <p>
       We need some notation to capture the idea of consecutive values of a sequence.
       If <m>n</m> represents the value of the index for a sequence,
-      then <m>n+1</m> represents the value of the index for the subsequent term of the sequence.
-      For example, if <m>n=3</m>, then <m>x_n</m> would be <m>x_3</m> and <m>x_{n+1}</m> would be <m>x_4</m>.
+      then <m>n+1</m> represents the value of the index for the subsequent term of the sequence
+      and <m>n-1</m> represents the value of the index for the preceding term of the sequence.
+      For example, if <m>n=3</m>, then <m>x_n</m> would be <m>x_3</m>, <m>x_{n+1}</m> would be <m>x_4</m>, and <m>x_{n-1}</m> would be <m>x_2</m>.
       All of our equations follow the pattern
-      <me>x_{n+1} = x_n + 3</me>,
-      for <m>n=1, 2, 3, \ldots</m>.
-      This equation which relates <m>x_{n}</m> and <m>x_{n+1}</m> is called a <term>recurrence relation</term> or <term>recursive equation</term> for the sequence.
-      Because the equation has been written with <m>x_{n+1}</m> as a dependent variable in terms of the value of <m>x_n</m>,
+      <me>x_{n} = x_{n-1} + 3</me>,
+      where the first equation corresponds to <m>n=2</m>, the second to <m>n=3</m>, and so forth.
+      Equivalently, we could think of all of the equations as following the pattern
+      <me>x_{n+1} = x_{n} + 3</me>,
+      but now the first equation comes from <m>n=1</m> and the second from <m>n=2</m>.
+      This equation which relates <m>x_{n}</m> and <m>x_{n-1}</m> is called a <term>recurrence relation</term> or <term>recursive equation</term> for the sequence.
+      Because the equation has been written with <m>x_{n}</m> as a dependent variable in terms of the value of <m>x_{n-1}</m>,
       we actually have a projection function.
     </p>
     <definition xml:id="defn-projection-function">
@@ -289,19 +186,19 @@
       <statement>
         <p>
         Suppose a sequence <m>x</m> is defined by a recurrence relation of the form 
-        <me>x_{n+1} = f(x_n).</me>
-        The function <m>f</m> defining the relation <m>x_{n} \mapsto x_{n+1}</m> is called the <term>projection function</term>.
+        <me>x_{n} = f(x_{n-1}).</me>
+        The function <m>f</m> defining the relation <m>x_{n-1} \mapsto x_{n}</m> is called the <term>projection function</term>.
         Equivalently, we could write the recurrence relation in terms of a previous value as
-        <me>x_{n} = f(x_{n-1})</me>.
+        <me>x_{n+1} = f(x_{n})</me>.
         </p>
       </statement>
     </definition>
     <p>
-      For a sequence with a recurrence relation <m>x_{n+1} = x_n + 3</m>,
-      the projection function is <m>f : x_n \mapsto x_{n+1} = x_n + 3</m>.
+      For a sequence with a recurrence relation <m>x_{n} = x_{n-1} + 3</m>,
+      the projection function is <m>f : x_{n-1} \mapsto x_{n} = x_{n-1} + 3</m>.
       The function <m>f</m> takes a value as an input and maps it to an output that is that value plus 3.
       I find it useful to imagine the independent variable in a function as if it were a box,
-      as in <me>f(x_n) = x_n + 3 \quad \Leftrightarrow \quad f(\square) = \square + 3</me>.
+      as in <me>f(x_{n-1}) = x_{n-1} + 3 \quad \Leftrightarrow \quad f(\square) = \square + 3</me>.
       Whatever is between the parentheses for the input of a function will go in the box of the formula.
       With this understanding, any variable can be used as a placeholder for the input:
       <m>f(x) = x+3</m> and <m>f(a)=a+3</m> describe the same mapping rule.
@@ -321,12 +218,12 @@
       </statement>
       <solution>
         <p>
-          The projection function defines the map <m>u_{n} \mapsto u_{n+1}</m> 
+          The projection function defines the map <m>u_{n-1} \mapsto u_{n}</m> 
           according to the rule <m>f(x)=2x-5</m> or <m>f(\square) = 2 \cdot \square - 5</m>.
           It tells us that if we use an input coming from a sequence value,
           the output of the function will be the next sequence value.
           We were given an initial value <m>u_0 = 3</m>.
-          Using this <m>u_0=3</m> as the input to <m>f</m>, the output will be the value <m>u_1</m>:
+          Using the recursive equation for <m>n=1</m> and the preceding value <m>u_0=3</m> as the input to <m>f</m>, the output will be the value <m>u_1</m>:
           <me>u_1 = f(u_0) = f(3) = 2(3) - 5 = 1</me>.
           Now that we know <m>u_1</m>, we can use that value as an input to get <m>u_2</m>, and so on:
           <md>
@@ -380,6 +277,116 @@
     </example>
   </subsection>
   <subsection>
+    <title>Arithmetic and Geometric Sequences Revisited</title>
+    <p>
+      The arithmetic and geometric sequences have simple explicit formulas.
+      We use these formulas to illustrate the idea of a sequence as a map from the index to the sequence value.
+    </p>
+    <p>
+      The explicit formula for an arithmetic sequence is a special case of a linear function.
+      The increment of the sequence represents the slope.
+      The initial value gives us a known point.
+      Knowing how many steps away from the given point along with the increment allows us to compute other sequence values.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the explicit formula for the arithmetic sequence <m>x=(7,10,13,16,\ldots)</m>.
+          Use the formula to find <m>x_{100}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The initial value <m>x_1=7</m> means our function will be a map <m>n \mapsto x_n</m> that takes an input <m>n=1</m> to an output <m>x_1=7</m>.
+          The increment of 3 that appears in the recursive equation <m>x_{n} = x_{n-1} + 3</m>
+          means that the function increases by 3 for every increment of the index by 1.
+          That is, the slope is <m>m=+3</m>.
+          The value of <m>x_n</m> will equal 7 plus 3 times the number of increments in the index,
+          <me>x_n = 7 + 3(n-1)</me>.
+          We could find an equivalent expression after using the distributive property,
+          <me>x_n = 4 + 3n</me>.
+        </p>
+        <p>
+          Because we now have the function <m>n \mapsto x_n</m>,
+          we can find the value of the sequence for any index using this expression.
+          To find <m>x_{100}</m>, we use <m>n=100</m> and the map <m>n \mapsto x_n</m>,
+          <me>x_{100} = 4 + 3 \cdot 100 = 304</me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The following theorem provides the formula for the explicit formula of any arithmetic sequence.
+    </p>
+    <theorem xml:id="theorem-arithmetic-explicit-sequence">
+      <title>Explicit Formula of Arithmetic Sequences</title>
+      <statement>
+        <p>
+          An arithmetic sequence <m>x</m> with an increment <m>\beta</m> so that <m>x_{n} = x_{n-1} + \beta</m>
+          and with a given initial value <m>x_{k}</m> has an explicit representation <m>n \mapsto x_n</m> given by
+          <me>x_n = x_{k} + \beta \cdot (n - k)</me>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      The explicit formula for a geometric sequence is a special case of an exponential function.
+      The multiple for the sequence corresponds to the base of the exponential.
+      An initial value gives us a known point.
+      The formula will count how many increments the index has changed and multiply by the base to that power.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the explicit formula for the geometric sequence <m>u=(48,24,12,6,3,\ldots)</m>.
+          Use the formula to find <m>u_{20}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The sequence <m>u</m> is geometric because the ratio of the sequence value to its predecessor is always the same.
+          <md>
+            <mrow>\frac{u_2}{u_1} = \frac{24}{48} = \frac{1}{2}</mrow>
+            <mrow>\frac{u_3}{u_2} = \frac{12}{24} = \frac{1}{2}</mrow>
+            <mrow>\frac{u_4}{u_3} = \frac{6}{12} = \frac{1}{2}</mrow>
+            <mrow>\frac{u_5}{u_4} = \frac{3}{6} = \frac{1}{2}</mrow>
+          </md>
+          The recursive formula for the sequence multiplies the previous sequence value by <m>\rho=\frac{1}{2}</m>,
+          <me>u_{n} = \frac{1}{2} \cdot u_{n-1}</me>.
+          The initial value <m>u_1=48</m> means our function will be a map <m>n \mapsto x_n</m> that takes an input <m>n=1</m> to an output <m>x_1=48</m>.
+        </p>
+        <p>
+          Each time the index is incremented by 1, the value of the sequence is multiplied by <m>\rho=\frac{1}{2}</m>.
+          We can count the number of increments for the index <m>n</m> by the expression <m>n-1</m>.
+          Because repeated multiplication is a power, we obtain an explicit formula
+          <me>u_{n} = u_1 \cdot \rho^{n-1} = 48 \cdot \left( \frac{1}{2} \right)^{n-1}</me>.
+          Using the properties of powers, this is equivalent to
+          <me>u_{n} = \frac{48}{2^{n-1}}.</me>
+        </p>
+        <p>
+          With the function <m>n \mapsto u_n</m>,
+          we can find the value of the sequence for any index using this expression.
+          To find <m>u_{20}</m>, we use <m>n=20</m> and the map <m>n \mapsto u_n</m>,
+          <me>u_{20} = \frac{48}{2^{19}}.</me>
+          If we rewrite <m>48 = 16 \cdot 3 = 2^4 \cdot 3</m> and then simplify the fraction,
+          this is equivalent to
+          <me>u_{20} = \frac{3}{2^{15}} = \frac{3}{32768}.</me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      The general formula for a geometric sequence is provided in the following theorem.
+    </p>
+    <theorem xml:id="theorem-geometric-explicit-sequence">
+      <title>Explicit Formula of Geometric Sequences</title>
+      <statement>
+        <p>
+          A geometric sequence <m>x</m> with a multiple <m>\rho</m> so that <m>x_{n} = \rho \cdot x_{n-1}</m>
+          and with a given initial value <m>x_{k}</m> has an explicit representation <m>n \mapsto x_n</m> given by
+          <me>x_n = x_{k}\cdot \rho^{(n - k)}</me>.
+        </p>
+      </statement>
+    </theorem>
+  </subsection>
+  <subsection>
     <title>Graphical Representations of Projections</title>
     <p>
       If we think about a function as a map between two number lines,
@@ -403,8 +410,8 @@
             <![CDATA[\tikzset{%
             }
             \begin{tikzpicture}[x=2cm]
-            \draw [<->] (-3.5,0) -- (0.5,0) node [right] {$u_n$};
-            \draw [<->] (-3.5,-2) -- (0.5,-2) node [right] {$u_{n+1}$};
+            \draw [<->] (-3.5,0) -- (0.5,0) node [right] {$u_{n-1}$};
+            \draw [<->] (-3.5,-2) -- (0.5,-2) node [right] {$u_{n}$};
             \draw (0.3,-0.1) -- (0.3,0.1) 
               node [pos=0, below] {$3$}
               node [pos=1, above] {$u_{0}$}
@@ -516,7 +523,7 @@
         is generated by the following steps.
         <ol>
           <li>Graph <m>y=f(x)</m> and <m>y=x</m> in the same plane.</li>
-          <li>Label the <m>x</m>-axis <m>x_n</m> (for the current value) and the <m>y</m>-axis <m>x_{n+1}</m> (for the next value).</li>
+          <li>Label the <m>x</m>-axis <m>x_{n-1}</m> (for the previous value) and the <m>y</m>-axis <m>x_{n}</m> (for the next value).</li>
           <li>
             <p>
             Find the initial value <m>x_0</m> on the <m>x</m>-axis.
@@ -564,7 +571,7 @@
             \begin{tikzpicture}
             \begin{axis}
             [ xmin=-30, xmax=10, ymin=-30, ymax=10,
-              xlabel={$u_n$}, ylabel={$u_{n+1}$},
+              xlabel={$u_{n-1}$}, ylabel={$u_{n}$},
             ]
             \addplot [black, no marks] coordinates { (-30,0) (10,0) }; 
             \addplot [domain=-30:10, samples=10, thick, blue] { 2*x-5 };
@@ -588,23 +595,23 @@
         A sequence <m>x</m> is recursive when 
         the relation between consecutive values of the sequence is the same for every index.
         An equation describing this relation is called a <term>recurrence relation</term>.
-        If we can solve for <m>x_{n+1}</m> as a dependent variable with <m>x_n</m> as the independent variable,
+        If we can solve for <m>x_{n}</m> as a dependent variable with <m>x_{n-1}</m> as the independent variable,
         the corresponding equation is called the <term>recursive equation</term>.
       </li>
       <li>
         An arithmetic sequence with common difference <m>c</m> has a projection function <m>f(x)=x+c</m>,
-        a recursive relation <me>x_{n+1}=x_n + c</me>,
+        a recursive relation <me>x_{n}=x_{n-1} + c</me>,
         and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k + \beta(n-k).</me>
       </li>
       <li>
         A geometric sequence with common ratio <m>\rho</m> has a projection function <m>f(x)=\rho x</m>,
-        a recursive relation <me>x_{n+1}=\rho \cdot x_n</me>,
+        a recursive relation <me>x_{n}=\rho \cdot x_{n-1}</me>,
         and an explicit formula given a known value for <m>x_k</m>, <me>x_n = x_k \cdot \rho^{n-k}.</me>
       </li>
       <li>
         We think of functions as maps from the value of one variable to the value of another variable.
         For a sequence <m>x</m>, the map from the index <m>n</m> to the sequence value <m>x_n</m> is called the explicit function of the sequence.
-        For a recursive sequence, the map from one sequence value <m>x_n</m> to the next sequence value <m>x_{n+1}</m> is called the projection function.
+        For a recursive sequence, the map from one sequence value <m>x_{n-1}</m> to the next sequence value <m>x_{n}</m> is called the projection function.
       </li>
       <li>
         The graph of a function uses values on the <m>x</m>-axis as input values and the vertical position of the graph as output values.
@@ -702,7 +709,7 @@
       </introduction>
       <exercise>
         <statement>
-          <p><m>Q = (Q_t)_{t=0}^{\infty}</m> with <m>Q_{0} = 3</m> and <m>Q_{t+1} = Q_t + 4</m>.</p>
+          <p><m>Q = (Q_t)_{t=0}^{\infty}</m> with <m>Q_{0} = 3</m> and <m>Q_{t} = Q_{t-1} + 4</m>.</p>
         </statement>
       </exercise>
       <exercise>
@@ -712,7 +719,7 @@
       </exercise>
       <exercise>
         <statement>
-          <p><m>S = (S_n)_{n=0}^{\infty}</m> with <m>S_{0} = 10</m> and <m>S_{n+1} = 0.8 S_n + 4</m>.</p>
+          <p><m>S = (S_n)_{n=0}^{\infty}</m> with <m>S_{0} = 10</m> and <m>S_{n} = 0.8 S_{n-1} + 4</m>.</p>
         </statement>
       </exercise>
       <exercise>

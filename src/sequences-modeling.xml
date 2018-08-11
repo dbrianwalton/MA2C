@@ -78,7 +78,7 @@
       We will use <m>P</m> as our population sequence
       and will develop the projection function <m>f</m> 
       that relates consecutive values of the population as
-      <me>P_{n+1} = f(P_n).</me>
+      <me>P_{n} = f(P_{n-1}).</me>
     </p>
     <p>
       Population sizes change because individuals are entering and leaving the population. 
@@ -805,7 +805,7 @@
         <p>
           Based on our discussion, the recursive model for the salt includes only a single loss term: 
           <md>
-            <mrow>S_{n+1} = S_n - 0.25 S_n = 0.75 S_n,</mrow>
+            <mrow>S_{n} = S_{n-1} - 0.25 S_{n-1} = 0.75 S_{n-1},</mrow>
             <mrow>S_0 = 200.</mrow>
           </md> 
           Thus our model is a simple geometric sequence. 

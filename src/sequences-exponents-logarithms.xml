@@ -36,7 +36,7 @@
   <subsection>
     <title>Properties of Exponents</title>
     <p>
-      Consider the geometric sequence defined recursively by <m>x_{n+1} = 3 x_n</m> and initial value <m>x_2 = 4</m>.
+      Consider the geometric sequence defined recursively by <m>x_{n} = 3 x_{n-1}</m> and initial value <m>x_2 = 4</m>.
       We know how to generate additional sequence values from the recursive equation:
       <md>
         <mrow>x_3 = 3 x_2 = 3 \cdot 4 = 12 </mrow>
@@ -551,7 +551,7 @@
       In our discussions about sequences, we introduced two maps.
       The first was in relation to an explicit definition of a sequence, 
       where we mapped from the index to the sequence value, <m>n \mapsto x_n</m>.
-      The second was in relation to a recursive definition of a sequence by a projection function, <m>x_{n} \mapsto x_{n+1}</m>.
+      The second was in relation to a recursive definition of a sequence by a projection function, <m>x_{n-1} \mapsto x_{n}</m>.
       The inverse map for these functions can help answer interesting questions for sequences.
     </p>
     <example>
@@ -567,7 +567,7 @@
           We start by identifying our sequence.
           We might choose the name <m>W</m> for our sequence to represent our wealth.
           Because the sequence doubles each day, our index <m>n</m> will represent the day
-          and the sequence has recursive equation <m>W_{n+1} = 2 W_n</m>.
+          and the sequence has recursive equation <m>W_{n} = 2 W_{n-1}</m>.
           This means our sequence is a geometric sequence.
           The initial value is <m>W_1 = 0.01</m> (dollars).
           We can then write down the explicit formula using <xref ref="theorem-geometric-explicit-sequence"/>,
@@ -613,7 +613,7 @@
           A population of insects is tracked weekly and found to follow a recursive model.
           We let <m>P</m> be the sequence of population measurements with an index <m>n</m> counting the number of weeks.
           The insect population follows the recurrence relation
-          <me>P_{n+1} = 1.5 P_n - 100</me>
+          <me>P_{n} = 1.5 P_{n-1} - 100</me>
           with a value of <m>P_0 = 5000</m>, the population recorded for the first week of observation.
           What was the population two weeks before observations began?
         </p>
@@ -622,16 +622,16 @@
         <p>
           The recurrence relation shows that <m>P</m> is not arithmetic nor is it geometric.
           We do not yet know how to find an explicit formula.
-          However, we do know the projection function <m>f : P_n \mapsto P_{n+1}</m>.
+          However, we do know the projection function <m>f : P_{n-1} \mapsto P_{n}</m>.
           The inverse of the projection function would reverse the direction of projection,
           allowing us to determine the preceding value of the sequence instead of the subsequent value.
         </p>
         <p>
           We find the inverse function (the reverse projection function) by solving the recurrent relation for <m>P_n</m>.
           <md>
-            <mrow>P_{n+1} = 1.5 P_n - 100</mrow>
-            <mrow>P_{n+1} + 100 = 1.5 P_n = \frac{3}{2} P_n</mrow>
-            <mrow>\frac{2}{3}(P_{n+1} + 100) = P_n</mrow>
+            <mrow>P_{n} = 1.5 P_{n-1} - 100</mrow>
+            <mrow>P_{n} + 100 = 1.5 P_{n-1} = \frac{3}{2} P_{n-1}</mrow>
+            <mrow>\frac{2}{3}(P_{n} + 100) = P_{n-1}</mrow>
           </md>
           Consequently, the inverse projection function is <m>f^{-1}(x) = \frac{2}{3}(x+100)</m>.
         </p>
@@ -642,7 +642,7 @@
             <mrow>P_{-1} = f^{-1}(5000) = \frac{2}{3}(5000+100) = 3400</mrow>
             <mrow>P_{-2} = f^{-1}(3400) = \frac{2}{3}(3400+100) = \frac{7000}{3}</mrow>
           </md>
-          The exact value from our model is approximately <m>P_{-2} \approx 2333.33</m>.
+          The exact value from our model is <m>P_{-2} \approx 2333\frac{1}{3}</m>.
           Even though a population has integer values and this prediction is definitely not an integer,
           we would report our model value unless we had information on how many significant digits to keep.
         </p>
