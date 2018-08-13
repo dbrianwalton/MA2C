@@ -4,7 +4,7 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
    
 <section xml:id="discrete-calculus-intro">
@@ -12,13 +12,1049 @@
 
   <subsection>
     <title>Overview</title>
-    
+    <p>
+      Calculus studies functions through their rates of change.
+      Our goal is to understand relationships between concepts and not just rules of computation.
+      The better we understand, the easier time we will have in drawing upon those concepts to answer questions.
+      If we can use simpler concepts that can motivate the ideas of calculus,
+      then those ideas will make more sense.
+      Sequences provide one possible framework through which we can motivate the ideas of calculus.
+    </p>
+    <p>
+      In this section, we introduce the ideas that will be explored throughout the chapter.
+      We learn to describe the behavior of sequences in terms of monotonicity and concavity in terms of increments of change.
+      The ideas of monotonicity will allow us to answer questions relating to extreme values.
+      We then outline how the rest of the chapter will proceed.
+    </p>
   </subsection>
-  
-
+  <subsection>
+    <title>Behavior of Sequences</title>
+    <p>
+      One of the results of calculus is the ability to describe the behavior of functions.
+      We begin our discussion of the analysis of sequences with this in mind.
+      We motivate the discussion on the behavior of sequences with some graphs.
+    </p>
+    <figure>
+      <caption>
+        Graphs of four short subsequences that illustrate the concepts of monotonicity and concavity.
+      </caption>
+      <sidebyside widths="24% 24% 24% 24%">
+        <figure>
+          <caption>increasing, concave up</caption>
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \pgfplotsset{ width=6cm }
+            \begin{tikzpicture}
+            \begin{axis}[
+              xlabel={$n$},
+              ylabel={$x_n$},
+            ]
+            \addplot[
+              only marks,
+              color=blue
+            ] table {
+              1 1\\
+              2 1.25\\
+              3 1.75\\
+              4 2.75\\
+              5 4.75\\
+              6 8.75\\
+            };
+            \end{axis}
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </figure>
+        <figure>
+          <caption>increasing, concave down</caption>
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \pgfplotsset{ width=6cm }
+            \begin{tikzpicture}
+            \begin{axis}[
+              xlabel={$n$},
+              ylabel={$x_n$},
+            ]
+            \addplot[
+              only marks,
+              color=blue
+            ] table {
+              1 1\\
+              2 5\\
+              3 7\\
+              4 8\\
+              5 8.5\\
+              6 8.75\\
+            };
+            \end{axis}
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </figure>
+        <figure>
+          <caption>decreasing, concave up</caption>
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \pgfplotsset{ width=6cm }
+            \begin{tikzpicture}
+            \begin{axis}[
+              xlabel={$n$},
+              ylabel={$x_n$},
+            ]
+            \addplot[
+              only marks,
+              color=blue
+            ] table {
+              1 9\\
+              2 5\\
+              3 3\\
+              4 2\\
+              5 1.5\\
+              6 1.25\\
+            };
+            \end{axis}
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </figure>
+        <figure>
+          <caption>decreasing, concave down</caption>
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \pgfplotsset{ width=6cm }
+            \begin{tikzpicture}
+            \begin{axis}[
+              xlabel={$n$},
+              ylabel={$x_n$},
+            ]
+            \addplot[
+              only marks,
+              color=blue
+            ] table {
+              1 9\\
+              2 8.75\\
+              3 8.25\\
+              4 7.25\\
+              5 5.25\\
+              6 1.25\\
+            };
+            \end{axis}
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </figure>
+      </sidebyside>
+    </figure>
+    <p>
+      In mathematics, <term>monotonicity</term> refers to the direction of change in a sequence or function.
+      In the figure above, the two sequences that are <term>increasing</term> show that the values of the sequence are rising.
+      The sequences that are <term>decreasing</term> have values that fall.
+      <term>Concavity</term> in the graphs corresponds to how the sequence appears to be bending.
+      Imagine the sequences as points on a bowl shape.
+      If the curve is bending up, the sequence is concave up.
+      If the curve is bending down, the sequence is concave down.
+      A sequence can change behavior multiple times, as shown in the figure below.
+      We seek for methods of analyzing a sequence that will allow us to describe the monotonicity and concavity of a sequence.
+    </p>
+    <figure xml:id="figure-sequence-all-behaviors">
+      <caption>An example of a sequence that illustrates all four basic behaviors.</caption>
+      <image width="70%">
+        <latex-image>
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={$n$},
+          ylabel={$u_n$},
+        ]
+        \addplot[
+          only marks,
+          color=blue,
+          domain=0:20,
+          samples=21,
+        ] ({x},{(x-10)^4/625-4*(x-10)^2/25+6});
+        \end{axis}
+        \end{tikzpicture}
+        ]]>
+        </latex-image>
+      </image>
+    </figure>
+  </subsection>
+  <subsection>
+    <title>Monotonicity: Increasing and Decreasing</title>
+    <p>
+      Our goal is to establish a way to describe these behaviors without relying solely on graphs.
+      We begin by focusing on monotonicity.
+    </p>
+    <definition xml:id="definition-sequence-monotonicity">
+      <title>Monotonicity of Sequences</title>
+      <statement>
+        <p>
+          For a sequence <m>x</m> with index <m>k</m>, we say that <m>x</m> is <term>increasing</term>
+          on the interval <m>\{m,\ldots,n\}</m> if for every two values in the interval, 
+          <m>i,j \in \{m,\ldots,n\}</m> with <m>i \lt j</m>, we have <m>x_j \gt x_i</m>.
+          That is, values later in the sequence are always greater than values earlier in the sequence.
+        </p>
+        <p>
+          We say that <m>x</m> is <term>decreasing</term>
+          on the interval <m>\{m,\ldots,n\}</m> if for every two values in the interval, 
+          <m>i,j \in \{m,\ldots,n\}</m> with <m>i \lt j</m>, we have <m>x_j \lt x_i</m>.
+          That is, values later in the sequence are always less than values earlier in the sequence.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Our definition of monotonicity is on an interval of integers for the index.
+      We talk about increasing and decreasing on intervals for several reasons.
+      First, monotonicity is about comparisons of values.
+      We should not think that the sequence is increasing or decreasing at a particular point.
+      Instead, we are looking at how the sequence changes going from one index value to another.
+      Second, when we later discuss the monotonicity of functions,
+      we will describe monotonicity in terms of intervals from the domain.
+      Consequently, we want to establish that pattern of thinking now.
+    </p>
+    <p>
+      Inequalities are transitive.
+      That is, if <m>a \lt b</m> and <m>b \lt c</m>, then we know <m>a \lt c</m>.
+      For sequences, this means that we don't really need to look at all possible pairs of index values in the interval.
+      We only need to look at the consecutive terms in the sequence and see if they are increasing or decreasing.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the finite sequence <me>x = (x_k)_{k=0}^{9} = (-5,-8,-9,-8,-5,0,7,4,2,1)</me>.
+          Describe the monotonicity of <m>x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We look at whether the sequence values are moving to the left or to the right on the number line.
+          You could probably just visualize it in your mind, but a number line showing the values is illustrated below.
+        </p>
+        <sidebyside width="90%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm,y=0.5cm]
+            \draw [<->] (-10,0) -- (10,0);
+            \foreach \x in {-9,-8,...,9}
+              \draw (\x,-0.2) -- (\x,0.2) node [pos=0,below] {\x};
+            \foreach \x in {-9,-8,-5,0,1,2,4,7}
+              \fill (\x,0) circle (2pt);
+            \node at (-5,0.9) [above] {$x_0$};
+            \node at (-8,0.9) [above] {$x_1$};
+            \node at (-9,0.5) [above] {$x_2$};
+            \node at (-8,0.1) [above] {$x_3$};
+            \node at (-5,0.1) [above] {$x_4$};
+            \node at (0,0.5) [above] {$x_5$};
+            \node at (7,0.5) [above] {$x_6$};
+            \node at (4,0.1) [above] {$x_7$};
+            \node at (2,0.1) [above] {$x_8$};
+            \node at (1,0.1) [above] {$x_9$};
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          We can see that <m>x</m> is decreasing on the index interval <m>\{0, 1, 2\}</m>
+          because the values of the sequence move left on the number line:
+          <me>x_1 \lt x_0, \quad x_2 \lt x_1</me>.
+          Next, we see that <m>x</m> is increasing on the interval <m>\{2,\ldots,6\}</m>
+          as the sequence moves to the right:
+          <me>x_3 \gt x_2, \quad x_4 \gt x_3, \quad \ldots \quad x_6 \gt x_5</me>.
+          Finally, <m>x</m> is decreasing on the interval <m>\{6,\ldots,9\}</m>:
+          <me>x_7 \lt x_6, \quad x_8 \lt x_7, \quad x_9 \gt x_8</me>.
+        </p>
+        <p>
+          We compare this analysis with a graph of the sequence, shown below.
+          When the sequence is decreasing, the graph shows points of lowering heights.
+          When the sequence is increasing, the graph shows points of rising heights.
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \pgfplotsset{ width=8cm }
+            \begin{tikzpicture}
+            \begin{axis}[
+              xlabel={$n$},
+              ylabel={$x_n$},
+            ]
+            \addplot[
+              only marks,
+              color=blue
+            ] table {
+              0 -5\\
+              1 -8\\
+              2 -9\\
+              3 -8\\
+              4 -5\\
+              5 0\\
+              6 7\\
+              7 4\\
+              8 2\\
+              9 1\\
+            };
+            \end{axis}
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    <p>
+      When analyzing a sequence to determine monotonicity,
+      we focus on inequalities involving consecutive terms.
+      If we use <m>k=n-1</m> and <m>k=n</m> to represent consecutive index values,
+      then the inequalities are:
+      <ul>
+        <li><m>x_{n} \gt x_{n-1}</m> for increasing</li>
+        <li><m>x_{n} \lt x_{n-1}</m> for decreasing.</li>
+      </ul>
+      By moving all terms to one side, the inequalities become:
+      <ul>
+        <li><m>x_{n}-x_{n-1} \gt 0</m> for increasing</li>
+        <li><m>x_{n}-x_{n-1} \lt 0</m> for decreasing.</li>
+      </ul>
+      This means that monotonicity can be determined by looking at the signs of the differences between terms.
+      We call those differences the <term>increments</term>.
+    </p>
+    <definition xml:id="definition-sequence-increments">
+      <statement>
+        <p>
+        Given a sequence <m>x = (x_k)_{k=m}^{n}</m>, the <term>increments</term> form a new sequence, <m>\nabla x = (\nabla x_k)_{k=m+1}^{n}</m>,
+        calculated by the <term>backward difference</term>,
+        <me>\nabla x_k = x_{k} - x_{k-1}</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      When computing the increments, we had to make a choice whether to do the backward difference or the forward difference, 
+      <me>\Delta x_k = x_{k+1} - x_k</me>.
+      The values of the backward differences and the forward differences are exactly the same.
+      They differ only in terms of index values.
+      I have chosen to use backward differences in order for our later work with accumulation sequences and summation to work out more cleanly.
+    </p>
+    <example>
+      <statement>
+        <p>
+        For the sequence <m>x = (x_k)_{k=3}^{10} = (1,2,4,7,11,16,22,29)</m>,
+        find the increments defined by the backward difference.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We can find the values by writing the sequence as a row of values.
+          Then below the gaps between the values, we can write the differences.
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[y=0.5cm]
+            \node at (0,0) {$x_n$};
+            \node at (1,0) {1};
+            \node at (2,0) {2};
+            \node at (3,0) {4};
+            \node at (4,0) {7};
+            \node at (5,0) {11};
+            \node at (6,0) {16};
+            \node at (7,0) {22};
+            \node at (8,0) {29};
+            \node at (0,-1) {$\nabla x_n$};
+            \node at (1.5,-1) {1};
+            \node at (2.5,-1) {2};
+            \node at (3.5,-1) {3};
+            \node at (4.5,-1) {4};
+            \node at (5.5,-1) {5};
+            \node at (6.5,-1) {6};
+            \node at (7.5,-1) {7};
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          When the increments are defined by the backward difference,
+          the index starts one value later than the original sequence.
+          Thus, the increments are the sequence
+          <me>\nabla x = (\nabla x_k)_{k=4}^{10} = (1, 2, 3, 4, 5, 6, 7)</me>.
+          Because all of the increments are positive,
+          <m>x</m> is increasing on the full interval <m>\{3,\ldots,10\}</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can therefore analyze monotonicity of a sequence if we know the signs of its increments.
+    </p>
+    <theorem xml:id="theorem-sequence-monotonicity">
+      <title>Increment Test for Sequence Monotonicity</title>
+      <statement>
+        <p>
+        Given a sequence <m>x</m>, we look at the sequence of increments defined by the backward difference.
+        Suppose <m>m</m> and <m>n</m> are integers with <m>m \le n</m>.
+        <ul>
+          <li>
+          If the sequence of increments is positive, <m>\nabla x_k \gt 0</m> for every <m>k=m,\ldots,n</m>,
+          then <m>x</m> is increasing on the interval <m>\{m-1,\ldots,n\}</m>.
+          </li>
+          <li>
+          If the sequence of increments is negative, <m>\nabla x_k \lt 0</m> for every <m>k=m,\ldots,n</m>,
+          then <m>x</m> is decreasing on the interval <m>\{m-1,\ldots,n\}</m>.
+          </li>
+        </ul>
+        The interval of monotonicity always begins one value before the first index in the interval of increments
+        because the first increment is <m>\nabla x_m = x_{m} - x_{m-1}</m>.
+        </p>
+      </statement>
+    </theorem>
+  </subsection>
+  <subsection>
+    <title>Concavity</title>
+    <p>
+      We now turn our attention to the <term>concavity</term> of a sequence.
+      Concavity is based on whether the sequence of increments is increasing or decreasing.
+      When the increments are constant, we have an arithmetic sequence which follows a straight line.
+      To be concave up, we need the graph to bend up.
+      If an increment is positive, then the next increment needs to be a larger positive value.
+      If an increment is negative, then the next increment needs to be a smaller magnitude negative value or a positive value.
+      Either way, we need the increments to increase:
+      <me>\nabla x_n \gt \nabla x_{n-1}</me>.
+      Similarly, for a sequence to be concave down, the increments need to decrease: 
+      <me>\nabla x_n \lt \nabla x_{n-1}</me>.
+    </p>
+    <definition xml:id="definition-sequence-concavity">
+      <title>Concavity of a Sequence</title>
+      <statement>
+        <p>
+        Suppose <m>x</m> is a sequence with increments <m>\nabla x_k</m> 
+        and <m>m</m> and <m>n</m> are index values with <m>m \lt n</m>.
+        <ul>
+          <li>
+            If the increment sequence <m>\nabla x</m> is <em>increasing</em> on <m>\{m,\ldots,n\}</m>,
+            then the sequence <m>x</m> is <em>concave up</em> on <m>\{m-1,\ldots,n\}</m>.
+          </li>
+          <li>
+            If the increment sequence <m>\nabla x</m> is <em>decreasing</em> on <m>\{m,\ldots,n\}</m>,
+            then the sequence <m>x</m> is <em>concave down</em> on <m>\{m-1,\ldots,n\}</m>.
+          </li>
+        </ul>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Because the increments themselves form a sequence,
+      we can look at the signs of the increments of the increments to analyze concavity.
+      Computing the backward difference of a backward difference is called the <term>second backward difference</term>.
+    </p>
+    <definition xml:id="definition-second-backward-difference">
+      <statement>
+        <p>
+        Suppose <m>x</m> is a sequence with increments <m>\nabla x_k</m>.
+        The <term>second backward difference</term> of <m>x</m>, written <m>\nabla^2 x_k</m>,
+        measures the backward difference of the increments,
+        <me>\nabla^2 x_k = \nabla(\nabla x_k) = \nabla x_k - \nabla x_{k-1}</me>.
+        The first index of <m>\nabla^2 x_k</m> is two greater than the first index of <m>x</m>.
+        (A second forward difference <m>\delta^2 x</m> is defined similarly but will not be used.)
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Having defined the second backward difference, we can state the test that allows us to analyze the concavity of a sequence.
+    </p>
+    <theorem xml:id="theorem-sequence-concavity">
+      <title>Second Difference Test for Sequence Concavity</title>
+      <statement>
+        <p>
+        Given a sequence <m>x</m> and integers <m>m</m> and <m>n</m> with <m>m \lt n</m>.
+        <ul>
+          <li>
+          If the second backward difference is positive, <m>\nabla^2 x_k \gt 0</m> for every <m>k=m,\ldots,n</m>,
+          then <m>x</m> is concave up on the interval <m>\{m-2,\ldots,n\}</m>.
+          </li>
+          <li>
+          If the second backward difference is negative, <m>\nabla^2 x_k \lt 0</m> for every <m>k=m,\ldots,n</m>,
+          then <m>x</m> is concave down on the interval <m>\{m-2,\ldots,n\}</m>.
+          </li>
+        </ul>
+        The interval of concavity always begins two values before the first index in the interval of second backward difference.
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          The values for the subsequence shown in <xref ref="figure-sequence-all-behaviors" /> 
+          are shown in the table below, rounded to the nearest ten-thousandth.
+          Determine the intervals of monotonicity and concavity.
+        </p>
+        <sidebyside valigns="top top">
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>u_n</m></cell>
+            </row>
+            <row>
+              <cell>0</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>3.5376</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>2.3136</cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell>2.0016</cell>
+            </row>
+            <row>
+              <cell>4</cell>
+              <cell>2.3136</cell>
+            </row>
+            <row>
+              <cell>5</cell>
+              <cell>3</cell>
+            </row>
+            <row>
+              <cell>6</cell>
+              <cell>3.8496</cell>
+            </row>
+            <row>
+              <cell>7</cell>
+              <cell>4.6896</cell>
+            </row>
+            <row>
+              <cell>8</cell>
+              <cell>5.3856</cell>
+            </row>
+            <row>
+              <cell>9</cell>
+              <cell>5.8416</cell>
+            </row>
+            <row>
+              <cell>10</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>u_n</m></cell>
+            </row>
+            <row>
+              <cell>11</cell>
+              <cell>5.8416</cell>
+            </row>
+            <row>
+              <cell>12</cell>
+              <cell>5.3856</cell>
+            </row>
+            <row>
+              <cell>13</cell>
+              <cell>4.6896</cell>
+            </row>
+            <row>
+              <cell>14</cell>
+              <cell>3.8496</cell>
+            </row>
+            <row>
+              <cell>15</cell>
+              <cell>3</cell>
+            </row>
+            <row>
+              <cell>16</cell>
+              <cell>2.3136</cell>
+            </row>
+            <row>
+              <cell>17</cell>
+              <cell>2.0016</cell>
+            </row>
+            <row>
+              <cell>18</cell>
+              <cell>2.3136</cell>
+            </row>
+            <row>
+              <cell>19</cell>
+              <cell>3.5376</cell>
+            </row>
+            <row>
+              <cell>20</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+      </statement>
+      <solution>
+        <p>
+          We can augment the table with additional columns for the first and second backward differences.
+          Then we can look at the signs of those increments to determine intervals for monotonicity and concavity.
+          With as many terms as we are working with, we would definitely want to use a computer to assist here.
+        </p>
+        <sidebyside valigns="top top">
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>u_n</m></cell>
+              <cell><m>\nabla u_n</m></cell>
+              <cell><m>\nabla^2 u_n</m></cell>
+            </row>
+            <row>
+              <cell>0</cell>
+              <cell>6</cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>3.5376</cell>
+              <cell>-2.4624</cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>2.3136</cell>
+              <cell>-1.224</cell>
+              <cell>1.2384</cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell>2.0016</cell>
+              <cell>-0.312</cell>
+              <cell>0.912</cell>
+            </row>
+            <row>
+              <cell>4</cell>
+              <cell>2.3136</cell>
+              <cell>0.312</cell>
+              <cell>0.624</cell>
+            </row>
+            <row>
+              <cell>5</cell>
+              <cell>3</cell>
+              <cell>0.6864</cell>
+              <cell>0.3744</cell>
+            </row>
+            <row>
+              <cell>6</cell>
+              <cell>3.8496</cell>
+              <cell>0.8496</cell>
+              <cell>0.1632</cell>
+            </row>
+            <row>
+              <cell>7</cell>
+              <cell>4.6896</cell>
+              <cell>0.84</cell>
+              <cell>-0.0096</cell>
+            </row>
+            <row>
+              <cell>8</cell>
+              <cell>5.3856</cell>
+              <cell>0.696</cell>
+              <cell>-0.144</cell>
+            </row>
+            <row>
+              <cell>9</cell>
+              <cell>5.8416</cell>
+              <cell>0.456</cell>
+              <cell>-0.24</cell>
+            </row>
+            <row>
+              <cell>10</cell>
+              <cell>6</cell>
+              <cell>0.1584</cell>
+              <cell>-0.2976</cell>
+            </row>
+          </tabular>
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>u_n</m></cell>
+              <cell><m>\nabla u_n</m></cell>
+              <cell><m>\nabla^2 u_n</m></cell>
+            </row>
+            <row>
+              <cell>11</cell>
+              <cell>5.8416</cell>
+              <cell>-0.1584</cell>
+              <cell>-0.3168</cell>
+            </row>
+            <row>
+              <cell>12</cell>
+              <cell>5.3856</cell>
+              <cell>-0.456</cell>
+              <cell>-0.2976</cell>
+            </row>
+            <row>
+              <cell>13</cell>
+              <cell>4.6896</cell>
+              <cell>-0.696</cell>
+              <cell>-0.24</cell>
+            </row>
+            <row>
+              <cell>14</cell>
+              <cell>3.8496</cell>
+              <cell>-0.84</cell>
+              <cell>-0.144</cell>
+            </row>
+            <row>
+              <cell>15</cell>
+              <cell>3</cell>
+              <cell>-0.8496</cell>
+              <cell>-0.0096</cell>
+            </row>
+            <row>
+              <cell>16</cell>
+              <cell>2.3136</cell>
+              <cell>-0.6864</cell>
+              <cell>0.1632</cell>
+            </row>
+            <row>
+              <cell>17</cell>
+              <cell>2.0016</cell>
+              <cell>-0.312</cell>
+              <cell>0.3744</cell>
+            </row>
+            <row>
+              <cell>18</cell>
+              <cell>2.3136</cell>
+              <cell>0.312</cell>
+              <cell>0.624</cell>
+            </row>
+            <row>
+              <cell>19</cell>
+              <cell>3.5376</cell>
+              <cell>1.224</cell>
+              <cell>0.912</cell>
+            </row>
+            <row>
+              <cell>20</cell>
+              <cell>6</cell>
+              <cell>2.4624</cell>
+              <cell>1.2384</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          We begin by looking at the signs of the increments based on the first backward difference.
+          Again, it is more compact to use a table to summarize our results.
+        </p>
+        <sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell>Sign of <m>\nabla u_n</m></cell>
+              <cell>Interval</cell>
+              <cell>Behavior of <m>u_n</m></cell>
+              <cell>Interval</cell>
+            </row>
+            <row>
+              <cell>negative</cell>
+              <cell><m>\{1,2,3\}</m></cell>
+              <cell>decreasing</cell>
+              <cell><m>\{0,\ldots,3\}</m></cell>
+            </row>
+            <row>
+              <cell>positive</cell>
+              <cell><m>\{4,\ldots,10\}</m></cell>
+              <cell>increasing</cell>
+              <cell><m>\{3,\ldots,10\}</m></cell>
+            </row>
+            <row>
+              <cell>negative</cell>
+              <cell><m>\{11,\ldots,17\}</m></cell>
+              <cell>decreasing</cell>
+              <cell><m>\{10,\ldots,17\}</m></cell>
+            </row>
+            <row>
+              <cell>positive</cell>
+              <cell><m>\{18,19,20\}</m></cell>
+              <cell>increasing</cell>
+              <cell><m>\{17,\ldots,20\}</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          We perform a similar analysis on the second backward differences to describe the concavity of the sequence.
+        </p>
+        <sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell>Sign of <m>\nabla^2 u_n</m></cell>
+              <cell>Interval</cell>
+              <cell>Behavior of <m>u_n</m></cell>
+              <cell>Interval</cell>
+            </row>
+            <row>
+              <cell>positive</cell>
+              <cell><m>\{2,\ldots,6\}</m></cell>
+              <cell>concave up</cell>
+              <cell><m>\{0,\ldots,6\}</m></cell>
+            </row>
+            <row>
+              <cell>negative</cell>
+              <cell><m>\{7,\ldots,15\}</m></cell>
+              <cell>concave down</cell>
+              <cell><m>\{5,\ldots,15\}</m></cell>
+            </row>
+            <row>
+              <cell>positive</cell>
+              <cell><m>\{16,\ldots,20\}</m></cell>
+              <cell>concave up</cell>
+              <cell><m>\{14,\ldots,20\}</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+      </solution>
+    </example>
+    <p>
+      When doing this analysis, if you discover that an increment equals zero,
+      remember that is neither positive nor negative.
+      Do not include the index in the interval for the signs of increments.
+      An increment of zero indicates that the value was not changing.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Extreme Values</title>
+    <p>
+      Having discussed monotonicity, we turn our attention to the extreme values of a sequence.
+      An extreme value refers to a maximum or minimum value in the sequence.
+      Of course, when we have a list of the sequence values,
+      we can scan through the list of values to find the highest or lowest value.
+      We want some methods of analysis that will not require checking all of the values.
+    </p>
+    <p>
+      On an interval where a sequence is monotone, an extreme value will never occur within that interval.
+      Extreme values can only occur at the edge of such an interval.
+      To find a maximum value, we look for where a sequence transitions from increasing to decreasing.
+      To find a minimum value, we look for where it transitions from decreasing to increasing.
+      These turning points identify <term>local extreme values</term>.
+    </p>
+    <definition xml:id="definition-sequence-local-extremes">
+      <title>Local Extreme Values for Sequences</title>
+      <statement>
+        <p>
+          A sequence <m>x</m> has a <term>local maximum</term> at index value <m>k</m>
+          if there are index values <m>m \lt k \lt n</m> so that
+          <me>x_k \ge x_i,</me>
+          for all <m>i \in \{m,\ldots,n\}</m>.
+        </p>
+        <p>
+          A sequence <m>x</m> has a <term>local minimum</term> at index value <m>k</m>
+          if there are index values <m>m \lt k \lt n</m> so that
+          <me>x_k \le x_i,</me>
+          for all <m>i \in \{m,\ldots,n\}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      A sequence can have multiple local extremes.
+      The example shown in <xref ref="figure-sequence-all-behaviors" />
+      has two local minima and one local maximum.
+      The two minima happen to have the same value.
+      However, even if one was higher than the other, they would both still be minima
+      because they would be where the sequence transitioned from decreasing to increasing.
+    </p>
+    <p>
+      A <term>global extreme value</term> describes a value in the sequence 
+      that is either the largest value of all (the <term>global maximum</term>)
+      or the lowest value of all (the <term>global minimum</term>).
+      To describe the global extreme values, we would compare all of the local extremes
+      as well as check if the sequence increased or decreased without bound.
+      To describe that in more depth, we need to wait until we talk about limits.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Patterns in the Increments</title>
+    <p>
+      Backward differences are not only useful for describing the monotonicity and concavity of a sequence.
+      There are many sequences where patterns in the increments can be used to create non-recursive recurrence relations.
+      A recurrence relation describes how to go from the previous value in a sequence to the next value.
+      It is recursive if the relation is the same for every index.
+      A non-recursive recurrence relation will have a relation that depends on the index.
+      Sometimes, we can still identify a pattern by looking at the higher-order differences.
+    </p>
+    <p>
+      An arithmetic sequence is a sequence where the backward difference is a constant sequence.
+      More complicated sequences arise where it is not the backward difference but the second difference or higher that is constant.
+      If we can identify a higher-order backward difference that is constant, then we can use that pattern to predict additional terms.
+    </p>
+    <example>
+      <statement>
+      <p>
+        Consider the sequence <m>w = (0,-23,-40,-45,-32,5,72,175,\ldots)</m>.
+        Identify a pattern and find the next two values in the sequence.
+      </p>
+      </statement>
+      <solution>
+        <p>
+          This sequence is not arithmetic, nor is it geometric.
+          To look for a pattern, we proceed to generate the backward differences.
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[y=0.5cm]
+            \node at (0,0) {$w_n$};
+            \node at (1,0) {0};
+            \node at (2,0) {-23};
+            \node at (3,0) {-40};
+            \node at (4,0) {-45};
+            \node at (5,0) {-32};
+            \node at (6,0) {5};
+            \node at (7,0) {72};
+            \node at (8,0) {175};
+            \node at (0,-1) {$\nabla w_n$};
+            \node at (1.5,-1) {-23};
+            \node at (2.5,-1) {-17};
+            \node at (3.5,-1) {-5};
+            \node at (4.5,-1) {13};
+            \node at (5.5,-1) {37};
+            \node at (6.5,-1) {67};
+            \node at (7.5,-1) {103};
+            \node at (0,-2) {$\nabla^2 w_n$};
+            \node at (2,-2) {6};
+            \node at (3,-2) {12};
+            \node at (4,-2) {18};
+            \node at (5,-2) {24};
+            \node at (6,-2) {30};
+            \node at (7,-2) {36};
+            \node at (0,-3) {$\nabla^3 w_n$};
+            \node at (2.5,-3) {6};
+            \node at (3.5,-3) {6};
+            \node at (4.5,-3) {6};
+            \node at (5.5,-3) {6};
+            \node at (6.5,-3) {6};
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          The pattern of backward differences shows that the third-order backward difference is a constant value, <m>\nabla^3 w_n = 6</m>.
+          We can use this pattern to find the next few values of the sequence.
+          We do this by extending the table, adding the increments one at a time.
+          The last term in <m>\nabla^2 w_n</m> shown was  <m>\nabla^2 w_8 = 36</m>.
+          So the next term will be <m>\nabla^2 w_9 = 36 + 6 =42</m>.
+          We can use that to find <m>\nabla w_9 = \nabla w_8 + 42 =103 + 42 = 145</m>.
+          That allows us to obtain <m>w_9 = w_8 + 145 = 175 + 145 = 320</m>.
+          Repeating the process allows us to find <m>w_{10} = 513</m>,
+          as illustrated in the extended table below.
+        </p>
+        <sidebyside width="90%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[y=0.5cm]
+            \node at (0,0) {$w_n$};
+            \node at (1,0) {0};
+            \node at (2,0) {-23};
+            \node at (3,0) {-40};
+            \node at (4,0) {-45};
+            \node at (5,0) {-32};
+            \node at (6,0) {5};
+            \node at (7,0) {72};
+            \node at (8,0) {175};
+            \node at (9,0) {320};
+            \node at (10,0) {513};
+            \node at (0,-1) {$\nabla w_n$};
+            \node at (1.5,-1) {-23};
+            \node at (2.5,-1) {-17};
+            \node at (3.5,-1) {-5};
+            \node at (4.5,-1) {13};
+            \node at (5.5,-1) {37};
+            \node at (6.5,-1) {67};
+            \node at (7.5,-1) {103};
+            \node at (8.5,-1) {145};
+            \node at (9.5,-1) {193};
+            \node at (0,-2) {$\nabla^2 w_n$};
+            \node at (2,-2) {6};
+            \node at (3,-2) {12};
+            \node at (4,-2) {18};
+            \node at (5,-2) {24};
+            \node at (6,-2) {30};
+            \node at (7,-2) {36};
+            \node at (8,-2) {42};
+            \node at (9,-2) {48};
+            \node at (0,-3) {$\nabla^3 w_n$};
+            \node at (2.5,-3) {6};
+            \node at (3.5,-3) {6};
+            \node at (4.5,-3) {6};
+            \node at (5.5,-3) {6};
+            \node at (6.5,-3) {6};
+            \node at (7.5,-3) {6};
+            \node at (8.5,-3) {6};
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Where Do We Go From Here?</title>
+    <p>
+      In this section, we have introduced the ideas of the characterizing a sequence in terms of monotonicity and concavity.
+      We considered examples of sequences with given values to find the backward differences by hand.
+      In the next section, we will consider how to find an explicit formula for the backward differences when we know an explicit formula for the sequence itself.
+      This will allow us to analyze the monotonicity and concavity of a sequence without needing all of the values being tabulated.
+      Knowing monotonicity will allow us to identify extreme values, again without computing all of the values.
+      The ideas of backward differences are analogous to the concepts of derivatives in calculus.
+    </p>
+    <p>
+      At the end of this section, we considered an example where we used a pattern in the backward differences to generate additional values for the sequence.
+      In a future section, we will consider the idea of starting with a known sequence at the level of increments
+      and using that sequence to generate a corresponding sequence.
+      We call the generated sequence an accumulation sequence, named this because the new value is an accumulation of increments.
+      An important topic raised in that section is how to show that two sequences are the same.
+      We often have multiple methods of describing a sequence, such as an explicit definition and a recursive definition.
+      We want to know that the sequences really agree because we can't (and wouldn't want to) compute and compare infinitely many values.
+      The ideas of accumulation are analogous to the concepts of integration in calculus.
+    </p>
+    <p>
+      One of the most important applications of accumulation is summation.
+      Summation formulas will continue to generalize our last example in this section.
+      Where accumulation allows us to take a known sequence of increments and generate the original sequence,
+      summation formulas will allow us to take the formula of an increment sequence and compute an explicit formula for the original sequence.
+      Summation formulas will be critical in generating the explicit formulas of integration later.
+    </p>
+    <p>
+      Finally, we will end the chapter by introducing limits of sequences.
+      Limits are the key tool that generates all of calculus.
+      A limit in a sequence corresponds to having the values in a sequence converge to some value.
+      We will then be ready to begin a new chapter that begins our look at calculus.
+    </p>
+  </subsection>
   <subsection>
     <title>Summary</title>
-    
     <p>
     <ul>
       <li>

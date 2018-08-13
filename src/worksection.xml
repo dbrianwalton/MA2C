@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./logarithm-properties.xml" />
+            <xi:include href="./discrete-calculus-intro.xml" />
 		</chapter>
 		
     </book>
