@@ -37,9 +37,10 @@
     <chapter xml:id="chapter-discrete-calculus">
       <title>Discrete Calculus</title>
       <xi:include href="./discrete-calculus-intro.xml" />
-      <xi:include href="./sequences-limits.xml" />
+      <xi:include href="./sequences-increments.xml" />
       <xi:include href="./sequences-accumulation.xml" />
       <xi:include href="./sequences-summation.xml" />
+      <xi:include href="./sequences-limits.xml" />
     </chapter>
     
     <chapter xml:id="chapter-functions">

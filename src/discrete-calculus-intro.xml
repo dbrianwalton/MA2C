@@ -425,6 +425,10 @@
           If the sequence of increments is negative, <m>\nabla x_k \lt 0</m> for every <m>k=m,\ldots,n</m>,
           then <m>x</m> is decreasing on the interval <m>\{m-1,\ldots,n\}</m>.
           </li>
+          <li>
+          If the sequence of increments is zero, <m>\nabla x_k = 0</m> for every <m>k=m,\ldots,n</m>,
+          then <m>x</m> is constant on the interval <m>\{m-1,\ldots,n\}</m>.
+          </li>
         </ul>
         The interval of monotonicity always begins one value before the first index in the interval of increments
         because the first increment is <m>\nabla x_m = x_{m} - x_{m-1}</m>.
@@ -460,6 +464,10 @@
           <li>
             If the increment sequence <m>\nabla x</m> is <em>decreasing</em> on <m>\{m,\ldots,n\}</m>,
             then the sequence <m>x</m> is <em>concave down</em> on <m>\{m-1,\ldots,n\}</m>.
+          </li>
+          <li>
+            If the increment sequence <m>\nabla x</m> is <em>constant</em> on <m>\{m,\ldots,n\}</m>,
+            then the sequence <m>x</m> has no concavity and is <em>linear</em> (i.e., straight) on <m>\{m-1,\ldots,n\}</m>.
           </li>
         </ul>
         </p>
@@ -498,6 +506,10 @@
           <li>
           If the second backward difference is negative, <m>\nabla^2 x_k \lt 0</m> for every <m>k=m,\ldots,n</m>,
           then <m>x</m> is concave down on the interval <m>\{m-2,\ldots,n\}</m>.
+          </li>
+          <li>
+          If the second backward difference is zero, <m>\nabla^2 x_k = 0</m> for every <m>k=m,\ldots,n</m>,
+          then <m>x</m> has no concavity and is linear on the interval <m>\{m-2,\ldots,n\}</m>.
           </li>
         </ul>
         The interval of concavity always begins two values before the first index in the interval of second backward difference.
@@ -835,7 +847,8 @@
       When doing this analysis, if you discover that an increment equals zero,
       remember that is neither positive nor negative.
       Do not include the index in the interval for the signs of increments.
-      An increment of zero indicates that the value was not changing.
+      An increment of zero indicates that the sequence was not changing.
+      If the second difference is zero, this indicates the increments are not changing and the sequence is linear.
     </p>
   </subsection>
   <subsection>
@@ -1058,6 +1071,57 @@
     <p>
     <ul>
       <li>
+        <p>
+          Monotonicity of a sequence describes where the sequence is increasing or decreasing.
+          We say that a sequence is increasing or decreasing <em>on intervals of integers</em>.
+          The sequence is <term>increasing</term> if the sequence values move to the right on the number line.
+          The sequence is <term>decreasing</term> if the sequence values move to the left on the number line.
+        </p>
+      </li>
+      <li>
+        <p>
+          We calculate the <term>increments</term> of the sequence using the <term>backward difference</term> to analyze monotonicity,
+          <me>\nabla x_k = x_k - x_{k-1}</me>.
+          <ul>
+            <li>
+            If the increments are positive, <m>\nabla x_k \gt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>, 
+            then the values of the sequence <m>x_k</m> are <em>increasing</em> on the interval <m>\{m-1,\ldots,n\}</m>.
+            </li>
+            <li>
+            If the increments are negative, <m>\nabla x_k \lt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>, 
+            then the values of the sequence <m>x_k</m> are <em>decreasing</em> on the interval <m>\{m-1,\ldots,n\}</m>.
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          Concavity of a sequence describes where the increments are increasing or decreasing.
+          A sequence whose increments are increasing is <term>concave up</term>.
+          A sequence whose increments are decreasing is <term>concave down</term>.
+        </p>
+      </li>
+      <li>
+        <p>
+          We can analyze concavity by computing the increments of the increments using the <term>second backward difference</term>,
+          <me>\nabla^2 x_k = \nabla x_k - \nabla x_{k-1}</me>.
+          <ul>
+            <li>
+            If the second increments are positive, <m>\nabla^2 x_k \gt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>, 
+            then the values of the sequence <m>x_k</m> are <em>concave up</em> on the interval <m>\{m-2,\ldots,n\}</m>.
+            </li>
+            <li>
+            If the second increments are negative, <m>\nabla^2 x_k \lt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>, 
+            then the values of the sequence <m>x_k</m> are <em>concave down</em> on the interval <m>\{m-2,\ldots,n\}</m>.
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          We can also use the increments and higher-order increments to find patterns in some sequences.
+          Following these patterns can be used to predict later terms in the sequence with index-dependent recurrence relations.
+        </p>
       </li>
     </ul>
     </p>
@@ -1066,14 +1130,47 @@
     <exercisegroup>
       <introduction>
         <p>
-        TBD
+        For the following finite sequences, find the intervals of monotonicity and concavity.
+        Also, identify the index and values of the local maximum and minimum points.
+        Graph the sequences and compare with your results.
         </p>
       </introduction>
       <exercise>
         <statement>
-          <p>
-          TBD
-          </p>
+          <p><m>a = (a_n)_{n=1}^{10} = (35, 55, 70, 80, 85, 85, 80, 70, 55, 35)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>b = (b_i)_{i=0}^{9} = (-8,-5,-4,-5,-8,-9,-8,-5,-1,4)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>c = (c_t)_{t=-3}^{6} = (5,8,10,10,10,9,8,7,8,10)</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          For the following sequences, identify a pattern using backward differences.
+          Use the pattern to predict the next two values of the sequence.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>u = (u_k)_{n=0}^{\infty} = (-8,-13,-16,-17,-16,-13,-8,\ldots)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>v = (v_j)_{j=1}^{\infty} = (6,0,-6,-10,-10,-4,10,\ldots)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>w = (w_n)_{n=0}^{\infty} = (-3,-6,-5,1,12,27,44,60,71,\ldots)</m></p>
         </statement>
       </exercise>
     </exercisegroup>
