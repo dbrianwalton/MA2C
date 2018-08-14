@@ -73,7 +73,7 @@
         <p>
           The increment <m>\nabla x_n</m> is defined by the backward difference <m>\nabla x_n = x_n - x_{n-1}</m>.
           To calculate the backward difference, 
-          we substitute the explicit formulas in place of the state variables <m>x_n</m> and <m>x_{n-1}<m> and simplify:
+          we substitute the explicit formulas in place of the state variables <m>x_n</m> and <m>x_{n-1}</m> and simplify:
           <md>
             <mrow> \nabla x_n &amp; = x_n - x_{n-1} </mrow>
             <mrow> &amp;= \big(3n+5\big) - \big(3n+2\big) </mrow>
@@ -148,7 +148,7 @@
         <p>
           The increment <m>\nabla u_n</m> is defined by the backward difference <m>\nabla u_n = u_n - u_{n-1}</m>.
           To calculate the backward difference, 
-          we substitute the explicit formulas in place of the state variables <m>u_n</m> and <m>u_{n-1}<m> and simplify:
+          we substitute the explicit formulas in place of the state variables <m>u_n</m> and <m>u_{n-1}</m> and simplify:
           <md>
             <mrow> \nabla u_n &amp; = u_n - u_{n-1} </mrow>
             <mrow> &amp;= \big(n^2+2n\big) - \big(n^2-1\big) </mrow>
@@ -201,7 +201,260 @@
   <subsection>
     <title>Increments of Recursive Sequences</title>
     <p>
+      When a sequence is defined recursively,
+      we know that there is a projection function <m>f : x_{n-1} \mapsto x_n</m>.
+      That is, the sequence value <m>x_n</m> can be found using the previous value <m>x_{n-1}</m> through the projection function,
+      <me>x_n = f(x_{n-1}).</me>
+      Instead of depending on the index, the increment is computed in terms of the previous value,
+      <me>\nabla x_n = x_n - x_{n-1} = f(x_{n-1}) - x_{n-1}</me>.
+      This suggests that we have another function, <m>g : x_{n-1} \mapsto \nabla x_n</m>,
+      defined by
+      <me>g(x) = f(x) - x</me>,
+      which projects the increment instead of the new sequence value.
+      We might call this function the <term>increment projection function</term>.
     </p>
+    <example>
+      <statement>
+        <p>
+          A sequence is defined recursively by the recurrence relation
+          <me>x_n = 1.25 x_{n-1} - 10</me>.
+          Find the formula for the increment in terms of <m>x_{n-1}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The recurrence relation is already in the form of a recursive equation 
+          with projection function <m>f(x)=1.25x-10</m>.
+          The increment <m>\nabla x_n = x_{n} - x_{n-1}</m> is computed 
+          by subtracting the <m>x_{n-1}</m> from the formula for <m>x_n</m>:
+          <me>\nabla x_n = x_n - x_{n-1} = \big(1.25 x_{n-1} - 10\big) - x_{n-1}</me>.
+          Simplifying this formula gives
+          <me>\nabla x_n = 0.25 x_{n-1} - 10,</me>
+          corresponding to an increment projection function <m>g(x) = f(x)-x= 0.25x-10</m>.
+        </p>
+        <p>
+          We can illustrate the role of these formulas by creating a table of a sequence.
+          Suppose the initial value is <m>x_0 = 20</m>.
+          We can compute both <m>x_n</m> and <m>\nabla x_n</m> in terms of the previously computed value <m>x_{n-1}</m>.
+        </p>
+        <sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>x_n</m></cell>
+              <cell><m>\nabla x_n</m></cell>
+            </row>
+            <row>
+              <cell>0</cell>
+              <cell>20</cell>
+              <cell>undefined</cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell><m>1.25(20)-10 = 15</m></cell>
+              <cell><m>0.25(20)-10 = -5</m></cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell><m>1.25(15)-10 = 8.75</m></cell>
+              <cell><m>0.25(15)-10 = -6.25</m></cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell><m>1.25(8.75)-10 = 0.9375</m></cell>
+              <cell><m>0.25(8.75)-10 = -7.8125</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          Suppose we had only used the recursive formula to find the sequence.
+          We would have found <me>x = (x_n)_{n=0}^\infty = (20,15,8.75,0.9375\ldots)</me>.
+          Then if we found the increments directly, we would have subtracted consecutive terms and found
+          <me>\nabla x = (\nabla x_n)_{n=1}^\infty = (-5, -6.25, -7.8125,\ldots)</me>,
+          in agreement with the calculations using the increment projection formula.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          A sequence is defined recursively by a projection function
+          <me>f(x) = 1.25x - 0.05x^2</me>.
+          Find the formula for the increment as a function of the previous sequence value.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Knowing the sequence's projection function,
+          the increment projection function is given by
+          <md>
+            <mrow>g(x)&amp;=f(x)-x</mrow>
+            <mrow>&amp; = 1.25x - 0.05x^2 - x</mrow>
+            <mrow>&amp; = 0.25x - 0.05x^2</mrow>.
+          </md>
+          This means that the increment is computed as <m>g : x_{n-1} \mapsto \nabla x_n</m>,
+          or <me>\nabla x_n = 0.25 x_{n-1} - 0.05 x_{n-1}^2</me>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Analysis of Monotonicity and Concavity</title>
+    <p>
+      When we have formulas to compute the increments,
+      we can solve inequalities to determine under what conditions the increments are positive or negative.
+      We can use the solutions of these inequalities to analyze where a sequence is increasing or decreasing.
+      If we also compute the second backward difference, or the increments of the increments,
+      then solving an additional inequality allows us to analyze the concavity of the sequence.
+    </p>
+    <p>
+      There are many ways to solve an inequality.
+      One approach is to isolate the independent variable use balanced operations.
+      Inequalities have a complication in that balanced multiplication (or division) by a negative number reverses the inequality.
+      Another approach is to solve an equation in order to create intervals to test.
+      Using the principle of continuity of formulas, which we will justify later in this text,
+      we can check one point in as a representative for each interval.
+      Because the first approach only works in some cases,
+      we will emphasize practicing using the second approach which works more generally.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Determine the intervals of monotonicity and concavity for the sequence
+          <me>x = (40n-n^2)_{n=0}^{\infty}</me>.
+          Identify any local extremes.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The explicit formula <m>x_n = 40n-n^2</m> allows us to compute formulas for the previous term and the increment.
+          Notice the use of parentheses to emphasize the role of grouped terms, especially when there will be a subtraction.
+          <md>
+            <mrow>x_{n-1} &amp;= 40(n-1) - (n-1)^2</mrow>
+            <mrow> &amp; = 40(n-1) - (n-1)(n-1)</mrow>
+            <mrow> &amp; = \big(40n - 40\big) - \big(n^2-2n+1\big)</mrow>
+            <mrow> &amp; = 40n - 40 - n^2 + 2n - 1 </mrow>
+            <mrow> &amp; = 42n - n^2 - 41 </mrow>
+          </md>
+          <md>
+            <mrow>\nabla x_n &amp;= x_n - x_{n-1} </mrow>
+            <mrow> &amp;= \big(40n - n^2\big) - \big(42n - n^2 - 41\big) </mrow>
+            <mrow> &amp;= 40n - n^2 - 42n + n^2 + 41 </mrow>
+            <mrow> &amp;= -2n + 41 </mrow>
+          </md>
+          We can verify that our work looks correct by starting a table and
+          checking whether the explicit formulas match what the terms should be.
+        </p>
+        <sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>x_n</m></cell>
+              <cell><m>x_{n-1}</m></cell>
+              <cell><m>\nabla x_n</m></cell>
+            </row>
+            <row>
+              <cell>0</cell>
+              <cell><m>40(0)-0^2 = 0</m></cell>
+              <cell>undefined</cell>
+              <cell>undefined</cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell><m>40(1)-1^2 = 39</m></cell>
+              <cell><m>42(1)-1^2 - 41 = 0</m></cell>
+              <cell><m>-2(1)+41 = 39</m></cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell><m>40(2)-2^2 = 76</m></cell>
+              <cell><m>42(2)-2^2 - 41 = 39</m></cell>
+              <cell><m>-2(2)+41 = 37</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          Checking thes few values in the table gives us confidence that we did the algebra correctly.
+          The formula for the previous sequence value is matching what we expect,
+          as is the formula for the increment.
+        </p>
+        <p>
+          Now that we have a formula for the increments, 
+          we want to find the intervals where the increments are positive or negative.
+          This corresponds to solving inequalities <m>\nabla x_n \gt 0</m> and <m>\nabla x_n \lt 0</m>.
+          The increment is defined for index values <m>n=1,2,\ldots</m>.
+        </p>
+        <p>
+          The approach of solving an inequality by isolating the independent variable would go as follows.
+          Start with the inequality in terms of the independent variable <m>n</m>, because we have an explicit definition for the sequence.
+          To solve <m>\nabla x_n \gt 0</m>, we use balanced operations to create equivalent inequalities.
+          <md>
+            <mrow> \nabla x_n \gt 0</mrow>
+            <mrow> -2n+41 \gt 0 </mrow>
+            <mrow> -2n \gt -41 </mrow>
+            <mrow> \frac{-2n}{-2} \lt \frac{-41}{-2} </mrow>
+            <mrow> n \lt 20{\textstyle \frac{1}{2}}</mrow>
+          </md>
+          When we divided both sides by <m>-2</m> (multiplied by <m>-\frac{1}{2}</m>),
+          the equivalent relation showed a reversed inequality.
+          The other inequality <m>\nabla x_n \lt 0</m> follows the same steps,
+          resulting in the equivalent inequality
+          <me> \nabla x_n \lt 0 \quad \Leftrightarrow \quad n \gt 20{\textstyle \frac{1}{2}}</me>.
+        </p>
+        <p>
+          The alternate approach involves solving the equation <m>\nabla x_n = -2n+41 = 0</m>.
+          Solving the equation involves the same steps to give an equivalent equation
+          <me> \nabla x_n = 0 \quad \Leftrightarrow \quad n = 20\frac{1}{2} </me>.
+          We now consider the intervals of values for <m>n</m> on either side of this value.
+          The intervals are <m>\{1,\ldots,20\}</m> and <m>\{21,\ldots,\infty\}</m>.
+          The principle for solving the inequality is to choose one value from each interval and 
+          use it to find the sign of <m>\nabla x_n</m>.
+          For example, we can use <m>n=10</m> and <m>n=25</m>.
+          <md>
+            <mrow> \nabla x_{10} = -2(10)+41 = 21 </mrow>
+            <mrow> \nabla x_{25} = -2(25)+41 = -9 </mrow>
+          </md>
+        </p>
+        <p>
+          Both methods of solving the inequalities give the same intervals,
+          which allow us to analyze the monotonicity of the sequence as shown in the table below.
+        </p>
+        <tabular>
+          <row bottom="major">
+            <cell>Sign of <m>\nabla x_n</m></cell>
+            <cell>Monotonicity of <m>x_n</m></cell>
+          </row>
+          <row>
+            <cell>Positive on <m>\{1,\ldots,20\}</m></cell>
+            <cell>Increasing on <m>\{0,\ldots,20\}</m></cell>
+          </row>
+          <row>
+            <cell>Negative on <m>\{21,\ldots,\infty\}</m></cell>
+            <cell>Decreasing on <m>\{20,\ldots,\infty\}</m></cell>
+          </row>
+        </tabular>
+        <p>
+          Because <m>x</m> is increasing on <m>\{0,\ldots,20\}</m>
+          and then decreasing on <m>\{20,\ldots,\infty\}</m>,
+          <m>x</m> must have a maximum value at <m>n=20</m>.
+          The value of the sequence at that index is
+          <me>x_{20} = 40(20) - 20^2 = 800-400 = 400.</me>
+        </p>
+        <p>
+          To find concavity, we need to compute the second backward difference.
+          This is computed like other backward differences.
+          <md>
+            <mrow>\nabla^2 x_n &amp;= \nabla x_n - \nabla x_{n-1}</mrow>
+            <mrow>&amp;= \big(-2n+41\big) - \big(-2(n-1)+41\big)</mrow>
+            <mrow>&amp;= \big(-2n+41\big) -\big(-2n+43\big)</mrow>
+            <mrow>&amp;= -2n+41 + 2n - 43</mrow>
+            <mrow>&amp;= -2</mrow>
+          </md>
+          The second backward difference is always negative, for <m>n=2,3,\ldots</m>.
+          Consequently, <m>x</m> is concave down on <m>\{0,\ldots,\infty\}</m>.
+        </p>
+      </solution>
+    </example>
   </subsection>
   <subsection>
     <title>Summary</title>

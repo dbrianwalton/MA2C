@@ -79,7 +79,7 @@
       For recursively defined sequences, the equation that describes the relationship 
       between consecutive terms of the sequence is called the <term>recurrence relation</term>.
       When the recurrence relation for a sequence <m>x</m> is solved for the next value as a dependent variable in terms of an expression involving of the previous term,
-      we call this map or function the <term>projection function</term>.
+      we call this map or function the <term>projection function</term> because it allows us to <em>project</em> future values based on current values.
     </p>
   </subsection>
   <subsection>
