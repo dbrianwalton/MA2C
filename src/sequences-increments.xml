@@ -855,7 +855,7 @@
           Explicit formulas for the values of a sequence <m>x</m>, <m>n \mapsto x_n</m>, allow us
           to compute an explicit formula for the increments <m>n \mapsto \nabla x_n</m> using the backward difference
           <me>\nabla x_n = x_{n} - x_{n-1}</me>
-          using <em>substitution</em>, or <em>composition, with the expression <m>n-1</m> in place of the index variable <m>n</m>.
+          using <em>substitution</em>, or <em>composition</em>, with the expression <m>n-1</m> in place of the index variable <m>n</m>.
           An explicit formula for the second backward difference <m>n \mapsto \nabla^2 x_n</m> can be computed using substitution and the formula of the increments,
           <me>\nabla^2 x_n = \nabla x_n - \nabla x_{n-1}</me>.
         </p>
@@ -1022,6 +1022,87 @@
       <exercise>
         <statement>
           <p><m>P_{n+1} = \frac{50 P_n}{P_n + 20}</m>, restricted to <m>P \ge 0</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Applications.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            You are about to receive some money (inheritance, lottery, etc.) and plan to invest it in an account that earns 5<percent/> annually, compounded quarterly.
+            Your plan is to withdraw <dollar/>9000 each quarter (<dollar/>3000 per month).
+            You want to analyze what will happen to your investment.
+            <ul>
+              <li>
+                <p>
+                  Create a recursive definition for a sequence that represents the quarterly balance of your investment.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Analyze the monotonicity and concavity of your sequence.
+                  <ul>
+                    <li>What size of an investment would result in an equilibrium?</li>
+                    <li>What will happen to the investment if you receive less than the equilibrium amount?</li>
+                    <li>What will happen to the investment if you receive more than the equilibrium amount?</li>
+                  </ul>
+                </p>
+              </li>
+            </ul>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A population of at risk birds has a constant per capita yearly death rate of 1 death per four individuals, <m>d=0.25</m>.
+            The per capita yearly birth rate is observed to be a decreasing function of the population size <m>P</m>,
+            modeled by a linear function <m>b = 0.5 - 0.0002P</m>.
+            <ul>
+              <li>
+                <p>
+                  Create a recursive definition for a sequence that represents the annual population size.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Analyze the monotonicity of your sequence.
+                  <ul>
+                    <li>What is the equilibrium population size?</li>
+                    <li>What will happen to the population if it begins below equilibrium?</li>
+                    <li>What will happen to the population if it begins above equilibrium?</li>
+                  </ul>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Create a cobweb diagram for the sequence.
+                  How does the cobweb diagram relate to your analysis of monotonicity?
+                  How does the cobweb diagram relate to concavity
+                </p>
+              </li>
+            </ul>
+          </p>
+          <p>
+            Suppose that the tail feathers of these birds are valuable 
+            so that poachers come and kill an additional 100 birds per year.
+            <ul>
+              <li>
+                <p>
+                  Create a recursive definition for a new sequence that models the natural births and deaths as well as the illegal harvesting by poachers.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Analyze the monotonicity of the modified sequence.
+                  What does the model predict for the consequence of poaching?
+                </p>
+              </li>
+            </ul>
+          </p>
         </statement>
       </exercise>
     </exercisegroup>
