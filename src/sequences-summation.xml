@@ -35,123 +35,13 @@
     <title>Summation of as Accumulated Change</title>
     
     <p>
-      In mathematics, the idea of adding terms from a sequence appears so frequently that a special notation, 
-      called summation notation or sigma notation for the Greek letter sigma <m>\Sigma</m>, 
-      was created to represent the sum.
-    </p>
-    
-    <definition xml:id="defn-summation-notation">
-      <title>Summation Notation</title>
-      <statement>
-        <p>
-          Given any sequence <m>x</m> and integers <m>m \le n</m>, 
-          the sum of terms <m>x_k</m> with index <m>k</m> satisfying <m>m \le k \le n</m> 
-          is written <me> \sum_{k=m}^{n} x_k = x_{m} + x_{m+1} + \cdots + x_n. </me> 
-          The starting index <m>m</m> is called the <term>lower limit</term> of the sum 
-          while the ending index <m>n</m> is called the <term>upper limit</term>.
-        </p>
-      </statement>
-    </definition>
-    
-    <p>
-      The sequence of terms being added is often given as an explicit function of the index.
-      In that case, the explicit formula is used in place of the sequence name in the summation.
-    </p>
-    
-    <example>
-      <statement>
-        <p>
-          Evaluate the following sums. 
-          <ol>
-            <li> <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> </li>
-            <li> <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> </li>
-          </ol>
-        </p>
-      </statement>
-      <solution>
-        <p>
-        <ol>
-          <li> 
-            <p>
-              The sum <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> 
-              involves the increment sequence <m>a_k=2k+3</m> 
-              and is the sum of terms with index from 3 to 7: 
-              <me> a_3 = 2(3)+3 = 9, \: a_4 = 2(4)+3 = 11, \: a_5 = 13, \: a_6=15, \: a_7 = 17. </me> 
-              Consequently, we can find the sum <me> \sum_{k=3}^{7} [2k+3] = 9+11+13+15+17 = 65. </me>
-            </p>
-          </li>
-          <li>
-            <p>
-              The sum <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> 
-              involves an increment sequence <m>\displaystyle b_k=\frac{1}{k^2+k}</m>. 
-              The index values involved go from 1 to 4 so that we find 
-              <md>
-                <mrow> \sum_{k=1}^{4} \frac{1}{k^2+k} &amp;= 
-                \frac{1}{1^1+1} + \frac{1}{2^2+2} + \frac{1}{3^2+3} + \frac{1}{4^2+4} </mrow>
-                <mrow> &amp;= \frac{1}{2} + \frac{1}{6} + \frac{1}{12} + \frac{1}{20} </mrow>
-                <mrow> &amp;= \frac{30}{60} + \frac{10}{60} + \frac{5}{60} + \frac{3}{60} </mrow>
-                <mrow> &amp;= \frac{48}{60} = \frac{4}{5}. </mrow>
-              </md>
-            </p>
-          </li>
-        </ol>
-        </p>
-      </solution>
-    </example>
-    
-    <p>
-      An accumulation sequence is closely related to summation.
-      The accumulation is a new sequence formed by adding one value at a time.
-      A summation represents the sum of all of the terms indicated.
-      So if we form a sequence adding the values one at a time, 
-      then once all of the terms have been added, the accumulation sequence will exactly match the summation.
-    </p>
-    
-    <p>
-      Using summation notation, if we have an increment sequence <m>x</m> 
-      then the accumulation sequence <m>s</m> with <m>\nabla s_n = x_n</m> 
-      and initial value <m>s_0 = c</m> can be written 
-      <me> s_n = c + \sum_{k=1}^{n} x_k. </me> 
-      Notice that, in this equation, 
-      the index <m>n</m> of the accumulation sequence <m>s</m> appears as the upper limit of the summation. 
-      The summation itself introduces another index variable <m>k</m> 
-      that is used for the terms of the sum. 
-      The index variable is also called a <term>dummy variable</term> of summation 
-      because any other index variable could be used: 
-      <me> s_n = c + \sum_{i=1}^{n} x_i = c + \sum_{j=1}^{n} x_j. </me>
-    </p>
-    
-    <example>
-      <statement>
-        <p>
-          Find the first five terms of the accumulation sequence <m>z</m> 
-          with increment sequence <m>a = (3, 5, 7, 9, 11, 13, \ldots)</m> 
-          with initial value <m>4</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          The sequence <m>z</m> has initial value <m>4</m> which corresponds to index 0, <me> z_0 = 4. </me> 
-          For index values <m>n \gt 0</m>, the sequence is computed with an accumulation of values 
-          from the sequence <m>a</m>. 
-          <md>
-            <mrow> z_1 &amp;= 4 + \sum_{k=1}^{1} a_k = 4 + 3 = 7 </mrow>
-            <mrow> z_2 &amp;= 4 + \sum_{k=1}^{2} a_k = 4 + 3 + 5 = 12 </mrow>
-            <mrow> z_3 &amp;= 4 + \sum_{k=1}^{3} a_k = 4 + 3 + 5 + 7 = 19 </mrow>
-            <mrow> z_4 &amp;= 4 + \sum_{k=1}^{4} a_k = 4 + 3 + 5 + 7 + 9 = 28 </mrow>
-          </md>
-        </p>
-      </solution>
-    </example>
-    
-    <p>
       Notice that when an accumulation sequence is written as a summation, we have
       <me>s_n = s_0 + \sum_{k=1}^{n} x_k.</me>
       Reorganizing terms, we can instead write the sum as a change in the accumulation sequence,
       <me>\sum_{k=1}^{n} x_k = s_n - s_0.</me>
       This observation can be generalized to other index ranges using the splitting property of summation.
     </p>
-    
+
     <p>
       The splitting property of summation essentially splits a sum into two sums.
     </p>
@@ -704,12 +594,6 @@
         Summation of terms is equivalent to an accumulation of those terms as increments.
       </li>
       <li>
-        Summation notation (sigma notation) provides a method to communicate the sequence of increments
-        as well as the range of index values. 
-        The index variable is sometimes called the dummy variable 
-        because any other variable could be used in its place.
-      </li>
-      <li>
         The <xref text="title" ref="summation-splitting-property"/> allows us
         to split a summation over an index range into the sum of two summations over adjacent ranges.
       </li>
@@ -747,87 +631,6 @@
   </subsection>
   
   <exercises>
-    <exercisegroup>
-      <introduction>
-        <p>
-          For each of the following summations, write down the sum of individual terms.
-          Then compute the value of the sum.
-          For example, <m>\sum_{k=2}^{5} 2k</m> would be <m>2(2)+2(3)+2(4)+2(5)=4+6+8+10 = 28</m>.
-        </p>
-      </introduction>
-      <exercise>
-        <statement>
-          <p>
-            <m>\displaystyle \sum_{k=12}^{15} 3k</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>\displaystyle \sum_{k=-2}^{2} 2^k</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>\displaystyle \sum_{k=2}^{5} \frac{2k+1}{5k}</m>
-          </p>
-        </statement>
-      </exercise>
-    </exercisegroup>
-    <exercisegroup>
-      <introduction>
-        <p>
-          Rewrite the following sums in summation notation. 
-          Find an appropriate formula for the increment sequence 
-          and identify the correct lower and upper limits of the sum.
-        </p>
-      </introduction>
-      <exercise>
-        <statement>
-          <p>
-            <m>15+20+25+30+\cdots+90</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>21+25+29+33+\cdots+61</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>\frac{1}{4} + \frac{2}{9} + \frac{3}{16} + \cdots + \frac{12}{169}</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            The sum of all four digit odd numbers.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            The sum of all two-digit squares, <m>16+25+36+49+64+81</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            The sum of all three-digit odd squares.
-          </p>
-        </statement>
-      </exercise>
-    </exercisegroup>
     <exercisegroup>
       <introduction>
         <p>
