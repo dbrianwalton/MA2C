@@ -939,6 +939,7 @@
         <p>
           For the each sequence, compute the explicit formula for the backward difference,
           perform sign analysis, and interpret the monotonicity of the sequence.
+          Identify any local extreme values.
         </p>
       </introduction>
       <exercise>
