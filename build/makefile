@@ -61,6 +61,8 @@ $(LATEX_single).pdf: images $(LATEX_single).tex
 
 pdf: $(LATEX_base).pdf ;
 
+latex: $(LATEX_base).tex ;
+
 images:
 	mkdir images
 data:
