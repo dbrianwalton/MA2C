@@ -358,8 +358,8 @@
           </tabular>
         </sidebyside>
     
-        <sidebyside margins="auto">
-          <image width="75%">
+        <sidebyside width="75%" margins="auto">
+          <image>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
@@ -405,8 +405,8 @@
         Since the population itself is getting larger, the increment of growth is going to be larger each year. 
         The two models diverge from one another even more dramatically as time progresses. 
         </p>
-        <sidebyside>
-          <image width="75%">
+        <sidebyside width="75%">
+          <image>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
@@ -533,8 +533,8 @@
           The values for the loan balance are plotted below.
         </p>
     
-        <sidebyside margins="auto">
-          <image width="75%">
+        <sidebyside width="75%" margins="auto">
+          <image>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
