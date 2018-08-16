@@ -9,44 +9,48 @@
 
 <section xml:id="sequences-summation">
   <title>Summation Formulas</title>
-
   <subsection>
     <title>Overview</title>
-    
     <p>
-      Accumulation sequences are closely related to summations.
-      An accumulation sequence is the creation of one sequence formed by adding one value at a time.
-      A summation represents the sum of a collection of values.
-      It is natural, therefore, that we can connect these two ideas.
+      In the previous section, we learned that accumulation sequences could be written using summation notation.
+      Consequently, summations can always be interpreted in the context of a sequence.
+      We have seen some examples where we could show that an accumulation sequence representing a summation
+      was equivalent to a sequence defined explicitly.
+      Unfortunately, that process is only useful if we can somehow discover the explicit formula to compare.
+      We seek for computational methods that will allow us to find the explicit values for summations.
     </p>
-    
     <p>
-      This section introduces summations and applies accumulation sequences to compute these sums.
-      A special notation for summation, sometimes called sigma notation, is explained.
-      We also learn about properties of summation.
-      The terms in the summation can be represented as a sequence.
-      If we define an accumulation sequence with increments by the summation sequence,
-      then the value of the summation will be computed as the change in the accumulation sequence.
-      This will give us methods for computing summations of many explicit sequences.
+      This section studies the properties of summation and their application.
+      We will learn that any summation can be interpreted as a net change in an accumulation sequence.
+      We will also learn about algebraic properties of summation, particularly a property known as linearity.
+      Once we know summation formulas for elementary building blocks,
+      these properties will allow us to combine them for more complicated formulas.
     </p>
   </subsection>
-  
   <subsection>
-    <title>Summation of as Accumulated Change</title>
-    
+    <title>Summation of as Net Accumulated Change</title>
     <p>
-      Notice that when an accumulation sequence is written as a summation, we have
-      <me>s_n = s_0 + \sum_{k=1}^{n} x_k.</me>
-      Reorganizing terms, we can instead write the sum as a change in the accumulation sequence,
-      <me>\sum_{k=1}^{n} x_k = s_n - s_0.</me>
-      This observation can be generalized to other index ranges using the splitting property of summation.
+      In the previous section, we learned that every accumulation sequence can be written <xref ref="theorem-accumulation-as-summation" text="title">using summation notation</xref>.
+      The reverse is true.
+      For every summation, we can define a corresponding accumulation sequence.
+      Suppose we are interested in a summation
+      <me>S = \sum_{k=m}^{n} x_k</me>,
+      where <m>m \gt 0</m> and <m>n \ge m</m>
+      and <m>x=(x_k)</m> is the sequence whose terms are being added.
+      Let <m>u</m> be <em>any</em> accumulation sequence with increments <m>x</m> and initial value <m>u_0</m>.
+      Then we know we can write
+      <me>u_k = u_0 + \sum_{i=1}^{k} x_i</me>.
+      We want to find the relation between the summation <m>S</m> and the accumulation sequence.
     </p>
-
     <p>
-      The splitting property of summation essentially splits a sum into two sums.
+      First, we observe that the equation defining the accumulation sequence can be rewritten with the summation isolated:
+      <me>\sum_{i=1}^{k} x_i = u_k - u_0</me>.
+      The summation is equal to the difference between
+      the initial value and the final value of the accumulation sequence.
+      This observation can be generalized to other index ranges,
+      but to explain it we first need the splitting property of summation.
     </p>
-    
-    <theorem xml:id="summation-splitting-property">
+    <theorem xml:id="theorem-summation-splitting-property">
       <title>Summation Splitting Property</title>
       <statement>
         <p>
@@ -67,37 +71,33 @@
         </p>
       </proof>
     </theorem>
-    
     <p>
-      By creating an accumulation sequence using the terms from a summation,
-      we can rewrite the summation as a change in the accumulation sequence.
+      This splitting property allows us to rewrite a summation as a change in an associated accumulation sequence.
     </p>
-    
-    <theorem xml:id="summation-as-accumulated-change">
-      <title>Summation as Accumulated Change</title>
+    <theorem xml:id="theorem-summation-as-accumulated-change">
+      <title>Summation as Net Accumulated Change</title>
       <statement>
         <p>
-          Given any sequence of terms <m>x_k</m> and an accumulation sequence <m>s</m> with <m>\nabla s_k = x_k</m>,
-          <me> \sum_{k=m}^{n} x_k = s_n - s_{m-1}.</me>
+          Given any sequence of terms <m>x_k</m> and an accumulation sequence <m>u</m> with <m>\nabla u_k = x_k</m>,
+          <me> \sum_{k=m}^{n} x_k = u_n - u_{m-1}.</me>
         </p>
       </statement>
       <proof>
         <p>
           The accumulation sequence can be written
-          <me>s_n = s_0 + \sum_{k=1}^{n} x_k.</me>
-          By the <xref text="title" ref="summation-splitting-property"/>,
+          <me>u_n = u_0 + \sum_{k=1}^{n} x_k.</me>
+          By the <xref text="title" ref="theorem-summation-splitting-property"/>,
           if we split the sum at index <m>k=m-1</m>, we have
-          <me>s_n = s_0 + \sum_{k=1}^{m-1} x_k+\sum_{k=m}^{n} x_k.</me>
+          <me>u_n = u_0 + \sum_{k=1}^{m-1} x_k+\sum_{k=m}^{n} x_k.</me>
           However, once we recognize
-          <me>s_{m-1} = s_0 + \sum_{k=1}^{m-1} x_k,</me>
+          <me>u_{m-1} = u_0 + \sum_{k=1}^{m-1} x_k,</me>
           we have
-          <me>s_n = s_{m-1} + \sum_{k=m}^{n} x_k</me>.
+          <me>u_n = u_{m-1} + \sum_{k=m}^{n} x_k</me>.
           Solving for the summation gives the stated conclusion,
-          <me> \sum_{k=m}^{n} x_k = s_n - s_{m-1}.</me>
+          <me> \sum_{k=m}^{n} x_k = u_n - u_{m-1}.</me>
         </p>
       </proof>
     </theorem>
-    
     <p>
       In this theorem, notice that which accumulation sequence is used does not matter.
       The initial value is irrelevant.
@@ -107,7 +107,6 @@
       Finally, notice that the difference in accumulations can also be written
       <me>\sum_{k=m}^{n} x_k = \sum_{k=1}^{n} x_k - \sum_{k=1}^{m-1} x_k.</me>
     </p>
-    
     <example>
       <statement>
         <p>
@@ -125,12 +124,12 @@
           as well as the lower limit and upper limit of the sum.
         </p>
         <p>
-          We <xref ref="example-odd-integer-formula">earlier showed</xref>
-          that the odd integers have an explicit formula <m>x_k=2k-1</m>, <m>k=1,2,3,\ldots</m>.
+          The sequence of odd integers <m>x=(1,3,5,\ldots)</m> has an explicit formula <m>x_k=2k-1</m>, <m>k=1,2,3,\ldots</m>.
           It was for this sequence that 
           <xref ref="example-accumulation-odd-integers">we had</xref> 
-          <me> s_n = \sum_{k=1}^{n} 2k-1 = n^2. </me>
-          We now have the sequence of our terms and the corresponding accumulation sequence.
+          <me> u_n = \sum_{k=1}^{n} 2k-1 = n^2. </me>
+          We want to write the sum of odd three digit numbers in terms of the sequence of increments.
+          Then we will be able to use the explicit formula of the accumulation sequence to compute the sum.
         </p>
         <p>
           To find the limits of summation, we need to find the value of the index <m>k</m>
@@ -148,13 +147,13 @@
             <mrow>k=500.</mrow>
           </md>
           Consequently, the sum of interest is
-          <me>\sum_{k=51}^{500} 2k-1 = 101 + 103 + 105 + \cdots + 997 + 999.</me>
+          <me>S= \sum_{k=51}^{500} 2k-1 = 101 + 103 + 105 + \cdots + 997 + 999.</me>
         </p>
         <p>
-          We are finally ready to apply the <xref text="title" ref="summation-as-accumulated-change"/>.
-          The summation is equal to the change in the accumulation sequence from 50 to 500,
+          We are finally ready to apply the <xref text="title" ref="theorem-summation-as-accumulated-change"/>.
+          The summation is equal to the change in the accumulation sequence from 50 (index prior to first increment) to 500 (index of last increment),
           <md>
-            <mrow>\sum_{k=51}^{500} 2k-1 &amp;= s_{500} - s_{50}</mrow>
+            <mrow>S = \sum_{k=51}^{500} 2k-1 &amp;= u_{500} - u_{50}</mrow>
             <mrow> &amp;= 500^2 - 50^2</mrow>
             <mrow> &amp;= 250000 - 2500</mrow>
             <mrow> &amp;= 247500.</mrow>
@@ -163,10 +162,8 @@
       </solution>
     </example>
   </subsection>
-  
   <subsection>
-    <title>Properties of Summation</title>
-    
+    <title>Algebraic Properties of Summation</title>
     <p>
       Now that we know that we can write a summation as the change of an accumulation sequence,
       we have a tool to compute summations once we are able to identify the accumulation.
@@ -175,7 +172,6 @@
       to compute the summation for a variety of different problems.
       These properties of summation correspond to the basic properties of addition.
     </p>
-    
     <p>
       Suppose we have a sequence <m>x</m> and a constant <m>\alpha</m>.
       We can create a new sequence <m>\alpha x</m>, 
@@ -185,8 +181,7 @@
       will have a common factor of <m>\alpha</m>.
       This leads to a property of summation called the constant multiple rule<mdash/>constant multiples factor out of summation.
     </p>
-    
-    <theorem xml:id="thm-summation-constant-multiple-rule">
+    <theorem xml:id="theorem-summation-constant-multiple-rule">
       <title>Constant Multiple Rule of Summation</title>
       <statement>
         <p>
@@ -196,7 +191,6 @@
         </p>
       </statement>
     </theorem>
-    
     <p>
       The next property considers a sequence that is itself formed by adding
       two sequences together. Suppose we have two sequences <m>u</m> and <m>w</m>
@@ -209,8 +203,7 @@
       and then add the results. 
       This leads to a property of summation called the sum rule.
     </p>
-    
-    <theorem xml:id="thm-summation-sum-rule">
+    <theorem xml:id="theorem-summation-sum-rule">
       <title>Sum Rule of Summation</title>
       <statement>
         <p>
@@ -220,7 +213,6 @@
         </p>
       </statement>
     </theorem>
-    
     <p>
       Using the rules together creates a new rule called linearity involving
       two sequences <m>x</m> and <m>y</m>.
@@ -231,8 +223,7 @@
       the general equation of a line being of the form <m>ax + by = c</m>.
       Linearity applies the sum rule and the constant multiple as if in a single step.
     </p>
-    
-    <theorem xml:id="thm-summation-linearity">
+    <theorem xml:id="theorem-summation-linearity">
       <title>Linearity of Summation</title>
       <statement>
         <p>
@@ -243,14 +234,12 @@
         </p>
       </statement>
     </theorem>
-    
     <p>
       Using <m>\alpha = 1</m> and <m>\beta = -1</m>, the linear combination
       becomes a difference, <m>\alpha x + \beta y = x - y</m>. 
       So the difference rule is a special case of linearity.
     </p>
-    
-    <theorem xml:id="thm-summation-difference-rule">
+    <theorem xml:id="theorem-summation-difference-rule">
       <title>Difference Rule of Summation</title>
       <statement>
         <p>
@@ -260,7 +249,6 @@
         </p>
       </statement>
     </theorem>
-    
     <p>
       There are no corresponding rules for multiplication or division.
       This is really no different than emphasizing the importance of multiplying all terms
@@ -277,18 +265,16 @@
   
   <subsection>
     <title>Elementary Summation Formulas</title>
-    
     <p>
       There are some elementary increment sequences for which we can find
       an explicit formula for the accumulation sequence.
       We will state the results and prove them using the 
-      <xref ref="thm-sequence-uniqueness">uniqueness criteria for sequences</xref>.
+      <xref ref="theorem-uniqueness-of-accumulation">uniqueness criteria for accumulation sequences</xref>.
       The simplest accumulation sequence, and that used in each of the elementary summation formulas,
       use an initial value <m>s_0 = 0</m>.
       Thus, where we normally would have <m>s_n - s_0</m> as the accumulated change, we only have <m>s_n</m>.
     </p>
-    
-    <theorem xml:id="thm-sum-of-constants">
+    <theorem xml:id="theorem-sum-of-constants">
       <title>Sum of Constant Sequence</title>
       <statement>
         <p><me> \sum_{k=1}^{n} c = cn </me></p>
@@ -305,8 +291,7 @@
         </p>
       </proof>
     </theorem>
-    
-    <theorem xml:id="thm-sum-of-integers">
+    <theorem xml:id="theorem-sum-of-integers">
       <title>Sum of Natural Numbers</title>
       <statement>
         <p><me> \sum_{k=1}^{n} k = \frac{n(n+1)}{2} </me></p>
@@ -327,12 +312,11 @@
             <mrow> &amp;= \frac{n}{2}\big( (n+1) - (n-1) \big) = \frac{n}{2} \cdot 2 = n</mrow>
           </md>
           Since <m>(\nabla w)_n = n = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
-          By <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
+          By <xref ref="theorem-uniqueness-of-accumulation" />, <m>u</m> and <m>w</m> are equivalent.
         </p>
       </proof>
     </theorem>
-    
-    <theorem xml:id="thm-sum-of-squares">
+    <theorem xml:id="theorem-sum-of-squares">
       <title>Sum of Squares</title>
       <statement>
         <p><me> \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6} </me></p>
@@ -356,12 +340,11 @@
             <mrow> &amp;= \frac{n}{6}(6n) = n^2 </mrow>
           </md>
           Since <m>(\nabla w)_n = n^2 = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
-          By <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
+          By <xref ref="theorem-uniqueness-of-accumulation" />, <m>u</m> and <m>w</m> are equivalent.
         </p>
       </proof>
     </theorem>
-    
-    <theorem xml:id="thm-sum-of-cubes">
+    <theorem xml:id="theorem-sum-of-cubes">
       <title>Sum of Cubes</title>
       <statement>
         <p><me> \sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4} </me></p>
@@ -385,12 +368,11 @@
             <mrow> &amp;= \frac{n^2}{4}(4n) = n^3 </mrow>
           </md>
           Since <m>(\nabla w)_n = n^3 = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
-          By <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
+          By <xref ref="theorem-uniqueness-of-accumulation" />, <m>u</m> and <m>w</m> are equivalent.
         </p>
       </proof>
     </theorem>
-    
-    <theorem xml:id="thm-sum-of-geometric">
+    <theorem xml:id="theorem-sum-of-geometric">
       <title>Sum of a Geometric Sequence</title>
       <statement>
         <p><me> \sum_{k=0}^{n} b^k = \frac{b^{n+1}-1}{b-1} </me></p>
@@ -411,15 +393,13 @@
             <mrow> &amp;= \frac{b^{n+1}-b^n}{b-1} = \frac{b^n(b-1)}{b-1} = b^n </mrow>
           </md>
           Since <m>(\nabla w)_n = b^n = x_n</m>, <m>u</m> and <m>w</m> have the same increments and same initial value.
-          By <xref ref="thm-sequence-uniqueness" />, <m>u</m> and <m>w</m> are equivalent.
+          By <xref ref="theorem-uniqueness-of-accumulation" />, <m>u</m> and <m>w</m> are equivalent.
         </p>
       </proof>
     </theorem>
-    
     <p>
       Our first examples consider sums involving just the elementary terms.
     </p>
-    
     <example>
       <statement>
         <p>
@@ -432,13 +412,12 @@
           <m>x=(k : k=1, 2, 3, \ldots)</m> over a range <m>1 \le k \le 100</m>.
           This allows us to rewrite our problem as a summation:
           <me> \sum_{k=1}^{100} k. </me>
-          Theorem <xref ref="thm-sum-of-integers"/> applies directly with <m>n=100</m>,
+          Theorem <xref ref="theorem-sum-of-integers"/> applies directly with <m>n=100</m>,
           so we know
           <me> \sum_{k=1}^{100} k = \frac{100(101)}{2} = 5050. </me>
         </p>
       </solution>
     </example>
-    
     <example>
       <statement>
         <p>
@@ -454,7 +433,7 @@
           Using the <xref text="title" ref="summation-as-accumulated-change"/> theorem,
           we can write the summation as a difference
           <me> \sum_{k=100}^{200} k = \sum_{k=1}^{200} k - \sum_{k=1}^{99}. </me>
-          The two summations are accumulations from <xref ref="thm-sum-of-integers"/>:
+          The two summations are accumulations from <xref ref="theorem-sum-of-integers"/>:
           <md>
             <mrow> \sum_{k=1}^{200} k = \frac{200(201)}{2} = 20100, </mrow>
             <mrow> \sum_{k=1}^{99} k = \frac{99(100)}{2} = 4950. </mrow>
@@ -465,17 +444,14 @@
       </solution>
     </example>
   </subsection>
-  
   <subsection>
     <title>Summations of Linear Combinations</title>
-    
     <p>
       The elementary summation formulas allow us to compute sums involving only the elementary terms.
       Combining these formulas using the properties of summation, 
       namely using the constant multiple rule and the sum rule,
       we can compute sums of any linear combination of the elementary terms.
     </p>
-    
     <example>
       <statement>
         <p>
@@ -487,7 +463,7 @@
           The increments in the sum consist of a constant (<m>500</m>),
           a constant multiple of the index (<m>60k</m>),
           and a constant multiple of the square of the index (<m>-2k^2</m>).
-          The <xref ref="thm-summation-linearity">linearity property of summation</xref> 
+          The <xref ref="theorem-summation-linearity">linearity property of summation</xref> 
           allows us to compute the sum using the elementary formulas.
           Although linearity allows the two steps to be done at once, the following
           illustrates the steps (sum and constant multiple rules) in order:
@@ -507,7 +483,6 @@
         </p>
       </solution>
     </example>
-    
     <p>
       The same strategy still applies if the constant multiple coefficients are written using parameters
       or even using variables other than the dummy index variable of summation. In particular,
@@ -515,7 +490,6 @@
       might also involve that variable as well as the index variable. Because this will
       be encountered frequently, an example is provided below.
     </p>
-    
     <example>
       <statement>
         <p>
@@ -541,7 +515,6 @@
         </p>
       </solution>
     </example>
-    
     <p>
       There are no convenient summation rules for products or quotients, with one exception.
       If the product can be rewritten as a sum using the distributive property of multiplication,
@@ -549,7 +522,6 @@
       If the increments are not linear combinations of elementary terms,
       then we have no methods for simplifying the calculation.
     </p>
-    
     <example>
       <statement>
         <p>
@@ -565,7 +537,7 @@
             <mrow>(2-\frac{3k}{n})(1+\frac{2k}{n}) &amp;= 2+\frac{4k}{n} - \frac{3k}{n} -\frac{12k^2}{n^2}</mrow>
             <mrow> &amp;= 2 + \frac{1}{n} \cdot k - \frac{12}{n^2} k^2.</mrow>
           </md>
-          The <xref ref="thm-summation-linearity">linearity property of summation</xref>
+          The <xref ref="theorem-summation-linearity">linearity property of summation</xref>
           allows us to compute the sum as the same linear combination of the elementary accumulations:
           <md>
             <mrow>\sum_{k=1}^{n} (2-\frac{3k}{n})(1+\frac{2k}{n}) &amp;= \sum_{k=1}^{n} 2 + \frac{1}{n} \cdot k - \frac{12}{n^2} k^2 </mrow>
@@ -584,10 +556,8 @@
       </solution>
     </example>
   </subsection>
-  
   <subsection>
     <title>Summary</title>
-    
     <p>
     <ul>
       <li>
@@ -608,9 +578,9 @@
           The linearity properties of summation (the constant multiple rule and the sum rule)
           allow us to break summations involving sums into simpler summations over the same index range.
           <ul>
-            <li> <xref text="title" ref="thm-summation-constant-multiple-rule"/>: <m>\displaystyle \sum_{k=m}^{n} \alpha x_k = \alpha \sum_{k=m}^{n} x_k</m> </li>
-            <li> <xref text="title" ref="thm-summation-sum-rule"/>: <m>\displaystyle \sum_{k=m}^{n} [u_k+w_k] = \sum_{k=m}^{n} u_k + \sum_{k=m}^{n} w_k</m> </li>
-            <li> <xref text="title" ref="thm-summation-linearity"/>: <m>\displaystyle \sum_{k=m}^{n} [\alpha u_k + \beta w_k] = \alpha \sum_{k=m}^{n} u_k +\beta \sum_{k=m}^{n} w_k</m> </li>
+            <li> <xref text="title" ref="theorem-summation-constant-multiple-rule"/>: <m>\displaystyle \sum_{k=m}^{n} \alpha x_k = \alpha \sum_{k=m}^{n} x_k</m> </li>
+            <li> <xref text="title" ref="theorem-summation-sum-rule"/>: <m>\displaystyle \sum_{k=m}^{n} [u_k+w_k] = \sum_{k=m}^{n} u_k + \sum_{k=m}^{n} w_k</m> </li>
+            <li> <xref text="title" ref="theorem-summation-linearity"/>: <m>\displaystyle \sum_{k=m}^{n} [\alpha u_k + \beta w_k] = \alpha \sum_{k=m}^{n} u_k +\beta \sum_{k=m}^{n} w_k</m> </li>
           </ul>
         </p>
       </li>
@@ -618,18 +588,17 @@
         <p>
           Elementary accumulation formulas:
           <ul>
-            <li> <xref text="title" ref="thm-sum-of-constants"/>: <m>\displaystyle \sum_{k=1}^{n} c = cn</m> </li>
-            <li> <xref text="title" ref="thm-sum-of-integers"/>: <m>\displaystyle \sum_{k=1}^{n} k = \frac{n(n+1)}{2}</m> </li>
-            <li> <xref text="title" ref="thm-sum-of-squares"/>: <m>\displaystyle \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}</m> </li>
-            <li> <xref text="title" ref="thm-sum-of-cubes"/>: <m>\displaystyle \sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4}</m> </li>
-            <li> <xref text="title" ref="thm-sum-of-geometric"/>: <m>\displaystyle \sum_{k=0}^{n} b^k = \frac{b^{n+1}-1}{b-1}</m> </li>
+            <li> <xref text="title" ref="theorem-sum-of-constants"/>: <m>\displaystyle \sum_{k=1}^{n} c = cn</m> </li>
+            <li> <xref text="title" ref="theorem-sum-of-integers"/>: <m>\displaystyle \sum_{k=1}^{n} k = \frac{n(n+1)}{2}</m> </li>
+            <li> <xref text="title" ref="theorem-sum-of-squares"/>: <m>\displaystyle \sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}</m> </li>
+            <li> <xref text="title" ref="theorem-sum-of-cubes"/>: <m>\displaystyle \sum_{k=1}^{n} k^3 = \frac{n^2(n+1)^2}{4}</m> </li>
+            <li> <xref text="title" ref="theorem-sum-of-geometric"/>: <m>\displaystyle \sum_{k=0}^{n} b^k = \frac{b^{n+1}-1}{b-1}</m> </li>
           </ul>
         </p>
       </li>
     </ul>
     </p>
   </subsection>
-  
   <exercises>
     <exercisegroup>
       <introduction>
@@ -727,35 +696,6 @@
         <statement>
           <p><m>\displaystyle \sum_{k=1}^{n}
           \left(2+\frac{3k}{n}\right)^2 \cdot \frac{1}{n}</m></p>
-        </statement>
-      </exercise>
-    </exercisegroup>
-    <exercisegroup>
-      <introduction>
-        <p>
-          Use the properties and elementary formulas for summation to
-          find a formula for the summation in order to compute the
-          limit.
-        </p>
-      </introduction>
-      <exercise>
-        <statement>
-          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{5k}{n^2}</m></p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{k^2}{n^3}</m></p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(2+\frac{3k}{n}\right) \cdot \frac{3}{n}</m></p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(1+\frac{2k}{n}\right)^2 \cdot \frac{2}{n}</m></p>
         </statement>
       </exercise>
     </exercisegroup>

@@ -1586,6 +1586,35 @@
     <exercisegroup>
       <introduction>
         <p>
+          Use the properties and elementary formulas for summation to
+          find a formula for the summation in order to compute the
+          limit.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{5k}{n^2}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{k^2}{n^3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(2+\frac{3k}{n}\right) \cdot \frac{3}{n}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(1+\frac{2k}{n}\right)^2 \cdot \frac{2}{n}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
         Applications of sequences.
         </p>
       </introduction>

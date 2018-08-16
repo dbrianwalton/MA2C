@@ -398,7 +398,7 @@
         </p>
       </solution>
     </example>
-    <example>
+    <example xml:id="example-accumulation-odd-integers">
       <statement>
         <p>
           Show that <m>\displaystyle \sum_{k=1}^{n} (2k-1) = n^2</m> for <m>n=0,1,\ldots</m>.
