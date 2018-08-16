@@ -676,7 +676,7 @@
       </exercise>
       <exercise>
         <statement>
-          <p><m>\displaystyle \sum_{k=1}^{n} (6k^2-k) = 2n^2(n-1)</m>.</p>
+          <p><m>\displaystyle \sum_{k=1}^{n} (6k^2-2k) = 2n^2(n+1)</m>.</p>
         </statement>
       </exercise>
     </exercisegroup>
