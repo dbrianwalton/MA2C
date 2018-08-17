@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="sequences-computing">
+  <title>Computing Sequence Values</title>
+
+  <subsection>
+    <title>Overview</title>
+    <p>
+      When working with sequences, we often need to generate many sequence values.
+      It is quite cumbersome to do this by hand.
+      There would be a lot of repetition.
+      Computers should be used to compute.
+    </p>
+    <p>
+      This section focuses on developing some basic skills in using computers to generate and plot sequences.
+      Spreadsheets are one tool that can be used to compute and plot sequences.
+      A spreadsheet is essentially a blank table;
+      you create computational rules for individual entries within the table.
+      For sequences, those rules correspond to the formulas for generating the sequence.
+    </p>
+    <p>
+      An alternative to spreadsheets is writing a computational script in a programming language.
+      This might seem intimidating, especially if you have never done any programming.
+      However, many modern scripting languages use commands very similar to the mathematical statements we already use.
+      Scripts have the advantage of reducing the amount of work required to generate data quickly.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Sequences in Spreadsheets</title>
+    <p>
+      One way to generate a sequence is with a spreadsheet. 
+      Common spreadsheet applications include Microsoft Excel, Apple Numbers, and Google Drive Sheets. 
+      A spreadsheet essentially starts as a giant blank table with rows and columns. 
+      The rows are numbered starting at 1 and the columns are labeled by letters. 
+      (After the first 26 columns, columns are labeled by pairs of letters.) 
+      Every cell in the table is identified by its column and row, called its <term>address</term>. 
+      So cell <c>B4</c> would be the cell in the fourth row of the second column.
+    </p>
+    <p>
+      Spreadsheets are designed to perform calculations based on the values of other cells. 
+      Suppose that <c>A1</c> contained the number 3 and <c>A2</c> contained the number 5. 
+      If you were to type in cell <c>A3</c> the formula <c>=A1+A2</c> (including the equal sign), 
+      then <c>A3</c> would show the value 8.
+      However, it internally remembers the formula.
+      If you were to change the values in either <c>A1</c> or <c>A2</c>, 
+      the value in <c>A3</c> would automatically be updated.
+      We can take advantage of these calculations to compute the values of sequences.
+    </p>
+    <p>
+      For our first example, we look at how to use a spreadsheet to generate a sequence defined explicitly.
+    </p>
+    <example>
+      <statement>
+        <p>
+        Use a spreadsheet to generate values for the sequence defined by 
+        <me>x_n = \frac{3n}{4n+5}, \quad n=0, 1, 2, \ldots</me>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Our sequence is defined explicitly by the map <m>n \mapsto x_n</m>.
+          In our spreadsheet, we will use one column to define a subsequence of the values for the index.
+          Then we will define a second column for the values of the sequence.
+        </p>
+        <p>
+          We will make the first column, <c>A</c>, contain the values for the index.
+          The first entry in the column will be a label.
+          So type <c>n</c> in the cell <c>A1</c>.
+          Our first value for the index i <m>n=0</m>, so type <c>0</c> in cell <c>A2</c>.
+          The next value will be <m>n=1</m>, so we type <c>1</c> in cell <c>A3</c>.
+        </p>
+        <p>
+          Now, it would be very tedious to type all of the values for the index once entry at a time.
+          We take advantage of technology to have the spreadsheet apply a pattern to complete the rest of the column.
+          Select the two cells we have already created, <c>A2</c> and <c>A3</c>.
+          You should see a grab box, usually in the bottom right corner.
+          If you drag that box down the column and then let go,
+          the spreadsheet will follow your pattern for all of the cells you select before releasing.
+          You can make this column of index values as long as you desire, within the limits of the program you use.
+        </p>
+        <p>
+          We are now ready to create the column containing the values of the sequence.
+          We start with a label for the column in <c>B1</c>, for example typing <c>x_n</c>.
+          The rest of the column needs to use the map <me>\displaystyle n \mapsto x_n = \frac{3n}{4n+5}</me>.
+          The value of input for this map, the index, is in column <c>A</c>.
+          We want the value of the output for the map placed in column <c>B</c>.
+          In cell <c>B2</c>, we want the output based on an input from <c>A2</c>,
+          so we type <c>=(3*A2)/(4*A2+5)</c>.
+        </p>
+        <p>
+          We want to have this process repeated for the rest of the column,
+          but we do not want to type a formula for each cell.
+          We want the software to fill the column automatically.
+          Notice that if you copy the formula from <c>B2</c> and paste it into <c>B3</c>,
+          the formula is automatically adjusted to refer to <c>A3</c> instead of <c>A2</c>.
+          This type of automatic modification of a formula is called <term>relative addressing</term>,
+          where a pasted formula uses the relative position of a calculation.
+          In this case, the relative position is to use the cell immediately to the left of the output.
+        </p>
+        <p>
+          Pasting the formula into every cell in the column is faster than typing a formula in every cell,
+          but it is still too much work.
+          We let the spreadsheet do all of the work by <em>filling</em> the remaining cells at once.
+          We can do this by repeating the process earlier.
+          Select the cell with a valid formula in <c>B2</c>,
+          and you will again see the grab box in the corner.
+          Click on the box and drag down the column.
+          When you release the selection, the formula will be filled into all of the selected cells,
+          adjusted to use relative addresses.
+        </p>
+        <p>
+          You now have two columns: the index in column <c>A</c> and the values in column <c>B</c>.
+          You can create a graph by selecting the two columns of data and inserting a scatter plot.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The second example illustrates how to use spreadsheet to compute the values of a recursively defined sequence.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use a spreadsheet to generate values for the sequence defined by 
+          <me>x_n = 2.3 x_{n-1}(1 - 0.1 x_{n-1})</me>
+          with an initial value <m>x_0 = 1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We again want a column for the index values,
+          which for convenience we will put in column <c>A</c>.
+          The same steps as in the previous example apply.
+          Put a label <c>n</c> in <c>A1</c>.
+          Start with values <c>0</c> in <c>A2</c> and <c>1</c> in <c>A3</c>.
+          Use the filling tool of the spreadsheet to extend the pattern for as far down the column as you desire.
+        </p>
+        <p>
+          In the next column <c>B</c>, we will put the values of the sequence.
+          Put the label <c>x_n</c> in <c>B1</c>.
+          Enter the initial value <c>1</c> in <c>B2</c> since <m>x_0=1</m>.
+          For the rest of the values in the column, we will use the recursive map,
+          <me> x_{n-1} \mapsto x_n = 2.3 x_{n-1}(1 - 0.1 x_{n-1})</me>.
+          In the table, the previous value <m>x_{n-1}</m> corresponds to that value in the cell directly above the cell in question.
+          Consequently, to compute <m>x_1</m>, we select <c>B3</c> 
+          and type <c>=2.3*B2*(1-0.1*B2)</c>.
+          The value of <m>x_1</m> should appear in the cell.
+        </p>
+        <p>
+          The rest of the column can be calculated by selecting <c>B3</c>, where we just typed the formula,
+          and using the applications fill down feature.
+          Notice that if you change the value for the initial condition in <c>B2</c>,
+          every subsequent entry in the column is automatically updated.
+          If you create a graph using columns <c>A</c> and <c>B</c>,
+          the graph also is updated whenever the initial value is updated.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The final example illustrates using parameters in our calculations.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use a spreadsheet to generate values for an arbitrary arithmetic sequence defined by 
+          <me>x_n = x_{n-1} + \beta</me>
+          with an initial value <m>x_0 = a</m>,
+          where <m>a</m> and <m>\beta</m> are parameters.
+          Include the explicit and recursive calculations side-by-side in the table.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          When we have parameters, we need to use part of our table to enter those values.
+          You could put them anywhere in the table that is convenient.
+          We will put them to the left of the generated table.
+          There are two parameters: <m>\beta</m> and <m>a</m>.
+          In cell <c>A1</c>, type the label <c>beta</c>.
+          Then enter a value in the neighboring cell <c>B1</c> such as <c>3</c> for <m>\beta=3</m>.
+          In cell <c>A2</c>, type the label <c>a</c>.
+          Then enter a value in the neighboring cell <c>B2</c> such as <c>8</c> for <m>a=8</m>.
+          The labels are primarily for our convenience to remember the meaning of the parameter values.
+        </p>
+        <p>
+          The parameters occupy part of the first two columns.
+          You could start the remainder of your table below the parameters,
+          but I find it more convenient to keep values in their own columns.
+          We will skip column <c>C</c> to create a gap between our parameters and our sequence table.
+          Column <c>D</c> will have the index values,
+          column <c>E</c> will have the explicitly computed sequence values,
+          and column <c>F</c> will have the recursively computed sequence values.
+          Start by putting the labels in the first row.
+          You might use <c>explicit</c> in <c>E1</c> and <c>recursive</c> in <c>E2</c>.
+        </p>
+        <p>
+          Create the values for the index in column <c>D</c> in the same way as described above.
+          The explicit formula for our arithmetic sequence is given by
+          <me>n \mapsto x_n = a + \beta n</me>.
+          In the table, the index <m>n</m> is always found using relative table location.
+          That is, the index used in <c>E2</c> will be found to the left in <c>D2</c>.
+          The values for the parameters, however, will always be found in the same table positions.
+        </p>
+        <p>
+          Our parameters need to use <term>absolute addresses</term>, which spreadsheet indicate by putting a dollar sign in front of the column and row.
+          To create the formula in <c>E2</c>, we will type <c><dollar/>B<dollar/>1</c> to represent <m>\beta</m>
+          and <c><dollar/>B<dollar/>2</c> to represent <m>a</m>.
+          This means our spreadsheet entry in <c>E2</c> is
+          <c><dollar/>B<dollar/>2+<dollar/>B<dollar/>1*D2</c>.
+          If you copy and paste this into <c>E3</c>, you should see that only the cell representing the index is updated to 
+          <c><dollar/>B<dollar/>2+<dollar/>B<dollar/>1*D3</c>.
+          Selecting one of these cells and filling the rest of the column will finish generating the explicitly calculated values.
+        </p>
+        <p>
+          To create the column with recursively calculated values,
+          we start by putting the initial value in <c>F2</c>.
+          Because that is our parameter <m>a</m>, stored in <c>B2</c>,
+          we enter the simple formula <c>=<dollar/>B<dollar/>2</c> to use that initial value.
+          To apply the recursive relation
+          <me> x_{n-1} \mapsto x_n = x_{n-1} + \beta</me>,
+          we enter <c>=F2+<dollar/>B<dollar/>1</c> in <c>F3</c>.
+          The rest of the column can be automatically filled with this formula.
+        </p>
+        <p>
+          If you did this correctly,
+          you should see that the explicit and recursive columns contain the same values
+          even though they were calculated in different ways.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Computer Programming</title>
+    <p>
+      Spreadsheets are useful, but typing a script can be even more efficient.
+      In a spreadsheet, the use of cell references is a little awkward.
+      There are some advanced techniques where you can reference cells by names instead of reference.
+      However, if you want to adjust the size of your table and change the number of rows,
+      you essentially need to repeat the dragging and filling steps.
+    </p>
+    <p>
+      Writing computer scripts in a programming language is one of the most efficient approaches. 
+      A free online tool called SageMath uses a scripting language based on the Python programming language. 
+      The online version of this text has interactive cells where you can try the scripts directly. 
+      Otherwise, you can use the following website and type the scripts: 
+      <url href="https://sagecell.sagemath.org/">https://sagecell.sagemath.org/</url>.
+    </p>
+    <p>
+      The idea of a scripting language is that the computer will store values in memory associated with names of your choosing.
+      You can includes commands in your script to display the values or even to create graphs.
+      To create a sequence of values, there are two fundamental ideas to understand: memory assignment and looping.
+    </p>
+    <p>
+      First is the idea of memory assignment.
+      In a script, we tell the computer to perform a computation and then to store the result somewhere in memory.
+      That memory location is assigned a variable name.
+      The pattern for this step is the form <c>name = calculation</c>,
+      where <c>name</c> is replaced by whatever name you want associated with the memory
+      and <c>calculation</c> is replaced by the expression used in the calculation.
+      The calculation can use variable names for any memory previously saved.
+    </p>
+    <p>
+      Below is a very short script.
+      It will store a value of 3 in memory associated with the name <c>x</c>.
+      It will then calculate <m>x^2-5x</m> and store the result in memory associated with the name <c>y</c>.
+      Finally, it will show the values of <m>x</m> and <m>y</m> as results.
+      You will notice extra lines that begin with the <c>#</c> symbol.
+      These are called comments and the script ignores them.
+      We use comments in scripts to remind ourselves or to explain to others what is happening.
+    </p>
+    <sage>
+      <input>
+      # Store the value for x
+      x = 3
+      # Calculate x^2-5x and store the value as y
+      y = x^2 - 5*x
+      # Show the results
+      show(x,y)
+      </input>
+      <output>
+      3
+      -6
+      </output>
+    </sage>
+    <p>
+      For a sequence, we repeat the same process of calculation many times.
+      Repeating a computation is called a <term>loop</term>.
+      In a script, a loop is usually associated with a variable (a named memory location)
+      that is associated with a given list of values.
+      The basic scripting pattern in Python and Sagemath to repeat a computation for each value in a list is as follows.
+    </p>
+    <program language="python">
+        <input>
+        for name in list:
+            repeated block
+        </input>
+    </program>
+    <p>
+      The <c>name</c> is replaced by whatever variable name you want for the associated memory location.
+      The <c>list</c> is replaced by a list of values that will be used for <c>name</c>.
+      The <c>repeated block</c> is a collection of scripting commands,
+      indented exactly four spaces to the right of the <c>for</c> statement.
+      The script will take the values from the <c>list</c>, one at a time and in order,
+      and will then go through the <c>repeated block</c> immediately after the value
+      has been placed in the memory associated with <c>name</c>.
+    </p>
+    <p>
+      In Python or SageMath, we create a list of consecutive integers using the <c>range</c> function.
+      The command <c>range(integer)</c>, where <c>integer</c> is replaced by any expression representing an integer,
+      creates a list of consecutive integers starting at 0 and ending at the integer before the <c>integer</c> used.
+      For example, <c>range(5)</c> creates the list <m>(0,1,2,3,4)</m> and <c>range(3)</c> creates the list <m>(0,1,2)</m>.
+      The following two scripts are equivalent, but the looped version is much more efficient.
+    </p>
+    <sage>
+      <input>
+      # Unlooped
+      n=0
+      x=3*n+1
+      show(n)
+      show(x)
+      n=1
+      x=3*n+1
+      show(n)
+      show(x)
+      n=2
+      x=3*n+1
+      show(n)
+      show(x)
+      </input>
+    </sage>
+    <sage>
+      <input>
+      # Looped
+      for n in range(3):
+          x=3*n+1
+          show(n)
+          show(x)
+      </input>
+    </sage>
+    <p>
+      We are almost ready to create a script that generates a table of values.
+      The last step is creating a table with two values on the same line.
+      We can do this with the <c>print</c> command and value formatting.
+      In place of the <c>show</c> commands, we will use <c>print(format % (values))</c>,
+      with <c>format</c> being a format string 
+      and <c>values</c> being a comma-separated collection of expressions to be formatted.
+      An integer uses format string <c>%d</c> while a decimal value (a floating-point) uses format string <c>%f</c>.
+      We can include a tab character using <c>\t</c>.
+      Our improved script to generate a table with twenty values is now given.
+    </p>
+    <sage>
+      <input>
+      # Loop to calculate a table of values.
+      for n in range(20):
+          x=3*n+1
+          print("%d\t%f" % (n,x))
+      </input>
+    </sage>
+    <p>
+      The script can be quickly modified to generate a table as large or small as desired.
+      If we want to create a graph of these sequence values, we need to create a table in memory.
+      SageMath expects a table to be graphed as a list of points.
+      We can modify our script to create an empty table before the loop,
+      and then add (append) the individual points one at a time in the loop.
+      In SageMath, a graphic is itself an object stored in memory, so we give it a name and then show it.
+      A scatterplot is created using the <c>list_plot</c> command,
+      which has an option to label the axes with a given list of names.
+    </p>
+    <sage>
+      <input>
+      # Create an empty list named "dataPoints"
+      dataPoints = []
+      # Loop to calculate a table of values.
+      for n in range(20):
+          x=3*n+1
+          print("%d\t%f" % (n,x))
+          # Append the current point to our list.
+          # Each point is itself a list with two entries.
+          dataPoints.append( [n,x] )
+      # Create the scatter plot with labels on the axes
+      myGraph = list_plot(dataPoints, axes_labels=["$n$","$x_n$"])
+      # Show the resulting figure with given width/height
+      show(myGraph, figsize=[4,3])
+      </input>
+    </sage>
+    <p>
+      Once you have a script, such as the one above,
+      you can just modify it for a new problem.
+      A table for any explicit sequence can be calculated using the script above simply
+      by modifying the first line in the repeated block to match the explicit formula.
+      More values can be generated by modifying the <c>range</c> command.
+      If the table is not wanted, just remove the <c>print</c> command.
+    </p>
+    <p>
+      To create a table for a recursive sequence, we need to make another modification.
+      A recursive sequence uses the previous value of a sequence to compute the next value.
+      In a script, we can use a memory assignment command using the variable name in the expression
+      and then storing the result back into the original memory location.
+      The old value is replaced by the new value.
+    </p>
+    <p>
+      The following script illustrates how to generate a table and a graph
+      for a recursively defined sequence with recurrence
+      <me>x_{n} = 1.05 x_{n-1} - 10</me>
+      and initial value <m>x_0 = 400</m>.
+    </p>
+    <sage>
+      <input>
+      # Create an empty list named "dataPoints"
+      dataPoints = []
+      # Set the initial value.
+      # We use the name "x" for the currently-stored sequence value
+      x = 400
+      # Loop to calculate a table of values.
+      for n in range(20):
+          # Because the loop starts at n=0, we print and append data first.
+          print("%d\t%f" % (n,x))
+          dataPoints.append( [n,x] )
+          # Before we end the repeat block, we update for the next value.
+          # The formula on the right uses the old value.
+          # The answer replaces what was in memory for the next loop block
+          x=1.05*x-10
+      # Create the scatter plot with labels on the axes
+      myGraph = list_plot(dataPoints, axes_labels=["$n$","$x_n$"])
+      # Show the resulting figure with given width/height
+      show(myGraph, figsize=[4,3])
+      </input>
+    </sage>
+    <p>
+      When we have parameters in a model,
+      we just need to add a few memory assignment commands at the beginning of the script.
+      The following script is a generalization of the previous script
+      for a recursive model
+      <me>x_{n} = (1+r)x_{n-1} - w</me>
+      where <m>r</m> and <m>w</m> are parameters.
+      When using variables in scripts, remember that the symbols must exactly match.
+      Uppercase and lowercase letters are not the same<mdash/><c>w</c> and <c>W</c> are different.
+    </p>
+    <sage>
+      <input>
+      # Assign parameters
+      r = 0.05
+      w = 10
+      # Create an empty list named "dataPoints"
+      dataPoints = []
+      # Set the initial value.
+      # We use the name "x" for the currently-stored sequence value
+      x = 400
+      # Loop to calculate a table of values.
+      for n in range(20):
+          # Because the loop starts at n=0, we print and append data first.
+          print("%d\t%f" % (n,x))
+          dataPoints.append( [n,x] )
+          # Before we end the repeat block, we update for the next value.
+          # The formula on the right uses the old value.
+          # The answer replaces what was in memory for the next loop block
+          x=(1+r)*x-w
+      # Create the scatter plot with labels on the axes
+      myGraph = list_plot(dataPoints, axes_labels=["$n$","$x_n$"])
+      # Show the resulting figure with given width/height
+      show(myGraph, figsize=[4,3])
+      </input>
+    </sage>
+  </subsection>
+ </section>

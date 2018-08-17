@@ -499,6 +499,7 @@
           A bank charges interest in a way that the annual percentage rate is divided equally into the months.
           The monthly rate of <m>\frac{3}{12}</m><percent/> applies to the remaining balance of your loan. 
           If you make a monthly payment of <dollar/>250, find a model for your remaining loan balance.
+          Use your model to determine when you pay off the loan and the total cost of the loan.
         </p>
       </statement>
       <solution>
@@ -530,10 +531,25 @@
           Our model is not arithmetic or geometric but a combination of the two. 
           The projection function, <m>f : B_t \mapsto B_{t+1}</m>, is the linear function defined by 
           <me>f(x) = x - 250 + 0.0025x = 1.0025x - 250.</me> 
-          The values for the loan balance are plotted below.
+          The values for the loan balance are plotted below, along with a table of values showing when the loan would be paid off.
         </p>
     
-        <sidebyside width="75%" margins="auto">
+        <sidebyside widths="30% 60%" margins="auto">
+          <tabular>
+            <row bottom="major">
+              <cell><m>t</m></cell>
+              <cell><m>B_t</m></cell>
+            </row>
+            <row><cell>37</cell><cell>1289.212365</cell></row>
+            <row><cell>38</cell><cell>1042.435396</cell></row>
+            <row><cell>39</cell><cell>795.041485</cell></row>
+            <row><cell>40</cell><cell>547.029088</cell></row>
+            <row><cell>41</cell><cell>298.396661</cell></row>
+            <row><cell>42</cell><cell>49.142653</cell></row>
+            <row><cell>43</cell><cell>-200.734491</cell></row>
+            <row><cell>44</cell><cell>-451.236327</cell></row>
+            <row><cell>45</cell><cell>-702.364418</cell></row>
+          </tabular>
           <image>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -542,7 +558,6 @@
             }
             \begin{tikzpicture}
             \begin{axis}[
-            %width=4in, height=2.5in,
             xmin=-1,xmax=45,
             ymin=-1000,ymax=11000,
             ytick={0,1000,...,10000},
@@ -604,174 +619,21 @@
             </latex-image>
           </image>
         </sidebyside>
+        <p>
+          The computer calculations show that the last month in which there is a positive balance is month 42. 
+          That month, the remaining balance is <dollar/>49.14, which we will pay off completely in month 43.
+          The model continues to use the same rule even after the loan is paid.
+          This explains why the model predicts a negative balance.
+        </p>
+        <p>
+          We can compute the total amount paid for this loan.
+          For 42 months, we paid <dollar/>250.00, followed by a final payment of <dollar/>49.14.
+          The total cost of the loan is <me>42(250)+49.14 = 10549.14</me>.
+          Because the original cost of the car was <dollar/>10000, 
+          we paid <dollar/>549.14 in interest.
+        </p>
       </solution>
     </example>
-    
-    <p>
-      How would you generate data for such a sequence? 
-      Computing the values by hand would be possible but quite tedious for more than just a few terms. 
-      (Yes, you need to know how to do that too.) 
-      Computers can do this efficiently and don't get tired. 
-      You just need to know how to instruct the computer what it should do.
-    </p>
-    
-    <paragraphs>
-      <title>Using a Spreadsheet</title>
-      <p>
-        One way to generate a sequence is with a spreadsheet. 
-        Common spreadsheet applications include Microsoft Excel, Apple Numbers, and Google Drive Sheets. 
-        A spreadsheet essentially starts as a giant blank table with rows and columns. 
-        The rows are numbered starting at 1 and the columns are labeled by letters. 
-        (After the first 26 columns, columns are labeled by pairs of letters.) 
-        Every cell in the table is identified by its column and row, called its <term>address</term>. 
-        So cell <c>B4</c> would be the cell in the fourth row of the second column.
-      </p>
-      <p>
-        Spreadsheets are designed to perform calculations based on the values of other cells. 
-        Suppose that <c>A1</c> contained the number 3 and <c>A2</c> contained the number 5. 
-        If you were to type in cell <c>A3</c> the formula <c>=A1+A2</c> (including the equal sign), 
-        then <c>A3</c> would show the value 8. 
-        If you were to change the values in either <c>A1</c> or <c>A2</c>, 
-        the value in <c>A3</c> would automatically be updated 
-        because <c>A3</c> actually stores the formula not the value.
-      </p>
-      <p>
-        We can take advantage of these calculations to compute the values of sequences. 
-        For style, it usually is best to have some cells contain labels. 
-        In cell <c>B1</c> we will enter the label <c>Balance</c> 
-        and then in <c>B2</c> we will enter the initial loan amount <c>10000</c>. 
-        (I am using the second column because I will later want to add a first column 
-        containing the number of months into the loan.) 
-        We want to continue computing values, but from this point on 
-        we want the spreadsheet to do the calculations for us.
-      </p>
-      <p>
-        We want the value in <c>B3</c> to be based on the formula and the previous balance contained in <c>B2</c>. 
-        Since our recursive formula was <me>B_{t+1} = B_t -250 + 0.0025B_t,</me> 
-        we will replace the variable <m>B_t</m> with the cell's reference. 
-        In <c>B3</c>, we type <c>=B2-250+0.0025*B2</c> (include both the equal sign and the multiplication symbol). 
-        When you hit <c>Enter</c>, the value should update and show the value 9775 (the balance after one month).
-      </p>
-      <p>
-        To continue the process, we don't want to type in a formula for every cell. 
-        Spreadsheets have the ability to apply a formula repeatedly, and that is what we want to do. 
-        If you select the cell <c>B3</c>, you should see a small bold square in the bottom right corner. 
-        If you click and drag that corner down, you will generate a range of cells that all apply the same formula, 
-        except that they will refer to the cell directly above them 
-        instead of all referring to the value of <c>B2</c> that was used for <c>B3</c>.
-      </p>
-      <p>
-        We'd like to plot our data. 
-        If we only plot a single column, then a spreadsheet labels the values with an index that starts with 1. 
-        We want our first index to be 0 corresponding to the original loan balance. 
-        So we need to create a column for index values, which we will put in column <c>A</c>. 
-        Put a header in <c>A1</c> saying <c>month</c>. 
-        Then start our index values in the first two cells. 
-        In <c>A2</c> type <c>0</c> and in <c>A3</c> type <c>1</c>. 
-        Once you have these two values, select both cells (click and drag) 
-        and again you will see the small bold square. 
-        When multiple cells are selected, if you drag the square, 
-        the spreadsheet will follow the pattern created by your cells, 
-        which in this case increase by 1.
-      </p>
-      <p>
-        Now that you have two columns, the first having the index and the second having the monthly balance, 
-        you can create a scatter plot. 
-        Select the two columns and then add a scatter plot. 
-        (This varies based on application.)
-      </p>
-    </paragraphs>
-    <paragraphs>
-      <title>Computer Programming</title>
-      <p>
-        There are tools other than spreadsheets that are more efficient once you learn how to use them. 
-        Writing computer scripts in a programming language is one of the most efficient approaches. 
-        A free online tool called SageMath uses a scripting language based on the Python programming language. 
-        The online version of this text has interactive cells where you can try the scripts directly. 
-        Otherwise, you can use the following website and type the scripts: 
-        <url href="https://sagecell.sagemath.org/">https://sagecell.sagemath.org/</url>.
-      </p>
-      <p>
-        The following script will print out a table showing the same values as in the spreadsheet above. 
-        Python counts its range of values starting at 0. 
-        The pound/hashtag symbol marks a comment and everything on the line after it is ignored by the computer.
-      </p>
-
-      <sage>
-      <input>
-      # Set the initial value
-      Bn = 10000
-      # Use a loop repeating the balance update
-      # The 45 says to stop when m reaches 45
-      # So the values of m used will be 0 ... 44
-      for m in range(45):
-          # Indent repeated block 4 spaces
-          # Display the current month and the current balance
-          # Format: %d means integer, %f means floating point (decimal)
-          print "%d %f" % (m, Bn)
-          # Now update the balance value for B
-          # Computer calculates the formula on the right using the old value of B
-          newB = Bn - 250 + 0.0025*Bn
-          # Then save the result in B for the next cycle
-          Bn = newB
-      </input>
-      <!-- need to use wildcard matching to make this doctestable -->
-      <output>
-      0 10000
-      1 9775.00000000000
-      2 9549.43750000000
-      3 9323.31109375000
-      4 9096.61937148438
-      5 8869.36091991309
-      6 8641.53432221287
-      7 8413.13815801840
-      8 8184.17100341345
-      9 7954.63143092198
-      10 7724.51800949929
-      ...
-      </output>
-      </sage>
-    
-      <p>
-        Suppose we wanted the computer to create a figure as well. 
-        The following modified script will generate the values and save them as a list.
-        Using that list, it then graphs a scatter plot. 
-        In Sage, that is called a list plot. 
-      </p>
-
-      <sage>
-        <input>
-        # Set the initial value
-        B = 10000
-        # Create what is initially an empty list
-        data = []
-        # Use a loop repeating the balance update
-        for m in range(45):
-            # Indent repeated block 4 spaces
-            # Instead of printing, add the point we wish to plot to  data list.
-            data.append( (m,B) )
-            # Now update the balance value in one step
-            B = B - 250 + 0.0025*B
-        list_plot(data, frame=True, axes_labels=['month','balance'])
-        </input>
-        <output></output>
-      </sage>
-    </paragraphs>
-    
-    <p>
-      The computer calculations show that the last month in which there is a positive balance is month 42. 
-      That month, the remaining balance is <dollar/>49.14, which we will pay off completely in month 43.
-      The model continues to use the same rule even after the loan is paid.
-      This explains why the model predicts a negative balance.
-    </p>
-    <p>
-      We can compute the total amount paid for this loan.
-      For 42 months, we paid <dollar/>250.00, followed by a final payment of <dollar/>49.14.
-      The total cost of the loan is <me>42(250)+49.14 = 10549.14</me>.
-      Because the original cost of the car was <dollar/>10000, 
-      we paid <dollar/>549.14 in interest.
-    </p>
-    
     <p>
       Another example that follows similar dynamics is in mixing solutions.
     </p>
@@ -814,29 +676,6 @@
         </p>
         </solution>
     </example>
-    <p>
-      When we have an explicit formula, 
-      Sage can generate a plot even more efficiently than described above.
-      A script to use an explicit formula is given below.
-    </p>
-    <sage>
-      <input>
-      <![CDATA[# We want n from 0 to 20. The following command creates
-      # a list of points (n,S_n) using an explicit formula.
-      data = []
-      for n in range(21):
-          # Indent repeat block 4 spaces
-          # Calculate using explicit value
-          S = 200*0.75^n
-          # Display values as a table
-          print "%d %f" % (n,S)
-          # Store for plot in a list
-          data.append( (n,S) )
-    
-      # Then create a plot from the list with axis labels.
-      list_plot(data, frame=True, axes_labels=['dilutions','mass of salt'])]]>
-      </input>
-    </sage>
   </subsection>
   <subsection xml:id="section-sequence-nonlinear-projection">
     <title>Nonlinear Projection Functions</title>
