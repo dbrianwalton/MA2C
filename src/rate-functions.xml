@@ -23,7 +23,7 @@
             <li><p>concave up when its increments are increasing,</p></li>
             <li><p>concave down when its increments are decreasing.</p></li>
         </ul></p>
-        <p>(See <xref ref="thm-accumulation-sequence-monotonicity">Theorem</xref> and <xref ref="defn-accumulation-sequence-concavity">Definition</xref>.) We learned analogous properties of functions defined by an accumulation of changes defined by a rate of change. That is, for a quantity <m>Q</m> with a rate of change <m>R</m>: <ul>
+        <p>(See <xref ref="theorem-sequence-monotonicity" /> and <xref ref="definition-sequence-concavity" />.) We learned analogous properties of functions defined by an accumulation of changes defined by a rate of change. That is, for a quantity <m>Q</m> with a rate of change <m>R</m>: <ul>
             <li><p><m>Q</m> is <term>increasing</term> when its rate of change is <m>R</m> is positive,</p></li>
             <li><p><m>Q</m> is <term>decreasing</term> when its rate of change <m>R</m> is negative.</p></li>
         </ul>(See <xref ref="thm-monotonicity-from-rate">Theorem</xref>.) We define concavity for functions analogously.</p>

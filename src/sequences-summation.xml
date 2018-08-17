@@ -430,7 +430,7 @@
           but instead of starting at <m>k=1</m>, we are summing the sequence
           <m>x = (k : k=1,2,3,\ldots)</m> over an index range <m>100 \le k \le 200</m>,
           <me> 100+101+\cdots+200 = \sum_{k=100}^{200} k. </me>
-          Using the <xref text="title" ref="summation-as-accumulated-change"/> theorem,
+          Using the <xref text="title" ref="theorem-summation-as-accumulated-change"/> theorem,
           we can write the summation as a difference
           <me> \sum_{k=100}^{200} k = \sum_{k=1}^{200} k - \sum_{k=1}^{99}. </me>
           The two summations are accumulations from <xref ref="theorem-sum-of-integers"/>:
@@ -564,12 +564,12 @@
         Summation of terms is equivalent to an accumulation of those terms as increments.
       </li>
       <li>
-        The <xref text="title" ref="summation-splitting-property"/> allows us
+        The <xref text="title" ref="theorem-summation-splitting-property"/> allows us
         to split a summation over an index range into the sum of two summations over adjacent ranges.
       </li>
       <li>
         Every summation can be computed as the accumulated change of the terms as increments.
-        The <xref text="title" ref="summation-as-accumulated-change"/> theorem states
+        The <xref text="title" ref="theorem-summation-as-accumulated-change"/> theorem states
         that if we know the accumulation sequence <m>u</m> with increments <m>x</m>, then
         <me>\sum_{k=m}^{n} x_k = u_n - u_{m-1}.</me>
       </li>

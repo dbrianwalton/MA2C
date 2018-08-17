@@ -511,7 +511,7 @@
         <mrow> \sum_{k=1}^{n} f(x_k^*) \Delta x &amp; = \sum_{k=1}^{n} c \cdot \frac{a}{n} = \sum_{k=1}^{n} \frac{ca}{n}</mrow>
         <mrow> &amp; = (\frac{a}{n}) \cdot n = a, </mrow>
       </md>
-      since the final summation <xref ref="thm-sum-of-constants">has a constant increment</xref> <m>\frac{ca}{n}</m>. 
+      since the final summation <xref ref="theorem-sum-of-constants">has a constant increment</xref> <m>\frac{ca}{n}</m>. 
       Because the Riemann sum does not depend on <m>n</m>, 
       the definite integral, or limit of the Riemann sum, is 
       <me> \int_{0}^{a} c \, dx = \lim_{n \to \infty} ca = ca. </me>

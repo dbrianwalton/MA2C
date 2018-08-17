@@ -219,7 +219,7 @@
       For example, a geometric sequence has a recurrence relation <m>x_{n} = \rho x_{n-1}</m>,
       so that the increment using the relation itself depends on the previous term, <m>\nabla x_n = (\rho - 1)x_{n-1}</m>.
     </p>
-    <theorem ref="theorem-uniqueness-of-accumulation-generalized">
+    <theorem xml:id="theorem-uniqueness-of-accumulation-generalized">
       <statement>
         <p>
           Suppose <m>u</m> and <m>w</m> are two sequences with common initial values, <m>u_m = w_m</m>.
@@ -246,7 +246,7 @@
       </statement>
       <solution>
         <p>
-          To apply <xref xml:id="theorem-uniqueness-of-accumulation-generalized"/>,
+          To apply <xref ref="theorem-uniqueness-of-accumulation-generalized"/>,
           we need to show that the sequences have the same initial value and the satisfy the same recurrence relations.
           The initial values are:
           <md>
@@ -277,7 +277,7 @@
     <p>
       We end our discussion of showing two sequences are equivalent
       by establishing an explicit formula for sequences defined recursively
-      by a <em>linear</me> projection function,
+      by a <em>linear</em> projection function,
       <me>x_{n} = \alpha x_{n-1} + c</me>,
       with <m>\alpha \ne 1</m>.
       When <m>\alpha = 1</m> we have an arithmetic sequence, which is a sequence we already know.

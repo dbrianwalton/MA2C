@@ -208,22 +208,22 @@
         </p>
         <p>
           Our parameters need to use <term>absolute addresses</term>, which spreadsheet indicate by putting a dollar sign in front of the column and row.
-          To create the formula in <c>E2</c>, we will type <c><dollar/>B<dollar/>1</c> to represent <m>\beta</m>
-          and <c><dollar/>B<dollar/>2</c> to represent <m>a</m>.
+          To create the formula in <c>E2</c>, we will type <c>$B$1</c> to represent <m>\beta</m>
+          and <c>$B$2</c> to represent <m>a</m>.
           This means our spreadsheet entry in <c>E2</c> is
-          <c><dollar/>B<dollar/>2+<dollar/>B<dollar/>1*D2</c>.
+          <c>$B$2+$B$1*D2</c>.
           If you copy and paste this into <c>E3</c>, you should see that only the cell representing the index is updated to 
-          <c><dollar/>B<dollar/>2+<dollar/>B<dollar/>1*D3</c>.
+          <c>$B$2+$B$1*D3</c>.
           Selecting one of these cells and filling the rest of the column will finish generating the explicitly calculated values.
         </p>
         <p>
           To create the column with recursively calculated values,
           we start by putting the initial value in <c>F2</c>.
           Because that is our parameter <m>a</m>, stored in <c>B2</c>,
-          we enter the simple formula <c>=<dollar/>B<dollar/>2</c> to use that initial value.
+          we enter the simple formula <c>=$B$2</c> to use that initial value.
           To apply the recursive relation
           <me> x_{n-1} \mapsto x_n = x_{n-1} + \beta</me>,
-          we enter <c>=F2+<dollar/>B<dollar/>1</c> in <c>F3</c>.
+          we enter <c>=F2+$B$1</c> in <c>F3</c>.
           The rest of the column can be automatically filled with this formula.
         </p>
         <p>
@@ -294,12 +294,14 @@
       that is associated with a given list of values.
       The basic scripting pattern in Python and Sagemath to repeat a computation for each value in a list is as follows.
     </p>
+    <sidebyside>
     <program language="python">
         <input>
         for name in list:
             repeated block
         </input>
     </program>
+    </sidebyside>
     <p>
       The <c>name</c> is replaced by whatever variable name you want for the associated memory location.
       The <c>list</c> is replaced by a list of values that will be used for <c>name</c>.
