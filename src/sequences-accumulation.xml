@@ -274,6 +274,41 @@
         </p>
       </solution>
     </example>
+    <p>
+      We end our discussion of showing two sequences are equivalent
+      by establishing an explicit formula for sequences defined recursively
+      by a <em>linear</me> projection function,
+      <me>x_{n} = \alpha x_{n-1} + c</me>,
+      with <m>\alpha \ne 1</m>.
+      When <m>\alpha = 1</m> we have an arithmetic sequence, which is a sequence we already know.
+      When <m>c=0</m>, we have a geometric sequence.
+      The projection function <m>f:x_{n-1} \mapsto x_{n}</m> is defined 
+      by the formula <m>f(x) = \alpha x + c</m>. 
+      The fixed point <m>x^*</m> is the solution to 
+      <me>\alpha x + c = x \qquad \Leftrightarrow \qquad x^* = \frac{c}{1-\alpha},</me> 
+      defined only for <m>\alpha \ne 1</m>.
+    </p>
+    <p>
+      The linear projection function can be rewritten in terms of the fixed point 
+      using slope <m>\alpha</m> and point <m>(x^*,x^*)</m> as
+      <me>f(x) = x^* + \alpha(x-x^*)</me>. 
+      This means that the recurrence relation can be written
+      <me>x_{n} = x^* + \alpha(x_{n-1}-x^*) \quad \Leftrightarrow \quad x_{n}-x^* = \alpha(x_{n-1}-x^*)</me>.
+      Consequently, <m>x_n-x^*</m> is a geometric sequence with ratio <m>\alpha</m>.
+      This allows us to find an explicit formula for <m>x_n</m>.
+    </p>
+    <theorem xml:id="thm-linear-projection-explicit">
+      <title>Explicit Formula for Linear Recursive Sequences</title>
+      <statement>
+        <p>
+        Suppose <m>x_n</m> is defined recursively by the equation 
+        <me>x_{n} = \alpha x_{n-1} + c</me> with <m>\alpha \ne 1</m>. 
+        Then <m>x_n</m> is defined explicitly by a shifted geometric sequence 
+        <me>x_n = x^* + (x_0-x^*) \cdot \alpha^n = x^* + (x_1 -x^*) \cdot \alpha^{n-1},</me> 
+        where <m>\displaystyle x^* = \frac{c}{1-\alpha}</m> is the equilibrium of the sequence.
+        </p>
+      </statement>
+    </theorem>
   </subsection>
   <subsection>
     <title>Summation Notation</title>
@@ -512,6 +547,14 @@
           <p>
           <m>x_n = 3n-5</m> for <m>n=-2, -1, 0, \ldots</m> defines the same sequence as
           <m>x_n = x_{n-1} + 3</m> with <m>x_{-2} = -11</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_n = 4 + \frac{3^{(n+1)}}{4^n}</m> for <m>n=0, 1, 2, \ldots</m> defines the same sequence as
+          <m>x_{n} = \frac{3}{4}x_{n-1} + 1</m> with <m>x_{0} = 7</m>.
           </p>
         </statement>
       </exercise>

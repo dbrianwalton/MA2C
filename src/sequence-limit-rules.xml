@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+   
+<section xml:id="sequence-limit-rules">
+  <title>Calculating Sequence Limits</title>
+
+  <subsection>
+    <title>Overview</title>
+    
+    <p>
+    The limit of a sequence describes its end behavior.
+    A sequence can have similar end behavior as any other function.
+    (Recall <xref ref="functions-behavior-end-limits"/>.)
+    Some sequences seemed to level off to a single value, approaching a horizontal asymptote.
+    Other sequences grow without bound, either rising to <m>+\infty</m> or falling to <m>-\infty</m>.
+    Additionally, sequences might approach a repeating pattern or have no pattern at all.
+    In this section, we focus on describing the limiting behavior of sequences that level off 
+    to a single limiting value or grow without bound.
+    </p>
+    
+    <p>
+    The objectives for this section are as follows.
+    We will focus on what it means for a sequence to have a limit. 
+    Then we will learn how to determine the limiting values for sequences defined explicitly using limit arithmetic. 
+    Additionally, we will also learn about limits of sequences defined recursively 
+    in terms of fixed points of the projection function .
+    </p>
+  </subsection>
+  
+  <subsection xml:id="section-sequence-limit-computation">
+    <title>Limits from Explicit Formulas</title>
+    <p>
+    Using a table of values to find a limit only allows us to estimate its value. 
+    In addition, it is not clear from a table whether the pattern that this estimation is based on 
+    will continue or change. 
+    So it would be helpful to have some rules for finding limits 
+    based on the formula rather than numerical patterns.
+    </p>
+    
+    <p>
+    In order to compute limits of sequences, 
+    we first need to understand that some sequences grow without bound, 
+    which is written <m>x_n \to \infty</m> when the sequence grows in a positive direction 
+    or <m>x_n \to -\infty</m> when the sequence grows in a negative direction. 
+    Arithmetic sequences with increments <m>\beta \ne 0</m> 
+    (recall <xref ref="theorem-arithmetic-explicit-sequence"/>) 
+    must either steadily increase (<m>\beta \gt 0</m>) or steadily decrease (<m>\beta \lt 0</m>). 
+    The special case that <m>\beta=0</m> is somewhat boring, 
+    as this corresponds to a constant sequence so that the limit is just the constant value.
+    </p>
+    
+    <theorem xml:id="thm-limit-arithmetic-sequence">
+      <title>Limit of an Arithmetic Sequence</title>
+      <statement>
+        <p>
+        An arithmetic sequence with explicit formula <m>x_n = a + c \cdot n</m> 
+        (for constants <m>a</m> and <m>c</m>) has unbounded growth when <m>c \ne 0</m>. 
+        The corresponding limit statements are 
+        <md>
+          <mrow> \lim_{n \to \infty} (a+c n) = +\infty \quad &amp; (c \gt 0) </mrow>
+          <mrow> \lim_{n \to \infty} (a+c n) = -\infty \quad &amp; (c \lt 0) </mrow>
+          <mrow> \lim_{n \to \infty} (a) = a \quad &amp; (c = 0) </mrow>
+        </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+    Geometric sequences are a little more complicated, depending on the ratio <m>\rho</m> 
+    (recall <xref ref="theorem-geometric-explicit-sequence"/>) and the initial value. 
+    Repeated multiplication by a number whose magnitude is larger than 1 
+    makes the resulting magnitude increase without bound. 
+    Repeated multiplication by a number whose magnitude is smaller than 1 
+    makes the resulting magnitude converge to 0. 
+    If the ratio is negative, then the sign of the sequence values will alternate between positive and negative. 
+    This is summarized by another theorem.
+    </p>
+    
+    <theorem xml:id="thm-limit-geometric-sequence">
+      <title>Limit of a Geometric Sequence</title>
+      <statement>
+        <p>
+        A geometric sequence with explicit formula <m>x_n = a \cdot \rho^n</m> and ratio <m>\rho</m> 
+        is unbounded when <m>|\rho| \gt 1</m>, meaning that <m>|x_n| \to +\infty</m>. 
+        If <m>\rho \le -1</m>, <m>x_n</m> alternates sign and the limit does not exist. 
+        If <m>\rho \gt 1</m>, then the limit depends on the sign of <m>a</m>: 
+        <md>
+          <mrow> \lim_{n \to \infty} a \cdot \rho^n = +\infty, \quad &amp; (a \gt 0), </mrow>
+          <mrow> \lim_{n \to \infty} a \cdot \rho^n = -\infty, \quad &amp; (a \lt 0). </mrow>
+        </md>
+        If <m>|\rho| \lt 1</m> (i.e., <m>-1 \lt \rho \lt 1</m>), 
+        then <m>\displaystyle \lim_{n \to \infty} a \cdot \rho^n = 0</m>.
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <statement>
+        <p>Find the appropriate limits of the following sequences.
+        <ol>
+          <li><m>\displaystyle \lim_{n \to \infty} 3-4n</m></li>
+          <li><m>\displaystyle \lim_{n \to \infty} 100+0.02n</m></li>
+          <li><m>\displaystyle \lim_{n \to \infty} -3 \cdot 1.05^n</m></li>
+          <li><m>\displaystyle \lim_{n \to \infty} 100 \cdot (-0.75)^n</m></li>
+          <li><m>\displaystyle \lim_{n \to \infty} 5 \cdot (-1.5)^n</m></li>
+        </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+        <ol>
+          <li>
+            <p>
+            The sequence <m>x_n = 3-4n</m> is recognized 
+            as the explicit formula of an arithmetic sequence with increment <m>c=-4</m>. 
+            Since this is a negative increment, the sequence decreases without bound. 
+            So we write <me>\lim_{n \to \infty} 3-4n = -\infty.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+            The sequence <m>x_n = 100+0.02n</m> is arithmetic with increment <m>c=0.02</m>. 
+            Since the increment is positive, the sequence increases without bound 
+            and we write <me>\lim_{n \to \infty} 100+0.02n = +\infty.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+            The sequence <m>x_n=-3 \cdot 1.05^n</m> is a geometric sequence with ratio <m>\rho=1.05</m>. 
+            Because <m>\rho \gt 1</m>, the sequence grows without bound. 
+            Furthermore, because the terms are all negative, 
+            we have a limit <me>\lim_{n \to \infty} -3 \cdot 1.05^n = -\infty.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+            The sequence <m>x_n = 100 \cdot (-0.75)^n</m> is a geometric sequence 
+            with ratio <m>\rho=-0.75</m>. 
+            Because the ratio is negative, 
+            the signs of the terms alternate between positive and negative. 
+            However, since <m>|\rho|= 0.75 \lt 1</m>, 
+            the magnitude of the terms converges to zero so that 
+            <me>\lim_{n \to \infty} 100 \cdot (-0.75)^n = 0.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+            The sequence <m>x_n = 5 \cdot (-1.5)^n</m> has a negative ratio <m>\rho=-1.5</m>.
+            Since <m>|\rho| \gt 1</m>, the terms have alternating signs but grow in magnitude. 
+            Consequently, <m>\displaystyle \lim_{n \to \infty} 5 \cdot (-1.5)^n</m> does not exist. 
+            </p>
+          </li>
+        </ol>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    Once we know how to identify when sequences have unbounded terms, 
+    we can use that information to find limits of related sequences. 
+    We can think of this as the arithmetic of infinity. 
+    Infinities can add and multiply but should never be subtracted or divided from one another. 
+    The most important principle to remember is that infinities should never cancel one another. 
+    Cases where the formula looks like infinities might cancel are called indeterminate. 
+    This means that the actual value can not be determined without further analysis. 
+    A ratio of terms becoming infinitely small, <m>0/0</m>, is also indeterminate.
+    </p>
+    
+    <theorem xml:id="thm-arithmetic-infinity">
+      <statement>
+        <p>
+        Suppose unbounded sequences are combined using arithmetic operations. 
+        Then the following arithmetic relating to limits will be valid.
+        <md>
+          <mrow>+\infty + +\infty = +\infty</mrow>
+          <mrow>-\infty + -\infty = -\infty</mrow>
+          <mrow>+\infty + -\infty = \hbox{indeterminate}</mrow>
+          <mrow>+\infty \cdot +\infty = +\infty</mrow>
+          <mrow>-\infty \cdot -\infty = +\infty</mrow>
+          <mrow>+\infty \cdot -\infty = -\infty</mrow>
+          <mrow>\frac{1}{+\infty} = 0</mrow>
+          <mrow>\frac{1}{-\infty} = 0</mrow>
+          <mrow>\frac{\pm \infty}{\pm \infty} = \hbox{indeterminate}</mrow>
+          <mrow>0 \cdot \pm \infty = \hbox{indeterminate}</mrow>
+          <mrow>\frac{0}{0} = \hbox{indeterminate}</mrow>
+        </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+    The previous theorem was stated somewhat imprecisely in order to convey 
+    the idea of arithmetic of infinities without being bogged down by formal notation relating to limits. 
+    Each statement really is about a limit.
+    </p>
+    <p>
+    As an example, the arithmetic on infinity <m>+\infty + +\infty = +\infty</m> 
+    should more properly be stated as follows. 
+    Suppose that there are two sequences <m>x_n</m> and <m>y_n</m> such that 
+    <m>x_n \to +\infty</m> and <m>y_n \to +\infty</m>. 
+    The sequence defined by <m>u_n = x_n + y_n</m> has limit <me>\lim_{n \to \infty} x_n + y_n = +\infty.</me>
+    </p>
+    <p>
+    The shorthand notation of performing arithmetic with infinity allows this to be simplified as writing 
+    <me> \lim_{n \to \infty} x_n + y_n = +\infty + +\infty = +\infty.</me> 
+    The intermediate step <m>+\infty + +\infty</m> is not truly arithmetic, 
+    but points out that <m>x_n \to +\infty</m> and <m>y_n \to +\infty</m>, 
+    and since those sequences were added, the final limit is also <m>+\infty</m>. 
+    As long as the arithmetic involves no cancelation of infinities, it will result in a correct statement.
+    </p>
+    
+    <p>
+    To deal with indeterminate forms, we usually need to try to rewrite the formula 
+    in a new way so that the cancellation does not apply.
+    </p>
+    
+    <example>
+      <statement>
+        <p>Determine the following limits, if possible.
+        <ol>
+          <li><m>\displaystyle \lim_{n \to \infty} 3+\frac{5}{2^n}</m></li>
+          <li><m>\displaystyle \lim_{n \to \infty} \frac{n^2-3n}{5n-1}</m></li>
+          <li><m>\displaystyle \lim_{n \to \infty} \frac{1+2^n}{3+5^n}</m></li>
+        </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+        <ol>
+          <li>
+            <p>
+            The sequence <m>x_n = 3 + \frac{5}{2^n}</m> is the sum of terms 
+            <m>3</m> and <m>\frac{5}{2^n}</m>. 
+            The constant sequence has a limit <m>3 \to 3</m> (since it never changes). 
+            The geometric sequence <m>\frac{5}{2^n} = 5 \cdot (\frac{1}{2})^n</m> 
+            has a ratio <m>|\rho| \lt 1</m> so that <m>\frac{5}{2^n} \to 0</m>. 
+            The form of the limit (using the terms) is 
+            <me> \lim_{n \to \infty} 3 + \frac{5}{2^n} = 3 + 0,</me> 
+            and since this does not involve any cancelation of infinities, will give the correct limit, 
+            <me>\lim_{n \to \infty} 3+\frac{5}{2^n} = 3+0 = 3.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+            The sequence <m>\displaystyle u_n = \frac{n^2-3n}{5n-1}</m> is a quotient of terms 
+            <m>n^2-3n</m> and <m>5n-1</m>. 
+            To find the limit, we explore the terms individually first.
+            </p>
+            <p>
+            Because <m>n^2 = n \cdot n</m>, we know <m>n^2 \to +\infty \cdot +\infty = +\infty</m>. 
+            Similarly, the arithmetic sequence <m>3n \to +\infty</m>. 
+            However, the difference <m>n^2 - 3n</m> would have a limit of the form <m>+\infty - \infty</m>, 
+            which is a cancellation of infinities. 
+            As written, <m>n^2-3n</m> is an indeterminate form. 
+            Our strategy will be to rewrite this as a product, 
+            and the best practice is to factor out (divide out) the greatest power of <m>n</m>, 
+            <me> n^2-3n =  n^2(\frac{n^2}{n^2} - \frac{3n}{n^2}) = n^2 (1 - \frac{3}{n}).</me> 
+            From this, we find <me>\frac{3}{n} \to \frac{3}{+\infty} = 0 \quad \Rightarrow \quad 1-\frac{3}{n} \to 1-0 = 1.</me> 
+            Since we already know <m>n^2 \to +\infty</m>, we have the limit of the numerator 
+            <me> \lim_{n \to \infty} n^2-3n = \lim_{n \to \infty} n^2(1-\frac{3}{n}) = +\infty \cdot 1 = +\infty.</me>
+            </p>
+            <p>
+            The term in the denominator <m>5n-1</m> is an arithmetic sequence (linear function) 
+            with increment (slope) <m>c=5</m>.
+            We know <me>\lim_{n \to \infty} 5n-1 = +\infty.</me> 
+            Unfortunately, that means our limit form as a quotient is itself an indeterminate form, 
+            <me> \lim_{n \to \infty} \frac{n^2-3n}{5n-1} = \frac{+\infty}{+\infty}.</me> 
+            We can not cancel infinities, so we must rewrite our formula.
+            </p>
+            <p>
+            For this example, I worked out the numerator separately to make a point about 
+            that term itself being an indeterminate form. 
+            In practice, our strategy will be to apply that factoring principle to the entire formula at one step.
+            This is illustrated below.</p>
+            <p>
+            The problem can be solved up if we just factor out from the numerator and denominator 
+            the dominant term (greatest power) and simplify as needed. 
+            <md>
+              <mrow>\lim_{n \to \infty} \frac{n^2-3n}{5n-1} &amp; = \lim_{n \to \infty} \frac{n^2(1-\frac{3}{n})}{n(5-\frac{1}{n})} </mrow>
+              <mrow> &amp; = \lim_{n \to \infty} \frac{n(1-\frac{3}{n})}{5-\frac{1}{n}} </mrow>
+              <mrow> &amp; = \frac{+\infty \cdot(1-\frac{3}{\infty})}{5-\frac{1}{\infty}}</mrow>
+              <mrow> &amp; = \frac{+\infty\cdot 1}{5} = +\infty.</mrow>
+            </md> </p>
+          </li>
+          <li>
+            <p>
+            The sequence <m>\displaystyle w_n = \frac{1+2^n}{3+5^n}</m>, by quick inspection, 
+            involves the geometric sequences <m>2^n</m> and <m>5^n</m>, 
+            both of which grow exponentially so that <m>w_n \to \frac{+\infty}{+\infty}</m>. 
+            This indeterminate form involves canceling infinities, so we must rewrite the formula. 
+            Following the method of the previous example, we factor out the dominant term, 
+            in this case the geometrically growing powers. 
+            <md>
+              <mrow> \lim_{n \to \infty} \frac{1+2^n}{3+5^n} &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n} + \frac{2^n}{2^n})}{5^n(\frac{3}{5^n}+\frac{5^n}{5^n})} </mrow>
+              <mrow> &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n}+1)}{5^n(\frac{3}{5^n}+1)}</mrow>
+            </md>
+            This is still indeterminate form <m>\frac{+\infty}{+\infty}</m>, 
+            so we rewrite <m>\displaystyle \frac{2^n}{5^n} = ({\textstyle \frac{2}{5}})^n</m>, 
+            which is a geometric sequence with ratio <m>\rho=\frac{2}{5}</m> satisfying <m>|\rho| \lt 1</m>. 
+            <md>
+              <mrow> \lim_{n \to \infty} \frac{1+2^n}{3+5^n} &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n}+1)}{5^n(\frac{3}{5^n}+1)}</mrow>
+              <mrow> &amp; = \lim_{n \to \infty} \frac{(\frac{2}{5})^n(\frac{1}{2^n}+1)}{\frac{3}{5^n}+1}</mrow>
+              <mrow> &amp; = \frac{0 \cdot (0+1)}{0+1} = \frac{0}{1} = 0</mrow>
+            </md>
+            </p>
+          </li>
+        </ol>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  
+  <subsection>
+    <title>Limits of Shifted Geometric</title>
+    
+    <corollary xml:id="thm-linear-projection-limits">
+      <statement>
+        <p>
+        A sequence defined recursively by <m>x_{n+1} = \alpha x_n + c</m> 
+        with <m>|\alpha| \lt 1</m> will converge to the fixed point <m>\displaystyle x^* = \frac{c}{1-\alpha}</m>, 
+        independent of the initial value.
+        </p>
+      </statement>
+    </corollary>
+    
+    <example>
+      <statement>
+        <p>
+        Find the explicit formula for a sequence defined by the recursive equation
+        <me>x_{n+1} = 1.05 x_n - 20</me>
+        and initial value <m>x_0=300</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Start by finding the fixed point, solving the equation <m>x=1.05x - 20</m>.
+        <md>
+          <mrow>x=1.05x-20</mrow>
+          <mrow>-0.05x = -20</mrow>
+          <mrow>x=400</mrow>
+        </md>
+        Using the fixed point <m>x^*=400</m> and the growth factor <m>\alpha=1.05</m>,
+        we can write down the explicit formula,
+        <md>
+          <mrow> x_n &amp;= x^* + (x_0-x^*)\alpha^n </mrow>
+          <mrow> &amp;= 400+(300-400)1.05^n </mrow>
+          <mrow> &amp;= 400-100 \cdot 1.05^n </mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+    Now that we have a method for finding the explicit formula for a sequence
+    with a linear projection function, we can apply that formula to analyze
+    applied models.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+        Suppose a patient begins taking <quantity><mag>500</mag><unit prefix="milli" base="gram"/></quantity> 
+        of a drug every four hours. 
+        However, the body metabolizes 60<percent/> of the drug in the body every four hours. 
+        Find a formula for the amount of drug in the body immediately after each dose 
+        and then determine the limiting value.
+        </p>
+      </statement>
+      <solution>
+        <p>
+        The body starts with no drug. 
+        Immediately after the first dose, 
+        there are <quantity><mag>500</mag><unit prefix="milli" base="gram"/></quantity>. 
+        Four hours later, 60<percent/> has been removed and then another dose is added in. 
+        If we let <m>D_n</m> be the sequence of drug mass in the body 
+        as a function of the number of doses <m>n</m>, 
+        then this is modeled recursively by the equation 
+        <me>D_{n+1} = D_n - 0.6 D_n + 500,</me> with initial value <m>D_1 = 500</m>.
+        </p>
+        <p>
+        This model has a linear projection function <m>f(x) = 0.4x+500</m> 
+        and corresponding fixed point 
+        <me> 0.4x+500=x \quad \Leftrightarrow \quad x=\frac{500}{0.6} = \frac{2500}{3}.</me>
+        The explicit formula, using <xref ref="thm-linear-projection-explicit"/>, 
+        is given by <me>D_n = \frac{2500}{3} + (500 - \frac{2500}{3}) \cdot 0.4^{n-1} = \frac{2500}{3} - \frac{1000}{3} \cdot 0.4^{n-1}.</me> 
+        Because the slope of the projection function <m>\alpha = 0.4</m> has magnitude less than 1, 
+        the limiting value is the fixed point <m>x^* = \frac{2500}{3} \approx 833.33</m>. 
+        Thus, if the patient continues to take the drug, 
+        the amount in the body immediately after each dose will be approximately 
+        <quantity><mag>833.33</mag><unit prefix="milli" base="gram"/></quantity>. 
+        (Immediately before the dose, it must have been approximately 
+        <quantity><mag>333.33</mag><unit prefix="milli" base="gram"/></quantity>.)
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    
+    <p>
+    <ul>
+      <li>
+      A sequence has a limit, <m>x_n \to L</m>, if the values of the sequence 
+      get closer and closer to the value of <m>L</m>.
+      The line <m>x=L</m> will be a horizontal asymptote of the graph <m>(n,x_n)</m>.
+      </li>
+      <li>
+      The formal definition of a sequence limit <m>x_n \to L</m>, 
+      also written <m>\displaystyle \lim_{n \to \infty} x_n = L</m>,
+      is that for any desired error of approximation <m>\epsilon \gt 0</m>, 
+      there is an index threshold <m>N</m> so that <m>|x_n - L| \lt \epsilon</m> whenever <m>n \gt N</m>.
+      (See <xref ref="defn-sequence-limit"/>)
+      </li>
+      <li>
+      Arithmetic sequences with non-zero increments are unbounded.
+      Geometric sequences are unbounded when the ratio has magnitude greater than 1
+      and converge to zero when the ratio has magnitude less than 1.
+      </li>
+      <li>
+        <p>
+        Sequence limits obey the standard rules of arithmetic, including for infinite limits,
+        with the exception that any formula that would cancel infinity are indeterminate.
+        (See <xref ref="thm-arithmetic-infinity"/>)
+        Indeterminate means the limit can not be determined from simple arithmetic 
+        but requires rewriting in another form.
+        <ul>
+          <li>
+            <m>\infty-\infty</m>: rewrite by factoring out dominant term
+          </li>
+          <li>
+            <m>\displaystyle \frac{\infty}{\infty}</m>: 
+            factor out dominant term in numerator and denominator, look to simplify
+          </li>
+          <li>
+            <m>\displaystyle \frac{0}{0}</m>: 
+            try to factor and simplify
+          </li>
+          <li>
+            <m>\displaystyle 0 \cdot \infty</m>: 
+            use negative powers to rewrite as fraction, then treat as 
+            <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>
+          </li>
+        </ul>
+        Look for terms in the limit that vanish: <m>\displaystyle \frac{1}{\infty}=0</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+        Given a function <m>f</m>, a <term>fixed point</term> of <m>f</m> solves 
+        the fixed point equation <m>x=f(x)</m>.
+        (See <xref ref="defn-recursion-fixed-point"/>)
+        </p>
+      </li>
+      <li>
+        <p>
+        Sequences defined recursively using a continuous projection function <m>f</m>
+        can only have limits that are fixed points of <m>f</m>. 
+        (See <xref ref="thm-recursive-limit-fixed-point"/>)
+        </p>
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+        Use limit arithmetic to find the exact value for each limit.
+        If the limit does not exist, explain why.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} 3-4n </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} -5+\frac{n}{200} </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} 3 \cdot ({\textstyle \frac{2}{5}})^n </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} -3 \cdot (-0.8)^n </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} 4 - 5 \cdot (1.05)^n </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} 5 - (-1.5)^n </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} \frac{5+3n}{5-n^2} </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} \frac{5+3n^2}{5-n^2} </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} \frac{5+3n^3}{5-n^2} </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} \frac{2^n-3^n}{7+2 \cdot 3^n} </m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>\displaystyle \lim_{n \to \infty} \frac{3 \cdot 2^n- 5 \cdot 3^n}{1+2 \cdot 5^n} </m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        Find an explicit formula for each sequence. 
+        Then determine the limit of the sequence.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_{t+1} = 1.05 x_t - 10</m> with <m>x_0 = 500</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>x_{k+1} = 0.8 x_k + 12</m> with <m>x_1 = 5</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          <m>y_{n+1} = -1.5 y_n + 5</m> with <m>y_0 = 2</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Use the properties and elementary formulas for summation to
+          find a formula for the summation in order to compute the
+          limit.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{5k}{n^2}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{k^2}{n^3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(2+\frac{3k}{n}\right) \cdot \frac{3}{n}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(1+\frac{2k}{n}\right)^2 \cdot \frac{2}{n}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        Applications of sequences.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+          When a patient starts taking a drug, there is no drug in the blood.
+          The prescription is to take 
+          <quantity><mag>250</mag><unit prefix="milli" base="gram"/></quantity>
+          every six hours.
+          Then, during the six hours between doses, 
+          the body metabolizes 20<percent/> of whatever drug is in the body.
+          </p>
+          <p>
+          Find a recursive formula using a linear projection function for the sequence of drug levels 
+          with an index counting the total number of doses.
+          Clearly state the initial value.
+          Find an explicit formula for the sequence and determine the limit.
+          Is there a steady state amount of drug in the body?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          A pond has been polluted by a stream. 
+          The pond holds 12,000 gallons of water
+          and the stream replaces 900 gallons per day.
+          The stream has been carrying the chemical pollutant at a concentration of 
+          <quantity><mag>0.4</mag><unit base="gram"/><per base="gallon"/></quantity>
+          and now the pond has that same pollution level.
+          With stream cleanup, the chemical pollutant in the stream
+          has just been reduced to a concentration of 
+          <quantity><mag>0.1</mag><unit base="gram"/><per base="gallon"/></quantity>.
+          </p>
+          <p>
+          Find a recursive formula using a linear projection function 
+          for the sequence of pollutant levels (total mass) in the pond
+          with an index counting the number of days since the cleanup occurred.
+          Clearly state the initial value.
+          Find an explicit formula for the sequence and determine the limit.
+          On what day will the total amount of pollutant in the pond be reduced
+          to half of the pollution level prior to cleanup?
+          Is there a steady state amount of pollutant in the pond?
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
+ </section>

@@ -4,7 +4,7 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
    
 <section xml:id="sequence-limits">
@@ -12,54 +12,458 @@
 
   <subsection>
     <title>Overview</title>
-    
     <p>
-    The limit of a sequence describes its end behavior.
-    A sequence can have similar end behavior as any other function.
-    (Recall <xref ref="functions-behavior-end-limits"/>.)
-    Some sequences seemed to level off to a single value, approaching a horizontal asymptote.
-    Other sequences grow without bound, either rising to <m>+\infty</m> or falling to <m>-\infty</m>.
-    Additionally, sequences might approach a repeating pattern or have no pattern at all.
-    In this section, we focus on describing the limiting behavior of sequences that level off 
-    to a single limiting value or grow without bound.
+      The limit of a sequence describes its end behavior.
+      Some sequences converge to a particular value, 
+      meaning that the values of the sequence keep getting closer and closer to that value.
+      Other sequences grow without bound.
+      Still other sequences alternate between values or behave chaotically.
+      Limits allow us to establish some mathematical language that characterizes some of these behaviors.
     </p>
-    
     <p>
-    The objectives for this section are as follows.
-    We will focus on what it means for a sequence to have a limit. 
-    Then we will learn how to determine the limiting values for sequences defined explicitly using limit arithmetic. 
-    Additionally, we will also learn about limits of sequences defined recursively 
-    in terms of fixed points of the projection function .
+      The objectives for this section are as follows.
+      We will focus on what it means for a sequence to have a limit.
+      Much of our intuition will focus on graphs and tables.
+      As we do this, we will learn about limits of sequences defined recursively 
+      in terms of fixed points of the projection function.
+      We will then discuss limit arithmetic involving infinity and how this can be used to find limits of some sequences defined explicitly.
     </p>
-    
   </subsection>
-  
   <subsection xml:id="section-sequence-limit-discussion">
     <title>What Is A Limit?</title>
-    
     <p>
-    We want to say that a sequence has a <term>limit</term> 
-    if the plot of the sequence values levels off to a single value. 
-    The limit will be that value to which the sequence is <term>converging</term>. 
-    The numerical interpretation of this perspective is that 
-    if you looked at a table of values for the sequence, 
-    the values of the sequence needs to have its values get closer and closer to some limiting value. 
-    In a decimal representation, more and more of the digits need to stop changing 
-    the further you go down in the sequence.
+      Consider the sequence defined recursively by <m>x_{n} = 0.8 x_{n-1} + 1</m> and initial value <m>x_0 = 1</m>.
+      The next ten values (to the nearest ten-thousandth) are shown in a table and the first twenty values are illustrated in a graph.
     </p>
-    
+    <sidebyside widths="30% 60%">
+      <tabular>
+        <row bottom="major">
+          <cell><m>n</m></cell>
+          <cell><m>x_n</m></cell>
+        </row>
+        <row>
+          <cell>0</cell>
+          <cell>1</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell>1.8</cell>
+        </row>
+        <row>
+          <cell>2</cell>
+          <cell>2.44</cell>
+        </row>
+        <row>
+          <cell>3</cell>
+          <cell>2.952</cell>
+        </row>
+        <row>
+          <cell>4</cell>
+          <cell>3.3616</cell>
+        </row>
+        <row>
+          <cell>5</cell>
+          <cell>3.68928</cell>
+        </row>
+        <row>
+          <cell>6</cell>
+          <cell>3.951424</cell>
+        </row>
+        <row>
+          <cell>7</cell>
+          <cell>4.161139</cell>
+        </row>
+        <row>
+          <cell>8</cell>
+          <cell>4.328911</cell>
+        </row>
+        <row>
+          <cell>9</cell>
+          <cell>4.463129</cell>
+        </row>
+        <row>
+          <cell>10</cell>
+          <cell>4.570503</cell>
+        </row>
+      </tabular>
+      <image width="70%">
+        <latex-image>
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \pgfplotsset{ width=8cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={$n$},
+          ylabel={$x_n$},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table {
+        0 1\\
+        1 1.8\\
+        2 2.44\\
+        3 2.952\\
+        4 3.3616\\
+        5 3.68928\\
+        6 3.951424\\
+        7 4.161139\\
+        8 4.328911\\
+        9 4.463129\\
+        10 4.570503\\
+        11 4.656403\\
+        12 4.725122\\
+        13 4.780098\\
+        14 4.824078\\
+        15 4.859263\\
+        16 4.88741\\
+        17 4.909928\\
+        18 4.927942\\
+        19 4.942354\\
+        20 4.953883\\
+        };
+        \end{axis}
+        \end{tikzpicture}
+        ]]>
+        </latex-image>
+      </image>
+    </sidebyside>
     <p>
-    We start with a few examples to build our intuition.
+      The graph illustrates that the sequence <m>x</m> is increasing and concave down.
+      It appears that the values of the sequence might be leveling off at some value.
+      A cobweb diagram, shown below, suggests that this sequence has values 
+      that are converging to a fixed point of the projection function <m>f(x) = 0.8x+1</m>,
+      where <m>f(x)=x</m>.
     </p>
-    
+    <sidebyside width="50%">
+      <image>
+        <latex-image>
+        <![CDATA[\tikzset{%
+        }
+        \begin{tikzpicture}
+        \begin{axis}
+        [ xmin=-3, xmax=8, ymin=-3, ymax=8,
+          xlabel={$x_{n-1}$}, ylabel={$x_{n}$},
+        ]
+        \addplot [black, no marks] coordinates { (-30,0) (10,0) }; 
+        \addplot [domain=-3:8, samples=10, thick, blue] { 0.8*x+1 };
+        \addplot [domain=-3:8, samples=2, dashed, red] {x};
+        \pgfmathsetmacro{\u}{1}
+        \addplot [violet, thick] coordinates {
+          (\u,0) (\u,\u)
+        };
+        \pgfplotsforeachungrouped \n in {1, ..., 20}
+          {
+            \pgfmathsetmacro{\w}{0.8*\u+1}
+            \edef\doplot{
+              \noexpand\addplot [violet, thick] coordinates {
+                (\u,\u) (\u,\w) (\w,\w)
+              };
+            }
+            \doplot
+            \pgfmathsetmacro{\u}{\w}
+          };
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </sidebyside>
+    <p>
+      The fixed point corresponds to an equilibrium of the recursively defined sequence.
+      We find the equilibrium value by solving the fixed point equation.
+      <md>
+        <mrow>f(x) = x</mrow>
+        <mrow>0.8x + 1 = x</mrow>
+        <mrow>1 = 0.2x</mrow>
+        <mrow>x=5</mrow>
+      </md>
+      Now, let us compare the decimal approximations to the sequence with higher index values with the equilibrium.
+    </p>
+    <sidebyside>
+      <tabular>
+        <row bottom="major">
+          <cell><m>n</m></cell>
+          <cell><m>x_n</m></cell>
+        </row>
+        <row>
+          <cell>20</cell>
+          <cell>4.953883140</cell>
+        </row>
+        <row>
+          <cell>25</cell>
+          <cell>4.984888427</cell>
+        </row>
+        <row>
+          <cell>30</cell>
+          <cell>4.995048240</cell>
+        </row>
+        <row>
+          <cell>35</cell>
+          <cell>4.998377407</cell>
+        </row>
+        <row>
+          <cell>40</cell>
+          <cell>4.999468309</cell>
+        </row>
+        <row>
+          <cell>45</cell>
+          <cell>4.999825775</cell>
+        </row>
+        <row>
+          <cell>50</cell>
+          <cell>4.999942910</cell>
+        </row>
+        <row>
+          <cell>55</cell>
+          <cell>4.999981293</cell>
+        </row>
+        <row>
+          <cell>60</cell>
+          <cell>4.999993870</cell>
+        </row>
+      </tabular>
+    </sidebyside>
+    <p>
+      Notice that the values for the sequence have decimal approximations
+      that are converging to the equilibrium value <m>x=5</m>.
+      The greater the index value, the closer the sequence value is to equilibrium.
+      Consequently, we say that our sequence has a limit of 5 and write <m>x_n \to 5</m> or 
+      <me>\lim_{n \to \infty} x_n = 5</me>.
+    </p>
+    <p>
+      Next consider another example<mdash/>a recursive sequence <m>x</m>
+      defined by a recurrence relation <m>x_{n} = 1.2 x_n - 1</m> and initial value <m>x_0=4</m>.
+      The projection function <m>f(x) = 1.2x-1</m> has the same fixed point <m>x=5</m> because
+      <me>f(5) = 1.2(5)-1 = 5</me>.
+    </p>
+    <sidebyside widths="30% 60%">
+      <tabular>
+        <row bottom="major">
+          <cell><m>n</m></cell>
+          <cell><m>x_n</m></cell>
+        </row>
+        <row><cell>0</cell><cell>4</cell></row>
+        <row><cell>1</cell><cell>3.8</cell></row>
+        <row><cell>2</cell><cell>3.56</cell></row>
+        <row><cell>3</cell><cell>3.272</cell></row>
+        <row><cell>4</cell><cell>2.9264</cell></row>
+        <row><cell>5</cell><cell>2.51168</cell></row>
+        <row><cell>6</cell><cell>2.014016</cell></row>
+        <row><cell>7</cell><cell>1.416819</cell></row>
+        <row><cell>8</cell><cell>0.700183</cell></row>
+        <row><cell>9</cell><cell>-0.1597804</cell></row>
+        <row><cell>10</cell><cell>-1.191736</cell></row>
+      </tabular>
+      <image width="70%">
+        <latex-image>
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={$n$},
+          ylabel={$x_n$},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table {
+        0 4\\
+        1 3.8\\
+        2 3.56\\
+        3 3.272\\
+        4 2.9264\\
+        5 2.51168\\
+        6 2.014016\\
+        7 1.416819\\
+        8 0.700183\\
+        9 -0.1597804\\
+        10 -1.191736\\
+        11 -2.430084\\
+        12 -3.9161\\
+        13 -5.699321\\
+        14 -7.839185\\
+        15 -10.40702\\
+        16 -13.48843\\
+        17 -17.18611\\
+        18 -21.62333\\
+        19 -26.948\\
+        20 -33.3376\\
+        };
+        \end{axis}
+        \end{tikzpicture}
+        ]]>
+        </latex-image>
+      </image>
+    </sidebyside>
+    <p>
+      However, this time the sequence is decreasing and concave down,
+      moving away from the equilibrium value.
+      Instead, the value of the sequence is becoming more and more negative.
+      The cobweb diagram illustrates that this will continue forever.
+      For a sequence like this, we say <m>x_n \to -\infty</m> or 
+      <me>\lim_{n \to \infty} x_n = -\infty</me>.
+    </p>
+    <sidebyside width="50%">
+      <image>
+        <latex-image>
+        <![CDATA[\tikzset{%
+        }
+        \begin{tikzpicture}
+        \begin{axis}
+        [ xmin=-30, xmax=15, ymin=-30, ymax=15,
+          xlabel={$x_{n-1}$}, ylabel={$x_{n}$},
+        ]
+        \addplot [black, no marks] coordinates { (-30,0) (15,0) }; 
+        \addplot [domain=-30:15, samples=10, thick, blue] { 1.2*x-1 };
+        \addplot [domain=-30:15, samples=2, dashed, red] {x};
+        \pgfmathsetmacro{\u}{1}
+        \addplot [violet, thick] coordinates {
+          (\u,0) (\u,\u)
+        };
+        \pgfplotsforeachungrouped \n in {1, ..., 20}
+          {
+            \pgfmathsetmacro{\w}{1.2*\u-1}
+            \edef\doplot{
+              \noexpand\addplot [violet, thick] coordinates {
+                (\u,\u) (\u,\w) (\w,\w)
+              };
+            }
+            \doplot
+            \pgfmathsetmacro{\u}{\w}
+          };
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </sidebyside>
+    <p>
+      For the same recursive definition <m>x_{n} = 1.2x_{n-1}-1</m>
+      with an initial value above the equilibrium, <m>x_0=6</m>,
+      the sequence is increasing and concave up, shown below.
+      The values become more and more positive.
+      For a sequence like this, we say <m>x_n \to \infty</m> or
+      <me>\lim_{n \to \infty} x_n = \infty</me>.
+    </p>
+    <sidebyside widths="30% 60%">
+      <tabular>
+        <row bottom="major">
+          <cell><m>n</m></cell>
+          <cell><m>x_n</m></cell>
+        </row>
+        <row><cell>0</cell><cell>6</cell></row>
+        <row><cell>1</cell><cell>6.2</cell></row>
+        <row><cell>2</cell><cell>6.44</cell></row>
+        <row><cell>3</cell><cell>6.728</cell></row>
+        <row><cell>4</cell><cell>7.0736</cell></row>
+        <row><cell>5</cell><cell>7.48832</cell></row>
+        <row><cell>6</cell><cell>7.985984</cell></row>
+        <row><cell>7</cell><cell>8.583181</cell></row>
+        <row><cell>8</cell><cell>9.299817</cell></row>
+        <row><cell>9</cell><cell>10.15978</cell></row>
+        <row><cell>10</cell><cell>11.19174</cell></row>
+      </tabular>
+      <image width="70%">
+        <latex-image>
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={$n$},
+          ylabel={$x_n$},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table {
+        0 6\\
+        1 6.2\\
+        2 6.44\\
+        3 6.728\\
+        4 7.0736\\
+        5 7.48832\\
+        6 7.985984\\
+        7 8.583181\\
+        8 9.299817\\
+        9 10.15978\\
+        10 11.19174\\
+        11 12.43008\\
+        12 13.9161\\
+        13 15.69932\\
+        14 17.83918\\
+        15 20.40702\\
+        16 23.48843\\
+        17 27.18611\\
+        18 31.62333\\
+        19 36.948\\
+        20 43.3376\\
+        };
+        \end{axis}
+        \end{tikzpicture}
+        ]]>
+        </latex-image>
+      </image>
+    </sidebyside>
+    <p>
+      We have seen that a recursive sequence sometimes converges to a fixed point
+      and sometimes it diverges away from a fixed point.
+      We might wonder if a recursive sequence can have a limit that is <em>not</em> a fixed point of the projection function.
+      The answer is no, so long as the projection function is continuous.
+    </p>
+    <theorem xml:id="thm-recursive-limit-fixed-point">
+      <title>Recursive Limits as Fixed Points</title>
+      <statement>
+        <p>
+        If a sequence is defined recursively with a continuous projection function <m>f</m>, 
+        <m>x_{n}=f(x_{n-1})</m>, and <m>x_n</m> has a limit, 
+        then the limit must be a fixed point of <m>f</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>We have to wait for a definition of continuity before this can be proved.</p>
+      </proof>
+    </theorem>
+    <p>
+      Note some things that this theorem does not guarantee. 
+      First, just because a function has a fixed point does not mean that it will be a limit.
+      (The sequence might not have a limit.) 
+      Second, the projection function needs to be continuous. 
+      If a function is not continuous, then it is possible to have a limit that is not a fixed point. 
+      Fortunately, functions defined by simple algebraic formulas will be continuous everywhere they are defined.
+      For any continuous projection functions, the only limits <em>will</em> be fixed points.
+      Finally, if the sequence is not defined recursively, then we will need other methods to find the limits.
+    </p>
+    <p>
+      In practice, we first observe that a sequence defined recursively has a limit (perhaps through a graph or a table).
+      If we find all of the fixed points for the projection function, 
+      then we can determine which of those is the appropriate limit. 
+      The limit may depend on the initial value of the sequence, 
+      so we compare approximate values from the table with the approximate (decimal) values of the fixed points.
+    </p>
+    <p>
+      We consider some additional examples.
+      As you attempt the examples or exercises,
+      take advantage of technology to generate tables and graphs.
+      Refer back to <xref ref="sequences-computing"/> for guidance as needed.
+    </p>
     <example>
+      <statement>
+        <p>
+        Use a table and a graph of the sequence defined explicitly as 
+        <me>\displaystyle x_n = \frac{3+2^n}{1+3 \cdot 2^n}</me>
+        to estimate the limit of <m>x_n</m>.
+        </p>
+      </statement>
+      <solution>
       <p>
-      The table below represent the values for a sequence defined explicitly as 
-      <m>\displaystyle x_n = \frac{3+2^n}{1+3 \cdot 2^n}</m>, 
-      shown with up to 12 decimal places. 
-      A plot of the sequence is also shown.
+      The explicit definition of the sequence allows us to create a table.
+      Because we are looking for the decimal approximation to converge,
+      we need to show quite a few decimal places.
+      Once the table is generated, we can create a plot.
       </p>
-      <sidebyside margins="auto">
+      <sidebyside widths="30% 60%" margins="auto">
         <tabular>
           <col halign="center" right="major"/>
           <col halign="left"/>
@@ -132,8 +536,6 @@
             <cell><m>0.333360459793</m></cell>
           </row>
         </tabular>
-      </sidebyside>
-      <sidebyside width="70%" margins="auto">
         <image xml:id="fig-demo-sequence-limits">
           <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -141,7 +543,6 @@
           }
           \begin{tikzpicture}
             \begin{axis}[
-              width=4in, height=2.5in,
               xlabel={$n$}, ylabel={$x_n$},
               ymajorgrids,
             ]
@@ -168,417 +569,505 @@
           </latex-image>
         </image>
       </sidebyside>
-
       <p>
-      The plot for the sequence shows that the sequence appears to be leveling off. 
-      Looking at the table, we see that more and more of the digits are converging to a 3. 
-      If this pattern is real and continues, the limiting value would be the repeating decimal <m>0.3333\ldots</m> 
-      which is the rational number <m>\frac{1}{3}</m>. 
-      We would say that this sequence has a limit of <m>\frac{1}{3}</m>.
-      We write either <m>x_n \to \frac{1}{3}</m> or <me>\lim_{n \to \infty} x_n = \frac{1}{3}</me>.
+        The plot for the sequence shows that the sequence appears to be leveling off. 
+        Looking at the table, we see that more and more of the digits are converging to a 3. 
+        If this pattern is real and continues, the limiting value would be the repeating decimal <m>0.3333\ldots</m> 
+        which is the rational number <m>\frac{1}{3}</m>. 
+        We would say that this sequence has a limit <m>x_n \to \frac{1}{3}</m>:
+        <me>\lim_{n \to \infty} x_n = \frac{1}{3}</me>.
       </p>
+      </solution>
     </example>
-    
     <example>
-      <p>
-      Another sequence, defined explicitly by the formula 
-      <me>u_n = 1+\frac{1}{2}\cdot(-1+\frac{1}{2^n})^n,</me> 
-      is similarly illustrated by a table and figure.
-      </p>
-      <sidebyside margins="auto">
-        <tabular>
-          <col halign="center" right="major"/>
-          <col halign="left"/>
-          <row bottom="major">
-            <cell><m>n</m></cell>
-            <cell><m>u_n</m></cell>
-          </row>
-          <row>
-            <cell><m>0</m></cell>
-            <cell><m>1.5</m></cell>
-          </row>
-          <row>
-            <cell><m>1</m></cell>
-            <cell><m>0.75</m></cell>
-          </row>
-          <row>
-            <cell><m>2</m></cell>
-            <cell><m>1.28125</m></cell>
-          </row>
-          <row>
-            <cell><m>3</m></cell>
-            <cell><m>0.6650390625</m></cell>
-          </row>
-          <row>
-            <cell><m>4</m></cell>
-            <cell><m>1.38623809814</m></cell>
-          </row>
-          <row>
-            <cell><m>5</m></cell>
-            <cell><m>0.573392406106</m></cell>
-          </row>
-          <row>
-            <cell><m>6</m></cell>
-            <cell><m>1.45491835196</m></cell>
-          </row>
-          <row>
-            <cell><m>7</m></cell>
-            <cell><m>0.526711160622</m></cell>
-          </row>
-          <row>
-            <cell><m>8</m></cell>
-            <cell><m>1.48458696224</m></cell>
-          </row>
-          <row>
-            <cell><m>9</m></cell>
-            <cell><m>0.508720709959</m></cell>
-          </row>
-          <row>
-            <cell><m>10</m></cell>
-            <cell><m>1.49513858939</m></cell>
-          </row>
-          <row>
-            <cell><m>11</m></cell>
-            <cell><m>0.502678999959</m></cell>
-          </row>
-          <row>
-            <cell><m>12</m></cell>
-            <cell><m>1.4985371216</m></cell>
-          </row>
-          <row>
-            <cell><m>13</m></cell>
-            <cell><m>0.500792876146</m></cell>
-          </row>
-          <row>
-            <cell><m>14</m></cell>
-            <cell><m>1.49957292337</m></cell>
-          </row>
-          <row>
-            <cell><m>15</m></cell>
-            <cell><m>0.500228832948</m></cell>
-          </row>
-        </tabular>
-      </sidebyside>
-      <sidebyside width="70%" margins="auto">
-        <image xml:id="fig-demo-sequence-no-limits">
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}
-            \begin{axis}[
-              width=4in, height=2.5in,
-              xlabel={$n$}, ylabel={$x_n$},
-              ymajorgrids,
-            ]
-            \addplot[blue, only marks] coordinates {
-              (0,1.5)
-              (1,0.75)
-              (2,1.28125)
-              (3,0.6650390625)
-              (4,1.38623809814)
-              (5,0.573392406106)
-              (6,1.45491835196)
-              (7,0.526711160622)
-              (8,1.48458696224)
-              (9,0.508720709959)
-              (10, 1.49513858939)
-              (11, 0.502678999959)
-              (12, 1.4985371216)
-              (13, 0.500792876146)
-              (14, 1.49957292337)
-              (15, 0.500228832948)
-            };
-            \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
-      <p>
-      Notice that for this sequence, the graph appears to level off to two different values. 
-      However, this is because the sequence is actually approaching two alternating values. 
-      This is an example of approaching a repeating pattern rather than a value,
-      most easily seen in the table.
-      As we look further down the table,
-      the odd index values correspond to a sequence value that is getting closer to 0.5 
-      while the even index values correspond to a sequence value that is getting closer to 1.5. 
-      This sequence does not have a limit because the sequence is not approaching a single value.
-      We say <m>\displaystyle \lim_{n \to \infty} x_n</m> does not exist.
-      </p>
+      <statement>
+        <p>
+          Use a table and a graph of the sequence defined explicitly as 
+          <me>u_n = 1+\frac{1}{2}\cdot(-1+\frac{1}{2^n})^n,</me> 
+          to estimate the limit of <m>u_n</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We generate a table of sequence values and plot the results.
+        </p>
+        <sidebyside widths="30% 60%" margins="auto">
+          <tabular>
+            <col halign="center" right="major"/>
+            <col halign="left"/>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>u_n</m></cell>
+            </row>
+            <row>
+              <cell><m>0</m></cell>
+              <cell><m>1.5</m></cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>0.75</m></cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>1.28125</m></cell>
+            </row>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>0.6650390625</m></cell>
+            </row>
+            <row>
+              <cell><m>4</m></cell>
+              <cell><m>1.38623809814</m></cell>
+            </row>
+            <row>
+              <cell><m>5</m></cell>
+              <cell><m>0.573392406106</m></cell>
+            </row>
+            <row>
+              <cell><m>6</m></cell>
+              <cell><m>1.45491835196</m></cell>
+            </row>
+            <row>
+              <cell><m>7</m></cell>
+              <cell><m>0.526711160622</m></cell>
+            </row>
+            <row>
+              <cell><m>8</m></cell>
+              <cell><m>1.48458696224</m></cell>
+            </row>
+            <row>
+              <cell><m>9</m></cell>
+              <cell><m>0.508720709959</m></cell>
+            </row>
+            <row>
+              <cell><m>10</m></cell>
+              <cell><m>1.49513858939</m></cell>
+            </row>
+            <row>
+              <cell><m>11</m></cell>
+              <cell><m>0.502678999959</m></cell>
+            </row>
+            <row>
+              <cell><m>12</m></cell>
+              <cell><m>1.4985371216</m></cell>
+            </row>
+            <row>
+              <cell><m>13</m></cell>
+              <cell><m>0.500792876146</m></cell>
+            </row>
+            <row>
+              <cell><m>14</m></cell>
+              <cell><m>1.49957292337</m></cell>
+            </row>
+            <row>
+              <cell><m>15</m></cell>
+              <cell><m>0.500228832948</m></cell>
+            </row>
+          </tabular>
+          <image xml:id="fig-demo-sequence-no-limits">
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xlabel={$n$}, ylabel={$x_n$},
+                ymajorgrids,
+              ]
+              \addplot[blue, only marks] coordinates {
+                (0,1.5)
+                (1,0.75)
+                (2,1.28125)
+                (3,0.6650390625)
+                (4,1.38623809814)
+                (5,0.573392406106)
+                (6,1.45491835196)
+                (7,0.526711160622)
+                (8,1.48458696224)
+                (9,0.508720709959)
+                (10, 1.49513858939)
+                (11, 0.502678999959)
+                (12, 1.4985371216)
+                (13, 0.500792876146)
+                (14, 1.49957292337)
+                (15, 0.500228832948)
+              };
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          Notice that for this sequence, the graph appears to level off to two different values. 
+          However, this is because the sequence is actually approaching two alternating values. 
+          This is an example of approaching a repeating pattern rather than a value,
+          most easily seen in the table.
+          As we look further down the table,
+          the odd index values correspond to a sequence value that is getting closer to 0.5 
+          while the even index values correspond to a sequence value that is getting closer to 1.5. 
+        </p>
+        <p>
+          This sequence does not have a limit because the sequence is not approaching a single value.
+          We say <m>\displaystyle \lim_{n \to \infty} x_n</m> does not exist.
+        </p>
+      </solution>
     </example>
-    
     <example>
-      <p>
-      Another third sequence, defined by the nonlinear recursive formula 
-      <me>z_{n+1} = 2.7 z_n - 0.7 z_n^2</me> 
-      with initial value <m>z_0 = 1</m> does not have a convenient explicit formula. 
-      However, using a computer to generate approximate values and then graph the sequence, 
-      we can explore whether this sequence appears to have a limit.
-      </p>
-      <sidebyside margins="auto">
-        <tabular>
-          <col halign="center" right="major"/>
-          <col halign="left"/>
-          <row bottom="major">
-            <cell><m>n</m></cell>
-            <cell><m>z_n</m></cell>
-          </row>
-          <row>
-            <cell><m>0</m></cell>
-            <cell><m>1.00000000000000</m></cell>
-          </row>
-          <row>
-            <cell><m>1</m></cell>
-            <cell><m>2.00000000000000</m></cell>
-          </row>
-          <row>
-            <cell><m>2</m></cell>
-            <cell><m>2.60000000000000</m></cell>
-          </row>
-          <row>
-            <cell><m>3</m></cell>
-            <cell><m>2.28800000000000</m></cell>
-          </row>
-          <row>
-            <cell><m>4</m></cell>
-            <cell><m>2.51313920000000</m></cell>
-          </row>
-          <row>
-            <cell><m>5</m></cell>
-            <cell><m>2.36436779299635</m></cell>
-          </row>
-          <row>
-            <cell><m>6</m></cell>
-            <cell><m>2.47062849869924</m></cell>
-          </row>
-          <row>
-            <cell><m>7</m></cell>
-            <cell><m>2.39789332147854</m></cell>
-          </row>
-          <row>
-            <cell><m>8</m></cell>
-            <cell><m>2.44938730115809</m></cell>
-          </row>
-          <row>
-            <cell><m>9</m></cell>
-            <cell><m>2.41369700737469</m></cell>
-          </row>
-          <row>
-            <cell><m>10</m></cell>
-            <cell><m>2.43882864952499</m></cell>
-          </row>
-          <row>
-            <cell><m>11</m></cell>
-            <cell><m>2.42131772649675</m></cell>
-          </row>
-          <row>
-            <cell><m>12</m></cell>
-            <cell><m>2.43361218868805</m></cell>
-          </row>
-          <row>
-            <cell><m>13</m></cell>
-            <cell><m>2.42502511000601</m></cell>
-          </row>
-          <row>
-            <cell><m>14</m></cell>
-            <cell><m>2.43104504810447</m></cell>
-          </row>
-          <row>
-            <cell><m>15</m></cell>
-            <cell><m>2.42683561174279</m></cell>
-          </row>
-          <row>
-            <cell><m>16</m></cell>
-            <cell><m>2.42978439120944</m></cell>
-          </row>
-          <row>
-            <cell><m>17</m></cell>
-            <cell><m>2.42772132482997</m></cell>
-          </row>
-          <row>
-            <cell><m>18</m></cell>
-            <cell><m>2.42916599531699</m></cell>
-          </row>
-          <row>
-            <cell><m>19</m></cell>
-            <cell><m>2.42815498439281</m></cell>
-          </row>
-          <row>
-            <cell><m>20</m></cell>
-            <cell><m>2.42886281809844</m></cell>
-          </row>
-        </tabular>
-      </sidebyside>
-      <sidebyside width="70%" margins="auto">
-        <image xml:id="fig-demo-sequence-limits-2">
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}
-            \begin{axis}[
-              width=4in, height=2.5in,
-              xlabel={$n$}, ylabel={$x_n$},
-              ymajorgrids,
-            ]
-            \addplot[blue, only marks] coordinates {
-              (0, 1.00000000000000)
-              (1, 2.00000000000000)
-              (2, 2.60000000000000)
-              (3, 2.28800000000000)
-              (4, 2.51313920000000)
-              (5, 2.36436779299635)
-              (6, 2.47062849869924)
-              (7, 2.39789332147854)
-              (8, 2.44938730115809)
-              (9, 2.41369700737469)
-              (10, 2.43882864952499)
-              (11, 2.42131772649675)
-              (12, 2.43361218868805)
-              (13, 2.42502511000601)
-              (14, 2.43104504810447)
-              (15, 2.42683561174279)
-              (16, 2.42978439120944)
-              (17, 2.42772132482997)
-              (18, 2.42916599531699)
-              (19, 2.42815498439281)
-              (20, 2.42886281809844)
-            };
-            \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
-      <p>
-      Graphically, you should see that the plot shows the sequence values are leveling off to a single value. 
-      However, the graph also shows that the values are alternately above and below that limit. 
-      We look in the table to determine the limiting value, 
-      but it is not obvious from the table what the limiting value should be. 
-      Because the values are alternately above and then below whatever the limit should be, 
-      we can conclude that the limit must be between the last two values listed. 
-      The limit is approximately 2.428 but we do not know the next decimal place 
-      without computing more values in the sequence. 
-      With additional computation (not shown), 
-      we find <m>z_{39} = 2.42857109636261</m> and <m>z_{40} = 2.42857166111753</m> 
-      so that our approximation for the limit (a value between <m>z_{39}</m> and <m>z_{40}</m>)
-      can be estimated as close to 2.428571.
-      To find a better approximation would require more computation.
-      </p>
+      <statement>
+        <p>
+          Use a table and a graph of the sequence defined recursively by 
+          <me>z_{n+1} = 2.7 z_n - 0.7 z_n^2</me> 
+          and an initial value <m>z_0 = 1</m> to estimate the limit of <m>z_n</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We can use the recursive definition and a computer
+          to generate approximate values and then graph the sequence.
+        </p>
+        <sidebyside widths="30% 60%" margins="auto">
+          <tabular>
+            <col halign="center" right="major"/>
+            <col halign="left"/>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>z_n</m></cell>
+            </row>
+            <row>
+              <cell><m>0</m></cell>
+              <cell><m>1.00000000000000</m></cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>2.00000000000000</m></cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>2.60000000000000</m></cell>
+            </row>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>2.28800000000000</m></cell>
+            </row>
+            <row>
+              <cell><m>4</m></cell>
+              <cell><m>2.51313920000000</m></cell>
+            </row>
+            <row>
+              <cell><m>5</m></cell>
+              <cell><m>2.36436779299635</m></cell>
+            </row>
+            <row>
+              <cell><m>6</m></cell>
+              <cell><m>2.47062849869924</m></cell>
+            </row>
+            <row>
+              <cell><m>7</m></cell>
+              <cell><m>2.39789332147854</m></cell>
+            </row>
+            <row>
+              <cell><m>8</m></cell>
+              <cell><m>2.44938730115809</m></cell>
+            </row>
+            <row>
+              <cell><m>9</m></cell>
+              <cell><m>2.41369700737469</m></cell>
+            </row>
+            <row>
+              <cell><m>10</m></cell>
+              <cell><m>2.43882864952499</m></cell>
+            </row>
+            <row>
+              <cell><m>11</m></cell>
+              <cell><m>2.42131772649675</m></cell>
+            </row>
+            <row>
+              <cell><m>12</m></cell>
+              <cell><m>2.43361218868805</m></cell>
+            </row>
+            <row>
+              <cell><m>13</m></cell>
+              <cell><m>2.42502511000601</m></cell>
+            </row>
+            <row>
+              <cell><m>14</m></cell>
+              <cell><m>2.43104504810447</m></cell>
+            </row>
+            <row>
+              <cell><m>15</m></cell>
+              <cell><m>2.42683561174279</m></cell>
+            </row>
+            <row>
+              <cell><m>16</m></cell>
+              <cell><m>2.42978439120944</m></cell>
+            </row>
+            <row>
+              <cell><m>17</m></cell>
+              <cell><m>2.42772132482997</m></cell>
+            </row>
+            <row>
+              <cell><m>18</m></cell>
+              <cell><m>2.42916599531699</m></cell>
+            </row>
+            <row>
+              <cell><m>19</m></cell>
+              <cell><m>2.42815498439281</m></cell>
+            </row>
+            <row>
+              <cell><m>20</m></cell>
+              <cell><m>2.42886281809844</m></cell>
+            </row>
+          </tabular>
+          <image xml:id="fig-demo-sequence-limits-2">
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xlabel={$n$}, ylabel={$x_n$},
+                ymajorgrids,
+              ]
+              \addplot[blue, only marks] coordinates {
+                (0, 1.00000000000000)
+                (1, 2.00000000000000)
+                (2, 2.60000000000000)
+                (3, 2.28800000000000)
+                (4, 2.51313920000000)
+                (5, 2.36436779299635)
+                (6, 2.47062849869924)
+                (7, 2.39789332147854)
+                (8, 2.44938730115809)
+                (9, 2.41369700737469)
+                (10, 2.43882864952499)
+                (11, 2.42131772649675)
+                (12, 2.43361218868805)
+                (13, 2.42502511000601)
+                (14, 2.43104504810447)
+                (15, 2.42683561174279)
+                (16, 2.42978439120944)
+                (17, 2.42772132482997)
+                (18, 2.42916599531699)
+                (19, 2.42815498439281)
+                (20, 2.42886281809844)
+              };
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          Graphically, you should see that the plot shows the sequence values appears to level off to a single value. 
+          However, the graph also shows that the values are alternately above and below that limit. 
+          We look in the table to determine the limiting value, 
+          but it is not obvious from the table what the limiting value should be. 
+          Because the values are alternately above and then below whatever the limit should be, 
+          we can conclude that the limit must be between the last two values listed.
+        </p>
+        <p>
+          The limit is approximately 2.428 but we do not know the next decimal place 
+          without computing more values in the sequence. 
+          With additional computation (not shown), 
+          we find <m>z_{39} = 2.42857109636261</m> and <m>z_{40} = 2.42857166111753</m> 
+          so that our approximation for the limit (a value between <m>z_{39}</m> and <m>z_{40}</m>)
+          can be estimated as close to 2.428571,
+          <me> \lim_{n \to \infty} z_n \approx 2.428571 </me>.
+          To find a better approximation using data would require more computation.
+        </p>
+        <p>
+          Because the sequence is defined recursively,
+          the limit will be a fixed point of the projection function.
+          If we solve the fixed point equation, we can find the exact value of the limit.
+          <md>
+            <mrow>2.7x - 0.7x^2 = x</mrow>
+            <mrow>1.7x - 0.7x^2 = 0</mrow>
+            <mrow>x(1.7 - 0.7x) = 0</mrow>
+          </md>
+          The factored equation indicates there are two fixed points: <m>x=0</m> and <m>x=\frac{17}{7}</m>.
+          The decimal approximation for <m>x=\frac{17}{7}</m> is 2.4285714286,
+          which is precisely where our sequence is converging,
+          <me>\lim_{n \to \infty} z_n = \frac{17}{7}</me>.
+        </p>
+      </solution>
     </example>
-    
+  </subsection>
+  <subsection>
+    <title>The Definition of a Limit</title>
     <p>
-    With these examples, we can introduce the mathematical definition for the limit of a sequence.
-    The idea of a limit <m>x_n \to L</m> is that the value of the sequence <m>x_n</m> 
-    approximates the value of <m>L</m> closer and closer as <m>n</m> increases.
-    This is made precise by showing that the error of approximation, <m>|x_n - L|</m>,
-    will eventually become smaller than any desired accuracy of approximation.
+      With these examples, we can introduce the mathematical definition for the limit of a sequence.
+      The idea of a limit <m>x_n \to L</m> is that the value of the sequence <m>x_n</m> 
+      approximates the value of <m>L</m> closer and closer as <m>n</m> increases.
+      Recall that we measure the quality of approximation using the error of approximation, <m>|x_n - L|</m>.
+      The sequence successfully approximates the limit <m>L</m> 
+      if the error eventually become smaller than any desired accuracy of approximation.
     </p>
-    
     <definition xml:id="defn-sequence-limit">
       <title>Limit of a Sequence</title>
       <statement>
         <p>
-        A sequence <m>x</m> has a limit <m>L</m> (where <m>L</m> is a real number),
-        and we write <me>\displaystyle \lim_{n \to \infty} x_n = L \quad \text{or} \quad x_n \to L</me>,
-        if for any desired accuracy of approximation <m>\epsilon \gt 0</m>, 
-        the error of approximation is eventually <m>|x_n - L| \lt \epsilon</m>. 
-        This means that for every <m>\epsilon \gt 0</m>, there is a threshold index <m>N</m> 
-        so that <m>|x_n-L| \lt \epsilon</m> whenever <m>n \gt N</m>.
-        <notation>
-          <usage>\lim_{n \to \infty} x_n = L</usage>
-          <description>sequence <m>x_n</m> has limit <m>L</m></description>
-        </notation>
-        <notation>
-          <usage>x_n \to L</usage>
-          <description>sequence <m>x_n</m> has limit <m>L</m></description>
-        </notation>
+          For a real number <m>L</m>, a sequence <m>x</m> has a limit <m>L</m>
+          if for any desired accuracy of approximation <m>\epsilon \gt 0</m>, 
+          the error of approximation is eventually <m>|x_n - L| \lt \epsilon</m>
+          and we write <me>\displaystyle \lim_{n \to \infty} x_n = L \quad \text{or} \quad x_n \to L</me>.
+          This means that for every <m>\epsilon \gt 0</m>, there is a threshold index <m>N</m> 
+          so that <m>|x_n-L| \lt \epsilon</m> whenever <m>n \gt N</m>.
+          <notation>
+            <usage>\lim_{n \to \infty} x_n = L</usage>
+            <description>sequence <m>x_n</m> has limit <m>L</m></description>
+          </notation>
+          <notation>
+            <usage>x_n \to L</usage>
+            <description>sequence <m>x_n</m> has limit <m>L</m></description>
+          </notation>
         </p>
       </statement>
     </definition>
-    
     <p>
-    In most cases, verifying the definition directly will be too challenging.
-    However, for sequences defined by sufficiently simple explicit formulas,
-    we can determine how far down the table we need to go to reach a desired accuracy.
+      In most cases, verifying the definition directly will be too challenging.
+      We will usually learn to apply rules that guarantee that this definition will be satisfied
+      rather than directly show that the approximation rule is satisfied.
+      However, for sequences defined by sufficiently simple explicit formulas,
+      we can determine how far down the table we would need to go to reach a desired accuracy.
+      In these cases, we use strategies for solving inequalities to find the interval of integers
+      where the error of approximation is sufficiently small.
     </p>
-    
     <example>
+      <statement>
+        <p>
+          Consider the sequence <m>\displaystyle x_n = \frac{n}{2n+1}</m>, for <m>n=0,1,2,\ldots</m>.
+          Find numerical evidence that <m>\displaystyle \lim_{n \to \infty} x_n = \frac{1}{2}</m>.
+          Then determine the index threshold <m>N</m> so that <m>|x_n - \frac{1}{2}| \lt 0.001</m> for index values <m>n \gt N</m>.
+        </p>
+      </statement>
+      <solution>
       <p>
-      Consider the sequence <m>\displaystyle x_n = \frac{n}{2n+1}</m>, for <m>n=0,1,2,\ldots</m>.
-      Using the following simple Sage script, we can generate a plot and table quickly.
+        Using the following simple Sage script, we can generate a plot and table quickly.
+        This script includes some modifications so that only a portion of the table is printed.
+        We also have modified the format code to include more decimal values.
       </p>
       <sage>
         <input>
         # What range of index values to plot
         lastIndex = 100
-        # How many of the final values in the calculation to show?
+        # Which values in the calculation to show?
+        # Some at the beginning
+        showFirst = 10
+        # Some at the end
         showLast = 10
 
         # Calculate the table for plotting
         data = []
         for n in range(lastIndex+1):
             xn = n/(2*n+1)
-            data.append( (n,xn) )
+            data.append( [n,xn] )
         graph = list_plot(data, frame=True, axes_labels=["n", "x_n"])
         show(graph)
 
-        # Display a portion of the table
-        for n in range(lastIndex-showLast,lastIndex+1):
-            # data is a list of points, so data[n] = (n,xn)
-            # Format %d means as integer, \t means tab
-            # and %10.8f means 8 decimal places in 10 available
-            print "%d\t%10.8f" % data[n]
+        # Display beginning of the table
+        for i in range(showFirst):
+            # data is a list of points, so data[i] = [n,xn]
+            [n,xn] = data[i]
+            print("%d\t%,8f" % (n,xn))
+        # Print a break-line to show there are missing terms
+        print("...")
+        # Display end of the table
+        for i in range(lastIndex-showLast,lastIndex+1):
+            # data is a list of points, so data[i] = [n,xn]
+            [n,xn] = data[i]
+            print("%d\t%.8f" % (n,xn))
         </input>
         <output>
-        90    0.49723757
-        91    0.49726776
-        92    0.49729730
-        93    0.49732620
-        94    0.49735450
-        95    0.49738220
-        96    0.49740933
-        97    0.49743590
-        98    0.49746193
-        99    0.49748744
-        100   0.49751244
+        0      0.00000000
+        1      0.33333333
+        2      0.40000000
+        3      0.42857143
+        4      0.44444444
+        5      0.45454545
+        6      0.46153846
+        7      0.46666667
+        8      0.47058824
+        9      0.47368421
+        ...
+        90     0.49723757
+        91     0.49726776
+        92     0.49729730
+        93     0.49732620
+        94     0.49735450
+        95     0.49738220
+        96     0.49740933
+        97     0.49743590
+        98     0.49746193
+        99     0.49748744
+        100    0.49751244
         </output>
       </sage>
       <p>
-      It appears that the sequence is leveling out to a value near 0.5.
-      However, at index <m>n=100</m>, the value is at approximately 
-      <m>x_{100} \approx 0.49751244</m> (8 decimal places).
-      If the limit really is <m>x_n \to 0.5</m>, then the error of approximation for <m>n=100</m> is
-      <me>|x_{100}-0.5| \approx 0.00248756</me>.
-      We need to ensure that the error continues to go down.
-      At index <m>n=1000</m> (by modifying the script and running again), we have 
-      <m>x_{1000} \approx 0.49975012</m> with an error of approximation
-      <me>|x_{1000}-0.5| \approx 0.00024988</me>.
+        It appears that the sequence is leveling out to a value near 0.5.
+        However, at index <m>n=100</m>, the value is at approximately 
+        <m>x_{100} \approx 0.49751244</m> (8 decimal places).
+        If the limit really is <m>x_n \to 0.5</m>, then the error of approximation for <m>n=100</m> is
+        <me>|x_{100}-0.5| \approx 0.00248756</me>.
+        We need to ensure that the error continues to go down.
+        At index <m>n=1000</m> (by modifying the script and running again), we have 
+        <m>x_{1000} \approx 0.49975012</m> with an error of approximation
+        <me>|x_{1000}-0.5| \approx 0.00024988</me>.
       </p>
       <p>
-      The explicit formula for the sequence uses the function <m>\displaystyle f(n)=\frac{n}{2n+1}</m> for integer values of <m>n</m>.
-      We can think of the continuous function <m>n \overset{f}\mapsto x</m> defined for arbitrary values of <m>n</m>
-      The inverse <m>f^{-1}: x \mapsto n</m> can inform us of when the sequence reaches different values.
-      <md>
-        <mrow>x = \frac{n}{2n+1}</mrow>
-        <mrow>(2n+1)x = n </mrow>
-        <mrow>2n x + x = n</mrow>
-        <mrow>2n x - n = -x</mrow>
-        <mrow>(2x-1) n = -x</mrow>
-        <mrow>n = \frac{-x}{2x-1} = \frac{x}{1-2x}</mrow>
-      </md>
-      This function, <m>\displaystyle f^{-1}(x)=\frac{x}{1-2x}</m>, gives the relation <m>x \mapsto n</m>.
+        The explicit formula for the sequence uses the function <m>\displaystyle f(n)=\frac{n}{2n+1}</m> for integer values of <m>n</m>.
+        We can think of the mapping <m>n \overset{f}\mapsto x</m> for arbitrary values of <m>n</m> and not just integers.
+        The inverse <m>f^{-1}: x \mapsto n</m> can inform us of when the sequence passes different values.
+        We solve for <m>n</m> as the dependent variable.
+        <md>
+          <mrow>x = \frac{n}{2n+1}</mrow>
+          <mrow>(2n+1)x = n </mrow>
+          <mrow>2n x + x = n</mrow>
+          <mrow>2n x - n = -x</mrow>
+          <mrow>(2x-1) n = -x</mrow>
+          <mrow>n = \frac{-x}{2x-1} = \frac{x}{1-2x}</mrow>
+        </md>
+        This function, <m>\displaystyle f^{-1}(x)=\frac{x}{1-2x}</m>, gives the relation <m>x \mapsto n</m>.
       </p>
       <p>
-      From our graph, we have seen that <m>(n,x_n)</m> is increasing and concave down.
-      Given <em>any</em> desired error of approximation <m>\epsilon \gt 0</m>, 
-      we can use our inverse function to see exactly when the sequence rises above <m>x_n \gt \frac{1}{2}-\epsilon</m>.
-      For example, with <m>\epsilon = 0.001</m>, we want to find when <m>x_n \gt 0.5-0.001=0.499</m>.
-      We find <me>f^{-1}(0.499) = \frac{0.499}{1-2(0.499)} =249.5</me>.
-      The sequence, which requires integer index values, will therefore 
-      be above <m>x_n \gt 0.499</m> for <m>n \ge 250</m>.
-      We can verify this numerically by running the script to show a table for index values surrounding <m>n=250</m>.
+        From our graph, we have seen that <m>(n,x_n)</m> is increasing and concave down.
+        The sequence will always be below the limit.
+        Given <em>any</em> desired error of approximation <m>\epsilon \gt 0</m>, 
+        we can use our inverse function to see exactly when the sequence rises above <m>x_n \gt \frac{1}{2}-\epsilon</m>.
+        For example, with <m>\epsilon = 0.001</m>, we want to find when <m>x_n \gt 0.5-0.001=0.499</m>.
+        We find <me>f^{-1}(0.499) = \frac{0.499}{1-2(0.499)} =249.5</me>.
+        The sequence, which requires integer index values, will therefore 
+        be above <m>x_n \gt 0.499</m> for <m>n \ge 250</m>.
+        In the definition of a limit, this corresponds to an index threshold <m>N=249</m> for accuracy <m>\epsilon=0.001</m>.
       </p>
-      <sidebyside width="50%">
+      <p>
+        We can verify this numerically by running the script to show a table and graph for index values surrounding <m>n=250</m>.
+        The table and graph show that the sequence value is below 0.499 for <m>n \le 249</m>
+        and above 0.499 for <m>n \ge 250</m>, agreeing with our calculation.
+      </p>
+      <sidebyside widths="30% 60%">
+        <tabular>
+          <row bottom="major"><cell><m>n</m></cell><cell><m>x_n</m></cell></row>
+          <row><cell>235</cell><cell>0.49893843</cell></row>
+          <row><cell>236</cell><cell>0.49894292</cell></row>
+          <row><cell>237</cell><cell>0.49894737</cell></row>
+          <row><cell>238</cell><cell>0.49895178</cell></row>
+          <row><cell>239</cell><cell>0.49895616</cell></row>
+          <row><cell>240</cell><cell>0.49896050</cell></row>
+          <row><cell>241</cell><cell>0.49896480</cell></row>
+          <row><cell>242</cell><cell>0.49896907</cell></row>
+          <row><cell>243</cell><cell>0.49897331</cell></row>
+          <row><cell>244</cell><cell>0.49897751</cell></row>
+          <row><cell>245</cell><cell>0.49898167</cell></row>
+          <row><cell>246</cell><cell>0.49898580</cell></row>
+          <row><cell>247</cell><cell>0.49898990</cell></row>
+          <row><cell>248</cell><cell>0.49899396</cell></row>
+          <row><cell>249</cell><cell>0.49899800</cell></row>
+          <row><cell>250</cell><cell>0.49900200</cell></row>
+          <row><cell>251</cell><cell>0.49900596</cell></row>
+          <row><cell>252</cell><cell>0.49900990</cell></row>
+          <row><cell>253</cell><cell>0.49901381</cell></row>
+          <row><cell>254</cell><cell>0.49901768</cell></row>
+          <row><cell>255</cell><cell>0.49902153</cell></row>
+        </tabular>
         <image>
           <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -599,6 +1088,7 @@
                 },
               ymajorgrids,
             ]
+            \addplot [samples=2, dashed] {0.499};
             \addplot[blue, only marks] coordinates {
               (235, 0.49893843)
               (236, 0.49894292)
@@ -620,645 +1110,21 @@
               (252, 0.49900990)
               (253, 0.49901381)
               (254, 0.49901768)
-              (255, 0.49902153)                        };
+              (255, 0.49902153)
+                        };
             \end{axis}
           \end{tikzpicture}]]>
           </latex-image>
         </image>
       </sidebyside>
       <p>
-      The inverse function, <m>\displaystyle f^{-1}(x)=\frac{x}{1-2x}</m>, is undefined for <m>x=\frac{1}{2}</m>.
-      For values <m>x \gt \frac{1}{2}</m>, we will have negative values for <m>n</m>, <m>f^{-1}(x) \lt 0</m>.
-      The sequence therefore will never reach or surpass the value <m>x=\frac{1}{2}</m>.
-      But we will be able to identify when the function rises above every value below <m>x=\frac{1}{2}</m>.
-      This is how we <em>know</em> that 
-      <me>\lim_{n \to \infty}x_n = \frac{1}{2}.</me>
+        The inverse function, <m>\displaystyle f^{-1}(x)=\frac{x}{1-2x}</m>, is undefined for <m>x=\frac{1}{2}</m>.
+        For values <m>x \gt \frac{1}{2}</m>, we will have negative values for <m>n</m>, <m>f^{-1}(x) \lt 0</m>.
+        The sequence therefore will never reach or surpass the value <m>x=\frac{1}{2}</m>.
+        But we will be able to identify when the function rises above every value below <m>x=\frac{1}{2}</m>.
+        This is how we <em>know</em> that 
+        <me>\lim_{n \to \infty}x_n = \frac{1}{2}.</me>
       </p>
-    </example>
-  </subsection>
-  
-  <subsection xml:id="section-sequence-limit-computation">
-    <title>Limits from Explicit Formulas</title>
-    
-    <p>
-    Using a table of values to find a limit only allows us to estimate its value. 
-    In addition, it is not clear from a table whether the pattern that this estimation is based on 
-    will continue or change. 
-    So it would be helpful to have some rules for finding limits 
-    based on the formula rather than numerical patterns.
-    </p>
-    
-    <p>
-    In order to compute limits of sequences, 
-    we first need to understand that some sequences grow without bound, 
-    which is written <m>x_n \to \infty</m> when the sequence grows in a positive direction 
-    or <m>x_n \to -\infty</m> when the sequence grows in a negative direction. 
-    Arithmetic sequences with increments <m>\beta \ne 0</m> 
-    (recall <xref ref="theorem-arithmetic-explicit-sequence"/>) 
-    must either steadily increase (<m>\beta \gt 0</m>) or steadily decrease (<m>\beta \lt 0</m>). 
-    The special case that <m>\beta=0</m> is somewhat boring, 
-    as this corresponds to a constant sequence so that the limit is just the constant value.
-    </p>
-    
-    <theorem xml:id="thm-limit-arithmetic-sequence">
-      <title>Limit of an Arithmetic Sequence</title>
-      <statement>
-        <p>
-        An arithmetic sequence with explicit formula <m>x_n = a + c \cdot n</m> 
-        (for constants <m>a</m> and <m>c</m>) has unbounded growth when <m>c \ne 0</m>. 
-        The corresponding limit statements are 
-        <md>
-          <mrow> \lim_{n \to \infty} (a+c n) = +\infty \quad &amp; (c \gt 0) </mrow>
-          <mrow> \lim_{n \to \infty} (a+c n) = -\infty \quad &amp; (c \lt 0) </mrow>
-          <mrow> \lim_{n \to \infty} (a) = a \quad &amp; (c = 0) </mrow>
-        </md>
-        </p>
-      </statement>
-    </theorem>
-    
-    <p>
-    Geometric sequences are a little more complicated, depending on the ratio <m>\rho</m> 
-    (recall <xref ref="theorem-geometric-explicit-sequence"/>) and the initial value. 
-    Repeated multiplication by a number whose magnitude is larger than 1 
-    makes the resulting magnitude increase without bound. 
-    Repeated multiplication by a number whose magnitude is smaller than 1 
-    makes the resulting magnitude converge to 0. 
-    If the ratio is negative, then the sign of the sequence values will alternate between positive and negative. 
-    This is summarized by another theorem.
-    </p>
-    
-    <theorem xml:id="thm-limit-geometric-sequence">
-      <title>Limit of a Geometric Sequence</title>
-      <statement>
-        <p>
-        A geometric sequence with explicit formula <m>x_n = a \cdot \rho^n</m> and ratio <m>\rho</m> 
-        is unbounded when <m>|\rho| \gt 1</m>, meaning that <m>|x_n| \to +\infty</m>. 
-        If <m>\rho \le -1</m>, <m>x_n</m> alternates sign and the limit does not exist. 
-        If <m>\rho \gt 1</m>, then the limit depends on the sign of <m>a</m>: 
-        <md>
-          <mrow> \lim_{n \to \infty} a \cdot \rho^n = +\infty, \quad &amp; (a \gt 0), </mrow>
-          <mrow> \lim_{n \to \infty} a \cdot \rho^n = -\infty, \quad &amp; (a \lt 0). </mrow>
-        </md>
-        If <m>|\rho| \lt 1</m> (i.e., <m>-1 \lt \rho \lt 1</m>), 
-        then <m>\displaystyle \lim_{n \to \infty} a \cdot \rho^n = 0</m>.
-        </p>
-      </statement>
-    </theorem>
-    
-    <example>
-      <statement>
-        <p>Find the appropriate limits of the following sequences.
-        <ol>
-          <li><m>\displaystyle \lim_{n \to \infty} 3-4n</m></li>
-          <li><m>\displaystyle \lim_{n \to \infty} 100+0.02n</m></li>
-          <li><m>\displaystyle \lim_{n \to \infty} -3 \cdot 1.05^n</m></li>
-          <li><m>\displaystyle \lim_{n \to \infty} 100 \cdot (-0.75)^n</m></li>
-          <li><m>\displaystyle \lim_{n \to \infty} 5 \cdot (-1.5)^n</m></li>
-        </ol>
-        </p>
-      </statement>
-      <solution>
-        <p>
-        <ol>
-          <li>
-            <p>
-            The sequence <m>x_n = 3-4n</m> is recognized 
-            as the explicit formula of an arithmetic sequence with increment <m>c=-4</m>. 
-            Since this is a negative increment, the sequence decreases without bound. 
-            So we write <me>\lim_{n \to \infty} 3-4n = -\infty.</me>
-            </p>
-          </li>
-          <li>
-            <p>
-            The sequence <m>x_n = 100+0.02n</m> is arithmetic with increment <m>c=0.02</m>. 
-            Since the increment is positive, the sequence increases without bound 
-            and we write <me>\lim_{n \to \infty} 100+0.02n = +\infty.</me>
-            </p>
-          </li>
-          <li>
-            <p>
-            The sequence <m>x_n=-3 \cdot 1.05^n</m> is a geometric sequence with ratio <m>\rho=1.05</m>. 
-            Because <m>\rho \gt 1</m>, the sequence grows without bound. 
-            Furthermore, because the terms are all negative, 
-            we have a limit <me>\lim_{n \to \infty} -3 \cdot 1.05^n = -\infty.</me>
-            </p>
-          </li>
-          <li>
-            <p>
-            The sequence <m>x_n = 100 \cdot (-0.75)^n</m> is a geometric sequence 
-            with ratio <m>\rho=-0.75</m>. 
-            Because the ratio is negative, 
-            the signs of the terms alternate between positive and negative. 
-            However, since <m>|\rho|= 0.75 \lt 1</m>, 
-            the magnitude of the terms converges to zero so that 
-            <me>\lim_{n \to \infty} 100 \cdot (-0.75)^n = 0.</me>
-            </p>
-          </li>
-          <li>
-            <p>
-            The sequence <m>x_n = 5 \cdot (-1.5)^n</m> has a negative ratio <m>\rho=-1.5</m>.
-            Since <m>|\rho| \gt 1</m>, the terms have alternating signs but grow in magnitude. 
-            Consequently, <m>\displaystyle \lim_{n \to \infty} 5 \cdot (-1.5)^n</m> does not exist. 
-            </p>
-          </li>
-        </ol>
-        </p>
-      </solution>
-    </example>
-    
-    <p>
-    Once we know how to identify when sequences have unbounded terms, 
-    we can use that information to find limits of related sequences. 
-    We can think of this as the arithmetic of infinity. 
-    Infinities can add and multiply but should never be subtracted or divided from one another. 
-    The most important principle to remember is that infinities should never cancel one another. 
-    Cases where the formula looks like infinities might cancel are called indeterminate. 
-    This means that the actual value can not be determined without further analysis. 
-    A ratio of terms becoming infinitely small, <m>0/0</m>, is also indeterminate.
-    </p>
-    
-    <theorem xml:id="thm-arithmetic-infinity">
-      <statement>
-        <p>
-        Suppose unbounded sequences are combined using arithmetic operations. 
-        Then the following arithmetic relating to limits will be valid.
-        <md>
-          <mrow>+\infty + +\infty = +\infty</mrow>
-          <mrow>-\infty + -\infty = -\infty</mrow>
-          <mrow>+\infty + -\infty = \hbox{indeterminate}</mrow>
-          <mrow>+\infty \cdot +\infty = +\infty</mrow>
-          <mrow>-\infty \cdot -\infty = +\infty</mrow>
-          <mrow>+\infty \cdot -\infty = -\infty</mrow>
-          <mrow>\frac{1}{+\infty} = 0</mrow>
-          <mrow>\frac{1}{-\infty} = 0</mrow>
-          <mrow>\frac{\pm \infty}{\pm \infty} = \hbox{indeterminate}</mrow>
-          <mrow>0 \cdot \pm \infty = \hbox{indeterminate}</mrow>
-          <mrow>\frac{0}{0} = \hbox{indeterminate}</mrow>
-        </md>
-        </p>
-      </statement>
-    </theorem>
-    
-    <p>
-    The previous theorem was stated somewhat imprecisely in order to convey 
-    the idea of arithmetic of infinities without being bogged down by formal notation relating to limits. 
-    Each statement really is about a limit.
-    </p>
-    <p>
-    As an example, the arithmetic on infinity <m>+\infty + +\infty = +\infty</m> 
-    should more properly be stated as follows. 
-    Suppose that there are two sequences <m>x_n</m> and <m>y_n</m> such that 
-    <m>x_n \to +\infty</m> and <m>y_n \to +\infty</m>. 
-    The sequence defined by <m>u_n = x_n + y_n</m> has limit <me>\lim_{n \to \infty} x_n + y_n = +\infty.</me>
-    </p>
-    <p>
-    The shorthand notation of performing arithmetic with infinity allows this to be simplified as writing 
-    <me> \lim_{n \to \infty} x_n + y_n = +\infty + +\infty = +\infty.</me> 
-    The intermediate step <m>+\infty + +\infty</m> is not truly arithmetic, 
-    but points out that <m>x_n \to +\infty</m> and <m>y_n \to +\infty</m>, 
-    and since those sequences were added, the final limit is also <m>+\infty</m>. 
-    As long as the arithmetic involves no cancelation of infinities, it will result in a correct statement.
-    </p>
-    
-    <p>
-    To deal with indeterminate forms, we usually need to try to rewrite the formula 
-    in a new way so that the cancellation does not apply.
-    </p>
-    
-    <example>
-      <statement>
-        <p>Determine the following limits, if possible.
-        <ol>
-          <li><m>\displaystyle \lim_{n \to \infty} 3+\frac{5}{2^n}</m></li>
-          <li><m>\displaystyle \lim_{n \to \infty} \frac{n^2-3n}{5n-1}</m></li>
-          <li><m>\displaystyle \lim_{n \to \infty} \frac{1+2^n}{3+5^n}</m></li>
-        </ol>
-        </p>
-      </statement>
-      <solution>
-        <p>
-        <ol>
-          <li>
-            <p>
-            The sequence <m>x_n = 3 + \frac{5}{2^n}</m> is the sum of terms 
-            <m>3</m> and <m>\frac{5}{2^n}</m>. 
-            The constant sequence has a limit <m>3 \to 3</m> (since it never changes). 
-            The geometric sequence <m>\frac{5}{2^n} = 5 \cdot (\frac{1}{2})^n</m> 
-            has a ratio <m>|\rho| \lt 1</m> so that <m>\frac{5}{2^n} \to 0</m>. 
-            The form of the limit (using the terms) is 
-            <me> \lim_{n \to \infty} 3 + \frac{5}{2^n} = 3 + 0,</me> 
-            and since this does not involve any cancelation of infinities, will give the correct limit, 
-            <me>\lim_{n \to \infty} 3+\frac{5}{2^n} = 3+0 = 3.</me>
-            </p>
-          </li>
-          <li>
-            <p>
-            The sequence <m>\displaystyle u_n = \frac{n^2-3n}{5n-1}</m> is a quotient of terms 
-            <m>n^2-3n</m> and <m>5n-1</m>. 
-            To find the limit, we explore the terms individually first.
-            </p>
-            <p>
-            Because <m>n^2 = n \cdot n</m>, we know <m>n^2 \to +\infty \cdot +\infty = +\infty</m>. 
-            Similarly, the arithmetic sequence <m>3n \to +\infty</m>. 
-            However, the difference <m>n^2 - 3n</m> would have a limit of the form <m>+\infty - \infty</m>, 
-            which is a cancellation of infinities. 
-            As written, <m>n^2-3n</m> is an indeterminate form. 
-            Our strategy will be to rewrite this as a product, 
-            and the best practice is to factor out (divide out) the greatest power of <m>n</m>, 
-            <me> n^2-3n =  n^2(\frac{n^2}{n^2} - \frac{3n}{n^2}) = n^2 (1 - \frac{3}{n}).</me> 
-            From this, we find <me>\frac{3}{n} \to \frac{3}{+\infty} = 0 \quad \Rightarrow \quad 1-\frac{3}{n} \to 1-0 = 1.</me> 
-            Since we already know <m>n^2 \to +\infty</m>, we have the limit of the numerator 
-            <me> \lim_{n \to \infty} n^2-3n = \lim_{n \to \infty} n^2(1-\frac{3}{n}) = +\infty \cdot 1 = +\infty.</me>
-            </p>
-            <p>
-            The term in the denominator <m>5n-1</m> is an arithmetic sequence (linear function) 
-            with increment (slope) <m>c=5</m>.
-            We know <me>\lim_{n \to \infty} 5n-1 = +\infty.</me> 
-            Unfortunately, that means our limit form as a quotient is itself an indeterminate form, 
-            <me> \lim_{n \to \infty} \frac{n^2-3n}{5n-1} = \frac{+\infty}{+\infty}.</me> 
-            We can not cancel infinities, so we must rewrite our formula.
-            </p>
-            <p>
-            For this example, I worked out the numerator separately to make a point about 
-            that term itself being an indeterminate form. 
-            In practice, our strategy will be to apply that factoring principle to the entire formula at one step.
-            This is illustrated below.</p>
-            <p>
-            The problem can be solved up if we just factor out from the numerator and denominator 
-            the dominant term (greatest power) and simplify as needed. 
-            <md>
-              <mrow>\lim_{n \to \infty} \frac{n^2-3n}{5n-1} &amp; = \lim_{n \to \infty} \frac{n^2(1-\frac{3}{n})}{n(5-\frac{1}{n})} </mrow>
-              <mrow> &amp; = \lim_{n \to \infty} \frac{n(1-\frac{3}{n})}{5-\frac{1}{n}} </mrow>
-              <mrow> &amp; = \frac{+\infty \cdot(1-\frac{3}{\infty})}{5-\frac{1}{\infty}}</mrow>
-              <mrow> &amp; = \frac{+\infty\cdot 1}{5} = +\infty.</mrow>
-            </md> </p>
-          </li>
-          <li>
-            <p>
-            The sequence <m>\displaystyle w_n = \frac{1+2^n}{3+5^n}</m>, by quick inspection, 
-            involves the geometric sequences <m>2^n</m> and <m>5^n</m>, 
-            both of which grow exponentially so that <m>w_n \to \frac{+\infty}{+\infty}</m>. 
-            This indeterminate form involves canceling infinities, so we must rewrite the formula. 
-            Following the method of the previous example, we factor out the dominant term, 
-            in this case the geometrically growing powers. 
-            <md>
-              <mrow> \lim_{n \to \infty} \frac{1+2^n}{3+5^n} &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n} + \frac{2^n}{2^n})}{5^n(\frac{3}{5^n}+\frac{5^n}{5^n})} </mrow>
-              <mrow> &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n}+1)}{5^n(\frac{3}{5^n}+1)}</mrow>
-            </md>
-            This is still indeterminate form <m>\frac{+\infty}{+\infty}</m>, 
-            so we rewrite <m>\displaystyle \frac{2^n}{5^n} = ({\textstyle \frac{2}{5}})^n</m>, 
-            which is a geometric sequence with ratio <m>\rho=\frac{2}{5}</m> satisfying <m>|\rho| \lt 1</m>. 
-            <md>
-              <mrow> \lim_{n \to \infty} \frac{1+2^n}{3+5^n} &amp; = \lim_{n \to \infty} \frac{2^n(\frac{1}{2^n}+1)}{5^n(\frac{3}{5^n}+1)}</mrow>
-              <mrow> &amp; = \lim_{n \to \infty} \frac{(\frac{2}{5})^n(\frac{1}{2^n}+1)}{\frac{3}{5^n}+1}</mrow>
-              <mrow> &amp; = \frac{0 \cdot (0+1)}{0+1} = \frac{0}{1} = 0</mrow>
-            </md>
-            </p>
-          </li>
-        </ol>
-        </p>
-      </solution>
-    </example>
-  </subsection>
-  
-  <subsection xml:id="section-sequence-fixed-points">
-    <title>Sequence Limits and Fixed Points</title>
-    
-    <p>
-    When a sequence <m>x</m> is defined recursively by a projection function <m>f</m>, 
-    <me>x_{n+1} = f(x_n),</me> we often do not have explicit formulas for the sequence values. 
-    That means our strategies involving formulas don't apply to such sequences. 
-    However, we can often find the limiting value by finding 
-    what are called the fixed points of the projection function.
-    </p>
-    
-    <definition xml:id="defn-recursion-fixed-point">
-      <title>Fixed Point</title>
-      <statement>
-        <p>
-        A <term>fixed point</term> for a function <m>f</m> is a solution to the equation <me>f(x) = x.</me>
-        </p>
-      </statement>
-    </definition>
-    
-    <p>
-    The idea of a fixed point is a value so that the input and output are the same values. 
-    In the context of recursive sequences, <m>x_{n+1}=f(x_n)</m>, if <m>x_n</m> is at the value of a fixed point, 
-    then <m>x_{n+1}=f(x_n)=x_n</m>.
-    The value of the sequence will repeat forever.
-    A fixed point is also called a <term>stationary point</term> or an <term>equilibrium</term>.
-    </p>
-    
-    <example>
-      <statement>
-        <p>
-        Find the fixed point(s) of the each of the projection functions.
-        Then see what happens to a recursive sequence <m>x_{n+1}=f(x_n)</m>
-        with an initial value close to the fixed point.
-        <ol>
-          <li><m>f(x)=1.4x-5</m></li>
-          <li><m>f(x)=0.8x+3</m></li>
-          <li><m>f(x)=1.1x-0.02x^2</m></li>
-        </ol>
-        </p>
-      </statement>
-      <solution>
-        <p>
-        Fixed points are found by solving the equation <m>x=f(x)</m>.
-        Do <em>not</em> solve <m>f(x)=0</m>!
-        We are solve the equation where the input to the function <m>x</m> 
-        equals the output of the function <m>f(x)</m>.
-        <ol>
-          <li>
-            <p>
-            For <m>f(x)=1.4x-5</m>, the fixed point equation is <m>x=1.4x-5</m>.
-            <md>
-              <mrow>x=1.4x-5</mrow>
-              <mrow>x-1.4x=-5</mrow>
-              <mrow>-0.4x=-5</mrow>
-              <mrow>x=\frac{-5}{-0.4}=12.5</mrow>
-            </md>
-            That is, <m>f(12.5) = 1.4(12.5)-5 = 17.5-5=12.5</m> (output equals input).
-            The fixed pont is <m>x^*=12.5</m>.
-            (The notation <m>x^*</m> is to indicate a special value of <m>x</m>.
-            The asterisk is just a decoration.)
-            </p>
-            <p>
-            A sequence defined by the projection function with initial value <m>x_0=x^*=12.5</m>
-            will have a constant value, or steady state. 
-            <md>
-              <mrow> x_0 &amp;= x^* = 12.5 </mrow>
-              <mrow> x_1 &amp;= f(x^*) = x^* = 12.5 </mrow>
-              <mrow> &amp;\vdots </mrow>
-              <mrow> x_n &amp;= x^* = 12.5 </mrow>
-            </md>
-            However, if we start at a value close to the fixed point, say <m>x_0=12.4</m>,
-            then the sequence is not constant.
-            <md>
-              <mrow> x_0 &amp;= 12.4 </mrow>
-              <mrow> x_1 &amp;= f(12.4) = 1.4(12.4)-5 = 12.36 </mrow>
-              <mrow> x_2 &amp;= f(12.36) = 1.4(12.36)-5 = 12.304 </mrow>
-              <mrow> x_3 &amp;= f(12.304) = 1.4(12.304)-5 = 12.2256 </mrow>
-            </md>
-            We can see that the sequence is moving away from the fixed point.
-            </p>
-          </li>
-          <li>
-            <p>
-            For <m>f(x)=0.8x+3</m>, the fixed point equation is <m>x=0.8x+3</m>.
-            <md>
-              <mrow>x=0.8x+3</mrow>
-              <mrow>0.2x=3</mrow>
-              <mrow>x=\frac{3}{0.2}=15</mrow>
-            </md>
-            The fixed point is <m>x^*=15</m> because <m>f(15) = 0.8(15)+3 = 12+3=15</m> (output equals input).
-            </p>
-            <p>
-            A sequence defined by the projection function with initial value <m>x_0=x^*=15</m>
-            will have a constant value, or steady state. 
-            <md>
-              <mrow> x_0 &amp;= x^* = 15 </mrow>
-              <mrow> x_1 &amp;= f(x^*) = x^* = 15 </mrow>
-              <mrow> &amp;\vdots </mrow>
-              <mrow> x_n &amp;= x^* = 15 </mrow>
-            </md>
-            However, if we start at a value close to the fixed point, say <m>x_0=14</m>,
-            then the sequence is not constant.
-            <md>
-              <mrow> x_0 &amp;= 14 </mrow>
-              <mrow> x_1 &amp;= f(14) = 0.8(14)+3 = 14.2 </mrow>
-              <mrow> x_2 &amp;= f(14.2) = 0.8(14.2)+3 = 14.36 </mrow>
-              <mrow> x_3 &amp;= f(14.36) = 0.8(14.36)+3 = 14.488 </mrow>
-            </md>
-            We can see that this sequence is moving toward the fixed point.
-            </p>
-          </li>
-          <li>
-            <p>
-            For <m>f(x)=1.1x-0.02x^2</m>, the fixed point equation is <m>x=1.1x-0.02x^2</m>.
-            <md>
-              <mrow>x=1.1x-0.02x^2</mrow>
-              <mrow>0=0.1x-0.02x^2</mrow>
-              <mrow>x(0.1-0.02x)=0</mrow>
-              <mrow>x=0 \quad \text{or} \quad x=\frac{0.1}{0.02}=5</mrow>
-            </md>
-            This projection function has two fixed points, <m>x^*=0</m> and <m>x^\dagger=5</m>.
-            </p>
-            <p>
-            A sequence defined by the projection function with initial value <m>x_0=x^*=0</m>
-            will have the constant value <m>x_n=0</m>.
-            However, if the initial value is <m>x_0=x^\dagger=5</m>, then the sequence
-            will have the constant value <m>x_n=5</m>.
-            Now, if we start at a value close to <m>x^*</m>, say <m>x_0=0.2</m>,
-            then the sequence is not constant.
-            <md>
-              <mrow> x_0 &amp;= 0.2 </mrow>
-              <mrow> x_1 &amp;= f(0.2) = 1.1(0.2)-0.02(0.2)^2 = 0.2192 </mrow>
-              <mrow> x_2 &amp;= f(0.2192) = 1.1(0.2192)-0.02(0.2192)^2 \approx 0.24015903 </mrow>
-            </md>
-            The sequence moves away from <m>x^*</m>.
-            On the other hand, if we start near <m>x^\dagger</m>, say <m>x=4.8</m>,
-            the sequence actually moves closer to <m>x^\dagger</m>.
-            <md>
-              <mrow> x_0 &amp;= 4.8 </mrow>
-              <mrow> x_1 &amp;= f(4.8) = 1.1(4.8)-0.02(4.8)^2 = 4.8192 </mrow>
-              <mrow> x_2 &amp;= f(0.2192) = 1.1(4.8192)-0.02(4.8192)^2 \approx 4.83662623 </mrow>
-            </md>
-            </p>
-          </li>
-        </ol>
-        </p>
-      </solution>
-    </example>
-    
-    <p>
-    The reason that we search for fixed points is that if we know there is a limit
-    for a recursively defined sequence, the limit will usually be a fixed point of the projection function.
-    </p>
-    
-    <theorem xml:id="thm-recursive-limit-fixed-point">
-      <title>Recursive Limits as Fixed Points</title>
-      <statement>
-        <p>
-        If a sequence is defined recursively with a continuous projection function <m>f</m>, 
-        <m>x_{n+1}=f(x_n)</m>, and <m>x_n</m> has a limit, 
-        then the limit must be a fixed point of <m>f</m>.
-        </p>
-      </statement>
-    </theorem>
-    
-    <p>
-    Note some things that this theorem does not guarantee. 
-    First, just because a function has a fixed point does not mean that it will be a limit.
-    (The sequence might not have a limit.) 
-    Second, the projection function needs to be continuous. 
-    If a function is not continuous, then it is possible to have a limit that is not a fixed point. 
-    Fortunately, functions defined by simple algebraic formulas will be continuous everywhere they are defined.
-    For any continuous projection functions, the only limits <em>will</em> be fixed points.
-    </p>
-    
-    <p>
-    In practice, we first observe that a sequence defined recursively has a limit 
-    (perhaps through a graph or a table) but can not determine the value of the limit. 
-    If we find all of the fixed points for the projection function, 
-    then we can determine which of those is the appropriate limit. 
-    The limit may depend on the initial value of the sequence, 
-    so we compare approximate values from the table with the approximate (decimal) values of the fixed points.
-    </p>
-    
-    <example>
-      <statement>
-        <p>
-        We in an example above that the sequence defined recursively by 
-        <m>z_{n+1} = 2.7 z_n-0.7z_n^2</m> and initial value <m>z_0 = 1</m>, 
-        and that the approximate value of the limit was <m>2.428</m>. 
-        What is the exact value of the limit?
-        </p>
-      </statement>
-      <solution>
-        <p>
-        The projection function <me>f : z_n \mapsto z_{n+1}=2.7z_n - 0.7z_n^2</me> is defined by the formula 
-        <me>f(x) = 2.7x-0.7x^2</me>. 
-        This function involves simple algebra and is defined everywhere.
-        Therefore, the projection function <m>f</m> is continuous and the limit must be a fixed point.
-        </p>
-        <p>
-        Solve the fixed point equation, <m>f(x)=x</m>: 
-        <md>
-          <mrow> 2.7x-0.7x^2 = x </mrow>
-          <mrow> 1.7x - 0.7x^2 = 0 </mrow>
-          <mrow> x(1.7-0.7x) = 0</mrow>
-          <mrow> x=0 \quad \hbox{or} \quad 1.7-0.7x = 0</mrow>
-          <mrow> x=0 \quad \hbox{or} \quad x = \frac{17}{7}</mrow>
-        </md> 
-        There are two fixed points, <m>x=0</m> and <m>x=\frac{17}{7}</m>. 
-        The decimal approximation for <m>\frac{17}{7}</m> is <m>2.42857</m>, 
-        and we have found the limit, <me> \lim_{n \to \infty} z_n = \frac{17}{7}.</me>
-        </p>
-      </solution>
-    </example>
-    
-    <p>
-    Fixed points are also useful in finding the explicit formula for sequences 
-    defined by linear projection functions. 
-    Suppose a sequence is defined recursively by the equation <m>x_{n+1} = \alpha x_n + c</m>.
-    When <m>c=0</m>, we have a geometric sequence.
-    When <m>\alpha = 1</m> we have an arithmetic sequence.
-    The projection function <m>f:x_n \mapsto x_{n+1}</m> is defined 
-    by the formula <m>f(x) = \alpha x + c</m>. 
-    The fixed point <m>x^*</m> is the solution to 
-    <me>\alpha x + c = x \qquad \Leftrightarrow \qquad x^* = \frac{c}{1-\alpha},</me> 
-    defined only for <m>\alpha \ne 1</m>.
-    </p>
-    
-    <p>
-    The linear projection function can be rewritten in terms of the fixed point 
-    using slope <m>\alpha</m> and point <m>(x^*,x^*)</m> as
-    <me>f(x) = x^* + \alpha(x-x^*)</me>. 
-    This means that the recurrence relation can be written
-    <me>x_{n+1} = x^* + \alpha(x_n-x^*) \quad \Leftrightarrow \quad x_{n+1}-x^* = \alpha(x_n-x^*)</me>.
-    Consequently, <m>x_n-x^*</m> is a geometric sequence.
-    This allows us to find an explicit formula for <m>x_n</m>.
-    </p>
-    
-    <theorem xml:id="thm-linear-projection-explicit">
-      <title>Explicit Formula for Linear Recursive Sequences</title>
-      <statement>
-        <p>
-        Suppose <m>x_n</m> is defined recursively by the equation 
-        <me>x_{n+1} = \alpha x + c</me> with <m>\alpha \ne 1</m>. 
-        Then <m>x_n</m> is defined explicitly by a shifted geometric sequence 
-        <me>x_n = x^* + (x_0-x^*) \cdot \alpha^n = x^* + (x_1 -x^*) \cdot \alpha^{n-1},</me> 
-        where <m>\displaystyle x^* = \frac{c}{1-\alpha}</m> is the fixed point.
-        </p>
-      </statement>
-    </theorem>
-    
-    <p>
-    This theorem implies that a sequence defined recursively by a linear projection function 
-    will converge to the fixed point when the slope has magnitude less than 1. 
-    Immediate consequences of theorems are called corollaries.
-    </p>
-    
-    <corollary xml:id="thm-linear-projection-limits">
-      <statement>
-        <p>
-        A sequence defined recursively by <m>x_{n+1} = \alpha x_n + c</m> 
-        with <m>|\alpha| \lt 1</m> will converge to the fixed point <m>\displaystyle x^* = \frac{c}{1-\alpha}</m>, 
-        independent of the initial value.
-        </p>
-      </statement>
-    </corollary>
-    
-    <example>
-      <statement>
-        <p>
-        Find the explicit formula for a sequence defined by the recursive equation
-        <me>x_{n+1} = 1.05 x_n - 20</me>
-        and initial value <m>x_0=300</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-        Start by finding the fixed point, solving the equation <m>x=1.05x - 20</m>.
-        <md>
-          <mrow>x=1.05x-20</mrow>
-          <mrow>-0.05x = -20</mrow>
-          <mrow>x=400</mrow>
-        </md>
-        Using the fixed point <m>x^*=400</m> and the growth factor <m>\alpha=1.05</m>,
-        we can write down the explicit formula,
-        <md>
-          <mrow> x_n &amp;= x^* + (x_0-x^*)\alpha^n </mrow>
-          <mrow> &amp;= 400+(300-400)1.05^n </mrow>
-          <mrow> &amp;= 400-100 \cdot 1.05^n </mrow>
-        </md>
-        </p>
-      </solution>
-    </example>
-    
-    <p>
-    Now that we have a method for finding the explicit formula for a sequence
-    with a linear projection function, we can apply that formula to analyze
-    applied models.
-    </p>
-    
-    <example>
-      <statement>
-        <p>
-        Suppose a patient begins taking <quantity><mag>500</mag><unit prefix="milli" base="gram"/></quantity> 
-        of a drug every four hours. 
-        However, the body metabolizes 60<percent/> of the drug in the body every four hours. 
-        Find a formula for the amount of drug in the body immediately after each dose 
-        and then determine the limiting value.
-        </p>
-      </statement>
-      <solution>
-        <p>
-        The body starts with no drug. 
-        Immediately after the first dose, 
-        there are <quantity><mag>500</mag><unit prefix="milli" base="gram"/></quantity>. 
-        Four hours later, 60<percent/> has been removed and then another dose is added in. 
-        If we let <m>D_n</m> be the sequence of drug mass in the body 
-        as a function of the number of doses <m>n</m>, 
-        then this is modeled recursively by the equation 
-        <me>D_{n+1} = D_n - 0.6 D_n + 500,</me> with initial value <m>D_1 = 500</m>.
-        </p>
-        <p>
-        This model has a linear projection function <m>f(x) = 0.4x+500</m> 
-        and corresponding fixed point 
-        <me> 0.4x+500=x \quad \Leftrightarrow \quad x=\frac{500}{0.6} = \frac{2500}{3}.</me>
-        The explicit formula, using <xref ref="thm-linear-projection-explicit"/>, 
-        is given by <me>D_n = \frac{2500}{3} + (500 - \frac{2500}{3}) \cdot 0.4^{n-1} = \frac{2500}{3} - \frac{1000}{3} \cdot 0.4^{n-1}.</me> 
-        Because the slope of the projection function <m>\alpha = 0.4</m> has magnitude less than 1, 
-        the limiting value is the fixed point <m>x^* = \frac{2500}{3} \approx 833.33</m>. 
-        Thus, if the patient continues to take the drug, 
-        the amount in the body immediately after each dose will be approximately 
-        <quantity><mag>833.33</mag><unit prefix="milli" base="gram"/></quantity>. 
-        (Immediately before the dose, it must have been approximately 
-        <quantity><mag>333.33</mag><unit prefix="milli" base="gram"/></quantity>.)
-        </p>
-      </solution>
     </example>
   </subsection>
   <subsection>
@@ -1267,62 +1133,32 @@
     <p>
     <ul>
       <li>
-      A sequence has a limit, <m>x_n \to L</m>, if the values of the sequence 
-      get closer and closer to the value of <m>L</m>.
-      The line <m>x=L</m> will be a horizontal asymptote of the graph <m>(n,x_n)</m>.
-      </li>
-      <li>
-      The formal definition of a sequence limit <m>x_n \to L</m>, 
-      also written <m>\displaystyle \lim_{n \to \infty} x_n = L</m>,
-      is that for any desired error of approximation <m>\epsilon \gt 0</m>, 
-      there is an index threshold <m>N</m> so that <m>|x_n - L| \lt \epsilon</m> whenever <m>n \gt N</m>.
-      (See <xref ref="defn-sequence-limit"/>)
-      </li>
-      <li>
-      Arithmetic sequences with non-zero increments are unbounded.
-      Geometric sequences are unbounded when the ratio has magnitude greater than 1
-      and converge to zero when the ratio has magnitude less than 1.
-      </li>
-      <li>
         <p>
-        Sequence limits obey the standard rules of arithmetic, including for infinite limits,
-        with the exception that any formula that would cancel infinity are indeterminate.
-        (See <xref ref="thm-arithmetic-infinity"/>)
-        Indeterminate means the limit can not be determined from simple arithmetic 
-        but requires rewriting in another form.
-        <ul>
-          <li>
-            <m>\infty-\infty</m>: rewrite by factoring out dominant term
-          </li>
-          <li>
-            <m>\displaystyle \frac{\infty}{\infty}</m>: 
-            factor out dominant term in numerator and denominator, look to simplify
-          </li>
-          <li>
-            <m>\displaystyle \frac{0}{0}</m>: 
-            try to factor and simplify
-          </li>
-          <li>
-            <m>\displaystyle 0 \cdot \infty</m>: 
-            use negative powers to rewrite as fraction, then treat as 
-            <m>\frac{0}{0}</m> or <m>\frac{\infty}{\infty}</m>
-          </li>
-        </ul>
-        Look for terms in the limit that vanish: <m>\displaystyle \frac{1}{\infty}=0</m>.
+          A sequence has a limit, <m>x_n \to L</m>, if the values of the sequence 
+          get closer and closer to the value of <m>L</m>.
+          The graph of the sequence <m>(n,x_n)</m> approaches a horizontal line <m>x=L</m>.
         </p>
       </li>
       <li>
         <p>
-        Given a function <m>f</m>, a <term>fixed point</term> of <m>f</m> solves 
-        the fixed point equation <m>x=f(x)</m>.
-        (See <xref ref="defn-recursion-fixed-point"/>)
+          If <m>x_n \to L</m>, then a table of values for the sequence <m>x</m>
+          should have decimal approximations that converge to the decimal approximation of <m>L</m>.
         </p>
       </li>
       <li>
         <p>
-        Sequences defined recursively using a continuous projection function <m>f</m>
-        can only have limits that are fixed points of <m>f</m>. 
-        (See <xref ref="thm-recursive-limit-fixed-point"/>)
+          Sequences defined recursively using a continuous projection function <m>f</m>
+          can only have limits that are fixed points of <m>f</m>. 
+          (See <xref ref="thm-recursive-limit-fixed-point"/>)
+        </p>
+      </li>
+      <li>
+        <p>
+          The formal definition of a sequence limit <m>x_n \to L</m>, written
+          <me>\displaystyle \lim_{n \to \infty} x_n = L</me>,
+          is that for any desired threshold of approximation error <m>\epsilon \gt 0</m>, 
+          there is an index threshold <m>N</m> so that <m>|x_n - L| \lt \epsilon</m> whenever <m>n \gt N</m>.
+          (See <xref ref="defn-sequence-limit"/>)
         </p>
       </li>
     </ul>
@@ -1396,125 +1232,8 @@
     <exercisegroup>
       <introduction>
         <p>
-        Use limit arithmetic to find the exact value for each limit.
-        If the limit does not exist, explain why.
-        </p>
-      </introduction>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} 3-4n </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} -5+\frac{n}{200} </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} 3 \cdot ({\textstyle \frac{2}{5}})^n </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} -3 \cdot (-0.8)^n </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} 4 - 5 \cdot (1.05)^n </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} 5 - (-1.5)^n </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} \frac{5+3n}{5-n^2} </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} \frac{5+3n^2}{5-n^2} </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} \frac{5+3n^3}{5-n^2} </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} \frac{2^n-3^n}{7+2 \cdot 3^n} </m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle \lim_{n \to \infty} \frac{3 \cdot 2^n- 5 \cdot 3^n}{1+2 \cdot 5^n} </m>
-          </p>
-        </statement>
-      </exercise>
-    </exercisegroup>
-    <exercisegroup>
-      <introduction>
-        <p>For each of the following sequences, explore the definition of a limit.</p>
-      </introduction>
-      <exercise>
-        <statement>
-          <p>
-          The sequence <m>x_n = \frac{1}{2n+1}</m> has a limit <m>x_n \to 0</m>.
-          For <m>\epsilon = 0.01</m>, find <m>N</m> 
-          so that <m>|x_n-0| \lt \epsilon</m> for <m>n \gt N</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          The sequence <m>x_n = \frac{n}{2n+1}</m> has a limit <m>x_n \to \frac{1}{2}</m>.
-          For <m>\epsilon = 0.01</m>, find <m>N</m> 
-          so that <m>|x_n-\frac{1}{2}| \lt \epsilon</m> for <m>n \gt N</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          The sequence <m>x_n = \left(-\frac{2}{3}\right)^n</m> has a limit <m>x_n \to 0</m>.
-          For <m>\epsilon = 0.01</m>, find <m>N</m> 
-          so that <m>|x_n-0| \lt \epsilon</m> for <m>n \gt N</m>.
-          </p>
-        </statement>
-      </exercise>
-    </exercisegroup>
-    <exercisegroup>
-      <introduction>
-        <p>
         For each of the following functions, find all fixed points.
-        Then, using a sequence defined recursively <m>x_{n+1} = f(x_n)</m> and the given initial value, 
+        Then, using a sequence defined recursively <m>x_{n} = f(x_{n-1})</m> and the given initial value, 
         test if the sequence has a limit and give its exact value.
         </p>
       </introduction>
@@ -1546,119 +1265,38 @@
           </p>
         </statement>
       </exercise>
-      <exercise>
-        <statement>
-          <p>
-          <m>\displaystyle f(x) = \frac{4x}{1+x^2}</m>; <m>x_0=3</m>
-          </p>
-        </statement>
-      </exercise>
     </exercisegroup>
     <exercisegroup>
       <introduction>
         <p>
-        Find an explicit formula for each sequence. 
-        Then determine the limit of the sequence.
+          For each of the following sequences, explore the definition of a limit
+          by finding the index threshold associated with the approximation error threshold.
         </p>
       </introduction>
       <exercise>
         <statement>
           <p>
-          <m>x_{t+1} = 1.05 x_t - 10</m> with <m>x_0 = 500</m>.
+          The sequence <m>x_n = \frac{1}{2n+1}</m> has a limit <m>x_n \to 0</m>.
+          For <m>\epsilon = 0.01</m>, find <m>N</m> 
+          so that <m>|x_n-0| \lt \epsilon</m> for <m>n \gt N</m>.
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-          <m>x_{k+1} = 0.8 x_k + 12</m> with <m>x_1 = 5</m>.
+          The sequence <m>x_n = \frac{n}{2n+1}</m> has a limit <m>x_n \to \frac{1}{2}</m>.
+          For <m>\epsilon = 0.01</m>, find <m>N</m> 
+          so that <m>|x_n-\frac{1}{2}| \lt \epsilon</m> for <m>n \gt N</m>.
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-          <m>y_{n+1} = -1.5 y_n + 5</m> with <m>y_0 = 2</m>.
-          </p>
-        </statement>
-      </exercise>
-    </exercisegroup>
-    <exercisegroup>
-      <introduction>
-        <p>
-          Use the properties and elementary formulas for summation to
-          find a formula for the summation in order to compute the
-          limit.
-        </p>
-      </introduction>
-      <exercise>
-        <statement>
-          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{5k}{n^2}</m></p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \frac{k^2}{n^3}</m></p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(2+\frac{3k}{n}\right) \cdot \frac{3}{n}</m></p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p><m>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} \left(1+\frac{2k}{n}\right)^2 \cdot \frac{2}{n}</m></p>
-        </statement>
-      </exercise>
-    </exercisegroup>
-    <exercisegroup>
-      <introduction>
-        <p>
-        Applications of sequences.
-        </p>
-      </introduction>
-      <exercise>
-        <statement>
-          <p>
-          When a patient starts taking a drug, there is no drug in the blood.
-          The prescription is to take 
-          <quantity><mag>250</mag><unit prefix="milli" base="gram"/></quantity>
-          every six hours.
-          Then, during the six hours between doses, 
-          the body metabolizes 20<percent/> of whatever drug is in the body.
-          </p>
-          <p>
-          Find a recursive formula using a linear projection function for the sequence of drug levels 
-          with an index counting the total number of doses.
-          Clearly state the initial value.
-          Find an explicit formula for the sequence and determine the limit.
-          Is there a steady state amount of drug in the body?
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          A pond has been polluted by a stream. 
-          The pond holds 12,000 gallons of water
-          and the stream replaces 900 gallons per day.
-          The stream has been carrying the chemical pollutant at a concentration of 
-          <quantity><mag>0.4</mag><unit base="gram"/><per base="gallon"/></quantity>
-          and now the pond has that same pollution level.
-          With stream cleanup, the chemical pollutant in the stream
-          has just been reduced to a concentration of 
-          <quantity><mag>0.1</mag><unit base="gram"/><per base="gallon"/></quantity>.
-          </p>
-          <p>
-          Find a recursive formula using a linear projection function 
-          for the sequence of pollutant levels (total mass) in the pond
-          with an index counting the number of days since the cleanup occurred.
-          Clearly state the initial value.
-          Find an explicit formula for the sequence and determine the limit.
-          On what day will the total amount of pollutant in the pond be reduced
-          to half of the pollution level prior to cleanup?
-          Is there a steady state amount of pollutant in the pond?
+          The sequence <m>x_n = \left(-\frac{2}{3}\right)^n</m> has a limit <m>x_n \to 0</m>.
+          For <m>\epsilon = 0.01</m>, find <m>N</m> 
+          so that <m>|x_n-0| \lt \epsilon</m> for <m>n \gt N</m>.
           </p>
         </statement>
       </exercise>
