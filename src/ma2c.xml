@@ -29,6 +29,7 @@
       <title>Sequences as Models</title>
       <xi:include href="./sequences-intro.xml" />
       <xi:include href="./sequences-recursive.xml" />
+      <xi:include href="./sequences-computing.xml" />
       <xi:include href="./sequences-exponents-logarithms.xml" />
       <xi:include href="./logarithm-properties.xml" />
       <xi:include href="./sequences-modeling.xml" />
@@ -41,6 +42,7 @@
       <xi:include href="./sequences-accumulation.xml" />
       <xi:include href="./sequences-summation.xml" />
       <xi:include href="./sequences-limits.xml" />
+      <xi:include href="./sequences-limit-rules.xml" />
     </chapter>
     
     <chapter xml:id="chapter-functions">
