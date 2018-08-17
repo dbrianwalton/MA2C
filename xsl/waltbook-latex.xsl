@@ -14,7 +14,7 @@ This file a customization file to work with MathBook XML.
     extension-element-prefixes="exsl date"
 >
 
-<xsl:import href="/Users/waltondb/mathbook/xsl/mathbook-latex.xsl" />
+<xsl:import href="/Users/waltondb/mathbook/xsl/latex/pretext-latex-AIM.xsl" />
 
 
 <!-- Rewrite the cover -->

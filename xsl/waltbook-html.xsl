@@ -24,7 +24,7 @@ This file a customization file to work with MathBook XML.
 <xsl:template match="section" mode="summary-nav">
     <xsl:apply-imports />
     <xsl:variable name="num"><xsl:apply-templates select="." mode="number" /></xsl:variable>
-    <xsl:variable name="url"><xsl:text>section.</xsl:text><xsl:value-of select="$num" /><xsl:text>.pdf</xsl:text></xsl:variable>
+    <xsl:variable name="url"><xsl:text>pdf/section.</xsl:text><xsl:value-of select="$num" /><xsl:text>.pdf</xsl:text></xsl:variable>
     <a href="{$url}">
         <!-- important not include codenumber span -->
         <xsl:text>PDF version of Section </xsl:text>
