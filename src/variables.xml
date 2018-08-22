@@ -223,7 +223,7 @@
         The following operations can be used to create equivalent equations, where each variable represents arbitrary expressions.
         <ul>
           <li>Balanced Addition: <m>a=b</m> is equivalent to <m>a+c=b+c</m>.</li>
-          <li>Balanced Subtraction: <m>a=b</m> is equivalent to <m>a+c=b+c</m>.</li>
+          <li>Balanced Subtraction: <m>a=b</m> is equivalent to <m>a-c=b-c</m>.</li>
           <li>Balanced Multiplication: <m>a=b</m> is equivalent to <m>a \cdot c=b \cdot c</m>, so long as <m>c \ne 0</m>.</li>
           <li>Balanced Division: <m>a=b</m> is equivalent to <m>\displaystyle \frac{a}{c}=\frac{b}{c}</m>, so long as <m>c \ne 0</m>.</li>
         </ul>
