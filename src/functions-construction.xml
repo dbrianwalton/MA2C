@@ -119,7 +119,7 @@
         this is equivalent to saying that <m>f \circ f^{-1}</m> and <m>f^{-1}\circ f</m> are equivalent to an identity function.
       </p>
     </subsubsection>
-    <subsubsection>
+    <subsubsection xml:id="subsubsection-elementary-arithmetic-operations">
       <title>Elementary Arithmetic Operations</title>
       <p>
         The four basic arithmetic operations of addition, subtraction, multiplication, and division can be used as functions.

@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="functions-limits">
+  <title>Limits of Functions</title>
+
+  <introduction>
+    <p>
+      We have previously studied limits of sequences.
+      In the last section, we considered the continuity of piecewise functions
+      as it depended on whether the function rules to the left and to the right of a point
+      agreed with the value at the point.
+      We used limit notation to describe the values coming from the left and from the right.
+    </p>
+    <p>
+      In this section, we seek to harmonize these two views of limits.
+      We will introduce the idea that the limit of a function
+      describes the limit of a sequence of output values
+      for a converging sequence of input values.
+      The behavior of limits of sequences justify our rules to calculate limits of functions.
+      We will also discuss horizontal and vertical asymptotes of functions in the context of limits.
+    </p>
+  </introduction>
+
+  <subsection>
+    <title>Limits</title>
+    <p>
+      For sequences, we introduced the idea of limits as the value the sequence was approaching
+      further and further in that sequence.
+      We saw that the decimal approximations of the sequence values would eventually converge
+      to the decimal approximation of the limiting value.
+      The mathematical definition of the limit was stated in terms of the possibility of
+      eventually waiting long enough in the sequence that the sequence values would approximate the limit value
+      within <em>any</em> desired accuracy of approximation.
+    </p>
+    <p>
+      The only limits of interest in sequences were when the index went to infinity.
+      For functions, in order to <xref ref="defn-limit-intuition">understand continuity</xref>,
+      we have found that we also need to think about limits
+      as the independent variable approaches a value from either the left or the right.
+      Sequences can give us a way to think about this possibility.
+    </p>
+    <definition xml:id="definition-limit-by-sequences">
+      <title>Limits of Function</title>
+      <statement>
+        <p>
+          For a function <m>f</m> defined on intervals to the left and right of <m>c</m>,
+          we say <me>\lim_{x \to c} f(x) = L</me> to mean that
+          for <em>every</em> independent sequence <m>x</m> such that <m>x_n \ne c</m> and <m>x_n \to c</m>,
+          the dependent sequence <m>y = \left(f(x_n)\right)_{n=n_0}^{\infty}</m> must have the limit <m>L</m>,
+          <me>\lim_{n \to \infty} f(x_n).</me>
+          One-sided limits add constraints to the independent sequences, with <m>x \to c^+</m> requiring <m>x_n \gt c</m>
+          and <m>x \to c^-</m> requiring <m>x_n \lt c</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Function limits are properties of the function itself and do not depend on the sequences chosen.
+      If different independent sequences that converge to <m>c</m> result in different limits for the dependent sequence,
+      then the function does not have a limit.
+      The following example illustrates how this new definition relates our earlier concept
+      of continuity of piecewise functions with the sequence definition of function limits.
+      We create a table of sequence values, one column corresponding to the independent variable (input)
+      and another column corresponding to the dependent variable (output).
+      The input sequence is chosen to converge to the value <m>c</m>,
+      and we examine what happens to the sequence of the dependent variable.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A function is defined piecewise as
+          <me>f(x) = \begin{cases}
+          x+2, &amp; x\lt 3, \\
+          4x-x^2, &amp; x \gt 3.
+          \end{cases}</me>
+          Find <m>\displaystyle \lim_{x \to 3^-} f(x)</m>, <m>\displaystyle \lim_{x \to 3^+} f(x)</m>,
+          and <m>\displaystyle \lim_{x \to 3} f(x)</m> using sequences for approximation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The left-sided limit needs to consider an independent sequence <m>x_n \lt 3</m> with <m>x_n \to 3</m>.
+          The following partial table illustrates an example with <m>x_n = 3 - 10^{-n}</m>.
+        </p>
+        <sidebyside margins="auto">
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>x_n</m></cell>
+              <cell><m>f(x_n)</m></cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>2.9</m></cell>
+              <cell><m>f(2.9)=2.9+2=4.9</m></cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>2.99</m></cell>
+              <cell><m>f(2.99)=2.99+2=4.99</m></cell>
+            </row>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>2.999</m></cell>
+              <cell><m>f(2.999)=2.999+2=4.999</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          If we compare the values of the dependent sequence <m>f(x_n)</m>
+          with the value of the formula <m>x+2</m> evaluated at <m>x=3</m>, which is <m>x+2=5</m>,
+          we can see that the dependent sequence is approaching that limit <m>f(x_n) \to 5</m>.
+          We therefore write <me>\lim_{x \to 3^-} f(x) = 5</me>.
+        </p>
+        <p>
+          In a similar way, a right-sided limit requires <m>x_n \gt 3</m> with <m>x_n \to 3</m>,
+          such as the sequence <m>x_n = 3 + 10^{-n}</m>.
+        </p>
+        <sidebyside margins="auto">
+          <tabular>
+            <row bottom="major">
+              <cell><m>n</m></cell>
+              <cell><m>x_n</m></cell>
+              <cell><m>f(x_n)</m></cell>
+            </row>
+            <row>
+              <cell><m>1</m></cell>
+              <cell><m>3.1</m></cell>
+              <cell><m>f(3.1)=4(3.1)-(3.1)^2=2.79</m></cell>
+            </row>
+            <row>
+              <cell><m>2</m></cell>
+              <cell><m>3.01</m></cell>
+              <cell><m>f(3.01)=4(3.01)-(3.01)^2=2.9799</m></cell>
+            </row>
+            <row>
+              <cell><m>3</m></cell>
+              <cell><m>3.001</m></cell>
+              <cell><m>f(3.001)=4(3.001)-(3.001)^2=2.997999</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          If we compare the values of the dependent sequence <m>f(x_n)</m>
+          with the value of the formula <m>4x-x^2</m> evaluated at <m>x=3</m>, which is <m>4x-x^2=3</m>,
+          we can see that the dependent sequence is approaching that limit <m>f(x_n) \to 3</m>.
+          We therefore write <me>\lim_{x \to 3^+} f(x) = 3</me>.
+        </p>
+        <p>
+          The two-sided limit requires only <m>x_n \to 3</m>.
+          The sequence values might be either above or below 3.
+          Above, we found that when the independent variable values are on the left <m>x_n \lt 3</m>,
+          we had <m>f(x_n) \to 5</m>.
+          But when <m>x_n \gt 3</m>, we had <m>f(x_n) \to 3</m>.
+          Because different sequences with <m>x_n \to 3</m> result in different limits for <m>f(x_n)</m>,
+          <me>\lim_{x \to 3} f(x) \text{ does not exist}.</me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      While the previous example attempted to connect our simpler understanding of limits
+      with the limits of sequences, the given solution really only illustrated the first few terms
+      from two out of infinitely many possible independent sequences.
+      Using tables of sequence values might suggest possible values of the limits,
+      but we need a more definitive reason that the limit agrees with simple evaluation of the formula.
+    </p>
+    <p>
+      When a function is visualized as a graph,
+      a limit can be determined by looking at the branches of the graph
+      immediately to the left or right of the point of interest.
+      A limit of <m>f(x)</m> with <m>x \to c^-</m> means to look at the branch of the function
+      with <m>x \lt c</m> and identify what point that branch would lead to as <m>x \to c</m>.
+      Similarly, a limit of <m>f(x)</m> with <m>x \to c^+</m> means to look at the branch of the function
+      with <m>x \gt c</m> and identify what point that branch would lead to as <m>x \to c</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the function <m>f</m> whose graph is shown below.
+          Find the following limits based on the graph,
+          assuming the coordinates of shown points are integers.
+          <ol>
+            <li>
+              <p><m>\displaystyle \lim_{x \to -1} f(x)</m></p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 0} f(x)</m></p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 2} f(x)</m></p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 4} f(x)</m></p>
+            </li>
+          </ol>
+        </p>
+        <sidebyside width="60%">
+          <image>
+            <description>
+            Graph of a function.
+            </description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xmin=-5,xmax=5,
+                ymin=-5,ymax=5,
+                xlabel={$x$},
+                ylabel={$y=f(x)$},
+              ]
+
+              \addplot[red, domain=-5:-1, thick, samples=100]
+                ({x}, {-2*(x+2)^3});
+              \addplot[red, domain=-1:2, thick, samples=100]
+                ({x}, {2-x^2});
+              \addplot[red, domain=2:5, thick, samples=100]
+                ({x}, {-4+x});
+              \addplot[mark=*, red, fill=white] coordinates {(-1,-2)};
+              \addplot[mark=*, red, fill] coordinates {(-1,1)};
+              \addplot[mark=*, red, fill=white] coordinates {(4,0)};
+              \addplot[mark=*, red, fill] coordinates {(4,2)};
+              \addplot[mark=*, red, fill=white] coordinates {(2,-2)};
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </statement>
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p><m>\displaystyle \lim_{x \to -1} f(x)</m></p>
+              <p>
+                We consider a sequence for <m>x</m> on the <m>x</m>-axis that converges to <m>-1</m>.
+                It is best to consider a sequence on the left and another on the right.
+                For <m>x_n \lt -1</m>, our function will be using the cubic portion of the graph.
+                As <m>x_n \to -1</m> (from the left), the function will move closer and closer to the open point at <m>(-1,-2)</m>.
+                The <m>y</m>-value of this point is the corresponding limit of the dependent sequence:
+                <me>\lim_{x \to -1^-} f(x) = -2</me>.
+                For <m>x_n \gt -1</m>, we will be somewhere to the right.
+                As <m>x_n \to -1</m> (from the right), we will eventually be on the portion of the function
+                corresponding to the concave down parabola.
+                The sequence will move us closer and closer to the filled-in point at <m>(-1,1)</m>:
+                <me>\lim_{x \to -1^+} f(x) = 1</me>.
+                Because the left- and right-limits have different values,
+                the two-sided limit <em>does not exist</em>.
+              </p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 0} f(x)</m></p>
+              <p>
+                We consider a sequence for <m>x</m> on the <m>x</m>-axis that converges to <m>0</m>.
+                Regardless of whether the sequence is to the left or the right of <m>x=0</m>,
+                the value <m>x_n</m> will eventually use the function defined by the concave down parabola.
+                The point on the graph of the function will converge to the vertex of this parabola at <m>(0,2)</m>.
+                This is our limit.
+                <me>\lim_{x \to 0} f(x) = 2</me>.
+              </p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 2} f(x)</m></p>
+              <p>
+                For a sequence <m>x_n \to 2</m> with <m>x_n \lt 2</m>,
+                the point on the graph will eventually be on the parabola
+                and approaching the open point at <m>(2,-2)</m>.
+                For values with <m>x_n \gt 2</m>,
+                the point on the graph will eventually be on the line
+                and also approaching the point <m>(2,-2)</m>.
+                Because the sequence always results in approaching the point <m>(2,-2)</m>,
+                we have a limit
+                <me>\lim_{x \to 2} f(x) = -2</me>.
+                Notice that a limit does not depend on whether the point is included
+                in the function or not.
+                All that matters is whether the sequence of points converges to that point.
+              </p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 4} f(x)</m></p>
+              <p>
+                For a sequence <m>x_n \to 4</m> and <m>x_n \ne 4</m>,
+                eventually the function will be on the line to the left or right of <m>x=4</m>.
+                Either way, the corresponding point on the graph will be converging to <m>(4,0)</m>:
+                <me>\lim_{x \to 4} f(x) = 0</me>.
+                The value of the function <m>f(4)=2</m> has no effect on the limit.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <p>
+      When we have a formula for a function, we already know that a table can be helpful
+      but will not guarantee the value of the limit.
+      We might think we can graph the function,
+      but even our graphs of functions are ultimately based on a table of values.
+      We need some methods to evaluate limits based on the formulas alone.
+    </p>
+    <p>
+      Our earlier motivation for limits involving piecewise functions suggest that we can find a limit
+      by evaluating a function at the point of interest.
+      In most cases, this is true.
+      This is a consequence of the algebraic structure of expressions
+      and the fact that limits behave very nicely with algebraic operations.
+      The rest of this section explains why limits usually behave so well.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Limit Rules for Combining Sequences</title>
+    <p>
+      We start by formalizing some rules about how sequence limits relate to the arithmetic of sequences.
+      These rules are stated as theorems.
+      We begin each theorem with one or more sequence that is given with a particular limit.
+      We then define a new sequence using arithmetic involving those sequences.
+      The conclusion of each theorem describes the limit of the new sequence.
+      To apply a theorem, we must verify that the hypotheses are satisfied before we can use the conclusion.
+    </p>
+    <p>
+      For a converging sequence <m>x=(x_n)</m> with <m>x_n \to L</m>,
+      we can think of the sequence values as <em>approximating</em> <m>L</m>.
+      The absolute error of approximation <m>|x_n - L|</m> must vanish as <m>n \to \infty</m>.
+      In other words, for any margin of error <m>\epsilon \gt 0</m>,
+      there must be some index <m>N</m> so that <m>|x_n - L| \lt \epsilon</m> once <m>n \gt N</m>.
+      The proofs of these theorems rely on showing how the error of approximation for the arithmetic combination of the sequences
+      can be related to the errors of approximations of the given sequences to their limits
+      in a way to show that the approximation error will eventually vanish.
+    </p>
+    <p>
+      The first three rules involve elementary operations involving constants on a single sequence.
+      They correspond to the operations used to construct expressions involving another expression and a constant,
+      as discussed in <xref ref="subsubsection-elementary-arithmetic-operations" />.
+    </p>
+    <theorem xml:id="SLC-Constant-Sum">
+      <title>Sequence Limit of a Constant Sum (SL:CS)</title>
+      <statement>
+        <p>
+          Given a sequence <m>u=(u_n)</m> with <m>u_n \to L</m> and any constant <m>k</m>,
+          the transformed sequence <m>w_n = u_n + k</m> has limit
+          <me> \lim_{n \to \infty} u_n+k = L+k.</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The error of approximation for <m>w_n</m> from its proposed limit <m>L+k</m> can be rewritten
+          <me>|w_n - (L+k)| = |u_n + k - L - k| = |u_n - L|</me>.
+          This is the same as the error of approximation for <m>u_n</m> from its limit <m>L</m>.
+          As soon as <m>|u_n - L| \lt \epsilon</m>, we also have <m>|w_n - (L+k)| \lt \epsilon</m>.
+          Because <m>|u_n - L| \to 0</m>, this proves
+          <me> \lim_{n \to \infty} u_n+k = L+k.</me>
+        </p>
+      </proof>
+    </theorem>
+    <theorem xml:id="SLC-Constant-Multiple">
+      <title>Sequence Limit of a Constant Multiple (SL:CM)</title>
+      <statement>
+        <p>
+          Given a sequence <m>u=(u_n)</m> with <m>u_n \to L</m> and any constant <m>k</m>,
+          the transformed sequence <m>w_n = k \cdot u_n</m> has limit
+          <me> \lim_{n \to \infty} k \, u_n = k \, L.</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The error of approximation for <m>w_n</m> from its proposed limit <m>kL</m> can be rewritten
+          <me>|w_n - kL| = |ku_n - kL| = |k(u_n - L)| = |k| \cdot |u_n - L|</me>.
+          If <m>k=0</m>, then <m>w_n = 0</m> for all <m>n</m> and <m>w_n \to 0</m> must be true.
+          If <m>k \ne 0</m>, then the error of approximation for <m>w</m> from its proposed limit
+          is exactly <m>|k|</m> times the error of approximation for <m>u</m> from its given limit.
+          As soon as <m>|u_n - L| \lt \frac{1}{|k|} \epsilon</m>, we must have <m>|w_n - kL| \lt \epsilon</m>.
+          Because <m>|u_n - L| \to 0</m>, this proves
+          <me> \lim_{n \to \infty} k \, u_n = k \, L.</me>
+        </p>
+      </proof>
+    </theorem>
+    <theorem xml:id="SLC-MultInverse">
+      <title>Sequence Limit of a Reciprocal (SL:MInv)</title>
+      <statement>
+        <p>
+          Given a sequence <m>u=(u_n)</m> with <m>u_n \to L \ne 0</m>,
+          the transformed sequence of multiplicative inverses <m>w_n = \frac{1}{u_n}</m> has limit
+          <me> \lim_{n \to \infty} \frac{1}{u_n} = \frac{1}{L}.</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Division is not defined when the denominator equals zero.
+          Because <m>u_n \to L</m> and <m>L \ne 0</m>, we know that <m>|u_n - L| \lt \frac{1}{2}|L|</m> eventually.
+          When <m>L \gt 0</m>, this means that <m>\frac{1}{2}L \lt u_n \lt \frac{3}{2} L</m>.
+          If <m>L \lt 0</m>, then <m>\frac{3}{2}L \lt u_n \lt \frac{1}{2}L</m>.
+          Either way, <m>u_n</m> is kept away from 0 and <m>w_n = \frac{1}{u_n}</m> is guaranteed to be defined.
+          (Before this point, we might have had <m>u_n=0</m> so that <m>w_n</m> is not defined.
+        </p>
+        <p>
+          The error of approximation for <m>w_n</m> from its proposed limit <m>\frac{1}{L}</m>
+          can be rewritten using a common denominator
+          <me>|w_n - \frac{1}{L}| = |\frac{1}{u_n} - \frac{1}{L}| = |\frac{L-u_n}{u_n L}| = |u_n - L| \cdot \frac{1}{|u_n||L|}</me>.
+          Because <m>|u_n| \gt \frac{1}{2}|L|</m>, we know that <m>\displaystyle \frac{1}{|u_n|} \lt \frac{2}{|L|}</m>.
+          Thus,
+          <me>|w_n - \frac{1}{L}| \lt |u_n - L| \cdot \frac{2}{|L|^2}</me>.
+          The error of approximation for <m>w_n</m> is always smaller than
+          <m>\frac{2}{|L|^2}</m> times the error of approximation for <m>u_n</m> from its limit.
+          Because <m>|u_n - L| \to 0</m>, this proves
+          <me> \lim_{n \to \infty} \frac{1}{u_n} = \frac{1}{L}.</me>
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      The second group of limit rules of combination allow us to take two limits that we know and combine them with arithmetic.
+      Notice how the limit rules correspond exactly with the arithmetic operations used to construct expression,
+      as discussed in <xref ref="subsection-combining-expressions" />.
+      The proofs of these theorems are more advanced and will not be given in this section.
+    </p>
+    <theorem xml:id='SLC-Sum'>
+        <title>Sequence Limit of a Sum (SLC:Sum)</title>
+        <statement>
+            <p>
+              Given sequences <m>u=(u_n)</m> with <m>u_n \to L</m> and <m>v=(v_n)</m> with <m>v_n \to M</m>,
+              the sequence defined by the sum <m>w_n = u_n + v_n</m> has limit
+              <me> \lim_{n \to \infty} [ u_n + v_n ] = L+M.</me>
+            </p>
+        </statement>
+    </theorem>
+    <theorem xml:id='SLC-Difference'>
+        <title>Sequence Limit of a Difference (SLC:Diff)</title>
+        <statement>
+            <p>
+              Given sequences <m>u=(u_n)</m> with <m>u_n \to L</m> and <m>v=(v_n)</m> with <m>v_n \to M</m>,
+              the sequence defined by the difference <m>w_n = u_n - v_n</m> has limit
+              <me> \lim_{n \to \infty} [ u_n - v_n ] = L-M.</me>
+            </p>
+        </statement>
+    </theorem>
+    <theorem xml:id='SLC-Product'>
+        <title>Sequence Limit of a Product (SLC:Prod)</title>
+        <statement>
+            <p>
+              Given sequences <m>u=(u_n)</m> with <m>u_n \to L</m> and <m>v=(v_n)</m> with <m>v_n \to M</m>,
+              the sequence defined by the product <m>w_n = u_n \cdot v_n</m> has limit
+              <me> \lim_{n \to \infty} [ u_n \cdot v_n ] = L \cdot M.</me>
+            </p>
+        </statement>
+    </theorem>
+    <theorem xml:id='SLC-Quotient'>
+        <title>Sequence Limit of a Quotient (SLC:Quot)</title>
+        <statement>
+            <p>
+              Given sequences <m>u=(u_n)</m> with <m>u_n \to L</m> and <m>v=(v_n)</m> with <m>v_n \to M</m> and <m>M \ne 0</m>,
+              the sequence defined by the sum <m>\displaystyle w_n = \frac{u_n}{v_n}</m> has limit
+              <me> \lim_{n \to \infty} \frac{u_n}{v_n} = \frac{L}{M}.</me>
+            </p>
+        </statement>
+    </theorem>
+    <p>
+      In addition to algebraic operations combining sequences,
+      we have operations associated with functions.
+      This includes raising sequences to powers, applying exponential or logarithm functions,
+      or using trigonometric functions.
+      We will learn that each of these functions are continuous.
+      Consequently, the following theorem will apply.
+    </p>
+    <theorem xml:id='SLC-Continuous-Function'>
+        <title>Sequence Limit of a Continuous Function (SLC:CFxn)</title>
+        <statement>
+            <p>
+              Given a sequence <m>u=(u_n)</m> with <m>u_n \to L</m>
+              and a function <m>f</m> that is continuous at <m>L</m>,
+              the sequence defined by the sum <m>\displaystyle w_n = f(u_n)</m> has limit
+              <me> \lim_{n \to \infty} f(u_n) = f(L).</me>
+            </p>
+        </statement>
+    </theorem>
+  </subsection>
+  <subsection>
+    <title>Elementary Limit Rules for Functions</title>
+    <p>
+      Having established the limit rules associated with sequences,
+      we can apply those rules to create corresponding limit rules for functions.
+    </p>
+    <p>
+      The first collection of limit rules are some basic limits.
+      We can think of them as our building blocks for more complicated limits.
+      We begin by showing that constant functions and the identity functions are continuous.
+    </p>
+    <theorem xml:id='LE-Constant'>
+        <title>Limit of a Constant (LE:Const)</title>
+        <statement>
+          <p>
+            <dl>
+              <li>
+                <title>Hypothesis</title>
+                <p><m>k</m> is a real number.</p>
+              </li>
+              <li>
+                <title>Conclusion</title>
+                <p><m>\displaystyle \lim_{x \to a} k = k</m>.</p>
+              </li>
+            </dl>
+          </p>
+        </statement>
+        <proof>
+          <p>
+            For a constant function <m>f(x)=k</m>,
+            the output sequence is a constant sequence regardless of the input sequence.
+          </p>
+        </proof>
+    </theorem>
+    <theorem xml:id='LE-Identity'>
+        <title>Limit of the Identity (LE:Ident)</title>
+        <statement>
+          <p>
+            <dl>
+              <li>
+                <title>Hypothesis</title>
+                <p>none</p>
+              </li>
+              <li>
+                <title>Conclusion</title>
+                <p><m>\displaystyle \lim_{x \to a} x = a</m>.</p>
+              </li>
+            </dl>
+          </p>
+        </statement>
+        <p>
+          For identity function <m>f(x)=x</m>,
+          the output sequence is will be the same as the input sequence.
+          Since <m>x_k \to a</m>, the output sequence has limit <m>a</m>.
+        </p>
+    </theorem>
+    <p>
+      We include the limit of linear functions in our known limits of elementary functions.
+    </p>
+    <theorem xml:id='LE-Linear'>
+        <title>Limit of a Linear Function (LE:Line)</title>
+        <statement>
+          <p>
+            <dl>
+              <li>
+                <title>Hypothesis</title>
+                <p><m>m</m> and <m>b</m> are real numbers.</p>
+              </li>
+              <li>
+                <title>Conclusion</title>
+                <p><m>\displaystyle \lim_{x \to a} [mx+b] = ma+b</m>.</p>
+              </li>
+            </dl>
+          </p>
+        </statement>
+        <proof>
+          <p>
+            Given a sequence <m>x_k</m> with <m>x_k \ne a</m> and <m>x_k \to a</m>,
+            define the output sequence <m>y_k = m x_k + b</m>.
+            This is a constant sum and constant multiple of <m>x_k</m>.
+            By <xref text="title" ref="SLC-Constant-Multiple">SLC:CM</xref>,
+            we know <m>m x_k \to m a</m>.
+            By <xref text="title" ref="SLC-Constant-Sum">SLC:CS</xref>,
+            we then have <m>y_k = mx_k + b \to ma+b</m>.
+          </p>
+        </proof>
+    </theorem>
+  </subsection>
+  <subsection>
+    <title>Limit Rules of Combination</title>
+    <p>
+      The second collection of limit rules tell us how we can take limits that we already know (starting with building blocks)
+      and use them to compute more complicated limits.
+      The first three rules take a single limit that is known to be valid and use arithmetic with a constant to find a new limit.
+      Each of the theorem simply applies the corresponding limit rule for sequences on the sequence created by the function.
+    </p>
+    <theorem xml:id='LC-Constant-Sum'>
+        <title>Limit of a Constant Sum (LC:CS)</title>
+        <statement>
+          <p>
+            <dl>
+              <li>
+                <title>Hypothesis</title>
+                <p><m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>k</m> is a real number.</p>
+              </li>
+              <li>
+                <title>Conclusion</title>
+                <p><m>\displaystyle \lim_{x \to a} [f(x)+k] = L+k</m>.</p>
+              </li>
+            </dl>
+          </p>
+        </statement>
+    </theorem>
+    <theorem xml:id='LC-Constant-Multiple'>
+        <title>Limit of a Constant Multiple (LC:CM)</title>
+        <statement>
+          <p>
+            <dl>
+              <li>
+                <title>Hypothesis</title>
+                <p><m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>k</m> is a real number.</p>
+              </li>
+              <li>
+                <title>Conclusion</title>
+                <p><m>\displaystyle \lim_{x \to a} [k \cdot f(x)] = k \cdot L</m>.</p>
+              </li>
+            </dl>
+          </p>
+        </statement>
+    </theorem>
+    <theorem xml:id='LC-Reciprocal'>
+        <title>Limit of a Reciprocal or Multiplicative Inverse (LC:MInv)</title>
+        <statement>
+            <p></p>
+            <p>Hypothesis: <m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>L \ne 0</m>.</p>
+            <p>Conclusion: <m>\displaystyle \lim_{x \to a} \frac{1}{f(x)} = \frac{1}{L}</m>.</p>
+        </statement>
+    </theorem>
+    <p>
+      The next limit rules of combination allow us to take two limits that we know and combine them with arithmetic.
+      In each of the cases, note that both limits in the hypothesis have <m>x \to a</m> (i.e., <m>x</m> approaches the same value in both limits).
+    </p>
+    <theorem xml:id='LC-Sum'>
+      <title>Limit of a Sum (LC:Sum)</title>
+      <statement>
+        <p>
+          <dl>
+            <li>
+              <title>Hypothesis</title>
+              <p><m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+            </li>
+            <li>
+              <title>Conclusion</title>
+              <p><m>\displaystyle \lim_{x \to a} [f(x)+g(x)] = L+M</m>.</p>
+            </li>
+          </dl>
+        </p>
+      </statement>
+    </theorem>
+    <theorem xml:id='LC-Difference'>
+      <title>Limit of a Difference (LC:Diff)</title>
+      <statement>
+        <p>
+          <dl>
+            <li>
+              <title>Hypothesis</title>
+              <p><m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+            </li>
+            <li>
+              <title>Conclusion</title>
+              <p><m>\displaystyle \lim_{x \to a} [f(x)-g(x)] = L-M</m>.</p>
+            </li>
+          </dl>
+        </p>
+      </statement>
+    </theorem>
+    <theorem xml:id='LC-Product'>
+        <title>Limit of a Product (LC:Prod)</title>
+        <statement>
+          <p>
+            <dl>
+              <li>
+                <title>Hypothesis</title>
+                <p><m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m>.</p>
+              </li>
+              <li>
+                <title>Conclusion</title>
+                <p><m>\displaystyle \lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M</m>.</p>
+              </li>
+            </dl>
+          </p>
+        </statement>
+    </theorem>
+    <theorem xml:id='LC-Quotient'>
+      <title>Limit of a Quotient (LC:Quot)</title>
+      <statement>
+        <p>
+          <dl>
+            <li>
+              <title>Hypothesis</title>
+              <p><m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>\displaystyle \lim_{x \to a} g(x)=M</m> and <m>M \ne 0</m>.</p>
+            </li>
+            <li>
+              <title>Conclusion</title>
+              <p><m>\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}</m>.</p>
+            </li>
+          </dl>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      In addition to the arithmetic of functions, composition of functions plays an important role in algebra and calculus.
+      So we need a limit rule associated with composition.
+      Recall that for composition, the output of one function becomes the input to another function.
+    </p>
+    <theorem xml:id='LC-Continuous-Composition'>
+      <title>Limit of a Continuous Composition (LC:Comp)</title>
+      <statement>
+        <p>
+          <dl>
+            <li>
+              <title>Hypothesis</title>
+              <p><m>\displaystyle \lim_{x \to a} f(x)=L</m> and <m>g</m> is continuous at <m>L</m>, or in other words, <m>\displaystyle \lim_{u \to L} g(u) = g(L)</m>.</p>
+            </li>
+            <li>
+              <title>Conclusion</title>
+              <p><m>\displaystyle \lim_{x \to a} g \circ f(x) = \lim_{x \to a} g(f(x)) = g(L)</m>.</p>
+            </li>
+          </dl>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      If <m>f</m> is continuous at <m>a</m> so that <m>\displaystyle \lim_{x \to a} f(x) = f(a)</m>
+      then we have <m>\displaystyle \lim_{x \to a} g \circ f(x) = g \circ f(a)</m>.
+      In other words, the composition of continuous functions is a continuous function.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Justifying Limit Calculations</title>
+    <p>
+      There are two ways in which limit rules are applied.
+      One way is to provide formal justification of limit calculations,
+      or in other words, to write a proof of limit statements.
+      The other way limit rules are used is to break a computation down into recognizable and manageable parts.
+      This section focuses on the process of formal justification.
+    </p>
+    <p>
+      A mathematical proof is essentially a sequence of statements,
+      each of which is demonstrably true based only on previously stated knowledge and logical arguments.
+      This means that when writing a proof or any careful justification,
+      we must be careful that when we write something down we have previously established all of the necessary conditions at a previous step.
+      In order to avoid circular reasoning,
+      we should avoid referring to something as true before we actually show it is true.
+    </p>
+    <p>
+      For justification of limit statements,
+      this means that we start from the small building blocks that create our formula
+      and put them together one step at a time
+      until we can justify the limit statement we are trying to prove.
+    </p>
+    <example>
+      <statement>
+        <p>Compute and justify <m>\displaystyle \lim_{x \to 2} 3x^2(2x-5)</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          Start by planning ahead.
+          The formula <m>3x^2(2x-5)</m> is a product of <m>3x^2</m> and <m>2x-5</m>.
+          This second factor <m>2x-5</m> is a linear function so there is a limit rule for that piece.
+          But <m>3x^2</m> is not linear, and we recognize it as a product of <m>3</m> (a constant) and <m>x^2</m>.
+          Finally, we see that <m>x^2=x \cdot x</m> is the product of the identity with itself.
+          We will start with the elementary formulas and build them back up to the full function.
+        </p>
+        <p>
+          <ol>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 2} x = 2</m> by LE:Ident.</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 2} x \cdot x = 2 \cdot 2 = 4</m> by LC:Prod using limits of <m>f(x)=x</m> (step 1) and <m>g(x)=x</m> (step 1).</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 2} 3x^2 = 3 \cdot 4= 12</m> by LC:CM using constant <m>k=3</m> and limit of <m>f(x)=x^2</m> (step 2).</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 2} 2x-5 = 2(2)-5 = -1</m> by LE:Line (<m>m=2</m>, <m>b=-5</m>).</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 2} 3x^2(2x-5) = 12(-1) = -12</m> by LC:Prod using the limits found in step 3 and step 4.</p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>Compute and justify <m>\displaystyle \lim_{x \to 3} x^3+4x^2-3x+1</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          It is important to note that limit rules of combination only combine two formulas at a time.
+          In this calculation, we will need the limit of <m>x^3</m>.
+          Writing this as <m>x^3=x\cdot x\cdot x</m> is not going to be as useful as writing <m>x^3=x \cdot x^2</m>
+          because there are no rules to combine three limits at once.
+          In addition, subtraction is always problematic,
+          so it is best to rewrite subtraction as a sum,
+          <me>x^3+4x^2-3x+1 = x^3 + 4x^2 + -3x+1.</me>
+        </p>
+        <p>
+          <ol>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 3} x = 3</m> by LE:Ident.</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 3} x \cdot x = 3 \cdot 3 = 9</m> by LC:Prod using the limits in step 1 (twice).</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 3} x \cdot x^2 = 3(9) = 27</m> by LC:Prod using the limits in step 1 and step 2.</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 3} 4x^2 = 4(9) = 36</m> by LC:CM using <m>k=4</m> and the limit in step 2.</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 3} -3x+1 = -3(3)+1 = -8</m> by LE:Line (<m>m=-3</m>, <m>b=1</m>).</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 3} x^3+4x^2 = 27 + 36 = 63</m> by LC:Sum using limits in step 3 and step 4.</p>
+            </li>
+            <li>
+              <p><m>\displaystyle \lim_{x \to 3} x^3+4x^2+-3x+1 = 63 + -8</m> by LC:Sum using limits in step 6 and step 5.</p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Because most expressions that we work with are defined strictly
+      in terms of the basic arithmetic operations and elementary functions,
+      the limit rules we have developed essentially allow us to replace
+      the independent variable in the formula <m>f(x)</m> with the limiting point <m>x \to c</m>.
+      That is, whenever the expression involves basic arithmetic operations
+      (addition, subtraction, multiplication, and division),
+      we know that we <em>could</em> apply the limit rules step-by-step to justify
+      <me>\lim_{x \to c} f(x) = f(c)</me>.
+      The exception is that our rule for quotients does not allow division by zero.
+    </p>
+    <theorem xml:id="theorem-algebraic-limit-by-substitution">
+      <statement>
+        <p>
+          If <m>f(x)</m> is an algebraic expression that involves only arithmetic operations,
+          then <m>\displaystyle \lim_{x \to c} f(x) = f(c)</m> so long as <m>f(c)</m> is defined.
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          Determine <m>\displaystyle \lim_{x \to 2} \frac{2x+3}{x^2-5}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          At first glance, we might worry that the theorem does not apply
+          because <m>x^2</m> is a power and not an arithmetic operation.
+          However, because <m>x^2 = x \cdot x</m> is a product,
+          we have a function <m>f(x) = \displaystyle \frac{2x+3}{x \cdot x-5}</m>
+          defined in terms of arithmetic operations.
+          We evaluate <m>f(2)</m>:
+          <me>f(2) = \frac{2(2)+3}{2^2-5} = -7.</me>
+          Consequently, by <xref ref="theorem-algebraic-limit-by-substitution" />,
+          we have
+          <me>\lim_{x \to 2} \frac{2x+3}{x^2-5} = -7.</me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      We will learn in the next section how to deal with expressions where the value is not defined.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+    <ul>
+      <li>
+        The limit of a function <m>\displaystyle \lim_{x \to c} f(x)</m>
+        represents the value <m>L</m> that is the limit of the dependent
+        sequence <m>f(x_n)</m>
+        for <em>every</em> independent sequence <m>(x_n)</m>
+        that satisfies <m>x_n \ne c</m> and <m>x_n \to c</m>.
+        One-sided limits add the constraint that the sequence must
+        stay below <m>c</m> (<m>x \to c^-</m>)
+        or above <m>c</m> (<m>x \to c^+</m>).
+      </li>
+      <li>
+        Numerically, a function limit
+        <m>\displaystyle \lim_{x \to c} f(x)</m>
+        can be approximated by testing the value of the function for
+        values of the independent variable following a sequence
+        <m>x \to c</m>.
+      </li>
+      <li>
+        Graphically, a function limit
+        <m>\displaystyle \lim_{x \to c} f(x)</m>
+        corresponds to the <m>y</m>-value of the point in the plane
+        that the sequence of points <m>(x_n, f(x_n))</m> approaches
+        from the left and from the right as <m>x_n \to c</m>.
+        If the two branches (left vs right) approach different points,
+        the two-sided limit does not exist.
+      </li>
+      <li>
+        Limit rules associated with all of the arithmetic operations
+        justify applying the same operations with limits.
+      </li>
+      <li>
+        An argument justifying limits using limit rules must demonstrate that the component limits are known
+        prior to combining them with a limit rule.
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Use appropriate tables to approximate the following
+          function limits. For a two-sided limit, be sure that your work
+          verifies that both sides approximate the same value
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \lim_{x \to 3^-} \frac{2^x-8}{x-3}</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \lim_{x \to 3^+} \frac{2^x-8}{x-3}</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \lim_{x \to 2} \frac{x^2-4}{2^x-4}</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle \lim_{x \to 1} \frac{x^2-1}{|x-1|}</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Consider the function <m>f</m> whose graph is shown below.
+          Find the following values, if they exist, based on the graph and
+          assuming the coordinates of shown points are integers.
+        </p>
+        <sidebyside width="60%">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xmin=-5,xmax=5,
+                ymin=-5,ymax=5,
+                xlabel={$x$},
+                ylabel={$y=f(x)$},
+              ]
+
+              \addplot[red, domain=-5:-2, thick, samples=2]
+                ({x}, {2});
+              \addplot[red, domain=-2:2, thick, samples=100]
+                ({x}, {-x});
+              \addplot[red, domain=2:5, thick, samples=100]
+                ({x}, {(x-3)^2)});
+              \addplot[mark=*, red, fill=white] coordinates {(-2,2)};
+              \addplot[mark=*, red, fill] coordinates {(-2,3)};
+              \addplot[mark=*, red, fill] coordinates {(2,-2)};
+              \addplot[mark=*, red, fill=white] coordinates {(2,1)};
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <ol>
+              <li><m>f(-2)</m></li>
+              <li><m>\displaystyle \lim_{x \to -2^-} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to -2^+} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to -2} f(x)</m></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <ol>
+              <li><m>f(0)</m></li>
+              <li><m>\displaystyle \lim_{x \to 0^-} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to 0^+} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to 0} f(x)</m></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <ol>
+              <li><m>f(2)</m></li>
+              <li><m>\displaystyle \lim_{x \to 2^-} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to 2^+} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to 2} f(x)</m></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Consider the function <m>f</m> whose graph is shown below.
+          Find the following values, if they exist, based on the graph and
+          assuming the coordinates of shown points are integers.
+        </p>
+        <sidebyside width="60%">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xmin=-5,xmax=5,
+                ymin=-5,ymax=5,
+                xlabel={$x$},
+                ylabel={$y=f(x)$},
+              ]
+
+              \addplot[red, domain=-5:-2, thick, samples=2]
+                ({x}, {abs(x+4)});
+              \addplot[red, domain=-2:2, thick, samples=100]
+                ({x}, {2-abs(x)});
+              \addplot[red, domain=2:5, thick, samples=100]
+                ({x}, {abs(x-4))});
+              \addplot[mark=*, red, fill=white] coordinates {(-2,2)};
+              \addplot[mark=*, red, fill=white] coordinates {(-2,0)};
+              \addplot[mark=*, red, fill] coordinates {(2,2)};
+              \addplot[mark=*, red, fill=white] coordinates {(2,0)};
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <ol>
+              <li><m>f(-2)</m></li>
+              <li><m>\displaystyle \lim_{x \to -2^-} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to -2^+} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to -2} f(x)</m></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <ol>
+              <li><m>f(1)</m></li>
+              <li><m>\displaystyle \lim_{x \to 1^-} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to 1^+} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to 1} f(x)</m></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <ol>
+              <li><m>f(2)</m></li>
+              <li><m>\displaystyle \lim_{x \to 2^-} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to 2^+} f(x)</m></li>
+              <li><m>\displaystyle \lim_{x \to 2} f(x)</m></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Compute and justify the value of each limit applying the limit rules for functions step-by-step.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to -3} \frac{4x+1}{2x+3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 2} 3x^2 -4x + 5</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 4} \frac{5x^2}{2x(3x-1)}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
+</section>
