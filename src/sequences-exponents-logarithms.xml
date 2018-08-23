@@ -6,13 +6,13 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2017  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="sequences-exponents-logarithms">
   <title>Exponents, Inverses and Logarithms</title>
 
   <introduction>
     <title>Overview</title>
-    
+
     <p>
       We saw that geometric sequences involved powers of the common ratio.
       Powers play a very important role in many mathematical models.
@@ -32,7 +32,7 @@
       We learn to use inverse functions to answer questions associated with reverse maps in sequences.
     </p>
   </introduction>
-  
+
   <subsection>
     <title>Properties of Exponents</title>
     <p>
@@ -98,7 +98,7 @@
     </assemblage>
     <p>
       We illustrate several of the properties in the context of integer powers.
-      For integer exponents, a power means repeated multiplication 
+      For integer exponents, a power means repeated multiplication
       (similar to how multiplication by an integer means repeated addition).
       So <m>b^3 = b \cdot b \cdot b</m>.
       The product properties are just about counting.
@@ -110,7 +110,7 @@
           <mrow>b^3 \cdot b^2 = (bbb) \cdot (bb) = b^5 = b^{3+2}</mrow>
           <mrow>(b^2)^3 = (bb)(bb)(bb) = b^{2 \cdot 3}</mrow>
           <mrow>(ab)^3 = (ab)(ab)(ab) = (aaa)(bbb) = a^3 b^3</mrow>
-        </md> 
+        </md>
         </p>
       </statement>
     </example>
@@ -142,11 +142,11 @@
     <example>
       <p>
         To illustrate that <m>(a+b)^2 \ne a^2+b^2</m>, consider the numbers <m>a=2</m> and <m>b=3</m>.
-        The first expression gives <me>(a+b)^2 = (2+3)^2 = 5^2 = 25</me> 
-        while the second expression gives <me>a^2+b^2=2^2+3^2=4+9=13.</me> 
-        The proper way to expand the first expression is to think of the power 
+        The first expression gives <me>(a+b)^2 = (2+3)^2 = 5^2 = 25</me>
+        while the second expression gives <me>a^2+b^2=2^2+3^2=4+9=13.</me>
+        The proper way to expand the first expression is to think of the power
         as repeated multiplication and apply the distributive property.
-        This is often called the <c>FOIL</c> method: 
+        This is often called the <c>FOIL</c> method:
         <me>(a+b)^2=(a+b)(a+b)=a^2+2ab+b^2</me>.
       </p>
     </example>
@@ -425,8 +425,8 @@
       </statement>
     </definition>
     <p>
-      For even values <m>n</m> and <m>x \gt 0</m>, the equation <m>y^n=x</m> has two solutions, 
-      <m>y = \pm \sqrt[n]{x}</m>, 
+      For even values <m>n</m> and <m>x \gt 0</m>, the equation <m>y^n=x</m> has two solutions,
+      <m>y = \pm \sqrt[n]{x}</m>,
       because multiplying an even number of negative values is positive, <m>(-1)^n=1</m>.
       There are no real solutions to <m>y^n=x</m> when <m>x \lt 0</m> for an even power <m>n</m>.
     </p>
@@ -435,17 +435,17 @@
       The properties of exponents imply that <m>(x^p)^n = x^{pn}</m>.
       If <m>p=\frac{1}{n}</m>, then <m>(x^{\frac{1}{n}})^n = x</m>.
       That is, <m>x^{\frac{1}{n}} = \sqrt[n]{x}</m>.
-      This equivalence means that for any rational number <m>p=\frac{k}{n}</m>, 
-      the power <m>x^p</m> can be computed using integer powers (repeated multiplication) and extracting roots: 
+      This equivalence means that for any rational number <m>p=\frac{k}{n}</m>,
+      the power <m>x^p</m> can be computed using integer powers (repeated multiplication) and extracting roots:
       <me>x^{\frac{k}{n}} = (\sqrt[n]{x})^k</me>.
     </p>
     <definition xml:id="logarithm-function">
       <statement>
         <p>
-        For any base <m>b</m> with <m>b \gt 0</m> and <m>b \ne 1</m>, 
-        the elementary exponential <m>\exp_b(x)=b^x</m> has an inverse function, <m>\log_b(x)</m>, 
+        For any base <m>b</m> with <m>b \gt 0</m> and <m>b \ne 1</m>,
+        the elementary exponential <m>\exp_b(x)=b^x</m> has an inverse function, <m>\log_b(x)</m>,
         which is called the logarithm of base <m>b</m>.
-        The value <m>y=\log_b(x)</m> is defined for <m>x \gt 0</m> as that value <m>y</m> 
+        The value <m>y=\log_b(x)</m> is defined for <m>x \gt 0</m> as that value <m>y</m>
         such that <m>b^y = x</m>.
         </p>
       </statement>
@@ -489,8 +489,8 @@
           <mrow>x^4=4</mrow>
           <mrow>\sqrt[4]{x^4} = \sqrt[4]{4}</mrow>
           <mrow>x = \pm \sqrt[4]{4}</mrow>
-        </md> 
-        Because <m>4=2^2</m>, we could rewrite this as 
+        </md>
+        Because <m>4=2^2</m>, we could rewrite this as
         <me>x = \pm(2^2)^{\frac{1}{4}} = \pm 2^{\frac{2}{4}} = \pm 2^{\frac{1}{2}} = \pm \sqrt{2}</me>.
         </p>
       </solution>
@@ -505,12 +505,12 @@
         <p>
         The equation <m>\log_3(x)=2</m> has an isolated logarithm.
         The inverse operation is an exponential with the same base <m>b=3</m>.
-        An equivalent equation is formed by applying this exponential to both sides of the equation. 
+        An equivalent equation is formed by applying this exponential to both sides of the equation.
         <md>
           <mrow>\log_3(x)=2</mrow>
           <mrow>\exp_3(\log_3(x)) = \exp_3(2) = 3^2</mrow>
           <mrow>x = 9</mrow>
-        </md> 
+        </md>
         This is saying that the equation <m>\log_3(9)=2</m> is equivalent to <m>3^2=9</m>.
         </p>
       </solution>
@@ -540,8 +540,8 @@
       and appears on a calculator with out a base <c>log</c>.
       The logarithm for <m>b=e</m> is called the natural logarithm
       and appears on a calculator as <c>ln</c>.
-      We will later prove that every logarithm can be found using one of these 
-      by the <xref text="title" ref="logarithm-change-base">change of base formula</xref> 
+      We will later prove that every logarithm can be found using one of these
+      by the <xref text="title" ref="logarithm-change-base">change of base formula</xref>
       <me> \log_b(x) = \frac{\log(x)}{\log(b)} = \frac{\ln(x)}{\ln(b)}</me>.
     </p>
   </subsection>
@@ -549,7 +549,7 @@
     <title>Inverse Questions for Sequences</title>
     <p>
       In our discussions about sequences, we introduced two maps.
-      The first was in relation to an explicit definition of a sequence, 
+      The first was in relation to an explicit definition of a sequence,
       where we mapped from the index to the sequence value, <m>n \mapsto x_n</m>.
       The second was in relation to a recursive definition of a sequence by a projection function, <m>x_{n-1} \mapsto x_{n}</m>.
       The inverse map for these functions can help answer interesting questions for sequences.
@@ -645,81 +645,6 @@
           The exact value from our model is <m>P_{-2} \approx 2333\frac{1}{3}</m>.
           Even though a population has integer values and this prediction is definitely not an integer,
           we would report our model value unless we had information on how many significant digits to keep.
-        </p>
-      </solution>
-    </example>
-    <example>
-      <statement>
-        <p>
-          A chemical reaction is tracked with concentrations measured every five minutes.
-          The concentration of one reactant is predicted to follow an exponential decay.
-          Let <m>R</m> be the concentration of that reactant in moles per liter as a function of time <m>t</m> in minutes.
-          When <m>t=0</m>, the concentration was <m>R=2.5</m>.
-          When <m>t=5</m>, the concentration was <m>R=2.1</m>.
-          At what time will the concentration be <m>R=1.0</m>?
-        </p>
-      </statement>
-      <solution>
-        <p>
-          This question is a bit more challenging as it will involve several stages.
-          We begin by looking at the question.
-          We want to find the time <m>t</m> knowing the concentration <m>R</m>.
-          That is, we would like to apply a map <m>R \mapsto t</m> which would be the inverse of <m>t \mapsto R</m>.
-          To find our answer, we will first need to write <m>R</m> as a dependent variable with <m>t</m> as the independent variable.
-        </p>
-        <p>
-          Next, we look at the given information to see what it says about the relation <m>f: t \mapsto R</m>.
-          Because the problem states that the reactant follows exponential decay,
-          we interpret this as telling us that <m>R = f(t)</m> is an exponential function.
-          The general exponential function has the form
-          <me>f(t) = A \cdot b^{t}</me>
-          where <m>A</m> and <m>b</m> are the model parameters (constants).
-        </p>
-        <p>
-          We use the given information to determine the values of <m>A</m> and <m>b</m>.
-          Each state will give us an equation that can be used to constrain the values of the parameters.
-          The state <m>(t,R) = (0,2.5)</m> corresponds to the equation <m>f(0) = 2.5</m>.
-          The exponential function applied to this equation gives
-          <me>f(0) = A \cdot b^0 = A \qquad \Rightarrow \qquad A = 2.5</me>.
-          The state <m>(t,R) = (5,2.1)</m> corresponds to the equation <m>f(5)=2.1</m>,
-          which gives an equation
-          <me>f(5) = A \cdot b^5 \qquad \Rightarrow \qquad A \cdot b^5 = 2.1</me>.
-          Substituting <m>A=2.5</m> into the second equation, we can then solve for <m>b</m>.
-          <md>
-            <mrow>2.5 \cdot b^5 = 2.1</mrow>
-            <mrow>b^5 = \frac{2.1}{2.5} = 0.84</mrow>
-          </md>
-          The inverse operation of a power <m>p=5</m> is a fifth-root or a power <m>p=\frac{1}{5}</m>.
-          <me>b = \sqrt[5]{0.84} = 0.84^{1/5} \approx 0.96573</me>
-          We will use the exact value.
-        </p>
-        <p>
-          Knowing <m>A=2.5</m> and <m>b = 0.84^{1/5}</m>, we have our function <m>f : t \mapsto R</m>,
-          <me>R = f(t) = 2.5 \cdot (0.84^{1/5})^{t} = 2.5 \cdot 0.84^{t/5}.</me>
-          The inverse function <m>f^{-1} : R \mapsto t</m> can be used to take a concentration and report back a time.
-          We need to solve the equation for <m>t</m> as the dependent variable.
-          When choosing what operation to apply an inverse, we first need to isolate the exponential.
-          <md>
-            <mrow>R = 2.5 \cdot 0.84^{t/5}</mrow>
-            <mrow>\frac{R}{2.5} = 0.84^{t/5}</mrow>
-          </md>
-          We now have an exponential with base <m>b=0.84</m> on the right.
-          The balanced inverse operation would be to use a logarithm with <m>b=0.84</m> on both sides.
-          <md>
-            <mrow>\log_{0.84}(\frac{R}{2.5}) = \frac{t}{5}</mrow>
-            <mrow>5 \log_{0.84}(\frac{R}{2.5}) = t</mrow>
-          </md>
-          We finish by using the change of base formula for logarithms:
-          <me>t = 5 \cdot \frac{\log(R/2.5)}{\log(0.84)}</me>.
-        </p>
-        <p>
-          To answer the question, we use the inverse relation with <m>R=1.0</m> and compute <m>t</m>.
-          <md>
-            <mrow>t &amp;= 5 \cdot \frac{\log(1.0/2.5)}{\log(0.84)}</mrow>
-            <mrow>&amp;= 5 \cdot \frac{\log(0.4)}{\log(0.84)}</mrow>
-            <mrow>&amp;\approx 26.277</mrow>
-          </md>
-          The concentration will be <m>R=1.0</m> approximately 26.277 minutes after the experiment begins.
         </p>
       </solution>
     </example>
@@ -940,6 +865,51 @@
       </introduction>
       <exercise>
         <statement>
+          <p><m>x^7 = 4</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>3x^3=8</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\sqrt[4]{x} = 3</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>3 \sqrt[3]{2x} = 4</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>5^x=10</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>3^{2x}=4</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\log_4(x)=2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\log_3(2x)=9</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>4 \log_5(x)= 15</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
           <p><m>3x^2 - x^6 = 0</m></p>
         </statement>
       </exercise>
@@ -996,41 +966,6 @@
                 What does this calculation represent?
               </li>
             </ol>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          Find an exponential model <m>y=A \cdot b^x</m> satisfying the states <m>(x,y)=(0,3)</m> and <m>(x,y)=(5,9)</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          Find an exponential model <m>y=A \cdot b^x</m> satisfying the states <m>(x,y)=(1,3)</m> and <m>(x,y)=(4,6)</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          Radioactive masses decay according to an exponential function of time.
-          The isotope of plutonium Pu-239 has a half-life of 24,110 years,
-          which is the time after which half of the mass has decayed.
-          For an initial mass of 1 kg, how much plutonium remains after 100 years? 
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          An exponentially growing population that doubles in size every 5 years currently has 1000 individuals.
-          <ol>
-            <li>What will the population be in 4 years?</li>
-            <li>How long does it take for the population to triple?</li>
-          </ol>
           </p>
         </statement>
       </exercise>

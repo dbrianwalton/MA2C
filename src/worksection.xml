@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./sequences-limits.xml" />
+            <xi:include href="./functions-construction.xml" />
 		</chapter>
 		
     </book>

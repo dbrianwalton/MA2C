@@ -82,7 +82,7 @@
       we call this map or function the <term>projection function</term> because it allows us to <em>project</em> future values based on current values.
     </p>
   </subsection>
-  <subsection>
+  <subsection xml:id="subsection-functions-as-maps">
       <title>Functions as Maps</title>
       <p>
         Before we discuss more about projection functions,

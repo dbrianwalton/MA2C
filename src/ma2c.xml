@@ -49,6 +49,7 @@
       <title>Functions as Continuous Models</title>
       <xi:include href="./functions-introduction.xml" />            
       <xi:include href="./functions-construction.xml" />            
+      <xi:include href="./functions-and-intervals.xml" />            
       <xi:include href="./functions-piecewise.xml" />            
       <xi:include href="./functions-behavior.xml" />            
       <xi:include href="./functions-transformation.xml" />            
