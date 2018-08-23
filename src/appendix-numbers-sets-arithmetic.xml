@@ -99,7 +99,7 @@
 
     </subsection>
 
-    <subsection xml:id="appendix-sets-intervals">>
+    <subsection xml:id="appendix-sets-intervals">
         <title>Sets and Intervals</title>
         
         <p>A <term>set</term> is a mathematical collection of objects. The objects that are in the set are called <term>elements</term> of the set. Set notation uses curly braces <m>\{</m> and <m>\}</m> with a description of the elements that belong to the set. When the set has a finite number of elements, we can just list them between the braces. Like other mathematical objects, we can use symbols to represent the set in the same way that variables can be represented by symbols.</p>
