@@ -309,6 +309,15 @@ createMap = function(jcf, idName)
             color:'black',
         }
     );
+    if (jcf.input.fix != undefined) {
+      for (var i in jcf.input.fix) {
+        var x = jcf.input.fix[i];
+        var y = jcf.f(x);
+        jcf.b.create('arrow', 
+                    [[getCoord(x, jcf.input),2],[getCoord(y,jcf.output),0]],
+                    {dash:2});
+      }
+    }
 }
 
 createMapMulti = function(jcf, idName)
