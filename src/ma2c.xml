@@ -51,6 +51,7 @@
       <xi:include href="./functions-construction.xml" />
       <xi:include href="./functions-and-intervals.xml" />
       <xi:include href="./functions-limits.xml" />
+      <xi:include href="./functions-continuity.xml" />
       <xi:include href="./functions-behavior.xml" />
       <xi:include href="./functions-transformation.xml" />
     </chapter>
@@ -71,9 +72,7 @@
 
     <chapter>
       <title>Limits and Continuity of Functions</title>
-      <xi:include href="./continuity_intro.xml" />
       <xi:include href="./limits-with-infinity.xml" />
-      <xi:include href="./limit_rules.xml" />
       <xi:include href="./continuous-functions.xml" />
     </chapter>
 

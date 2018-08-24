@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="functions-continuity">
+  <title>Continuity of Functions</title>
+  <subsection>
+    <title>Overview</title>
+    <p>
+      The elementary limit rules for functions tell us that
+      the limit of an algebraic expression made from arithmetic operations
+      will equal the value of the expression at the point in question, if that value exists.
+      So why bother introducing limits at all if they are the same as function evaluation?
+    </p>
+    <p>
+      The fact of the matter is, they aren't the same thing at all.
+      Recall that for piecewise functions, we can use limits to find the limiting value
+      of a function to the left and to the right of a break point.
+      Function evaluation would only allow us to look at the point itself.
+      Having a function value agree with the limits is a characteristic of a function being continuous.
+      A value for <m>x</m> where a function is not defined is an example of a discontinuity.
+    </p>
+    <p>
+      In this section, we consider the continuity of functions.
+      We learn about removable and infinite discontinuities,
+      which correspond to holes and vertical asymptotes in a graph.
+      We learn to compute limits of functions at these discontinuities
+      by looking at simplified, factored expressions.
+      Sign analysis is used for infinite discontinuities to determine
+      whether the discontinuity corresponds to unbounded positive or negative values.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Removable and Infinite Discontinuities</title>
+    <p>
+      The intuitive idea of a continuous function is a function whose graph is connected.
+      Sometimes, this is thought of as being able to draw the graph without lifting the pen.
+      The technical <xref text="title" ref="defn-continuity-at-point">definition of a continuity at a point</xref>,
+      say at <m>x=c</m>, involves three parts.
+      First, the limit on the left exists.
+      This means that we can trace the graph on a branch with <m>x \lt c</m>.
+      Second, the limit on the right exists.
+      This means that we also can trace the graph on a branch with <m>x \gt c</m>.
+      Third, both limits are equal to <m>f(c)</m>.
+      This gives us the connection from the left branch to the right branch through the point.
+    </p>
+    <p>
+      Any time a function has a break, it has a discontinuity at that location.
+      A break can be a simple hole, a jump between values, or an infinite discontinuity associated with a vertical asymptote.
+      Discontinuities might also occur due to limits themselves not existing for any reason.
+    </p>
+    <p>
+      Consider two functions, <m>\displaystyle f(x) = \frac{1}{(x-3)(x+2)}</m>
+      and <m>\displaystyle g(x) = \frac{x^2-4x+3}{x-3}</m>.
+      In both functions, the value of the function is not defined at <m>x=3</m>;
+      <m>f</m> and <m>g</m> are both <term>discontinuous</term> at <m>x=3</m>.
+      Consequently, the corresponding limits <m>\displaystyle \lim_{x \to 3} f(x)</m>
+      and <m>\displaystyle \lim_{x \to 3} g(x)</m> can not be computed directly using the limit rules for functions.
+    </p>
+    <p>
+      If we look at the graphs of our functions, as shown below,
+      we see that there is something fundamentally different about the behavior around <m>x=3</m>.
+      The function <m>\displaystyle f(x) = \frac{1}{(x-3)(x+2)}</m> appears to have a vertical asymptote at <m>x=3</m>.
+      The function <m>\displaystyle g(x) = \frac{x^2-4x+3}{x-3}</m> looks continuous, even though we know it has a break at <m>x=3</m>.
+    </p>
+    <sidebyside widths="45% 45%">
+      <figure>
+        <caption><m>\displaystyle y=\frac{1}{(x-3)(x+2)}</m></caption>
+        <image>
+          <description>Graph of y=1/((x-3)(x+2)).</description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-5,xmax=5,
+              ymin=-10,ymax=10,
+              xlabel={$x$},
+              ylabel={$y=f(x)$},
+            ]
+            \addplot[blue, domain=-5:-2.01, thick, samples=100]
+              ({x}, {1/(x-3)/(x+2)});
+            \addplot[blue, domain=-1.99:2.99, thick, samples=100]
+              ({x}, {1/(x-3)/(x+2)});
+            \addplot[blue, domain=3.01:5, thick, samples=100]
+              ({x}, {1/(x-3)/(x+2)});
+            \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <figure>
+        <caption><m>\displaystyle y=\frac{x^2-4x+3}{x-3}</m></caption>
+        <image>
+          <description>Graph of y=(x^2-4x+3)/(x-3).</description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-5,xmax=5,
+              ymin=-10,ymax=10,
+              xlabel={$x$},
+              ylabel={$y=g(x)$},
+            ]
+
+            \addplot[blue, domain=-5:2.98, thick, samples=100]
+              ({x}, {x-1});
+            \addplot[blue, domain=3.02:5, thick, samples=100]
+              ({x}, {x-1});
+            \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+    </sidebyside>
+    <p>
+      If we factor the formula for <m>g(x)</m>, we discover that the formula simplifies.
+      <md>
+        <mrow>g(x) &amp;= \frac{x^2-4x+3}{x-3}</mrow>
+        <mrow> &amp;=\frac{(x-3)(x-1)}{x-3}</mrow>
+        <mrow> &amp;= x-1, \quad x \ne 3 </mrow>
+      </md>
+      Notice that we must include a domain restriction when we simplify.
+      The original function is not defined for <m>x=3</m>, but the simplified version is.
+      To ensure the functions are the same, they must have the same domain.
+      Because <m>x-1</m> is <em>continuous</em> at <m>x=3</m>,
+      <m>g(x)</m> has a <term>hole</term> at <m>x=3</m>
+      and we call this a <term>removable discontinuity</term>.
+      A vertical asymptote at a point corresponds to a <term>infinite discontinuity</term>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The function <m>\displaystyle f(x) = \frac{3x^2-x-2}{x-1}</m>
+          has a removable discontinuity at <m>x=1</m>.
+          What is the continuous function equivalent to <m>f(x)</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A polynomial, like <m>3x^2-x-2</m>, will have a factor of <m>x-1</m>
+          if and only if that polynomial has a value of 0 when <m>x=1</m>.
+          So we can see if it will cancel a factor by checking <m>3(1)^2-(1)-2 = 0</m>.
+          Knowing this factor, we can soon find <m>3x^2-x-2 = (x-1)(3x+2)</m>.
+          For all <m>x \ne 1</m>, we have
+          <me> f(x) = \frac{3x^2-x-2}{x-1} = \frac{(x-1)(3x+2)}{x-1} = 3x+2. </me>
+          We can only say this for <m>x \ne 1</m> since the domain of <m>f</m> is
+          <m>(-\infty,1) \cup (1,\infty)</m>.
+          That is, <me> f(x) = 3x+2, \quad x \ne 1. </me>
+          Our function <m>f(x)</m> has the same graph as <m>y=3x+2</m> except it has a hole at <m>x=1</m>.
+        </p>
+        <sidebyside width="60%">
+          <image>
+            <description>Graph of y=3x+2 with a hole at x=1.</description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xmin=-5,xmax=5,
+                xlabel={$x$},
+                ylabel={$y=f(x)$},
+              ]
+
+              \addplot[red, domain=-5:5, thick, samples=100]
+                ({x}, {3*x+2});
+              \addplot[mark=*, red, fill=white] coordinates {(1,5)};
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    <p>
+      The previous example illustrates a basic feature of <term>rational functions</term>
+      (i.e., a ratio or quotient of two polynomials).
+      That is that there will be a canceling factor if the numerator and denominator have a common zero.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          A rational function <m>\displaystyle f(x) = \frac{p(x)}{q(x)}</m>
+          where <m>p</m> and <m>q</m> are polynomial functions has a domain defined by
+          <me> D = \{ x : q(x)\ne 0 \}.</me>
+          Further, <m>p</m> and <m>q</m> will have canceling common factors of the form <m>(x-a)</m>
+          where <m>a</m> is a constant if and only if <m>p(a)=0</m> and <m>q(a)=0</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      For rational functions, the only possible discontinuities are holes and infinite discontinuities at vertical asymptotes.
+      Holes correspond to points that are not in the domain but can be removed by canceling common factors.
+      Any other points of discontinuity must be vertical asymptotes.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Describe the discontinuities of the function
+          <me>f(x) = \frac{x^3-5x^2+6x}{x^2+x-6}.</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The discontinuities are determined for a rational function by finding the zeros of the polynomial in the denominator, <m>q(x)=x^2+x-6</m>.
+          We solve this by factoring: <me> q(x) = (x+3)(x-2). </me>
+          There are discontinuities (breaks in the graph) at <m>x=-3</m> and at <m>x=2</m>.
+        </p>
+        <p>
+          We determine the type of discontinuity by seeing if common factors cancel.
+          The numerator <m>p(x)=x^3-5x^2+6x</m> can be tested even before factoring.
+          At <m>x=-3</m>, we have <m>p(-3) = -27-5(9)+6(-3) = -90</m>
+          so that <m>x+3</m> is not going to be a common factor.
+          There must be a vertical asymptote at <m>x=-3</m>.
+          At <m>x=2</m>, we have <m>p(2) = 8-5(4)+6(2) = 0</m>
+          so that there will be a common factor that cancels.
+          <md>
+            <mrow> f(x) &amp;= \frac{x^3-5x^2+6x}{x^2+x-6} </mrow>
+            <mrow> &amp;= \frac{x(x^2-5x+6)}{(x+3)(x-2)} </mrow>
+            <mrow> &amp;= \frac{x(x-2)(x-3)}{(x+3)(x-2)} </mrow>
+            <mrow> &amp;= \frac{x(x-3)}{x+3}, \quad x \ne 2. </mrow>
+          </md>
+          Because the new formula has a natural domain <m>x \ne -3</m>,
+          the discontinuity at <m>x=2</m> was removable.
+          The graph has a hole at <m>x=2</m> and a vertical asymptote at <m>x=-3</m>.
+          (Notice the addition of an explicit domain on the last step when we canceled,
+          corresponding  to the hole.)
+        </p>
+        <sidebyside width="60%">
+          <image>
+            <description>Graph of y=(x^3-5x^2+6x)/(x^2+x-6).</description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xmin=-10,xmax=8,
+                ymin=-50,ymax=50,
+                xlabel={$x$},
+                ylabel={$y$},
+                legend style = {draw=none},
+              ]
+              \addplot[red, domain=-10:-3.1, thick, samples=100]
+                ({x}, {x*(x-3)/(x+3)});
+              \addplot[red, domain=-2.9:8, thick, samples=100, forget plot]
+                ({x}, {x*(x-3)/(x+3)});
+              \addplot[mark=*, red, fill=white, forget plot] coordinates {(2,-0.4)};
+              \draw[dashed] ({axis cs:-3,0}|-{rel axis cs:0,0}) -- ({axis cs:-3,0}|-{rel axis cs:0,1});
+              \legend{$\displaystyle y=\frac{x^3-5x^2+6x}{x^2+x-6}$}
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Limits at Discontinuities</title>
+    <p>
+      The limit rules do not apply when substitution would result in division by zero.
+      These precisely occur at points of discontinuity.
+      Suppose a rational function <m>\displaystyle f(x)=\frac{p(x)}{q(x)}</m> has <m>p(c)=0</m> and <m>q(c)=0</m>.
+      Immediate substitution of <m>x=c</m> into <m>f(x)</m> would result in <m>\frac{0}{0}</m>,
+      which we have earlier identified as an <term>indeterminate limit form</term>.
+      Because <m>p(c)=0</m> and <m>q(c)=0</m>, <m>p(x)</m> and <m>q(x)</m> have a common factor <m>x-c</m>.
+      Cancellation of that factor gives <m>f(x)</m> a simplified form,
+      and we can try again to evaluate the limit.
+    </p>
+    <example>
+      <statement>
+        <p>Evaluate <m>\displaystyle \lim_{x \to 2} \frac{x^2-5x+6}{x^2-4}</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          The formula is defined in terms of elementary arithmetic,
+          so we try to evaluate the expression by substituting <m>x=2</m>.
+          <me>\lim_{x \to 2} \frac{x^2-5x+6}{x^2-4} \overset{?}= \frac{2^2-5(2)+6}{2^2-4}=\frac{0}{0}</me>
+          The limit has an indeterminate form.
+          We can factor <m>x-2</m> from numerator and denominator and rewrite the expression.
+          <md>
+            <mrow>f(x) &amp;= \frac{x^2-5x+6}{x^2-4} </mrow>
+            <mrow> &amp;= \frac{(x-2)(x-3)}{(x-2)(x+2)} </mrow>
+            <mrow> &amp;= \frac{x-3}{x+2}, \quad x \ne 2 </mrow>
+          </md>
+          Limits use the function to the side of the point in question.
+          In this case, <m>f(x)</m> uses the same formula on the left and the right of the discontinuity.
+          Because the new formula is continuous, we can use substitution.
+          <md>
+            <mrow>\lim_{x \to 2} \frac{x^2-5x+6}{x^2-4} &amp;= \lim_{x \to 2} \frac{x-3}{x+2}</mrow>
+            <mrow> &amp;= \frac{2-3}{2+2} = -\frac{1}{4}</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>
+      When a limit has a form <m>\frac{0}{0}</m>, we know to rewrite the formula in a simplified form.
+      For sequences, we learned that if <m>a_n \gt 0</m> and <m>a_n \to 0</m>, then <m>\frac{1}{a_n} \to +\infty</m>.
+      That is, the reciprocal of a small positive number will be a large positive number.
+      The smaller <m>a_n</m> becomes, the larger <m>\frac{1}{a_n}</m> will be.
+      Consequently, a rational function with a limit of the form <m>\frac{L}{0}</m> has a vertical asymptote,
+      and the limit will be unbounded.
+      We use sign analysis to determine if the left- and right-limits are <m>+\infty</m> or <m>-\infty</m>.
+    </p>
+    <example>
+      <statement>
+        <p>Evaluate <m>\displaystyle \lim_{x \to -2} \frac{x^2-5x+6}{x^2-4}</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          In the example above, we already found
+          <me>f(x) = \frac{x^2-5x+6}{x^2-4} = \frac{x-3}{x+2}, \quad x \ne 2</me>.
+          Attempting substitution, we find
+          <me>\lim_{x \to -2} f(x) \overset{?}= \frac{-2-3}{-2+2} = \frac{-5}{0}</me>.
+          This is an undefined expression and indicates that <m>f(x)</m> has an infinite discontinuity.
+        </p>
+        <p>
+          To find the limit as either <m>+\infty</m> or <m>-\infty</m>,
+          we do sign analysis on the simplified formula.
+          The test intervals are separated by the <em>roots</em> and <em>discontinuities</em>.
+          The roots are at solutions to <m>x-3=0</m>;
+          the discontinuities are at solutions to <m>x+2=0</m>.
+          We have a root at <m>x=3</m> and a discontinuity at <m>x=-2</m>,
+          illustrated in the number line shown below.
+        </p>
+        <sidebyside width="75%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.8cm]
+            \draw[<->] (-4.5,0) -- (6.5,0)
+              node[pos=1, below right] {$x$}
+              node[pos=1, above right] {$\frac{x-3}{x+2}$};
+            \draw (-2,-0.1) -- (-2,0.1)
+              node [pos=0, below] {-2}
+              node [pos=1, above] {dc};
+              \draw (3,-0.1) -- (3,0.1)
+                node [pos=0, below] {3}
+                node [pos=1, above] {0};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          For the limit, we need the signs of the function in each interval bordering the point <m>x=-2</m>.
+          The intervals to test are <m>(-\infty,-2)</m> and <m>(-2,3)</m>.
+          <md>
+            <mrow>f(-3) &amp;= \frac{-3-3}{-3+2} = 6</mrow>
+            <mrow>f(-1) &amp;= \frac{-1-3}{-1+2} = -4</mrow>
+          </md>
+          We could update the number line with these signs.
+        </p>
+        <sidebyside width="75%">
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.8cm]
+            \draw[<->] (-4.5,0) -- (6.5,0)
+              node[pos=1, below right] {$x$}
+              node[pos=1, above right] {$\frac{x-3}{x+2}$};
+            \draw (-2,-0.1) -- (-2,0.1)
+              node [pos=0, below] {-2}
+              node [pos=1, above] {dc};
+            \draw (3,-0.1) -- (3,0.1)
+              node [pos=0, below] {3}
+              node [pos=1, above] {0};
+            \node at (-3,0.1) [above] {$+$};
+            \node at (0,0.1) [above] {$-$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          To the left of <m>x=-2</m>, we see that <m>f(x) \gt 0</m> (positive),
+          so a limit from the left at the vertical asymptote must be
+          <me> \lim_{x \to -2^-} \frac{x-3}{x+2} = +\infty</me>.
+          To the right of <m>x=-2</m>, we see that <m>f(x) \lt 0</m> (negative),
+          so a limit from the right at the vertical asymptote must be
+          <me> \lim_{x \to -2+} \frac{x-3}{x+2} = -\infty</me>.
+          On the graph of the function, shown below,
+          we see that the graph is unbounded above (<m>+\infty</m>) to the left of the vertical asymptote
+          and unbounded below (<m>-\infty</m>) to the right of the vertical asymptote.
+        </p>
+        <sidebyside width="60%">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+              \begin{axis}[
+                xmin=-5.5,xmax=5.5,
+                ymin=-9.5,ymax=9.5,
+                xlabel={$x$},
+                ylabel={$y$},
+                legend style={draw=none},
+              ]
+
+              \addplot[red, domain=-6:-2.6, thick, samples=100]
+                ({x}, {x-3)/(x+2)});
+              \addplot[red, domain=-1.6:6, thick, samples=100, forget plot]
+                ({x}, {x-3)/(x+2)});
+              \addplot[mark=*, red, fill=white, forget plot] coordinates {(2,-0.25)};
+              \draw[dashed] ({axis cs:-2,0}|-{rel axis cs:0,0}) -- ({axis cs:-2,0}|-{rel axis cs:0,1});
+              \legend{$\displaystyle y=\frac{x^2-5x+6}{x^2-4}$}
+              \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    <p>
+      Motivated by our example, we are ready for a definition of a removable discontinuity.
+      A removable discontinuity occurs when the graph to the left and to the right of a discontinuity
+      approach the same point, but the function itself is not defined to match.
+    </p>
+    <definition xml:id="definition-removable-discontinuity">
+      <statement>
+        <p>
+          A function <m>f</m> has a <term>removable discontinuity</term> at <m>x=c</m>
+          if <m>\displaystyle \lim_{x \to c} f(x)</m> exists (left- and right-limits have same value)
+          <em>and</em> <m>\displaystyle \lim_{x \to c} f(x) \ne f(c)</m>,
+          either because they are different values or <m>f(c)</m> does not exist.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      An infinite discontinuity occurs at any point where the function has an infinite limit.
+    </p>
+    <definition xml:id="definition-infinite-discontinuity">
+      <statement>
+        <p>
+          A function <m>f</m> has an <term>infinite discontinuity</term> at <m>x=c</m>
+          if one or both of <m>\displaystyle \lim_{x \to c^-} f(x)</m>
+          and <m>\displaystyle \lim_{x \to c^+} f(x)</m> is infinite.
+          The graph <m>y=f(x)</m> has a vertical asymptote <m>x=c</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      A jump discontinuity occurs when the limits on the left and right of a point
+      both exist but have different values.
+      We usually see these with piecewise functions.
+    </p>
+    <definition xml:id="definition-jump-discontinuity">
+      <statement>
+        <p>
+          A function <m>f</m> has an <term>jump discontinuity</term> at <m>x=c</m>
+          if <m>\displaystyle \lim_{x \to c^-} f(x)</m>
+          and <m>\displaystyle \lim_{x \to c^+} f(x)</m> both exist
+          but <m>\displaystyle \lim_{x \to c^-} f(x) \ne \lim_{x \to c^+} f(x)</m>.
+          The graph <m>y=f(x)</m> has a vertical gap between the branches
+          to the left and to the right of <m>x=c</m>.
+        </p>
+      </statement>
+    </definition>
+  </subsection>
+  <subsection>
+    <title>Continuity on Intervals</title>
+    <p>
+      Having discussed the continuity of functions at individual points,
+      we introduce the idea of describing continuity on intervals.
+      We want to be able to say that the graph of the function is connected over an entire interval.
+    </p>
+    <p>
+      Recall that a limit of a function <m>\displaystyle \lim_{x \to c} f(x)</m>
+      is defined in terms of sequences <m>x_n \to c</m> with <m>x_n \ne c</m>.
+      When thinking about continuity on an interval,
+      we also require that the sequences stay in the interval.
+    </p>
+    <p>
+      We begin with open intervals.
+      An open interval <m>(a,b)</m> is the set <m>\{x : a \lt x \lt b\}</m>.
+      Open intervals have the feature that for every value in the set, say <m>c \in (a,b)</m>,
+      there will be a sub-interval <m>(a,c)</m> to the left of the point
+      and another sub-interval <m>(c,b)</m> to the right of the point.
+      In relation to a sequence with <m>x_n \to c</m>, we can deal with left-
+      and right-limits inside the interval.
+    </p>
+    <definition xml:id="definition-continuity-open-interval">
+      <statement>
+        <p>
+          A function <m>f</m> is <term>continuous on the open interval</term> <m>(a,b)</m>
+          if for every <m>c \in (a,b)</m>, <m>f</m> is continuous at <m>x=c</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Closed intervals are a little trickier.
+      A closed interval <m>[a,b] = \{x : a \le x \le b\}</m> includes the end points.
+      For values <m>c</m> strictly between <m>a</m> and <m>b</m>,
+      we know that there are subintervals to the left and the right of <m>c</m>.
+      However, at <m>x=a</m>, the interval only contains points to the right;
+      and at <m>x=b</m>, the interval only contains points to the left.
+      Continuity of a function on a closed interval must take this into account.
+    </p>
+    <definition xml:id="definition-continuity-closed-interval">
+      <statement>
+        <p>
+          A function <m>f</m> is <term>continuous on the closed interval</term> <m>[a,b]</m>
+          if for every <m>c \in (a,b)</m>, <m>f</m> is continuous at <m>x=c</m>
+          and <m>\lim_{x \to a^+} f(x) = f(a)</m> and <m>\lim_{x \to b^-}f(x) = f(b)</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Continuity on an interval including only one end point requires one-sided continuity at that point
+      using a limit that stays inside the interval.
+      All of these definitions can be combined into a single definition.
+    </p>
+    <definition xml:id="definition-continuity-general-interval">
+      <statement>
+        <p>
+          A function <m>f</m> is <term>continuous on an interval</term> <m>I</m>
+          if for every <m>c \in I</m> and every sequence with values <m>x_n \in I</m>,
+          <m>x_n \ne c</m>, and <m>x_n \to c</m>, we have <m>f(x_n) \to f(c)</m>.
+        </p>
+      </statement>
+    </definition>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+    <ul>
+      <li>
+        A function defined by an algebraic formula has discontinuities
+        at every point for which the formula is undefined.
+      </li>
+      <li>
+        A rational function is defined as the quotient of two polynomials.
+        Discontinuities of rational functions only occur at the zeros of the denominator.
+        If the numerator and denominator have a zero at the same location <m>x=c</m>,
+        then <m>x-c</m> is a common factor that can be cancelled.
+      </li>
+      <li>
+        A limit of the form <m>\frac{0}{0}</m> is indeterminate.
+        For rational functions with a limit of this form, we must factor and simplify to continue.
+        If the limit ultimately exists (as a number), the discontinuity is removable
+        and the limit corresponds to having a hole in the graph.
+      </li>
+      <li>
+        A rational function with a limit of the form <m>\frac{L}{0}</m> where <m>L \ne 0</m>
+        has an infinite discontinuity.
+        The graph of such a function has a vertical asymptote.
+        The left- and right-side limits have signs that are based on sign analysis of the function
+        in the intervals to the left and right of the point of interest.
+      </li>
+      <li>
+        A function is continuous on an interval if it continuous at every point in the interval.
+        If an end point is included in the interval,
+        the function must be one-sided continuous from the side contained in the interval.
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Compute each of the following limits.
+          If the limit is infinite, state both left- and right-side limits.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 3} \frac{2x-6}{x-3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 3} \frac{2x}{x-3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 2} \frac{x^2-x-2}{x-2}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to -1} \frac{x-2}{x^2-x-2}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 2} \frac{x^2-2x-8}{x^2-4}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to -2} \frac{x^2-2x-8}{x^2-4}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 4} \frac{x^2-2x-8}{x^2-4}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 0} \frac{3x^2-5x+2}{2x^2-x-1}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to -\frac{1}{2}} \frac{3x^2-5x+2}{2x^2-x-1}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \lim_{x \to 1} \frac{3x^2-5x+2}{2x^2-x-1}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Classify the discontinuities for each function, if any.
+          State the limits at each discontinuity.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = \frac{3}{x^2-5}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = \frac{2x}{x^2+3x}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = \frac{x^3-x}{2x-2}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = \frac{x^3+7x^2+12x}{x^2+3x}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = \begin{cases}
+            3x, &amp; x \lt 1, \\
+            2, &amp; x = 1, \\
+            4-x^2, &amp; x \gt 1.
+            \end{cases}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = \begin{cases}
+              \frac{3}{x-3}, &amp; x \lt 2, \\
+              2x-7, &amp; x \gt 2.
+              \end{cases}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
+</section>

@@ -5,19 +5,19 @@
 	Including XInclude in order to segment the work into multiple chapter files,
 	and perhaps ultimately individual section files.
 -->
-<!DOCTYPE doc> 
+<!DOCTYPE doc>
 
 <mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
 
     <xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
-	
+
     <book xml:id="test-section">
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./functions-construction.xml" />
+            <xi:include href="./functions-continuity.xml" />
 		</chapter>
-		
+
     </book>
 
 </mathbook>
