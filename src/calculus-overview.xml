@@ -29,148 +29,8 @@
   </introduction>
 
   <subsection>
-    <title>Limits</title>
-    <p>
-      For sequences, we introduced the idea of limits as the value the sequence was approaching
-      further and further in that sequence.
-      We saw that the decimal approximations of the sequence values would eventually converge
-      to the decimal approximation of the limiting value.
-      The mathematical definition of the limit was stated in terms of the possibility of
-      eventually waiting long enough in the sequence that the sequence values would approximate the limit value
-      within <em>any</em> desired accuracy of approximation.
-    </p>
-    <p>
-      The only limits of interest in sequences were when the index went to infinity.
-      For functions, in order to <xref ref="defn-limit-intuition">understand continuity</xref>, 
-      we have found that we also need to think about limits 
-      as the independent variable approaches a value from either the left or the right.
-      Sequences can give us a way to think about this possibility.
-    </p>
-    <definition xml:id="definition-limit-by-sequences">
-      <title>Limits of Function</title>
-      <statement>
-        <p>
-          For a function <m>f</m> defined on intervals to the left and right of <m>c</m>,
-          we say <me>\lim_{x \to c} f(x) = L</me> to mean that
-          for <em>every</em> independent sequence <m>x</m> such that <m>x_n \ne c</m> and <m>x_n \to c</m>,
-          the dependent sequence <m>y = \left(f(x_n)\right)_{n=n_0}^{\infty}</m> must have the limit <m>L</m>,
-          <me>\lim_{n \to \infty} f(x_n).</me>
-          One-sided limits add constraints to the independent sequences, with <m>x \to c^+</m> requiring <m>x_n \gt c</m>
-          and <m>x \to c^-</m> requiring <m>x_n \lt c</m>.
-        </p>
-      </statement>
-    </definition>
-    <p>
-      Function limits are properties of the function itself and do not depend on the sequences chosen.
-      If different independent sequences that converge to <m>c</m> result in different limits for the dependent sequence,
-      then the function does not have a limit.
-      The following example illustrates how this new definition relates our earlier concept 
-      of continuity of piecewise functions with the sequence definition of function limits.
-    </p>
-    <example>
-      <statement>
-        <p>
-          A function is defined piecewise as
-          <me>f(x) = \begin{cases}
-          x+2, &amp; x\lt 3, \\
-          4x-x^2, &amp; x \gt 3.
-          \end{cases}</me>
-          Find <m>\displaystyle \lim_{x \to 3^-} f(x)</m>, <m>\displaystyle \lim_{x \to 3^+} f(x)</m>,
-          and <m>\displaystyle \lim_{x \to 3} f(x)</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          The left-sided limit needs to consider an independent sequence <m>x_n \lt 3</m> with <m>x_n \to 3</m>.
-          The following partial table illustrates an example with <m>x_n = 3 - 10^{-n}</m>.
-        </p>
-        <sidebyside margins="auto">
-          <tabular>
-            <row bottom="major">
-              <cell><m>n</m></cell>
-              <cell><m>x_n</m></cell>
-              <cell><m>f(x_n)</m></cell>
-            </row>
-            <row>
-              <cell><m>1</m></cell>
-              <cell><m>2.9</m></cell>
-              <cell><m>f(2.9)=2.9+2=4.9</m></cell>
-            </row>
-            <row>
-              <cell><m>2</m></cell>
-              <cell><m>2.99</m></cell>
-              <cell><m>f(2.99)=2.99+2=4.99</m></cell>
-            </row>
-            <row>
-              <cell><m>3</m></cell>
-              <cell><m>2.999</m></cell>
-              <cell><m>f(2.999)=2.999+2=4.999</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
-        <p>
-          If we compare the values of the dependent sequence <m>f(x_n)</m> 
-          with the value of the formula <m>x+2</m> evaluated at <m>x=3</m>, which is <m>x+2=5</m>,
-          we can see that the dependent sequence is approaching that limit <m>f(x_n) \to 5</m>.
-          We therefore write <me>\lim_{x \to 3^-} f(x) = 5</me>.
-        </p>
-        <p>
-          In a similar way, a right-sided limit requires <m>x_n \gt 3</m> with <m>x_n \to 3</m>,
-          such as the sequence <m>x_n = 3 + 10^{-n}</m>.
-        </p>
-        <sidebyside margins="auto">
-          <tabular>
-            <row bottom="major">
-              <cell><m>n</m></cell>
-              <cell><m>x_n</m></cell>
-              <cell><m>f(x_n)</m></cell>
-            </row>
-            <row>
-              <cell><m>1</m></cell>
-              <cell><m>3.1</m></cell>
-              <cell><m>f(3.1)=4(3.1)-(3.1)^2=2.79</m></cell>
-            </row>
-            <row>
-              <cell><m>2</m></cell>
-              <cell><m>3.01</m></cell>
-              <cell><m>f(3.01)=4(3.01)-(3.01)^2=2.9799</m></cell>
-            </row>
-            <row>
-              <cell><m>3</m></cell>
-              <cell><m>3.001</m></cell>
-              <cell><m>f(3.001)=4(3.001)-(3.001)^2=2.997999</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
-        <p>
-          If we compare the values of the dependent sequence <m>f(x_n)</m> 
-          with the value of the formula <m>4x-x^2</m> evaluated at <m>x=3</m>, which is <m>4x-x^2=3</m>,
-          we can see that the dependent sequence is approaching that limit <m>f(x_n) \to 3</m>.
-          We therefore write <me>\lim_{x \to 3^+} f(x) = 3</me>.
-        </p>
-        <p>
-          The two-sided limit requires only <m>x_n \to 3</m>.
-          The sequence values might be either above or below 3.
-          Above, we found that when the independent variable values are on the left <m>x_n \lt 3</m>,
-          we had <m>f(x_n) \to 5</m>.
-          But when <m>x_n \gt 3</m>, we had <m>f(x_n) \to 3</m>.
-          Because different sequences with <m>x_n \to 3</m> result in different limits for <m>f(x_n)</m>,
-          <me>\lim_{x \to 3} f(x) \text{ does not exist}.</me>
-        </p>
-      </solution>
-    </example>
-
-    <p>
-      While the previous example attempted to connect our simpler understanding of limits
-      with the limits of sequences, the given solution really only illustrated two 
-      out of infinitely many possible independent sequences.
-      We still need a mechanism that will prove that these two intuitive ideas actually agree.
-    </p>
-  </subsection>
-
-  <subsection>
     <title>Derivatives and Integrals</title>
-    
+
     <p>
       For sequences, we learned to think of complementary ideas of accumulation sequences and increments.
       With a sequence <m>x</m>, we had a forward difference
@@ -183,7 +43,7 @@
     <p>
       For functions defined on intervals, there is no meaning to <em>consecutive</em> values of the independent variable.
       Near a point of interest <m>x=c</m>, there are infinitely many other values close to <m>c</m>.
-      Consequently, when measuring the change of a function <m>\Delta f</m>, 
+      Consequently, when measuring the change of a function <m>\Delta f</m>,
       we must also specify the change in the independent variable <m>\Delta x</m>.
       Consider two values for the independent variable, say <m>x=a</m> and <m>x=b</m>,
       and we define <m>\Delta x = b-a</m> and <m>\Delta f = f(b) - f(a)</m>.
@@ -194,7 +54,7 @@
       This limiting rate of change is called the <term>instantaneous rate of change</term>
       and in calculus is named the <term>derivative</term>.
     </p>
-    <definition xml:id="defn-instantaneous-rate-of-change">
+    <definition xml:id="defn-instantaneous-rate-of-change-overview">
       <title>Instantaneous Rate of Change</title>
       <statement>
       <p>
@@ -208,23 +68,23 @@
       </statement>
     </definition>
     <p>
-      The following example illustrates the role of the instantaneous rate of change 
+      The following example illustrates the role of the instantaneous rate of change
       to relate the increments of the independent variable with the increments of the dependent variable.
     </p>
     <example>
       <statement>
         <p>
-          A ball dropped from a tower has a height <m>h</m> (measured in feet) modeled 
+          A ball dropped from a tower has a height <m>h</m> (measured in feet) modeled
           as a function of time <m>t</m> (measured in seconds) given by
           <me>t \overset{f}\mapsto h = 40 - 16t^2.</me>
           At <m>t=1</m>, the instantaneous rate of change is <m>\displaystyle \frac{dh}{dt} = -32</m>.
         </p>
         <p>
           This rate of change is illustrated in the dynamic figure below.
-          Thinking of <m>t_0=1</m> as one value of the independent variable, 
+          Thinking of <m>t_0=1</m> as one value of the independent variable,
           you can adjust the second value <m>t_1</m> to establish the increment <m>\Delta t=t_1-t_0</m>.
           The function automatically computes <m>f(1)</m> and <m>f(t_1)</m> and shows <m>\Delta h = f(t_1)-f(1)</m>.
-          The ratio <m>\Delta h/\Delta t</m> will be close to 
+          The ratio <m>\Delta h/\Delta t</m> will be close to
           <quantity><mag>-32</mag><unit base="foot"/><per base="second"/></quantity>
           for small values of <m>\Delta t</m>.
         </p>
@@ -233,8 +93,8 @@
           <jsxgraph xml:id="jsx-calc-overview-rate-of-change" width="75%" aspect="4:2">
             <input>
               <![CDATA[
-              var jcf1 = { 
-              f : function(x) 
+              var jcf1 = {
+              f : function(x)
               {
               var y=40-16*x*x;
               return y;
@@ -263,7 +123,7 @@
         <p>
           The instantaneous rate of change is the limit of the average rate of change
           as <m>\Delta t \to 0</m>, which in this case requires <m>t_1 \to 1</m>.
-          Even though the quotient is not defined at <m>t_1=1</m>, 
+          Even though the quotient is not defined at <m>t_1=1</m>,
           we can simplify the formula used on the sides to a formula that is defined.
           <md>
             <mrow>\frac{dh}{dt} = \lim_{\Delta t \to 0} \frac{\Delta h}{\Delta t} &amp;= \lim_{t_1 \to 1} \frac{-16(t_1^2-1)}{t_1-1}</mrow>
@@ -282,7 +142,7 @@
     </example>
     <p>
       At this point, our emphasis is understanding that the rate of change or derivative
-      measures the limiting ratio for increments of change in the value of the function 
+      measures the limiting ratio for increments of change in the value of the function
       to corresponding increments of change in the independent variable.
       Not every function has a derivative.
       We will study the calculation of the derivative in more depth in later chapters.
@@ -299,8 +159,8 @@
       <me>u_n = u_0 + \sum_{k=1}^{n} x_k</me>.
     </p>
     <p>
-      The calculus analogue is to be given a function that represents a rate of change and 
-      use it to find a new function, the <term>accumulation function</term>, 
+      The calculus analogue is to be given a function that represents a rate of change and
+      use it to find a new function, the <term>accumulation function</term>,
       that has that rate of change as its derivative.
       Suppose <m>f(x)</m> is the rate of change or derivative of a
       quantity <m>Q</m> with respect to <m>x</m>,
@@ -321,7 +181,7 @@
       Ultimately, the Fundamental Theorem of Calculus will provide a
       connection between the definite integral and the derivative,
       showing that our two ideas of rate of change represent the same thing.
-    </p>    
+    </p>
   </subsection>
   <subsection>
     <title>A Technological Aside</title>
@@ -413,7 +273,7 @@
         <p>
           A container of water has a volume <m>V</m>.
           Suppose that the volume has an instantaneous rate of change
-          with respect to time <m>t</m> given by 
+          with respect to time <m>t</m> given by
           <me>\frac{dV}{dt}=-40+3t</me>.
           When <m>\displaystyle \frac{dV}{dt}</m> is negative,
           the volume is decreasing;
@@ -470,23 +330,6 @@
         Calculus is developed using ideas similar to those for
         sequences<mdash/>limits, increments, and accumulation<mdash/>
         to limits of functions, derivatives, and integrals.
-      </li>
-      <li>
-        The limit of a function <m>\displaystyle \lim_{x \to c} f(x)</m>
-        represents the value <m>L</m> that is the limit of the dependent
-        sequence <m>f(x_n)</m>
-        for <em>every</em> independent sequence <m>(x_n)</m>
-        that satisfies <m>x_n \ne c</m> and <m>x_n \to c</m>.
-        One-sided limits add the constraint that the sequence must
-        stay below <m>c</m> (<m>x \to c^-</m>)
-        or above <m>c</m> (<m>x \to c^+</m>).
-      </li>
-      <li>
-        Numerically, a function limit
-        <m>\displaystyle \lim_{x \to c} f(x)</m>
-        can be approximated by testing the value of the function for
-        values of the independent variable following a sequence
-        <m>x \to c</m>.
       </li>
       <li>
         The <term>derivative</term> <m>\displaystyle \frac{dQ}{dx}</m>
@@ -627,7 +470,7 @@
       <exercise>
         <statement>
           <p>
-            Given <m>\displaystyle \frac{dy}{dx}=4</m> 
+            Given <m>\displaystyle \frac{dy}{dx}=4</m>
             and <m>y=5</m> when <m>x=2</m>.
             Find <m>y</m> as a function of <m>x</m>.
           </p>
@@ -636,7 +479,7 @@
       <exercise>
         <statement>
           <p>
-            Given <m>\displaystyle \frac{dy}{dx}=2+3x</m> 
+            Given <m>\displaystyle \frac{dy}{dx}=2+3x</m>
             and <m>y=4</m> when <m>x=1</m>.
             Find <m>y</m> as a function of <m>x</m>.
           </p>
@@ -645,7 +488,7 @@
       <exercise>
         <statement>
           <p>
-            Given <m>\displaystyle \frac{dQ}{dt}=t^3</m> 
+            Given <m>\displaystyle \frac{dQ}{dt}=t^3</m>
             and <m>Q=2</m> when <m>t=1</m>.
             Find <m>Q</m> as a function of <m>t</m>.
           </p>
@@ -654,7 +497,7 @@
       <exercise>
         <statement>
           <p>
-            Given <m>\displaystyle \frac{dP}{dt}=500e^{0.2t}</m> 
+            Given <m>\displaystyle \frac{dP}{dt}=500e^{0.2t}</m>
             and <m>P=4000</m> when <m>t=0</m>.
             Find <m>P</m> as a function of <m>t</m>.
           </p>
@@ -662,4 +505,4 @@
       </exercise>
     </exercisegroup>
   </exercises>
-</section>  
+</section>

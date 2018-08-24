@@ -213,7 +213,7 @@
       <me>r \mapsto V = \frac{4\pi}{3} r^3</me>.
     </p>
   </subsection>
-  <subsection>
+  <subsection xml:id="subsection-inverse-functions">
     <title>Inverse Functions</title>
     <p>
       When we think of a function as a map between variables, say <m>f : A \mapsto C</m>,

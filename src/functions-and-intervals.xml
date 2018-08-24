@@ -605,7 +605,7 @@
       That will have to wait until we know about derivatives.
     </p>
   </subsection>
-  <subsection>
+  <subsection xml:id="subsection-piecewise-functions">
     <title>Piecewise Defined Functions</title>
     <p>
       When different rules or formulas are used for different conditions, we have a <term>piecewise-defined function</term>.

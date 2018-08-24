@@ -6,74 +6,74 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2017  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="accumulation-functions">
   <title>Functions Defined by Accumulation</title>
 
   <subsection>
     <title>Overview</title>
-    
+
     <p>
-    When a function <m>f(x)</m> is integrable on an interval <m>I</m> 
-    and <m>a \in I</m> is any value in that interval, 
-    then for any other value <m>b \in I</m>, 
-    we can compute the definite integral of <m>f(x)</m> from <m>a</m> to <m>b</m>. 
-    Because the value depends on the value of <m>b</m>, 
-    we can think of this definite integral as a function of the upper limit <m>b</m>. 
+    When a function <m>f(x)</m> is integrable on an interval <m>I</m>
+    and <m>a \in I</m> is any value in that interval,
+    then for any other value <m>b \in I</m>,
+    we can compute the definite integral of <m>f(x)</m> from <m>a</m> to <m>b</m>.
+    Because the value depends on the value of <m>b</m>,
+    we can think of this definite integral as a function of the upper limit <m>b</m>.
     We call such a function the accumulation function of <m>f(x)</m> relative to <m>x=a</m>.
     </p>
-    
+
     <p>
-    This section introduces how to describe accumulation functions 
-    according to the properties of the integrand (rate) function. 
-    We learn the definitions for increasing and decreasing functions 
-    as well as the definition of concavity. 
-    Using the Mean Value Theorem for Integrals, 
-    we will be able to classify the behavior of accumulation functions 
+    This section introduces how to describe accumulation functions
+    according to the properties of the integrand (rate) function.
+    We learn the definitions for increasing and decreasing functions
+    as well as the definition of concavity.
+    Using the Mean Value Theorem for Integrals,
+    we will be able to classify the behavior of accumulation functions
     according to the behavior of its corresponding integrand (rate) function.
     </p>
-    
+
   </subsection>
-   
+
   <subsection>
     <title>Accumulation Functions</title>
-    
+
     <p>
-    In our introduction, we used the variable <m>b</m> 
-    as the upper limit of the accumulation function. 
-    Because we usually think of <m>x</m> as our default independent variable, 
-    we would like to use <m>x</m> as the upper limit of the integral. 
-    But then we would have the variable <m>x</m> 
-    playing two different roles <mdash/> the upper limit of the integral and the variable of integration. 
-    To keep a single role for the variable, 
-    we always require that when using a variable in a limit of integration, 
-    the integration variable must be chosen to be a dummy variable 
+    In our introduction, we used the variable <m>b</m>
+    as the upper limit of the accumulation function.
+    Because we usually think of <m>x</m> as our default independent variable,
+    we would like to use <m>x</m> as the upper limit of the integral.
+    But then we would have the variable <m>x</m>
+    playing two different roles <mdash/> the upper limit of the integral and the variable of integration.
+    To keep a single role for the variable,
+    we always require that when using a variable in a limit of integration,
+    the integration variable must be chosen to be a dummy variable
     that does not have another contextual meaning.
     </p>
-    
+
     <definition xml:id='defn-accumulation-function'>
       <title>Accumulation Function</title>
       <statement>
         <p>
-        Let <m>f(x)</m> represent a rate of change or rate of accumulation 
-        with independent variable <m>x</m>. 
-        The <term>accumulation function</term> <m>A(x)</m> relative to <m>x=a</m> 
+        Let <m>f(x)</m> represent a rate of change or rate of accumulation
+        with independent variable <m>x</m>.
+        The <term>accumulation function</term> <m>A(x)</m> relative to <m>x=a</m>
         with an initial value <m>A(a) = A_0</m>
-        is defined as <me> A(x) = A_0 + \int_{a}^{x} f(z) \, dz, </me> 
-        where <m>z</m> can be replaced with any other dummy variable (but not <m>x</m>). 
-        The function is defined so long as <m>f</m> is integrable 
+        is defined as <me> A(x) = A_0 + \int_{a}^{x} f(z) \, dz, </me>
+        where <m>z</m> can be replaced with any other dummy variable (but not <m>x</m>).
+        The function is defined so long as <m>f</m> is integrable
         on the interval containing both <m>x</m> and <m>a</m>.
         </p>
       </statement>
     </definition>
-    
+
     <p>
-    Once an accumulation function is defined, 
-    it can be used to evaluate particular definite integrals, 
-    even if the starting limit does not match the point 
+    Once an accumulation function is defined,
+    it can be used to evaluate particular definite integrals,
+    even if the starting limit does not match the point
     used to define the accumulation.
     </p>
-    
+
     <theorem xml:id="thm-definite-integral-accumulation-change">
       <title>Integration as the Difference in Accumulation</title>
       <statement>
@@ -81,45 +81,45 @@
         Suppose <m>f(x)</m> is integrable on an interval that contains <m>a</m>,
         <m>b</m> and <m>c</m>.
         If <m>A(x)</m> is an accumulation of <m>f(x)</m> relative to <m>x=c</m>,
-        <me> A(x) = A_0 + \int_{c}^{x} f(z) \, dz, </me> 
+        <me> A(x) = A_0 + \int_{c}^{x} f(z) \, dz, </me>
         then <me> \int_{a}^{b} f(x) \, dx = A(b) - A(a). </me>
         </p>
       </statement>
     </theorem>
-    
+
     <p>
-    Notice that in the theorem, the definite integral 
-    used the independent variable <m>x</m> as the variable of integration. 
-    This is acceptable because the integral is a specific definite integral 
+    Notice that in the theorem, the definite integral
+    used the independent variable <m>x</m> as the variable of integration.
+    This is acceptable because the integral is a specific definite integral
     and the variable <m>x</m> plays no role other than the integration variable.
-    We could have written using another dummy variable to get 
+    We could have written using another dummy variable to get
     <me> \int_{a}^{b} f(z) \, dz = A(b) - A(a), </me>
     but the result would have been exactly the same.
     </p>
-    
+
     <p>
-    The integrand function <m>f</m> for an accumulation <m>A</m> is 
+    The integrand function <m>f</m> for an accumulation <m>A</m> is
     the rate of accumulation or rate of change.
     When we learn about derivatives in the next chapter,
     we will learn a different conception of rate of change
     that is called the derivative, written <m>A'(x)</m>.
-    Fortunately, the 
-    <xref ref="fundamental-theorem-of-calculus">Fundamental Theorem of Calculus</xref> 
+    Fortunately, the
+    <xref ref="fundamental-theorem-calculus">Fundamental Theorem of Calculus</xref> 
     will show that the two different conceptions agree with one another.
     That is, for any accumulation function
     <me>A(x) = A_0 + \int_{c}^{x} f(z) \, dz</me>,
     the derivative <m>A'(x)</m> and the rate of accumulation <m>f(x)</m> are the same.
-    For consistency of discussion later, 
+    For consistency of discussion later,
     we will call <m>f(x)</m> the derivative of the accumulation function <m>A(x)</m>.
     </p>
-    
+
     <p>
-    Some accumulation functions can be expressed simply 
-    using other well known formulas. 
-    For example, we previously discovered the following rules 
+    Some accumulation functions can be expressed simply
+    using other well known formulas.
+    For example, we previously discovered the following rules
     which we can now identify as accumulation functions.
     </p>
-    
+
     <theorem xml:id="thm-elementary-accumulation-functions">
       <title>Elementary Accumulation Functions</title>
       <statement>
@@ -133,14 +133,14 @@
       </p>
       </statement>
     </theorem>
-    
+
     <p>
-    That is, for a constant rate <m>A'(x)=1</m>, 
-    the accumulated change relative to <m>x=0</m> is <m>A(x)=x</m>. 
-    Similarly, for the rate <m>A'(x)=x</m>, 
+    That is, for a constant rate <m>A'(x)=1</m>,
+    the accumulated change relative to <m>x=0</m> is <m>A(x)=x</m>.
+    Similarly, for the rate <m>A'(x)=x</m>,
     the accumulated change relative to <m>x=0</m> is <m>A(x) = \frac{1}{2}x^2</m>.
     </p>
-    
+
     <example>
       <statement>
         <p>
@@ -161,7 +161,7 @@
         <p>
         To find the algebraic formula for <m>A(x)</m>, we will rewrite
         the definite integral as a linear combination of the elementary rates <m>z^2</m> and <m>1</m>.
-        That is, <m>f(z) = 2z^2-3 = 2 \cdot z^2 - 3 \cdot 1</m> so that 
+        That is, <m>f(z) = 2z^2-3 = 2 \cdot z^2 - 3 \cdot 1</m> so that
         the linearity property of integrals allows us to use the elementary accumulation functions.
         <md>
           <mrow>A(x) &amp;= 4 + 2 \cdot \int_0^x z^2 \, dz - 3 \cdot \int_0^x 1 \, dz</mrow>
@@ -172,17 +172,17 @@
       </solution>
     </example>
   </subsection>
-  
+
   <subsection>
     <title>Monotonicity and Concavity</title>
-    
+
     <p>
     We first learned to describe the monotonicity of functions
     in <xref ref="functions-behavior"/>.
     Recall from <xref ref="increasing-decreasing"/> that a function <m>f</m>
     is <term>increasing</term> on a set <m>S</m> if for every <m>x_1,x_2 \in S</m>,
     <me> x_1 \lt x_2 \quad \implies \quad f(x_1) \lt f(x_2)</me>,
-    and decreasing if 
+    and decreasing if
     <me> x_1 \lt x_2 \quad \implies \quad f(x_1) \gt f(x_2)</me>.
     We can rewrite these inequalities in terms of the <em>increment of change</em> of <m>f</m>:
     <md>
@@ -192,27 +192,27 @@
     That is, an increasing function is associated with positive increments of change
     and a decreasing function is associated with negative increments of change.
     </p>
-    
+
     <p>
-    When a function <m>f(x)</m> is described as an accumulation, 
+    When a function <m>f(x)</m> is described as an accumulation,
     it can be written as the integral of its rate of accumulation or derivative <m>f'(x)</m>.
     Thus, <me>f(x_2) - f(x_1) = \int_{x_1}^{x_2} f'(x) \, dx.</me>
-    Knowing the sign of the rate of accumulation can then be used 
-    to determine intervals of monotonicity. 
+    Knowing the sign of the rate of accumulation can then be used
+    to determine intervals of monotonicity.
     </p>
-    
+
     <theorem xml:id="thm-monotonicity-from-rate">
       <title>Monotonicity Test for Accumulation Functions</title>
       <statement>
         <p>
-        Suppose that <m>f(x)</m> is an accumulation function 
-        with corresponding rate function <m>f('x)</m>, 
+        Suppose that <m>f(x)</m> is an accumulation function
+        with corresponding rate function <m>f('x)</m>,
         and suppose that <m>f'(x)</m> is continuous on <m>(a,b)</m>
         with limits at the endpoints.
         <ul>
           <li>
             <p>
-            If <m>f'(x) = 0</m> for all <m>x \in (a,b)</m>, 
+            If <m>f'(x) = 0</m> for all <m>x \in (a,b)</m>,
             then <m>f(x)</m> is constant on <m>[a,b]</m>.
             </p>
           </li>
@@ -224,7 +224,7 @@
           </li>
           <li>
             <p>
-            If <m>f'(x) \lt 0</m> for all <m>x \in (a,b)</m>, 
+            If <m>f'(x) \lt 0</m> for all <m>x \in (a,b)</m>,
             then <m>f(x)</m> is decreasing on <m>[a,b]</m>.
             </p>
           </li>
@@ -234,8 +234,8 @@
       <proof>
         <p>
         Let <m>x_1,x_2 \in [a,b]</m> satisfy <m>x_1 \lt x_2</m>.
-        Because <m>f</m> is an accumulation of <m>f'</m>, 
-        we know that 
+        Because <m>f</m> is an accumulation of <m>f'</m>,
+        we know that
         <me>f(x_2) - f(x_1) = \int_{x_1}^{x_2} f'(x) \, dx.</me>
         We now treat each case individually.
         </p>
@@ -247,14 +247,14 @@
         <m>f(x)</m> must have the same value for any <m>x \in [a,b]</m>.
         </p>
         <p>
-        If <m>f'(x) \gt 0</m> for all <m>x \in (a,b)</m>, 
+        If <m>f'(x) \gt 0</m> for all <m>x \in (a,b)</m>,
         then <xref ref="thm-integral-inequality"/> allows us to form a bound
         <me>\int_{x_1}^{x_2} f'(x) \, dx \gt \int_{x_1}^{x_2} 0 \, dx = 0</me>.
         This guarantees that <m>f(x_2)-f(x_1) \gt 0</m>
         so that <m>f</m> is increasing on <m>[a,b]</m>.
         </p>
         <p>
-        If <m>f'(x) \lt 0</m> for all <m>x \in (a,b)</m>, 
+        If <m>f'(x) \lt 0</m> for all <m>x \in (a,b)</m>,
         then again <xref ref="thm-integral-inequality"/> allows us to form a bound
         <me>\int_{x_1}^{x_2} f'(x) \, dx \lt \int_{x_1}^{x_2} 0 \, dx = 0</me>,
         so that <m>f(x_2)-f(x_1) \gt 0</m>.
@@ -262,7 +262,7 @@
         </p>
       </proof>
     </theorem>
-    
+
     <example>
       <statement>
         <p>
@@ -278,7 +278,7 @@
         The starting location <m>x=1</m> simply gives the initial value with <m>f(1)=0</m>.
         </p>
         <p>
-        We find the signs of <m>f'</m> by first solving <m>f'(x)=0</m> 
+        We find the signs of <m>f'</m> by first solving <m>f'(x)=0</m>
         and then testing the resulting intervals.
         <md>
           <mrow>x^2-5x+6 = 0</mrow>
@@ -300,7 +300,7 @@
             \draw[<->] (0,0) -- (5,0)
               node[pos=1, above right] {$f'(x)=(x-2)(x-3)$}
               node[pos=1, below right] {$x$};
-            \draw (2, -0.1) -- (2,0.1) 
+            \draw (2, -0.1) -- (2,0.1)
               node[pos=0, below] {$2$}
               node[pos=1, above] {$0$};
             \draw (3, -0.1) -- (3,0.1)
@@ -321,7 +321,7 @@
           that <m>f(x)</m> is <em>increasing</em> on <m>(-\infty,2]</m>.
           </li>
           <li>
-          <m>f'(x) \lt 0</m> on <m>(2,3)</m> implies 
+          <m>f'(x) \lt 0</m> on <m>(2,3)</m> implies
           that <m>f(x)</m> is <em>decreasing</em> on <m>[2,3]</m>.
           </li>
           <li><m>f'(x) \gt 0</m> on <m>(3,\infty)</m>
@@ -344,7 +344,7 @@
               ]
               \addplot [domain=-2:5,samples=80,thick,blue]
                 {x^3/3-5*x^2/2+6*x-23/6};
-              \addplot [only marks, blue, samples at={2,3}] 
+              \addplot [only marks, blue, samples at={2,3}]
                 {x^3/3-5*x^2/2+6*x-23/6}
                 node [pos=0,above] {$x=2$}
                 node [pos=1,below] {$x=3$};
@@ -355,7 +355,7 @@
         </sidebyside>
       </solution>
     </example>
-    
+
     <example>
       <statement>
         <p>
@@ -374,9 +374,9 @@
         <p>
         To determine monotonicity, we need to find the sign of <m>g'(x)</m>.
         Intervals are determined by the roots and discontinuities.
-        The root is the solution to <m>\displaystyle g'(x)=\frac{x-4}{x+2}=0</m> 
-        which occurs when <m>x-4=0</m> or <m>x=4</m>. 
-        Using this root and the discontinuity at <m>x=-2</m>, 
+        The root is the solution to <m>\displaystyle g'(x)=\frac{x-4}{x+2}=0</m>
+        which occurs when <m>x-4=0</m> or <m>x=4</m>.
+        Using this root and the discontinuity at <m>x=-2</m>,
         the intervals to test are <m>(-2,4)</m> and <m>(4,\infty)</m>.
         <md>
           <mrow>g'(0) &amp;= \frac{0-4}{0+2} = -2</mrow>
@@ -394,7 +394,7 @@
             \draw[|->] (-2,0) -- (8,0)
               node[pos=1, above right] {$\displaystyle f'(x)=\frac{x-4}{x+2}$}
               node[pos=1, below right] {$x$};
-            \draw (-2, -0.1) -- (-2,0.1) 
+            \draw (-2, -0.1) -- (-2,0.1)
               node[pos=0, below] {$-2$}
               node[pos=1, above] {VA};
             \draw (4, -0.1) -- (4,0.1)
@@ -410,16 +410,16 @@
         We can now interpret the sign analysis of <m>g'(x)</m>.
         <ul>
           <li>
-          <m>g'(x) \lt 0</m> on <m>(-2,4)</m> implies 
+          <m>g'(x) \lt 0</m> on <m>(-2,4)</m> implies
           <m>g(x)</m> is <em>decreasing</em> on <m>(-2,4]</m>.
           (We can not include <m>x=-2</m> because of the vertical asymptote.)
           </li>
           <li>
-          <m>g'(x) \gt 0</m> on <m>(4,\infty)</m> implies 
+          <m>g'(x) \gt 0</m> on <m>(4,\infty)</m> implies
           <m>g(x)</m> is <em>increasing</em> on <m>[4,\infty)</m>.
           </li>
         </ul>
-        A graph of <m>g(x)</m> is shown below 
+        A graph of <m>g(x)</m> is shown below
         that is consistent with this analysis.
         </p>
         <sidebyside width="70%" margins="auto">
@@ -435,7 +435,7 @@
               ]
               \addplot [domain=-2:12,samples=80,thick,blue]
                 {x - 6*ln(x+2)};
-              \addplot [only marks, blue, samples at={4}] 
+              \addplot [only marks, blue, samples at={4}]
                 {x - 6*ln(x+2)}
                 node [pos=1,below] {$x=4$};
               \end{axis};
@@ -445,25 +445,25 @@
         </sidebyside>
       </solution>
     </example>
-    
+
     <p>
     Concavity was introduced as a way to describe how a function bends.
-    However, our original 
+    However, our original
     <xref ref="concavity-average-rates">definition of concavity</xref>
     also involved inequalities,
     stating that the rate of change itself was increasing or decreasing.
-    For an accumulation function, 
+    For an accumulation function,
     the rate of accumulation will control concavity.
     The following theorem suggests that we try to think of the rate of accumulation
     as being, on its own, another accumulation of another function
     which we call the <term>second derivative</term> of the accumulation.
     </p>
-    
+
     <theorem xml:id="concavity-from-second-derivative">
       <title>Concavity Test for Accumulation Functions</title>
       <statement>
         <p>
-        Suppose that <m>f(x)</m> is an accumulation function 
+        Suppose that <m>f(x)</m> is an accumulation function
         with corresponding rate function <m>f('x)</m>
         and that <m>f'(x)</m> is itself an accumulation function
         with its rate function <m>f''(x)</m>.
@@ -472,7 +472,7 @@
         <ul>
           <li>
             <p>
-            If <m>f''(x) = 0</m> for all <m>x \in (a,b)</m>, 
+            If <m>f''(x) = 0</m> for all <m>x \in (a,b)</m>,
             then <m>f(x)</m> is linear on <m>[a,b]</m>.
             </p>
           </li>
@@ -484,7 +484,7 @@
           </li>
           <li>
             <p>
-            If <m>f''(x) \lt 0</m> for all <m>x \in (a,b)</m>, 
+            If <m>f''(x) \lt 0</m> for all <m>x \in (a,b)</m>,
             then <m>f(x)</m> is concave down on <m>[a,b]</m>.
             </p>
           </li>
@@ -493,20 +493,20 @@
       </statement>
       <proof>
         <p>
-        We will prove that <m>f'(x)</m> is constant, increasing, or decreasing, 
+        We will prove that <m>f'(x)</m> is constant, increasing, or decreasing,
         in each of the respective cases.
         In fact, this is often adopted as the de facto definition for concavity.
         Because <m>f'</m> is an accumulation with rate <m>f''</m>,
         we only need to apply <xref ref="thm-monotonicity-from-rate"/>.
-        The relationship between the monotonicity of <m>f'</m> and 
+        The relationship between the monotonicity of <m>f'</m> and
         the changes of the average rates of change given in the original
         definition of concavity requires the <xref text="title" ref="mean-value-theorem"/>.
         </p>
       </proof>
     </theorem>
-    
+
     <p>
-    At this point, we have not learned how to find the rate 
+    At this point, we have not learned how to find the rate
     so that a function can be written as an accumulation.
     This requires computing derivatives.
     However, we can use technology to help us out.
@@ -514,7 +514,7 @@
     <example>
       <statement>
         <p>
-        Use technology to find derivatives in order 
+        Use technology to find derivatives in order
         to describe the monotonicity and concavity of
         <m>f(x) = x^3 - 4x.</m>
         </p>
@@ -547,7 +547,7 @@
           <mrow>x = \pm \sqrt{\frac{4}{3}}</mrow>
           <mrow>x = \pm \frac{2}{\sqrt{3}}</mrow>
         </md>
-        We can test the sign of <m>f'(x)</m> in each resulting interval 
+        We can test the sign of <m>f'(x)</m> in each resulting interval
         and summarize the results on a number line.
         </p>
         <sidebyside width="70%" margins="auto">
@@ -560,7 +560,7 @@
             \draw[<->] (-3,0) -- (3,0)
               node[pos=1, above right] {$f'(x)=3x^2-4$}
               node[pos=1, below right] {$x$};
-            \draw (-1, -0.1) -- (-1,0.1) 
+            \draw (-1, -0.1) -- (-1,0.1)
               node[pos=0, below] {$-\frac{2}{\sqrt{3}}$}
               node[pos=1, above] {$0$};
             \draw (1, -0.1) -- (1,0.1)
@@ -610,7 +610,7 @@
             \draw[<->] (-3,0) -- (3,0)
               node[pos=1, above right] {$f''(x)=6x$}
               node[pos=1, below right] {$x$};
-            \draw (0, -0.1) -- (0,0.1) 
+            \draw (0, -0.1) -- (0,0.1)
               node[pos=0, below] {$0$}
               node[pos=1, above] {$0$};
             \node [above] at (-2,0.1) {$-$};
@@ -653,19 +653,19 @@
         </sidebyside>
       </solution>
     </example>
-    
+
     <p>
     When we can view a graph of the rate of accumulation (the derivative),
-    we can interpret the features of that rate 
+    we can interpret the features of that rate
     to describe the behavior of the accumulation function itself.
     </p>
-    
+
     <example>
       <statement>
         <p>
         The graph of the accumulation rate <m>f'(x)</m> for a function <m>f(x)</m>
         is shown in the figure below.
-        Describe the monotonicity and concavity 
+        Describe the monotonicity and concavity
         and sketch a graph of the accumulation function <m>y=f(x)</m>
         with initial value <m>f(0)=3</m>.
         </p>
@@ -700,9 +700,9 @@
       </statement>
       <solution>
         <p>
-        The graph of <m>f'(x)</m> can be used to determine 
+        The graph of <m>f'(x)</m> can be used to determine
         the signs of <m>f'(x)</m> that are used to find the monotonicity of <m>f(x)</m>
-        while the monotonicity of <m>f'(x)</m> can be used 
+        while the monotonicity of <m>f'(x)</m> can be used
         to find the concavity of <m>f(x)</m>.
         Computing the signed area of the graph can be used to determine
         the actual increments of change.
@@ -721,13 +721,13 @@
             \draw[|-|] (-3,0) -- (6,0)
               node[pos=1, above right] {$f'(x)$}
               node[pos=1, below right] {$x$};
-            \draw (-2, -0.1) -- (-2,0.1) 
+            \draw (-2, -0.1) -- (-2,0.1)
               node[pos=0, below] {$-2$}
               node[pos=1, above] {$0$};
-            \draw (3, -0.1) -- (3,0.1) 
+            \draw (3, -0.1) -- (3,0.1)
               node[pos=0, below] {$3$}
               node[pos=1, above] {$0$};
-            \draw (5, -0.1) -- (5,0.1) 
+            \draw (5, -0.1) -- (5,0.1)
               node[pos=0, below] {$5$}
               node[pos=1, above] {$0$};
             \node [above] at (-2.5,0.1) {$-$};
@@ -739,7 +739,7 @@
           </image>
         </sidebyside>
         <p>
-        We interpret this to make the following conclusions about monotonicity: 
+        We interpret this to make the following conclusions about monotonicity:
         <m>f(x)</m> is
         <ul>
           <li>increasing on intervals <m>[-2,3]</m> and <m>[5,6]</m>,</li>
@@ -764,10 +764,10 @@
         </p>
         <p>
         The definite integral of <m>f'(x)</m> over an interval,
-        which computes the signed area, 
+        which computes the signed area,
         determines the increment of change in <m>f(x)</m>.
-        The graph of <m>f'(x)</m> is made of straight line segments, 
-        so we can compute the integrals using simple geometric formulas 
+        The graph of <m>f'(x)</m> is made of straight line segments,
+        so we can compute the integrals using simple geometric formulas
         for the areas of triangles, rectangles, and trapezoids.
         <md>
           <mrow> f(-2) - f(-3) &amp;= \int_{-3}^{-2} f'(x) \, dx </mrow>
@@ -796,7 +796,7 @@
         and concavity of <m>f</m>.
         Where the monotonicity changes, the graph of <m>f(x)</m> reaches an extreme value.
         Where the concavity changes, the graph of <m>f(x)</m> has an inflection point.
-        To emphasize concavity, different concavity regions 
+        To emphasize concavity, different concavity regions
         are colored differently<mdash/>orange for concave up, blue for concave down,
         and black for linear.
         </p>
@@ -837,12 +837,12 @@
         </sidebyside>
       </solution>
     </example>
-    
+
     <p>
     As we conclude this section, make note of the relationship between
-    our understanding the behavior of sequences in terms of increments 
+    our understanding the behavior of sequences in terms of increments
     and accumulation sequences
-    with the behavior of accumulation functions 
+    with the behavior of accumulation functions
     in terms of the derivative or rate of accumulation.
     Where the behavior of a sequence is described in terms of a range of index values,
     the behavior of a function is described in terms of an interval.
@@ -854,10 +854,10 @@
     <ul>
       <li>
       An accumulation function <m>A(x)</m> is a function defined using a definite integral
-      in order to have a given rate of accumulation <m>f(x)</m> 
+      in order to have a given rate of accumulation <m>f(x)</m>
       and initial value <m>A(x_0) = A_0</m>,
       <me>A(x) = A_0 + \int_{x_0}^x f(z)\, dz.</me>
-      The integration variable <m>z</m> is a dummy variable and must be different 
+      The integration variable <m>z</m> is a dummy variable and must be different
       from the independent variable.
       </li>
       <li>
@@ -866,15 +866,15 @@
       so that we will write <m>A'(x) = f(x)</m>.
       </li>
       <li>
-      Knowing an accumulation function can be used 
+      Knowing an accumulation function can be used
       to compute definite integrals of the accumulation rate,
       <me>\int_a^b f(x) \, dx = A(b) - A(a)</me>.
       See <xref ref="thm-definite-integral-accumulation-change"/>.
       </li>
       <li>
         <p>
-        A function <m>f(x)</m> that can be written as an accumulation 
-        with rate (derivative) <m>f'(x)</m> has a monotonicity 
+        A function <m>f(x)</m> that can be written as an accumulation
+        with rate (derivative) <m>f'(x)</m> has a monotonicity
         determined by the sign of <m>f'(x)</m> on intervals.
         <ul>
           <li><m>f'(x) \gt 0</m> on <m>(a,b)</m> implies <m>f(x)</m> is increasing on <m>[a,b]</m></li>
@@ -885,8 +885,8 @@
       </li>
       <li>
         <p>
-        A function <m>f(x)</m> that can be written as an accumulation 
-        with rate (derivative) <m>f'(x)</m> 
+        A function <m>f(x)</m> that can be written as an accumulation
+        with rate (derivative) <m>f'(x)</m>
         which itself can also be written as an accumulation <m>f''(x)</m>
         (second derivative of <m>f</m>) has concavity determined
         by the sign of <m>f''(x)</m> on intervals.
@@ -909,7 +909,7 @@
         <p>
         Express each accumulation function with its given rate of accumulation
         and initial value as a formula involving a definite integral.
-        Then, using the properties of definite integrals and the elementary 
+        Then, using the properties of definite integrals and the elementary
         accumulation functions, find the algebraic formula.
         </p>
       </introduction>

@@ -602,7 +602,7 @@
   <subsection>
     <title>Inverse Functions and Composition</title>
     <p>
-      When we discussed inverse functions earlier in <xref ref="subsection-inverse-functions-as-inverse-maps"/>,
+      When we discussed inverse functions earlier in <xref ref="subsection-inverse-functions"/>,
       we thought of them as inverse maps.
       Given an equation defining the map <m>x \mapsto y</m>,
       if we could solve the equation for the input <m>x</m> as a single expression involving <m>y</m>,
