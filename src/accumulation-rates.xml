@@ -6,84 +6,182 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2018  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="accumulation-rates">
   <title>Rate of Accumulation and the Derivative</title>
 
   <subsection>
     <title>Overview</title>
-    
     <p>
-    We have learned that functions defined as accumulation functions,
-    <men xml:id="eqn-accumulation-function-with-rate">f(x) = f_0 + \int_{x_0}^x f'(z) \, dz</men>,
-    can be described in terms of monotonicity and concavity in terms of
-    the signs and monotonicity of the rate of accumulation <m>f'(x)</m>.
-    Of course, most functions are not written with an accumulation formula representation.
-    This raises a central question of calculus: 
-    Which functions <em>can</em> be expressed as an accumulation?
-    And if a function can be expressed as an accumulation, 
-    how do we find the formula for the rate of accumulation 
-    that will be the integrand in that representation?
+      We have learned that functions which are defined as the accumulation of a given rate,
+      <men xml:id="eqn-accumulation-function-with-rate">f(x) = f_0 + \int_{x_0}^x f'(z) \, dz</men>,
+      can be described in terms of monotonicity and concavity
+      using the signs and monotonicity of the rate of accumulation <m>f'(x)</m>.
+      Of course, most functions are not written using an accumulation formula representation.
     </p>
-    
     <p>
-    At present, we have formulas relating the rate of accumulation and the accumulation function
-    only for simple polynomials. (See <xref ref="thm-elementary-accumulation-functions"/>.)
-    In this section, we will discuss how to use those elementary accumulation rates and functions
-    to compute the rate of accumulation for simple polynomials. 
-    We will also illustrate some additional examples of describing 
-    the monotonicity and concavity of a function in terms the corresponding rate function.
+      This raises a central question of calculus:
+      Which functions <em>can</em> be expressed as an accumulation?
+      And if a function can be expressed as an accumulation,
+      how do we find the formula for the rate of accumulation
+      that will be the integrand in that representation?
     </p>
-    
     <p>
-    Looking forward, we will need new tools to find the rate function for more complicated functions.
-    To do this, we will be introducing a new concept called the instantaneous rate of change
-    or derivative at a point. This notion of a derivative is defined in terms of a limit.
-    The properties of limits will allow us to develop properties of derivatives.
-    These properties will allow us to create differentiation rules to compute derivative functions
-    that will characterize the instantaneous rate of change of a function at any point
-    where the derivative is defined.
+      This question will be partially resolved through the definition of the derivative.
+      The derivative will provide an alternative interpretation of rate of change
+      that is not directly connected to accumulation and definite integrals.
+      At that point, we will have two potential concepts of the rate<mdash/>the rate of accumulation and the derivative.
+      The connection between these two rates as representing the same thing
+      will ultimately be established through the Fundamental Theorem of Calculus.
+      Anticipating this eventual equality, we will adopt the name <term>derivative</term>
+      as being equivalent to the rate of accumulation.
     </p>
-    
     <p>
-    At that stage of development, 
-    we will have two notions of rate of change<mdash/>the rate of accumulation and the derivative.
-    These are, in fact, the same thing, which we will establish as the Fundamental Theorem of Calculus.
-    Because the rate of accumulation and derivative are different interpretations of the same thing,
-    we will use the language of derivatives now even though in context, we are thinking
-    in terms of the integrand of an accumulation function.
+      In this section, we will use known elementary accumulation functions and their corresponding rates
+      to compute the rate of accumulation for simple polynomials.
+      The process of finding a rate of change inherits the linearity properties of integration.
+      Using elementary formulas and linearity,
+      we will learn to identify its rate of change or derivative of any polynomial.
+      Once we have a rate of change, we can express the polynomial as an accumulation function.
+      We can also classify the monotonicity and concavity of the polynomial.
     </p>
   </subsection>
-   
   <subsection>
     <title>The Rate of Accumulation</title>
-    
     <p>
-    When a function is defined as an accumulation function <xref ref="eqn-accumulation-function-with-rate">in terms of a definite integral</xref>,
-    it is easy enough to determine the rate of accumulation or derivative by identifying the function in the integrand.
+      When a function is defined as an accumulation function <xref ref="eqn-accumulation-function-with-rate">in terms of a definite integral</xref>,
+      it is easy enough to determine the rate of accumulation or derivative by identifying the function in the integrand.
+      We just need to express the function as a constant (the initial value) plus an integral from the initial point.
+      The function inside the integral, called the <term>integrand</term>, will be the rate of accumulation.
     </p>
-    
     <example>
       <statement>
         <p>
-        If <m>f(x)</m> is defined as <m>\displaystyle f(x) = 3 + \int_1^{x} z^2-5z \, dz</m>, 
-        then the integrand <m>z^2-5z</m> must be <m>f'(z)</m>. 
-        Changing variables means <m>f'(x) = x^2-5x</m>.
+          If <m>f(x)</m> is defined as <m>\displaystyle f(x) = 3 + \int_1^{x} z^2-5z \, dz</m>,
+          then the integrand <m>z^2-5z</m> must be <m>f'(z)</m>.
+          Changing variables means <m>f'(x) = x^2-5x</m> is the rate of accumulation or derivative.
         </p>
       </statement>
     </example>
-    
+    <example>
+      <statement>
+        <p>
+          Find <m>G'(x)</m> for <m>\displaystyle G(x) = 4 - 3 \int_1^{x} \frac{1}{z} \, dz</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Because <m>G(x)</m> is not yet written as a constant <em>plus</em> an integral,
+          we need to use properties of integrals to put it in the standard form of an accumulation function.
+          The <xref text="title" ref="thm-definite-integral-constant-multiple">constant multiple rule</xref>
+          allows us to treat <m>-3</m> as a constant multiplied inside the integral,
+          <me>G(x) = 4 + \int_1^x \frac{-3}{z} \, dz</me>.
+          Now that <m>G(x)</m> is an accumulation function, we can find the rate to be
+          <me>G'(x) = \frac{-3}{x}</me>.
+        </p>
+      </solution>
+    </example>
     <p>
-    The linearity properties of definite integrals imply that rates of accumulation also satisfy linearity properties.
-    Thus, we can think of polynomials as sums of elementary components whose derivatives are known.
+      The <xref ref="thm-elementary-accumulation-functions">elementary accumulation formulas for simple powers</xref>
+      can be interpreted as complementary rules used to find the rate of accumulation or derivative for simple powers.
+      As an example, consider the known accumulation formula
+      <me>\int_0^x z^2 \, dz = \frac{1}{3}x^3.</me>
+      If we multiply both sides of the equation by <m>3</m> to clear the fraction and move the constant inside the integral,
+      we have an equivalent statement
+      <me> x^3 = \int_0^x 3z^2 \, dz.</me>
+      That is, we have just found that for the function <m>f(x)=x^3</m>
+      the derivative is the rate of accumulation <m>f'(x)=3x^2</m>.
+      Every accumulation formula that we know provides a corresponding rate of accumulation for simple powers.
     </p>
-    
+    <theorem xml:id="thm-accumulation-rate-simple-powers">
+      <title>The Power Rule for the Rate of Accumulation</title>
+      <statement>
+        <p>
+        The elementary accumulation formulas lead to the following elementary rates of accumulation for powers of the independent variable.
+        <ul>
+          <li><p>If <m>f(x) = x</m>, then <m>f'(x)=1</m>.</p></li>
+          <li><p>If <m>f(x) = x^2</m>, then <m>f'(x)=2x</m>.</p></li>
+          <li><p>If <m>f(x) = x^3</m>, then <m>f'(x)=3x^2</m>.</p></li>
+          <li><p>If <m>f(x) = x^4</m>, then <m>f'(x)=4x^3</m>.</p></li>
+        </ul>
+        </p>
+      </statement>
+      <proof>
+        <p>
+        Each formula follows by applying the same technique described above for <m>f(x)=x^3</m> on the corresponding accumulation formula.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      You might have noticed a pattern in these formulas, that the rate of accumulation involves a power that has been reduced by one
+      from the accumulation function and that the power for the accumulation has become a constant multiple.
+      Without creating more accumulation formulas, we can not prove that this pattern will always be true.
+      In mathematics, we call a pattern that we believe might be true a <term>conjecture</term>.
+    </p>
+    <conjecture xml:id="conjecture-accumulation-rate-power-rule">
+      <title>Power Rule for Rate of Accumulation</title>
+      <statement>
+        <p>
+        For any constant power <m>n</m>,
+        the function <m>f(x) = x^n</m> has a rate of accumulation <m>f'(x) = n x^{n-1}</m>.
+        </p>
+      </statement>
+    </conjecture>
+    <p>
+      This conjecture happens to be true, but we will need to wait to develop the process of differentiation to prove it.
+    </p>
+    <example>
+      <statement>
+        <p>
+          For <m>f(x) = x^{10}</m>, what does the conjecture about the power rule predict will be <m>f'(x)</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>f</m> is an elementary power function with <m>n=10</m>.
+          The power rule shown in the conjecture states that
+          <me>f'(x) = 10 x^{9}</me>.
+        </p>
+        <p>
+          The reason this is a conjecture right now is that
+          we would currently need to write <m>x^{10}</m> as an accumulation function
+          <me>x^10 = \int_0^{x} 10z^9</me>,
+          but we don't currently have a rule for a definite integral with a power that high.
+          That would require knowing the limit of a Riemann sum
+          <me>\int_0^{x} 10z^9 = \lim_{n \to \infty} \sum_{k=1}^{n} 10 (\frac{kx}{n})^9 \frac{x}{n}</me>.
+          Without knowing a sum accumulation for <m>\displaystyle \sum_{k=1}^{n} k^9</m>, we can't justify this integral.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We will need one more simple rate of accumulation to deal with constant terms.
+      A constant function sees no change, so the accumulation must always be zero, and that will come from a rate of accumulation that is zero.
+    </p>
+    <theorem xml:id="thm-accumulation-rate-for-constant">
+      <title>Rate of Accumulation for Constants</title>
+      <statement>
+        <p>
+        If <m>f(x) = c</m> for some constant <m>c</m> (a constant function), then <m>f'(x)=0</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+        Because <m>\displaystyle \int_a^b 0 \, dx = 0</m>, we can write
+        <m>\displaystyle f(x) = c + \int_{a}^{x} 0 \, dz</m> for any value <m>a</m>.
+        Thus, the rate of accumulation <m>f'(x) = 0</m>.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      The linearity properties of definite integrals imply
+      that rates of accumulation also satisfy the same linearity properties.
+    </p>
     <theorem xml:id="thm-linearity-of-accumulation-rates">
       <title>Linearity of Rates of Accumulation</title>
       <statement>
         <p>
         If <m>f(x)</m> has a rate of accumulation <m>f'(x)</m> and <m>g(x)</m> has a rate of accumulation <m>g'(x)</m>,
-        then the function <m>h(x)=c_1 f(x) + c_2 g(x)</m> with constants <m>c_1</m> and <m>c_2</m> has 
+        then the function <m>h(x)=c_1 f(x) + c_2 g(x)</m> with constants <m>c_1</m> and <m>c_2</m> has
         a rate of accumulation <m>h'(x) = c_1 f'(x) + c_2 g'(x)</m>.
         </p>
       </statement>
@@ -105,83 +203,10 @@
         </p>
       </proof>
     </theorem>
-    
     <p>
-    The <xref ref="thm-elementary-accumulation-functions">elementary accumulation formulas for simple powers</xref>
-    can be interpreted as complementary rules to find the rate of accumulation for simple powers. 
-    As an example, consider the known accumulation formula
-    <me>\int_0^x z^2 \, dz = \frac{1}{3}x^3.</me>
-    If we multiply both sides of the equation by <m>3</m> to clear the fraction and move the constant inside the integral,
-    we have an equivalent statement
-    <me> x^3 = \int_0^x 3z^2 \, dz.</me>
-    That is, we have just found that if <m>f(x)=x^3</m> then <m>f'(x)=3x^2</m>.
-    Each accumulation formula allows us to identify a corresponding rate of accumulation for simple powers.
+      A polynomial is a linear combination of simple powers.
+      Consequently, the derivative of a polynomial will be the same linear combination of the derivatives of those powers.
     </p>
-
-    <theorem xml:id="thm-accumulation-rate-simple-powers">
-      <title>The Power Rule for the Rate of Accumulation</title>
-      <statement>
-        <p>
-        The elementary accumulation formulas lead to the following elementary rates of accumulation for powers of the independent variable.
-        <ul>
-          <li><p>If <m>f(x) = x</m>, then <m>f'(x)=1</m>.</p></li>
-          <li><p>If <m>f(x) = x^2</m>, then <m>f'(x)=2x</m>.</p></li>
-          <li><p>If <m>f(x) = x^3</m>, then <m>f'(x)=3x^2</m>.</p></li>
-          <li><p>If <m>f(x) = x^4</m>, then <m>f'(x)=4x^3</m>.</p></li>
-        </ul>
-        </p>
-      </statement>
-      <proof>
-        <p>
-        Each formula follows by applying the same technique described above for <m>f(x)=x^3</m> on the corresponding accumulation formula.
-        </p>
-      </proof>
-    </theorem>
-
-    <p>
-    You might have noticed a pattern in these formulas, that the rate of accumulation involves a power that has been reduced by one
-    from the accumulation function and that the power for the accumulation has become a constant multiple.
-    Without creating more accumulation formulas, we can not prove that this pattern will always be true.
-    In mathematics, we call a pattern that we believe might be true a <term>conjecture</term>.
-    </p>
-    
-    <conjecture xml:id="conjecture-accumulation-rate-power-rule">
-      <title>Power Rule for Rate of Accumulation</title>
-      <statement>
-        <p>
-        For any constant power <m>n</m>, 
-        the function <m>f(x) = x^n</m> has a rate of accumulation <m>f'(x) = n x^{n-1}</m>.
-        </p>
-      </statement>
-    </conjecture>
-    
-    <p>
-    This conjecture happens to be true, but we will need to wait to develop the process of differentiation to prove it.
-    We will need one more simple rate of accumulation to deal with constant terms.
-    A constant function sees no change, so the accumulation must always be zero, and that will come from a rate of accumulation that is zero.
-    </p>
-    
-    <theorem xml:id="thm-accumulation-rate-for-constant">
-      <title>Rate of Accumulation for Constants</title>
-      <statement>
-        <p>
-        If <m>f(x) = c</m> for some constant <m>c</m> (a constant function), then <m>f'(x)=0</m>.
-        </p>
-      </statement>
-      <proof>
-        <p>
-        Because <m>\displaystyle \int_a^b 0 \, dx = 0</m>, we can write 
-        <m>\displaystyle f(x) = c + \int_{a}^{x} 0 \, dz</m> for any value <m>a</m>.
-        Thus, the rate of accumulation <m>f'(x) = 0</m>.
-        </p>
-      </proof>
-    </theorem>
-
-    <p>
-    With these building blocks now in place and the linearity properties available to put them together,
-    we are ready to find the rate of accumulation (the derivative) for simple polynomials.
-    </p>
-    
     <example>
       <statement>
         <p>
@@ -190,26 +215,25 @@
       </statement>
       <solution>
         <p>
-        We look at <m>f(x)</m> as a sum of three terms: 
-        <me>f(x) = \underset{f_1(x)}{\underbrace{x^2}} + \underset{f_2(x)}{\underbrace{-6x}} + \underset{f_3(x)}{\underbrace{5}}</me>.
-        First, <m>f_1(x)=x^2</m> is an elementary power for which we know <m>f_1'(x)=2x</m>.
-        Next, <m>f_2(x)=-6x</m> is a constant <m>-6</m> times <m>x</m>, so <m>f_2'(x)</m> is the same constant times <m>1</m>, <m>f_2'(x)=-6\cdot 1 = -6</m>.
-        Finally, <m>f_3(x)=5</m> is a constant function so that <m>f_3'(x)=0</m>.
-        The linearity for rates of accumulation implies 
-        <me>f'(x)=\underset{f_1'(x)}{\underbrace{2x}} + \underset{f_2'(x)}{\underbrace{-6}}+\underset{f_3'(x)}{\underbrace{0}} = 2x-6</me>.
+          We look at <m>f(x)</m> as a sum of three terms:
+          <me>f(x) = \underset{f_1(x)}{\underbrace{x^2}} + \underset{f_2(x)}{\underbrace{-6x}} + \underset{f_3(x)}{\underbrace{5}}</me>.
+          First, <m>f_1(x)=x^2</m> is an elementary power for which we know <m>f_1'(x)=2x</m>.
+          Next, <m>f_2(x)=-6x</m> is a constant <m>-6</m> times <m>x</m>, so <m>f_2'(x)</m> is the same constant times <m>1</m>, <m>f_2'(x)=-6\cdot 1 = -6</m>.
+          Finally, <m>f_3(x)=5</m> is a constant function so that <m>f_3'(x)=0</m>.
+          The linearity for rates of accumulation implies
+          <me>f'(x)=\underset{f_1'(x)}{\underbrace{2x}} + \underset{f_2'(x)}{\underbrace{-6}}+\underset{f_3'(x)}{\underbrace{0}} = 2x-6</me>.
         </p>
       </solution>
     </example>
   </subsection>
-  
   <subsection>
     <title>Using the Rate of Accumulation</title>
-    
     <p>
-    Now that we know how to find the rate of accumulation for simple polynomials,
-    we can express a polynomial as an accumulation with that rate.
+      Now that we know how to find the rate of accumulation for simple polynomials,
+      we can express a polynomial as an accumulation with that rate.
+      Although we know the rate of accumulation,
+      we also need to be careful that the initial value matches the function of interest.
     </p>
-    
     <example>
       <statement>
         <p>Express <m>f(x)=x^3 - 6x^2 - 4</m> as an accumulation from <m>x=1</m>.</p>
@@ -218,7 +242,7 @@
         <p>
         Start by finding the rate of accumulation.
         <me>f'(x)=3x^2 - 6(2x) + 0 = 3x^2 - 12x</me>
-        The rate of accumulation becomes the integrand of the accumulation.
+        The rate of accumulation becomes the integrand of the accumulation using <m>f'(z)</m>.
         Because the integral will start at <m>x=1</m>, the initial value will be
         <me>f(1) = 1^3 - 6 \cdot 1^2 - 4 = -9.</me>
         We can now write <m>f(x)</m> as an accumulation from <m>x=1</m>:
@@ -229,39 +253,41 @@
         </p>
       </solution>
     </example>
-    
     <p>
-    The sign of the rate of accumulation determines whether an accumulation is increasing or decreasing.
-    Furthermore, the monotonicity of the rate of accumulation determines the concavity of the accumulation.
-    If we determine the rate of accumulation for a polynomial <m>f(x)</m>, then we can use sign analysis
-    on the resulting formula <m>f'(x)</m> to characterize monotonicity of <m>f(x)</m>.
-    Because the rate of accumulation <m>f'(x)</m> will itself be a new polynomial, we can describe its monotonicity
-    using the rate of accumulation for that rate of accumulation. 
-    This is called the <term>second derivative</term> and is named <m>f''(x)</m>.
+      The sign of the rate of accumulation determines whether an accumulation is increasing or decreasing.
+      Furthermore, the monotonicity of the rate of accumulation determines the concavity of the accumulation.
+      If we determine the rate of accumulation for a polynomial <m>f(x)</m>, then we can use sign analysis
+      on the resulting formula <m>f'(x)</m> to characterize monotonicity of <m>f(x)</m>.
     </p>
-    
+    <p>
+      Because the rate of accumulation <m>f'(x)</m> will itself be a new polynomial,
+      we can describe its monotonicity using the rate of accumulation for that rate of accumulation.
+      The rate of accumulation of the rate of accumulation is called the <term>second derivative</term>
+      and is named <m>f''(x)</m>.
+      Because the monotonicity of the rate <m>f'(x)</m> determines concavity of <m>f</m>,
+      we can use sign analysis of <m>f''(x)</m> to characterize the concavity <m>f</m>.
+    </p>
     <example>
       <statement>
         <p>
-        We found that <m>f(x)=x^3-6x^2-4</m> has corresponding rate <m>f'(x)=3x^2-12x</m>.
-        Describe the monotonicity and concavity of <m>f(x)</m>.
+          We found that <m>f(x)=x^3-6x^2-4</m> has corresponding rate <m>f'(x)=3x^2-12x</m>.
+          Describe the monotonicity and concavity of <m>f(x)</m>.
         </p>
       </statement>
       <solution>
         <p>
-        Sign analysis of the rate of accumulation <m>f'(x)</m> will be used to describe the monotonicity of <m>f(x)</m>.
-        We factor <me>f'(x)=3x^2-12x=3x(x-4).</me>
-        The zeros (<m>x</m>-intercepts) occur at <m>x=0</m> and <m>x=4</m> and <m>f'(x)</m> is continuous.
-        We need to test the sign of <m>f'(x)</m> in the intervals <m>(-\infty,0)</m>, <m>(0,4)</m>, and <m>(4,\infty)</m>.
-        Only the sign matters, so using the factored formula, we can count how many factors are positive and negative.
-        <ul>
-          <li><m>f'(-1)=3(-1)(-5) = +</m> (2 negative factors)</li>
-          <li><m>f'(1)=3(1)(-3) = -</m> (1 negative factors)</li>
-          <li><m>f'(5)=3(5)(1) = +</m> (0 negative factors)</li>
-        </ul>
-        When doing such a problem, we just use a sign analysis number line to record our results.
+          Sign analysis of the rate of accumulation <m>f'(x)</m> will be used to describe the monotonicity of <m>f(x)</m>.
+          We factor <me>f'(x)=3x^2-12x=3x(x-4).</me>
+          The zeros (<m>x</m>-intercepts) occur at <m>x=0</m> and <m>x=4</m> and <m>f'(x)</m> is continuous.
+          We need to test the sign of <m>f'(x)</m> in the intervals <m>(-\infty,0)</m>, <m>(0,4)</m>, and <m>(4,\infty)</m>.
+          Only the sign matters, so using the factored formula, we can count how many factors are positive and negative.
+          <ul>
+            <li><m>f'(-1)=3(-1)(-5) = +</m> (2 negative factors)</li>
+            <li><m>f'(1)=3(1)(-3) = -</m> (1 negative factors)</li>
+            <li><m>f'(5)=3(5)(1) = +</m> (0 negative factors)</li>
+          </ul>
+          When doing such a problem, we just use a sign analysis number line to record our results.
         </p>
-        
         <sidebyside margins="auto">
           <image>
             <latex-image>
@@ -272,7 +298,7 @@
             \draw[<->] (-4,0) -- (8,0)
               node[pos=1, above right] {$f'(x)=3x(x-4)$}
               node[pos=1, below right] {$x$};
-            \draw (0, -0.1) -- (0,0.1) 
+            \draw (0, -0.1) -- (0,0.1)
               node[pos=0, below] {$0$}
               node[pos=1, above] {$0$};
             \draw (4, -0.1) -- (4,0.1)
@@ -285,27 +311,24 @@
             </latex-image>
           </image>
         </sidebyside>
-        
         <p>
-        We interpret the signs of <m>f'(x)</m> to deduce the monotonicity of <m>f(x)</m>.
-        The function <m>f'(x)</m> is positive on the intervals <m>(-\infty,0)</m> and <m>(4,\infty)</m>
-        and negative on the interval <m>(0,4)</m>.
-        Consequently, <m>f(x)</m> must be increasing on the intervals <m>(-\infty,0)</m> and <m>(4,\infty)</m>
-        and decreasing on the interval <m>(0,4)</m>.
-        Because <m>f(x)</m> is continuous (all polynomials are continuous), we can extend each of these intervals
-        to include the end-points at <m>x=0</m> and <m>x=4</m>.
+          We interpret the signs of <m>f'(x)</m> to deduce the monotonicity of <m>f(x)</m>.
+          The function <m>f'(x)</m> is positive on the intervals <m>(-\infty,0)</m> and <m>(4,\infty)</m>
+          and negative on the interval <m>(0,4)</m>.
+          Consequently, <m>f(x)</m> must be increasing on the intervals <m>(-\infty,0)</m> and <m>(4,\infty)</m>
+          and decreasing on the interval <m>(0,4)</m>.
+          Because <m>f(x)</m> is continuous (all polynomials are continuous), we can extend each of these intervals
+          to include the end-points at <m>x=0</m> and <m>x=4</m>.
         </p>
-        
         <p>
-        Concavity of <m>f(x)</m> depends on the monotonicity of <m>f'(x)</m>.
-        Because <m>f'(x)=3x^2-12x</m> is itself a polynomial, we can find its rate of accumulation <m>f''(x)</m>
-        and perform sign analysis to deduce that monotonicity.
-        <me>f''(x) = 6x-12=6(x-2)</me>
-        The only zero of <m>f''(x)</m> is at <m>x=2</m>.
-        We test the intervals <m>(-\infty,2)</m> and <m>(2,\infty)</m> using the signs of <m>f''(x)</m>,
-        summarized by the following number line.
+          Concavity of <m>f(x)</m> depends on the monotonicity of <m>f'(x)</m>.
+          Because <m>f'(x)=3x^2-12x</m> is itself a polynomial, we can find its rate of accumulation <m>f''(x)</m>
+          and perform sign analysis to deduce that monotonicity.
+          <me>f''(x) = 6x-12=6(x-2)</me>
+          The only zero of <m>f''(x)</m> is at <m>x=2</m>.
+          We test the intervals <m>(-\infty,2)</m> and <m>(2,\infty)</m> using the signs of <m>f''(x)</m>,
+          summarized by the following number line.
         </p>
-        
         <sidebyside margins="auto">
           <image width="70%">
             <latex-image>
@@ -316,7 +339,7 @@
             \draw[<->] (-4,0) -- (8,0)
               node[pos=1, above right] {$f''(x)=6(x-2)$}
               node[pos=1, below right] {$x$};
-            \draw (2, -0.1) -- (2,0.1) 
+            \draw (2, -0.1) -- (2,0.1)
               node[pos=0, below] {$2$}
               node[pos=1, above] {$0$};
             \node [above] at (-1,0.1) {$-$};
@@ -325,21 +348,20 @@
             </latex-image>
           </image>
         </sidebyside>
-        
         <p>
-        Because <m>f''(x) \lt 0</m> on the interval <m>(-\infty,2)</m>, 
-        we know that <m>f'(x)</m> is decreasing on <m>(-\infty,2)</m>.
-        Consequently, <m>f(x)</m> is concave down on  <m>(-\infty,2)</m>.
-        Because <m>f''(x) \gt 0</m> on the interval <m>(2,\infty)</m>, 
-        we know that <m>f'(x)</m> is increasing on <m>(2,\infty)</m>.
-        Consequently, <m>f(x)</m> is concave up on  <m>(2,\infty)</m>.
-        Again, because <m>f(x)</m> is continuous, intervals of concavity can be extended to include the end-point at <m>x=2</m>.
+          Because <m>f''(x) \lt 0</m> on the interval <m>(-\infty,2)</m>,
+          we know that <m>f'(x)</m> is decreasing on <m>(-\infty,2)</m>.
+          Consequently, <m>f(x)</m> is concave down on  <m>(-\infty,2)</m>.
+          Because <m>f''(x) \gt 0</m> on the interval <m>(2,\infty)</m>,
+          we know that <m>f'(x)</m> is increasing on <m>(2,\infty)</m>.
+          Consequently, <m>f(x)</m> is concave up on  <m>(2,\infty)</m>.
+          Again, because <m>f(x)</m> is continuous, intervals of concavity can be extended
+          to include the end-point at <m>x=2</m>.
         </p>
-        
         <p>
-        Notice how the graph of <m>y=f(x)</m> reflects the monotonicity and concavity that we have determined.
+          Notice how the graph of <m>y=f(x)</m> reflects the monotonicity and concavity
+          that we have determined.
         </p>
-        
         <figure margins="auto">
           <caption>Graph of <m>y=f(x)=x^3-6x^2-4</m>, including turning points at <m>x=0</m> and <m>x=4</m>
           and an inflection point at <m>x=2</m>.</caption>
@@ -364,18 +386,24 @@
       </solution>
     </example>
   </subsection>
-  
   <subsection>
     <title>Summary</title>
     <p>
     <ul>
-      <li>The rate of accumulation <m>f'(x)</m> is the integrand function of an accumulation function <m>f(x)</m>,
-      <me>f(x) = f(a) + \int_a^x f'(z) \,dz</me></li>
-      <li>We will later discover that the derivative of a function is equivalent to the rate of accumulation,
-      so we also call the rate of accumulation <m>f'(x)</m> the derivative of <m>f(x)</m>.
-      We will show that they are equivalent when we prove the Fundamental Theorem of Calculus.</li>
-      <li>Rates of accumulation (or derivatives) satisfy the linear properties of a sum rule 
-      and a constant multiple rule.</li>
+      <li>
+        <p>
+          The rate of accumulation <m>f'(x)</m> is the integrand function of an accumulation function <m>f(x)</m>,
+          <me>f(x) = f(a) + \int_a^x f'(z) \,dz</me>
+        </p>
+      </li>
+      <li>
+        <p>
+          The rate of accumulation for a function is equivalent
+          to what we will later define as the derivative of the function.
+          Thus, we often just call the rate of accumulation <m>f'(x)</m> the derivative of <m>f(x)</m>.
+          Showing this equivalence will be the goal of the Fundamental Theorem of Calculus.
+        </p>
+      </li>
       <li>
         <p>
         Our known accumulation formulas have a complementary interpretation as derivatives:
@@ -390,14 +418,143 @@
         </p>
         <p>In addition, any constant function <m>f(x)=c</m> has derivative <m>f'(x)=0</m>.</p>
       </li>
-      <li>For simple polynomials <m>f(x)</m>, we can now compute <m>f'(x)</m> as a related polynomial
-      in order to answer questions about monotonicity. 
-      Because <m>f'(x)</m> is a polynomial, it also has its own derivative <m>f''(x)</m>
-      (called the second derivative of <m>f(x)</m>). 
-      The sign of <m>f''(x)</m> determines the monotonicity of <m>f'(x)</m>, 
-      which in turn determines the concavity of <m>f(x)</m>.
+      <li>
+        <p>
+          Rates of accumulation (derivatives) satisfy the linear properties of a sum rule
+          and a constant multiple rule.
+        </p>
+      </li>
+      <li>
+        <p>
+          For simple polynomials <m>f(x)</m>, we compute <m>f'(x)</m> as a related polynomial
+          in order to answer questions about monotonicity.
+          Because <m>f'(x)</m> is a polynomial, it also has its own derivative <m>f''(x)</m>
+          (called the second derivative of <m>f(x)</m>).
+          The sign of <m>f''(x)</m> determines the monotonicity of <m>f'(x)</m>,
+          which in turn determines the concavity of <m>f(x)</m>.
+        </p>
       </li>
     </ul>
     </p>
   </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          For each function defined in terms of an integral,
+          identify the rate of accumulation.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = - 5 + \int_1^x ze^{-z} \, dz</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle Q(x) = \int_0^x \frac{s}{s^2+1} \, ds</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle A(x) = 4 \int_{-2}^x t + 3t^3 \, dt</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle R(x) = 1 + 2 \int_1^x \sin(z) \, dz - 3 \int_1^x \cos(z)\, dz</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Find the derivative of each polynomial.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle p(x) = x^2 - 5x</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle q(x) = x^3 - 6x^2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle r(x) = x^4 + 2x^3 - 5</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Write each polynomial as an accumulation function from the indicated starting point.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle p(x) = x^2 - 5x</m> from <m>x=1</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle p(x) = x^2 - 5x</m> from <m>x=-2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle q(x) = x^3 - 6x^2</m> from <m>x=2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle q(x) = x^3 - 6x^2</m> from <m>x=0</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle r(x) = x^4 + 2x^3 - 5</m> from <m>x=-1</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle r(x) = x^4 + 2x^3 - 5</m> from <m>x=2</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Determine the monotonicity and concavity of each polynomial.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>f(x) = 3 x^2 - 48 x + 5</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>g(x) = 100 + 80x - 2x^2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>h(x) = 9x^2 - x^3</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>w(x) = x^3 - 9 x^2 + 15x + 4</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>u(x) = x^4-6x^2 +15</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>M(x) = 15 +4x^3 - x^4</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
 </section>
