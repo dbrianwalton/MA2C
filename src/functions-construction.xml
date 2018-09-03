@@ -363,7 +363,7 @@
       </definition>
       <p>
         The inverse operations for a power is a root, which is itself a power:
-        <me>\pow_p^{-1}(x) = \sqrt[p]{x} = x^{(1/p)}</me>.
+        <me>\mathrm{pow}_p^{-1}(x) = \sqrt[p]{x} = x^{(1/p)}</me>.
         Technically, the power operation is not one-to-one for <m>p</m> an even power,
         so the root is only a true inverse operation for <m>p</m> odd.
         When <m>p</m> is even, the root is an inverse operation only for non-negative values.
