@@ -68,6 +68,7 @@
     <chapter>
       <title>Modeling Rates of Change by Differentiation</title>
       <xi:include href="./accumulation-rates.xml" />
+      <xi:include href="./extreme-values.xml" />
       <xi:include href="./intro-optimization.xml" />
       <xi:include href="./rate-functions.xml" />
       <xi:include href="./derivative_intro.xml" />

@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="extreme-values">
+  <title>Extreme Values</title>
+  <introduction>
+    <p>
+      We have learned earlier that when a function <m>f(x)</m> can be written as an accumulation function,
+      we can describe the behavior of the function in terms of its rate of accumulation <m>f'(x)</m>.
+      We use sign analysis of <m>f'(x)</m> to find the intervals of monotonicity of <m>f(x)</m>.
+      And if <m>f'(x)</m> can also be written as an accumulation function with rate <m>f''(x)</m>,
+      the sign analysis of <m>f''(x)</m> determines the intervals of concavity of <m>f(x)</m>.
+    </p>
+    <p>
+      In this section, we apply this information to describe the extreme values of a function.
+      By identifying points where <m>f'(x)</m> changes sign, we can find local maximum and minimum values.
+      Global extreme values require comparing local extremes with end behaviors.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Local Extreme Values</title>
+    <p>
+      When the derivative <m>f'(x)</m> changes sign at a point where <m>f(x)</m> is continuous,
+      the function has a local or relative extreme value.
+      We begin by focusing on what we mean by a local extreme value.
+      A local extreme is a point where the function reaches either its highest or lowest point
+      <em>on an interval around that point</em>.
+      The function might exceed the value on some other interval,
+      but the value needs to be the extreme in a neighborhood of the point.
+    </p>
+    <definition xml:id="defn-local-extrema">
+      <title>Local (Relative) Extreme Values</title>
+      <statement>
+        <p>
+          A function <m>f(x)</m> has a <term>local maximum</term> at a point <m>x=c</m> in the domain
+          if there is an interval <m>(a,b)</m> with <m>c \in (a,b)</m>
+          so that <m>f(x) \le f(c)</m> for all <m>x \in (a,b)</m>.
+        </p>
+        <p>
+          A function <m>f(x)</m> has a <term>local minimum</term> at a point <m>x=c</m> in the domain
+          if there is an interval <m>(a,b)</m> with <m>c \in (a,b)</m>
+          so that <m>f(c) \le f(x)</m> for all <m>x \in (a,b)</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The reason that the definition describes these extreme values as local extremes
+      is that the function might go higher or lower at some point outside of the interval.
+      A local or relative extreme value is only at the highest or lowest points relative to its immediate neighbors.
+      The following graph illustrates a function with multiple local extreme values.
+    </p>
+    <figure xml:id="figure-illustrate-local-extremes">
+      <caption>Illustration of a function with local extremes and no global extremes.</caption>
+      <image width="60%">
+        <description>
+          A graph climbs from negative infinity to a local maximum labeled by A,
+          then decreases to a local minimum labeled B,
+          then increases to another local maximum labeled C,
+          a short interval of decreasing to a local minimum labeled D,
+          another short interval of increasing to a local maximum labeled E,
+          then decreases to a local minimum labeled F,
+          after which the function increases without bound to plus infinity.
+        </description>
+        <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}
+            [ xmin=-5, xmax=5, ymin=-5, ymax=5 ]
+            \addplot [domain=-5:5, samples=100] { x*(x^2-4)*(x^2-16)/40+20*(x-1)^2*exp(-5*(x-1)^2)};
+            \addplot [only marks] coordinates {
+              (-3.289,2.905)
+              (-1.088,-1.135)
+              (0.589,2.294)
+              (0.994,1.124)
+              (1.417,2.445)
+              (3.289,-2.905)
+            }
+            node [pos=0, above] {$A$}
+            node [pos=0.2, below] {$B$}
+            node [pos=0.4, above] {$C$}
+            node [pos=0.6, below] {$D$}
+            node [pos=0.8, above] {$E$}
+            node [pos=1, below] {$F$};
+          \end{axis}
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      The function shows local maxima at points labeled <m>A</m>, <m>C</m>, and <m>E</m>
+      and local minima at points labeled <m>B</m>, <m>D</m>, and <m>F</m>.
+      Of the three maxima, the value at <m>A</m> is the greatest.
+      Because the graph continues to increase after <m>F</m>, however,
+      the function reaches values higher than all of the local maxima.
+      Similarly, the minimum at <m>F</m> is the lowest of the three lolal minima
+      but the function reach values even lower at points to the left of <m>A</m>.
+    </p>
+    <p>
+      One observation we should make is that the local extreme values occurred
+      where the function transitioned between an interval of increasing to an interval of decreasing.
+      Such points are called turning points.
+      Sign analysis using the first derivative can often identify these turning points,
+      so we use sign analysis to find local extreme values.
+      The applicable theorem is called the first derivative test for extreme values.
+    </p>
+    <theorem xml:id="thm-first-derivative-test">
+      <title>First Derivative Test</title>
+      <statement>
+        <p>
+          Suppose that <m>f'(x)</m> exists on an interval <m>(a,b)</m>,
+          possibly except at <m>x=c</m> with <m>a \lt c \lt b</m>
+          and that <m>f(x)</m> is continuous at <m>x=c</m>.
+          <ul>
+            <li>
+              If <m>f'(x) \lt 0</m> for <m>x \in (a,c)</m> and <m>f'(x) \gt 0</m> for <m>x \in (c,b)</m>,
+              then <m>f(x)</m> is decreasing on <m>(a,c]</m> and increasing on <m>[c,b)</m>
+              so that <m>f</m> has a <term>local minimum</term> at <m>x=c</m>.
+            </li>
+            <li>
+              If <m>f'(x) \gt 0</m> for <m>x \in (a,c)</m> and <m>f'(x) \lt 0</m> for <m>x \in (c,b)</m>,
+              then <m>f(x)</m> is increasing on <m>(a,c]</m> and decreasing on <m>[c,b)</m>
+              so that <m>f</m> has a <term>local maximum</term> at <m>x=c</m>.
+            </li>
+            <li>
+              If <m>f'(x)</m> does not change sign,
+              then <m>f</m> does <em>not</em> have a local extreme value at <m>x=c</m>.
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          The function <me>\displaystyle f(x) = \frac{x}{x^2+3}</me>
+          has a derivative <me>f'(x) = \frac{3-x^2}{(x^2+3)^2}.</me>
+          Describe the local extreme values of <m>f(x)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The denominator of <m>f'(x)</m> is never zero because <m>x^2+3 \ge 3</m> will never equal zero.
+          So the sign can only change where <m>3-x^2=0</m> which occurs at two values, <m>x=\pm\sqrt{3}</m>.
+          There are three intervals of interest.
+          We can find the signs of <m>f'(x)</m> using the values <m>x=-2</m>, <m>x=0</m> and <m>x=2</m>.
+          The signs are summarized in the number line summary below.
+        </p>
+        <sidebyside>
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[<->] (-3,0) -- (3,0) node[above right] {$f'(x)$} node[below right] {$x$};
+
+            \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
+            \draw (-1.7, -0.1) -- (-1.7, 0.1) node[pos=0, below] {$-\sqrt{3}$} node[pos=1,above] {$0$};
+            \draw (1.7, -0.1) -- (1.7, 0.1) node[pos=0, below] {$\sqrt{3}$} node[pos=1,above] {$0$};
+            \node [above] at (-2.2,0) {$-$};
+            \node [above] at (0,0) {$+$};
+            \node [above] at (2.2,0) {$-$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          We finish by interpreting our results.
+          <ul>
+            <li>
+              Because <m>f'(x) \lt 0</m> on <m>(-\infty,-\sqrt{3})</m>
+              and <m>f'(x) \gt 0</m> on <m>(-\sqrt{3},\sqrt{3})</m>,
+              we know <m>f(x)</m> has a local minimum at <m>x=-\sqrt{3}</m>.
+              (Minimum over the interval <m>(-\infty,+\sqrt{3})</m>)
+            </li>
+            <li>
+              Because <m>f'(x) \gt 0</m> on <m>(-\sqrt{3},\sqrt{3})</m>
+              and <m>f'(x) \lt 0</m> on <m>(\sqrt{3},\infty)</m>,
+              we know <m>f(x)</m> has a local maximum at <m>x=\sqrt{3}</m>.
+              (Maximum over the interval <m>(-\sqrt{3},\infty)</m>)
+            </li>
+          </ul>
+          A graph of the function is illustrated below.
+        </p>
+        <sidebyside>
+          <image>
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [ xmin=-8, xmax=8, ymin=-0.5, ymax=0.5,
+            axis lines=center ]
+            \addplot [domain=-8:8, samples=101] { x/(x^2+3) };
+            \addplot [only marks] coordinates {
+                (-1.732, {-1.732/6}) (1.732, {1.732/6})
+            }
+            node [pos=0, below left] {$x=-\sqrt{3}$}
+            node [pos=1, above right] {$x=\sqrt{3}$};
+            \end{axis}
+            \end{tikzpicture}
+            ]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Global Extreme Values</title>
+    <p>
+      In <xref ref="figure-illustrate-local-extremes" />, we saw that when a function has local extreme values,
+      there could still be other points that are not local extremes that exceed the extremes.
+      This leads to the idea of <term>global extreme values</term>.
+    </p>
+    <definition xml:id="definition-global-extreme-values">
+      <statement>
+        <p>
+          Suppose the function <m>f</m> has domain <m>D</m>.
+          <ul>
+            <li>
+              <m>f</m> has a <term>global maximum</term> at <m>c \in D</m>
+              if <m>f(c) \ge f(x)</m> for all <m>x \in D</m>.
+            </li>
+            <li>
+              <m>f</m> has a <term>global minimum</term> at <m>c \in D</m>
+              if <m>f(c) \le f(x)</m> for all <m>x \in D</m>.
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      To identify global extremes of a function,
+      we first need to find all of the local extreme values.
+      Then we use additional information to test whether the function manages to reach beyond those values.
+      The sign analysis used to analyze local extrema does give us some information
+      about the intervals immediately to the left and right of an extremum.
+      For example, we know that a local maximum will be greater than all points
+      in the immediately adjacent intervals, but we may not know how far down the function goes.
+    </p>
+    <p>
+      Finishing the analysis for global extremes generally involves
+      computing limits of the function on intervals not already accounted for by the local extremes.
+      If a limit has a real (finite) value, the function values approach that limit
+      but may not actually reach the limit as an actual function value.
+      When a function is approaches a value in a limit that <em>would be</em> an extreme value but never reaches it,
+      we call that value a <term>bound</term> rather than an extreme.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the global extreme values of <m>f(x) = 4x^2 - x^3</m> restricted to each of the following domains.
+          <ol>
+            <li><m>D = (-\infty,\infty)</m></li>
+            <li><m>D_1 = [-1,3]</m></li>
+            <li><m>D_2 = (-2,4]</m></li>
+            <li><m>D_3 = [-2,2)</m></li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This question considers finding global extrema for a function
+          when it is restricted to different domains.
+          Regardless of which domain we use, we will need to find the local extreme values.
+          Local extreme values are identified from sign analysis of <m>f'(x)</m>.
+          We find <me>f'(x)=4(2x) - (3x^2) = 8x - 3x^2</me>.
+          Sign analysis begins by finding the roots, where <m>f'(x)=0</m>.
+          <md>
+            <mrow> 8x-3x^2 = 0</mrow>
+            <mrow> x(8-3x) = 0</mrow>
+            <mrow> x=0, \quad 8-3x=0</mrow>
+            <mrow> x=0, \quad x=\frac{8}{3}</mrow>
+          </md>
+          Because <m>f'(x)</m> is continuous, the roots determine the test intervals:
+          <m>(-\infty,0)</m>, <m>(0,\frac{8}{3})</m>, and <m>(\frac{8}{3},\infty)</m>.
+          Testing one value of <m>x</m> from each interval in <m>f'(x) = x(8-3x)</m>,
+          we find the signs summarized on the following number line.
+        </p>
+        <sidebyside>
+          <image>
+            <description>
+              A sign analysis number line summary for f'(x) is shown with marks at 0 and 8/3 as roots or zeros,
+              marked as negative to the left of 0, positive between 0 and 8/3, and negative to the right of 8/3.
+            </description>
+            <latex-image>
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}[x=1cm,y=1cm]
+              \draw[<->] (-2,0) -- (5,0) node[above right] {$f'(x)$} node[below right] {$x$};
+
+              \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
+              \draw (2.667, -0.1) -- (2.667, 0.1) node[pos=0, below] {$\frac{8}{3}$} node[pos=1,above] {$0$};
+              \node [above] at (-1,0) {$-$};
+              \node [above] at (1.333,0) {$+$};
+              \node [above] at (4,0) {$-$};
+              \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          We can interpret the sign analysis of <m>f'(x)</m> as characterizing the monotonicity of <m>f(x)</m>.
+          <ul>
+            <li><m>f(x)</m> is decreasing on <m>(-\infty,0)</m>.</li>
+            <li><m>f(x)</m> is increasing on <m>(0,\frac{8}{3})</m>.</li>
+            <li><m>f(x)</m> is decreasing on <m>(\frac{8}{3},\infty)</m>.</li>
+          </ul>
+          Because <m>f(x)</m> is decreasing on the left of <m>x=0</m> and increasing on the right,
+          <m>f(x)</m> has a <em>local minimum</em> at <m>x=0</m>.
+          The value of the function at this minimum is
+          <me>f(0) = 4(0)^2-(0)^3 = 0</me>.
+          Similarly, because <m>f(x)</m> is increasing on the left of <m>x=\frac{8}{3}</m> and decreasing on the right,
+          <m>f(x)</m> has a <em>local maximum</em> at <m>x=\frac{8}{3}</m>.
+          The value of the function at this maximum is
+          <me>f(\frac{8}{3}) = 4(\frac{8}{3})^2-(\frac{8}{3})^3 = \frac{256}{27} \approx 9.4815</me>.
+        </p>
+        <p>
+          From our sign analysis of <m>f'(x)</m>,
+          we know that <m>f(0)</m> is the minimum value for the interval <m>(-\infty,\frac{8}{3}]</m>
+          and that <m>f(\frac{8}{3})</m> is the maximum value for the interval <m>[\frac{8}{3},\infty)</m>.
+          To complete the analysis of global extreme values,
+          we need use limits to compare <m>f(0)</m> with points on the interval <m>(\frac{8}{3},\infty)</m>
+          and <m>f(\frac{8}{3})</m> with points on the interval <m>(-\infty,0)</m>.
+          To evaluate limits involving <m>\pm \infty</m>, we need to factor out the dominant power,
+          <me>f(x) = 4x^2-x^3 = x^3(\frac{4}{x} - 1)</me>,
+          before using the <xref text="title" ref="subsec-arithmetic-infinity">limit arithmetic of infinity</xref>.
+          <md>
+            <mrow>\lim_{x \to -\infty} f(x) &amp;= \lim_{x \to -\infty} x^3 (\frac{4}{x}-1)</mrow>
+            <mrow> &amp;= (-\infty)^3 \cdot (\frac{4}{-\infty}-1)</mrow>
+            <mrow> &amp;= -\infty \cdot (0-1) = +\infty</mrow>
+            <mrow>\lim_{x \to +\infty} f(x) &amp;= \lim_{x \to +\infty} x^3 (\frac{4}{x}-1)</mrow>
+            <mrow> &amp;= (\infty)^3 \cdot (\frac{4}{\infty}-1)</mrow>
+            <mrow> &amp;= \infty \cdot (0-1) = -\infty</mrow>
+          </md>
+        </p>
+        <p>
+          Let us now address the question of the global extreme values on each of the requested restricted domains.
+          <ol>
+            <li>
+              <p>Find the global extremes on the interval <m>(-\infty,\infty)</m>.</p>
+              <p>
+                We have learned that on the interval <m>(-\infty,0)</m>,
+                <m>f</m> reaches all values between <m>f(0)=0</m> and <m>\displaystyle \lim_{x \to -\infty}f(x)=\infty</m>.
+                Clearly, <m>f(x)</m> has <em>no maximum value</em> because it is unbounded above.
+                Similarly, we learned that on the interval <m>(\frac{8}{3},\infty)</m>,
+                <m>f(x)</m> reaches all values between <m>-\infty</m> and <m>f(\frac{8}{3})=\frac{256}{27}</m>
+                and is unbounded below.
+                So <m>f(x)</m> has <em>no minimum value</em>.
+                The range of <m>f</m> has been shown to be <m>(-\infty,\infty)</m> and
+                <m>f</m> has no global extreme values on <m>(-\infty,\infty)</m>.
+              </p>
+            </li>
+            <li>
+              <p>Find the global extremes on the interval <m>D_1=[-1,3]</m>.</p>
+              <p>
+                We know <m>f</m> is decreasing on <m>[-1,0)</m>, a subset of <m>(-\infty,0)</m>,
+                so the maximum value on that interval is
+                <me>f(-1) = 4(-1)^2-(-1)^3 = 5</me>.
+                We also know <m>f</m> is decreasing on <m>(\frac{8}{3},3]</m>
+                so the minimum value on that interval is
+                <me>f(3) = 4(3)^2 - (3)^3 = 9</me>.
+                Comparing these to the local minimum <m>f(0)=0</m> and the local maximum <m>f(\frac{8}{3})=\frac{256}{27}</m>,
+                we see that <m>f(0)=0</m> is the <em>global minimum</em>
+                and <m>f(\frac{8}{3})=\frac{256}{27}</m> is the <em>global maximum</em> for the interval <m>D_1=[-1,3]</m>.
+                When restricted to this domain, the range of <m>f</m> becomes <m>[0,\frac{256}{27}]</m>.
+              </p>
+            </li>
+            <li>
+              <p>Find the global extremes on the interval <m>D_2=(-2,4]</m>.</p>
+              <p>
+                We know <m>f</m> is decreasing on <m>(-2,0)</m>,
+                so that the left end-point provides an upper bound
+                <me> \lim_{x \to -2^+} f(x) = f(-2) = 4(-2)^2-(-2)^3=24</me>.
+                This is not a maximum value because <m>x=-2</m> is not included in the domain.
+                Because <m>f</m> is decreasing on <m>(\frac{8}{3},4]</m>
+                the minimum value on that interval is
+                <me>f(4) = 4(4)^2 - (4)^3 = 0</me>.
+                The global minimum occurs in two locations,
+                <me> f(0) = f(4) = 0</me>.
+                The value <m>f(-2)=24</m> is not a global maximum
+                because <m>x=-2</m> is not included in the domain.
+                However, <m>f</m> does include all values up to that value through the limit
+                so that <m>f</m> has an upper bound of 24.
+                When <m>f</m> is restricted to <m>D_2=(-2,4]</m>,
+                the range is <m>[0,24)</m>.
+              </p>
+            </li>
+            <li>
+              <p>Find the global extremes on the interval <m>D_3=[-2,2)</m>.</p>
+              <p>
+                From the work above, we know <m>f(-2)=24</m> is the maximum value on <m>[-2,0)</m>.
+                Because the right end point <m>x=2</m> is to the left of the local maximum at <m>x=\frac{8}{3}</m>,
+                we need to consider the interval of monotonicity <m>(0,2)</m>.
+                <m>f</m> is increasing on this interval and bounded above by the limit
+                <me>\lim_{x \to 2^-} f(x) = f(2) = 4(2)^2-2^3 = 8</me>.
+                Our work shows that <m>f</m> has a global minimum at <m>x=0</m> with <m>f(0)=0</m>
+                and a global maximum at <m>x=-2</m> with <m>f(-2)=24</m>.
+                The range of <m>f</m> restricted to <m>D_3=[-2,2)</m> is <m>[0,24]</m>.
+              </p>
+            </li>
+          </ol>
+          The following figure illustrates the graph <m>y=f(x)</m> restricted to each domain.
+          Be sure to compare the analysis that identified the global extremes with the graphs.
+        </p>
+        <figure>
+          <caption />
+          <sbsgroup>
+            <sidebyside widths="45% 45%">
+              <figure>
+                <caption>Domain: <m>(-\infty,\infty)</m></caption>
+                <image>
+                  <latex-image>
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [ xmin=-3, xmax=5, ymin=-10, ymax=30 ]
+                    \addplot [domain=-5.5:5.5, samples=100, thick, blue] {4*x^2-x^3};
+                    \end{axis}
+                    \end{tikzpicture}
+                  </latex-image>
+                </image>
+              </figure>
+              <figure>
+                <caption>Domain: <m>[-1,3]</m></caption>
+                <image>
+                  <latex-image>
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [ xmin=-3, xmax=5, ymin=-10, ymax=30 ]
+                    \addplot [domain=-1:3, samples=100, thick, blue] {4*x^2-x^3};
+                    \addplot [only marks, blue] coordinates { (-1,5) };
+                    \addplot [only marks, blue] coordinates { (3,9) };
+                    \end{axis}
+                    \end{tikzpicture}
+                  </latex-image>
+                </image>
+              </figure>
+            </sidebyside>
+            <sidebyside widths="45% 45%">
+              <figure>
+                <caption>Domain: <m>(-2,4]</m></caption>
+                <image>
+                  <latex-image>
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [ xmin=-3, xmax=5, ymin=-10, ymax=30 ]
+                    \addplot [domain=-2:4, samples=100, thick, blue] {4*x^2-x^3};
+                    \addplot [only marks, blue, fill=white] coordinates { (-2,24) };
+                    \addplot [only marks, blue] coordinates { (4,0) };
+                    \end{axis}
+                    \end{tikzpicture}
+                  </latex-image>
+                </image>
+              </figure>
+              <figure>
+                <caption>Domain: <m>[-2,2)</m></caption>
+                <image>
+                  <latex-image>
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [ xmin=-3, xmax=5, ymin=-10, ymax=30 ]
+                    \addplot [domain=-2:2, samples=100, thick, blue] {4*x^2-x^3};
+                    \addplot [only marks, blue] coordinates { (-2,24) };
+                    \addplot [only marks, blue, fill=white] coordinates { (2,8) };
+                    \end{axis}
+                    \end{tikzpicture}
+                  </latex-image>
+                </image>
+              </figure>
+            </sidebyside>
+          </sbsgroup>
+        </figure>
+      </solution>
+    </example>
+    <p>
+      The process to find global extrema is summarized as the following algorithm.
+    </p>
+    <algorithm xml:id="algthm-global-extrema">
+      <title>Finding Global Extreme Values</title>
+      <statement>
+        <p>
+          To find the global extrema of a function <m>f(x)</m> that is continuous on an interval:
+          <ul>
+            <li>Determine the derivative <m>f'(x)</m> and perform sign analysis.</li>
+            <li>Identify all of the local extreme values and compute the value of <m>f(x)</m> at each extreme.</li>
+            <li>Find extremes or bounds for <m>f(x)</m> at the end points using values or limits, respectively.</li>
+            <li>Identify the highest and lowest values out of the local extremes and the end points.</li>
+            <li>
+              If an extreme value occurs at a point in the interval, that value is a global maximum/minimum.
+              If an extreme value occurs as a limit at an excluded end point, that value is a bound but not a global extremum.
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </algorithm>
+  </subsection>
+  <subsection>
+    <title>Extreme Values involving Accumulation</title>
+    <p>
+      In our examples above, we worked with functions with explicit formulas.
+      However, most steps in the analysis involved only knowing information about the derivative.
+      Here we consider examples where the derivative is given as the rate of accumulation
+      and we do not know the explicit formula for the function in question.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose <m>f</m> is defined as an accumulation function with an initial value <m>f(0)=10</m>
+          and a rate of accumulation <m>f'</m> shown in the graph below.
+          We assume the graph continues as shown outside of the viewing window.
+          Determine local and global extreme values for <m>f(x)</m>.
+        </p>
+        <image width="60%">
+          <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-5, xmax=5, ymin=-5, ymax=5,
+              xlabel={$x$}, ylabel={$f'(x)$},
+              grid=both, minor tick num={1}, axis lines=center,
+            ]
+            \addplot [no marks, thick, blue] coordinates {
+              (-5,4) (-2,-2) (-1,-2) (1,0) (2,3) (3,3) (5,-3)
+            };
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+      <solution>
+        <p>
+          Our function of interest is defined by an accumulation
+          <me>f(x) = 10 + \int_0^x f'(z) \, dz</me>.
+          We can find local extrema in the same way as before.
+          However, instead of solving an equation <m>f'(x)=0</m>,
+          we can look at the graph to both find the roots and the signs of <m>f'</m>.
+          The graph crosses the <m>x</m>-axis at <m>x=-3</m>, <m>x=1</m> and <m>x=5</m>.
+          The signs of <m>f'(x)</m> are identified in the following sign analysis number line summary.
+        </p>
+        <image>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=0.6cm,y=1cm]
+          \draw[<->] (-5,0) -- (7,0) node[above right] {$f'(x)$} node[below right] {$x$};
+
+          \draw (-3, -0.1) -- (-3, 0.1) node[pos=0, below] {$-3$} node[pos=1,above] {$0$};
+          \draw (1, -0.1) -- (1, 0.1) node[pos=0, below] {$1$} node[pos=1,above] {$0$};
+          \draw (4, -0.1) -- (4, 0.1) node[pos=0, below] {$4$} node[pos=1,above] {$0$};
+          \node [above] at (-4,0) {$+$};
+          \node [above] at (-1,0) {$-$};
+          \node [above] at (2.5,0) {$+$};
+          \node [above] at (6,0) {$-$};
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+        <p>
+          The <xref ref="thm-first-derivative-test" text="title"/> allows us to conclude
+          that <m>f(x)</m> has a local maximum at <m>x=-3</m>,
+          a local minimum at <m>x=1</m>,
+          and another local maximum at <m>x=4</m>.
+          It is possible to decide which maximum has a higher value by considering the signed area of the graph.
+          In particular, because <m>f'(x)</m> has linear segments,
+          we can compute the areas in question using elementary geometry to find
+          <md>
+            <mrow> \int_{-3}^{1} f'(x) \, dx = -5 </mrow>,
+            <mrow> \int_{1}^{4} f'(x) \, dx = 6 </mrow>.
+          </md>
+          Using the splitting property of definite integrals, this implies
+          <me> f(4)-f(-3) = \int_{-3}^{4} f'(x) \, dx = -5 + 6 = 1</me>.
+          Consequently, <m>f(4) = f(-3) + 1</m> and <m>f</m> has a higher value at <m>x=4</m> than at <m>x=-3</m>.
+        </p>
+        <p>
+          We can find actual values if we use the initial value,
+          <me> f(-3) = 10 + \int_{0}^{-3} f'(z) \, dz</me>.
+          Because the integral goes right to left, we have <m>dz \lt 0</m> and the signed area will be negated.
+          Again using geometry, we find
+          <me> f(-3) = 10 + -(-4.5) = 14.5 </me>.
+          Using this point and the integrals above, we can quickly find
+          <md>
+            <mrow> f(1) &amp;= f(-3) + \int_{-3}^{1} f'(z) \, dz = 14.5 -5 = 9.5 </mrow>,
+            <mrow> f(4) &amp;= f(1) + \int_{1}^{4} f'(z) \, dz = 9.5 +6 = 15.5 </mrow>.
+          </md>
+        </p>
+        <p>
+          To find global extrema, we need to think about what happens to the left and right of these local extrema.
+          The sign analysis of <m>f'(x)</m> shows that <m>f</m> is increasing on <m>(-\infty,-3)</m>.
+          Thus, <m>f(-3)</m> is the maximum value on <m>(-\infty,3]</m>.
+          The value of <m>f</m> is unbounded below on this interval,
+          <me>\lim_{x \to -\infty} f(x) = -\infty</me>.
+          We can see this by considering the integral <m>\displaystyle \int_{-3}^{x}</m> for <m>x \lt -3</m>.
+          Because the integral goes right to left, <m>dz \lt 0</m>, and <m>f'(z) \gt 0</m> on this interval,
+          the integral becomes more and more negative the further <m>x</m> goes to the left.
+          With a similar argument using <m>\displaystyle \int_4^x f'(z) \, dz</m>, we find
+          <me>\lim_{x \to \infty} f(x) = -\infty</me>
+          and <m>f</m> is again unbounded below on the interval <m>(4,\infty)</m>.
+        </p>
+        <p>
+          We conclude that <m>f</m> has a global maximum <m>f(4) = 13.5</m> and no global minimum.
+          A graph of <m>y=f(x)</m> is shown below.
+        </p>
+        <image width="60%">
+          <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-6, xmax=7,
+              xlabel={$x$}, ylabel={$y=f(x)$},
+              grid=both, minor tick num={1}, axis lines=center,
+            ]
+            \addplot [domain=-6:-2, samples=25, thick, blue] { -(x+3)^2+14.5 };
+            \addplot [domain=-2:-1, samples=4, thick, blue, forget plot] { -2*(x+2)+13.5 };
+            \addplot [domain=-1:1, samples=25, thick, blue, forget plot] { (x-1)^2/2+9.5 };
+            \addplot [domain=1:2, samples=25, thick, blue, forget plot] { 3*(x-1)^2/2+9.5 };
+            \addplot [domain=2:3, samples=4, thick, blue, forget plot] { 3*(x-2)+11 };
+            \addplot [domain=3:7, samples=25, thick, blue, forget plot] {-3*(x-4)^2/2+15.5 };
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+    <ul>
+      <li>
+        A function <m>f</m> has a local maximum (plural: maxima) at <m>x=c</m>
+        if <m>f(c) \ge f(x)</m> in a neighborhood of <m>c</m>.
+        The function <m>f</m> has a local minimum (plural: minima) at <m>x=c</m>
+        if <m>f(c) \le f(x)</m> in a neighborhood of <m>c</m>.
+      </li>
+      <li>
+        A function <m>f</m> has a global maximum at <m>x=c</m>
+        if <m>f(c) \ge f(x)</m> for all <m>x</m> in the domain.
+        The function <m>f</m> has a global minimum at <m>x=c</m>
+        if <m>f(c) \le f(x)</m> for all <m>x</m> in the domain.
+      </li>
+      <li>
+        We can use sign analysis of the derivative <m>f'</m> to find local extreme values.
+        Points where <m>f'(x)</m> changes sign are local extrema.
+        This is called the <xref ref="thm-first-derivative-test" text="title"/>.
+      </li>
+      <li>
+        Global extrema can occur at local extrema or at boundaries of intervals.
+        We need to compare the value of the function at each of the local extrema with the end points.
+        If an end point is not included, the value of the limit at that point
+        can serve as a bound for the function but would not be an actual extreme value.
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>For each function, identify all local extrema.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>f(x)=x^3-9x^2-48x+60</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=120x+3x^2-2x^3</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=x^4-8x^2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=x^4-4x^3+3x^2+2</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>For each function, find the global extrema on the given intervals.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>f(x)=4x-x^2</m> on (i) <m>D=[-1,6]</m>, (ii) <m>D=(1,4)</m>, and <m>(-\infty,\infty)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=x^2+3x</m> on (i) <m>D=[-1,2]</m>, (ii) <m>D=(-4,1]</m>, and <m>(-\infty,\infty)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=x^3-9x^2-48x+60</m> on (i) <m>D=[-5,5]</m>, (ii) <m>D=[-10,10)</m>, and <m>(-\infty,\infty)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=x^4-12x^3+28x^2-17</m> on (i) <m>D=[-1,3]</m>, (ii) <m>D=(1,8)</m>, and <m>(-\infty,\infty)</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
+</section>

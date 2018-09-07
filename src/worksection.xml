@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./intro-optimization.xml" />
+            <xi:include href="./extreme-values.xml" />
 		</chapter>
 
     </book>
