@@ -16,6 +16,7 @@
 
 		<chapter>
             <xi:include href="./extreme-values.xml" />
+            <xi:include href="./intro-optimization.xml" />
 		</chapter>
 
     </book>
