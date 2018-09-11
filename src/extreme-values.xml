@@ -134,19 +134,122 @@
         </p>
       </statement>
     </theorem>
+    <p>
+      Because <m>f'(x)</m> most frequently changes sign at points where <m>f'(x)=0</m>,
+      we call such points the <term>critical points</term> of <m>f(x)</m>.
+      When we have a more precise definition of the derivative,
+      we will learn that critical points also need to include points where <m>f'(x)</m> is not defined.
+    </p>
     <example>
       <statement>
         <p>
-          The function <me>\displaystyle f(x) = \frac{x}{x^2+3}</me>
-          has a derivative <me>f'(x) = \frac{3-x^2}{(x^2+3)^2}.</me>
-          Describe the local extreme values of <m>f(x)</m>.
+          Find the local extreme values of <m>f(x) = x^3 - 6x^2 - 36x + 5</m>.
         </p>
       </statement>
       <solution>
         <p>
+          The first step in a question about extreme values is to compute the rate of change <m>f'(x)</m>.
+          <me>f'(x) = 3x^2 - 12x - 36</me>.
+          To apply the <xref ref="thm-first-derivative-test" text="title" />,
+          we need to complete sign analysis.
+          Because <m>f'(x)</m> is defined and continuous everywhere,
+          our critical points of <m>f</m> are the roots of <m>f'(x)</m>.
+          We solve the equation by factoring:
+          <md>
+            <mrow>3x^2-12x-36 = 0</mrow>
+            <mrow>3(x^2-4x-12) = 0</mrow>
+            <mrow>3(x-6)(x+2) = 0</mrow>.
+          </md>
+          There are two roots of <m>f'</m>, <m>x=6</m> and <m>x=-2</m>, which are the critical points of <m>f</m>.
+        </p>
+        <p>
+          Next, we perform sign analysis using the roots as the end points of the test intervals,
+          which are <m>(-\infty,-2)</m>, <m>(-2,6)</m>, and <m>(6,\infty)</m>.
+          Using the factored function <m>f'(x)=3(x+2)(x-6)</m> makes it easier to find the signs
+          without necessarily computing the final value.
+          We can just look at the signs of each factor:
+          <md>
+            <mrow>f'(-3)&amp;=3(-3+2)(-3-6) =(+)(-)(-)= +</mrow>,
+            <mrow>f'(0)&amp;=3(0+2)(0-6) = (+)(+)(-) = -</mrow>,
+            <mrow>f'(8)&amp;=3(8+2)(8-6) = (+)(+)(+) = +</mrow>.
+          </md>
+          We now know <m>f</m> is <em>increasing</em> on <m>(-\infty,-2]</m>,
+          <em>decreasing</em> on <m>[-2,6]</m>, and <em>increasing</em> on <m>[6,\infty)</m>.
+        </p>
+        <p>
+          By the <xref ref="thm-first-derivative-test" text="title" />,
+          we now know that <m>f</m> has a local maximum at <m>x=-2</m>
+          and a local minimum at <m>x=6</m>.
+          The <m>y</m>-coordinate of the local maximum can be found using the formula for <m>f(x)</m>:
+          <me>f(-2) = (-2)^3 -6(-2)^2-36(-2)+5 = 45</me>.
+          This is guaranteed to be the maximum value over the interval <m>(-\infty,6]</m>.
+          The <m>y</m>-coordinate of the local minimum can also be found:
+          <me>f(6) = (6)^3 -6(6)^2-36(6)+5 = -211</me>,
+          which is guaranteed to be the minimum over the interval <m>[-2,\infty)</m>.
+          If we wanted to graph this function and show the local extrema,
+          we would know that our window would need to include the <m>x</m>-values of <m>x=-2</m> and <m>x=6</m>
+          as well these <m>y</m>-values.
+        </p>
+        <image>
+          <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-5, xmax=10, ymin=-250, ymax=70,
+              axis lines=center, xlabel={$x$}, ylabel={$f(x)$},
+            ]
+            \addplot [domain=-5:10, samples=100, blue, thick] {x^3 - 6*x^2 - 36*x + 5};
+            \addplot [only marks, blue] coordinates {
+              (-2,45) (6,-211)
+            }
+            node [pos=0, above] {$x=-2$}
+            node [pos=1, below] {$x=6$};
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </solution>
+    </example>
+    <p>
+      Although we do not yet know all of the rules that would allow us to compute derivatives,
+      with the help of technology we can analyze many other functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use technology to find the derivative of the function <me>\displaystyle f(x) = \frac{x}{x^2+3}</me>.
+          Then describe the local extreme values of <m>f(x)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In SageMath, we find the derivative formula using the <c>diff</c> command,
+          which stands for the verb <em>differentiate</em>.
+          The following script will define our function for SageMath and
+          then ask it to show us the derivative where <m>x</m> is the independent variable.
+        </p>
+        <sage>
+          <input>
+            # Define our function.
+            f(x)=x/(x^2+3)
+            # Show the derivative.
+            show( diff(f(x), x) )
+          </input>
+          <output>
+            -2x^2/(x^2+3)^2 + 1/(x^2+3)
+          </output>
+        </sage>
+        <p>
+          We see that <m>f(x)</m> has a derivative <me>f'(x) = -\frac{2x^2}{(x^2+3)^2} + \frac{1}{x^2+3}.</me>
+          We can simplify this if we get a common denominator.
+          <md>
+            <mrow>f'(x) &amp;= -\frac{2x^2}{(x^2+3)^2} + \frac{(x^2+3)}{(x^2+3)^2} </mrow>
+            <mrow>&amp;= \frac{-2x^2+x^2+3}{(x^2+3)^2} </mrow>
+            <mrow>&amp;= \frac{3-x^2}{(x^2+3)^2}</mrow>
+          </md>
           The denominator of <m>f'(x)</m> is never zero because <m>x^2+3 \ge 3</m> will never equal zero.
           So the sign can only change where <m>3-x^2=0</m> which occurs at two values, <m>x=\pm\sqrt{3}</m>.
-          There are three intervals of interest.
+          There are three intervals of interest to test, <m>(-\infty,-\sqrt{3})</m>, <m>(-\sqrt{3},\sqrt{3})</m>, and <m>(\sqrt{3},\infty)</m>.
           We can find the signs of <m>f'(x)</m> using the values <m>x=-2</m>, <m>x=0</m> and <m>x=2</m>.
           The signs are summarized in the number line summary below.
         </p>
@@ -158,8 +261,6 @@
             }
             \begin{tikzpicture}[x=1cm,y=1cm]
             \draw[<->] (-3,0) -- (3,0) node[above right] {$f'(x)$} node[below right] {$x$};
-
-            \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
             \draw (-1.7, -0.1) -- (-1.7, 0.1) node[pos=0, below] {$-\sqrt{3}$} node[pos=1,above] {$0$};
             \draw (1.7, -0.1) -- (1.7, 0.1) node[pos=0, below] {$\sqrt{3}$} node[pos=1,above] {$0$};
             \node [above] at (-2.2,0) {$-$};
@@ -210,6 +311,14 @@
         </sidebyside>
       </solution>
     </example>
+    <p>
+      Having discussed how the first derivative <m>f'(x)</m> allows us to identify local extreme values of <m>f(x)</m>,
+      we should note that the second derivative <m>f''(x)</m> will allow us to identify local extreme values of <m>f'(x)</m>.
+      These points are the <term>inflection points</term> of the function <m>f</m>,
+      where the concavity of <m>f</m> changes.
+      Inflection points are significant as being extreme values in that
+      they represent points where the rate of accumulation or rate of change reaches either a maximum or minimum rate.
+    </p>
   </subsection>
   <subsection>
     <title>Global Extreme Values</title>
