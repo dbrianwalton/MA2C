@@ -104,7 +104,7 @@
     we will learn a different conception of rate of change
     that is called the derivative, written <m>A'(x)</m>.
     Fortunately, the
-    <xref ref="fundamental-theorem-calculus">Fundamental Theorem of Calculus</xref> 
+    <xref ref="fundamental-theorem-calculus">Fundamental Theorem of Calculus</xref>
     will show that the two different conceptions agree with one another.
     That is, for any accumulation function
     <me>A(x) = A_0 + \int_{c}^{x} f(z) \, dz</me>,
@@ -653,21 +653,41 @@
         </sidebyside>
       </solution>
     </example>
-
     <p>
-    When we can view a graph of the rate of accumulation (the derivative),
-    we can interpret the features of that rate
-    to describe the behavior of the accumulation function itself.
+      A point where the concavity of a function changes from concave up to concave down or vice versa
+      is called a <term>point of inflection</term>, or more simply an <term>inflection point</term>.
+      We require that an inflection point only occurs at points where the function is continuous.
+    </p>
+    <definition xml:id="defn-inflection-point">
+      <statement>
+        <p>
+          Suppose that <m>f(x)</m> is a function that is continuous at <m>x=c</m>
+          and that there are intervals so that <m>f</m> is concave up on <m>(a,c)</m> and concave down on <m>(c,b)</m>,
+          or the reverse, concave down on <m>(a,c)</m> and concave up on <m>(c,b)</m>.
+          We say that <m>f</m> has a <term>point of inflection</term> at <m>x=c</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      An inflection point occurs at the points where <m>f''(x)</m> changes sign.
+      On a graph, this is where the curve transitions between bending upward and bending downward.
+      Inflection points are significant because they represent points
+      where the rate of change <m>f'(x)</m> reaches its extreme values.
+    </p>
+    <p>
+      When we can view a graph of the rate of accumulation (the derivative),
+      we can interpret the features of that rate
+      to describe the behavior of the accumulation function itself.
     </p>
 
     <example>
       <statement>
         <p>
-        The graph of the accumulation rate <m>f'(x)</m> for a function <m>f(x)</m>
-        is shown in the figure below.
-        Describe the monotonicity and concavity
-        and sketch a graph of the accumulation function <m>y=f(x)</m>
-        with initial value <m>f(0)=3</m>.
+          The graph of the accumulation rate <m>f'(x)</m> for a function <m>f(x)</m>
+          is shown in the figure below.
+          Describe the monotonicity and concavity
+          and sketch a graph of the accumulation function <m>y=f(x)</m>
+          with initial value <m>f(0)=3</m>.
         </p>
         <sidebyside width="60%" margins="auto">
           <image>
@@ -898,6 +918,12 @@
           <li><m>f''(x) \lt 0</m> on <m>(a,b)</m> implies <m>f'(x)</m> is decreasing on <m>[a,b]</m>
           and <m>f(x)</m> is concave down on <m>[a,b]</m></li>
         </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          A point where <m>f(x)</m> changes concavity is called a <term>point of inflection</term> or <term>inflection point</term>.
+          An inflection point represents where the rate of accumulation reaches an extreme value.
         </p>
       </li>
     </ul>
