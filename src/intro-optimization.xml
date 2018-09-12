@@ -501,6 +501,16 @@
   </subsection>
   <exercises>
     <exercise>
+      <statment>
+        <p>
+          A rectangular frame will be made with horizontal edges that cost <dollar/>0.50 per inch
+          and vertical edges that cost <dollar/>0.40 per inch.
+          What are the dimensions of a rectangle that will maximize the enclosed area
+          for a total cost of <dollar/>20.00?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
       <statement>
         <p>
           Suppose that the survival probability for a species is related to fecundity so that it decreases linearly.
@@ -513,13 +523,55 @@
     <exercise>
       <statement>
         <p>
+          A population of animals has the property that each individual has fewer offspring per year when the population is bigger.
+          When the population has 200 individuals, the average number of offspring per individual per year is 4.8.
+          When the population has 300 individuals, the average number of offspring per individual per year drops to 4.2.
+          Assuming a linear relation between the per capita number of offspring per year and the population size,
+          what population size corresponds to the largest total number of offspring per year?
+          (The total number of offspring equals the per capita number of offspring times the population size.)
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
           A company sells bowling balls.
           The higher the price the company charges, the fewer balls are sold.
-          When the price is <dollar/>30, the company can sell 500 balls per week.
-          When the price is <dollar/>35, the company can sell 400 balls per week.
+          When the price is <dollar/>50, the company can sell 500 balls per week.
+          When the price is <dollar/>60, the company can sell 400 balls per week.
           Assuming a linear relation between the price and the number of balls sold per week,
           find the price for which the company earns the most revenue per week.
-          (Weekly revenue equals the price per ball times the number of balls sold.)
+          (Weekly revenue equals the price per ball times the number of balls sold per week.)
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A rectangular container with a square base (top/bottom) is to be manufactured.
+          The top and bottom (squares) are made from a material that costs <dollar/>1.50 per square meter
+          while the other four sides (rectangles) are made from a material that costs <dollar/>1.00 per square meter.
+          What should be the dimensions of the container that would maximize the volume and cost <dollar/>20 in materials?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A rectangular container with a square profile (front/back) is to be manufactured.
+          The top and bottom (rectangles) are made from a material that costs <dollar/>1.50 per square meter
+          while the other four sides (two squares and two rectangles) are made from a material that costs <dollar/>1.00 per square meter.
+          What should be the dimensions of the container that would maximize the volume and cost <dollar/>20 in materials?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A beverage can is being designed in the shape of a circular cylinder (volume=<m>\pi r^2 h</m>).
+          The top and bottom (circles, area=<m>\pi r^2</m>) are made from metal that costs <dollar/>0.01 per square centimeter
+          while the curved wall of the can (curved rectangle, area=<m>2\pi r h</m>) is made from metal that costs <dollar/>0.004 per square centimeter.
+          What should be the radius and height of the can that would maximize the volume in the container for a can that costs <dollar/>0.25 in materials?
         </p>
       </statement>
     </exercise>
@@ -530,6 +582,16 @@
           The square base (all sides equal) is made from a material that costs 10 cents per square centimeter.
           The other four sides are made from a material that costs 6 cents per square centimeter.
           What dimensions should the box have to minimize the total cost of materials?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A beverage can is being designed in the shape of a circular cylinder to hold 360 cubic centimeters (volume=<m>\pi r^2 h</m>).
+          The top and bottom (circles, area=<m>\pi r^2</m>) are made from metal that costs <dollar/>0.01 per square centimeter
+          while the curved wall of the can (curved rectangle, area=<m>2\pi r h</m>) is made from metal that costs <dollar/>0.004 per square centimeter.
+          What should be the radius and height of the can that would minimize the materials cost?
         </p>
       </statement>
     </exercise>
