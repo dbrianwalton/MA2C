@@ -471,4 +471,67 @@
       </solution>
     </example>
   </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <ul>
+        <li>
+          <p>
+            Optimization is the application of finding extreme values to physical problems.
+            The dependent variable is the quantity that should be as large or as small as possible.
+            The independent variable(s) are the quantities we can adjust.
+            The map from the independent variable to the dependent variable is called the <term>objective function</term>.
+          </p>
+        </li>
+        <li>
+          <p>
+            When more than one independent variable is involved,
+            an extra equation called a constraint allows us to solve
+            for one of the independent variables in terms of the other.
+          </p>
+        </li>
+        <li>
+          <p>
+            A physical domain for the objective function represents the values
+            of the independent variable(s) that are physically relevant.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercise>
+      <statement>
+        <p>
+          Suppose that the survival probability for a species is related to fecundity so that it decreases linearly.
+          If each organism has five offspring, the survival probability is <m>s=0.9</m>.
+          If each organism has twenty offspring, the survival probability drops to <m>s=0.75</m>.
+          How many offspring should the organism have to maximize fitness?
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A company sells bowling balls.
+          The higher the price the company charges, the fewer balls are sold.
+          When the price is <dollar/>30, the company can sell 500 balls per week.
+          When the price is <dollar/>35, the company can sell 400 balls per week.
+          Assuming a linear relation between the price and the number of balls sold per week,
+          find the price for which the company earns the most revenue per week.
+          (Weekly revenue equals the price per ball times the number of balls sold.)
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A rectangular box with a square base and no top needs to contain a volume of 1000 cubic centimeters.
+          The square base (all sides equal) is made from a material that costs 10 cents per square centimeter.
+          The other four sides are made from a material that costs 6 cents per square centimeter.
+          What dimensions should the box have to minimize the total cost of materials?
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>
