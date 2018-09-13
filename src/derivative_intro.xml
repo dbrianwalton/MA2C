@@ -6,359 +6,400 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="derivative_intro">
-    <title>Rates of Change</title>
+  <title>Instantaneous Rate of Change</title>
 
-    <subsection>
-        <title>Rate of Change Definitions</title>
-        
-        <p>Consider the point<ndash/>slope equation of a line <me> y-b = m(x-a), </me> which is the equation of a line with slope <m>m</m> and passing through a point <m>(a,b)</m>. If we solve for <m>y</m>, then we can think of <m>y</m> as a function of <m>x</m> <me> y = f(x) = m(x-a)+b. </me> In particular, we have <m>f(a) = b</m>, and the original equation of the line is showing that the change in the output of the function <me> \Delta f = f(x) - f(a) </me> is proportional to the change in the input <me> \Delta x = x-a. </me> The slope is interpreted as the proportionality constant, the ratio of the changes, or more commonly the rate of change.</p>
-        
-        <p>Only in the case of a linear function do we actually find that the ratio of changes <m>\Delta f / \Delta x</m> (ratio of the change in output to the change in input) is a constant. What do we do for other functions? There are two key concepts we can consider. We can look at the average rate of change over a particular interval or we can consider the instantaneous rate of change at a particular point.</p>
-        
-        <definition xml:id='defn-average-rate-of-change'>
+  <subsection>
+    <title>Rate of Change Definitions</title>
+    <p>
+      Consider the point<ndash/>slope equation of a line
+      <me> y-b = m(x-a)</me>,
+      which is the equation of a line with slope <m>m</m> and passing through a point <m>(a,b)</m>.
+      If we solve for <m>y</m>, then we can think of <m>y</m> as a function of <m>x</m>
+      <me> y = f(x) = m(x-a)+b</me>.
+      In particular, we have <m>f(a) = b</m>, and the original equation of the line is showing that the change in the output of the function
+      <me> \Delta f = f(x) - f(a) </me>
+      is proportional to the change in the input
+      <me> \Delta x = x-a. </me>
+      The slope is interpreted as the proportionality constant, the ratio of the changes, or more commonly the rate of change.
+    </p>
+    <p>
+      Only in the case of a linear function do we actually find that
+      the ratio of changes <m>\Delta f / \Delta x</m> (ratio of the change in output to the change in input) is a constant.
+      What do we do for other functions?
+      There are two key concepts we can consider.
+      We can look at the average rate of change over a particular interval
+      or we can consider the instantaneous rate of change at a particular point.
+    </p>
+    <definition xml:id='defn-average-rate-of-change'>
+      <statement>
+        <p>
+          The <term>average rate of change</term> of a function <m>f(x)</m> over an interval <m>[a,b]</m> is defined as the ratio
+          <me>\left. \frac{\Delta f}{\Delta x} \right|_{[a,b]} = \frac{f(b)-f(a)}{b-a}</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      This definition is really saying that the average rate of change
+      is equal to the slope of the line that joins the two points <m>(a,f(a))</m> and <m>(b,f(b))</m>.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Find the average rate of change of <m>f(x)=x^3-4x</m> over the interval <m>[1,2]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The average rate of change is the slope of the line joining the points <m>(1,f(1))</m> and <m>(2,f(2))</m>.
+          So we first need to calculate the function values:
+          <me> f(1) = (1)^3-4(1) = -3; \qquad f(2)=(2)^3-4(2) = 0. </me>
+          This allows us to compute the average rate of change:
+          <me> \left. \frac{\Delta f}{\Delta x} \right|_{[1,2]} = \frac{f(2)-f(1)}{2-1} = \frac{0--3}{1} = 3.</me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      A rate of change for a physical quantity has units corresponding to the ratio it describes.
+      One of the most common examples involves calculating the average rate of change of position with respect to time as an average velocity.
+      That is, the average velocity over an interval is the ratio of the change in position divided by the change in time.
+    </p>
+    <example>
+      <statement>
+        <p>
+          If the position (height, in feet) of an object above the ground is defined by the function of time (in seconds)
+          <me>h(t) = 5+64t-16t^2</me>,
+          then what is the average velocity over the interval <m>[1,4]</m>?
+        </p>
+      </statement>
+      <solution>
+          <p>
+            The average velocity is the slope of the line joining the points <m>(1,h(1))</m> and <m>(4,h(4))</m>.
+            So we first need to calculate the function values which gives the two positions:
+            <me> h(1) = 5+64(1)-16(1)^2 = 53; \qquad f(4)=5+64(4)-16(4)^2=5. </me>
+            This allows us to compute the average velocity as an average rate of change:
+            <me> \left. \frac{\Delta h}{\Delta t} \right|_{[1,4]} = \frac{h(4)-h(1)}{4-1} = \frac{5-53}{3} = \frac{-48}{3} = -16</me>.
+            So the average velocity is -16 ft/s, since the height dropped by 48 feet during those 3 seconds.
+          </p>
+          <p>
+            If we looked at the graph of the height as a function of time,
+            we would actually see that the ball was initially going up and then came down.
+            So over those three minutes, the ball started going up and then fell enough so that the overall change was a decrease of 48 feet,
+            even though the total distance traveled was much higher.
+          </p>
+            <image>
+              <description>
+              Graph of y=x^2.
+              </description>
+              <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              /pgfplots/table/row sep=crcr
+              }
+              \begin{tikzpicture}
+              \begin{axis}[
+                  xmin=0,xmax=4.5,
+                  ymin=0,ymax=70,
+                  xlabel={$t$},
+                  ylabel={$h$},
+              ]
+              \addplot[blue, thick, samples=100]
+                  ({x}, {5+64*x-16*x^2});
+              \addplot[red, samples=10]
+                  ({x}, {53-16*(x-1)});
+              \addplot[only marks, blue] table {
+                1 53\\
+                4 5\\
+              };
+              \addplot[mark=none, black] {0};
+              \end{axis}
+              \end{tikzpicture}]]>
+              </latex-image>
+            </image>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Instantaneous Rate of Change</title>
+
+    <p>The instantaneous rate of change of a function is the rate of change at a particular point, which corresponds to the slope of a tangent line. A tangent line is defined in terms of a single point such that the line is the line that best approximates the function near that point. Because only one point is involved, we can't use the ordinary notion of slope. Instead we consider what happens when the second point is sequentially chosen to be closer and closer to the point in question. This is the meaning behind the definition.</p>
+
+    <definition xml:id='defn-instantaneous-rate-of-change'>
         <statement>
-            <p>The <term>average rate of change</term> of a function <m>f(x)</m> over an interval <m>[a,b]</m> is defined as the ratio <me> \left. \frac{\Delta f}{\Delta x} \right|_{[a,b]} = \frac{f(b)-f(a)}{b-a}. </me></p>
+            <p>The <term>instantaneous rate of change</term> of a function <m>f(x)</m> at <m>x=a</m> is defined as the limit of the average rate of change when the width of the interval is made arbitrarily small: <me> \left. \frac{df}{dx} \right|_{a} = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h} </me> or <me> \left. \frac{df}{dx} \right|_{a} = \lim_{x \to a} \frac{f(x)-f(a)}{x-a} </me></p>
         </statement>
-        </definition>
-        
-        <p>This definition is really saying that you compute the slope of the line that joins the two points <m>(a,f(a))</m> and <m>(b,f(b))</m>.</p>
-        
-        <example>
-            <statement>
-                <p>Find the average rate of change of <m>f(x)=x^3-4x</m> over the interval <m>[1,2]</m>.</p>
-            </statement>
-            <solution>
-                <p>The average rate of change is the slope of the line joining the points <m>(1,f(1))</m> and <m>(2,f(2))</m>. So we first need to calculate the function values: <me> f(1) = (1)^3-4(1) = -3; \qquad f(2)=(2)^3-4(2) = 0. </me> This allows us to compute the average rate of change: <me> \left. \frac{\Delta f}{\Delta x} \right|_{[1,2]} = \frac{f(2)-f(1)}{2-1} = \frac{0--3}{1} = 3.</me></p>
-            </solution>
-        </example>
+    </definition>
 
-        <p>A rate of change for a physical quantity has units corresponding to the ratio it describes. One of the most common examples involves calculating the average rate of change of position with respect to time as an average velocity. That is, the average velocity over an interval is the ratio of the change in position divided by the change in time.</p>
+    <p>The limit that appears in this statement will be made more formal later. For now, we are going to think of it as saying that we want to consider a sequence of intervals that include <m>a</m> and have a width that decreases to zero. We will start by considering an example.</p>
 
-        <example>
-            <statement>
-                <p>If the position (height, in feet) of an object above the ground is defined by the function of time (in seconds) <me> h(t) = 5+64t-16t^2, </me> then what is the average velocity over the interval <m>[1,4]</m>?</p>
-            </statement>
-            <solution>
-                <p>The average velocity is the slope of the line joining the points <m>(1,h(1))</m> and <m>(4,h(4))</m>. So we first need to calculate the function values which gives the two positions: <me> h(1) = 5+64(1)-16(1)^2 = 53; \qquad f(4)=5+64(4)-16(4)^2=5. </me> This allows us to compute the average velocity as an average rate of change: <me> \left. \frac{\Delta h}{\Delta t} \right|_{[1,4]} = \frac{h(4)-h(1)}{4-1} = \frac{5-53}{3} = \frac{-48}{3} = -16.</me> So the average velocity is -16 ft/s, since the height dropped by 48 feet during those 3 seconds.</p>
-        
-                <p>If we looked at the graph of the height as a function of time, we would actually see that the ball was initially going up and then came down. So over those three minutes, the ball started going up and then fell enough so that the overall change was a decrease of 48 feet, even though the total distance traveled was much higher.</p>
-        
-                <sidebyside>
-                    <image>
-                        <description>
-                        Graph of y=x^2.
-                        </description>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        /pgfplots/table/row sep=crcr
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            xmin=0,xmax=4.5,
-                            ymin=0,ymax=70,
-                            xlabel={$t$},
-                            ylabel={$h$},
-                        ]
-                        \addplot[blue, thick, samples=100]
-                            ({x}, {5+64*x-16*x^2});
-                        \addplot[red, samples=10]
-                            ({x}, {53-16*(x-1)});
-                        \addplot[only marks, blue] table {
-                          1 53\\
-                          4 5\\
-                        };
-                        \addplot[mark=none, black] {0};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
-            </solution>
-        </example>
-    </subsection>
-    
-    <subsection>
-        <title>Instantaneous Rate of Change</title>
-        
-        <p>The instantaneous rate of change of a function is the rate of change at a particular point, which corresponds to the slope of a tangent line. A tangent line is defined in terms of a single point such that the line is the line that best approximates the function near that point. Because only one point is involved, we can't use the ordinary notion of slope. Instead we consider what happens when the second point is sequentially chosen to be closer and closer to the point in question. This is the meaning behind the definition.</p>
-        
-        <definition xml:id='defn-instantaneous-rate-of-change'>
-            <statement>
-                <p>The <term>instantaneous rate of change</term> of a function <m>f(x)</m> at <m>x=a</m> is defined as the limit of the average rate of change when the width of the interval is made arbitrarily small: <me> \left. \frac{df}{dx} \right|_{a} = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h} </me> or <me> \left. \frac{df}{dx} \right|_{a} = \lim_{x \to a} \frac{f(x)-f(a)}{x-a} </me></p>
-            </statement>
-        </definition>
-        
-        <p>The limit that appears in this statement will be made more formal later. For now, we are going to think of it as saying that we want to consider a sequence of intervals that include <m>a</m> and have a width that decreases to zero. We will start by considering an example.</p>
-        
-        <example>
-            <statement>
-                <p>Find the instantaneous rate of change of <m>f(x) = x^3-4x</m> at 1.</p>
-            </statement>        
-            <solution>
-                <p>In the earlier example, we found the average rate of change of <m>f</m> on the interval <m>[1,2]</m>: <me> \left. \frac{\Delta f}{\Delta x}\right|_{[1,2]} = 3.</me> The width of this interval was <m>\Delta x = 2-1 = 1</m>. We need to consider a sequence of intervals that include <m>x=1</m> but have a width that is decreasing to zero. The following list of intervals is the start of one possible sequence. <me>[1,2], \: [1,1.1], \: [1,1.01], \: [1,1.001], \: \ldots </me></p>
-                <p>To make this calculation more manageable, it is sometimes easier to create an entry in a table that shows the value of the function at the second point that is needed to compute a slope. The table only shows the summary information. The average rate of change for each intervals was computed using the definition <me> \left. \frac{\Delta f}{\Delta x} \right|_{[1, b_k]} = \frac{f(b_k)--3}{h}</me> where <m>h=b_k-1</m>.</p>
-        
-                <table xml:id="table-instant-rate-ex-1">
-                    <tabular top="major" halign="center">
-                        <row bottom="minor">
-                            <cell><m>k</m></cell>
-                            <cell><m>[1, b_k]</m></cell>
-                            <cell><m>h=\Delta x</m></cell>
-                            <cell><m>b_k</m></cell>
-                            <cell><m>f(b_k)</m></cell>
-                            <cell><m>\displaystyle \left. \frac{\Delta f}{\Delta x} \right|_{[1, b_k]}</m></cell>
-                        </row>
-                        <row>
-                            <cell>1</cell>
-                            <cell><m>[1,2]</m></cell>
-                            <cell><m>1</m></cell>
-                            <cell><m>2</m></cell>
-                            <cell><m>0</m></cell>
-                            <cell><m>3</m></cell>
-                        </row>
-                        <row>
-                            <cell>2</cell>
-                            <cell><m>[1,1.1]</m></cell>
-                            <cell><m>0.1</m></cell>
-                            <cell><m>1.1</m></cell>
-                            <cell><m>-3.069</m></cell>
-                            <cell><m>-0.69</m></cell>
-                        </row>
-                        <row>
-                            <cell>3</cell>
-                            <cell><m>[1,1.01]</m></cell>
-                            <cell><m>0.01</m></cell>
-                            <cell><m>1.01</m></cell>
-                            <cell><m>-3.009699</m></cell>
-                            <cell><m>-0.9699</m></cell>
-                        </row>
-                        <row bottom="major">
-                            <cell>4</cell>
-                            <cell><m>[1,1.001]</m></cell>
-                            <cell><m>0.001</m></cell>
-                            <cell><m>1.001</m></cell>
-                            <cell><m>-3.000996999</m></cell>
-                            <cell><m>-0.996999</m></cell>
-                        </row>
-                    </tabular>
-                    <caption>Illustration of using shrinking intervals to estimate the
-                    instantaneous rate of change.</caption>
-                </table>
-                <p>From this table, we can see that the spacing between the points <m>h</m> is approaching zero as the second point in the interval is approaching the point in question. As this happens, the sequence of values representing the average rate of change on these intervals appears to be approaching the value of -1. From the table, we would estimate that this is the instantaneous rate of change: <me> \left. \frac{df}{dx} \right|_{1} \approx -1. </me></p>
-            </solution>
-        </example>
-        
-        <p>We can also visualize the calculation graphically. The figure below is a dynamic plot. The function <m>f(x)=x^3-4x</m> from the example is shown and the point at <m>(1,f(1))</m> is labeled <m>A</m>. There is a slider for the value of <m>h</m>, the displacement of the second point <m>B</m> from <m>x=1</m>. The value for <m>h</m> is allowed to be negative to allow for points on the left of 1. The average rate of change on each interval corresponds to the slope of the chord or secant line joining the two points. As <m>h \to 0</m>, this slope approaches the value of the instantaneous rate of change.</p>
-        <figure>
-          <caption/>
-            <jsxgraph xml:id="deriv-intro-sliding-secant-ex1">
-                <input>
-                <![CDATA[// Put variables in object to isolate.
-                jsx1 = { a:1 };
-                jsx1.f = function(x) { return x*(x*x-4); };
-                jsx1.board = JXG.JSXGraph.initBoard('deriv-intro-sliding-secant-ex1', {boundingbox: [-3, 4, 3, -4], axis:true, showNavigation:false});
-                jsx1.graph = jsx1.board.create('functiongraph', 
-                    [jsx1.f], {strokeColor:'blue', strokeWidth:2});
-                jsx1.h = jsx1.board.create('slider', 
-                    [[0.2,-3.5],[2.4,-3.5],[-1.5,1,1.5]],{name:'h', snapWidth:0.01, precision:2});
-                jsx1.aPt = jsx1.board.create('point', 
-                    [ jsx1.a, jsx1.f(jsx1.a) ], 
-                    {fixed:true, label:"$x=1$"}
-                    );
-                jsx1.bPt = jsx1.board.create('point',
-                    [ function(){ return jsx1.a+jsx1.h.Value(); },
-                        function(){ return jsx1.f(jsx1.a+jsx1.h.Value());} ],
-                    {label:"$x=1+h$"}
-                    );
-                jsx1.secant = jsx1.board.create('line',
-                    [jsx1.aPt, jsx1.bPt]);
-                jsx1.diffQuotText = jsx1.board.create('text', 
-                    [-1.5, -3, "\\\\(\\\\displaystyle \\\\frac{\\\\Delta f}{\\\\Delta x} = \\\\)"],
-                    {anchorX:'right'});
-                jsx1.slopeText = jsx1.board.create('text', 
-                    [-1.4, -2.9, function() { 
-                        var slope = (jsx1.bPt.Y()-jsx1.aPt.Y())/(jsx1.bPt.X()-jsx1.aPt.X());
-                        return slope.toFixed(5);
-                        }
-                    ], {anchorX:'left'});
-                ]]>
-                </input>
-            </jsxgraph>
-        </figure>
+    <example>
+        <statement>
+            <p>Find the instantaneous rate of change of <m>f(x) = x^3-4x</m> at 1.</p>
+        </statement>
+        <solution>
+            <p>In the earlier example, we found the average rate of change of <m>f</m> on the interval <m>[1,2]</m>: <me> \left. \frac{\Delta f}{\Delta x}\right|_{[1,2]} = 3.</me> The width of this interval was <m>\Delta x = 2-1 = 1</m>. We need to consider a sequence of intervals that include <m>x=1</m> but have a width that is decreasing to zero. The following list of intervals is the start of one possible sequence. <me>[1,2], \: [1,1.1], \: [1,1.01], \: [1,1.001], \: \ldots </me></p>
+            <p>To make this calculation more manageable, it is sometimes easier to create an entry in a table that shows the value of the function at the second point that is needed to compute a slope. The table only shows the summary information. The average rate of change for each intervals was computed using the definition <me> \left. \frac{\Delta f}{\Delta x} \right|_{[1, b_k]} = \frac{f(b_k)--3}{h}</me> where <m>h=b_k-1</m>.</p>
 
-        <p>In the previous example, the limit of the average rate of change was an easily recognized value because it was an integer. When the limit is not an integer, you need to look for a decimal value that is approximated. This often works better if we consider a sequence of intervals on both sides of the point of interest.</p>
-        <p>A slope does not depend on which point we think of as first or second since <me> \frac{y_2-y_1}{x_2-x_1} = \frac{y_1-y_2}{x_1-x_2}. </me> So let us define the average rate of change between a point <m>a</m> and a second point a displacement <m>h</m> away from <m>a</m> instead of using the interval notation (where we have to worry about the ordering of the points). <me>\left. \frac{\Delta f}{\Delta x} \right|_{a; h} = \frac{f(a+h)-f(a)}{h}.</me></p>
-        
-        <example>
-            <statement>
-                <p>Find the instantaneous rate of change of <m>f(x) = 3^x</m> at 1.</p>
-            </statement>
-            <solution>
-                <p>We will create two sequences of decreasing width intervals, one on the left and the other on the right of 1. This will allow us to more easily recognize the decimal representation of the limiting value. In addition, we will use a variable <m>h</m> to represent the offset from 1 to the other endpoint of the interval. One sequence will involve negative values of <m>h</m> (on the left) and the other will involve positive values of <m>h</m> (on the right). Notice how in these tables, we require more decimal places for the value of <m>f(1+h)</m> in order to obtain the average rate of change to the same number of significant digits.</p>
-                <table xml:id="table-instant-rate-ex-2a">
-                    <tabular top="major" halign="center">
-                        <row bottom="minor">
-                            <cell><m>h</m></cell>
-                            <cell><m>f(1+h)</m></cell>
-                            <cell><m>f(1)</m></cell>
-                            <cell><m>\Delta f</m></cell>
-                            <cell><m>\displaystyle \left. \frac{\Delta f}{\Delta x} \right|_{1; h}</m></cell>
-                        </row>
-                        <row>
-                            <cell>-0.1</cell>
-                            <cell>2.68788</cell>
-                            <cell>3</cell>
-                            <cell>-0.31212</cell>
-                            <cell>3.1212</cell>
-                        </row>
-                        <row>
-                            <cell>-0.01</cell>
-                            <cell>2.967222</cell>
-                            <cell>3</cell>
-                            <cell>-0.032778</cell>
-                            <cell>3.2778</cell>
-                        </row>
-                        <row bottom="major">
-                            <cell>-0.001</cell>
-                            <cell>2.9967160</cell>
-                            <cell>3</cell>
-                            <cell>-0.0032940</cell>
-                            <cell>3.2940</cell>
-                        </row>
-                    </tabular>
-                    <caption>Illustration of using shrinking intervals on the left to estimate the
-                    instantaneous rate of change.</caption>
-                </table>
-                <table xml:id="table-instant-rate-ex-2b">
-                    <tabular top="major" halign="center">
-                        <row bottom="minor">
-                            <cell><m>h</m></cell>
-                            <cell><m>f(1+h)</m></cell>
-                            <cell><m>f(1)</m></cell>
-                            <cell><m>\Delta f</m></cell>
-                            <cell><m>\displaystyle \left. \frac{\Delta f}{\Delta x} \right|_{1; h}</m></cell>
-                        </row>
-                        <row>
-                            <cell>0.1</cell>
-                            <cell>3.34837</cell>
-                            <cell>3</cell>
-                            <cell>0.34837</cell>
-                            <cell>3.4837</cell>
-                        </row>
-                        <row>
-                            <cell>0.01</cell>
-                            <cell>3.033140</cell>
-                            <cell>3</cell>
-                            <cell>0.033140</cell>
-                            <cell>3.3140</cell>
-                        </row>
-                        <row bottom="major">
-                            <cell>0.001</cell>
-                            <cell>3.0032976</cell>
-                            <cell>3</cell>
-                            <cell>0.0032976</cell>
-                            <cell>3.2976</cell>
-                        </row>
-                    </tabular>
-                    <caption>Illustration of using shrinking intervals on the right to estimate the instantaneous rate of change.</caption>
-                </table>
-                <p>Looking at the columns for the average rate of change in these two tables, we notice that the values are rising when <m>h \lt 0</m> as the size of the interval shrinks but that the values are dropping when <m>h \gt 0</m>. The limiting value should therefore be somewhere between 3.2940 and 3.2976. In most circumstances, the average of the left and right values gives a much better approximation of the actual limit, so we would interpret our results as saying <me> \left. \frac{df}{dx} \right|_{1} \approx 3.2958. </me></p>
-            </solution>
-        </example>
-        <p>A dynamic graph of this calculation is illustrated below.</p>
-        <figure>
-          <caption/>
-            <jsxgraph xml:id="deriv-intro-sliding-secant-ex2">
-                <input>
-                <![CDATA[// Put variables in object to isolate.
-                jsx2 = { a:1 };
-                jsx2.f = function(x) { return Math.exp(x*Math.log(3)); };
-                jsx2.board = JXG.JSXGraph.initBoard('deriv-intro-sliding-secant-ex2', {boundingbox: [-3, 10, 3, -1], axis:true, showNavigation:false});
-                jsx2.graph = jsx2.board.create('functiongraph', 
-                    [jsx2.f], {strokeColor:'blue', strokeWidth:2});
-                jsx2.h = jsx2.board.create('slider', 
-                    [[0.2,0.5],[2,0.5],[-1.5,1,1.5]],{name:'h', snapWidth:0.01, precision:2});
-                jsx2.aPt = jsx2.board.create('point', 
-                    [ jsx2.a, jsx2.f(jsx2.a) ], 
-                    {fixed:true, label:"$x=1$"}
-                    );
-                jsx2.bPt = jsx2.board.create('point',
-                    [ function(){ return jsx2.a+jsx2.h.Value(); },
-                        function(){ return jsx2.f(jsx2.a+jsx2.h.Value());} ],
-                    {label:"$x=1+h$"}
-                    );
-                jsx2.secant = jsx2.board.create('line',
-                    [jsx2.aPt, jsx2.bPt]);
-                jsx2.diffQuotText = jsx2.board.create('text', 
-                    [-1.5, 1, "\\\\(\\\\displaystyle \\\\frac{\\\\Delta f}{\\\\Delta x} = \\\\)"],
-                    {anchorX:'right'});
-                jsx2.slopeText = jsx2.board.create('text', 
-                    [-1.4, 1.1, function() { 
-                        var slope = (jsx2.bPt.Y()-jsx2.aPt.Y())/(jsx2.bPt.X()-jsx2.aPt.X());
-                        return slope.toFixed(5);
-                        }
-                    ], {anchorX:'left'});
-                ]]>
-                </input>
-            </jsxgraph>
-        </figure>
-    </subsection>
-    
-    <subsection>
-        <title>Using Algebra for Rates of Change</title>
-        
-        <p>In the previous sections, we computed the instantaneous rate of change by looking for a limiting value in the average rate of change for a sequence of intervals that had decreasing width. It is important to realize that this is the fundamental definition of the instantaneous rate of change. In many cases involving basic algebraic functions, like polynomials, it is possible to determine the limiting value of this process algebraically. This is because we can find a formula for the average rate of change for any value of the spacing <m>h</m> and determine what will happen when <m>h \to 0</m>.</p>
-        
-        <p>The process for using this strategy is to consider the same calculations that we used to form the tables, but to determine the formula for each step instead of numerical values for the particular values of <m>h</m>. <ul>
-            <li> Identify the function <m>f(x)</m> and the point of interest <m>a</m>.</li>
-            <li> Use composition to find the formula for <m>f(a+h)</m> and expand. </li>
-            <li> Compute the change in the function <m>\Delta f = f(a+h) - f(a)</m> and simplify. </li>
-            <li> Compute the average rate of change, <me>\frac{\Delta f}{\Delta x} = \frac{f(a+h)-f(a)}{h},</me> and use factoring in order to find a formula that does not divide by <m>h</m>. (You can do this step all at once after some practice.)</li>
-            <li> The limit or instantaneous rate of change is the value of this final formula when <m>h \to 0</m>. </li>
-            <li> If it is not possible to rewrite without dividing by <m>h</m>, then you can use the formula itself in a table to see what happens when <m>h \to 0</m> by testing a sequence of values for <m>h</m> that approach 0. </li>
-        </ul> Can you see that these steps correspond to the columns in our most recent table-based computations?</p>
-        
-        <example>
-            <statement>
-                <p>Find the instantaneous rate of change for <m>f(x)=x^2+3x</m> at <m>2</m>.</p>
-            </statement>
-            <solution>
-                <p>We will just follow the steps outlined above. <ol>
-                    <li>The function has been identified and the point given. We also need <m>f(2)=2^2+3(2)=10</m> in later steps. </li>
-                    <li>Find <m>f(2+h)</m> and expand: <md>
-                        <mrow> f(2+h) &amp;= (2+h)^2+3(2+h) = (2+h)(2+h) + 3 (2+h) </mrow>
-                        <mrow> &amp;= 4+4h+h^2+6+3h = 10 + 7h +h^2 </mrow>
-                    </md></li>
-                    <li>Compute the change in function value, <m>\Delta f = f(2+h)-f(2)</m>: <me> \Delta f = f(2+h)-f(2) = (10+7h+h^2) - (10) = 7h+h^2 </me></li>
-                    <li>Compute the formula for the average rate of change: <me>\left. \frac{\Delta f}{\Delta x} \right|_{2; h} = \frac{7h+h^2}{h} = \frac{h(7+h)}{h} = 7+h </me> Technically, the average rate of change is only defined when <m>h \ne 0</m>.</li>
-                    <li>In spite of the average rate of change not being defined when <m>h=0</m>, the simplified formula works anyway. If we put <m>h=0</m> in that formula, we get the limiting value: <me> \left. \frac{df}{dx} \right|_{2} = \lim_{h \to 0} 7+h = 7. </me></li>
-                </ol></p>
-            </solution>
-        </example>
+            <table xml:id="table-instant-rate-ex-1">
+                <tabular top="major" halign="center">
+                    <row bottom="minor">
+                        <cell><m>k</m></cell>
+                        <cell><m>[1, b_k]</m></cell>
+                        <cell><m>h=\Delta x</m></cell>
+                        <cell><m>b_k</m></cell>
+                        <cell><m>f(b_k)</m></cell>
+                        <cell><m>\displaystyle \left. \frac{\Delta f}{\Delta x} \right|_{[1, b_k]}</m></cell>
+                    </row>
+                    <row>
+                        <cell>1</cell>
+                        <cell><m>[1,2]</m></cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>0</m></cell>
+                        <cell><m>3</m></cell>
+                    </row>
+                    <row>
+                        <cell>2</cell>
+                        <cell><m>[1,1.1]</m></cell>
+                        <cell><m>0.1</m></cell>
+                        <cell><m>1.1</m></cell>
+                        <cell><m>-3.069</m></cell>
+                        <cell><m>-0.69</m></cell>
+                    </row>
+                    <row>
+                        <cell>3</cell>
+                        <cell><m>[1,1.01]</m></cell>
+                        <cell><m>0.01</m></cell>
+                        <cell><m>1.01</m></cell>
+                        <cell><m>-3.009699</m></cell>
+                        <cell><m>-0.9699</m></cell>
+                    </row>
+                    <row bottom="major">
+                        <cell>4</cell>
+                        <cell><m>[1,1.001]</m></cell>
+                        <cell><m>0.001</m></cell>
+                        <cell><m>1.001</m></cell>
+                        <cell><m>-3.000996999</m></cell>
+                        <cell><m>-0.996999</m></cell>
+                    </row>
+                </tabular>
+                <caption>Illustration of using shrinking intervals to estimate the
+                instantaneous rate of change.</caption>
+            </table>
+            <p>From this table, we can see that the spacing between the points <m>h</m> is approaching zero as the second point in the interval is approaching the point in question. As this happens, the sequence of values representing the average rate of change on these intervals appears to be approaching the value of -1. From the table, we would estimate that this is the instantaneous rate of change: <me> \left. \frac{df}{dx} \right|_{1} \approx -1. </me></p>
+        </solution>
+    </example>
 
-        <example>
-            <statement>
-                <p>Find the instantaneous rate of change for <m>f(x)=\frac{1}{3x+1}</m> at <m>1</m>.</p>
-            </statement>
-            <solution>
-                <p>We again just follow the steps outlined above. <ol>
-                    <li>The function has been identified and the point given. We also need <m>f(1) = \frac{1}{3(1)+1} = \frac{1}{4}</m> in later steps.</li>
-                    <li> Find <m>f(1+h)</m> and expand: <md>
-                        <mrow> f(1+h) &amp;= \frac{1}{3(1+h)+1} = \frac{1}{3+3h+1} </mrow>
-                        <mrow> &amp;= \frac{1}{4+3h} </mrow>
-                    </md></li>
-                    <li>Compute the change in function value, <m>\Delta f = f(1+h)-f(1)</m>: <me> \Delta f = f(1+h)-f(1) = \frac{1}{4+3h} - \frac{1}{4}.</me> We will later need to simplify this, so let us find a common denominator, which requires multiplying each fraction's numerator and denominator by the missing factor: <me>\Delta f = \frac{4}{4(4+3h)} - \frac{4+3h}{4(4+3h)} = \frac{4-(4+3h)}{4(4+3h)} = \frac{-3h}{4(4+3h)}.</me></li>
-                    <li> Compute the formula for the average rate of change: <me>\left. \frac{\Delta f}{\Delta x} \right|_{1; h} = \frac{\left( \frac{-3h}{4(4+3h)} \right)}{h} = \frac{1}{h} \cdot\frac{-3h}{4(4+3h)} = \frac{-3}{4(4+3h)}. </me> Again, remember that the average rate of change is only defined when <m>h \ne 0</m>.</li>
-                    <li>However, our simplified formula is defined when <m>h=0</m>. So we can find the instantaneous rate of change using this formula as <m>h \to 0</m>: <me>\left. \frac{df}{dx} \right|_{1} = \lim_{h \to 0} \frac{-3}{4(4+3h)} = \frac{-3}{16}.</me></li>
-                </ol></p>
-            </solution>
-        </example>
-        
-        <p>The rate of change often has a physical interpretation. For example, if we know the position (e.g., height) as a function of time, then the rate of change corresponds to the velocity of the object. In economics, if we know how an equation relating the revenue that corresponds to the number of items being sold, then the rate of change of revenue with respect to the number of items is called the marginal revenue and corresponds to the amount of revenue change per extra item sold.</p>
-        
-        <p>The units of a rate of change are determined by the units in the ratio. Since velocity is the rate of change of position with respect to time, the units of velocity are the units of length divided by the units of time, such as kilometers per hour or meters per second. Marginal revenue is the rate of change of revenue with respect to items sold, so the units would be a monetary unit per item, such as dollars per item.</p>
-    </subsection>
+    <p>We can also visualize the calculation graphically. The figure below is a dynamic plot. The function <m>f(x)=x^3-4x</m> from the example is shown and the point at <m>(1,f(1))</m> is labeled <m>A</m>. There is a slider for the value of <m>h</m>, the displacement of the second point <m>B</m> from <m>x=1</m>. The value for <m>h</m> is allowed to be negative to allow for points on the left of 1. The average rate of change on each interval corresponds to the slope of the chord or secant line joining the two points. As <m>h \to 0</m>, this slope approaches the value of the instantaneous rate of change.</p>
+    <figure>
+      <caption/>
+        <jsxgraph xml:id="deriv-intro-sliding-secant-ex1">
+            <input>
+            <![CDATA[// Put variables in object to isolate.
+            jsx1 = { a:1 };
+            jsx1.f = function(x) { return x*(x*x-4); };
+            jsx1.board = JXG.JSXGraph.initBoard('deriv-intro-sliding-secant-ex1', {boundingbox: [-3, 4, 3, -4], axis:true, showNavigation:false});
+            jsx1.graph = jsx1.board.create('functiongraph',
+                [jsx1.f], {strokeColor:'blue', strokeWidth:2});
+            jsx1.h = jsx1.board.create('slider',
+                [[0.2,-3.5],[2.4,-3.5],[-1.5,1,1.5]],{name:'h', snapWidth:0.01, precision:2});
+            jsx1.aPt = jsx1.board.create('point',
+                [ jsx1.a, jsx1.f(jsx1.a) ],
+                {fixed:true, label:"$x=1$"}
+                );
+            jsx1.bPt = jsx1.board.create('point',
+                [ function(){ return jsx1.a+jsx1.h.Value(); },
+                    function(){ return jsx1.f(jsx1.a+jsx1.h.Value());} ],
+                {label:"$x=1+h$"}
+                );
+            jsx1.secant = jsx1.board.create('line',
+                [jsx1.aPt, jsx1.bPt]);
+            jsx1.diffQuotText = jsx1.board.create('text',
+                [-1.5, -3, "\\\\(\\\\displaystyle \\\\frac{\\\\Delta f}{\\\\Delta x} = \\\\)"],
+                {anchorX:'right'});
+            jsx1.slopeText = jsx1.board.create('text',
+                [-1.4, -2.9, function() {
+                    var slope = (jsx1.bPt.Y()-jsx1.aPt.Y())/(jsx1.bPt.X()-jsx1.aPt.X());
+                    return slope.toFixed(5);
+                    }
+                ], {anchorX:'left'});
+            ]]>
+            </input>
+        </jsxgraph>
+    </figure>
+
+    <p>In the previous example, the limit of the average rate of change was an easily recognized value because it was an integer. When the limit is not an integer, you need to look for a decimal value that is approximated. This often works better if we consider a sequence of intervals on both sides of the point of interest.</p>
+    <p>A slope does not depend on which point we think of as first or second since <me> \frac{y_2-y_1}{x_2-x_1} = \frac{y_1-y_2}{x_1-x_2}. </me> So let us define the average rate of change between a point <m>a</m> and a second point a displacement <m>h</m> away from <m>a</m> instead of using the interval notation (where we have to worry about the ordering of the points). <me>\left. \frac{\Delta f}{\Delta x} \right|_{a; h} = \frac{f(a+h)-f(a)}{h}.</me></p>
+
+    <example>
+        <statement>
+            <p>Find the instantaneous rate of change of <m>f(x) = 3^x</m> at 1.</p>
+        </statement>
+        <solution>
+            <p>We will create two sequences of decreasing width intervals, one on the left and the other on the right of 1. This will allow us to more easily recognize the decimal representation of the limiting value. In addition, we will use a variable <m>h</m> to represent the offset from 1 to the other endpoint of the interval. One sequence will involve negative values of <m>h</m> (on the left) and the other will involve positive values of <m>h</m> (on the right). Notice how in these tables, we require more decimal places for the value of <m>f(1+h)</m> in order to obtain the average rate of change to the same number of significant digits.</p>
+            <table xml:id="table-instant-rate-ex-2a">
+                <tabular top="major" halign="center">
+                    <row bottom="minor">
+                        <cell><m>h</m></cell>
+                        <cell><m>f(1+h)</m></cell>
+                        <cell><m>f(1)</m></cell>
+                        <cell><m>\Delta f</m></cell>
+                        <cell><m>\displaystyle \left. \frac{\Delta f}{\Delta x} \right|_{1; h}</m></cell>
+                    </row>
+                    <row>
+                        <cell>-0.1</cell>
+                        <cell>2.68788</cell>
+                        <cell>3</cell>
+                        <cell>-0.31212</cell>
+                        <cell>3.1212</cell>
+                    </row>
+                    <row>
+                        <cell>-0.01</cell>
+                        <cell>2.967222</cell>
+                        <cell>3</cell>
+                        <cell>-0.032778</cell>
+                        <cell>3.2778</cell>
+                    </row>
+                    <row bottom="major">
+                        <cell>-0.001</cell>
+                        <cell>2.9967160</cell>
+                        <cell>3</cell>
+                        <cell>-0.0032940</cell>
+                        <cell>3.2940</cell>
+                    </row>
+                </tabular>
+                <caption>Illustration of using shrinking intervals on the left to estimate the
+                instantaneous rate of change.</caption>
+            </table>
+            <table xml:id="table-instant-rate-ex-2b">
+                <tabular top="major" halign="center">
+                    <row bottom="minor">
+                        <cell><m>h</m></cell>
+                        <cell><m>f(1+h)</m></cell>
+                        <cell><m>f(1)</m></cell>
+                        <cell><m>\Delta f</m></cell>
+                        <cell><m>\displaystyle \left. \frac{\Delta f}{\Delta x} \right|_{1; h}</m></cell>
+                    </row>
+                    <row>
+                        <cell>0.1</cell>
+                        <cell>3.34837</cell>
+                        <cell>3</cell>
+                        <cell>0.34837</cell>
+                        <cell>3.4837</cell>
+                    </row>
+                    <row>
+                        <cell>0.01</cell>
+                        <cell>3.033140</cell>
+                        <cell>3</cell>
+                        <cell>0.033140</cell>
+                        <cell>3.3140</cell>
+                    </row>
+                    <row bottom="major">
+                        <cell>0.001</cell>
+                        <cell>3.0032976</cell>
+                        <cell>3</cell>
+                        <cell>0.0032976</cell>
+                        <cell>3.2976</cell>
+                    </row>
+                </tabular>
+                <caption>Illustration of using shrinking intervals on the right to estimate the instantaneous rate of change.</caption>
+            </table>
+            <p>Looking at the columns for the average rate of change in these two tables, we notice that the values are rising when <m>h \lt 0</m> as the size of the interval shrinks but that the values are dropping when <m>h \gt 0</m>. The limiting value should therefore be somewhere between 3.2940 and 3.2976. In most circumstances, the average of the left and right values gives a much better approximation of the actual limit, so we would interpret our results as saying <me> \left. \frac{df}{dx} \right|_{1} \approx 3.2958. </me></p>
+        </solution>
+    </example>
+    <p>A dynamic graph of this calculation is illustrated below.</p>
+    <figure>
+      <caption/>
+        <jsxgraph xml:id="deriv-intro-sliding-secant-ex2">
+            <input>
+            <![CDATA[// Put variables in object to isolate.
+            jsx2 = { a:1 };
+            jsx2.f = function(x) { return Math.exp(x*Math.log(3)); };
+            jsx2.board = JXG.JSXGraph.initBoard('deriv-intro-sliding-secant-ex2', {boundingbox: [-3, 10, 3, -1], axis:true, showNavigation:false});
+            jsx2.graph = jsx2.board.create('functiongraph',
+                [jsx2.f], {strokeColor:'blue', strokeWidth:2});
+            jsx2.h = jsx2.board.create('slider',
+                [[0.2,0.5],[2,0.5],[-1.5,1,1.5]],{name:'h', snapWidth:0.01, precision:2});
+            jsx2.aPt = jsx2.board.create('point',
+                [ jsx2.a, jsx2.f(jsx2.a) ],
+                {fixed:true, label:"$x=1$"}
+                );
+            jsx2.bPt = jsx2.board.create('point',
+                [ function(){ return jsx2.a+jsx2.h.Value(); },
+                    function(){ return jsx2.f(jsx2.a+jsx2.h.Value());} ],
+                {label:"$x=1+h$"}
+                );
+            jsx2.secant = jsx2.board.create('line',
+                [jsx2.aPt, jsx2.bPt]);
+            jsx2.diffQuotText = jsx2.board.create('text',
+                [-1.5, 1, "\\\\(\\\\displaystyle \\\\frac{\\\\Delta f}{\\\\Delta x} = \\\\)"],
+                {anchorX:'right'});
+            jsx2.slopeText = jsx2.board.create('text',
+                [-1.4, 1.1, function() {
+                    var slope = (jsx2.bPt.Y()-jsx2.aPt.Y())/(jsx2.bPt.X()-jsx2.aPt.X());
+                    return slope.toFixed(5);
+                    }
+                ], {anchorX:'left'});
+            ]]>
+            </input>
+        </jsxgraph>
+    </figure>
+  </subsection>
+
+  <subsection>
+    <title>Using Algebra for Rates of Change</title>
+
+    <p>In the previous sections, we computed the instantaneous rate of change by looking for a limiting value in the average rate of change for a sequence of intervals that had decreasing width. It is important to realize that this is the fundamental definition of the instantaneous rate of change. In many cases involving basic algebraic functions, like polynomials, it is possible to determine the limiting value of this process algebraically. This is because we can find a formula for the average rate of change for any value of the spacing <m>h</m> and determine what will happen when <m>h \to 0</m>.</p>
+
+    <p>The process for using this strategy is to consider the same calculations that we used to form the tables, but to determine the formula for each step instead of numerical values for the particular values of <m>h</m>. <ul>
+        <li> Identify the function <m>f(x)</m> and the point of interest <m>a</m>.</li>
+        <li> Use composition to find the formula for <m>f(a+h)</m> and expand. </li>
+        <li> Compute the change in the function <m>\Delta f = f(a+h) - f(a)</m> and simplify. </li>
+        <li> Compute the average rate of change, <me>\frac{\Delta f}{\Delta x} = \frac{f(a+h)-f(a)}{h},</me> and use factoring in order to find a formula that does not divide by <m>h</m>. (You can do this step all at once after some practice.)</li>
+        <li> The limit or instantaneous rate of change is the value of this final formula when <m>h \to 0</m>. </li>
+        <li> If it is not possible to rewrite without dividing by <m>h</m>, then you can use the formula itself in a table to see what happens when <m>h \to 0</m> by testing a sequence of values for <m>h</m> that approach 0. </li>
+    </ul> Can you see that these steps correspond to the columns in our most recent table-based computations?</p>
+
+    <example>
+        <statement>
+            <p>Find the instantaneous rate of change for <m>f(x)=x^2+3x</m> at <m>2</m>.</p>
+        </statement>
+        <solution>
+            <p>We will just follow the steps outlined above. <ol>
+                <li>The function has been identified and the point given. We also need <m>f(2)=2^2+3(2)=10</m> in later steps. </li>
+                <li>Find <m>f(2+h)</m> and expand: <md>
+                    <mrow> f(2+h) &amp;= (2+h)^2+3(2+h) = (2+h)(2+h) + 3 (2+h) </mrow>
+                    <mrow> &amp;= 4+4h+h^2+6+3h = 10 + 7h +h^2 </mrow>
+                </md></li>
+                <li>Compute the change in function value, <m>\Delta f = f(2+h)-f(2)</m>: <me> \Delta f = f(2+h)-f(2) = (10+7h+h^2) - (10) = 7h+h^2 </me></li>
+                <li>Compute the formula for the average rate of change: <me>\left. \frac{\Delta f}{\Delta x} \right|_{2; h} = \frac{7h+h^2}{h} = \frac{h(7+h)}{h} = 7+h </me> Technically, the average rate of change is only defined when <m>h \ne 0</m>.</li>
+                <li>In spite of the average rate of change not being defined when <m>h=0</m>, the simplified formula works anyway. If we put <m>h=0</m> in that formula, we get the limiting value: <me> \left. \frac{df}{dx} \right|_{2} = \lim_{h \to 0} 7+h = 7. </me></li>
+            </ol></p>
+        </solution>
+    </example>
+
+    <example>
+        <statement>
+            <p>Find the instantaneous rate of change for <m>f(x)=\frac{1}{3x+1}</m> at <m>1</m>.</p>
+        </statement>
+        <solution>
+            <p>We again just follow the steps outlined above. <ol>
+                <li>The function has been identified and the point given. We also need <m>f(1) = \frac{1}{3(1)+1} = \frac{1}{4}</m> in later steps.</li>
+                <li> Find <m>f(1+h)</m> and expand: <md>
+                    <mrow> f(1+h) &amp;= \frac{1}{3(1+h)+1} = \frac{1}{3+3h+1} </mrow>
+                    <mrow> &amp;= \frac{1}{4+3h} </mrow>
+                </md></li>
+                <li>Compute the change in function value, <m>\Delta f = f(1+h)-f(1)</m>: <me> \Delta f = f(1+h)-f(1) = \frac{1}{4+3h} - \frac{1}{4}.</me> We will later need to simplify this, so let us find a common denominator, which requires multiplying each fraction's numerator and denominator by the missing factor: <me>\Delta f = \frac{4}{4(4+3h)} - \frac{4+3h}{4(4+3h)} = \frac{4-(4+3h)}{4(4+3h)} = \frac{-3h}{4(4+3h)}.</me></li>
+                <li> Compute the formula for the average rate of change: <me>\left. \frac{\Delta f}{\Delta x} \right|_{1; h} = \frac{\left( \frac{-3h}{4(4+3h)} \right)}{h} = \frac{1}{h} \cdot\frac{-3h}{4(4+3h)} = \frac{-3}{4(4+3h)}. </me> Again, remember that the average rate of change is only defined when <m>h \ne 0</m>.</li>
+                <li>However, our simplified formula is defined when <m>h=0</m>. So we can find the instantaneous rate of change using this formula as <m>h \to 0</m>: <me>\left. \frac{df}{dx} \right|_{1} = \lim_{h \to 0} \frac{-3}{4(4+3h)} = \frac{-3}{16}.</me></li>
+            </ol></p>
+        </solution>
+    </example>
+
+    <p>The rate of change often has a physical interpretation. For example, if we know the position (e.g., height) as a function of time, then the rate of change corresponds to the velocity of the object. In economics, if we know how an equation relating the revenue that corresponds to the number of items being sold, then the rate of change of revenue with respect to the number of items is called the marginal revenue and corresponds to the amount of revenue change per extra item sold.</p>
+
+    <p>The units of a rate of change are determined by the units in the ratio. Since velocity is the rate of change of position with respect to time, the units of velocity are the units of length divided by the units of time, such as kilometers per hour or meters per second. Marginal revenue is the rate of change of revenue with respect to items sold, so the units would be a monetary unit per item, such as dollars per item.</p>
+  </subsection>
 </section>

@@ -13,11 +13,14 @@
   <subsection>
     <title>Overview</title>
     <p>
-      We have learned that functions which are defined as the accumulation of a given rate,
+      For functions which are defined as the accumulation of a given rate,
       <men xml:id="eqn-accumulation-function-with-rate">f(x) = f_0 + \int_{x_0}^x f'(z) \, dz</men>,
-      can be described in terms of monotonicity and concavity
-      using the signs and monotonicity of the rate of accumulation <m>f'(x)</m>.
+      we can describe their monotonicity and concavity
+      using the signs and monotonicity of their corresponding rates of accumulation <m>f'(x)</m>.
       Of course, most functions are not written using an accumulation formula representation.
+      For polynomials, where we know simple accumulation formulas,
+      we know how to calculation the corresponding rate of accumulation <m>f'(x)</m>.
+      What about other functions?
     </p>
     <p>
       This raises a central question of calculus:
@@ -28,7 +31,7 @@
     </p>
     <p>
       This question will be partially resolved through the definition of the derivative.
-      The derivative will provide an alternative interpretation of rate of change
+      The derivative will provide a new interpretation of the concept of rate of change
       that is not directly connected to accumulation and definite integrals.
       At that point, we will have two potential concepts of the rate<mdash/>the rate of accumulation and the derivative.
       The connection between these two rates as representing the same thing
