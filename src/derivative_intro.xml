@@ -9,42 +9,86 @@
 
 <section xml:id="derivative_intro">
   <title>Instantaneous Rate of Change</title>
-
   <subsection>
-    <title>Rate of Change Definitions</title>
+    <title>Overview</title>
+    <p>
+      Accumulation functions are defined in terms of their rate of accumulation.
+      That is, we started by knowing the rate of accumulation <m>f'(x)</m>
+      and used that rate and an initial value to create the accumulation function
+      <me>f(x) = f(a) + \int_a^{x} f'(z) \, dz</me>.
+      Thus far, we only know a few elementary accumulation formulas for simple polynomials.
+      What about other functions?
+    </p>
+    <p>
+      Perhaps the biggest breakthrough in the historical development of calculus
+      was the recognition of a relationship between accumulation computed through definite integrals
+      and the rate of change computed through derivatives.
+      A definite integral represents the exact accumulation for a given rate
+      as the independent variable goes between two points.
+      A Riemann sum approximates this accumulation by summing increments
+      that treat the rate of accumulation as if constant over short intervals.
+      The definite integral is equal to the limit of the Riemann sums.
+    </p>
+    <p>
+      In this section, we introduce the derivative of a function.
+      The derivative represents the instantaneous rate of change at a single point.
+      We will introduce the average rate of change between two points.
+      The average rate of change approximates the instantaneous rate of change
+      when the two points are close together.
+      The derivative will then equal the limit of the average rate of change.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Slope and the Average Rate of Change</title>
     <p>
       Consider the point<ndash/>slope equation of a line
       <me> y-b = m(x-a)</me>,
       which is the equation of a line with slope <m>m</m> and passing through a point <m>(a,b)</m>.
-      If we solve for <m>y</m>, then we can think of <m>y</m> as a function of <m>x</m>
-      <me> y = f(x) = m(x-a)+b</me>.
-      In particular, we have <m>f(a) = b</m>, and the original equation of the line is showing that the change in the output of the function
+      When we solve for <m>y</m>, so that <m>y</m> is a function of <m>x</m>,
+      <me> y = f(x) = b + m(x-a)</me>,
+      we can recognize that this is in the form of an accumulation function with constant rate,
+      <me>f(x) = b + \int_a^x m \, dx</me>.
+      That is, the slope acts as the rate of accumulation.
+    </p>
+    <p>
+      The slope of a line also represents a rate of change, meaning a ratio of covarying changes.
+      Given two points on the line, <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m>,
+      the slope is defined by the ratio
+      <me> m = \frac{\Delta y}{\Delta x} = \frac{y_2-y_1}{x_2-x_1}</me>.
+      If we think of the point <m>f(a)=b</m> as the initial value for <m>f(x)</m>,
+      then the increment of change for <m>f</m> defined by
       <me> \Delta f = f(x) - f(a) </me>
-      is proportional to the change in the input
+      will always be proportional to the change in the input
       <me> \Delta x = x-a. </me>
-      The slope is interpreted as the proportionality constant, the ratio of the changes, or more commonly the rate of change.
+      The slope is the proportionality constant representing this constant ratio of the changes, or rate of change.
     </p>
     <p>
       Only in the case of a linear function do we actually find that
-      the ratio of changes <m>\Delta f / \Delta x</m> (ratio of the change in output to the change in input) is a constant.
-      What do we do for other functions?
-      There are two key concepts we can consider.
-      We can look at the average rate of change over a particular interval
-      or we can consider the instantaneous rate of change at a particular point.
+      the rate of change <m>\Delta f / \Delta x</m> is a constant.
+      When the rate of change varies, the value of the rate of change depends on the interval chosen.
+      We call this the <term>average rate of change</term>.
     </p>
     <definition xml:id='defn-average-rate-of-change'>
       <statement>
         <p>
-          The <term>average rate of change</term> of a function <m>f(x)</m> over an interval <m>[a,b]</m> is defined as the ratio
-          <me>\left. \frac{\Delta f}{\Delta x} \right|_{[a,b]} = \frac{f(b)-f(a)}{b-a}</me>.
+          The <term>average rate of change</term> of a function <m>f(x)</m>
+          going from <m>a</m> to <m>b</m> is defined as the ratio
+          <me>\left. \frac{\Delta f}{\Delta x} \right|_{a,b} = \frac{f(b)-f(a)}{b-a}</me>.
         </p>
       </statement>
     </definition>
     <p>
-      This definition is really saying that the average rate of change
-      is equal to the slope of the line that joins the two points <m>(a,f(a))</m> and <m>(b,f(b))</m>.
+      The average rate of change is equal to the slope of the line that joins the two points <m>(a,f(a))</m> and <m>(b,f(b))</m>.
+      That line is called the <term>secant line</term>.
+      The order of the points for the average rate of change does not matter.
+      <md>
+        <mrow>\left. \frac{\Delta f}{\Delta x} \right|_{b,a} &amp;= \frac{f(a)-f(b)}{a-b}</mrow>
+        <mrow> &amp;= \frac{-(f(b)-f(a))}{-(b-a)} </mrow>
+        <mrow> &amp;= \frac{f(b)-f(a)}{b-a} </mrow>
+        <mrow> &amp;= \left. \frac{\Delta f}{\Delta x} \right|_{b,a} </mrow>
+      </md>
+      Consequently, we often just refer to calculating the average rate of change over an interval <m>[a,b]</m>.
     </p>
-
     <example>
       <statement>
         <p>
@@ -57,14 +101,20 @@
           So we first need to calculate the function values:
           <me> f(1) = (1)^3-4(1) = -3; \qquad f(2)=(2)^3-4(2) = 0. </me>
           This allows us to compute the average rate of change:
-          <me> \left. \frac{\Delta f}{\Delta x} \right|_{[1,2]} = \frac{f(2)-f(1)}{2-1} = \frac{0--3}{1} = 3.</me>
+          <me> \left. \frac{\Delta f}{\Delta x} \right|_{1,2} = \frac{f(2)-f(1)}{2-1} = \frac{0--3}{1} = 3</me>.
         </p>
       </solution>
     </example>
     <p>
       A rate of change for a physical quantity has units corresponding to the ratio it describes.
-      One of the most common examples involves calculating the average rate of change of position with respect to time as an average velocity.
-      That is, the average velocity over an interval is the ratio of the change in position divided by the change in time.
+      One of the most common examples is calculating the velocity of an object.
+      Velocity measures the distance traveled per unit time,
+      which means velocity is the rate of change of position with respect to time.
+      How would we compute a velocity?
+      Measure the position of the object at two times,
+      measure how much the position changed,
+      and divide by the amount of time that passed.
+      The average velocity is the ratio of the change in position over the change in time.
     </p>
     <example>
       <statement>
@@ -73,63 +123,72 @@
           <me>h(t) = 5+64t-16t^2</me>,
           then what is the average velocity over the interval <m>[1,4]</m>?
         </p>
+        <image>
+          <description>
+          Graph of y=x^2.
+          </description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          /pgfplots/table/row sep=crcr
+          }
+          \begin{tikzpicture}
+          \begin{axis}[
+              xmin=0,xmax=4.5,
+              ymin=0,ymax=70,
+              xlabel={$t$},
+              ylabel={$h$},
+          ]
+          \addplot[blue, thick, samples=100]
+              ({x}, {5+64*x-16*x^2});
+          \addplot[red, samples=10]
+              ({x}, {53-16*(x-1)});
+          \addplot[only marks, blue] table {
+            1 53\\
+            4 5\\
+          };
+          \addplot[mark=none, black] {0};
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </statement>
       <solution>
-          <p>
-            The average velocity is the slope of the line joining the points <m>(1,h(1))</m> and <m>(4,h(4))</m>.
-            So we first need to calculate the function values which gives the two positions:
-            <me> h(1) = 5+64(1)-16(1)^2 = 53; \qquad f(4)=5+64(4)-16(4)^2=5. </me>
-            This allows us to compute the average velocity as an average rate of change:
-            <me> \left. \frac{\Delta h}{\Delta t} \right|_{[1,4]} = \frac{h(4)-h(1)}{4-1} = \frac{5-53}{3} = \frac{-48}{3} = -16</me>.
-            So the average velocity is -16 ft/s, since the height dropped by 48 feet during those 3 seconds.
-          </p>
-          <p>
-            If we looked at the graph of the height as a function of time,
-            we would actually see that the ball was initially going up and then came down.
-            So over those three minutes, the ball started going up and then fell enough so that the overall change was a decrease of 48 feet,
-            even though the total distance traveled was much higher.
-          </p>
-            <image>
-              <description>
-              Graph of y=x^2.
-              </description>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              /pgfplots/table/row sep=crcr
-              }
-              \begin{tikzpicture}
-              \begin{axis}[
-                  xmin=0,xmax=4.5,
-                  ymin=0,ymax=70,
-                  xlabel={$t$},
-                  ylabel={$h$},
-              ]
-              \addplot[blue, thick, samples=100]
-                  ({x}, {5+64*x-16*x^2});
-              \addplot[red, samples=10]
-                  ({x}, {53-16*(x-1)});
-              \addplot[only marks, blue] table {
-                1 53\\
-                4 5\\
-              };
-              \addplot[mark=none, black] {0};
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
+        <p>
+          The average velocity is the slope of the line joining the points <m>(1,h(1))</m> and <m>(4,h(4))</m>.
+          So we first need to calculate the function values which gives the two positions:
+          <me> h(1) = 5+64(1)-16(1)^2 = 53; \qquad f(4)=5+64(4)-16(4)^2=5. </me>
+          This allows us to compute the average velocity as an average rate of change:
+          <me> \left. \frac{\Delta h}{\Delta t} \right|_{[1,4]} = \frac{h(4)-h(1)}{4-1} = \frac{5-53}{3} = \frac{-48}{3} = -16</me>.
+          So the average velocity is -16 ft/s, since the height dropped by 48 feet during those 3 seconds.
+        </p>
       </solution>
     </example>
+    <p>
+      In the previous example,the graph of the height of the object as a function of time
+      shows that the ball was initially going up and then came down.
+      However, the average rate of change calculated gave a negative rate.
+      Over the three minutes in the interval,
+      the ball started going up and then fell enough so that the overall change was negative.
+      If we wanted to know the speed of the object when <m>t=1</m>,
+      this interval is much too large to provide a good approximation.
+    </p>
   </subsection>
   <subsection>
     <title>Instantaneous Rate of Change</title>
-
-    <p>The instantaneous rate of change of a function is the rate of change at a particular point, which corresponds to the slope of a tangent line. A tangent line is defined in terms of a single point such that the line is the line that best approximates the function near that point. Because only one point is involved, we can't use the ordinary notion of slope. Instead we consider what happens when the second point is sequentially chosen to be closer and closer to the point in question. This is the meaning behind the definition.</p>
-
+    <p>
+      The instantaneous rate of change of a function is the rate of change at a particular point,
+      which corresponds to the slope of a tangent line.
+      A tangent line is defined in terms of a single point such that the line is the line
+      that best approximates the function near that point.
+      Because only one point is involved, we can't use the ordinary notion of slope.
+      Instead we consider what happens when the second point is sequentially chosen to be closer and closer to the point in question.
+      This is the meaning behind the definition.
+    </p>
     <definition xml:id='defn-instantaneous-rate-of-change'>
-        <statement>
-            <p>The <term>instantaneous rate of change</term> of a function <m>f(x)</m> at <m>x=a</m> is defined as the limit of the average rate of change when the width of the interval is made arbitrarily small: <me> \left. \frac{df}{dx} \right|_{a} = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h} </me> or <me> \left. \frac{df}{dx} \right|_{a} = \lim_{x \to a} \frac{f(x)-f(a)}{x-a} </me></p>
-        </statement>
+      <statement>
+        <p>The <term>instantaneous rate of change</term> of a function <m>f(x)</m> at <m>x=a</m> is defined as the limit of the average rate of change when the width of the interval is made arbitrarily small: <me> \left. \frac{df}{dx} \right|_{a} = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h} </me> or <me> \left. \frac{df}{dx} \right|_{a} = \lim_{x \to a} \frac{f(x)-f(a)}{x-a} </me></p>
+      </statement>
     </definition>
 
     <p>The limit that appears in this statement will be made more formal later. For now, we are going to think of it as saying that we want to consider a sequence of intervals that include <m>a</m> and have a width that decreases to zero. We will start by considering an example.</p>
