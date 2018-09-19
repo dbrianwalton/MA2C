@@ -4,7 +4,7 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
 
 <section xml:id="derivative_intro">
@@ -919,6 +919,53 @@
       <exercise>
         <statement>
           <p>Find <m>\frac{dR}{dz}\Big|_2</m> for <m>\displaystyle R(z)=\frac{3}{2z+1}</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Applications</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            The height <m>h</m> of an object dropped from a height of 100 feet
+            as a function of time <m>t</m> in seconds since the object was dropped
+            satisfies a model
+            <me>h(t)=100-16t^2</me>.
+            <ol>
+              <li>Find the average velocity over the interval <m>[1,2]</m>.</li>
+              <li>Find the instantaneous velocity at <m>t=1</m>.</li>
+            </ol>
+            Be sure to use appropriate units.
+            What is the interpretation of the sign of these values?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A vehicle accelerates from a stop at time <m>t=0</m> (in seconds) to highway speed at <m>t=6</m>.
+            The velocity <m>v</m> of the vehicle (in miles per hour) is a function of <m>t</m> given by
+            <me>v(t) = -\frac{5}{9}t^3 + 5t^2, \quad 0 \le t \le 6</me>.
+            The rate of change of velocity is called acceleration.
+            <ol>
+              <li>Find the velocity at <m>t=0</m> and <m>t=6</m>.</li>
+              <li>Determine the average acceleration over the interval <m>[0,6]</m>.</li>
+              <li>Find the velocity at <m>t=1</m> and <m>t=2</m>.</li>
+              <li>Determine the average acceleration over the interval <m>[1,2]</m>.</li>
+              <li>Determine the instantaneous acceleration at <m>t=1</m>.</li>
+            </ol>
+            Be sure to use appropriate units.
+            Was the vehicle accelerating at a constant rate?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A population 
+          </p>
         </statement>
       </exercise>
     </exercisegroup>
