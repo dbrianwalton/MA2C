@@ -964,7 +964,59 @@
       <exercise>
         <statement>
           <p>
-            A population 
+            Researchers studying tree growth in Germany found a relationship
+            between the age of the tree (years) and its total weight (kg)
+            for sycamore maples in a particular forest.
+            If <m>a</m> represents the age of a tree and <m>W</m> is its total weight,
+            the relationship <m>a \mapsto W</m> was modeled using regression with a quadratic polynomial as
+            <me>W = 31.6601-7.6351a+0.4334a^2</me>.
+            (<url href="https://www.tandfonline.com/doi/full/10.1080/02827581.2014.910267">Albert et al, 2014</url>)
+            <ol>
+              <li>Find the mass of a fifteen year old tree and of a twenty year old tree.</li>
+              <li>
+                Determine the average rate of change of the mass of a tree with respect to age
+                over the interval <m>[15,20]</m>.
+              </li>
+              <li>
+                Determine the instantaneous rate of change of the mass of a tree
+                with respect to age at the age <m>a=15</m>.
+              </li>
+            </ol>
+            Be sure to use appropriate units.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Kinesin is a motor protein that facilitates transport along the axon of a neuron.
+            Researchers recorded the velocity of single kinesin molecules pulling microscopic glass beads
+            subject to a constant resistive force of approximately <quantity><mag>1</mag><unit base="Newton" prefix="pico"/> with varying ATP concentrations.
+            The velocity of transport along a microtubule <m>V</m> (<quantity><unit base="meter" prefix="nano"/><per base="second"/>)
+            depended on the concentration of ATP <m>C</m> (<quantity><unit base="molarity" prefix="micro"/>)
+            and was modeled with a Michaelis-Menten equation
+            <me>V = \frac{85C}{C+814}</me>.
+            (<url href="https://www.nature.com/articles/ncb1000_718">
+              Schnitzer et al., 2000
+            </url>)
+            <ol>
+              <li>
+                Find the velocity of transport when ATP has concentrations of
+                <quantity><mag>100</mag><unit base="molarity" prefix="micro"/></quantity>
+                and
+                <quantity><mag>200</mag><unit base="molarity" prefix="micro"/></quantity>
+              </li>
+              <li>
+                Determine the average rate of change of the transport velocity
+                with respect to concentration over the interval <m>[100,200]</m>.
+              </li>
+              <li>
+                Determine the instantaneous rate of change of the transport velocity
+                with respect to concentration at a concentration of
+                <quantity><mag>100</mag><unit base="molarity" prefix="micro"/></quantity>.
+              </li>
+            </ol>
+            Be sure to use appropriate units.
           </p>
         </statement>
       </exercise>
