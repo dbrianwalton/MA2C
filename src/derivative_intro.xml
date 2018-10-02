@@ -695,15 +695,15 @@
               </row>
               <row>
                 <cell>-0.1</cell>
-                <cell><m>\displaystyle \frac{400 \cdot 1.1^{1.9} - 400 \cdot 1.1^2}{-0.1} \approx 45.9110</cell>
+                <cell><m>\displaystyle \frac{400 \cdot 1.1^{1.9} - 400 \cdot 1.1^2}{-0.1} \approx 45.9110</m></cell>
               </row>
               <row>
                 <cell>-0.01</cell>
-                <cell><m>\displaystyle \frac{400 \cdot 1.1^{1.99} - 400 \cdot 1.1^2}{-0.01} \approx 46.1082</cell>
+                <cell><m>\displaystyle \frac{400 \cdot 1.1^{1.99} - 400 \cdot 1.1^2}{-0.01} \approx 46.1082</m></cell>
               </row>
               <row bottom="major">
                 <cell>-0.001</cell>
-                <cell><m>\displaystyle \frac{400 \cdot 1.1^{1.999} - 400 \cdot 1.1^2}{-0.001} \approx 46.1279</cell>
+                <cell><m>\displaystyle \frac{400 \cdot 1.1^{1.999} - 400 \cdot 1.1^2}{-0.001} \approx 46.1279</m></cell>
               </row>
             </tabular>
             <caption>
@@ -718,15 +718,15 @@
               </row>
               <row>
                 <cell>0.1</cell>
-                <cell><m>\displaystyle \frac{400 \cdot 1.1^{2.1} - 400 \cdot 1.1^2}{0.1} \approx 46.3507</cell>
+                <cell><m>\displaystyle \frac{400 \cdot 1.1^{2.1} - 400 \cdot 1.1^2}{0.1} \approx 46.3507</m></cell>
               </row>
               <row>
                 <cell>0.01</cell>
-                <cell><m>\displaystyle \frac{400 \cdot 1.1^{2.01} - 400 \cdot 1.1^2}{0.01} \approx 46.1521</cell>
+                <cell><m>\displaystyle \frac{400 \cdot 1.1^{2.01} - 400 \cdot 1.1^2}{0.01} \approx 46.1521</m></cell>
               </row>
               <row bottom="major">
                 <cell>0.001</cell>
-                <cell><m>\displaystyle \frac{400 \cdot 1.1^{2.001} - 400 \cdot 1.1^2}{0.001} \approx 46.1323</cell>
+                <cell><m>\displaystyle \frac{400 \cdot 1.1^{2.001} - 400 \cdot 1.1^2}{0.001} \approx 46.1323</m></cell>
               </row>
             </tabular>
             <caption>
@@ -991,9 +991,9 @@
           <p>
             Kinesin is a motor protein that facilitates transport along the axon of a neuron.
             Researchers recorded the velocity of single kinesin molecules pulling microscopic glass beads
-            subject to a constant resistive force of approximately <quantity><mag>1</mag><unit base="Newton" prefix="pico"/> with varying ATP concentrations.
-            The velocity of transport along a microtubule <m>V</m> (<quantity><unit base="meter" prefix="nano"/><per base="second"/>)
-            depended on the concentration of ATP <m>C</m> (<quantity><unit base="molarity" prefix="micro"/>)
+            subject to a constant resistive force of approximately <quantity><mag>1</mag><unit base="Newton" prefix="pico"/></quantity> with varying ATP concentrations.
+            The velocity of transport along a microtubule <m>V</m> (<quantity><unit base="meter" prefix="nano"/><per base="second"/></quantity>)
+            depended on the concentration of ATP <m>C</m> (<quantity><unit base="molarity" prefix="micro"/></quantity>)
             and was modeled with a Michaelis-Menten equation
             <me>V = \frac{85C}{C+814}</me>.
             (<url href="https://www.nature.com/articles/ncb1000_718">
