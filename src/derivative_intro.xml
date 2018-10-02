@@ -991,9 +991,9 @@
           <p>
             Kinesin is a motor protein that facilitates transport along the axon of a neuron.
             Researchers recorded the velocity of single kinesin molecules pulling microscopic glass beads
-            subject to a constant resistive force of approximately <quantity><mag>1</mag><unit base="Newton" prefix="pico"/></quantity> with varying ATP concentrations.
+            subject to a constant resistive force of approximately <quantity><mag>1</mag><unit base="newton" prefix="pico"/></quantity> with varying ATP concentrations.
             The velocity of transport along a microtubule <m>V</m> (<quantity><unit base="meter" prefix="nano"/><per base="second"/></quantity>)
-            depended on the concentration of ATP <m>C</m> (<quantity><unit base="molarity" prefix="micro"/></quantity>)
+            depended on the concentration of ATP <m>C</m> (<quantity><unit base="mole" prefix="micro"/><unit base="liter"/></quantity>)
             and was modeled with a Michaelis-Menten equation
             <me>V = \frac{85C}{C+814}</me>.
             (<url href="https://www.nature.com/articles/ncb1000_718">
@@ -1002,9 +1002,9 @@
             <ol>
               <li>
                 Find the velocity of transport when ATP has concentrations of
-                <quantity><mag>100</mag><unit base="molarity" prefix="micro"/></quantity>
+                <quantity><mag>100</mag><unit base="mole" prefix="micro"/><per base="liter"/></quantity>
                 and
-                <quantity><mag>200</mag><unit base="molarity" prefix="micro"/></quantity>
+                <quantity><mag>200</mag><unit base="mole" prefix="micro"/><per base="liter"/></quantity>
               </li>
               <li>
                 Determine the average rate of change of the transport velocity
@@ -1013,7 +1013,7 @@
               <li>
                 Determine the instantaneous rate of change of the transport velocity
                 with respect to concentration at a concentration of
-                <quantity><mag>100</mag><unit base="molarity" prefix="micro"/></quantity>.
+                <quantity><mag>100</mag><unit base="mole" prefix="micro"/><per base="liter"/></quantity>.
               </li>
             </ol>
             Be sure to use appropriate units.
