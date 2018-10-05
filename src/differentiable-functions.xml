@@ -6,131 +6,47 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="differentiable-functions">
     <title>Differentiable Functions</title>
 
     <subsection>
-    <title>Differentiability</title>
-    
-    <p>A function is <term>differentiable</term> at points where the derivative is defined. Alternatively, because the derivative at a point represents the slope of the tangent line, we say the function is differentiable at a point wherever the function has a well-defined tangent line.</p>
-    
-    <definition xml:id='defn-differentiable'>
-        <title>Differentiability</title>
-        <statement>
-            <p>A function <m>f</m> is <term>differentiable</term> at <m>a</m> if <m>f'(a)</m> exists, or more precisely the limit <me>\lim_{h \to 0} \frac{f(a+h)-f(a)}{h} = \lim_{x \to a} \frac{f(x)-f(a)}{x-a}</me> exists.</p>
-        </statement>
-    </definition>
-    
-    <p>A function is not differentiable if the limit does not exist. There are several reasons this might occur. The first reason is if the function is not continuous.</p>
-    
-    <theorem xml:id='thm-differentiable-implies-continuous'>
-        <title>Differentiable Implies Continuous</title>
-        <statement>
-            <p>If <m>f</m> is differentiable at <m>a</m>, then <m>f</m> must be continuous at <m>a</m>. Equivalently, if <m>f</m> is not continuous, then <m>f</m> must not be differentiable.</p>
-        </statement>
-        <proof>
-            <p>Suppose that <m>f</m> is differentiable at <m>a</m>. This means that <m>f'(a)</m> is a value defined by <me> \lim_{x \to a}\frac{f(x)-f(a)}{x-a} = f'(a).</me> We also know that <me> \lim_{x \to a}[x-a] = a-a = 0.</me> Using the product rule (<xref ref='LC-Product' text='title'>LC:Product</xref>), this implies <me>\lim_{x \to a} [f(x)-f(a)] = \lim_{x \to a} \frac{f(x)-f(a)}{x-a} \cdot (x-a) = f'(a) \cdot 0 = 0.</me> Because <m>\displaystyle \lim_{x \to a} f(a) = f(a)</m> (<xref ref='LE-Constant' text='title'>LE:Constant</xref>), we know that <me>\lim_{x \to a} f(x) = \lim_{x \to a} [f(x)-f(a) + f(a)] = 0 + f(a) = f(a)</me> using the sum rule (<xref ref='LC-Sum' text='title'>LC:Sum</xref>). Therefore, <m>f</m> is <xref ref='defn-continuity-simplified' text='title'>continuous</xref> at <m>a</m>.</p>
-        </proof>
-    </theorem>
-    
-    <p>Another way that a function might not have be differentiable is where it is continuous but has a corner. This means that the slope at the point looks different from either of the two sides. Mathematically, if we computed the one-sided limits for the formula of the derivative, we would get two different values.</p>
-    
-    <example>
-        <statement>
-        <p>Consider the piecewise function defined by <me>f(x) = \begin{cases} x^2, &amp; x \le 1, \\ x, &amp; x \gt 1.\end{cases}</me> Determine if <m>f</m> is differentiable at <m>x=1</m>.</p>
-        </statement>
-        <solution>
-        <p>This function is continuous because the limit on the left and the limit on the right are equal to the value of the function at <m>x=1</m>, as follows: <md>
-            <mrow>\lim_{x \to 1^-}f(x) &amp;= \lim_{x \to 1}x^2 = 1^2 = 1,</mrow>
-            <mrow>\lim_{x \to 1^+}f(x) &amp;= \lim_{x \to 1}x = 1 = 1,</mrow>
-            <mrow>f(1) &amp;= 1^2 = 1.</mrow>
-        </md></p>
-        <p>Now that we know the function is continuous, we can think about the functions to the left and right, <m>f_\ell(x)=x^2</m> and <m>f_r(x)=x</m>, respectively. Because <m>f_\ell'(x)=2x</m>, we know that <me> \lim_{h \to 0^-} \frac{f(1+h)-f(1)}{h} = f_\ell'(1) = 2.</me> Similarly, because <m>f_r'(x)=1</m>, we know that <me> \lim_{h \to 0^+} \frac{f(1+h)-f(1)}{h} = f_r'(1)=1.</me> Since the left and right limits are different, we conclude that <m>\displaystyle \lim_{h \to 0}\frac{f(1+h)-f(1)}{h}</m> does not exist and <m>f</m> is not differentiable at <m>x=1</m>. The figure below illustrates this graph, showing that there is a corner at <m>x=1</m>.</p>
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}
-                [ xmin=-2, xmax=3, ymin=-1, ymax=3 ]
-                \addplot[domain=-4:1, samples=51] (x, x^2);
-                \addplot[domain=1:4, samples=51] (x, x);
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        </solution>
-    </example>
-    
-    <example>
-        <statement>
-        <p>Consider the piecewise function defined by <me>f(x) = \begin{cases} x^2-3x+8 &amp; x \lt 2, \\ 5x-x^2, &amp; x \ge 2.\end{cases}</me> Determine if <m>f</m> is differentiable at <m>x=2</m>.</p>
-        </statement>
-        <solution>
-        <p>This function is continuous because the limit on the left and the limit on the right are equal to the value of the function at <m>x=2</m>, as follows: <md>
-            <mrow>\lim_{x \to 2^-}f(x) &amp;= \lim_{x \to 2}(x^2-3x+8) = 2^2-3(2)+8 = 6,</mrow>
-            <mrow>\lim_{x \to 2^+}f(x) &amp;= \lim_{x \to 2}(5x-x^2) = 5(2)-2^2 = 6,</mrow>
-            <mrow>f(2) &amp;= 5(2)-2^2 = 6.</mrow>
-        </md></p>
-        <p>Now that we know the function is continuous, we can think about the functions to the left and right, <m>f_\ell(x)=x^2-3x+8</m> and <m>f_r(x)=5x-x^2</m>, respectively. Because <m>f_\ell'(x)=2x-3</m>, we know that <me> \lim_{h \to 0^-} \frac{f(2+h)-f(2)}{h} = f_\ell'(2) = 2(2)-3=1.</me> Similarly, because <m>f_r'(x)=5-2x</m>, we know that <me> \lim_{h \to 0^+} \frac{f(2+h)-f(2)}{h} = f_r'(2)=5-2(2)=1.</me> Since the left and right limits are the same, we conclude that <m>\displaystyle \lim_{h \to 0}\frac{f(2+h)-f(2)}{h} = 1</m> and <m>f'(2)=1</m>. So <m>f</m> is differentiable at <m>x=2</m>. The graph of this function has the two parabolas join smoothly with no corner at <m>x=2</m>.</p>
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}
-                [ xmin=-1, xmax=5, ymin=2, ymax=9 ]
-                \addplot[domain=-1:2, samples=51] (x, x^2-3*x+8);
-                \addplot[domain=2:5, samples=51] (x, 5*x-x^2);
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        </solution>
-    </example>
+      <p>Placeholder: Remember to address differentiability of rational powers somewhere.</p>
     </subsection>
-    
     <subsection>
         <title>Consequences of Differentiability</title>
-        
+
         <p>There are a number of important consequences of a function being differentiable. These consequences are stated as mathematical theorems that you will need to know by name. We begin by introducing terminology about local extreme values.</p>
-        
+
         <definition xml:id='defn-local-extremes'>
             <title>Local Maximum and Minimum</title>
             <statement>
                 <p>A function <m>f</m> has a <term>local maximum</term> at a point <m>x=a</m> if <m>f(a) \ge f(x)</m> for all <m>x</m> in a neighborhood of <m>a</m>. It has a <term>local minimum</term> at <m>x=a</m> if <m>f(a) \le f(x)</m> for all <m>x</m> in a neighborhood of <m>a</m>.</p>
             </statement>
         </definition>
-        
+
         <p>The first theorem is about the slope at a local extreme. It guarantees that a local extreme can only occur where the function either is not differentiable or has a horizontal tangent line.</p>
-        
+
         <theorem xml:id='fermats-theorem'>
             <title>Fermat's Theorem</title>
             <statement>
                 <p>If <m>f</m> has a local extreme at <m>x=a</m> and <m>f'(a)</m> exists, then <m>f'(a)=0</m>.</p>
             </statement>
         </theorem>
-        
+
         <p>The second theorem combines the <xref ref='extreme-value-theorem' text='title'>Extreme Value Theorem</xref> with Fermat's Theorem. If a function is continuous on a closed interval <m>[a,b]</m>, then it must achieve both a maximum and a minimum value. If that function has <m>f(a)=f(b)</m>, then one of the extreme values must occur inside the interval at some point <m>c \in (a,b)</m>. If the function is also differentiable, then we must have <m>f'(c)=0</m>. This result is named Rolle's theorem.</p>
-        
+
         <theorem xml:id='rolles-theorem'>
             <title>Rolle's Theorem</title>
             <statement>
                 <p>If <m>f</m> is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m> and <m>f(a)=f(b)</m>, then there must be some value <m>c \in (a,b)</m> so that <m>f'(c)=0</m>.</p>
             </statement>
         </theorem>
-        
+
         <p>The consequence of Rolle's theorem is that if a function starts and ends at the same value over an interval, it must turn around somewhere. For a differentiable function, the slope at that point must be <m>f'(c)=0</m>.</p>
-        
+
         <p>The third theorem about differentiability applies Rolle's theorem to say something about the average rate of change. Recall that the <xref ref='defn-average-rate-of-change' text='title'>average rate of change</xref>, <me>\left.\frac{\Delta f}{\Delta x}\right|_{[a,b]} = \frac{f(b)-f(a)}{b-a},</me> is the slope of the line, called a <term>secant line</term>, that joins the points <m>(a,f(a))</m> and <m>(b,f(b))</m>. The Mean Value Theorem guarantees that a continuous and differentiable function will have some point at which the tangent line has the same slope as the secant line over the interval.</p>
-        
+
         <theorem xml:id='mean-value-theorem'>
             <title>Mean Value Theorem</title>
             <statement>
@@ -140,6 +56,6 @@
                 <p>Let <m>s(x)</m> be the linear function corresponding to this secant line and then define <m>g(x)=f(x)-s(x)</m>. Since <m>s(a)=f(a)</m> and <m>s(b)=f(b)</m>, we have <m>g(a)=g(b)=0</m>. If <m>f</m> is continuous and differentiable, then so is <m>g</m>. Rolle's theorem guarantees that <m>g'(c)=f'(c)-s'(c) = 0</m> for some value <m>c \in (a,b)</m>. Thus, <m>f'(c)=\left.\frac{\Delta f}{\Delta x}\right|_{[a,b]}</m>.</p>
             </proof>
         </theorem>
-        
+
     </subsection>
 </section>

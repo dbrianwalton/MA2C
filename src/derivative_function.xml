@@ -274,7 +274,6 @@
         </p>
       </solution>
     </example>
-
     <p>
       For our last example, we consider finding the derivative using the definition when the function involves the square root.
       We will find it necessary to use a trick from algebra involving conjugate pairs.
@@ -285,7 +284,6 @@
       For example,
       <me>(\sqrt{x}-2)(\sqrt{x}+2) = (\sqrt{x})^2 - (2)^2 = x-4.</me>
     </p>
-
     <example>
       <statement>
         <p>Use the definition of the derivative to find <m>f'(x)</m> where <m>\displaystyle f(x) = \sqrt{2x-5}</m>.</p>
@@ -336,5 +334,289 @@
       </solution>
     </example>
   </subsection>
-
+  <subsection>
+    <title>Differentiability</title>
+    <p>
+      A function is <term>differentiable</term> at points where the derivative is defined.
+      Alternatively, because the derivative at a point represents the slope of the tangent line,
+      we say the function is differentiable at a point wherever the function has a well-defined tangent line.
+    </p>
+    <definition xml:id='defn-differentiable'>
+      <title>Differentiability</title>
+      <statement>
+        <p>
+          A function <m>f</m> is <term>differentiable</term> at <m>a</m> if <m>f'(a)</m> exists,
+          or more precisely the limit
+          <me>\lim_{h \to 0} \frac{f(a+h)-f(a)}{h} = \lim_{x \to a} \frac{f(x)-f(a)}{x-a}</me>
+          exists.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      A function <m>f</m> is not differentiable at <m>x=a</m>
+      if the limit defining <m>f'(a)</m> does not exist.
+      There are several reasons this might occur.
+      The first reason is if the function is not continuous.
+    </p>
+    <theorem xml:id='thm-differentiable-implies-continuous'>
+      <title>Differentiable Implies Continuous</title>
+      <statement>
+        <p>
+          If <m>f</m> is differentiable at <m>a</m>,
+          then <m>f</m> must be continuous at <m>a</m>.
+          Equivalently, if <m>f</m> is not continuous,
+          then <m>f</m> must not be differentiable.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Suppose that <m>f</m> is differentiable at <m>a</m>.
+          This means that <m>f'(a)</m> is a value defined by
+          <me> \lim_{x \to a}\frac{f(x)-f(a)}{x-a} = f'(a).</me>
+          We also know that <me> \lim_{x \to a}[x-a] = a-a = 0.</me>
+          Using the product rule for limits (<xref ref='LC-Product' text='title'>LC:Product</xref>),
+          this implies
+          <me>\lim_{x \to a} [f(x)-f(a)] = \lim_{x \to a} \frac{f(x)-f(a)}{x-a} \cdot (x-a) = f'(a) \cdot 0 = 0.</me>
+          Because <m>\displaystyle \lim_{x \to a} f(a) = f(a)</m> (<xref ref='LE-Constant' text='title'>LE:Constant</xref>),
+          we know that
+          <me>\lim_{x \to a} f(x) = \lim_{x \to a} [f(x)-f(a) + f(a)] = 0 + f(a) = f(a)</me>
+          using the sum rule (<xref ref='LC-Sum' text='title'>LC:Sum</xref>).
+          Therefore, <m>f</m> is <xref ref='defn-continuity-simplified' text='title'>continuous</xref> at <m>a</m>.
+        </p>
+      </proof>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          Show that <m>f(x)</m> defined below is not continuous and not differentiable at <m>x=1</m>.
+          <me>f(x) = \begin{cases}
+            5-2x, &amp; x \lt 1 \\
+            3x+1, &amp; x \ge 1
+          \end{cases}</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To check continuity, we evaluate limits from the left and right
+          and compare it to the value of the function <m>f(1)=3(1)+1=4</m>.
+          <md>
+            <mrow> \lim_{x \to 1^-} f(x) &amp;= \lim_{x \to 1^-} 5-2x </mrow>
+            <mrow> &amp;= 5-2(1) = 3</mrow>
+            <mrow> \lim_{x \to 1^+} f(x) &amp;= \lim_{x \to 1^+} 3x+1 </mrow>
+            <mrow> &amp;= 3(1)+1 = 4</mrow>
+          </md>
+          The function has a jump discontinuity at <m>x=1</m>.
+          The value on the function does agree with the limit on the right,
+          but not the limit on the left.
+        </p>
+        <p>
+          <xref ref="thm-differentiable-implies-continuous"/> guarantees
+          that we will find <m>f</m> is not differentiable at <m>x=1</m>.
+          We can verify this by computing the actual limits defining the derivative.
+          When <m>h \lt 0</m>,
+          <me>f(1+h) = 5-2(1+h) = 3-2h.</me>
+          Because <m>f</m> is not continuous from the left,
+          computing the derivative from the left will result in an infinite limit.
+          <md>
+            <mrow> \frac{df}{dx}\Big|_{1^-} &amp;= \lim_{h \to 0^-} \frac{f(1+h)-f(1)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} \frac{(3-2h)-4}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} \frac{-2h-1}{h} </mrow>
+            <mrow> &amp;\to \frac{-1}{0^-} = +\infty </mrow>
+          </md>
+          On the other side, when <m>h \gt 0</m>,
+          <me>f(1+h) = 3(1+h)+1 = 4+3h</me> so that
+          <md>
+            <mrow> \frac{df}{dx}\Big|_{1^+} &amp;= \lim_{h \to 0^+} \frac{f(1+h)-f(1)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^+} \frac{(4+3h)-4}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^+} \frac{3h}{h} </mrow>
+            <mrow> &amp;= 3 </mrow>
+          </md>
+          With the derivative from the left being infinite, <m>f'(1)</m> is undefined
+          and <m>f</m> is not differentiable at <m>x=1</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Another way that a function might not have be differentiable is where it is continuous but has a corner.
+      This means that the slope at the point looks different from either of the two sides.
+      Mathematically, if we computed the one-sided limits of the difference quotient defining the derivative,
+      we would get two different values.
+      The difference quotient has a jump discontinuity at <m>h=0</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the piecewise function defined by
+          <me>f(x) = \begin{cases} x^2, &amp; x \le 1, \\ x, &amp; x \gt 1.\end{cases}</me>
+          Determine if <m>f</m> is differentiable at <m>x=1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This function is continuous because the limit on the left
+          and the limit on the right are equal to the value of the function at <m>x=1</m>, as follows:
+          <md>
+            <mrow>\lim_{x \to 1^-}f(x) &amp;= \lim_{x \to 1}x^2 = 1^2 = 1,</mrow>
+            <mrow>\lim_{x \to 1^+}f(x) &amp;= \lim_{x \to 1}x = 1 = 1,</mrow>
+            <mrow>f(1) &amp;= 1^2 = 1.</mrow>
+          </md>
+        </p>
+        <p>
+          Now that we know the function is continuous,
+          we can can compute the derivative using limits from the left and from the right.
+          Using the function for <m>x \lt 1</m>,
+          we have <m>f(1+h) = (1+h)^2 for <m>h \lt 0</m>.
+          Consequently, the slope computed from the left would be
+          <md>
+            <mrow> \frac{df}{dx} \Big|_{1^-} &amp;= \lim_{h \to 0^-} \frac{f(1+h)-f(1)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} \frac{(1+h)^2 - 1}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} \frac{1+2h+h^2 - 1}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} \frac{2h+h^2}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} 2+h </mrow>
+            <mrow> &amp;= 2+0 = 2</mrow>.
+          </md>
+          Next, using the function for <m>x \gt 1</m>,
+          we have <m>f(1+h) = 1+h</m> when <m>h \gt 0</m>.
+          The slope computed from the right would be
+          <md>
+            <mrow> \frac{df}{dx} \Big|_{1^+} &amp;= \lim_{h \to 0^+} \frac{f(1+h)-f(1)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^+} \frac{(1+h) - 1}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^+} \frac{h}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^+} 1 </mrow>
+            <mrow> &amp;= 1</mrow>.
+          </md>
+          With different limits from the left and right,
+          <me> \frac{df}{dx}(1) = \lim_{h \to 0} \frac{f(1+h)-f(1)}{h} </me>
+          does not exist and <m>f</m> is not differentiable at <m>x=1</m>.
+          The figure below illustrates the graph of this function,
+          showing that there is a corner at <m>x=1</m>.
+        </p>
+        <sidebyside>
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [ xmin=-2, xmax=3, ymin=-1, ymax=3 ]
+            \addplot[domain=-4:1, samples=51] (x, x^2);
+            \addplot[domain=1:4, samples=51] (x, x);
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Consider the piecewise function defined by
+          <me>f(x) = \begin{cases} x^2-3x+8 &amp; x \lt 2, \\ 5x-x^2, &amp; x \ge 2.\end{cases}</me>
+          Determine if <m>f</m> is differentiable at <m>x=2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          This function is continuous because the limit on the left and the limit on the right
+          are equal to the value of the function at <m>x=2</m>, as follows:
+          <md>
+            <mrow>\lim_{x \to 2^-}f(x) &amp;= \lim_{x \to 2}(x^2-3x+8) = 2^2-3(2)+8 = 6,</mrow>
+            <mrow>\lim_{x \to 2^+}f(x) &amp;= \lim_{x \to 2}(5x-x^2) = 5(2)-2^2 = 6,</mrow>
+            <mrow>f(2) &amp;= 5(2)-2^2 = 6.</mrow>
+          </md>
+        </p>
+        <p>
+          Now that we know the function is continuous,
+          we can compute the derivative using left- and right-limits.
+          Because <m>f(x) = x^2-3x+8</m> for <m>x \lt 2</m>, we have
+          <me>f(2+h) = (2+h)^2-3(2+h)+8 = 6+h+h^2</me>
+          when <m>h \lt 0</m>.
+          Consequently, the derivative from the left is
+          <md>
+            <mrow> \frac{df}{dx}\Big|_{2^-} &amp;= \lim_{h \to 0^-} \frac{f(2+h)-f(2)}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} \frac{(6+h+h^2) - 6}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} \frac{h(1+h)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^-} 1+h </mrow>
+            <mrow> &amp;= 1+0 = 1</mrow>.
+          </md>
+          When <m>h \gt 0</m>, we have
+          <me> f(2+h) = 5(2+h)-(2+h)^2 = 6+h-h^2 </me>.
+        </p>
+        <p>
+          The derivative from the right is
+          <md>
+            <mrow> \frac{df}{dx}\Big|_{2^+} &amp;= \lim_{h \to 0^+} \frac{f(2+h)-f(2)}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0^+} \frac{(6+h-h^2) - 6}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^+} \frac{h(1-h)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0^+} 1-h </mrow>
+            <mrow> &amp;= 1-0 = 1</mrow>.
+          </md>
+          Since the left and right limits computing the left and right derivatives are the same,
+          we conclude that
+          <me>\frac{df}{dx}(2) = \lim_{h \to 0}\frac{f(2+h)-f(2)}{h} = 1</m>
+          So <m>f</m> is differentiable at <m>x=2</m>.
+        </p>
+        <p>
+          The function consists of two parabolas joined together at <m>x=2</m>.
+          When the left and right derivatives agree,
+          the function transitions smoothly with no corner at <m>x=2</m>.
+        </p>
+        <image>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+          \begin{axis}
+          [ xmin=-1, xmax=5, ymin=2, ymax=9 ]
+          \addplot[domain=-1:2, samples=51] (x, x^2-3*x+8);
+          \addplot[domain=2:5, samples=51] (x, 5*x-x^2);
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <ul>
+        <li>
+          The derivative of a function <m>f</m> is the function
+          <me> \frac{df}{dx} : x=a \mapsto \frac{df}{dx}\Big|_{a} </me>
+          defined by the limit
+          <me> \frac{df}{dx}(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} </me>
+          whenever the limit exists.
+          Alternatively,
+          <me> \frac{df}{dx}(x) = \lim_{t \to x} \frac{f(t) - f(x)}{t-x}. </me>
+        </li>
+        <li>
+          The derivative function <m>\frac{df}{dx}</m> is also written <m>f'(x)</m>.
+        </li>
+        <li>
+          The value <m>f'(a)</m> is the slope of the tangent line of <m>y=f(x)</m>
+          at <m>x=a</m>.
+        </li>
+        <li>
+          Saying <m>f</m> is <term>differentiable</term> at <m>x=a</m> means <m>f'(a)</m> exists.
+          A function is not differentiable at any point where there is not a well-defined tangent line.
+        </li>
+        <li>
+          If a function is differentiable, it must be continuous.
+          If a function has a discontinuity, it will not be differentiable at that point.
+        </li>
+        <li>
+          A function can be continuous without being differentiable.
+          For example, a piecewise function that is continuous
+          but that has mismatching slopes at a point (the graph shows a corner)
+          will not be differentiable.
+        </li>
+      </ul>
+    </p>
+  </subsection>
+  <exercises>
+  </exercises>
 </section>
