@@ -79,7 +79,7 @@
     <p>
       Consider how we compute the average value of a list of numbers.
       We add up all the values and divide by the number of values in the list.
-      When thinking about a function <m>f</m> on an interval <m>[a,b]<m>,
+      When thinking about a function <m>f</m> on an interval <m>[a,b]</m>,
       there are infinitely many different values to consider.
       We need a different way to think about it.
       We define the average value of a function using a limit of a standard average value.
@@ -264,4 +264,5 @@
           <mrow> &amp;= \frac{e^6-e^3}{3}</mrow>
       </md></p>
   </example>
+</subsection>
 </section>
