@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="ftc-part-one">
+  <title>The Fundamental Theorem of Calculus, Part One</title>
+  <subsection>
+    <title>Overview</title>
+    <p>
+      When we introduced the definite integral, we also learned about accumulation functions.
+      An <xref ref='defn-accumulation-function' text='title'>accumulation function</xref> is a function <m>A</m>
+      defined as a definite integral from a fixed lower limit <m>a</m> to a variable upper limit
+      where the integrand is a given function <m>f</m>,
+      <me>A(x) = A(a) + \int_a^x f(z)\, dz</me>.
+      The function <m>f</m> was called the rate of accumulation for the function <m>A</m>,
+      and we wrote <m>A'(x) = f(x)</m>.
+      Then we defined another rate of change, the instantaneous rate of change,
+      with a corresponding function called <xref ref="defn-derivative" text="title">the derivative</xref>.
+      For a function <m>F(x)</m>, the derivative was defined by a limit,
+      <me>\frac{dF}{dx}(x) = \lim_{h \to 0} \frac{F(x+h)-F(x)}{h}</me>.
+    </p>
+    <p>
+      This section establishes a relation between these two concepts of the rate of change.
+      The Fundamental Theorem of Calculus proves that the derivative of an accumulation function
+      exactly matches the rate of accumulation at whenever the rate of accumulation is continuous.
+      That is, the instantaneous rate of change of a quantity,
+      which graphically gives the slope of the tangent line on the graph,
+      is exactly the same as the value of the rate of accumulation
+      when the function is expressed as an accumulation using a definite integral.
+      The proof of the fundamental theorem relies on properties of continuous functions
+      as well as properties of limits.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Illustration of an Example</title>
+    <p>
+      To illustrate the concept that we will prove, let us consider a simple polynomial function
+      <me>f(x) = x^3 - 3x + 5</me>.
+      Using our rules of accumulation, we know that <m>f(x)</m> can be written as an accumulation,
+      <me>f(x) = 5 + \int_0^x 3z^2-3 \, dz</me>.
+      What happens if we compute the <xref ref="defn-derivative" text="title">derivative using the definition</xref>?
+    </p>
+    <p>
+      We start with some preparatory algebra based on <m>f(x) = x^3-3x+5</m>.
+      <md>
+        <mrow>f(x+h)&amp;= (x+h)^3 - 3(x+h)+5</mrow>
+        <mrow> &amp;= (x+h)(x+h)(x+h) - 3(x+h) + 5</mrow>
+        <mrow> &amp;= (x^2+2xh+h^2)(x+h) - 3x - 3h + 5</mrow>
+        <mrow> &amp;= x^3+3x^2h + 3xh^2 + h^3 - 3x - 3h + 5</mrow>
+      </md>
+      <md>
+        <mrow>f(x+h) - f(x) &amp;= (x^3 + 3x^2h + 3xh^2 + h^3 - 3x - 3h + 5) - (x^3 - 3x + 5)</mrow>
+        <mrow> &amp;= 3x^2h + 3xh^2 + h^3 - 3h</mrow>
+        <mrow> &amp;= h(3x^2+3xh+h^2-3)</mrow>
+      </md>
+      The derivative can be computed using the limit:
+      <md>
+        <mrow> \frac{df}{dx}(x) &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
+        <mrow> &amp; = \lim_{h \to 0} \frac{h(3x^2+3xh+h^2-3)}{h} </mrow>
+        <mrow> &amp; = \lim_{h \to 0} 3x^2+3xh+h^2-3 </mrow>
+        <mrow> &amp; = 3x^2+3x(0)+(0)^2-3 </mrow>
+        <mrow> &amp; = 3x^2-3 </mrow>.
+      </md>
+      The derivative exactly matches the rate of accumulation.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Average Value of a Function</title>
+    <p>
+      The derivative computes the limit of the average rate of change.
+      In preparation for the Fundamental Theorem of Calculus,
+      we need a relation between the idea of average value and the definite integral.
+    </p>
+    <p>
+      Consider how we compute the average value of a list of numbers.
+      We add up all the values and divide by the number of values in the list.
+      When thinking about a function <m>f</m> on an interval <m>[a,b]<m>,
+      there are infinitely many different values to consider.
+      We need a different way to think about it.
+      We define the average value of a function using a limit of a standard average value.
+    </p>
+    <p>
+      Let <m>f</m> be a piecewise continuous function on <m>[a,b]</m>
+      so that the definite integral <m>\displaystyle \int_a^b f(x) \,dx</m> will be defined.
+      Consider a uniform partition of the interval <m>[a,b]</m> with
+      <m>\Delta x = \frac{b-a}{n}</m> and <m>x_k = a + k \cdot \Delta x</m>,
+      just as we defined when creating a Riemann sum.
+      We <em>approximate</em> the average value of <m>f</m> on the interval <m>[a,b]</m>,
+      which is represented by the symbol <m>\langle f \rangle_{[a,b]}</m>,
+      by finding the average of the values <m>f(x_k)</m> for <m>k=1,2,\ldots,n</m>:
+      <me> \langle f \rangle_{[a,b]} \approx \frac{1}{n} \sum_{k=1}^{n} f(x_k) </me>.
+      The approximation is improved with larger and larger values of <m>n</m>,
+      so the actual average value will be the limit of the average as <m>n \to \infty</m>:
+      <me> \langle f \rangle_{[a,b]} = \lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^{n} f(x_k) </me>.
+    </p>
+    <p>
+      The average value defined by this limit looks remarkably similar
+      to the limit of a Riemann sum that would define a definite integral.
+      In particular,
+      <me> \int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k) \frac{b-a}{n}</me>.
+      Comparing our two limits reveals that the definite integral is the same as the average value multiplied by <m>b-a</m>.
+      This will be our formal definition of the average value of a function.
+    </p>
+    <definition xml:id="defn-function-average-value">
+      <statement>
+        <p>
+          For a function <m>f</m> which has an integral on an interval <m>[a,b]</m>,
+          the <term>average value</term> of <m>f</m> on <m>[a,b]</m> is defined by
+          <me> \langle f \rangle_{[a,b]} = \frac{1}{b-a} \int_{a}^{b} f(x) \, dx </me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Now, are you ready to be blown away?
+      Let's think about an accumulation function, <m>A</m> with rate of accumulation <m>A'</m>.
+      What is the average rate of change of <m>A(x)</m> as <m>x</m> goes from <m>a</m> to <m>b</m>?
+      <me> \frac{\Delta A}{\Delta x}\Big|_{a,b} = \frac{A(b)-A(a)}{b-a} = \frac{1}{b-a} \left(A(b)-A(a)\right) </me>.
+      Because <m>A</m> is an accumulation, the change <m>\Delta A</m> can be rewritten using an integral and
+      <me> \frac{\Delta A}{\Delta x}\Big|_{a,b} = \frac{1}{b-a} \int_a^b A'(x) \,dx </me>.
+      But that is just the average value of the rate of accumulation function <m>A'</m>.
+      Two completely different ideas of average value end up measuring the very same thing.
+    </p>
+    <theorem xml:id="thm-average-value-equivalence">
+      <statement>
+        <p>
+          The average rate of change of an accumulation function <m>A(x)</m> is exactly equal
+          to the average value of the corresponding rate of accumulation <m>A'(x)</m>:
+          <me> \frac{\Delta A}{\Delta x}\Big|_{a,b} = \langle A' \rangle_{[a,b]}</me>.
+        </p>
+      </statement>
+    </theorem>
+  </subsection>
+  <subsection>
+    <title>The Fundamental Theorem</title>
+    <theorem xml:id='theorem-ftc-part-one'>
+      <title>The Fundamental Theorem of Calculus, Part One (FTC1)</title>
+      <statement>
+        <p>
+          Given any function <m>f(x)</m> that is continuous on an interval <m>I</m> and a value <m>a \in I</m>.
+          The accumulation function <me>A(x) = \int_{a}^{x} f(z) \, dz</me> is differentiable
+          and <m>\frac{dA}{dx}(x) = f(x)</m> for all <m>x \in I</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The proof relies on the <xref ref='mean-value-theorem-integral' text='title'>Mean Value Theorem for Integrals</xref>.
+          Given the accumulation function <m>A(x)</m> and its associated integrand <m>f(x)</m>,
+          we focus on the <xref ref='defn-derivative' text='title'>definition of the derivative</xref> for <m>A(x)</m>:
+          <me>\frac{dA}{dx}(x) = \lim_{h \to 0} \frac{A(x+h)-A(x)}{h}.</me>
+          We use the splitting property of definite integrals to rewrite this as
+          <me>\frac{dA}{dx}(x) = \lim_{h \to 0} \frac{1}{h} \int_x^{x+h} f(z) \, dz.</me>
+          Because the function inside the limit is an average value of <m>f</m> on the interval from <m>x</m> to <m>x+h</m> and <m>f</m> is continuous,
+          the mean value theorem allows us to replace that formula with the value of <m>f</m> at some point <m>c</m> between <m>x</m> and <m>x+h</m>,
+          and we treat <m>c</m> as a function of <m>h</m>:
+          <me>A'(x) = \lim_{h \to 0} f(c(h)). </me>
+          As <m>h \to 0</m>, since <m>c</m> is constrained to be between <m>x</m> and <m>x+h</m>,
+          we know <m>c \to x</m> and continuity allows us to conclude
+          <me> A'(x) = \lim_{h \to 0} f(c(h)) = f(x). </me>
+        </p>
+      </proof>
+  </theorem>
+  <p>
+    Most calculus textbooks test understanding of this concept with problems relating to differentiation,
+    including the use of the chain rule.
+  </p>
+
+  <example>
+      <statement>
+          <p>Compute the following derivatives. <ol>
+              <li><m>\displaystyle \frac{d}{dx} \int_1^x e^{-z^2} \, dz</m></li>
+              <li><m>\displaystyle \frac{d}{dx} \int_0^{\sqrt{x}} \frac{1}{\sqrt{z^4+1}} \, dz</m></li>
+              <li><m>\displaystyle \frac{d}{dx} \int_{x}^{x^2} \sin(\cos(z))\, dz</m></li>
+          </ol></p>
+      </statement>
+      <solution>
+          <p>When solving problems involving definite integrals, it is often helpful to explicitly remind yourself of the concept of accumulation functions and the fundamental theorem of calculus's conclusion. <ol>
+              <li>
+                  <p>Define <m>\displaystyle A(x) = \int_1^x e^{-z^2} \, dz</m>, which is the accumulation function with integrand <m>f(z) = e^{-z^2}</m>. The Fundamental Theorem of Calculus tells us that the accumulation function is an antiderivative of the integrand, which means <m>A'(x) = f(x) = e^{-x^2}</m>, where we evaluate with the variable <m>x</m> instead of the variable of integration. The following work communicates this.</p>
+                  <p><md>
+                      <mrow>A(x) &amp;= \int_1^x e^{-z^2} \, dz</mrow>
+                      <mrow>A'(x) &amp;\overset{{\mathrm{FTC}}}{=} e^{-x^2}</mrow>
+                      <mrow>\frac{d}{dx} \int_1^x e^{-z^2} \, dz &amp;= A'(x) = e^{-x^2}</mrow>
+                  </md></p>
+              </li>
+              <li>
+                  <p>To compute <m>\displaystyle \frac{d}{dx}\left[ \int_0^{\sqrt{x}} \frac{1}{\sqrt{z^4+1}}\,dz \right]</m>, we will need to define an accumulation function and then apply the Fundamental Theorem of Calculus to find the derivative required. The integral given is not the accumulation function, but we use the same integrand with an upper limit that is just the input variable.</p>
+                  <p><md>
+                      <mrow> A(x) &amp;= \int_0^x \frac{1}{\sqrt{z^4+1}} \, dz</mrow>
+                      <mrow> A'(x)&amp;\overset{{\mathrm{FTC}}}{=} \frac{1}{\sqrt{x^4+1}}</mrow>
+                      <mrow> \frac{d}{dx}\left[ \int_0^{\sqrt{x}} \frac{1}{\sqrt{z^4+1}}\,dz \right] &amp;= \frac{d}{dx}[A(\sqrt{x})]</mrow>
+                      <mrow> &amp;= A'(\sqrt{x}) \frac{d}{dx}[\sqrt{x}] </mrow>
+                      <mrow> &amp;= \frac{1}{\sqrt{(\sqrt{x})^4+1}} \cdot (\frac{1}{2}x^{-1/2}) </mrow>
+                      <mrow> &amp;= \frac{1}{\sqrt{x^2+1}} \cdot \frac{1}{2 \sqrt{x}} </mrow>
+                      <mrow> &amp;= \frac{1}{2 \sqrt{x(x^2+1)}}</mrow>
+                  </md></p>
+              </li>
+              <li>
+                  <p>The accumulation function requires a constant in the lower limit, although that constant doesn't matter. Define <m>\displaystyle A(x) = \int_1^x \sin(\cos(z))\,dz</m>, although the choice of <m>a=1</m> was arbitrary. We will rewrite the formula in question using the <xref ref='thm-definite-integral-splitting' text='title'>splitting property of definite integrals</xref> and then apply the chain rule.</p>
+                  <p><md>
+                      <mrow> A(x) &amp;= \int_1^x \sin(\cos(z)) \, dz</mrow>
+                      <mrow> A'(x) &amp; \overset{{\mathrm{FTC}}}{=} \sin(\cos(x)) </mrow>
+                      <mrow> \frac{d}{dx} \int_x^{x^2} \sin(\cos(z)) \, dz &amp;= \frac{d}{dx}\left[\int_1^{x^2} \sin(\cos(z))\,dz - \int_1^{x} \sin(\cos(z))\,dz \right]</mrow>
+                      <mrow> &amp;= \frac{d}{dx}[A(x^2) - A(x)] </mrow>
+                      <mrow> &amp;= A'(x^2) \cdot \frac{d}{dx}[x^2] - A'(x) </mrow>
+                      <mrow> &amp;= \sin(\cos(x^2)) \cdot (2x) - \sin(\cos(x))</mrow>
+                      <mrow> &amp;= 2x \sin(\cos(x^2)) - \sin(\cos(x)) </mrow>
+                  </md></p>
+              </li>
+          </ol></p>
+      </solution>
+  </example>
+
+  <p>Conceptually, it is more important to recognize that definite integrals represent evaluation of accumulation functions and know that those accumulation functions are antiderivatives of the integrand. This leads to the second half of the Fundamental Theorem of Calculus, the evaluation of definite integrals using any known antiderivative.</p>
+
+  <theorem xml:id='definite-integral-evaluation'>
+      <title>Evaluating Definite Integrals with Antiderivatives (FTC II)</title>
+      <statement>
+          <p>Suppose that <m>f(x)</m> is continuous on an interval <m>I</m>, that <m>a,b \in I</m>, and that <m>F(x)</m> is any antiderivative of <m>f(x)</m> defined on <m>I</m>. Then <me> \int_a^b f(x)\,dx = F(b) - F(a).</me></p>
+      </statement>
+      <proof>
+          <p>This theorem just puts three key concepts to work with one another. First, we define an accumulation function. In order to deal with the possibility that <m>a</m> or <m>b</m> might be dependent variables and not constants, let <m>c</m> be a constant value in <m>I</m>. We use this value as the lower limit of an accumulation function, <me> A(x) = \int_c^{x} f(z)\, dz,</me> defined for any value <m>x \in I</m>.</p>
+          <p>The Fundamental Theorem of Calculus guarantees <m>A(x)</m> is an antiderivative of <m>f(x)</m>. The hypothesis is that <m>F(x)</m> is also an antiderivative of <m>f(x)</m>, defined on the same interval <m>I</m>. The second key concept is that any two antiderivatives defined on the same interval can only <xref ref='thm-antiderivative-up-to-constant' text='title'>differ by a constant</xref>. That is, there is a real number <m>K</m> so that <m>F(x) = A(x)+K</m>.</p>
+          <p>Third, we use the <xref ref='thm-definite-integral-splitting' text='title'>splitting property of definite integrals</xref>, which says <me>\int_a^b f(x) \, dx = \int_c^b f(x)\, dx - \int_c^a f(x) \, dx.</me> These two integrals are equivalent to the evaluation of our accumulation function, so that we can rewrite <me> \int_a^b f(x) \, dx = A(b) - A(a).</me> However, any two antiderivatives defined on the same interval will change by the same amount, <me>F(b)-F(a) = \big(A(b)+K\big) - \big(A(a)+K\big) = A(b)-A(a).</me> This proves our result <me> \int_a^b f(x)\,dx = F(b) - F(a).</me></p>
+      </proof>
+  </theorem>
+
+  <p>The evaluation of definite integrals using the change in an antiderivative occurs so frequently that a notation has been adopted to represent this process. Given any function <m>F(x)</m>, the notation <m>\big[ F(x) \big]_{a}^{b}</m> means evaluate the change of the expression when <m>x</m> goes from <m>a</m> to <m>b</m>: <me>\big[ F(x) \big]_{a}^{b} = F(b) - F(a).</me> When the formula for <m>F(x)</m> is simple, the brackets can be dropped and replaced by a vertical bar on the right, <me> F(x) \big|_a^b = F(b) - F(a).</me><notation><usage>\big[ F(x) \big]_a^b</usage><description>evaluation of change in <m>F(x)</m> as <m>x</m> goes from <m>a</m> to <m>b</m></description></notation></p>
+
+  <p>Applications of the Fundamental Theorem of Calculus to evaluate a definite integral generally involve two steps. First, identify an antiderivative. Second, evaluate the change in that antiderivative. The evaluation notation described above allows us to represent these two steps when we acknowledge we are using this theorem.</p>
+
+  <example>
+      <statement>
+          <p>Evaluate <m>\displaystyle \int_1^4 x^2 \, dx</m>.</p>
+      </statement>
+      <solution>
+          <p>Let us consider the two steps separately. Then we will see how to represent this more compactly using evaluation notation.</p>
+          <p>First, we need an antiderivative, computed as an indefinite integral <me> \int x^2 \, dx = \frac{1}{3}x^3 + C.</me> This tells us that <m>F(x) = \frac{1}{3}x^3</m> is an antiderivative, as is <m>F(x) = \frac{1}{3}x^3+4</m> (or any other constant). We'll use the first, since it is simpler; we only need one antiderivative, not all of them.</p>
+          <p>Second, the Fundamental Theorem of Calculus allows us to evaluate the definite integral as the change in <m>F(x)</m>. <me>\int_1^4 x^2 \, dx = F(4)-F(1) = \frac{1}{3}(4)^3 - \frac{1}{3}(1)^3 = \frac{64}{3} - \frac{1}{3} = \frac{63}{3} = 21</me></p>
+          <p>This can be written more compactly by writing the formula of the antiderivative inside the evaluation notation and indicating that we are using the Fundamental Theorem of Calculus by annotating the equal sign by <q>FTC</q>: <md>
+              <mrow> \int_{1}^{4} x^2 \,dx &amp;\overset{{\mathrm{FTC}}}{=} \big[ \frac{1}{3}x^3 \big]_1^4 </mrow>
+              <mrow> &amp;= \frac{1}{3}(4)^3 - \frac{1}{3}(1)^3 = \frac{64}{3} - \frac{1}{3} = 21</mrow>
+          </md> Notice that we did not need the constant of integration because the Fundamental Theorem of Calculus only requires one antiderivative, and we generally wish to choose the most convenient one that does not have a constant term.</p>
+      </solution>
+  </example>
+
+  <p>Evaluation of definite integrals involves recognizing antiderivatives and then evaluating their change.</p>
+
+  <example>
+      <p> <md>
+          <mrow>\displaystyle \int_0^\pi \sin(x) \, dx &amp; \overset{{\mathrm{FTC}}}{=} \big[-\cos(x)\big]_{0}^{\pi}</mrow>
+          <mrow> &amp;= -\cos(\pi) - -\cos(0) </mrow>
+          <mrow> &amp;= -(-1) - -(1) = 2</mrow>
+      </md></p>
+  </example>
+  <example>
+      <p> <md>
+          <mrow>\displaystyle \int_1^2 e^{3x} \, dx &amp; \overset{{\mathrm{FTC}}}{=} \big[\frac{1}{3}e^{3x}\big]_{1}^{2}</mrow>
+          <mrow> &amp;= \frac{1}{3}e^{6} - \frac{1}{3}e^{3} </mrow>
+          <mrow> &amp;= \frac{e^6-e^3}{3}</mrow>
+      </md></p>
+  </example>
+</section>
