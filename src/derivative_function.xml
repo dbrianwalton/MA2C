@@ -465,7 +465,7 @@
           Now that we know the function is continuous,
           we can can compute the derivative using limits from the left and from the right.
           Using the function for <m>x \lt 1</m>,
-          we have <m>f(1+h) = (1+h)^2 for <m>h \lt 0</m>.
+          we have <m>f(1+h) = (1+h)^2</m> for <m>h \lt 0</m>.
           Consequently, the slope computed from the left would be
           <md>
             <mrow> \frac{df}{dx} \Big|_{1^-} &amp;= \lim_{h \to 0^-} \frac{f(1+h)-f(1)}{h} </mrow>
@@ -555,7 +555,7 @@
           </md>
           Since the left and right limits computing the left and right derivatives are the same,
           we conclude that
-          <me>\frac{df}{dx}(2) = \lim_{h \to 0}\frac{f(2+h)-f(2)}{h} = 1</m>
+          <me>\frac{df}{dx}(2) = \lim_{h \to 0}\frac{f(2+h)-f(2)}{h} = 1</me>
           So <m>f</m> is differentiable at <m>x=2</m>.
         </p>
         <p>
@@ -618,5 +618,96 @@
     </p>
   </subsection>
   <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          For each function, compute the derivative using the definition of the derivative.
+          Use the result to find the equation of the tangent line at <m>x=5</m>.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>f(x) = 4x-7</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>g(x) = x^2+4x</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>k(x) = x^2 - 5x + 2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>p(t) = 3t-t^2</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>q(x) = x^3</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle V(p) = \frac{3}{p+2}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle F(x) = \frac{1}{2x-3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle G(x) = \sqrt{x+4}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle H(x) = \sqrt{3x+1}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          For each piecewise function, determine if it is continuous and differentiable at the break point
+          by evaluating the relevant limits.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle f(x) = \begin{cases}
+              3x-2, &amp; x \le 2, \\
+              x^2-x, &amp; x \gt 2.
+            \end{cases}</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle g(x) = \begin{cases}
+              2x-3, &amp; x \le 1, \\
+              x^2-2, &amp; x \gt 1.
+            \end{cases}</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle k(x) = \begin{cases}
+              x^2-2x, &amp; x \lt 2, \\
+              -x^2+6x-8, &amp; x \ge 2.
+            \end{cases}</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
   </exercises>
 </section>
