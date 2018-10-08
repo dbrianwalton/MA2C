@@ -15,8 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./extreme-values.xml" />
-            <xi:include href="./intro-optimization.xml" />
+            <xi:include href="./ftc-one.xml" />
 		</chapter>
 
     </book>
