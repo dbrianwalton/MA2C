@@ -127,12 +127,7 @@
     <example>
       <statement>
         <p>
-          Compute the average value of <m>f(x)=x^2-2</m> on the interval <m>[0,2]</m>.
-          Then create a graph comparing <m>y=f(x)</m> with <m>y=\langle x^2 \rangle_{[0,2]}</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
+          Consider finding the average value of <m>f(x)=x^2-2</m> on the interval <m>[0,2]</m>.
           The average value is computed by dividing the definite integral of <m>f(x)=x^2-2</m> as <m>x</m> goes from 0 to 2
           by the length of the interval.
           <md>
@@ -141,12 +136,19 @@
             <mrow> &amp;= \frac{1}{2} \Big(\frac{8}{3} - 2(2)\Big) - \frac{1}{2} \Big(\frac{0}{3} - 2(0)\Big) </mrow>
             <mrow> &amp;= \frac{1}{2} \Big(\frac{-4}{3}\Big) = -\frac{2}{3} </mrow>
           </md>
-          If we graph <m>y=x^2-2</m> and <m>y=-\frac{2}{3}</m>,
-          we should see that the area above the average value is matched by missing area below average,
-          as shown in the graph below.
         </p>
-        <sidebyside width="50%">
-          <image>
+        <p>
+          Having found the average value,
+          we now create a graph of <m>y=f(x)=x^2-2</m>
+          together with the graph <m>y=\langle f(x) \rangle_{[0,2]} = -\frac{2}{3}</m>,
+          as shown in <xref ref="fig-average-value-graph-example"/>.
+          The graph of the average value is the horizontal line.
+          We can see that the area above the average value is matched by
+          the unshaded area below the average value line and above the function.
+        </p>
+        <figure xml:id="fig-average-value-graph-example">
+          <caption>The graph of <m>y=x^2-2</m> along with its average value over <m>[0,2]</m>.</caption>
+          <image width="50%">
             <latex-image>
               \begin{tikzpicture}
               \begin{axis}
@@ -155,23 +157,79 @@
                 axis lines = center, xlabel = {$x$}, ylabel={$y$},
               ]
               \addplot [ domain=-3:3, thick, blue ] {x^2-2};
-              \addplot [ name path=curve, domain=0:2, samples=50, thick, blue ] {x^2-2};
               \addplot [ name path=average, domain=0:2, samples=50, thick, red ] {-2/3};
-              \addplot fill between[
-                of = curve and average,
-                split, % calculate segments
-                every even segment/.style = {orange!30},
-                every odd segment/.style  = {blue!30}
-              ];
+              \fill [blue!30, domain=0:2, variable=\x]
+                (0, -4)
+                -- plot ({\x}, {\x*\x-2})
+                -- (2, -4)
+                -- cycle;
               \end{axis}
               \end{tikzpicture}
             </latex-image>
           </image>
-        </sidebyside>
-      </solution>
+        </figure>
+      </statement>
     </example>
     <p>
+      We need one more theorem before we discuss the Fundamental Theorem.
+      That theorem is called the Mean Value Theorem for Definite Integrals.
+      The phrase <term>mean value</term> is equivalent to <term>average value</term>,
+      just as the mean of a set of numbers is equivalent to the average of those numbers.
+      We have previously pointed out that the average or mean value of a function over an interval
+      is equal to the constant value (horizontal function) that would have the same integral.
+    </p>
+    <p>
+      In <xref ref="fig-average-value-graph-example"/>,
+      we can see that the function actually crosses the line representing average value.
+      As an equation, this point of intersection corresponds to a solution of the equation
+      <me>f(x) = \langle f(x) \rangle_{[0,2]} \qquad \Leftrightarrow \qquad x^2 - 2 = -\frac{2}{3}</me>.
+      When a function is continuous, such an intersection point will always occur.
+      If a function is not continuous, it is possible for the function to skip over its average value without such an intersection.
+    </p>
+    <theorem xml:id="thm-mean-value-integral">
+      <title>Mean Value Theorem for Definite Integrals</title>
+      <statement>
+        <p>
+          If a function <m>f</m> is continuous on <m>[a,b]</m>,
+          then there is a value <m>c \in (a,b)</m> so that
+          <me>f(c) = \langle f \rangle_{[a,b]} = \frac{1}{b-a} \int_a^b f(x)\,dx</me>.
+          Equivalently, the equation can be rewritten
+          <me> f(c) \cdot (b-a) = \int_a^b f(x) \, dx </me>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Because <m>f</m> is continuous on <m>[a,b]</m> (a closed interval),
+          the <xref ref="extreme-value-theorem"/> guarantees that <m>f</m>
+          has an absolute maximum value <m>f_{\max}</m>
+          and an absolute minimum value <m>f_{\min}</m> inside the interval.
+          The average value must be between the maximum and minimum values.
+          Indeed, for all <m>x \in [a,b]</m> we have
+          <me> f_{\min} \le f(x) \le f_{\max} </me>.
+          Definite integrals preserve the ordering so that
+          <me> f_{\min}\cdot(b-a) \le \int_a^b} f(x)\,dx \le f_{\max}\cdot(b-a) </me>,
+          and dividing by the length of the interval <m>b-a</m> we have
+          <me> f_{\min} \le \langle f(x) \rangle_{[a,b]} \le f_{\max} </me>.
+          The <xref ref="intermediate-value-theorem"/> then guarantees
+          that between the <m>x</m>-values where the extremes occur
+          we must have at least one value <m>x=c</m> where <m>f(x)=\langle f(x) \rangle_{[a,b]}</m>.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      The Mean Value Theorem for Definite Integrals will give us a tool
+      with which we can replace a definite integral by a corresponding value of the integrand or rate function
+      at some point within the interval times the length of that interval.
+    </p>
+  </subsection>
+  <subsection>
+    <title>The Fundamental Theorem</title>
+    <p>
       Now, are you ready to be blown away?
+      Having learned what the average value of a function over an interval represents<mdash/>the constant height that would give the same signed area over the interval<mdash/>
+      we can discover that there is a relationship between the ideas of average rate of change and average value.
+    </p>
+    <p>
       Let's think about an accumulation function, <m>A</m> with rate of accumulation <m>A'</m>.
       What is the average rate of change of <m>A(x)</m> as <m>x</m> goes from <m>a</m> to <m>b</m>?
       <me> \frac{\Delta A}{\Delta x}\Big|_{a,b} = \frac{A(b)-A(a)}{b-a} = \frac{1}{b-a} \left(A(b)-A(a)\right) </me>.
@@ -189,10 +247,11 @@
         </p>
       </statement>
     </theorem>
-
-  </subsection>
-  <subsection>
-    <title>The Fundamental Theorem</title>
+    <p>
+      Pay attention, however, that we are thinking about two different functions.
+      The average value of the rate of accumulation is based on the integral of the rate <m>A'(x)</m>.
+      The average rate of change uses the rate of change based on the difference quotient using <m>A(x)</m>.
+    </p>
     <theorem xml:id='theorem-ftc-part-one'>
       <title>The Fundamental Theorem of Calculus, Part One (FTC1)</title>
       <statement>
