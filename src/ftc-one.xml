@@ -86,7 +86,7 @@
     </p>
     <p>
       Let <m>f</m> be a piecewise continuous function on <m>[a,b]</m>
-      so that the definite integral <m>\displaystyle \int_a^b f(x) \,dx</m> will be defined.
+      so that the definite integral <m>\int_a^b f(x) \,dx</m> will be defined.
       Consider a uniform partition of the interval <m>[a,b]</m> with
       <m>\Delta x = \frac{b-a}{n}</m> and <m>x_k = a + k \cdot \Delta x</m>,
       just as we defined when creating a Riemann sum.
@@ -118,11 +118,12 @@
     <p>
       When we think of the definite integral as the total signed area between the graph <m>y=f(x)</m> and the axis <m>y=0</m>,
       the average value can be interpreted as the value of a constant function that would have the same signed area.
-      Imagine the area below the graph <m>y=f(x)</m> as if it were frozen in place like ice.
-      If we melt the ice and use the vertical lines <m>x=a</m> and <m>x=b</m> as barriers,
-      the high points in the water would fill the valleys until the water is flat.
+      Imagine the region below the graph <m>y=f(x)</m> and between the lines <m>x=a</m> and <m>x=b</m>
+      as if it were frozen in place like ice.
+      If the ice melted but still stayed between the vertical lines <m>x=a</m> and <m>x=b</m>,
+      the high points in the water would fill the valleys until the water level were flat.
       The resulting flat value is equivalent to the average value of the original function.
-      Any regions of area above the average value line are used to exactly fill in an equivalent amount of area missing below the line.
+      Any regions of area above the average value line are used to fill an equivalent amount of area missing below the line.
     </p>
     <example>
       <statement>
@@ -158,11 +159,13 @@
               ]
               \addplot [ domain=-3:3, thick, blue ] {x^2-2};
               \addplot [ name path=average, domain=0:2, samples=50, thick, red ] {-2/3};
-              \fill [blue!30, domain=0:2, variable=\x]
-                (0, -4)
-                -- plot ({\x}, {\x*\x-2})
-                -- (2, -4)
-                -- cycle;
+              \addplot [ name path=value, domain=0:2, thin] {x^2-2};
+              \addplot [ name path=base, domain=0:2, thin] {-4};
+              \addplot fill between [
+                of = value and base,
+                every even segment/.style  = {gray!30},
+                every odd segment/.style  = {gray!30}
+              ];
               \end{axis}
               \end{tikzpicture}
             </latex-image>
@@ -186,7 +189,7 @@
       When a function is continuous, such an intersection point will always occur.
       If a function is not continuous, it is possible for the function to skip over its average value without such an intersection.
     </p>
-    <theorem xml:id="thm-mean-value-integral">
+    <theorem xml:id="mean-value-theorem-integral">
       <title>Mean Value Theorem for Definite Integrals</title>
       <statement>
         <p>
@@ -207,7 +210,7 @@
           Indeed, for all <m>x \in [a,b]</m> we have
           <me> f_{\min} \le f(x) \le f_{\max} </me>.
           Definite integrals preserve the ordering so that
-          <me> f_{\min}\cdot(b-a) \le \int_a^b} f(x)\,dx \le f_{\max}\cdot(b-a) </me>,
+          <me> f_{\min}\cdot(b-a) \le \int_a^b f(x)\,dx \le f_{\max}\cdot(b-a) </me>,
           and dividing by the length of the interval <m>b-a</m> we have
           <me> f_{\min} \le \langle f(x) \rangle_{[a,b]} \le f_{\max} </me>.
           The <xref ref="intermediate-value-theorem"/> then guarantees
@@ -223,14 +226,14 @@
     </p>
   </subsection>
   <subsection>
-    <title>The Fundamental Theorem</title>
+    <title>The Fundamental Theorem of Calculus</title>
     <p>
       Now, are you ready to be blown away?
       Having learned what the average value of a function over an interval represents<mdash/>the constant height that would give the same signed area over the interval<mdash/>
       we can discover that there is a relationship between the ideas of average rate of change and average value.
     </p>
     <p>
-      Let's think about an accumulation function, <m>A</m> with rate of accumulation <m>A'</m>.
+      Let's think about an accumulation function, <m>A</m> with its corresponding rate of accumulation <m>A'</m>.
       What is the average rate of change of <m>A(x)</m> as <m>x</m> goes from <m>a</m> to <m>b</m>?
       <me> \frac{\Delta A}{\Delta x}\Big|_{a,b} = \frac{A(b)-A(a)}{b-a} = \frac{1}{b-a} \left(A(b)-A(a)\right) </me>.
       Because <m>A</m> is an accumulation, the change <m>\Delta A</m> can be rewritten using an integral and
@@ -251,6 +254,7 @@
       Pay attention, however, that we are thinking about two different functions.
       The average value of the rate of accumulation is based on the integral of the rate <m>A'(x)</m>.
       The average rate of change uses the rate of change based on the difference quotient using <m>A(x)</m>.
+      The equivalence of these two averages provides exactly what is necessary to compute the derivative of an accumulation function.
     </p>
     <theorem xml:id='theorem-ftc-part-one'>
       <title>The Fundamental Theorem of Calculus, Part One (FTC1)</title>
@@ -263,21 +267,198 @@
       </statement>
       <proof>
         <p>
-          The proof relies on the <xref ref='mean-value-theorem-integral' text='title'>Mean Value Theorem for Integrals</xref>.
           Given the accumulation function <m>A(x)</m> and its associated integrand <m>f(x)</m>,
-          we focus on the <xref ref='defn-derivative' text='title'>definition of the derivative</xref> for <m>A(x)</m>:
-          <me>\frac{dA}{dx}(x) = \lim_{h \to 0} \frac{A(x+h)-A(x)}{h}.</me>
-          We use the splitting property of definite integrals to rewrite this as
-          <me>\frac{dA}{dx}(x) = \lim_{h \to 0} \frac{1}{h} \int_x^{x+h} f(z) \, dz.</me>
-          Because the function inside the limit is an average value of <m>f</m> on the interval from <m>x</m> to <m>x+h</m> and <m>f</m> is continuous,
-          the mean value theorem allows us to replace that formula with the value of <m>f</m> at some point <m>c</m> between <m>x</m> and <m>x+h</m>,
-          and we treat <m>c</m> as a function of <m>h</m>:
-          <me>A'(x) = \lim_{h \to 0} f(c(h)). </me>
-          As <m>h \to 0</m>, since <m>c</m> is constrained to be between <m>x</m> and <m>x+h</m>,
-          we know <m>c \to x</m> and continuity allows us to conclude
-          <me> A'(x) = \lim_{h \to 0} f(c(h)) = f(x). </me>
+          we consider the average rate of change of <m>A</m> between <m>x</m> and <m>x+h</m>.
+          By <xref ref="thm-average-value-equivalence"/>, we can rewrite this in terms of the value of the rate function <m>f</m>,
+          <me>\frac{\Delta A}{\Delta x}\Big|_{x,x+h} = \frac{A(x+h)-A(x)}{h} = f(c_h)</me>,
+          for some value <m>c_h</m> between <m>x</m> and <m>x+h</m>.
+          The symbol <m>c_h</m> includes the <m>h</m> to emphasize that this value depends on <m>h</m>.
+        </p>
+        <p>
+          Now consider a sequence of values <m>h \to 0</m>.
+          Because <m>c_h</m> is between <m>x</m> and <m>x+h</m> for all <m>h</m>,
+          the corresonding sequence <m>c_h</m> also converges, <m>c_h \to x</m>.
+          As <m>f</m> is a continuous function,
+          <me> \frac{dA}{dx}(x) = \lim_{h \to 0} \frac{\Delta A}{\Delta x}\Big|_{x,x+h} = \lim_{h \to 0} f(c_h) = f(x)</me>.
         </p>
       </proof>
     </theorem>
+    <p>
+      What have we shown?
+      Earlier, when discussing accumulation functions,
+      <me>A(x) = A(a) + \int_a^x f(z)\,dz</me>,
+      we learned to <em>identify</em> the rate function based on its appearance within the definite integral
+      and we wrote <m>A'(x) = f(x)</m> as a way of describing this association.
+      In that association, the prime (apostrophe) of <m>A'</m> was telling us
+      to <em>identify the appropriate rate of accumulation</em>.
+    </p>
+    <p>
+      Now we have learned about another concept, the derivative,
+      which is defined as the limiting value of the average rate of change of a function <m>f</m>
+      from the input value of interest <m>x</m> and a second point <m>x+h</m> as <m>h \to 0</m>.
+      This is a fundamentally different concept from accumulation defined as the limit of a Riemann sum.
+      Nevertheless, when we compute the derivative of an accumulation function,
+      we recover exactly that function's corresponding rate of accumulation,
+      so long as the rate of accumulation is a continuous function.
+    </p>
+    <p>
+      The rate of accumulation and the derivative are really different perspectives of the same function.
+      This surprisingly deep relationship between definite integrals and derivatives will continue to develop.
+    </p>
   </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <ul>
+        <li>
+          For simple polynomials which we previously learned to express as accumulation functions,
+          the rate of accumulation seems miraculously to agree with the derivative of the polynomial.
+        </li>
+        <li>
+          The Fundamental Theorem of Calculus (FTC1) shows us that this isn't circumstance
+          but will always happen when the rate of accumulation is a continuous function.
+          That is, the derivative of an accumulation function will equal the corresponding rate function.
+          When we write <m>f'(x)</m>, that means <em>both</em> the rate of accumulation when <m>f(x)</m> is an accumulation function
+          <em>and</em> the derivative of a function <m>f(x)</m> because those are ultimately the same thing.
+        </li>
+        <li>
+          We can compute the <term>average value of a function</term> on an interval <m>[a,b]</m>
+          using a definite integral,
+          <me>\langle f(x) \rangle_{[a,b]} = \frac{1}{b-a} \int_a^b f(x) \, dx</me>.
+          The integral replaces the idea of adding a list of values
+          and dividing by the length of the interval replaces the idea of dividing by the number of values being added.
+        </li>
+        <li>
+          The average rate of change of an accumulation function <m>f(x)</m>
+          and the average value of the rate of accumulation <m>f'(x)</m> for that function are equal to each other.
+        </li>
+        <li>
+          The Mean Value Theorem for Definite Integrals guarantees that for a continuous function,
+          the equation <m>f(c) = \langle f(x) \rangle_{[a,b]}</m> has a solution for some value <m>c \in (a,b)</m>.
+          It allows us to substitute
+          <me> \int_{a}^{b} f(x) \, dx = f(c) \cdot (b-a) </me>
+          for some <m>c</m> between <m>a</m> and <m>b</m>, but does not tell us how to find <m>c</m>.
+        </li>
+      </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Find the average value of the given function over the given interval.
+          Then solve for <m>c</m> so that <m>f(c) = \langle f(x) \rangle_{[a,b]}</m>, if it exists.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>f(x)=4+2x</m> with <m>[a,b]=[0,2]</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=4x-x^2</m> with <m>[a,b]=[0,2]</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=4x-x^2</m> with <m>[a,b]=[0,4]</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=\begin{cases}
+            1, &amp;0 \le x \lt 2 \\
+            3, &amp;2 \le x \le 3
+            \end{cases}</m> with <m>[a,b]=[0,3]</m>.
+            You will need to split the integral into two intervals.
+            (Hint: Think about the graph geometrically.)
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=\begin{cases}
+            2x, &amp;0 \le x \lt 2 \\
+            6-x, &amp;2 \le x \le 4
+            \end{cases}</m> with <m>[a,b]=[0,4]</m>.
+            You will need to split the integral into two intervals.
+            (Hint: Think about the graph geometrically.)
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=\begin{cases}
+            x, &amp;0 \le x \lt 2 \\
+            5-x, &amp;2 \le x \le 3
+            \end{cases}</m> with <m>[a,b]=[0,3]</m>.
+            You will need to split the integral into two intervals.
+            (Hint: Think about the graph geometrically.)
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Find the derivative for each of the given accumulation functions.</p>
+      </introduction>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Applications of Average Value</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            The density (kilograms per meter) of a rod that is two meters long depends on position along the rod
+            according to the equation
+            <me>\rho(x) = 2 - 0.25x, \quad 0 \le x \le 2</me>.
+            Find the average density of the rod.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A car accelerates from 0 to 64 miles per hour over eight seconds
+            so that the velocity of the car is a function of time given by
+            <me>v(t) = 16t-t^2, \qquad 0 \le t \le 8</me>.
+            What is the average velocity of the car during those eight seconds?
+            How far does the car travel?
+            (Hint: Use <xref ref="thm-average-value-equivalence"/> and pay attention to units.)
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            During a rainstorm, the rate <m>R</m> (inches per hour) at which rain fell varied according to the following relation,
+            <me>R(t) = \begin{cases}
+              2t, &amp; 0 \le t \lt 0.25, \\
+              0.5, &amp; 0.25 \le t \lt 0.5,
+              \end{cases}</me>
+            where <m>t</m> is measured in hours.
+            What is the average rate at which rain fell during the storm?
+            What was the total amount of rain that fell during the storm?
+            (Hint: Use <xref ref="thm-average-value-equivalence"/>)
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            When the state police measure vehicle speed from aircraft,
+            one approach of determining a car's speed is to time how long it takes
+            to travel a fixed distance, say a quarter mile.
+            Suppose that you were timed and the state police recorded 11.25 seconds.
+            They charge you with speeding at 80 mph.
+            If the police never actually recorded your exact speed,
+            how can they guarantee that you must have been speeding?
+            (Hint: Use <xref ref="mean-value-theorem-integral"/>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
 </section>
