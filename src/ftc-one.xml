@@ -401,8 +401,31 @@
     </exercisegroup>
     <exercisegroup>
       <introduction>
-        <p>Find the derivative for each of the given accumulation functions.</p>
+        <p>
+          Find the derivative for each function using the Fundamental Theorem of Calculus.
+          You may need to rewrite the function so that it matches the representation of an accumulation function.
+        </p>
       </introduction>
+      <exercise>
+        <statement>
+          <p><m>f(x)=\int_0^x \frac{3z}{z^3+4} \, dz</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>F(x)=4 + \int_1^x 3ze^{-2z} \, dz</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>g(x)=-2 + 4 \int_1^x z \ln(z) \, dz</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>g(x)=5 + 2 \int_x^2 (z^2+1)^4 \, dz</m></p>
+        </statement>
+      </exercise>
     </exercisegroup>
     <exercisegroup>
       <introduction>
