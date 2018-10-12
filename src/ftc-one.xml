@@ -401,8 +401,32 @@
     </exercisegroup>
     <exercisegroup>
       <introduction>
-        <p>Find the derivative for each of the given accumulation functions.</p>
+        <p>Applying the Fundamental Theorem of Calculus.</p>
       </introduction>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>\frac{dF}{dx}(x)</m> where <m>\displaystyle F(x) = 10 + \int_1^x z^2 - 3z \, dz</m>.
+            Then give the equation of the tangent line at <m>x=1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>\frac{dG}{dx}(x)</m> where <m>\displaystyle G(x) = \int_0^x \frac{1}{z^2+4} \, dz</m>.
+            Then give the equation of the tangent line at <m>x=0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>\frac{dH}{dx}(x)</m> where <m>\displaystyle H(x) = 3 + \int_2^x z e^{-z^2} \, dz</m>.
+            Then give the equation of the tangent line at <m>x=2</m>.
+          </p>
+        </statement>
+      </exercise>
     </exercisegroup>
     <exercisegroup>
       <introduction>
