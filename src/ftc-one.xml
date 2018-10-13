@@ -347,6 +347,7 @@
       <introduction>
         <p>
           Find the average value of the given function over the given interval.
+          Sketch a graph of the function and the average value over the interval.
           Then solve for <m>c</m> so that <m>f(c) = \langle f(x) \rangle_{[a,b]}</m>, if it exists.
         </p>
       </introduction>
