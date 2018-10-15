@@ -347,6 +347,7 @@
       <introduction>
         <p>
           Find the average value of the given function over the given interval.
+          Sketch a graph of the function and the average value over the interval.
           Then solve for <m>c</m> so that <m>f(c) = \langle f(x) \rangle_{[a,b]}</m>, if it exists.
         </p>
       </introduction>
@@ -401,6 +402,7 @@
     </exercisegroup>
     <exercisegroup>
       <introduction>
+<<<<<<< HEAD
         <p>
           Find the derivative for each function using the Fundamental Theorem of Calculus.
           You may need to rewrite the function so that it matches the representation of an accumulation function.
@@ -409,21 +411,45 @@
       <exercise>
         <statement>
           <p><m>f(x)=\int_0^x \frac{3z}{z^3+4} \, dz</m></p>
+=======
+        <p>Applying the Fundamental Theorem of Calculus.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>\frac{dF}{dx}(x)</m> where <m>\displaystyle F(x) = 10 + \int_1^x z^2 - 3z \, dz</m>.
+            Then give the equation of the tangent line at <m>x=1</m>.
+          </p>
+>>>>>>> c3acb5b9264c41fe5f9b1cd5c10c72ad851e33c5
         </statement>
       </exercise>
       <exercise>
         <statement>
+<<<<<<< HEAD
           <p><m>F(x)=4 + \int_1^x 3ze^{-2z} \, dz</m></p>
+=======
+          <p>
+            Find <m>\frac{dG}{dx}(x)</m> where <m>\displaystyle G(x) = \int_0^x \frac{1}{z^2+4} \, dz</m>.
+            Then give the equation of the tangent line at <m>x=0</m>.
+          </p>
+>>>>>>> c3acb5b9264c41fe5f9b1cd5c10c72ad851e33c5
         </statement>
       </exercise>
       <exercise>
         <statement>
+<<<<<<< HEAD
           <p><m>g(x)=-2 + 4 \int_1^x z \ln(z) \, dz</m></p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p><m>g(x)=5 + 2 \int_x^2 (z^2+1)^4 \, dz</m></p>
+=======
+          <p>
+            Find <m>\frac{dH}{dx}(x)</m> where <m>\displaystyle H(x) = 3 + \int_2^x z e^{-z^2} \, dz</m>.
+            Then give the equation of the tangent line at <m>x=2</m>.
+          </p>
+>>>>>>> c3acb5b9264c41fe5f9b1cd5c10c72ad851e33c5
         </statement>
       </exercise>
     </exercisegroup>

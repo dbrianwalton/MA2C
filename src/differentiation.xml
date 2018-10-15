@@ -6,347 +6,453 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="derivative-rules">
-    <title>Differentiation</title>
-
-    <introduction>
+  <title>Differentiation</title>
+  <introduction>
     <p>
-    The most important application of limit rules is to develop rules
-    for derivatives. Every time we need a derivative, we currently must
-    use the definition and compute the limit
-    <me> f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </me>
-    and then go through the algebra and simplification to find the resulting
-    formula. Finding the formula for <m>f'(x)</m> from the formula for
-    <m>f(x)</m> is a process called <term>differentiation</term>.
-    The rules for derivatives will provide us with a methodical way to
-    differentiate algebraic formulas.
+      We have learned that the derivative is defined
+      by the limit of an average rate of change
+      as the gap between the two points goes to zero.
+      For functions already defined as an accumulation function
+      with a known, continuous rate of accumulation, the Fundamental Theorem of calculus
+      guarantees that the derivative equals the rate of accumulation.
+      Every time we need a derivative of any other function,
+      we must use the definition and compute the limit
+      <me>f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</me>
+      and then go through the algebra and simplification to find the resulting formula.
+      Finding the formula for <m>f'(x)</m> from the formula for
+      <m>f(x)</m> is a process called <term>differentiation</term>.
+      The rules for derivatives will provide us with a methodical way to
+      differentiate algebraic formulas.
     </p>
-    
     <p>
-    Differentiation is a process of taking a function and using it to
-    determine another function. In a sense, we are using a function as an
-    input and creating a new function as the output. Can you see that this is
-    something like a function of functions instead of a function of numbers.
-    We call such a process an <term>operator</term> and most commonly use
-    the differential operator <m>\displaystyle \frac{d}{dx}</m> where <m>x</m>
-    is the independent variable for the function. (The variable changes depending
-    on the relevant independent variable.)
+      Differentiation is a process of taking a function and using it to determine another function.
+      That is, differentiation defines a map between functions.
+      We use a function <m>f(x)</m> as an input to the map
+      and create a new function as the output that represents the derivative <m>f'(x)</m>.
+      Whereas maps that take numbers as inputs and give numbers as outputs are called <term>functions</term>,
+      a map that takes an entire function as an input is called an <term>operator</term>.
+      When the independent variable is <m>x</m>,
+      the symbol for the differential operator is <m>\displaystyle \frac{d}{dx}</m>.
+      The <m>x</m> in the symbol is replaced by the appropriate independent variable for the function of interest.
     </p>
-    
     <definition>
-        <statement>
-        The differential operator <m>\displaystyle \frac{d}{dx}</m> takes a function
-        as its input and provides the derivative function as its output,
-        <me> \frac{d}{dx}[f(x)] = f'(x). </me>
-        If <m>y</m> is a dependent variable defined by a function <m>y=f(x)</m>,
-        then we can also write
-        <me> \frac{dy}{dx} = \frac{d}{dx}[y] = f'(x). </me>
-        </statement>
+      <statement>
+        <p>
+          The differential operator <m>\displaystyle \frac{d}{dx}</m> takes a function
+          as its input and provides the derivative function as its output,
+          <me> \frac{d}{dx}[f(x)] = f'(x). </me>
+          If <m>y</m> is a dependent variable defined by a function <m>y=f(x)</m>,
+          then we can also write
+          <me> \frac{dy}{dx} = \frac{d}{dx}[y] = f'(x). </me>
+        </p>
+      </statement>
     </definition>
-    </introduction>
-    
-    <subsection>
-    <title>Derivative Rules</title>
-    
     <p>
-    Derivative rules are theorems that take as a hypothesis that one or two functions
-    have known derivatives and the conclusion tells how to find the derivative of
-    some combination of those functions. We start by stating the basic rules together
-    for convenience in finding them.
+      In this section, we establish some elementary rules of differentiation.
+      The rules of differentiation begin with linearity,
+      matching the corresponding properties of definite integrals.
+      The similarity ends here.
+      Differentiation also has rules for multiplication and division,
+      where the definite integral has no such rules.
+      Differentiation goes even further and has a rule for function composition, called the chain rule.
+      Each rule is justified by returning to the definition of the derivative
+      using a limit of the difference quotient that represents an average rate of change.
     </p>
-
-    <theorem>
-    <title>Differentiation Rules</title>
-    <statement>
-    <p>This theorem is a collection of multiple theorems. The hypothesis for any
-    statement that involves <m>f(x)</m> or <m>g(x)</m> is that 
-    <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m> or that
-    <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>. Further, <m>k</m> is
-    assumed to be a constant.
+  </introduction>
+  <subsection>
+    <title>Derivative Rules</title>
+    <p>
+      Derivative rules are theorems that take as a hypothesis that one or two functions
+      have known derivatives and the conclusion tells how to find the derivative of
+      some combination of those functions. We start by stating the basic rules together
+      for convenience in finding them.
     </p>
-    <sidebyside xml:id="table-derivative-rules">
-        <tabular top="major" halign="left">
-        <row>
+    <theorem xml:id="thm-differentiation-rules">
+      <title>Differentiation Rules</title>
+      <statement>
+        <p>
+          This theorem is a collection of multiple theorems.
+          The hypothesis for any statement that involves <m>f(x)</m> or <m>g(x)</m> is
+          that <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m> or that
+          <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>.
+          Further, <m>k</m> is assumed to be a constant.
+        </p>
+        <table xml:id="table-derivative-rules">
+          <caption>Summary of the Differentiation Rules</caption>
+          <tabular top="major" halign="left">
+          <row>
             <cell>
             <m>\displaystyle \frac{d}{dx}[k \cdot f(x)] = k \cdot f'(x)</m>
             </cell>
             <cell>Constant Multiple Rule</cell>
-        </row>
-        <row>
+          </row>
+          <row>
             <cell>
             <m>\displaystyle \frac{d}{dx}[f(x)+g(x)] = f'(x)+g'(x)</m>
             </cell>
             <cell>Sum Rule</cell>
-        </row>
-        <row>
+          </row>
+          <row>
             <cell>
             <m>\displaystyle \frac{d}{dx}[f(x)-g(x)] = f'(x)-g'(x)</m>
             </cell>
             <cell>Difference Rule</cell>
-        </row>
-        <row>
+          </row>
+          <row>
             <cell>
             <m>\displaystyle \frac{d}{dx}[\frac{1}{g(x)}] = \frac{-g'(x)}{(g(x))^2}</m>
             </cell>
             <cell>Reciprocal Rule</cell>
-        </row>
-        <row>
+          </row>
+          <row>
             <cell>
             <m>\displaystyle \frac{d}{dx}[f(x) \cdot g(x)] = f'(x) g(x) +f(x) g'(x)</m>
             </cell>
             <cell>Product Rule</cell>
-        </row>
-        <row>
+          </row>
+          <row>
             <cell>
             <m>\displaystyle \frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x)f'(x)-f(x)g'(x)}{(g(x))^2}</m>
             </cell>
             <cell>Quotient Rule</cell>
-        </row>
-        <row bottom="major" >
+          </row>
+          <row bottom="major" >
             <cell>
             <m>\displaystyle \frac{d}{dx}[f\Big(g(x)\Big)] = f'\Big(g(x)\Big) \cdot g'(x)</m>
             </cell>
             <cell>Chain Rule</cell>
-        </row>
-        </tabular>
-    </sidebyside>
-    </statement>
+          </row>
+          </tabular>
+        </table>
+      </statement>
     </theorem>
-    
     <p>
-    One of these differentiation rules, the chain rule, will require its own
-    discussion. That rule is focused on how to differentiate compositions of functions.
-    The other rules focus on arithmetic combinations of functions and are the primary
-    focus of this section. The chain rule was included for completeness in the listing 
-    of differentiation rules.
+      One of these differentiation rules, the chain rule, will require its own discussion.
+      That rule is focused on how to differentiate compositions of functions.
+      The other rules focus on arithmetic combinations of functions
+      and are the primary focus of this section.
+      The chain rule was included for completeness in the listing of differentiation rules.
     </p>
-    
     <p>
-    The proofs for these differentiation rules are based on applying the definition
-    of a derivative to the formula in question while knowing that the limits that
-    define the derivatives in the hypothesis are valid. To illustrate, we will
-    look at four of the differentiation rules in detail. Before doing this, we
-    will also need the following theorem, that a function must be continuous
-    wherever the derivative is defined.
+      The proofs for these differentiation rules are based on applying the definition
+      of a derivative to the formula in question while knowing that the limits that
+      define the derivatives in the hypothesis are valid.
+      To illustrate, we will look at four of the differentiation rules in detail.
     </p>
-    
-    <theorem>
-    <statement>
-    If <m>f'(c)</m> is defined, then <m>f</m> is continuous at <m>c</m>, which means
-    that
-    <me> \lim_{x \to c} f(x) = f(c) </me>
-    or equivalently
-    <me> \lim_{h \to 0} f(c+h) = f(c). </me>
-    </statement>
-    <proof>
+  </subsection>
+  <subsection>
+    <title>Proofs of Algebraic Differentiation Rules</title>
     <p>
-    Because <m>f'(c)</m> is defined, the limit defining it is
-    <me> \lim_{x \to c} \frac{f(x)-f(c)}{x-c} = f'(c). </me>
-    We know that <m>\displaystyle \lim_{x \to c} x-c = c-c = 0</m>
-    using the Limit of a Linear Function. Because
-    <me>f(x) - f(c) = \frac{f(x)-f(c)}{x-c} \cdot (x-c),</me>
-    we can compute the limit 
-    <me> \lim_{x \to c} f(x)-f(c) = \lim_{x \to c} \left[ \frac{f(x)-f(c)}{x-c} \cdot (x-c) \right]
-    = f'(c) \cdot 0 = 0. </me>
-    The value <m>f(c)</m> is a constant, so the Limit of a Constant Rule implies
-    <me> \lim_{x \to c} f(c) = f(c). </me>
-    Since <m>f(x)=(f(x)-f(c)) + f(c)</m>, the Limit of a Sum Rule implies
-    <me> \lim_{x \to c} f(x) = \lim_{x \to c} [ f(x)-f(c)+f(c)] = 0 + f(c) = f(c). </me>
-    Therefore, <m>f</m> is continuous at <m>c</m>.
+      In each of our proofs for derivative rules,
+      we are going to use the definition of the derivative
+      for the function defined by the conclusion of the rule.
+      We then use algebra to rewrite the difference quotient in a way
+      that the divison by <m>h</m> (and recall <m>h \to 0</m>) only appears
+      in expressions where a ratio converges to a known derivative.
     </p>
-    </proof>
+    <p>
+      In the proofs, in order to keep the algebra a little cleaner,
+      we will use the notation <m>\Delta f</m> to represent
+      <me>\Delta f = f(x+h) - f(x)</me>
+      and similarly define
+      <me>\Delta g = g(x+h) - g(x)</me>.
+      Then, because <m>f'(x)</m> and <m>g'(x)</m> are the derivatives of <m>f(x)</m> and <m>g(x)</m>, respectively,
+      we can substitute the following limits
+      <me>\lim_{h \to 0} \frac{\Delta f}{h} = f'(x) \quad \text{and} \quad \lim_{h \to 0} \frac{\Delta g}{h} = g'(x) </me>.
+    </p>
+    <p>
+      The first rule we consider is the constant multiple rule.
+      This rules states that if we know how to differentiation a function,
+      then we can compute any constant multiple of that function
+      by multiplying the derivative by the same constant.
+    </p>
+    <theorem xml:id="constant-multiple-rule-deriv">
+      <title>Constant Multiple Rule for Derivatives</title>
+      <statement>
+        <p>
+          If <m>\frac{d}{dx}[f(x)] = f'(x)</m> and <m>k</m> is a constant,
+          then <m>\frac{d}{dx}[k f(x)] = k f'(x)</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The rule is interested in finding the rate of change of a new function <m>k \cdot f(x)</m>
+          knowing that <m>\frac{d}{dx}[f(x)] = f'(x)</m>.
+          We begin by stating the definition of the derivative of the function <m>x \mapsto k \cdot f(x)</m>,
+          and then we use algebra to factor <m>k</m> out as a common factor in the numerator:
+          <md>
+            <mrow> \frac{d}{dx}[k \cdot f(x)] &amp;= \lim_{h \to 0} \frac{k \cdot f(x+h) - k \cdot f(x)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{k (f(x+h)-f(x))}{h}. </mrow>
+            <mrow> &amp;= \lim_{h \to 0} k \cdot \frac{\Delta f}{h}. </mrow>
+          </md>
+          Now notice that the formula is a product of the constant <m>k</m> and
+          the average rate of change of <m>f</m>.
+          The rules for limits act with the ordinary rules of arithmetic.
+          In particular, the <xref ref="LC-Constant-Multiple" text="title">constant multiple rule for limits</xref>
+          states that the limit of a constant times a function equals that constant times the limit of the function.
+          Consequently, we have
+          <md>
+            <mrow> \frac{d}{dx}[k \cdot f(x)] &amp;= \lim_{h \to 0} k \frac{\Delta f}{h} </mrow>
+            <mrow> &amp;= k \cdot \lim_{h \to 0} \frac{\Delta f}{h} </mrow>
+            <mrow> &amp;= k \cdot f'(x). </mrow>
+          </md>
+        </p>
+      </proof>
     </theorem>
-    </subsection>
-    <subsection>
-        <title>Proofs of Differentiation Rules</title>
-    <subsubsection>
-    <title>Proof of Constant Multiple Rule</title>
-    
     <p>
-    By hypothesis, <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m>. This means that
-    <m>f'(x)</m> is defined by its limit
-    <me> \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} = f'(x). </me>
-    The rule is interested in finding the rate of change of a new function
-    <m>k \cdot f(x)</m>. We will use that function to compute the derivative.
-    <md>
-        <mrow> \frac{d}{dx}[k \cdot f(x)] &amp;= \lim_{h \to 0} \frac{k \cdot f(x+h) - k \cdot f(x)}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{k (f(x+h)-f(x))}{h}. </mrow>
-    </md>
-    Now notice that the formula is a product of the constant <m>k</m> and 
-    the average rate of change of <m>f</m>. Because we already know that
-    the limit of the average rate of change of <m>f</m> is equal to <m>f'(x)</m>,
-    we can use the Limit Rule for a Constant Multiple.
-    <md>
-        <mrow> \frac{d}{dx}[k \cdot f(x)] &amp;= \lim_{h \to 0} \frac{k (f(x+h)-f(x))}{h} </mrow>
-        <mrow> &amp;= k \cdot f'(x). </mrow>
-    </md>
+      For our second example of proving a differentiation rule,
+      we consider the reciprocal of a function.
+      We know that <m>\frac{d}{dx}[x^2 + 3] = 2x</m>.
+      This rule will tell us how to compute the derivative
+      <m>\frac{d}{dx}[ \displaystyle \frac{1}{x^2+3} ]</m>.
+      We might be tempted to think the answer would be <m>\frac{1}{2x}</m>,
+      but this is not correct.
+      Derivatives do not follow simple rules for either division or multiplication.
     </p>
-    </subsubsection>
-
-    <subsubsection>
-    <title>Proof of Reciprocal Rule</title>
-    
-    <p>
-    By hypothesis, <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>. This means that
-    <m>g'(x)</m> is defined by its limit
-    <me> \lim_{h \to 0} \frac{g(x+h)-g(x)}{h} = g'(x). </me>
-    The rule is interested in finding the rate of change of a new function
-    <m>1/g(x)</m>. We will use that function to compute the derivative
-    using the definition, which will require finding a common denominator.
-    <md>
-        <mrow> \frac{d}{dx}[\frac{1}{g(x)}] 
-        &amp;= \lim_{h \to 0} \frac{\frac{1}{g(x+h)} - \frac{1}{g(x)}}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{\frac{g(x)}{g(x)g(x+h)} - \frac{g(x+h)}{g(x)g(x+h)}}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{g(x)-g(x+h)}{g(x)g(x+h)}\cdot \frac{1}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{-1}{g(x)g(x+h)}\cdot \frac{g(x+h)-g(x)}{h} </mrow>
-    </md>
-    Since the limit involves <m>h \to 0</m>, <m>g(x)</m> is a constant and
-    <m>g(x+h) \to g(x)</m> (by continuity) so that
-    <me> \lim_{h \to 0} \frac{-1}{g(x)g(x+h)} = \frac{-1}{(g(x))^2}. </me>
-    Using the Limit Rule of a Product, we have
-    <md>
-        <mrow> \frac{d}{dx}[\frac{1}{g(x)}] 
-        &amp;= \lim_{h \to 0} \frac{-1}{g(x)g(x+h)}\cdot \frac{g(x+h)-g(x)}{h} </mrow>
-        <mrow> &amp;= \frac{-1}{(g(x))^2} \cdot g'(x) = \frac{-g'(x)}{(g(x))^2}. </mrow>
-    </md>
-    </p>
-    </subsubsection>
-
-    <subsubsection>
-    <title>Proof of Sum Rule</title>
-    
-    <p>
-    By hypothesis, <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m> and
-    <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>. This means that
-    <md>
-        <mrow> \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} = f'(x), </mrow>
-        <mrow> \lim_{h \to 0} \frac{g(x+h)-g(x)}{h} = g'(x). </mrow>
-    </md>
-    The sum rule is interested in finding the rate of change of a new function
-    <m>f(x)+g(x)</m>. We will use that function to compute the derivative
-    using the definition:
-    <md>
-        <mrow> \frac{d}{dx}[f(x)+g(x)] 
-        &amp;= \lim_{h \to 0} \frac{[f(x+h)+g(x+h)] - [f(x)+g(x)]}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{f(x+h)+g(x+h)-f(x)-g(x)}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)+g(x+h)-g(x)}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \left[\frac{f(x+h)-f(x)}{h}+\frac{g(x+h)-g(x)}{h}\right] </mrow>
-        <mrow> &amp;= f'(x)+g'(x), </mrow>
-    </md>
-    using the Limit Rule of a Sum.
-    </p>
-    </subsubsection>
-
-    <subsubsection>
-    <title>Proof of Product Rule</title>
-    
-    <p>
-    By hypothesis, <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m> and
-    <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>. This means that
-    <md>
-        <mrow> \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} =\lim_{h \to 0} \frac{\Delta f}{h} = f'(x), </mrow>
-        <mrow> \lim_{h \to 0} \frac{g(x+h)-g(x)}{h} = \lim_{h \to 0} \frac{\Delta g}{h} =g'(x). </mrow>
-    </md>
-    The product rule is interested in finding the rate of change of a new function
-    <m>f(x)g(x)</m>. In the course of this calculation, we will also need
-    the following substitutions,
-    <md>
-        <mrow> f(x+h) = f(x+h)-f(x) + f(x) = \Delta f + f(x), </mrow>
-        <mrow> g(x+h) = g(x+h)-g(x) + g(x) = \Delta g + g(x). </mrow>
-    </md>
-    When <m>f'(x)</m> and <m>g'(x)</m> both exist, <m>f</m> and <m>g</m> are both continuous
-    so that
-    <md>
-        <mrow> \lim_{h \to 0} \Delta f = \lim_{h \to 0} f(x+h)-f(x) = 0, </mrow>
-        <mrow> \lim_{h \to 0} \Delta g = \lim_{h \to 0} g(x+h)-g(x) = 0. </mrow>
-    </md>
-    The derivative in question is defined by
-    <md>
-        <mrow> \frac{d}{dx}[f(x)g(x)] 
-        &amp;= \lim_{h \to 0} \frac{[f(x+h)g(x+h)] - [f(x)g(x)]}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{(\Delta f + f(x))(\Delta g + g(x)) - f(x)g(x)}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f \Delta g + \Delta f g(x) + f(x) \Delta g + f(x)g(x) - f(x)g(x)}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f \Delta g + \Delta f g(x) + f(x) \Delta g}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f \Delta g}{h} + \frac{\Delta f g(x)}{h} + \frac{f(x) \Delta g}{h} \right]. </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \left[\Delta f \cdot \frac{\Delta g}{h} + \frac{\Delta f}{h} \cdot g(x) + f(x) \cdot \frac{\Delta g}{h} \right]. </mrow>
-        <mrow> &amp;= 0 \cdot g'(x) + f'(x) \cdot g(x) + f(x) \cdot g'(x) </mrow>
-        <mrow> &amp;= f'(x) \cdot g(x) + f(x) \cdot g'(x), </mrow>
-    </md>
-    using the Limit Rule of a Sum and the Limit Rule of a Product.
-    </p>
-    </subsubsection>
-
-    </subsection>
-
-    <subsection>
-    <title>Using the Derivative Rules</title>
-    
-    <p>
-    A traditional development of calculus begins applying these rules to find formulas
-    to derivatives. We will instead begin applying the rules by interpreting some
-    specific applied applications involving rates of change.
-    </p>
-    
+    <theorem xml:id="reciprocal-rule-deriv">
+      <title>Reciprocal Rule for Derivatives</title>
+      <statement>
+        <p>
+          If <m>\frac{d}{dx}[g(x)] = g'(x)</m>,
+          then <m>\displaystyle \frac{d}{dx}[\frac{1}{g(x)}] = \frac{-g'(x)}{(g(x))^2}</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          By hypothesis, <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>.
+          This means that <m>g'(x)</m> is defined by its limit
+          <me> \lim_{h \to 0} \frac{g(x+h)-g(x)}{h} = \lim_{h \to 0} \frac{\Delta g}{h} = g'(x). </me>
+          The rule is interested in finding the rate of change of a new function
+          <m>\displaystyle x \mapsto \frac{1}{g(x)}</m>.
+          We will use that function to compute the derivative using the definition,
+          which will require finding a common denominator.
+          <md>
+            <mrow> \frac{d}{dx}[\frac{1}{g(x)}]
+            &amp;= \lim_{h \to 0} \frac{\frac{1}{g(x+h)} - \frac{1}{g(x)}}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{\frac{g(x)}{g(x)g(x+h)} - \frac{g(x+h)}{g(x)g(x+h)}}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{g(x)-g(x+h)}{g(x)g(x+h)} \cdot \frac{1}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{- \Delta g}{g(x)g(x+h)} \cdot \frac{1}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{-1}{g(x)g(x+h)}\cdot \frac{\Delta g}{h} </mrow>
+          </md>
+          Since the limit involves <m>h \to 0</m>, <m>g(x)</m> is a constant relative to the limit.
+          In addition, because <xref ref="thm-differentiable-implies-continuous" text="title">a differentiable function is continuous</xref>,
+          we have <m>g(x+h) \to g(x)</m> as <m>x \to h</m>.
+          Consequently, the limit rules for <xref ref="LC-Reciprocal" text="title">reciprocals</xref>
+          and <xref ref="LC-Constant-Multiple" text="title">constant multiples</xref> imply
+          <me> \lim_{h \to 0} \frac{-1}{g(x)g(x+h)} = \frac{-1}{(g(x))^2}. </me>
+          Using the <xref ref="LC-Product" text="title">limit rule for a product</xref>, we have
+          <md>
+            <mrow> \frac{d}{dx}[\frac{1}{g(x)}]
+            &amp;= \lim_{h \to 0} \frac{-1}{g(x)g(x+h)}\cdot \frac{g(x+h)-g(x)}{h} </mrow>
+            <mrow> &amp;= \frac{-1}{(g(x))^2} \cdot g'(x) = \frac{-g'(x)}{(g(x))^2}. </mrow>
+          </md>
+        </p>
+      </proof>
+    </theorem>
     <example>
-    <statement>
-    <p>
-    A tank is being filled with water two supply hoses. If the first hose is pumping
-    water at a rate of 20 gal/min and the second hose is pumping water at a rate of
-    30 gal/min, what is the total rate of change for the tank?
-    </p>
-    </statement>
-    <solution>
-    <p>
-    We know the intuitive solution to the problem is 50 gal/min. This is actually a
-    consequence of the sum rule of derivatives.
-    </p>
-    <p>
-    We can think of the water in the tank as having two components: <m>W_1</m>, the 
-    volume of water (gal) that was pumped by hose 1,
-    and <m>W_2</m>, the volume of water (gal) that was pumped by hose 2.
-    These two variables are functions of time <m>t</m> (min), and the rates of
-    water flowing from the hoses correspond to derivatives:
-    <me>\frac{dW_1}{dt} = 20, \quad \frac{dW_2}{dt} = 30.</me>
-    The total volume of water in the tank at a given time <m>t</m> is the sum
-    <m>W(t)=W_1(t) + W_2(t)</m>. So by the sum rule of derivatives,
-    <me>\frac{dW}{dt} = \frac{dW_1}{dt} + \frac{dW_2}{dt} = 20+30 = 50. </me>
-    </p>
-    </solution>
+      <statement>
+        <p>
+          Find <m>\displaystyle \frac{d}{dx}[ \frac{1}{x^2+3}]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by recognizing the formula <m>\frac{1}{x^2+3}</m>
+          as the reciprocal of <m>g(x)=x^2+3</m>.
+          We know <m>g'(x) = 2x</m>, so the <xref ref="thm-reciprocal-derivatives"/> gives
+          <md>
+            <mrow>\frac{d}{dx}[\frac{1}{x^2+3}] &amp;= \frac{-g'(x)}{(g(x))^2}</mrow>
+            <mrow> &amp;= \frac{-2x}{(x^2+3)^2} </mrow>.
+          </md>
+          That is, if <m>f(x) = \frac{1}{x^2+3}</m>,
+          the derivative is <m>f'(x) = \frac{-2x}{(x^2+3)^2}</m>.
+        </p>
+      </solution>
     </example>
-    
     <p>
-    The sum rule for derivatives feels very intuitive. If a quantity is the sum
-    of parts, then the total rate of change for the quantity is the sum of the
-    rates of change for each of the parts. The product rule is less intuitive
-    because we don't get to multiply rates of change when a quantity is a product.
-    To illustrate this example, we focus on a geometric example on the area of a
-    rectangle when the lengths of the sides are changing.
+      In the solution to the previous example,
+      we introduced a name for a function for the sole reason of being able
+      to refer to its derivative.
+      This is one of the primary reasons for introducing the differentiation operator <m>\frac{d}{dx}</m>.
+      It allows us to refer to derivatives using the operator with the original function as input.
+      The work in the example could be rewritten
+      <md>
+        <mrow>\frac{d}{dx}[\frac{1}{x^2+3}] &amp;= \frac{-\frac{d}{dx}[x^2+3]}{(x^2+3)^2}</mrow>
+        <mrow> &amp;= \frac{-2x}{(x^2+3)^2} </mrow>.
+      </md>
     </p>
-    
+    <p>
+      The two rules of differentiation proved thus far involve operations on a single function.
+      We now turn our attention to rules that combine multiple functions.
+      The first rule we consider is the sum rule,
+      which states that the derivative of a function formed by adding two functions
+      will be the sum of those functions' derivatives.
+    </p>
+    <theorem xml:id="sum-rule-deriv">
+      <title>Sum Rule for Derivatives</title>
+      <statement>
+        <p>
+          If <m>\frac{d}{dx}[f(x)] = f'(x)</m> and <m>\frac{d}{dx}[g(x)]=g'(x)</m>,
+          then <m>\frac{d}{dx}[f(x)+g(x)] = f'(x) + g'(x)</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          By hypothesis, <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m> and
+          <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>. This means that
+          <md>
+              <mrow> \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} = \lim_{h \to 0} \frac{\Delta f}{h} = f'(x), </mrow>
+              <mrow> \lim_{h \to 0} \frac{g(x+h)-g(x)}{h} = \lim_{h \to 0} \frac{\Delta g}{h} = g'(x). </mrow>
+          </md>
+          The sum rule is interested in finding the rate of change of a new function <m>x \mapsto f(x)+g(x)</m>.
+          Because <m>\Delta f=f(x+h)-f(x)</m>, we can rewrite <m>f(x+h)=f(x) + \Delta f</m>.
+          Similarly, we can rewrite <m>g(x+h)=g(x)+\Delta g</m>.
+          When we use the definition of the derivative, we find
+          <md>
+            <mrow> \frac{d}{dx}[f(x)+g(x)] &amp;= \lim_{h \to 0} \frac{[f(x+h)+g(x+h)] - [f(x)+g(x)]}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{f(x)+\Delta f + g(x) + \Delta g -f(x)-g(x)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f+\Delta g}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}+\frac{\Delta g}{h}\right] </mrow>.
+          </md>
+          Again, because limit rules satisfy the ordinary rules of arithmetic,
+          the <xref ref="LC-Sum-Rule" text="title">limit rule for sums</xref> implies
+          <md>
+            <mrow> \frac{d}{dx}[f(x)+g(x)] &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}+\frac{\Delta g}{h}\right] </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}\right]+ \lim_{h \to 0} \left[\frac{\Delta g}{h}\right] </mrow>
+            <mrow> &amp;= f'(x) + g'(x) </mrow>.
+          </md>
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      For our final example of a proof of a differentiation rule,
+      we consider the derivative of a product.
+      Consider a function like <m>f(x)=(x^2-3)\cdot(2x+1)</m>.
+      It is tempting to take derivatives of each formula in place
+      and assume that <m>f'(x)<m> would be <m>(2x) \cdot (2)=4x</m>.
+      We can see that this is incorrect if we rewrote <m>f(x)</m> after expanding the product,
+      <me>f(x) = 2x^3+x^2-6x-3</me>.
+      Once written as a simple polynomial, our experience with accumulation functions
+      and the <xref ref="theorem-ftc-part-one" text="title">Fundamental Theorem of Calculus</xref>
+      allows us to recognize
+      <me>f'(x)=6x^2+2x-6</me>.
+    </p>
+    <p>
+      Proper differentiation rules will be consistent regardless of how a function is represented.
+      For a function that is represented as a product of two other functions,
+      the product rule shows that the derivative is a sum of contributions
+      resulting from the rate of change of each factor.
+    </p>
+    <theorem xml:id="product-rule-deriv">
+      <statement>
+        <p>
+          If <m>\frac{d}{dx}[f(x)] = f'(x)</m> and <m>\frac{d}{dx}[g(x)]=g'(x)</m>,
+          then <m>\frac{d}{dx}[f(x) \cdot g(x)] = f'(x) \cdot g(x) + f(x) \cdot g'(x)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By hypothesis, <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m> and
+          <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>. This means that
+          <md>
+            <mrow> \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} =\lim_{h \to 0} \frac{\Delta f}{h} = f'(x), </mrow>
+            <mrow> \lim_{h \to 0} \frac{g(x+h)-g(x)}{h} = \lim_{h \to 0} \frac{\Delta g}{h} =g'(x). </mrow>
+          </md>
+          The product rule is interested in finding the rate of change of a new function <m>x \mapsto f(x)g(x)</m>.
+          As we did in the sum rule, we will take advantage of rewriting
+          <m>f(x+h) = f(x) + \Delta f</m> and <m>g(x+h)=g(x)+\Delta g</m>.
+          When <m>f'(x)</m> and <m>g'(x)</m> both exist, <m>f</m> and <m>g</m> are both continuous
+          so that
+          <md>
+            <mrow> \lim_{h \to 0} \Delta f = \lim_{h \to 0} f(x+h)-f(x) = 0, </mrow>
+            <mrow> \lim_{h \to 0} \Delta g = \lim_{h \to 0} g(x+h)-g(x) = 0. </mrow>
+          </md>
+        </p>
+        <p>
+          The derivative in question is defined by
+          <md>
+            <mrow> \frac{d}{dx}[f(x)g(x)]
+            &amp;= \lim_{h \to 0} \frac{[f(x+h)g(x+h)] - [f(x)g(x)]}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{(\Delta f + f(x))(\Delta g + g(x)) - f(x)g(x)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f \Delta g + \Delta f g(x) + f(x) \Delta g + f(x)g(x) - f(x)g(x)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f \Delta g + \Delta f g(x) + f(x) \Delta g}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f \Delta g}{h} + \frac{\Delta f g(x)}{h} + \frac{f(x) \Delta g}{h} \right]. </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \left[\Delta f \cdot \frac{\Delta g}{h} + \frac{\Delta f}{h} \cdot g(x) + f(x) \cdot \frac{\Delta g}{h} \right]. </mrow>
+            <mrow> &amp;= 0 \cdot g'(x) + f'(x) \cdot g(x) + f(x) \cdot g'(x) </mrow>
+            <mrow> &amp;= f'(x) \cdot g(x) + f(x) \cdot g'(x), </mrow>
+          </md>
+          using the <xref ref="LC-Sum" text="title">Limit Rule of a Sum</xref>
+          and the <xref ref="LC-Product" text="title">Limit Rule of a Product</xref>.
+        </p>
+      </solution>
+    </theorem>
+  </subsection>
+  <subsection>
+    <title>Using the Derivative Rules</title>
+    <p>
+      A traditional development of calculus begins applying these rules to find formulas
+      to derivatives. We will instead begin applying the rules by interpreting some
+      specific applied applications involving rates of change.
+    </p>
     <example>
-    <statement>
+      <statement>
+        <p>
+          A tank is being filled with water two supply hoses. If the first hose is pumping
+          water at a rate of 20 gal/min and the second hose is pumping water at a rate of
+          30 gal/min, what is the total rate of change for the tank?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We know the intuitive solution to the problem is 50 gal/min. This is actually a
+          consequence of the sum rule of derivatives.
+        </p>
+        <p>
+          We can think of the water in the tank as having two components: <m>W_1</m>, the
+          volume of water (gal) that was pumped by hose 1,
+          and <m>W_2</m>, the volume of water (gal) that was pumped by hose 2.
+          These two variables are functions of time <m>t</m> (min), and the rates of
+          water flowing from the hoses correspond to derivatives:
+          <me>\frac{dW_1}{dt} = 20, \quad \frac{dW_2}{dt} = 30.</me>
+          The total volume of water in the tank at a given time <m>t</m> is the sum
+          <m>W(t)=W_1(t) + W_2(t)</m>. So by the sum rule of derivatives,
+          <me>\frac{dW}{dt} = \frac{dW_1}{dt} + \frac{dW_2}{dt} = 20+30 = 50. </me>
+        </p>
+      </solution>
+    </example>
     <p>
-    A city is in the shape of a rectangle with sides aligned with North-South and East-West
-    lines. Suppose that the city is currently 5 miles east-to-west and 3 miles north-to-south
-    and plans to expand to a size 8 miles east-to-west by 5 miles north-to-south over the
-    next 10 years. What is the average rate of change of the total area in the city 
-    over the 10 years? If the borders were to move at a constant rate over those 10 years,
-    what is the instantaneous rate of change of the total area of the city at the 
-    beginning and at the end of the 10 years?
+      The sum rule for derivatives feels very intuitive. If a quantity is the sum
+      of parts, then the total rate of change for the quantity is the sum of the
+      rates of change for each of the parts. The product rule is less intuitive
+      because we don't get to multiply rates of change when a quantity is a product.
+      To illustrate this example, we focus on a geometric example on the area of a
+      rectangle when the lengths of the sides are changing.
     </p>
-    </statement>
-    <solution>
-    <p>
-    We start with the question of average rate of change of total area, which we
-    can solve intuitively. The city 
-    originally has a total area of <m>5 \times 3 = 15 \: \hbox{mi}^2</m>.
-    After 10 years, the city has a total area of <m>8 \times 5 = 40 \: \hbox{mi}^2</m>.
-    So the change in area is <m>25 \: \hbox{mi}^2</m> over 10 years so the average
-    rate of change of area is <m>\frac{25}{10} = 2.5\: \hbox{mi}^2/\hbox{yr}</m>.
-    </p>
-    <sidebyside>
-        <image>
+    <example>
+      <statement>
+        <p>
+          A city is in the shape of a rectangle with sides aligned with North-South and East-West
+          lines. Suppose that the city is currently 5 miles east-to-west and 3 miles north-to-south
+          and plans to expand to a size 8 miles east-to-west by 5 miles north-to-south over the
+          next 10 years. What is the average rate of change of the total area in the city
+          over the 10 years? If the borders were to move at a constant rate over those 10 years,
+          what is the instantaneous rate of change of the total area of the city at the
+          beginning and at the end of the 10 years?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start with the question of average rate of change of total area, which we
+          can solve intuitively. The city
+          originally has a total area of <m>5 \times 3 = 15 \: \hbox{mi}^2</m>.
+          After 10 years, the city has a total area of <m>8 \times 5 = 40 \: \hbox{mi}^2</m>.
+          So the change in area is <m>25 \: \hbox{mi}^2</m> over 10 years so the average
+          rate of change of area is <m>\frac{25}{10} = 2.5\: \hbox{mi}^2/\hbox{yr}</m>.
+        </p>
+        <sidebyside>
+          <image>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
@@ -360,67 +466,67 @@
             \draw[<->] (4.15,0) -- (4.15,2.5) node [pos=0.5, right] {$H(10)=5$};
             \end{tikzpicture}]]>
             </latex-image>
-        </image>
-    </sidebyside>
-    <p>
-    To connect our intuition with functions and to prepare for the
-    next calculations, let us introduce some variables. The 
-    state of the city can be characterized by four variables:
-    the time <m>t</m> (yr) at which the state is observed,
-    the distance east-to-west, which we'll call the width <m>W</m> (mi), the distance 
-    north-to-south, which we'll call the height <m>H</m> (mi), and the enclosed total
-    area <m>A</m> (<m>\hbox{mi}^2</m>).
-    We think of <m>W</m>, <m>H</m> and <m>A</m> as being functions of time <m>t</m>
-    with the area being equal to the product of <m>W</m> and <m>H</m>:
-    <me> A(t) = W(t) \cdot H(t).</me>
-    Then the average rate of change for <m>A</m> on the interval <m>t \in [0,10]</m>
-    is given by
-    <me> \left. \frac{\Delta A}{\Delta t} \right|_{[0,10]}
-    = \frac{A(10)-A(0)}{10-0} = \frac{W(10)H(10) - W(0)H(0)}{10} = \frac{8(5)-5(3)}{10}
-    = 2.5.</me>
-    </p>
-    <p>
-    To find the instantaneous rates of change, we need to know how fast the
-    width and height measurements are changing in time. Because the problem stated
-    that these changed at a constant rate, we can use the average rates of change
-    to compute the instantaneous rates:
-    <md>
-        <mrow>\displaystyle \frac{dW}{dt} = \left. \frac{\Delta W}{\Delta t}\right|_{[0,10]} 
-        = \frac{W(10)-W(0)}{10-0} = \frac{8-5}{10} = 0.3, </mrow>
-        <mrow>\displaystyle \frac{dH}{dt} = \left. \frac{\Delta H}{\Delta t}\right|_{[0,10]} 
-        = \frac{H(10)-H(0)}{10-0} = \frac{5-3}{10} = 0.2. </mrow>
-    </md>
-    Since the area <m>A</m> is the product of <m>W</m> and <m>H</m>, 
-    the product rule for derivatives will provide the instantaneous rate of change for area:
-    <me>\frac{dA}{dt} = \frac{d}{dt}[W \cdot H] = \frac{dW}{dt} \cdot H + W \cdot \frac{dH}{dt}. </me>
-    When <m>t=0</m> we have <m>W(0)=5</m> and <m>H(0)=3</m> so that
-    <md>
-        <mrow> \left. \frac{dA}{dt} \right|_{0} 
-        &amp;= \left.\frac{dW}{dt}\right|_{0} \cdot H(0) + W(0) \cdot \left.\frac{dH}{dt}\right|_{0}</mrow>
-        <mrow> &amp;= 0.3(3) + 5(0.2) = 1.9.</mrow>
-    </md>
-    That is, at the beginning, the city is expanding at a rate of <m>1.9 \: \hbox{mi}^2/\hbox{yr}</m>.
-    After 10 years, <m>t=10</m>, we have <m>W(10)=8</m> and <m>H(10)=5</m> so that
-    <md>
-        <mrow> \left. \frac{dA}{dt} \right|_{10} 
-        &amp;= \left.\frac{dW}{dt}\right|_{10} \cdot H(10) + W(10) \cdot \left.\frac{dH}{dt}\right|_{10}</mrow>
-        <mrow> &amp;= 0.3(5) + 8(0.2) = 3.1.</mrow>
-    </md>
-    At the end of the 10 years, the city is expanding at a rate of <m>3.1 \: \hbox{mi}^2/\hbox{yr}</m>.
-    </p>
-    <p>
-    The picture of expanding area helps provide some intuition for why the product rule
-    is the appropriate technique. If we consider the city after 6 months (<m>t=0.5</m>),
-    both the width and the height have changed by a small amount, as shown in the figure
-    below. The total change in area has two primary contributions, corresponding to
-    long, skinny rectangles with areas <m>W(0) \cdot \Delta H</m> and <m>\Delta W \cdot H(0)</m>,
-    and a very small rectangle with area <m>\Delta W \cdot \Delta H</m>. The product
-    rule corresponds to the rate of change coming from the two primary contributions
-    while the small rectangle leads to a term that has a limit of zero in the calculation
-    of the derivative.
-    </p>
-    <sidebyside>
-        <image>
+          </image>
+        </sidebyside>
+        <p>
+          To connect our intuition with functions and to prepare for the
+          next calculations, let us introduce some variables. The
+          state of the city can be characterized by four variables:
+          the time <m>t</m> (yr) at which the state is observed,
+          the distance east-to-west, which we'll call the width <m>W</m> (mi), the distance
+          north-to-south, which we'll call the height <m>H</m> (mi), and the enclosed total
+          area <m>A</m> (<m>\hbox{mi}^2</m>).
+          We think of <m>W</m>, <m>H</m> and <m>A</m> as being functions of time <m>t</m>
+          with the area being equal to the product of <m>W</m> and <m>H</m>:
+          <me> A(t) = W(t) \cdot H(t).</me>
+          Then the average rate of change for <m>A</m> on the interval <m>t \in [0,10]</m>
+          is given by
+          <me> \left. \frac{\Delta A}{\Delta t} \right|_{[0,10]}
+          = \frac{A(10)-A(0)}{10-0} = \frac{W(10)H(10) - W(0)H(0)}{10} = \frac{8(5)-5(3)}{10}
+          = 2.5.</me>
+        </p>
+        <p>
+          To find the instantaneous rates of change, we need to know how fast the
+          width and height measurements are changing in time. Because the problem stated
+          that these changed at a constant rate, we can use the average rates of change
+          to compute the instantaneous rates:
+          <md>
+            <mrow>\displaystyle \frac{dW}{dt} = \left. \frac{\Delta W}{\Delta t}\right|_{[0,10]}
+            = \frac{W(10)-W(0)}{10-0} = \frac{8-5}{10} = 0.3, </mrow>
+            <mrow>\displaystyle \frac{dH}{dt} = \left. \frac{\Delta H}{\Delta t}\right|_{[0,10]}
+            = \frac{H(10)-H(0)}{10-0} = \frac{5-3}{10} = 0.2. </mrow>
+          </md>
+          Since the area <m>A</m> is the product of <m>W</m> and <m>H</m>,
+          the product rule for derivatives will provide the instantaneous rate of change for area:
+          <me>\frac{dA}{dt} = \frac{d}{dt}[W \cdot H] = \frac{dW}{dt} \cdot H + W \cdot \frac{dH}{dt}. </me>
+          When <m>t=0</m> we have <m>W(0)=5</m> and <m>H(0)=3</m> so that
+          <md>
+            <mrow> \left. \frac{dA}{dt} \right|_{0}
+            &amp;= \left.\frac{dW}{dt}\right|_{0} \cdot H(0) + W(0) \cdot \left.\frac{dH}{dt}\right|_{0}</mrow>
+            <mrow> &amp;= 0.3(3) + 5(0.2) = 1.9.</mrow>
+          </md>
+          That is, at the beginning, the city is expanding at a rate of <m>1.9 \: \hbox{mi}^2/\hbox{yr}</m>.
+          After 10 years, <m>t=10</m>, we have <m>W(10)=8</m> and <m>H(10)=5</m> so that
+          <md>
+            <mrow> \left. \frac{dA}{dt} \right|_{10}
+            &amp;= \left.\frac{dW}{dt}\right|_{10} \cdot H(10) + W(10) \cdot \left.\frac{dH}{dt}\right|_{10}</mrow>
+            <mrow> &amp;= 0.3(5) + 8(0.2) = 3.1.</mrow>
+          </md>
+          At the end of the 10 years, the city is expanding at a rate of <m>3.1 \: \hbox{mi}^2/\hbox{yr}</m>.
+        </p>
+        <p>
+          The picture of expanding area helps provide some intuition for why the product rule
+          is the appropriate technique. If we consider the city after 6 months (<m>t=0.5</m>),
+          both the width and the height have changed by a small amount, as shown in the figure
+          below. The total change in area has two primary contributions, corresponding to
+          long, skinny rectangles with areas <m>W(0) \cdot \Delta H</m> and <m>\Delta W \cdot H(0)</m>,
+          and a very small rectangle with area <m>\Delta W \cdot \Delta H</m>. The product
+          rule corresponds to the rate of change coming from the two primary contributions
+          while the small rectangle leads to a term that has a limit of zero in the calculation
+          of the derivative.
+        </p>
+        <sidebyside>
+          <image>
             <latex-image>
             <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
             <![CDATA[\tikzset{%
@@ -437,84 +543,80 @@
             \draw[<-] (5.075, -0.05) -- (5.15,-0.5) node[below] {$\Delta W$};
             \end{tikzpicture}]]>
             </latex-image>
-        </image>
-    </sidebyside>
-    </solution>
+          </image>
+        </sidebyside>
+      </solution>
     </example>
-    
     <p>
-    Quotients often appear when working with densities, concentrations, or other ratios.
+      Quotients often appear when working with densities, concentrations, or other ratios.
     </p>
-    
     <example>
-    <statement>
+      <statement>
         <p>
-        A salt-water solution is being formulated. At a particular instant, the solution
-        consists of 10 L of water with 5 kg of salt. At that instant, water is being added
-        at a rate of 0.5 L/s while salt is being added at a rate of 0.2 kg/s. What is the
-        instantaneous rate of change of the concentration?
+          A salt-water solution is being formulated. At a particular instant, the solution
+          consists of 10 L of water with 5 kg of salt. At that instant, water is being added
+          at a rate of 0.5 L/s while salt is being added at a rate of 0.2 kg/s. What is the
+          instantaneous rate of change of the concentration?
         </p>
-    </statement>
-    <solution>
+      </statement>
+      <solution>
         <p>
-        We start by identifying the variables that define the state of our system.
-        The variables include the time <m>t</m>, measured in seconds (s), the
-        total volume of water <m>V</m>, measured in liters (L), the total amount of 
-        salt in the water <m>S</m>, measured in kilograms (kg), and the
-        concentration of salt water <m>C</m>, measured in kilograms per liter (kg/L).
-        The variables <m>V</m>, <m>S</m> and <m>C</m> are functions of time <m>t</m>
-        with an equation relating them by
-        <me>C(t) = \frac{S(t)}{V(t)} \quad \Leftrightarrow \quad C = \frac{S}{V}.</me>
+          We start by identifying the variables that define the state of our system.
+          The variables include the time <m>t</m>, measured in seconds (s), the
+          total volume of water <m>V</m>, measured in liters (L), the total amount of
+          salt in the water <m>S</m>, measured in kilograms (kg), and the
+          concentration of salt water <m>C</m>, measured in kilograms per liter (kg/L).
+          The variables <m>V</m>, <m>S</m> and <m>C</m> are functions of time <m>t</m>
+          with an equation relating them by
+          <me>C(t) = \frac{S(t)}{V(t)} \quad \Leftrightarrow \quad C = \frac{S}{V}.</me>
         </p>
         <p>
-        The instantaneous rate of change is computed using the quotient rule for
-        derivatives,
-        <me> \frac{dC}{dt} = \frac{ V \frac{dS}{dt} - S \frac{dV}{dt}}{V^2}. </me>
-        The values at the instant in question are given by
-        <md>
+          The instantaneous rate of change is computed using the quotient rule for
+          derivatives,
+          <me> \frac{dC}{dt} = \frac{ V \frac{dS}{dt} - S \frac{dV}{dt}}{V^2}. </me>
+          The values at the instant in question are given by
+          <md>
             <mrow> V = 10, \quad \frac{dV}{dt} = 0.5, </mrow>
             <mrow> S = 5, \quad \frac{dS}{dt} = 0.2. </mrow>
-        </md>
-        Using these values in the quotient rule for derivatives, we have
-        <me> \frac{dC}{dt} = \frac{ 10(0.2) - 5(0.5) }{10^2} = \frac{2-2.5}{100} = -0.005. </me>
-        That is, the concentration is changing at a rate of -0.005 kg salt per liter water per second.
-        Alternatively, we could say that the concentration is decreasing at a rate of
-        0.005 kg/L/s.
+          </md>
+          Using these values in the quotient rule for derivatives, we have
+          <me> \frac{dC}{dt} = \frac{ 10(0.2) - 5(0.5) }{10^2} = \frac{2-2.5}{100} = -0.005. </me>
+          That is, the concentration is changing at a rate of -0.005 kg salt per liter water per second.
+          Alternatively, we could say that the concentration is decreasing at a rate of
+          0.005 kg/L/s.
         </p>
-    </solution>
+      </solution>
     </example>
-    </subsection>
-
-    <subsection>
+  </subsection>
+  <subsection>
     <title>Derivative Building Blocks</title>
-    
     <p>
-    In order to apply the differentiation rules for formulas, we need to have some
-    elementary rules to get started. Just as with the limit rules, we begin with
-    the basics. The justification of the derivatives of the elementary derivatives
-    must be based on the definition of the derivative. The derivatives of more
-    complex functions can then be justified using the derivative rules.
+      In order to apply the differentiation rules for formulas, we need to have some
+      elementary rules to get started. Just as with the limit rules, we begin with
+      the basics. The justification of the derivatives of the elementary derivatives
+      must be based on the definition of the derivative. The derivatives of more
+      complex functions can then be justified using the derivative rules.
     </p>
-    
     <theorem>
-    <title>Derivative of a Constant</title>
-    <statement>
-    If <m>k</m> is a real number, then
-    <me>\frac{d}{dx}[k] = 0. </me>
-    </statement>
-    <proof>
-    <p>
-    Let <m>f(x)=k</m> be the constant function. Since <m>f(x+h)=k</m>, we have
-    <md>
-        <mrow> f'(x) &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{k-k}{h} = \lim_{h \to 0} 0 </mrow>
-        <mrow> &amp;= 0,</mrow>
-    </md>
-    where the last step used the limit rule for a constant.
-    </p>
-    </proof>
+      <title>Derivative of a Constant</title>
+      <statement>
+        <p>
+          If <m>k</m> is a real number, then
+          <me>\frac{d}{dx}[k] = 0. </me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Let <m>f(x)=k</m> be the constant function. Since <m>f(x+h)=k</m>, we have
+          <md>
+              <mrow> f'(x) &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
+              <mrow> &amp;= \lim_{h \to 0} \frac{k-k}{h} = \lim_{h \to 0} 0 </mrow>
+              <mrow> &amp;= 0,</mrow>
+          </md>
+          where the last step used the limit rule for a constant.
+        </p>
+      </proof>
     </theorem>
-    
     <theorem>
     <title>Derivative of the Identity Function</title>
     <statement>
@@ -531,13 +633,13 @@
     </p>
     </proof>
     </theorem>
-    
+
     <p>
     Although the derivatives of other functions can be found using the limit definition
     of the derivative, these two elementary derivatives along with the the rules
     of differentiation allow us to find other derivatives.
     </p>
-    
+
     <example>
     <statement>
     Find <m>f'(x)</m> for <m>f(x) = 3x-5</m>, citing the differentiation rules you used.
@@ -566,13 +668,13 @@
     </p>
     </solution>
     </example>
-    
+
     <p>
     The rules of derivatives can also allow us to create new differentiation rules.
-    The following theorem uses the same steps as the previous example but with 
+    The following theorem uses the same steps as the previous example but with
     arbitrary constants.
     </p>
-    
+
     <theorem>
     <statement>
     If <m>a</m> and <m>b</m> are real numbers, then
@@ -588,13 +690,13 @@
     </md>
     </proof>
     </theorem>
-    
+
     <p>
     Integer powers correspond to repeated multiplication, so the product rule of differentiation
     will lead to a rule for the derivative of a power. The following examples lead
     to a natural pattern called the power rule for derivatives.
     </p>
-    
+
     <example>
     <statement>
     Use the product rule of derivatives to show that
@@ -610,7 +712,7 @@
     <me> x^2 = x \cdot x, \quad x^3 = x \cdot x^2, \quad x^4 = x \cdot x^3. </me>
     We already know
     <me> \frac{d}{dx}[x] = 1. </me>
-    It is useful to remember the product rule using dependent variables, say <m>u=f(x)</m> 
+    It is useful to remember the product rule using dependent variables, say <m>u=f(x)</m>
     and <m>v=g(x)</m>, as
     <me> \frac{d}{dx}[u \cdot v] = \frac{du}{dx} \cdot v + u \cdot \frac{dv}{dx} </me>
     because this will guide our use of the differentiation operator.
@@ -640,11 +742,11 @@
     </p>
     </solution>
     </example>
-    
+
     <p>
     We can continue to find more derivatives using these results.
     </p>
-    
+
     <example>
         <statement>
         Find <m> \displaystyle \frac{d}{dx}[\frac{1}{x^3}]</m>.
