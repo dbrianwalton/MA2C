@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="differentiation-related-rates">
+  <title>Differentiation and Related Rates</title>
+  <introduction>
+    <p>
+      We often fall into a trap thinking that the rules of differentiation apply only to formulas.
+      Some times, two or more quantities are added together to form a new quantity representing their sum.
+      Other times, a quantity of interest is determined by multiplying the values of two measurements.
+      The rules of differentiation apply to any setting
+      where we are interested in how the rate of change a quantity
+      relates to the rates of change of quantities with which it is related.
+      If we know the instantaneous values and rates of change of these quantities,
+      we can find the instantaneous rate of change of the new variable
+      even when we do not know any formulas for our underlying variables.
+    </p>
+    <p>
+      In this section, we consider examples of using related rates of change
+      to find the instantaneous rate of change of a quantity that depends on other related variabes.
+      In each example, we will first recognize how related dependent variables are algebraically combined.
+      Then we can use rules of differentiation to identify a new equation that relates their rates of change.
+      This equation, in turn, allows us to solve for the unknown rate.
+    </p>
+  </introduction>
+  <subsection>
+    <title>A Physical Example of the Sum Rule</title>
+    <p>
+      The <xref ref="sum-rule-deriv" text="title">sum rule for derivatives</xref> tells us
+      that the derivative of a sum of two functions equals the sum of the individual derivatives.
+      In the context of rates of change, this means that when a dependent variable is equal to the sum of two other dependent variables,
+      then the rate of change of the new variable must equal the sum of the rates of change of the dependent variables being added.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A tank is being filled with water two supply hoses.
+          At a particular instant, if the first hose is pumping water at a rate of 20 gal/min
+          and the second hose is pumping water at a rate of 30 gal/min,
+          at what rate is volume of water in the tank changing?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We know the intuitive solution to the problem is 50 gal/min.
+          This is actually a consequence of the sum rule of derivatives.
+          We can think of the water in the tank as having two components:
+          <m>W_1</m>, the volume of water (gal) that was pumped by hose 1,
+          and <m>W_2</m>, the volume of water (gal) that was pumped by hose 2.
+          These two variables are functions of time <m>t</m> (min),
+          although we do not know any formulas for these functions (and don't need to).
+        </p>
+        <p>
+          The rates of water flowing from the hoses correspond to derivatives:
+          <me>\frac{dW_1}{dt} = 20, \quad \frac{dW_2}{dt} = 30.</me>
+          The total volume of water in the tank at a given time <m>t</m> is the sum
+          <m>W(t)=W_1(t) + W_2(t)</m>.
+          By the sum rule of derivatives,
+          <me>\frac{dW}{dt} = \frac{dW_1}{dt} + \frac{dW_2}{dt} = 20+30 = 50. </me>
+          Technically, we should have a constant added to <m>W</m>
+          that represents the initial amount of water in the tank and didn't come from either hose.
+          Because the derivative of a constant is zero, this will not change the result.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>A Physical Example of the Product Rule</title>
+    <p>
+      The sum rule for derivatives feels very intuitive. If a quantity is the sum
+      of parts, then the total rate of change for the quantity is the sum of the
+      rates of change for each of the parts. The product rule is less intuitive
+      because we don't get to multiply rates of change when a quantity is a product.
+      To illustrate this example, we focus on a geometric example on the area of a
+      rectangle when the lengths of the sides are changing.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A city is in the shape of a rectangle with sides aligned with North-South and East-West
+          lines. Suppose that the city is currently 5 miles east-to-west and 3 miles north-to-south
+          and plans to expand to a size 8 miles east-to-west by 5 miles north-to-south over the
+          next 10 years. What is the average rate of change of the total area in the city
+          over the 10 years? If the borders were to move at a constant rate over those 10 years,
+          what is the instantaneous rate of change of the total area of the city at the
+          beginning and at the end of the 10 years?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The average rate of change of total area is calculated according to the usual formula.
+          It does not follow the differentiation rules, which are about instantaneous rates of change.
+          We let <m>A</m> represent the area of the city and <m>t</m> the time in years from now.
+          The city currently has a total area of
+          <me>A(0) = 5 \times 3 = 15 \: \hbox{mi}^2</me>.
+          After 10 years, the city will have a total area of
+          <me>A(10) = 8 \times 5 = 40 \: \hbox{mi}^2</me>.
+          The change in area is <m>\Delta A = A(10)-A(0) = 25 \: \hbox{mi}^2</m>
+          and the change in time is <m>\Delta t = 10</m> years.
+          Consequently, the average rate of change of area is
+          <me>\frac{\Delta A}{\Delta t} \Big|_{0,10} = \frac{25}{10} = 2.5\: \hbox{mi}^2/\hbox{yr}</m>.
+        </p>
+        <sidebyside>
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw[fill,red!25] (0,0) rectangle (4,2.5);
+            \draw[fill,blue!25] (0,0) rectangle (2.5,1.5);
+            \draw[<->] (0,-0.15) -- (2.5,-0.15) node [pos=0.5,below] {$W(0)=5$};
+            \draw[<->] (0,-0.75) -- (4,-0.75) node [pos=0.5,below] {$W(10)=8$};
+            \draw[<->] (-0.15,0) -- (-0.15,1.5) node [pos=0.5, left] {$H(0)=3$};
+            \draw[<->] (4.15,0) -- (4.15,2.5) node [pos=0.5, right] {$H(10)=5$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          To connect our intuition with functions and to prepare for the
+          next calculations, let us introduce variables in addition to time <m>t</m> and total area <m>A</m>.
+          The state of the city can be characterized more precisely with two more variables:
+          the distance east-to-west, which we'll call the width <m>W</m> (mi),
+          and the distance north-to-south, which we'll call the height <m>H</m> (mi).
+          We think of <m>W</m>, <m>H</m> and <m>A</m> as being dependent variables
+          as they are each a function of time <m>t</m>.
+          They are related variables because the area always equals the product of <m>W</m> and <m>H</m>:
+          <me> A(t) = W(t) \cdot H(t).</me>
+        </p>
+        <p>
+          To find the instantaneous rates of change,
+          we need to know how fast the width and height measurements are changing in time.
+          Because the problem stated that these changed at a constant rate,
+          we can use the average rates of change to compute the instantaneous rates:
+          <md>
+            <mrow>\displaystyle \frac{dW}{dt} = \left. \frac{\Delta W}{\Delta t}\right|_{[0,10]}
+            = \frac{W(10)-W(0)}{10-0} = \frac{8-5}{10} = 0.3, </mrow>
+            <mrow>\displaystyle \frac{dH}{dt} = \left. \frac{\Delta H}{\Delta t}\right|_{[0,10]}
+            = \frac{H(10)-H(0)}{10-0} = \frac{5-3}{10} = 0.2. </mrow>
+          </md>
+          Since the area <m>A</m> is the product of <m>W</m> and <m>H</m>,
+          the product rule for derivatives will provide the instantaneous rate of change for area:
+          <me>\frac{dA}{dt} = \frac{d}{dt}[W \cdot H] = \frac{dW}{dt} \cdot H + W \cdot \frac{dH}{dt}. </me>
+          This equation is the related rates equation.
+        </p>
+        <p>
+          When <m>t=0</m> we have <m>W(0)=5</m> and <m>H(0)=3</m> so that
+          <md>
+            <mrow> \left. \frac{dA}{dt} \right|_{0}
+            &amp;= \left.\frac{dW}{dt}\right|_{0} \cdot H(0) + W(0) \cdot \left.\frac{dH}{dt}\right|_{0}</mrow>
+            <mrow> &amp;= 0.3(3) + 5(0.2) = 1.9.</mrow>
+          </md>
+          That is, at the beginning, the city is expanding at a rate of <m>1.9 \: \hbox{mi}^2/\hbox{yr}</m>.
+          After 10 years, <m>t=10</m>, we have <m>W(10)=8</m> and <m>H(10)=5</m> so that
+          <md>
+            <mrow> \left. \frac{dA}{dt} \right|_{10}
+            &amp;= \left.\frac{dW}{dt}\right|_{10} \cdot H(10) + W(10) \cdot \left.\frac{dH}{dt}\right|_{10}</mrow>
+            <mrow> &amp;= 0.3(5) + 8(0.2) = 3.1.</mrow>
+          </md>
+          At the end of the 10 years, the city is expanding at a rate of <m>3.1 \: \hbox{mi}^2/\hbox{yr}</m>.
+        </p>
+        <p>
+          The picture of expanding area helps provide some intuition for why the product rule
+          is the appropriate technique. If we consider the city after 6 months (<m>t=0.5</m>),
+          both the width and the height have changed by a small amount, as shown in the figure
+          below. The total change in area has two primary contributions, corresponding to
+          long, skinny rectangles with areas <m>W(0) \cdot \Delta H</m> and <m>\Delta W \cdot H(0)</m>,
+          and a very small rectangle with area <m>\Delta W \cdot \Delta H</m>. The product
+          rule corresponds to the rate of change coming from the two primary contributions
+          while the small rectangle leads to a term that has a limit of zero in the calculation
+          of the derivative.
+        </p>
+        <sidebyside>
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw[fill,red!25] (0,0) rectangle (5.15,3.1);
+            \draw[black, thick] (0,0) rectangle (5.15,3.1);
+            \draw[fill,blue!25] (0,0) rectangle (5,3);
+            \draw[black, thick] (0,0) rectangle (5,3);
+            \draw (5,3.1) -- (5,3) -- (5.15,3);
+            \draw[<->] (0,-0.15) -- (5,-0.15) node [pos=0.5,below] {$W(0)=5$};
+            \draw[<->] (-0.15,0) -- (-0.15,3) node [pos=0.5, left] {$H(0)=3$};
+            \draw[<-] (-0.05, 3.05) -- (-0.5, 3) node[left] {$\Delta H$};
+            \draw[<-] (5.075, -0.05) -- (5.15,-0.5) node[below] {$\Delta W$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>A Physical Example of the Quotient Rule</title>
+    <p>
+      Quotients often appear when working with densities, concentrations, or other ratios.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A salt-water solution is being formulated. At a particular instant,
+          the solution consists of 10 L of water with 5 kg of salt.
+          At that instant, water is being added at a rate of 0.5 L/s
+          while salt is being added at a rate of 0.2 kg/s.
+          What is the instantaneous rate of change of the concentration?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by identifying the variables that define the state of our system.
+          The variables include the time <m>t</m>, measured in seconds (s),
+          the total volume of water <m>V</m>, measured in liters (L),
+          the total amount of salt in the water <m>S</m>, measured in kilograms (kg),
+          and the concentration of salt water <m>C</m>, measured in kilograms per liter (kg/L).
+          The variables <m>V</m>, <m>S</m> and <m>C</m> are functions of time <m>t</m>
+          with an equation relating them by
+          <me>C(t) = \frac{S(t)}{V(t)} \quad \Leftrightarrow \quad C = \frac{S}{V}.</me>
+        </p>
+        <p>
+          The instantaneous rate of change is computed using the quotient rule for derivatives,
+          giving us a related rates equation
+          <me> \frac{dC}{dt} = \frac{ V \frac{dS}{dt} - S \frac{dV}{dt}}{V^2}. </me>
+          The values at the instant in question are given by
+          <md>
+            <mrow> V = 10, \quad \frac{dV}{dt} = 0.5, </mrow>
+            <mrow> S = 5, \quad \frac{dS}{dt} = 0.2. </mrow>
+          </md>
+          Using these values in the quotient rule for derivatives, we have
+          <me> \frac{dC}{dt} = \frac{ 10(0.2) - 5(0.5) }{10^2} = \frac{2-2.5}{100} = -0.005. </me>
+          That is, the concentration is changing at a rate of -0.005 kg salt per liter water per second.
+          Alternatively, we could say that the concentration is decreasing at a rate of 0.005 kg/L/s.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+</section>

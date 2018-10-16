@@ -4,7 +4,7 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
 
 <section xml:id="derivative-rules">
@@ -14,24 +14,27 @@
       We have learned that the derivative is defined
       by the limit of an average rate of change
       as the gap between the two points goes to zero.
-      For functions already defined as an accumulation function
-      with a known, continuous rate of accumulation, the Fundamental Theorem of calculus
-      guarantees that the derivative equals the rate of accumulation.
+      For functions already defined as an accumulation function with a known, continuous rate of accumulation,
+      the Fundamental Theorem of calculus guarantees that the derivative equals the rate of accumulation.
       Every time we need a derivative of any other function,
       we must use the definition and compute the limit
       <me>f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</me>
       and then go through the algebra and simplification to find the resulting formula.
-      Finding the formula for <m>f'(x)</m> from the formula for
-      <m>f(x)</m> is a process called <term>differentiation</term>.
-      The rules for derivatives will provide us with a methodical way to
+    </p>
+    <p>
+      It would be much nicer if we could look at the formula of <m>f(x)</m>
+      and know what the formula of the derivative <m>f'(x)</m> should be.
+      Computing the formula for <m>f'(x)</m> based on the structure of the formula for <m>f(x)</m>
+      is a process called <term>differentiation</term>.
+      Rules for derivatives will provide us with a methodical way to
       differentiate algebraic formulas.
     </p>
     <p>
       Differentiation is a process of taking a function and using it to determine another function.
-      That is, differentiation defines a map between functions.
-      We use a function <m>f(x)</m> as an input to the map
-      and create a new function as the output that represents the derivative <m>f'(x)</m>.
-      Whereas maps that take numbers as inputs and give numbers as outputs are called <term>functions</term>,
+      That is, differentiation defines a map between functions, <m>f \mapsto f'</m>.
+      The entire function <m>f(x)</m>, not just a value, is the input to the map
+      and an entirely different function <m>f'(x)</m> is the output.
+      Maps that take numbers as inputs and give numbers as outputs are called <term>functions</term>;
       a map that takes an entire function as an input is called an <term>operator</term>.
       When the independent variable is <m>x</m>,
       the symbol for the differential operator is <m>\displaystyle \frac{d}{dx}</m>.
@@ -42,7 +45,7 @@
         <p>
           The differential operator <m>\displaystyle \frac{d}{dx}</m> takes a function
           as its input and provides the derivative function as its output,
-          <me> \frac{d}{dx}[f(x)] = f'(x). </me>
+          <me> \frac{d}{dx}[f(x)] = \frac{df}{dx}(x) = f'(x). </me>
           If <m>y</m> is a dependent variable defined by a function <m>y=f(x)</m>,
           then we can also write
           <me> \frac{dy}{dx} = \frac{d}{dx}[y] = f'(x). </me>
@@ -390,255 +393,24 @@
     </theorem>
   </subsection>
   <subsection>
-    <title>Using the Derivative Rules</title>
+    <title>Applying the Rules to Formulas</title>
     <p>
-      A traditional development of calculus begins applying these rules to find formulas
-      to derivatives. We will instead begin applying the rules by interpreting some
-      specific applied applications involving rates of change.
+      In this section, we have established rules of differentiation for elementary formulas
+      and for algebraic combinations of functions with known derivatives.
+      We now consider how we can apply these rules together to compute derivatives from more complex formulas.
     </p>
-    <example>
-      <statement>
-        <p>
-          A tank is being filled with water two supply hoses. If the first hose is pumping
-          water at a rate of 20 gal/min and the second hose is pumping water at a rate of
-          30 gal/min, what is the total rate of change for the tank?
-        </p>
-      </statement>
-      <solution>
-        <p>
-          We know the intuitive solution to the problem is 50 gal/min. This is actually a
-          consequence of the sum rule of derivatives.
-        </p>
-        <p>
-          We can think of the water in the tank as having two components: <m>W_1</m>, the
-          volume of water (gal) that was pumped by hose 1,
-          and <m>W_2</m>, the volume of water (gal) that was pumped by hose 2.
-          These two variables are functions of time <m>t</m> (min), and the rates of
-          water flowing from the hoses correspond to derivatives:
-          <me>\frac{dW_1}{dt} = 20, \quad \frac{dW_2}{dt} = 30.</me>
-          The total volume of water in the tank at a given time <m>t</m> is the sum
-          <m>W(t)=W_1(t) + W_2(t)</m>. So by the sum rule of derivatives,
-          <me>\frac{dW}{dt} = \frac{dW_1}{dt} + \frac{dW_2}{dt} = 20+30 = 50. </me>
-        </p>
-      </solution>
-    </example>
     <p>
-      The sum rule for derivatives feels very intuitive. If a quantity is the sum
-      of parts, then the total rate of change for the quantity is the sum of the
-      rates of change for each of the parts. The product rule is less intuitive
-      because we don't get to multiply rates of change when a quantity is a product.
-      To illustrate this example, we focus on a geometric example on the area of a
-      rectangle when the lengths of the sides are changing.
-    </p>
-    <example>
-      <statement>
-        <p>
-          A city is in the shape of a rectangle with sides aligned with North-South and East-West
-          lines. Suppose that the city is currently 5 miles east-to-west and 3 miles north-to-south
-          and plans to expand to a size 8 miles east-to-west by 5 miles north-to-south over the
-          next 10 years. What is the average rate of change of the total area in the city
-          over the 10 years? If the borders were to move at a constant rate over those 10 years,
-          what is the instantaneous rate of change of the total area of the city at the
-          beginning and at the end of the 10 years?
-        </p>
-      </statement>
-      <solution>
-        <p>
-          We start with the question of average rate of change of total area, which we
-          can solve intuitively. The city
-          originally has a total area of <m>5 \times 3 = 15 \: \hbox{mi}^2</m>.
-          After 10 years, the city has a total area of <m>8 \times 5 = 40 \: \hbox{mi}^2</m>.
-          So the change in area is <m>25 \: \hbox{mi}^2</m> over 10 years so the average
-          rate of change of area is <m>\frac{25}{10} = 2.5\: \hbox{mi}^2/\hbox{yr}</m>.
-        </p>
-        <sidebyside>
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \draw[fill,red!25] (0,0) rectangle (4,2.5);
-            \draw[fill,blue!25] (0,0) rectangle (2.5,1.5);
-            \draw[<->] (0,-0.15) -- (2.5,-0.15) node [pos=0.5,below] {$W(0)=5$};
-            \draw[<->] (0,-0.75) -- (4,-0.75) node [pos=0.5,below] {$W(10)=8$};
-            \draw[<->] (-0.15,0) -- (-0.15,1.5) node [pos=0.5, left] {$H(0)=3$};
-            \draw[<->] (4.15,0) -- (4.15,2.5) node [pos=0.5, right] {$H(10)=5$};
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
-        <p>
-          To connect our intuition with functions and to prepare for the
-          next calculations, let us introduce some variables. The
-          state of the city can be characterized by four variables:
-          the time <m>t</m> (yr) at which the state is observed,
-          the distance east-to-west, which we'll call the width <m>W</m> (mi), the distance
-          north-to-south, which we'll call the height <m>H</m> (mi), and the enclosed total
-          area <m>A</m> (<m>\hbox{mi}^2</m>).
-          We think of <m>W</m>, <m>H</m> and <m>A</m> as being functions of time <m>t</m>
-          with the area being equal to the product of <m>W</m> and <m>H</m>:
-          <me> A(t) = W(t) \cdot H(t).</me>
-          Then the average rate of change for <m>A</m> on the interval <m>t \in [0,10]</m>
-          is given by
-          <me> \left. \frac{\Delta A}{\Delta t} \right|_{[0,10]}
-          = \frac{A(10)-A(0)}{10-0} = \frac{W(10)H(10) - W(0)H(0)}{10} = \frac{8(5)-5(3)}{10}
-          = 2.5.</me>
-        </p>
-        <p>
-          To find the instantaneous rates of change, we need to know how fast the
-          width and height measurements are changing in time. Because the problem stated
-          that these changed at a constant rate, we can use the average rates of change
-          to compute the instantaneous rates:
-          <md>
-            <mrow>\displaystyle \frac{dW}{dt} = \left. \frac{\Delta W}{\Delta t}\right|_{[0,10]}
-            = \frac{W(10)-W(0)}{10-0} = \frac{8-5}{10} = 0.3, </mrow>
-            <mrow>\displaystyle \frac{dH}{dt} = \left. \frac{\Delta H}{\Delta t}\right|_{[0,10]}
-            = \frac{H(10)-H(0)}{10-0} = \frac{5-3}{10} = 0.2. </mrow>
-          </md>
-          Since the area <m>A</m> is the product of <m>W</m> and <m>H</m>,
-          the product rule for derivatives will provide the instantaneous rate of change for area:
-          <me>\frac{dA}{dt} = \frac{d}{dt}[W \cdot H] = \frac{dW}{dt} \cdot H + W \cdot \frac{dH}{dt}. </me>
-          When <m>t=0</m> we have <m>W(0)=5</m> and <m>H(0)=3</m> so that
-          <md>
-            <mrow> \left. \frac{dA}{dt} \right|_{0}
-            &amp;= \left.\frac{dW}{dt}\right|_{0} \cdot H(0) + W(0) \cdot \left.\frac{dH}{dt}\right|_{0}</mrow>
-            <mrow> &amp;= 0.3(3) + 5(0.2) = 1.9.</mrow>
-          </md>
-          That is, at the beginning, the city is expanding at a rate of <m>1.9 \: \hbox{mi}^2/\hbox{yr}</m>.
-          After 10 years, <m>t=10</m>, we have <m>W(10)=8</m> and <m>H(10)=5</m> so that
-          <md>
-            <mrow> \left. \frac{dA}{dt} \right|_{10}
-            &amp;= \left.\frac{dW}{dt}\right|_{10} \cdot H(10) + W(10) \cdot \left.\frac{dH}{dt}\right|_{10}</mrow>
-            <mrow> &amp;= 0.3(5) + 8(0.2) = 3.1.</mrow>
-          </md>
-          At the end of the 10 years, the city is expanding at a rate of <m>3.1 \: \hbox{mi}^2/\hbox{yr}</m>.
-        </p>
-        <p>
-          The picture of expanding area helps provide some intuition for why the product rule
-          is the appropriate technique. If we consider the city after 6 months (<m>t=0.5</m>),
-          both the width and the height have changed by a small amount, as shown in the figure
-          below. The total change in area has two primary contributions, corresponding to
-          long, skinny rectangles with areas <m>W(0) \cdot \Delta H</m> and <m>\Delta W \cdot H(0)</m>,
-          and a very small rectangle with area <m>\Delta W \cdot \Delta H</m>. The product
-          rule corresponds to the rate of change coming from the two primary contributions
-          while the small rectangle leads to a term that has a limit of zero in the calculation
-          of the derivative.
-        </p>
-        <sidebyside>
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \draw[fill,red!25] (0,0) rectangle (5.15,3.1);
-            \draw[black, thick] (0,0) rectangle (5.15,3.1);
-            \draw[fill,blue!25] (0,0) rectangle (5,3);
-            \draw[black, thick] (0,0) rectangle (5,3);
-            \draw (5,3.1) -- (5,3) -- (5.15,3);
-            \draw[<->] (0,-0.15) -- (5,-0.15) node [pos=0.5,below] {$W(0)=5$};
-            \draw[<->] (-0.15,0) -- (-0.15,3) node [pos=0.5, left] {$H(0)=3$};
-            \draw[<-] (-0.05, 3.05) -- (-0.5, 3) node[left] {$\Delta H$};
-            \draw[<-] (5.075, -0.05) -- (5.15,-0.5) node[below] {$\Delta W$};
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
-      </solution>
-    </example>
-    <p>
-      Quotients often appear when working with densities, concentrations, or other ratios.
-    </p>
-    <example>
-      <statement>
-        <p>
-          A salt-water solution is being formulated. At a particular instant, the solution
-          consists of 10 L of water with 5 kg of salt. At that instant, water is being added
-          at a rate of 0.5 L/s while salt is being added at a rate of 0.2 kg/s. What is the
-          instantaneous rate of change of the concentration?
-        </p>
-      </statement>
-      <solution>
-        <p>
-          We start by identifying the variables that define the state of our system.
-          The variables include the time <m>t</m>, measured in seconds (s), the
-          total volume of water <m>V</m>, measured in liters (L), the total amount of
-          salt in the water <m>S</m>, measured in kilograms (kg), and the
-          concentration of salt water <m>C</m>, measured in kilograms per liter (kg/L).
-          The variables <m>V</m>, <m>S</m> and <m>C</m> are functions of time <m>t</m>
-          with an equation relating them by
-          <me>C(t) = \frac{S(t)}{V(t)} \quad \Leftrightarrow \quad C = \frac{S}{V}.</me>
-        </p>
-        <p>
-          The instantaneous rate of change is computed using the quotient rule for
-          derivatives,
-          <me> \frac{dC}{dt} = \frac{ V \frac{dS}{dt} - S \frac{dV}{dt}}{V^2}. </me>
-          The values at the instant in question are given by
-          <md>
-            <mrow> V = 10, \quad \frac{dV}{dt} = 0.5, </mrow>
-            <mrow> S = 5, \quad \frac{dS}{dt} = 0.2. </mrow>
-          </md>
-          Using these values in the quotient rule for derivatives, we have
-          <me> \frac{dC}{dt} = \frac{ 10(0.2) - 5(0.5) }{10^2} = \frac{2-2.5}{100} = -0.005. </me>
-          That is, the concentration is changing at a rate of -0.005 kg salt per liter water per second.
-          Alternatively, we could say that the concentration is decreasing at a rate of
-          0.005 kg/L/s.
-        </p>
-      </solution>
-    </example>
-  </subsection>
-  <subsection>
-    <title>Derivative Building Blocks</title>
-    <p>
-      In order to apply the differentiation rules for formulas, we need to have some
-      elementary rules to get started. Just as with the limit rules, we begin with
-      the basics. The justification of the derivatives of the elementary derivatives
-      must be based on the definition of the derivative. The derivatives of more
-      complex functions can then be justified using the derivative rules.
-    </p>
-    <theorem>
-      <title>Derivative of a Constant</title>
-      <statement>
-        <p>
-          If <m>k</m> is a real number, then
-          <me>\frac{d}{dx}[k] = 0. </me>
-        </p>
-      </statement>
-      <proof>
-        <p>
-          Let <m>f(x)=k</m> be the constant function. Since <m>f(x+h)=k</m>, we have
-          <md>
-              <mrow> f'(x) &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
-              <mrow> &amp;= \lim_{h \to 0} \frac{k-k}{h} = \lim_{h \to 0} 0 </mrow>
-              <mrow> &amp;= 0,</mrow>
-          </md>
-          where the last step used the limit rule for a constant.
-        </p>
-      </proof>
-    </theorem>
-    <theorem>
-    <title>Derivative of the Identity Function</title>
-    <statement>
-    <me>\frac{d}{dx}[x] = 1. </me>
-    </statement>
-    <proof>
-    <p>
-    Let <m>f(x)=x</m> be the identity function. Since <m>f(x+h)=x+h</m>, we have
-    <md>
-        <mrow> f'(x) &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} \frac{x+h-x}{h} = \lim_{h \to 0} \frac{h}{h} </mrow>
-        <mrow> &amp;= \lim_{h \to 0} 1 = 1. </mrow>
-    </md>
-    </p>
-    </proof>
-    </theorem>
-
-    <p>
-    Although the derivatives of other functions can be found using the limit definition
-    of the derivative, these two elementary derivatives along with the the rules
-    of differentiation allow us to find other derivatives.
-    </p>
+      To illustrate how functions are formed as combinations of elementary functions,
+      let us revisit the derivative of a linear function, <m>f(x) = mx+b</m>.
+      This function is algebraically the <em>sum</em> of the expressions <m>mx</m> and <m>b</m>.
+      Consequently, the derivative will be the sum of the derivatives of those expressions.
+      The first, <m>mx</m> is a constant multiple of the identity function, so
+      <me>\frac{d}{dx}[mx] = m \frac{d}{dx}[x] = m \cdot 1 = m</me>.
+      The second, <m>b</m> is a constant function, so
+      <me>\frac{d}{dx}[b] = 0</me>.
+      Adding these together, we find
+      <me>\frac{d}{dx}[mx+b] = \frac{d}{dx}[mx} + \frac{d}{dx}[b] = m + 0 = m</me>,
+      exactly the same as we found applying the definition of the derivative in <xref ref="
 
     <example>
     <statement>

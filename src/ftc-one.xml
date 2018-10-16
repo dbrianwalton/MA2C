@@ -68,6 +68,10 @@
       </md>
       The derivative exactly matches the rate of accumulation.
     </p>
+    <p>
+      Our ultimate goal in this section is to show that this will always happen for accumulation functions.
+      To reach this goal, we require some additional concepts.
+    </p>
   </subsection>
   <subsection>
     <title>Average Value of a Function</title>
@@ -109,19 +113,25 @@
     <definition xml:id="defn-function-average-value">
       <statement>
         <p>
-          For a function <m>f</m> which has an integral on an interval <m>[a,b]</m>,
-          the <term>average value</term> of <m>f</m> on <m>[a,b]</m> is defined by
-          <me> \langle f \rangle_{[a,b]} = \frac{1}{b-a} \int_{a}^{b} f(x) \, dx </me>.
+          For a function <m>f(x)</m> which has an integral on an interval <m>[a,b]</m>,
+          the <term>average value</term> of <m>f(x)</m> on <m>[a,b]</m> is defined by
+          <me> \langle f(x) \rangle_{[a,b]} = \frac{1}{b-a} \int_{a}^{b} f(x) \, dx </me>.
         </p>
       </statement>
     </definition>
     <p>
       When we think of the definite integral as the total signed area between the graph <m>y=f(x)</m> and the axis <m>y=0</m>,
       the average value can be interpreted as the value of a constant function that would have the same signed area.
-      Imagine the region below the graph <m>y=f(x)</m> and between the lines <m>x=a</m> and <m>x=b</m>
-      as if it were frozen in place like ice.
-      If the ice melted but still stayed between the vertical lines <m>x=a</m> and <m>x=b</m>,
-      the high points in the water would fill the valleys until the water level were flat.
+      This is a consequence of writing
+      <me>\int_a^b f(x) \, dx = (b-a) \cdot \langle f(x) \rangle_{[a,b]}</me>.
+      The average value multiplied by <m>b-a</m> equals the total signed area of <m>f(x)</m> from <m>a</m> to <m>b</m>,
+      so we can think of <m>(b-a) \cdot \langle f(x) \rangle_{[a,b]</m> as the signed area of a rectangle
+      with a vertical position given by the average value.
+    </p>
+    <p>
+      Imagine the region below the graph <m>y=f(x)</m> and between the lines <m>x=a</m> and <m>x=b</m> as if it were frozen water.
+      If the ice melted but was trapped between the vertical lines <m>x=a</m> and <m>x=b</m>,
+      the high regions of the ice would melt and fill the valleys until the water level was flat.
       The resulting flat value is equivalent to the average value of the original function.
       Any regions of area above the average value line are used to fill an equivalent amount of area missing below the line.
     </p>
