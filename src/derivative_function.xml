@@ -275,7 +275,7 @@
       </solution>
     </example>
     <p>
-      For our last example, we consider finding the derivative using the definition when the function involves the square root.
+      For our last examples, we consider finding the derivative using the definition when the function involves the square root.
       We will find it necessary to use a trick from algebra involving conjugate pairs.
       Recall that <m>(a+b)(a-b) = a^2-b^2</m>.
       If <m>a</m> or <m>b</m> is a square root of some value,
@@ -284,6 +284,55 @@
       For example,
       <me>(\sqrt{x}-2)(\sqrt{x}+2) = (\sqrt{x})^2 - (2)^2 = x-4.</me>
     </p>
+    <example xml:id="example-deriv-squareroot">
+      <statement>
+        <p>Use the definition of the derivative to find <m>f'(x)</m> where <m>\displaystyle f(x) = \sqrt{x}</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          <ul>
+            <li>
+              <p>
+                Find the output at the second point:
+                <me>f(x+h) = \sqrt{x+h}</me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the change in output between the two points:
+                <me>f(x+h)-f(x) = \sqrt{x+h}-\sqrt{x}</me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Simplify the average rate of change between the two points.
+                This will require multiplying the numerator and denominator by the conjugate pair:
+                <md>
+                  <mrow> \frac{f(x+h)-f(x)}{h} &amp; = \frac{\sqrt{x+h}-\sqrt{x}}{h} </mrow>
+                  <mrow> &amp; = \frac{(\sqrt{x+h}-\sqrt{x})(\sqrt{x+h}+\sqrt{x})}{h(\sqrt{x+h}+\sqrt{x})} </mrow>
+                  <mrow> &amp; = \frac{(\sqrt{x+h})^2-(\sqrt{x})^2}{h(\sqrt{x+h}+\sqrt{x})}
+                  = \frac{x+h-x} {h(\sqrt{x+h}+\sqrt{x})} </mrow>
+                  <mrow> &amp; = \frac{h}{h(\sqrt{x+h}+\sqrt{x}})} = \frac{1}{\sqrt{x+h}+\sqrt{x}}</mrow>.
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                The derivative is the limit of the average rate of change:
+                <md>
+                  <mrow> f'(x) &amp; = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
+                  <mrow> &amp; = \lim_{h \to 0} \frac{1}{\sqrt{x+h}+\sqrt{x}} </mrow>
+                  <mrow> &amp; = \frac{1}{\sqrt{x+0}+\sqrt{x}} </mrow>
+                  <mrow> &amp; = \frac{1}{2\sqrt{x}} </mrow>
+                </md>
+                This gives us the derivative function,
+                <me>f'(x) = \frac{1}{2\sqrt{x}}.</me>
+              </p>
+            </li>
+          </ul>
+        </p>
+      </solution>
+    </example>
     <example>
       <statement>
         <p>Use the definition of the derivative to find <m>f'(x)</m> where <m>\displaystyle f(x) = \sqrt{2x-5}</m>.</p>

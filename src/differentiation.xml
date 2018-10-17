@@ -6,7 +6,6 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-
 <section xml:id="derivative-rules">
   <title>Differentiation</title>
   <introduction>
@@ -257,7 +256,7 @@
       then we can compute any constant multiple of that function
       by multiplying the derivative by the same constant.
     </p>
-    <theorem xml:id="constant-multiple-rule-deriv">
+    <theorem xml:id="deriv-constant-multiple">
       <title>Constant Multiple Rule for Derivatives</title>
       <statement>
         <p>
@@ -294,13 +293,13 @@
       For our second example of proving a differentiation rule,
       we consider the reciprocal of a function.
       We know that <m>\frac{d}{dx}[x^2 + 3] = 2x</m>.
-      This rule will tell us how to compute the derivative
+      This reciprocal rule will tell us how to compute the derivative
       <m>\frac{d}{dx}[ \displaystyle \frac{1}{x^2+3} ]</m>.
       We might be tempted to think the answer would be <m>\frac{1}{2x}</m>,
       but this is not correct.
       Derivatives do not follow simple rules for either division or multiplication.
     </p>
-    <theorem xml:id="reciprocal-rule-deriv">
+    <theorem xml:id="deriv-reciprocal">
       <title>Reciprocal Rule for Derivatives</title>
       <statement>
         <p>
@@ -379,7 +378,7 @@
       which states that the derivative of a function formed by adding two functions
       will be the sum of those functions' derivatives.
     </p>
-    <theorem xml:id="sum-rule-deriv">
+    <theorem xml:id="deriv-sum">
       <title>Sum Rule for Derivatives</title>
       <statement>
         <p>
@@ -434,7 +433,8 @@
       the product rule shows that the derivative is a sum of contributions
       resulting from the rate of change of each factor.
     </p>
-    <theorem xml:id="product-rule-deriv">
+    <theorem xml:id="deriv-product">
+      <title>Product Rule for Derivatives</title>
       <statement>
         <p>
           If <m>\frac{d}{dx}[f(x)] = f'(x)</m> and <m>\frac{d}{dx}[g(x)]=g'(x)</m>,
@@ -476,6 +476,18 @@
           and the <xref ref="LC-Product" text="title">Limit Rule of a Product</xref>.
         </p>
       </solution>
+    </theorem>
+    <p>
+      The quotient rule is a combination of the product rule and the reciprocal rule.
+    </p>
+    <theorem xml:id="deriv-quotient">
+      <title>Quotient Rule for Derivatives</title>
+      <statement>
+        <p>
+          If <m>\frac{d}{dx}[f(x)] = f'(x)</m> and <m>\frac{d}{dx}[g(x)]=g'(x)</m>,
+          then <m>\frac{d}{dx}\left[{\displaystyle \frac{f(x)}{g(x)}}\right] = {\displaystyle \frac{f'(x)g(x) - f(x)g'(x)}{\left(g(x)\right)^2}}</m>.
+        </p>
+      </statement>
     </theorem>
   </subsection>
   <subsection>
@@ -647,5 +659,147 @@
         </md>
       </solution>
     </example>
+    <p>
+      We have found derivative formulas for quite a few different elementary powers now.
+      One of the themes in mathematics is to look for patterns and then determine
+      whether that pattern would always hold.
+      Consider the following sequence of statements that we have proved:
+      <md>
+        <mrow>\frac{d}{dx}[x^2] = 2x, </mrow>
+        <mrow>\frac{d}{dx}[x^3] = 3x^2, </mrow>
+        <mrow>\frac{d}{dx}[x^4] = 4x^3. </mrow>
+      </md>
+      There appears to be a pattern that the derivative of the power
+      includes as a constant multiple the value of the power
+      and another power of the variable that is one lower than the original function.
+    </p>
+    <p>
+      How does this relate to more other expressions?
+      The identity function can also be thought of as a power, <m>x=x^{1}</m>,
+      and we can rewrite the derivative rule for the identity as
+      <me>\frac{d}{dx}[x^1] = 1 x^0 = 1</me>.
+      We can think of reciprocals of powers as equivalent negative powers.
+      For example, the reciprocal rule guarantees
+      <me>\frac{d}{dx}[\frac{1}{x}] = \frac{-1}{x^2}</me>
+      and we just showed
+      <me>\frac{d}{dx}[\frac{1}{x^3}] = \frac{-3}{x^4}</me>.
+      If we rewrote these derivatives in the form of simple negative powers,
+      we discover the pattern continues:
+      <md>
+        <mrow>\frac{d}{dx}[x^{-1}] = -1x^{-2}, </mrow>
+        <mrow>\frac{d}{dx}[x^{-3}] = -3x^{-4}. </mrow>
+      </md>
+      When learning about the definition of the derivative,
+      we found the <xref ref="example-deriv-squareroot" text="title">derivative of the square root function</xref>,
+      <me>\frac{d}{dx}[\sqrt{x}] = \frac{1}{2\sqrt{x}}</me>.
+      By rewriting the square root as a fractional power,
+      we discover that even this rule is following the same pattern.
+      <me>\frac{d}{dx}[x^{1/2}] = \frac{1}{2} x^{-1/2}</me>.
+    </p>
+    <p>
+      We have seen seven examples that appear to follow the same pattern.
+      Inductive reasoning is the process of using examples to develop a generalization that we belief might be true.
+      For this example, inductive reasoning would lead us to a <term>conjecture</term> that for <em>any</em> power,
+      <me>\frac{d}{dx}[x^p] = px^{p-1}</me>.
+      Deductive reasoning is the process of establishing the truth of such a statement
+      built on a logical argument, or a proof, that applies the definitions and other proved conclusions
+      to show whether or not that conjecture is true.
+    </p>
+    <p>
+      In this case, the claim can be proved true.
+      We will prove the result in stages.
+      First, we will generalize to all positive integer powers.
+      Next, we will show that the result for positive integer powers implies a similar result for negative integer powers.
+      As we continue to develop calculus, we will show our result is true for rational powers and ultimately for any real number.
+    </p>
+    <theorem xml:id="deriv-power-rule">
+      <title>Power Rule for Derivatives</title>
+      <statement>
+        <p>
+          For any real number <m>p</m>,
+          <me>\frac{d}{dx}[x^p] = p x^{p-1}</me>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          As indicated, we currently are only ready to prove this theorem for the integer powers.
+          We start with positive integers.
+          We have already proved the result for <m>p=1, 2, 3, 4</m> as part of our discovering the pattern.
+          As we developed that pattern, we discovered that we were using a recursive argument each time.
+          The powers <m>p=3</m> and <m>p=4</m> were based on knowing the results for <m>p=2</m> and <m>p=3</m>, respectively.
+          Our proof builds on this recursive argument to create a general statement.
+        </p>
+        <p>
+          Suppose that we know for <m>p=n</m>,
+          <me>\frac{d}{dx}[x^n] = n x^{n-1}</me>.
+          Next consider the power <m>p=n+1</m>, and rewrite it <m>x^{n+1} = x \cdot x^{n}</m>.
+          The <xref ref="deriv-product" text="title">product rule</xref> guarantees
+          <md>
+            <mrow>\frac{d}{dx}[x^{n+1}] &amp;= \frac{d}{dx}[x \cdot x^n]</mrow>
+            <mrow> &amp;= \frac{d}{dx}[x] \cdot x^n + x \cdot \frac{d}{dx}[x^n]</mrow>
+            <mrow> &amp;= 1 \cdot x^n + x \cdot nx^{n-1}</mrow>
+            <mrow> &amp;= x^n + nx^n</mrow>
+            <mrow> &amp;= (n+1)x^n</mrow>.
+          </md>
+          This general recursive argument shows that if the rule is satisfied for an initial value of <m>p=n</m>,
+          the statement will be immediately known to be true for the sequence of values <m>p \in (n, n+1, n+2, \ldots)</m>.
+          Having earlier shown the rule was true for <m>p=1</m>,
+          the recursive argument shows it will be true for all positive integers.
+          In addition, because we know the rule is true for <m>p=\frac{1}{2}</m>,
+          the same argument shows that the rule is true for all <m>p \in (\frac{1}{2}, \frac{3}{2}, \frac{5}{2}, \ldots)</m>.
+        </p>
+        <p>
+          The <xref ref="deriv-reciprocal" text="title">reciprocal rule for derivatives</xref>
+          allows us to use the rule for positive integers to show the pattern holds for negative integers.
+          For a positive integer <m>n</m>, consider the corresponding negative power <m>p=-n</m> as a reciprocal.
+          <md>
+            <mrow>\frac{d}{dx}[x^{p}] &amp;= \frac{d}{dx}[x^{-n}] = \frac{d}{dx}[\frac{1}{x^n}]</mrow>
+            <mrow> &amp;= \frac{-\frac{d}{dx}[x^n]}{(x^n)^2}</mrow>
+            <mrow> &amp;= \frac{-nx^{n-1}}{x^{2n}}</mrow>
+            <mrow> &amp;= -nx^{n-1}\cdot x^{-2n} = -nx^{n-1-2n}</mrow>
+            <mrow> &amp;= -nx^{-n-1} = px^{p-1}</mrow>.
+          </md>
+          The argument did not depend so much on <m>n</m> being an integer as it required
+          that we knew the power rule was true for <m>p=n</m>.
+          Consequently, the same argument proves that the power rule
+          is also true for <m>p \in (-\frac{1}{2}, -\frac{3}{2}, \ldots)</m>.
+        </p>
+      </proof>
+    </theorem>
   </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Each function is an algebraic combination of more elementary expressions.
+          Identify the last operation in the expression and the component expressions that operation combines.
+          Repeat the process for each of the component expressions.
+          For example, <m>3x^2-8x</m> involves a final operation of subtraction involving the terms <m>3x^2</m> and <m>8x</m>;
+          <m>3x^2</m> is a constant multiple of the expression <m>x^2</m> with the constant 3;
+          and <m>8x</m> is a constant multiple of the identity <m>x</m> with constant 8.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>u(x)=5x^4+(2x+3)(3x-2)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>f(x)=(x^2+5x)(x^3-7)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>g(x)=\frac{2x^3}{4x+1}</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+        </p>
+      </introduction>
+    </exercisegroup>
+  </exercises>
 </section>
