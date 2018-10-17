@@ -65,6 +65,92 @@
     </p>
   </introduction>
   <subsection>
+    <title>Derivative Building Blocks</title>
+    <p>
+      In order to differentiate algebraic formulas,
+      we need to know the derivatives of elementary functions
+      that will be our building blocks.
+      Because we have the Fundamental Theorem of Calculus,
+      any rate of accumulation that we know for an accumulation function
+      is automatically going to be a derivative.
+      However, it is also useful to show derivatives of elementary functions directly.
+    </p>
+    <theorem xml:id="deriv-constant">
+      <title>Derivative of a Constant</title>
+      <statement>
+        <p>
+          For a constant <m>k</m>,
+          <me>\frac{d}{dx}[k] = 0</me>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function of interest is <m>x \mapsto k</m>, or <m>f(x)=k</m>.
+          Using the definition of the derivative,
+          <md>
+            <mrow> \frac{d}{dx}[k] &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{k - k}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0} 0</mrow>
+            <mrow> &amp;= 0</mrow>.
+          </md>
+          The last step in this sequence of equations is a consequence
+          of the <xref ref="LE-Constant" text="title">Limit Rule for a Constant</xref>.
+        </p>
+      </solution>
+    </theorem>
+    <theorem xml:id="deriv-identity">
+      <title>Derivative of the Identity</title>
+      <statement>
+        <p>
+          For the identity function <m>f(x)=x</m>,
+          <me>\frac{d}{dx}[x] = 1</me>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the definition of the derivative,
+          <md>
+            <mrow> \frac{d}{dx}[x] &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{x+h - x}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{h}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} 1</mrow>
+            <mrow> &amp;= 1</mrow>.
+          </md>
+          Again, the limit calculation at the last step uses the <xref ref="LE-Constant" text="title">Limit Rule for a Constant</xref>.
+        </p>
+      </solution>
+    </theorem>
+    <p>
+      The identity function and constant functions are special cases of linear functions.
+    </p>
+    <theorem xml:id="deriv-linear">
+      <title>Derivative of Linear Functions</title>
+      <statement>
+        <p>
+          For a linear function <m>f(x)=mx+b</m>,
+          <me>\frac{d}{dx}[mx+b] = m</me>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the definition of the derivative,
+          <md>
+            <mrow> \frac{d}{dx}[mx+b] &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{(m(x+h)+b) - (mx+b)}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{mx+mh+b-mx-b}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{mh}{h}</mrow>
+            <mrow> &amp;= \lim_{h \to 0} m</mrow>
+            <mrow> &amp;= m</mrow>.
+          </md>
+        </p>
+      </solution>
+    </theorem>
+    <p>
+      To establish additional derivatives of elementary formulas,
+      we need now to develop rules that are based on the algebra of combining other formulas.
+    </p>
+  </subsection>
+  <subsection>
     <title>Derivative Rules</title>
     <p>
       Derivative rules are theorems that take as a hypothesis that one or two functions
@@ -132,7 +218,7 @@
       </statement>
     </theorem>
     <p>
-      One of these differentiation rules, the chain rule, will require its own discussion.
+      One of these differentiation rules, the chain rule, will require its own section.
       That rule is focused on how to differentiate compositions of functions.
       The other rules focus on arithmetic combinations of functions
       and are the primary focus of this section.
@@ -410,120 +496,147 @@
       <me>\frac{d}{dx}[b] = 0</me>.
       Adding these together, we find
       <me>\frac{d}{dx}[mx+b] = \frac{d}{dx}[mx} + \frac{d}{dx}[b] = m + 0 = m</me>,
-      exactly the same as we found applying the definition of the derivative in <xref ref="
-
+      exactly the same as we found applying the definition of the derivative in <xref ref="deriv-linear"/>.
+    </p>
     <example>
-    <statement>
-    Find <m>f'(x)</m> for <m>f(x) = 3x-5</m>, citing the differentiation rules you used.
-    </statement>
-    <solution>
-    <p>
-    We will use the differentiation operator <m>\frac{d}{dx}</m>. Recall that this
-    operator behaves something like a function, but with a function as its input
-    and the derivative of that function as an output. The rules of differentiation
-    allow us to find a derivative by breaking the function down into its elementary
-    components.
-    </p>
-    <p>
-    In this example, <m>f(x)</m> is a sum of <m>3x</m> and -5. The subformula <m>3x</m>
-    is a constant multiple (3) of the identity <m>x</m> and the number -5 is a constant.
-    Once you recognize these facts, you apply the rules.
-    <md>
-        <mrow> f'(x) &amp;= \frac{d}{dx}[3x-5] = \frac{d}{dx}[3x+-5] </mrow>
-        <mrow> &amp;= \frac{d}{dx}[3x] + \frac{d}{dx}[-5] \quad \hbox{Sum Rule} </mrow>
-        <mrow> &amp;= 3 \frac{d}{dx}[x] + \frac{d}{dx}[-5] \quad \hbox{Constant Multiple Rule} </mrow>
-        <mrow> &amp;= 3 \cdot 1 + \frac{d}{dx}[-5] \quad \hbox{Derivative of Identity} </mrow>
-        <mrow> &amp;= 3 \cdot 1 + 0 \quad \hbox{Derivative of Constant} </mrow>
-        <mrow> &amp;= 3 </mrow>
-    </md>
-    Thus, <m>f'(x) = 3</m>.
-    </p>
-    </solution>
+      <statement>
+        <p>
+          Use the differentiation rules to show
+          <me>\frac{d}{dx}[x^2] = 2x</me>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function that is the input to the differentiation operator is <m>x^2</m>.
+          The elementary building blocks so far only include constant functions,
+          the identity function, and other linear functions.
+          We need to see how <m>x^2</m> is a combination of these elementary functions.
+          To do this, we need to recognize that the square corresponds to multiplication,
+          <me>x^2 = x \cdot x</me>.
+        </p>
+        <p>
+          Once you recognize that our function is a product,
+          we need to use the product rule with <m>f(x)=x</m> and <m>g(x)=x</m>.
+          The <xref ref="deriv-product" text="title">product rule</xref> says
+          <me> \frac{d}{dx}[f(x) g(x)] = f'(x) g(x) + f(x) g'(x)</me>,
+          for which we use <m>f'(x)=1</m> and <m>g'(x)=1</m>.
+          Consequently,
+          <md>
+            <mrow>\frac{d}{dx}[x^2] &amp;= \frac{d}{dx}[x \cdot x]</mrow>
+            <mrow> &amp;= 1 \cdot x + x \cdot 1</mrow>
+            <mrow> &amp;= x+x = 2x</mrow>.
+          </md>
+        </p>
+      </solution>
     </example>
-
     <p>
-    The rules of derivatives can also allow us to create new differentiation rules.
-    The following theorem uses the same steps as the previous example but with
-    arbitrary constants.
+      We can repeat this process to find the derivative of <m>x^3</m> and then <m>x^4</m>.
+      The pattern generalizes to a rule that we call the power rule.
     </p>
-
-    <theorem>
-    <statement>
-    If <m>a</m> and <m>b</m> are real numbers, then
-    <me> \frac{d}{dx}[ax+b] = a. </me>
-    </statement>
-    <proof>
-    <md>
-        <mrow> \frac{d}{dx}[ax+b] &amp;= \frac{d}{dx}[ax] + \frac{d}{dx}[b] \quad \hbox{Sum Rule} </mrow>
-        <mrow> &amp;= a \frac{d}{dx}[x] + \frac{d}{dx}[b] \quad \hbox{Constant Multiple Rule} </mrow>
-        <mrow> &amp;= a \cdot 1 + \frac{d}{dx}[b] \quad \hbox{Derivative of Identity} </mrow>
-        <mrow> &amp;= a \cdot 1 + 0 \quad \hbox{Derivative of Constant} </mrow>
-        <mrow> &amp;= a </mrow>
-    </md>
-    </proof>
-    </theorem>
-
-    <p>
-    Integer powers correspond to repeated multiplication, so the product rule of differentiation
-    will lead to a rule for the derivative of a power. The following examples lead
-    to a natural pattern called the power rule for derivatives.
-    </p>
-
     <example>
-    <statement>
-    Use the product rule of derivatives to show that
-    <md>
-        <mrow> \frac{d}{dx}[x^2] = 2x ,</mrow>
-        <mrow> \frac{d}{dx}[x^3] = 3x^2, </mrow>
-        <mrow> \frac{d}{dx}[x^4] = 4x^3. </mrow>
-    </md>
-    </statement>
-    <solution>
-    <p>
-    The work will involve rewriting the powers as products,
-    <me> x^2 = x \cdot x, \quad x^3 = x \cdot x^2, \quad x^4 = x \cdot x^3. </me>
-    We already know
-    <me> \frac{d}{dx}[x] = 1. </me>
-    It is useful to remember the product rule using dependent variables, say <m>u=f(x)</m>
-    and <m>v=g(x)</m>, as
-    <me> \frac{d}{dx}[u \cdot v] = \frac{du}{dx} \cdot v + u \cdot \frac{dv}{dx} </me>
-    because this will guide our use of the differentiation operator.
-    </p>
-    <p>
-    With that setup, we can compute the derivatives using differentiation rules.
-    <md>
-        <mrow> \frac{d}{dx}[x^2] &amp;= \frac{d}{dx}[x \cdot x]</mrow>
-        <mrow> &amp;= \frac{d}{dx}[x] \cdot x + x \cdot \frac{d}{dx}[x]</mrow>
-        <mrow> &amp;= 1 \cdot x + x \cdot 1</mrow>
-        <mrow> &amp;= 2x </mrow>
-    </md>
-    For the next calculation, we will use both of our previously found derivatives.
-    <md>
-        <mrow> \frac{d}{dx}[x^3] &amp;= \frac{d}{dx}[x \cdot x^2]</mrow>
-        <mrow> &amp;= \frac{d}{dx}[x] \cdot x^2 + x \cdot \frac{d}{dx}[x^2]</mrow>
-        <mrow> &amp;= 1 \cdot x^2 + x \cdot (2x)</mrow>
-        <mrow> &amp;= 3x^2 </mrow>
-    </md>
-    The pattern should be apparent for the next derivative.
-    <md>
-        <mrow> \frac{d}{dx}[x^4] &amp;= \frac{d}{dx}[x \cdot x^3]</mrow>
-        <mrow> &amp;= \frac{d}{dx}[x] \cdot x^3 + x \cdot \frac{d}{dx}[x^3]</mrow>
-        <mrow> &amp;= 1 \cdot x^3 + x \cdot (3x^2)</mrow>
-        <mrow> &amp;= 4x^3 </mrow>
-    </md>
-    </p>
-    </solution>
+      <statement>
+        <p>
+          Continue to use the product rule of derivatives to show that
+          <md>
+            <mrow> \frac{d}{dx}[x^3] = 3x^2, </mrow>
+            <mrow> \frac{d}{dx}[x^4] = 4x^3. </mrow>
+          </md>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We rewrite the power as products:
+          <me> \quad x^3 = x \cdot x^2, \quad x^4 = x \cdot x^3. </me>
+          We already know
+          <md>
+            <mrow> \frac{d}{dx}[x] = 1, </mrow>
+            <mrow> \frac{d}{dx}[x^2] = 2x. </mrow>
+          </md>
+          It is useful to remember the product rule using dependent variables instead of functions.
+          That is, if <m>u=f(x)</m> and <m>v=g(x)</m>, then the product rule becomes
+          <me> \frac{d}{dx}[u \cdot v] = \frac{du}{dx} \cdot v + u \cdot \frac{dv}{dx}. </me>
+          because this will guide our use of the differentiation operator.
+        </p>
+        <p>
+          The derivative of <m>x^3 = x \cdot x^2</m> will use <m>u=x</m> and <m>v=x^2</m>:
+          <md>
+              <mrow> \frac{d}{dx}[x^3] &amp;= \frac{d}{dx}[x \cdot x^2]</mrow>
+              <mrow> &amp;= \frac{d}{dx}[x] \cdot x^2 + x \cdot \frac{d}{dx}[x^2]</mrow>
+              <mrow> &amp;= 1 \cdot x^2 + x \cdot (2x)</mrow>
+              <mrow> &amp;= 3x^2 </mrow>
+          </md>
+          The derivative of <m>x^4 = x \cdot x^3</m> uses <m>u=x</m> and <m>v=x^3</m>,
+          whose derivative we learned just above.
+          <md>
+              <mrow> \frac{d}{dx}[x^4] &amp;= \frac{d}{dx}[x \cdot x^3]</mrow>
+              <mrow> &amp;= \frac{d}{dx}[x] \cdot x^3 + x \cdot \frac{d}{dx}[x^3]</mrow>
+              <mrow> &amp;= 1 \cdot x^3 + x \cdot (3x^2)</mrow>
+              <mrow> &amp;= 4x^3 </mrow>
+          </md>
+        </p>
+        <p>
+          Notice that the derivative rules are self consistent.
+          We could have written <m>x^4 = x^2 \cdot x^2</m>,
+          and the product rule would still have given the same answer.
+          <md>
+              <mrow> \frac{d}{dx}[x^4] &amp;= \frac{d}{dx}[x^2 \cdot x^2]</mrow>
+              <mrow> &amp;= \frac{d}{dx}[x^2] \cdot x^2 + x^2 \cdot \frac{d}{dx}[x^2]</mrow>
+              <mrow> &amp;= 2x \cdot x^2 + x^2 \cdot (2x)</mrow>
+              <mrow> &amp;= 4x^3. </mrow>
+          </md>
+        </p>
+      </solution>
     </example>
-
     <p>
-    We can continue to find more derivatives using these results.
+      We can continue to find more derivatives using these results.
+      In particular, all of the polynomials that we learned earlier
+      in terms of the rates of accumulation for accumulation functions,
+      we now can justify as derivatives using the derivative rules.
     </p>
-
     <example>
-        <statement>
+      <statement>
+        <p>
+          Find <m> \displaystyle \frac{d}{dx}[ x^3+5x^2-8x+3 ]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          It is helpful to give the original function a name,
+          so we define <m>f(x)=x^3+5x^2-8x+3</m>.
+          We start by using the sum rule of derivatives.
+          That rule was formulated with adding two formulas together.
+          Consequently, we need to repeat our use of the rule,
+          breaking up the sum into two parts at a time.
+          <md>
+            <mrow> \frac{df}{dx} &amp;= \frac{d}{dx}[x^3+5x^2-8x+3] </mrow>
+            <mrow> &amp; = \frac{d}{dx}[x^3] + \frac{d}{dx}[5x^2 -8x+3] </mrow>
+            <mrow> &amp; = \frac{d}{dx}[x^3] + \frac{d}{dx}[5x^2] + \frac{d}{dx}[-8x+3] </mrow>
+          </md>
+          We can stop at this point with the sum rule because <m>-8x+3</m> is a linear function,
+          and we have a derivative rule for any linear function.
+          We can use the constant multiple rule to factor the <m>5</m> from the derivatives of <m>x^2</m>,
+          and then use the derivatives that we know.
+          <md>
+              <mrow>f'(x) &amp; = \frac{d}{dx}[x^3] + 5 \frac{d}{dx}[x^2] + \frac{d}{dx}[-8x+3] </mrow>
+              <mrow>&amp; = 3x^2 + 5(2x) + -8</mrow>
+              <mrow>&amp; = 3x^2 + 10x-8. </mrow>
+          </md>
+          We have shown <m> \displaystyle \frac{d}{dx}[x^3+ 5x^2-8x+3 ] = 3x^2+10x-8</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The previous example was one that we learned previously using accumulation functions.
+      Because definite integrals also have constant multiple and sum rules,
+      the process we used earlier is essentially the same.
+      The new differentiation rules really show their value
+      in finding derivatives of functions we that are not written as a sum.
+    </p>
+    <example>
+      <statement>
         Find <m> \displaystyle \frac{d}{dx}[\frac{1}{x^3}]</m>.
-        </statement>
-        <solution>
+      </statement>
+      <solution>
         We use the reciprocal rule of derivatives,
         <me> \frac{d}{dx}[\frac{1}{u}] = \frac{-\frac{du}{dx}}{u^2}. </me>
         So our derivative is
@@ -532,31 +645,7 @@
             <mrow> &amp;= \frac{-(3x^2)}{x^3 \cdot x^3} = \frac{-3x^2}{x^6} </mrow>
             <mrow> &amp;= \frac{-3}{x^4}. </mrow>
         </md>
-        </solution>
+      </solution>
     </example>
-
-    <example>
-        <statement>
-        Find <m> \displaystyle \frac{d}{dx}[ 5x^2-8x+3 ]</m>.
-        </statement>
-        <solution>
-        Let <m>f(x)=5x^2-8x+3</m>. (We do this so that we have a simple way to
-        refer to our formula.) We start by using the sum rule of derivatives.
-        <md>
-            <mrow>f'(x) &amp;= \frac{d}{dx}[5x^2-8x+3] </mrow>
-            <mrow> &amp; = \frac{d}{dx}[5x^2 + (-8x+3)] </mrow>
-            <mrow> &amp; = \frac{d}{dx}[5x^2] + \frac{d}{dx}[-8x+3] </mrow>
-        </md>
-        We then use the constant multiple rule and the derivatives of <m>x^2</m>
-        and of a line to finish:
-        <md>
-            <mrow>f'(x) &amp; = 5 \frac{d}{dx}[x^2] + \frac{d}{dx}[-8x+3] </mrow>
-            <mrow>&amp; = 5(2x) + -8</mrow>
-            <mrow>&amp; = 10x-8. </mrow>
-        </md>
-        We have shown <m> \displaystyle \frac{d}{dx}[ 5x^2-8x+3 ] = 10x-8</m>.
-        </solution>
-    </example>
-
-    </subsection>
+  </subsection>
 </section>
