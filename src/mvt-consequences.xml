@@ -6,22 +6,23 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="mvt-consequences">
     <title>Consequences of the Mean Value Theorem</title>
-    
+
     <introduction>
     <p>Just as the Mean Value Theorem for Integrals was used to describe the <xref ref='thm-monotonicity-from-rate-repeat' text='title'>monotonicity of accumulation functions</xref> in terms of the sign of the rate function, the Mean Value Theorem allows us to find the monotonicity of any differentiable function in terms of the sign of its derivative.</p>
-    
+
     <theorem xml:id='thm-monotonicity-from-derivative'>
         <title>Monotonicity of Differentiable Functions</title>
         <statement>
-            <p>Suppose that <m>f</m> is a differentiable on an interval <m>I</m> (open or closed).</p>
+            <p>Suppose that <m>f</m> is a differentiable on an interval <m>I</m> (open or closed).
             <ul>
                 <li><p>If <m>f'(x) \gt 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is increasing on <m>I</m>.</p></li>
                 <li><p>If <m>f'(x) \lt 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is decreasing on <m>I</m>.</p></li>
                 <li><p>If <m>f'(x) = 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is constant on <m>I</m>.</p></li>
             </ul>
+            </p>
             <p>If the interval <m>I</m> is open but <m>f</m> is continuous up to and including the end-points, then the conclusion can be extended to include the end-points as well.</p>
         </statement>
         <proof>
@@ -35,9 +36,9 @@
 
     <subsection>
         <title>Describing Monotonicity Using Derivatives</title>
-    
+
         <p>Because of the theorem about monotonicity, we can understand the behavior of a function if we can find all of the intervals on which the derivative is positive, negative or zero. The only points where <m>f'</m> might change sign are where <m>f'(x)=0</m> or where <m>f'(x)</m> is discontinuous.</p>
-        <p>Our strategy will be as follows.</p>
+        <p>Our strategy will be as follows.
         <ol>
             <li><p>Compute <m>f'(x)</m>.</p></li>
             <li><p>Solve the equation <m>f'(x)=0</m>.</p></li>
@@ -45,12 +46,13 @@
             <li><p>Test the sign of <m>f'(x)</m> on each interval.</p></li>
             <li><p>Apply the Monotonicity theorem to determine the behavior of <m>f</m> on each interval.</p></li>
         </ol>
-        
+        </p>
         <example>
             <statement>
                 <p>Describe the intervals of monotonicity for the function <m>f(x) = x^3-2x^2-4x</m>.</p>
             </statement>
             <solution>
+              <p>
                 <ul>
                 <li>
                     <p>Compute <m>f'(x) = 3x^2-4x-4</m>.</p>
@@ -112,6 +114,7 @@
                     <p>A graph of <m>y=f(x)</m> is shown below for comparison.</p>
                 </li>
                 </ul>
+              </p>
                 <sidebyside>
                     <image>
                         <latex-image>
@@ -135,12 +138,13 @@
                 </sidebyside>
             </solution>
         </example>
-    
+
         <example>
             <statement>
                 <p>Describe the intervals of monotonicity for the function <m>f(x) = xe^{x-2x^2}</m>.</p>
             </statement>
             <solution>
+              <p>
                 <ul>
                     <li>
                     <p>Compute <m>f'(x)=\frac{d}{dx}[xe^{x-2x^2}]</m>, which requires a product rule: <md>
@@ -207,6 +211,7 @@
                     <p>A graph of <m>y=f(x)</m> is shown below for comparison.</p>
                 </li>
                 </ul>
+              </p>
                 <sidebyside>
                     <image>
                         <latex-image>
@@ -231,21 +236,21 @@
             </solution>
         </example>
     </subsection>
-    
+
     <subsection>
         <title>Describing Extreme Values Using Derivatives</title>
-        
+
         <p><xref ref='fermats-theorem' text='title'>Fermat's theorem</xref> states that a function <m>f</m> can have an extreme value only at points where either <m>f'(x)=0</m> or <m>f'(x)</m> does not exist. This motivates the definition of <term>critical points</term>.</p>
-        
+
         <definition xml:id='defn-critical-points'>
             <title>Critical Points</title>
             <statement>
                 <p>Given a function <m>f</m> with domain <m>D</m>, a value <m>c \in D</m> is a <term>critical point</term> of <m>f</m> if <m>f'(c)=0</m> or <m>f'(c)</m> does not exist.</p>
             </statement>
         </definition>
-        
+
         <p>Not every critical point is an extreme value. We need criteria to judge whether or not a given critical point is the location of a maximum or minimum value. Intervals of monotonicity, as determined by the derivative, allow us to make that conclusion. Using monotonicity to classify critical points is justified by the following theorem, known as the first derivative test.</p>
-        
+
         <theorem xml:id='first-derivative-test'>
             <title>First Derivative Test for Local Extrema</title>
             <statement>
@@ -255,9 +260,9 @@
                 <p>Otherwise, <m>f</m> has neither a local maximum or minimum at <m>x=c</m>.</p>
             </statement>
         </theorem>
-        
+
         <p>The first derivative test is usually applied by looking at the number line summary of the first derivative.</p>
-        
+
         <example>
             <statement>
                 <p>Find and classify the local extremes of <m>f(x) = x^3(x^2-4)</m>.</p>
@@ -312,16 +317,16 @@
     </subsection>
     <subsection>
         <title>Describing Concavity Using Derivatives</title>
-        
+
         <p>Concavity describes changing slope or rate of change. On a graph, this corresponds to how the curve described by a function is bending. We restate the <xref ref='defn-function-concavity-informal' text='title'>definition of concavity</xref> in terms of the rate of change defined by a derivative.</p>
-        
+
         <definition xml:id='defn-function-concavity'>
             <title>Concavity</title>
             <statement>
                 <p>Let <m>f</m> be a function such that the derivative <m>f'</m> is defined on an interval <m>I</m>. We say <m>f</m> is <term>concave up</term> on <m>I</m> if <m>f'</m> is increasing on <m>I</m>. We say <m>f</m> is <term>concave down</term> on <m>I</m> if <m>f'</m> is decreasing on <m>I</m>.</p>
             </statement>
         </definition>
-        
+
         <sidebyside>
             <image>
                 <latex-image>
@@ -332,16 +337,16 @@
                 \pgfmathsetmacro{\rad}{2.5}
                 \coordinate (c1) at (0,0);
                 \draw ($ (c1) + (10:\rad) $)
-                        arc (10:80:\rad) 
+                        arc (10:80:\rad)
                         node [pos=0.5,below left] {(I)};
                 \draw ($ (c1) + (100:\rad) $)
-                        arc (100:170:\rad) 
+                        arc (100:170:\rad)
                         node [pos=0.5,below right] {(II)};
                 \draw ($ (c1) + (190:\rad) $)
-                        arc (190:260:\rad) 
+                        arc (190:260:\rad)
                         node [pos=0.5,above right] {(III)};
                 \draw ($ (c1) + (280:\rad) $)
-                        arc (280:350:\rad) 
+                        arc (280:350:\rad)
                         node [pos=0.5,above left] {(IV)};
                 \end{tikzpicture}]]>
                 </latex-image>
@@ -366,36 +371,37 @@
             </li>
         </dl>
         </p>
-        
+
         <p>Concavity is described by finding where the derivative is increasing or decreasing. Since the derivative is itself a function, we can find its derivative. This function will be the derivative of the derivative of the function <m>f</m>, or the <term>second derivative</term>. We write <me> f''(x) = \frac{d}{dx}[f'(x)] = \frac{d^2}{dx^2}[f(x)] = \frac{d^2f}{dx^2}.</me></p>
-        
+
         <theorem xml:id='thm-concavity-from-derivative'>
             <title>Concavity of Twice-Differentiable Functions</title>
             <statement>
-                <p>Given a function <m>f</m> for which <m>f'</m> and <m>f''</m> are defined on an interval <m>I</m>.</p>
+                <p>Given a function <m>f</m> for which <m>f'</m> and <m>f''</m> are defined on an interval <m>I</m>.
             <ul>
                 <li><p>If <m>f''(x) \gt 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is concave up on <m>I</m>.</p></li>
                 <li><p>If <m>f''(x) \lt 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is concave down on <m>I</m>.</p></li>
                 <li><p>If <m>f''(x) = 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is linear on <m>I</m>.</p></li>
             </ul>
+            </p>
             <p>If the interval <m>I</m> is open but <m>f'</m> is continuous up to and including the end-points, then the conclusion can be extended to include the end-points as well.</p>
             </statement>
             <proof>
                 <p>This is just an application of Theorem <xref ref='thm-monotonicity-from-derivative'/> applied to <m>f'</m>. Once we know that <m>f'</m> is increasing on <m>I</m>, the definition of concavity allows us to say that <m>f</m> is concave up on <m>I</m>. Similarly, knowing that <m>f'</m> is decreasing is equivalent to saying that <m>f</m> is concave down. If <m>f'</m> is constant on an interval <m>I</m>, this is exactly what it means for <m>f</m> to be linear on <m>I</m>.</p>
             </proof>
         </theorem>
-        
+
         <example>
             <p>The concavity of a parabola is completely determined by the sign of the leading coefficient. Suppose <m>f(x) = ax^2+bx+c</m>, where <m>a</m>, <m>b</m> and <m>c</m> are parameters. Then <m>f'(x) = 2ax+b</m> and <m>f''(x)=2a</m>. The second derivative for a quadratic is constant, and the sign is determined by the sign of <m>a</m>. If <m>a \gt 0</m>, <m>f</m> is concave up on <m>(-\infty,\infty)</m>; if <m>a \lt 0</m>, <m>f</m> is concave down on <m>(-\infty,\infty)</m>.</p>
         </example>
-        
+
         <definition xml:id='defn-inflection-point'>
             <title>Inflection Point</title>
             <statement>
                 <p>A differentiable function <m>f</m> has an <term>inflection point</term> at a point <m>x=a</m> if <m>a \in \mathrm{dom}(f)</m> and <m>f</m> changes concavity at <m>x=a</m>. That is, there is are intervals <m>(a-\delta,a)</m> and <m>(a,a+\delta)</m> for <m>\delta \gt 0</m> such that <m>f</m> has opposite concavity in these intervals.</p>
             </statement>
         </definition>
-        
+
         <example>
             <statement>
                 <p>Given <m>f(x) = x^3-3x^2-4x+5</m>, describe where <m>f</m> is concave up and concave down.</p>
@@ -448,7 +454,7 @@
                 </sidebyside>
             </solution>
         </example>
-        
+
         <p>When a second derivative can be determined conveniently, there is another way to determine whether a critical point is a turning point corresponding to a local extreme. Suppose <m>f'(a)=0</m> but <m>f''(a)</m> is positive. This means that <m>f'(x)</m> is increasing in a neighborhood of <m>x=a</m>. Consequently, <m>f'(x) \lt 0</m> in an interval with <m>x \lt a</m> and <m>f'(x) \gt 0</m> in an interval with <m>x \gt 0</m>. By the First Derivative Test, <m>f(x)</m> must have a minimum at <m>x=a</m>.</p>
         <p>Graphically, this means that at <m>x=a</m> there is a horizontal tangent with the graph concave up (like a parabola). This point then behaves like the vertex of a parabola opening upward and <m>x=a</m> is a local minimum. Similarly if <m>f''(a) \gt 0</m>, the function is concave down and the graph behaves somewhat like a downward opening parabola and the point <m>x=a</m> would be a local maximum. These results are summarized as a theorem.</p>
         <theorem xml:id='second-derivative-test'>
@@ -471,7 +477,7 @@
                 </md> The Second Derivative Test is inconclusive about <m>x=0</m> being a turning point. Since <m>f(x)</m> is locally concave down at the critical point <m>x=-\sqrt{\frac{12}{5}}</m>, the Second Derivative Test implies that <m>f(x)</m> has a local maximum at this point. Similarly, <m>f(x)</m> has a local minimum at <m>x=+\sqrt{\frac{12}{5}}</m>.</p>
             </solution>
         </example>
-        
+
         <p>From a practical point of view, in order to find the critical points, you will already have had to factor <m>f'(x)</m>. If finding the signs of <m>f'(x)</m> on the resulting intervals will be faster than computing <m>f''(x)</m> and then computing the sign at each critical points, then the First Derivative Test is a better strategy. The second derivative test is useful if finding <m>f''(x)</m> will be especially easy, or at least easier than finding the signs of <m>f'(x)</m>.</p>
     </subsection>
 </section>

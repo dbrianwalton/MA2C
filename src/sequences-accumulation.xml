@@ -6,14 +6,14 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="sequences-accumulation">
   <title>Accumulation Sequences</title>
 
   <introduction>
-    <title>Overview</title>    
+    <title>Overview</title>
     <p>
-      One of the most important mathematical ideas in calculus is 
+      One of the most important mathematical ideas in calculus is
       that of an accumulation of change for physical quantities.
       As we have been learning about sequences,
       we have talked about how we can define sequences using explicit formulas and using recursive definitions.
@@ -32,7 +32,7 @@
       Then we illustrate applying these conditions to demonstrate that the explicit and recursive definitions for arithmetic and geometric sequences are equivalent.
     </p>
   </introduction>
-  
+
   <subsection>
     <title>Accumulation of Change</title>
     <p>
@@ -49,7 +49,7 @@
       <statement>
         <p>
           At the start of the year, you had <dollar/>1500 in an account.
-          Suppose that the sequence 
+          Suppose that the sequence
           <me>W = (W_{m})_{m=1}^{12} = (240, 300, 270, 450, 250, 310, 360, 270, 320, 300, 350, 480)</me>
           represents the total of monthly withdrawals from the account,
           and the sequence
@@ -168,7 +168,7 @@
           <md>
             <mrow>u_{k+1} &amp;= u_k + \nabla u_{k+1}</mrow>
             <mrow> &amp;= w_k + \nabla w_{k+1}</mrow>
-            <mrow> &amp;= w_{k+1} </mrow>.
+            <mrow> &amp;= w_{k+1} .</mrow>
           </md>
           This shows that <m>u_{k+1} = w_{k+1}</m> whenever <m>u_k = w_k</m>.
           By mathematical induction, the entire sequence of statements must be true.
@@ -202,7 +202,7 @@
             <mrow>\nabla x_k &amp;= x_k - x_{k-1}</mrow>
             <mrow> &amp;= \big(3k+4\big) - \big(3(k-1)+4\big)</mrow>
             <mrow> &amp;= 3k+4 - (3k-3+4)</mrow>
-            <mrow> &amp;= 3</mrow>.
+            <mrow> &amp;= 3.</mrow>
           </md>
           Using the recursive formula for <m>y</m>, we find
           <me>\nabla y_k = y_k - y_{k-1} = 3</me>.
@@ -225,7 +225,7 @@
           Suppose <m>u</m> and <m>w</m> are two sequences with common initial values, <m>u_m = w_m</m>.
           If there is a sequence of projection functions <m>f_k</m> so that <m>u</m> and <m>w</m> satisfy the same relations,
           <me>u_{k} = f_k(u_{k-1})</me>
-          and 
+          and
           <me>w_{k} = f_k(w_{k-1})</me>,
           then <m>u_k = w_k</m> for all <m>k=m,m+1,\ldots</m>.
         </p>
@@ -250,8 +250,8 @@
           we need to show that the sequences have the same initial value and the satisfy the same recurrence relations.
           The initial values are:
           <md>
-            <mrow>x_1 = 10 \cdot \frac{1}{2^1} = 5</mrow>,
-            <mrow>y_1 = 5</mrow>.
+            <mrow>x_1 = 10 \cdot \frac{1}{2^1} = 5,</mrow>
+            <mrow>y_1 = 5.</mrow>
           </md>
         </p>
         <p>
@@ -282,16 +282,16 @@
       with <m>\alpha \ne 1</m>.
       When <m>\alpha = 1</m> we have an arithmetic sequence, which is a sequence we already know.
       When <m>c=0</m>, we have a geometric sequence.
-      The projection function <m>f:x_{n-1} \mapsto x_{n}</m> is defined 
-      by the formula <m>f(x) = \alpha x + c</m>. 
-      The fixed point <m>x^*</m> is the solution to 
-      <me>\alpha x + c = x \qquad \Leftrightarrow \qquad x^* = \frac{c}{1-\alpha},</me> 
+      The projection function <m>f:x_{n-1} \mapsto x_{n}</m> is defined
+      by the formula <m>f(x) = \alpha x + c</m>.
+      The fixed point <m>x^*</m> is the solution to
+      <me>\alpha x + c = x \qquad \Leftrightarrow \qquad x^* = \frac{c}{1-\alpha},</me>
       defined only for <m>\alpha \ne 1</m>.
     </p>
     <p>
-      The linear projection function can be rewritten in terms of the fixed point 
+      The linear projection function can be rewritten in terms of the fixed point
       using slope <m>\alpha</m> and point <m>(x^*,x^*)</m> as
-      <me>f(x) = x^* + \alpha(x-x^*)</me>. 
+      <me>f(x) = x^* + \alpha(x-x^*)</me>.
       This means that the recurrence relation can be written
       <me>x_{n} = x^* + \alpha(x_{n-1}-x^*) \quad \Leftrightarrow \quad x_{n}-x^* = \alpha(x_{n-1}-x^*)</me>.
       Consequently, <m>x_n-x^*</m> is a geometric sequence with ratio <m>\alpha</m>.
@@ -301,10 +301,10 @@
       <title>Explicit Formula for Linear Recursive Sequences</title>
       <statement>
         <p>
-        Suppose <m>x_n</m> is defined recursively by the equation 
-        <me>x_{n} = \alpha x_{n-1} + c</me> with <m>\alpha \ne 1</m>. 
-        Then <m>x_n</m> is defined explicitly by a shifted geometric sequence 
-        <me>x_n = x^* + (x_0-x^*) \cdot \alpha^n = x^* + (x_1 -x^*) \cdot \alpha^{n-1},</me> 
+        Suppose <m>x_n</m> is defined recursively by the equation
+        <me>x_{n} = \alpha x_{n-1} + c</me> with <m>\alpha \ne 1</m>.
+        Then <m>x_n</m> is defined explicitly by a shifted geometric sequence
+        <me>x_n = x^* + (x_0-x^*) \cdot \alpha^n = x^* + (x_1 -x^*) \cdot \alpha^{n-1},</me>
         where <m>\displaystyle x^* = \frac{c}{1-\alpha}</m> is the equilibrium of the sequence.
         </p>
       </statement>
@@ -313,18 +313,18 @@
   <subsection>
     <title>Summation Notation</title>
     <p>
-      In mathematics, the idea of adding terms from a sequence appears so frequently that a special notation, 
-      called summation notation or sigma notation for the Greek letter sigma <m>\Sigma</m>, 
+      In mathematics, the idea of adding terms from a sequence appears so frequently that a special notation,
+      called summation notation or sigma notation for the Greek letter sigma <m>\Sigma</m>,
       was created to represent the sum.
     </p>
     <definition xml:id="definition-summation-notation">
       <title>Summation Notation</title>
       <statement>
         <p>
-          Given any sequence <m>x</m> and integers <m>m \le n</m>, 
-          the sum of terms <m>x_k</m> with index <m>k</m> satisfying <m>m \le k \le n</m> 
-          is written <me> \sum_{k=m}^{n} x_k = x_{m} + x_{m+1} + \cdots + x_n. </me> 
-          The starting index <m>m</m> is called the <term>lower limit</term> of the sum 
+          Given any sequence <m>x</m> and integers <m>m \le n</m>,
+          the sum of terms <m>x_k</m> with index <m>k</m> satisfying <m>m \le k \le n</m>
+          is written <me> \sum_{k=m}^{n} x_k = x_{m} + x_{m+1} + \cdots + x_n. </me>
+          The starting index <m>m</m> is called the <term>lower limit</term> of the sum
           while the ending index <m>n</m> is called the <term>upper limit</term>.
         </p>
       </statement>
@@ -336,7 +336,7 @@
     <example>
       <statement>
         <p>
-          Evaluate the following sums. 
+          Evaluate the following sums.
           <ol>
             <li> <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> </li>
             <li> <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> </li>
@@ -346,22 +346,22 @@
       <solution>
         <p>
         <ol>
-          <li> 
+          <li>
             <p>
-              The sum <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m> 
-              involves the increment sequence <m>a_k=2k+3</m> 
-              and is the sum of terms with index from 3 to 7: 
-              <me> a_3 = 2(3)+3 = 9, \: a_4 = 2(4)+3 = 11, \: a_5 = 13, \: a_6=15, \: a_7 = 17. </me> 
+              The sum <m>\displaystyle \sum_{k=3}^{7} [2k+3]</m>
+              involves the increment sequence <m>a_k=2k+3</m>
+              and is the sum of terms with index from 3 to 7:
+              <me> a_3 = 2(3)+3 = 9, \: a_4 = 2(4)+3 = 11, \: a_5 = 13, \: a_6=15, \: a_7 = 17. </me>
               Consequently, we can find the sum <me> \sum_{k=3}^{7} [2k+3] = 9+11+13+15+17 = 65. </me>
             </p>
           </li>
           <li>
             <p>
-              The sum <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m> 
-              involves an increment sequence <m>\displaystyle b_k=\frac{1}{k^2+k}</m>. 
-              The index values involved go from 1 to 4 so that we find 
+              The sum <m>\displaystyle \sum_{k=1}^{4} \frac{1}{k^2+k}</m>
+              involves an increment sequence <m>\displaystyle b_k=\frac{1}{k^2+k}</m>.
+              The index values involved go from 1 to 4 so that we find
               <md>
-                <mrow> \sum_{k=1}^{4} \frac{1}{k^2+k} &amp;= 
+                <mrow> \sum_{k=1}^{4} \frac{1}{k^2+k} &amp;=
                 \frac{1}{1^1+1} + \frac{1}{2^2+2} + \frac{1}{3^2+3} + \frac{1}{4^2+4} </mrow>
                 <mrow> &amp;= \frac{1}{2} + \frac{1}{6} + \frac{1}{12} + \frac{1}{20} </mrow>
                 <mrow> &amp;= \frac{30}{60} + \frac{10}{60} + \frac{5}{60} + \frac{3}{60} </mrow>
@@ -407,16 +407,16 @@
     <example>
       <statement>
         <p>
-          Write the accumulation sequence <m>z = (z_n)_{n=0}^{\infty}</m> 
+          Write the accumulation sequence <m>z = (z_n)_{n=0}^{\infty}</m>
           with initial value <m>z_0=4</m> and an increment sequence <m>a = (3, 5, 7, 9, 11, 13, \ldots)</m>
           as a summation with an explicit formula for the increments.
         </p>
       </statement>
       <solution>
         <p>
-          The sequence <m>z</m> has initial value <m>4</m> which corresponds to index 0, <me> z_0 = 4. </me> 
-          For index values <m>n \gt 0</m>, the sequence is computed with an accumulation of values 
-          from the sequence <m>a</m>. 
+          The sequence <m>z</m> has initial value <m>4</m> which corresponds to index 0, <me> z_0 = 4. </me>
+          For index values <m>n \gt 0</m>, the sequence is computed with an accumulation of values
+          from the sequence <m>a</m>.
           <md>
             <mrow> z_1 &amp;= 4 + \sum_{k=1}^{1} a_k = 4 + 3 = 7 </mrow>
             <mrow> z_2 &amp;= 4 + \sum_{k=1}^{2} a_k = 4 + 3 + 5 = 12 </mrow>
@@ -486,7 +486,7 @@
       </li>
       <li>
         <p>
-          If two sequences share the same initial value and the same increments, 
+          If two sequences share the same initial value and the same increments,
           then the sequences are identical (<xref ref="theorem-uniqueness-of-accumulation"/>).
           More generally, if two sequences share the same initial value and sequence of recurrence relations
           involving the previous term, then the sequences are identical (<xref ref="theorem-uniqueness-of-accumulation-generalized"/>).
@@ -495,8 +495,8 @@
       <li>
         <p>
           Summation notation (sigma notation) provides a method to communicate the sequence of increments
-          as well as the range of index values. 
-          The index variable is sometimes called the dummy variable 
+          as well as the range of index values.
+          The index variable is sometimes called the dummy variable
           because any other variable could be used in its place.
         </p>
       </li>
@@ -653,8 +653,8 @@
     <exercisegroup>
       <introduction>
         <p>
-          Rewrite the following sums in summation notation. 
-          Find an appropriate formula for the increment sequence 
+          Rewrite the following sums in summation notation.
+          Find an appropriate formula for the increment sequence
           and identify the correct lower and upper limits of the sum.
         </p>
       </introduction>

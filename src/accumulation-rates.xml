@@ -365,7 +365,7 @@
           Notice how the graph of <m>y=f(x)</m> reflects the monotonicity and concavity
           that we have determined.
         </p>
-        <figure margins="auto">
+        <figure>
           <caption>Graph of <m>y=f(x)=x^3-6x^2-4</m>, including turning points at <m>x=0</m> and <m>x=4</m>
           and an inflection point at <m>x=2</m>.</caption>
           <image width="70%">

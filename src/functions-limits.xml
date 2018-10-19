@@ -528,11 +528,13 @@
             </dl>
           </p>
         </statement>
-        <p>
-          For identity function <m>f(x)=x</m>,
-          the output sequence is will be the same as the input sequence.
-          Since <m>x_k \to a</m>, the output sequence has limit <m>a</m>.
-        </p>
+        <proof>
+          <p>
+            For identity function <m>f(x)=x</m>,
+            the output sequence is will be the same as the input sequence.
+            Since <m>x_k \to a</m>, the output sequence has limit <m>a</m>.
+          </p>
+        </proof>
     </theorem>
     <p>
       We include the limit of linear functions in our known limits of elementary functions.

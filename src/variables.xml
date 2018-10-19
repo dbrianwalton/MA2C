@@ -6,7 +6,7 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="variables-expressions-equations">
   <title>Variables, Expressions, and Equations</title>
 
@@ -20,7 +20,7 @@
       In this section, we review the concepts of variables, expressions, equations, and basic strategies for solving equations.
     </p>
   </subsection>
-  
+
   <subsection>
     <title>Expressions and Properties of Algebra</title>
     <p>
@@ -105,15 +105,15 @@
           <li><term>Additive identity</term> (zero): <m>x+0=x</m>.</li>
           <li><term>Multiplicative identity</term> (one): <m>1 \cdot x = x</m>.</li>
           <li>
-            For every value <m>x</m>, there is an <term>additive inverse</term> value 
+            For every value <m>x</m>, there is an <term>additive inverse</term> value
             written <m>-x</m> so that <m>x+-x=0</m>.
             It is always the case that <m>-x = -1 \cdot x</m>.
           </li>
           <li>
-            For every non-zero value <m>x</m> (<m>x \ne 0</m>), 
+            For every non-zero value <m>x</m> (<m>x \ne 0</m>),
             there is a <term>multiplicative inverse</term> value
             written <m>\div x</m> so that <m>x \cdot \div x=1</m>.
-            When <m>x \ne 0</m>, we have <m>\div x = \frac{1}{x}</m>, 
+            When <m>x \ne 0</m>, we have <m>\div x = \frac{1}{x}</m>,
             which is why the inverse of <m>x</m> is also called the <term>reciprocal</term>.
           </li>
           <li><term>Commutative properties</term>: <m>x+y = y+x</m> and <m>x \cdot y = y \cdot x</m>.</li>
@@ -292,7 +292,7 @@
           With <m>x=4</m>, our equation is
           <me>\frac{3(4)}{4+2} = 2</me>.
           Because <m>3(4)=12</m> and <m>4+2=6</m> and <m>12 \div 6 = 2</m>, the equation is true.
-          The solution set is 
+          The solution set is
           <me>\{x : \frac{3x}{x+2}=2 \} = \{4\}</me>.
         </p>
       </solution>
@@ -374,7 +374,9 @@
     </p>
     <example>
       <statement>
-        Solve <m>2x^2 = 3x + 5</m>.
+        <p>
+          Solve <m>2x^2 = 3x + 5</m>.
+        </p>
       </statement>
       <solution>
         <p>
@@ -446,7 +448,7 @@
           <me>\frac{x}{x-3} - \frac{3x-4}{x-3} = 0</me>.
           The common denominator is a common inverse factor, allowing us to combine the fractions,
           <me>\frac{x}{x-3} - \frac{3x-4}{x-3} = \frac{x-(3x-4)}{x-3} = \frac{x-3x+4}{x-3} = \frac{-2x+4}{x-3}</me>.
-          Consequently, our equation is equivalent to 
+          Consequently, our equation is equivalent to
           <me>\frac{-2x+4}{x-3} = 0</me>.
           The factors are <m>-2x+4</m> and the multiplicative inverse of <m>x-3</m>, which can never equal zero.
           The only solution is the solution to <m>-2x+4=0</m> or <m>x=2</m>.
@@ -487,7 +489,7 @@
       A useful strategy for solving equations is to isolate a dependent variable in one equation
       and then substitute the resulting value or formula into the other equation.
       That equation then has one variable which can be solved using the usual methods.
-    </p>  
+    </p>
     <example>
       <statement>
         <p>
@@ -563,7 +565,7 @@
           Let us draw a figure and use variables <m>L</m> for the length and <m>W</m> for the width.
         </p>
         <sidebyside width="50%" margins="auto">
-          <image> 
+          <image>
             <latex-image>
             <![CDATA[\tikzset{%
             }
@@ -576,7 +578,7 @@
           </image>
         </sidebyside>
         <p>
-          The perimeter <m>P</m> and the area <m>A</m> can be considered to be dependent variables, 
+          The perimeter <m>P</m> and the area <m>A</m> can be considered to be dependent variables,
           defined by the equations
           <md>
             <mrow>P=2L+2W,</mrow>
@@ -608,7 +610,7 @@
       </solution>
     </example>
   </subsection>
-  
+
   <subsection>
     <title>Summary</title>
     <p>
@@ -640,7 +642,7 @@
     </ul>
     </p>
   </subsection>
-  
+
   <exercises>
     <exercise>
       <statement>
@@ -875,7 +877,7 @@
           If so, how?
         </p>
         <sidebyside width="40%" margins="auto">
-          <image> 
+          <image>
             <latex-image>
             <![CDATA[\tikzset{%
             }

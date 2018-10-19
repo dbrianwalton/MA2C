@@ -6,44 +6,44 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="appendix-numbers-arithmetic">
     <title>Numbers, Sets and Arithmetic</title>
 
     <introduction>
-    
+
         <p>Numbers started as a conceptual way to quantify count objects. Later, numbers were used to measure quantities that were extensive, such as the geometric ideas of length, area and volume. Arithmetic was developed to provide a numeric representation of physical operations. Combining two quantities or collections corresponds to addition. Repeated addition corresponds to multiplication. Repeated multiplication corresponds to powers or exponents. As these ideas developed, inverse operations were invented to help solve problems, including subtraction, division and roots. However, the introduction of each inverse operation required an extension of the idea of number.</p>
-    
+
     </introduction>
-    
+
     <subsection>
     <title>Integers, Rational Numbers and Real Numbers</title>
 
     <p>Numbers conceptually begin with the <term>natural numbers</term>, which are the numbers <m>1, 2, 3, \ldots</m>. The set of all natural numbers is represented by the symbol <m>\mathbb{N}</m>: <notation> <usage>\mathbb{N}</usage> <description>the set of natural numbers</description> </notation> <me> \mathbb{N} = \{ 1, 2, 3, \ldots \}. </me> If we include the number 0, we get all possible counting numbers, represented by the symbol <m>\mathbb{N}_0</m>: <me> \mathbb{N}_0 = \{ 0, 1, 2, 3, \ldots \}.</me> Both of these sets have an infinite number of elements because there is no upper bound (i.e., for any number you find, there is always a number greater).</p>
-    
+
     <p>The natural and counting numbers are used most basically for ordering and counting elements in sets or collections of objects. For example, consider a set consisting of the basic suits of a standard deck of playing cards, namely hearts, diamonds, spades, and clubs, <m>\{\heartsuit, \diamondsuit, \spadesuit, \clubsuit\}</m>. We can count the number of elements by associating each element in the set with one of the natural numbers in order: <md>
         <mrow>1 \mapsto \heartsuit,</mrow>
         <mrow>2 \mapsto \diamondsuit,</mrow>
         <mrow>3 \mapsto \spadesuit,</mrow>
         <mrow>4 \mapsto \clubsuit.</mrow>
     </md> This ordering (which is admittedly arbitrary) allows us to refer to the first, second, third or fourth element in our set. When numbers are used to order elements of a set in this way, we are thinking of numbers as <term>ordinal numbers</term>. Because the greatest number used in our ordering was 4, we can say that the number of elements in our set is 4. When numbers are used to count the number of elements in a set, we are thinking of numbers as <term>cardinal numbers</term>. Both of these ideas can be extended to sets with infinities of elements. It is not in the scope of this text to deal with these issues, but they are  typically addressed in more general discussions of set theory.</p>
-    
+
     <p>However, the elementary ideas of the arithmetic operations of addition and multiplication are often introduced using the ideas of counting. Addition is first defined by joining sets of known size and asking how many elements are in the combined set. For example, <m>3+5</m> is interpreted in this context as joining a set of three elements, say <m>\{a,b,c\}</m>, to another set of five elements, say <m>\{z,y,x,w,v\}</m>, to get a combined set <m>\{a,b,c,v,w,x,y,z\}</m>. The size of this new set is 8. The equation <me>3+5=8</me> is interpreted in this context, namely that <q>the number of elements in a set formed by joining a set with 3 elements and a set with 5 elements</q> (3+5) is the same as <q>the number of elements as a set formed from 8 elements</q> (8). Multiplication is first defined as adding a certain number of groups of the same size. For example, <m>3 \times 5</m> is interpreted as creating a set consisting of 3 groups of 5 elements, which is a new set with 15 elements. This leads to the equation <me>3 \times 5=15.</me></p>
-    
+
     <p>Once the arithmetic operations of addition and multiplication are introduced, inverse operations of subtraction and division soon follow. Subtraction corresponds to taking away from a set with <m>5-3</m> being interpreted as starting with a set of 5 elements and removing a subset of 3 elements, so that <me>5-3=2.</me> Division corresponds to determining how many groups of a certain size are in a particular set, with <m>12 \div 4</m> counting the number of groups of size 4 that can be formed from a set of size 12, so that <me>12 \div 4 = 3.</me></p>
-    
+
     <p>Inverse operations have the property that when performed consecutively, the original value remains unchanged. That is, <m>a+b-b=a</m> for any values of <m>a</m> and <m>b</m> because you join and then remove a set of size <m>b</m> to a set of size <m>a</m>, resulting in a set of the original size <m>a</m>. Similarly, <m>a \times b \div b = a</m> because the set <m>a \times b</m> has <m>a</m> groups of sets with <m>b</m> elements.</p>
-    
+
     <p>The problem that arises is that using only natural or counting numbers, there are expressions that have no valid interpretation. For example, the inverse property suggests that <m>3-5+5=3</m>, but the intermediate calculation <m>3-5</m> does not make sense using counting numbers because there is no interpretation for how to remove 5 elements from a set with only 3 elements. Similarly, although the inverse property suggests <m>5 \div 3 \times 3 = 5</m>, the intermediate calculation <m>5 \div 3</m> has no whole number interpretation because grouping 5 into sets of size 3 results in one group of 3 and another group of 2 (the remainder).</p>
-    
+
     <p>In order to resolve this complication, the idea of number itself is extended. Negative numbers resolve the challenge for subtraction. The set of all integers, also called the whole numbers, introduces both positive and negative counting numbers and is represented by the symbol <m>\mathbb{Z}</m>: <me> \mathbb{Z} = \{ \ldots, -3, -2, -1, 0, 1, 2, 3, \ldots \}. </me> <notation><usage>\mathbb{Z}</usage><description>the set of integers</description></notation></p>
-    
+
     <p>Although we originally thought of subtraction as the inverse operation of addition, the introduction of negative numbers motivated the idea of a number itself having and inverse with respect to addition, or an <term>additive inverse</term>. Every positive and negative number of the same size are inverses because the add to zero, <me>a+-a=0.</me> With additive inverses, the concept of subtraction is equivalent to addition by an additive inverse, <me>a-b = a+-b.</me> The advantage of this perspective is that it makes clear how to subtract negative numbers <mdash/> subtracting a negative number is defined as adding the inverse of the negative number, or adding the corresponding positive number. </p>
-    
+
     <p>Just as subtraction led to the development of negative numbers, division motivates the need to extend numbers from just the integers to rational numbers. As soon as we leave the world of whole numbers, our sense of arithmetic actually changes from counting elements in a set to measuring divisible quantities (like length or volume). The standard representation of numbers on a number line illustrates this directly by thinking of numbers as measuring a directed length from an origin (the number 0). There always must be a <term>unit length</term> which corresponds to the distance between 0 and 1. Positive numbers are to the right and negative numbers are to the left.</p>
-    
+
     <p>A new interpretation of number requires a new interpretation of arithmetic. Addition of numbers corresponds to combining lengths, with 3+5 meaning we find the number which is found by starting at 0 (the origin), moving three units to the right (to find 3) and then moving five more units to the right (to add 5). Since this the same as the number 8 (starting at 0 and moving 8 units to the right), we know 3+5=8. Multiplication (by integers) will still mean repeated addition, just repeating the displacement interpretation of addition instead of groups.</p>
-    
+
     <figure xml:id="fig-number-line-integers">
       <caption> The integers are placed on the real number line with a spacing defined by the unit length.</caption>
       <image>
@@ -61,9 +61,9 @@
         </latex-image>
       </image>
     </figure>
-    
+
     <p>If we consider the property of consecutive inverse operations, we know that we should get <m>1 \div 5 \times 5 = 1</m>. So if we think about the intermediate value <m>a=1 \div 5</m> (which is not an integer), we can see that it is a value such that <m>a \times 5 = 1</m>. In the geometric interpretation, <m>a</m> is a length such that when it is repeated five times, we recover the unit length. This is the unit fraction <m>\frac{1}{5}</m>, which is also called the <term>multiplicative inverse</term> (or reciprocal) of the integer 5. Other fractions have a similar interpretation, such as <m>3 \div 4 = \frac{3}{4}</m> (dividing three into fourths) being the length such that when it is repeated four times is equivalent to three units.</p>
-    
+
     <figure xml:id="fig-number-line-rational">
     <caption> Rational numbers are placed on the real number line using a fractional unit length based on the denominator.</caption>
       <image>
@@ -87,48 +87,48 @@
     </figure>
 
     <p>Just as subtraction was found (or defined) to be equivalent to addition by an additive inverse, division is also equivalent to multiplication by a multiplicative inverse. Given any non-zero number <m>a \ne 0</m>, the multiplicative inverse <m>\div a</m> <notation><usage>\div a</usage> <description>multiplicative inverse of <m>a</m></description></notation> is that number so that <me>a \cdot \div a = 1.</me> Then division <m>a \div b</m> is defined by <me>a \div b = a \cdot \div b.</me></p>
-    
+
     <p>This process allows us to define the rational numbers <m>\mathbb{Q}</m>. The rational numbers are formed by considering all of the integers, their multiplicative inverses, and all sums and products of those values. It is most commonly defined by <me>\mathbb{Q} = \{ p \div q : p \in \mathbb{Z}, q \in \mathbb{N} \}. </me> That is, it consists of all fractions defined by integers.</p>
-    
+
     <p>My goal is not to provide an exhaustive explanation of arithmetic and these representations. That would require, for example, an explanation of what it means to multiply and divide negative numbers. However, let it suffice to say that multiplying two negative numbers together will be a positive number while multiplying a positive number and a negative number will result in a negative number.</p>
-    
+
 
     <p>Other mathematical operations introduce the need for even more extensions to the idea of number. For example, the mathematical operation of squaring a number has an inverse operation of the square root. The square of a rational number is still a rational number, but the square root of a rational number is not necessarily rational. The most famous historical example is <m>\sqrt{2}</m>, which was proved not to be a rational number (according to legend) by the Greek philosopher Pythagoras. The existence of irrational numbers was a closely guarded secret by his followers, the Pythagoreans. The set of <term>real numbers</term> is the set of both rational and irrational numbers and is represented by the symbol <m>\mathbb{R}</m>. <notation> <usage>\mathbb{R}</usage> <description>the set of real numbers</description> </notation> Complex numbers extend the real numbers to include square roots of negative numbers by introducing <m>i=\sqrt{-1}</m> and is defined as <me> \mathbb{C} = \{ a+bi : a, b \in \mathbb{R} \}. </me> <notation> <usage>\mathbb{C}</usage> <description>the set of complex numbers</description> </notation> Every real number <m>a \in \mathbb{R}</m> is also complex with <m>b=0</m>.</p>
-    
+
     <p>We will be working almost exclusively with the real numbers. So we very often think in terms of the real number line, which is a continuous and connected curve. Every point on the number line corresponds to a particular real number. Locations correspond to rational numbers if they can be exactly represented using fractional units. An irrational number can never be exactly represented using fractional units.</p>
 
     </subsection>
 
     <subsection xml:id="appendix-sets-intervals">
         <title>Sets and Intervals</title>
-        
+
         <p>A <term>set</term> is a mathematical collection of objects. The objects that are in the set are called <term>elements</term> of the set. Set notation uses curly braces <m>\{</m> and <m>\}</m> with a description of the elements that belong to the set. When the set has a finite number of elements, we can just list them between the braces. Like other mathematical objects, we can use symbols to represent the set in the same way that variables can be represented by symbols.</p>
-        
+
         <example>
             <p>The set that contains the odd digits could be written <me> O = \{ 1, 3, 5, 7, 9 \}. </me> The set that contains the even digits could be written <me> E = \{ 0, 2, 4, 6, 8 \}. </me> The set that contains the prime digits could be written <me> P = \{ 2, 3, 5, 7 \}. </me> Note: The symbols (names) for these sets, <m>O,E,P</m>, are just used as examples. We could have used any other symbols that might have been convenient.</p>
         </example>
-        
+
         <p>The symbol <m>\in</m> is a logical operator used to say that an element is in a set. Using the example sets above, we would say <m>3 \in O</m> (read as <q> 3 is in <m>O</m></q>) since 3 is an odd digit. But <m>3 \not \in E</m> (read as <q>3 is not in <m>E</m></q>).<notation> <usage>a \in A</usage> <description><m>a</m> is in the set <m>A</m></description></notation> <notation> <usage>a \not \in A</usage> <description><m>a</m> is not in the set <m>A</m></description></notation> </p>
-        
+
         <p>Most useful sets can not be described by listing all of the elements.  Instead, we define sets according to a logical rule that describes when an element is in the set. Such sets start with what is called a <term>universal set</term> that classifies what type of elements are being considered. For example, a set containing numbers might have a universal set <m>\mathbb{Z}</m> (only integers) or <m>\mathbb{R}</m> (all real numbers). A typical set would be defined with a statement like the following, <me> A = \{ x \in U : \hbox{logical statement about $x$} \}, </me> where <m>A</m> is the symbol for the set being defined, <m>U</m> is the universal set, <m>x</m> is a symbol being used to represent an arbitrary element of <m>U</m>, and the statement is how you decide if <m>x \in A</m>.</p>
-        
+
         <example>
             <p>To define the set of all real numbers between -1 and 1, we would write <me>A = \{ x \in \mathbb{R} : -1 \lt x \lt 1 \}. </me> To define the set of positive real numbers, we would write <me>B = \{ x \in \mathbb{R} : x \gt 0 \}. </me></p>
         </example>
-        
+
         <p>We can combine sets to create new sets using unions and intersections. Suppose that <m>A</m> and <m>B</m> represent any two sets. The <term>union</term> of the sets, written <m>A \cup B</m>, is the combination of sets that includes elements that are in at least one of the sets: <me> A \cup B = \{ x : x \in A \hbox{ or } x \in B \}. </me> The <term>intersection</term> of the sets, written <m>A \cap B</m>, is the combination of sets that includes only elements that are in both of the sets, also thought of as the overlap of the sets: <me> A \cap B = \{ x : x \in A \hbox{ and } x \in B \}. </me> <notation> <usage> A \cup B </usage> <description>union of sets <m>A</m> and <m>B</m></description> </notation> <notation> <usage> A \cap B</usage> <description>intersection of sets <m>A</m> and <m>B</m></description> </notation></p>
-        
+
         <example>
             <p>Using the sets defined in the examples above, we have the following statements. The union of <m>O</m> (odd digits) and <m>P</m> (prime digits) gives <me> O \cup P = \{ 1, 2, 3, 5, 7, 9 \}, </me> which is the same as <m>O \cup \{2\}</m>. The intersection of <m>A</m> (real numbers between -1 and 1)  and <m>B</m> (positive real numbers) gives <me> A \cap B = \{ x \in \mathbb{R} : 0 \lt x \lt 1 \}.</me></p>
         </example>
-        
+
         <p>Because most sets being studied in calculus come from the real numbers, the  universal set is often not explicitly stated. So the following represent the same set: <me> \{ x \in \mathbb{R} : 1 \lt x \lt 3 \} = \{ x : 1 \lt x \lt 3 \}. </me></p>
-        
+
         <p>One of the most common type of sets in calculus is the <term>interval</term>. An interval is a set of real numbers representing a connected segment of the real number line. Intervals are defined by their end points. An <term>open interval</term> does not include the end points while a <term>closed interval</term> does include the end points. An open interval with end points <m>a</m> and <m>b</m> with <m>a \lt b</m> is represented by the notation using round parentheses <me> (a,b) = \{ x : a \lt x \lt b \}. </me> A closed interval with the same end points is represented by similar notation using square brackets <me> [a,b] = \{ x : a \le x \le b \}. </me> If only one end point is included, then the notation uses both parentheses and brackets: <md>
             <mrow> [a,b) = \{ x : a \le x \lt b \}, </mrow>
             <mrow> (a,b] = \{ x : a \lt x \le b \}. </mrow>
         </md> <notation> <usage>(a,b)</usage> <description>open interval with endpoints <m>a \lt b</m></description> </notation> <notation> <usage>[a,b]</usage> <description>closed interval with endpoints <m>a \lt b</m></description> </notation> <notation> <usage>(a,b]</usage> <description>semi-open (semi-closed) interval with endpoints <m>a \lt b</m></description> </notation> </p>
-        
+
         <p>A set that consists of disjoint intervals can be represented with interval  notation using unions. Consider, for example, the interval <m>[1,5]</m> and remove the two values 2 and 4. This is no longer a single interval but consists of three disjoint intervals, namely <m>[1,2)</m>, <m>(2,4)</m>, and <m>(4,5]</m>. We can write this set as a union of the three intervals. <me> \{ x \in [1,5] : x \ne 2 \hbox{ and } x \ne 4 \} = [1,2) \cup (2,4) \cup (4,5]. </me> Notice how the set defined on the left uses curly brackets because the set is defined using a rule, but the interval notation on the right does not include curly brackets because the interval notation defines everything about the sets.</p>
     </subsection>
 
@@ -136,8 +136,10 @@
         <title>Algebra Properties</title>
 
         <p>One of the guiding principles in interpreting arithmetic in different representations is that we expect the fundamental properties of arithmetic to be satisfied. These include the commutative and associative properties of addition and multiplication and the distributive properties of multiplication over addition. That is, for every system of numbers, we expect the following properties to hold for any numbers <m>a,b,c</m>.</p>
-    
-        <p><tabular xml:id="basic-arithmetic-properties">
+
+        <table xml:id="basic-arithmetic-properties">
+          <caption>Properties of arithmetic of real numbers.</caption>
+          <tabular>
             <col right="minor"/> <col/>
             <row bottom="major"><cell>Property</cell> <cell>Description</cell></row>
             <row>
@@ -192,16 +194,17 @@
                 <cell><m>(a+b) \cdot c = a \cdot c + b \cdot c</m></cell>
                 <cell>Right Distributive Property</cell>
             </row>
-        </tabular></p>
-        
+        </tabular>
+      </table>
+
         <p>These basic rules establish the basic properties of arithmetic (and algebra) over the real numbers. (Advanced mathematics considers other structures that have some but not all of the same properties in a subject called abstract algebra.) Other consequences of these properties are often used in algebra. We list some of these below for reference.</p>
-        
+
         <theorem xml:id="theorem-product-equals-zero">
             <statement>
                 <p>If <m>a \cdot b = 0</m>, then <m>a=0</m> or <m>b=0</m>.</p>
             </statement>
         </theorem>
-        
+
         <theorem xml:id="theorem-FOIL">
             <statement>
                 <p><m>(a+b)\cdot(c+d) = ac + ad + bc + bd</m> (FOIL)</p>

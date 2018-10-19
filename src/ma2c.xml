@@ -105,28 +105,20 @@
       <xi:include href="./integrals-substitution.xml" />
     </chapter>
 
-    <appendix>
-      <title>Mathematics Foundations</title>
-      <xi:include href="./appendix-numbers-sets-arithmetic.xml" />
-      <xi:include href="./algebra.xml" />
-    </appendix>
-
-    <appendix>
-      <title>Trigonometry Basics</title>
-      <xi:include href="./triangle-trig.xml" />
-      <xi:include href="./angle-measurement.xml" />
-      <xi:include href="./unit-circle-trig.xml" />
-      <xi:include href="./inverse-trig-functions.xml" />
-    </appendix>
-
     <backmatter>
-    <title>Reference material</title>
+      <appendix>
+        <title>Mathematics Foundations</title>
+        <xi:include href="./appendix-numbers-sets-arithmetic.xml" />
+        <xi:include href="./algebra.xml" />
+      </appendix>
 
-    <section>
-    <title>Notation</title>
-    <notation-list />
-    </section>
-
+      <appendix>
+        <title>Trigonometry Basics</title>
+        <xi:include href="./triangle-trig.xml" />
+        <xi:include href="./angle-measurement.xml" />
+        <xi:include href="./unit-circle-trig.xml" />
+        <xi:include href="./inverse-trig-functions.xml" />
+      </appendix>
     </backmatter>
 
   </book>

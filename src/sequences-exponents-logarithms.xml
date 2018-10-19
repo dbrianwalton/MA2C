@@ -245,7 +245,7 @@
         </p>
         <sidebyside>
           <tabular>
-            <row below="major">
+            <row bottom="major">
               <cell>Spin</cell><cell>Price</cell>
             </row>
             <row>

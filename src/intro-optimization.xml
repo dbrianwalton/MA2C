@@ -102,19 +102,21 @@
           with a cost <m>C</m> close to <m>100p</m>.
           We need to use calculus to find the exact value.
         </p>
-        <image>
-          <latex-image>
-            \begin{tikzpicture}
-            \begin{axis}
-            [
-              xmin=0, xmax=40, ymin=0, ymax=300,
-              xlabel={$h$}, ylabel={$C$},
-            ]
-            \addplot [domain=3:40, samples=40, thick, blue] {3*x+1000/x};
-            \end{axis}
-            \end{tikzpicture}
-          </latex-image>
-        </image>
+        <sidebyside width="60%">
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=0, xmax=40, ymin=0, ymax=300,
+                xlabel={$h$}, ylabel={$C$},
+              ]
+              \addplot [domain=3:40, samples=40, thick, blue] {3*x+1000/x};
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
       </solution>
     </example>
     <example>
@@ -297,33 +299,35 @@
           <md>
             <mrow>10-4h = 0</mrow>
             <mrow>\frac{10}{4} = h</mrow>
-            <mrow>h = \frac{5}{2}</mrow>.
+            <mrow>h = \frac{5}{2}.</mrow>
           </md>
           Our test intervals are <m>[0,\frac{5}{2})</m> and <m>(\frac{5}{2},5]</m>.
           Testing the sign at <m>h=1</m> and <m>h=4</m> as sample points,
           we find
           <md>
-            <mrow>A'(1)=10-4(1)=6 \gt 0</mrow>,
-            <mrow>A'(4)=10-4(4)=-6 \lt 0</mrow>.
+            <mrow>A'(1)=10-4(1)=6 \gt 0,</mrow>
+            <mrow>A'(4)=10-4(4)=-6 \lt 0.</mrow>
           </md>
           The results of our sign analysis are summarized on the following number line.
         </p>
-        <image>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}[x=1cm,y=1cm]
-          \draw[-] (0,0) -- (5,0) node[above right] {$A'(h)$} node[below right] {$h$};
+        <sidebyside width="80%">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[-] (0,0) -- (5,0) node[above right] {$A'(h)$} node[below right] {$h$};
 
-          \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$};
-          \draw (5, -0.1) -- (5, 0.1) node[pos=0, below] {$5$};
-          \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$\frac{5}{2}$} node[pos=1,above] {$0$};
-          \node [above] at (1.25,0) {$+$};
-          \node [above] at (3.75,0) {$-$};
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
+            \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$};
+            \draw (5, -0.1) -- (5, 0.1) node[pos=0, below] {$5$};
+            \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$\frac{5}{2}$} node[pos=1,above] {$0$};
+            \node [above] at (1.25,0) {$+$};
+            \node [above] at (3.75,0) {$-$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
         <p>
           Our sign analysis of <m>A'(h)</m> implies that <m>A</m> has a maximum value at <m>h=\frac{5}{2}</m>.
           Because <m>A</m> is increasing on <m>[0,\frac{5}{2}]</m> and decreasing on <m>[]\frac{5}{2},5]</m>,
@@ -352,27 +356,29 @@
           Our sign analysis uses test intervals <m>[0,100)</m> and <m>(100,200]</m>.
           We compute the sign of <m>F'(f)</m> at sample points <m>f=0</m> and <m>f=200</m>:
           <md>
-            <mrow>F'(0)=-0.01(0)+1 = 1 \gt 0</mrow>,
-            <mrow>F'(200)=-0.01(200)+1 = -1 \lt 0</mrow>.
+            <mrow>F'(0)=-0.01(0)+1 = 1 \gt 0,</mrow>
+            <mrow>F'(200)=-0.01(200)+1 = -1 \lt 0.</mrow>
           </md>
           The results of our sign analysis are summarized on the following number line.
         </p>
-        <image>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}[x=1cm,y=1cm]
-          \draw[-] (0,0) -- (5,0) node[above right] {$F'(f)$} node[below right] {$f$};
+        <sidebyside width="80%">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[-] (0,0) -- (5,0) node[above right] {$F'(f)$} node[below right] {$f$};
 
-          \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$};
-          \draw (5, -0.1) -- (5, 0.1) node[pos=0, below] {$200$};
-          \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$100$} node[pos=1,above] {$0$};
-          \node [above] at (1.25,0) {$+$};
-          \node [above] at (3.75,0) {$-$};
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
+            \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$};
+            \draw (5, -0.1) -- (5, 0.1) node[pos=0, below] {$200$};
+            \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$100$} node[pos=1,above] {$0$};
+            \node [above] at (1.25,0) {$+$};
+            \node [above] at (3.75,0) {$-$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
         <p>
           The <xref text="title" ref="thm-first-derivative-test"/> allows us
           to conclude that <m>F</m> has a local maximum value at <m>f=100</m>.

@@ -6,7 +6,7 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="unit-circle-trig">
 	<title>Measuring Arbitrary Angles</title>
 
@@ -19,9 +19,9 @@
 		of measuring angles involve angles of rotation which can be significantly greater
 		than 90 degrees. Before we proceed, we need to discuss how angles are measured.
 		</p>
-		
+
 		<p>
-		Have you ever considered why we measure angles in degrees? 
+		Have you ever considered why we measure angles in degrees?
 		What is so special about a degree?
 		One thing nice about the number 360 is that it has so many factors,
 		including 2, 3, 4, 5, 6, 8, 9, 10 and 12. (That only misses 7 and 11!)
@@ -30,19 +30,19 @@
 		days in the year, so that 1 degree is close to the change in the daily position
 		of stars in the sky, would have been convenient to ancient astronomers.
 		</p>
-		
+
 		<p>
 		What other ways are there to measure rotations?
 		</p>
-		
+
 		<p>
 		If a right angle is considered the fundamental unit, then we might consider
 		measuring an angle as a percentage of a right angle, so that 90 degrees
 		counts as 100 percent. This idea led to the development of what is called
-		a gradian. So an angle of 1 gradian is exactly 1 percent of a right angle, 
+		a gradian. So an angle of 1 gradian is exactly 1 percent of a right angle,
 		and there are 400 gradians in a circle.
 		</p>
-		
+
 		<p>
 		Alternatively, if we think of a full rotation as the fundamental unit,
 		then we might measure an angle as a fraction of a rotation. I especially
@@ -54,7 +54,7 @@
 		and <m>60^{\circ} = \frac{1}{6} \tau</m>.
 		Other conversions can be determined using standard techniques.
 		</p>
-		
+
 		<p>
 		All of the preceding methods for measuring angles are based on natural
 		activity of counting. And none of these methods are mathematically
@@ -64,17 +64,17 @@
 		in terms of the radius.
 		</p>
 	</subsection>
-	
+
 	<subsection>
 		<title>Arc Length and Radian Measure of Angles</title>
-		
+
 		<p>
 		An arc is a path traced along the circumference of a circle. We can describe
-		an arc by either measuring the length of the path (arc length) or by 
-		measuring the angle subtended by the arc. 
+		an arc by either measuring the length of the path (arc length) or by
+		measuring the angle subtended by the arc.
 		It should be obvious that the arc length is proportional to the angle.
 		</p>
-		
+
 		<p>
 		Let <m>s</m> represent the arc length and let <m>\theta</m> represent the
 		angle of the arc. To say that <m>s \propto \theta</m> is to say that there
@@ -85,7 +85,7 @@
 		so that
 		<me> s = \alpha \theta r. </me>
 		</p>
-		
+
 		<p>
 		The value of the constant <m>\alpha</m> depends on how we measure angles.
 		To see this, we will use an arc of a complete rotation which has an
@@ -100,7 +100,7 @@
 		then
 		<me> \alpha_{\tau} = \frac{2 \pi}{1} = 2 \pi. </me>
 		</p>
-		
+
 		<p>
 		The mathematically defined measure of angle called the radian is
 		determined by choosing the proportionality constant <m>\alpha</m> as
@@ -110,11 +110,11 @@
 		<me> 2 \pi r = 1 \theta r \quad \Leftrightarrow \quad \theta = 2 \pi. </me>
 		That is, a full rotation is defined as <m>2 \pi</m> radians.
 		</p>
-		
+
 		<p>
 		With radians as the measure of angle, the arc length formula simplifies to
 		<me> s = \theta r. </me>
-		In other words, the angle <m>\theta</m> is determined by measuring the 
+		In other words, the angle <m>\theta</m> is determined by measuring the
 		length of a subtended arc using the radius as the unit of length.
 		An angle <m>\theta = 1</m> radian has an arc length equal to the radius of the arc.
 		When angles are measured in radians, no units are used; so we would just say <m>\theta = 1</m>.
@@ -125,7 +125,7 @@
 		    <mrow>1 \tau = 2 \pi.</mrow>
 		</mdn>
 		</p>
-		
+
 		<p>
 		  How did you read that last sentence?
 		  Did you visualize and interpret what it says, and not just read the symbols?
@@ -133,7 +133,7 @@
 		  Could you draw a similar figure showing angles corresponding to 30, 45 and 60 degrees?
 		  What is the radian measure of those angles?
 		</p>
-		
+
         <figure xml:id="fig-arcs-in-radians">
             <caption>Important arcs measured in radians.</caption>
             <image>
@@ -143,7 +143,7 @@
                 <![CDATA[\tikzset{%
                 }
                 \begin{tikzpicture}[auto, thick]
-                
+
                 \coordinate (c1) at (0,0);
                 \draw [dotted] (c1) circle (2);
                 \draw (c1) -- ($ (c1) + (2,0) $) node [pos=0.5] {$r$}
@@ -166,46 +166,46 @@
             </image>
         </figure>
 	</subsection>
-	
+
 	<subsection>
 		<title>Unit Circle and Standard Position</title>
-		
+
 		<p>
 		In order to have a universal reference for an angle, we introduce
 		the standard position of an angle in terms of a unit circle.
-		The equation for a circle with radius <m>r=1</m> and 
+		The equation for a circle with radius <m>r=1</m> and
 		a center at the origin <m>(0,0)</m> is <m>x^2+y^2=1</m>.
 		Standard position for an angle always forms an arc on the unit circle
 		that starts on the <m>x</m>-axis at <m>(1,0)</m> and moves along
 		the circle in the counter clockwise direction for positive angles
 		(clockwise for negative angles).
 		</p>
-		
+
 		<p>
 		An angle greater than <m>2 \pi</m> will wrap completely around the circle and continue.
 		Multiples of <m>2 \pi</m> (<m>0, \pm 2 \pi, \pm 4 \pi, \ldots</m>) all
-		end at the same point <m>(1,0)</m> on the unit circle but correspond 
+		end at the same point <m>(1,0)</m> on the unit circle but correspond
 		to a different number of rotations.
 		In fact, every point on the unit circle has infinitely many different angles
-		(that differ by multiples of <m>2 \pi</m>) that end at that point when in 
+		(that differ by multiples of <m>2 \pi</m>) that end at that point when in
 		standard position.
 		</p>
-		
+
 		<example>
 		<statement>
-			Find all angles that terminate at the point <m>(0,1)</m>.
+      <p>Find all angles that terminate at the point <m>(0,1)</m>.</p>
 		</statement>
 		<solution>
 			<p>
 			The point <m>(0,1)</m> is a quarter turn in the positive direction
-			or three quarters turn in the negative direction. So the angles 
+			or three quarters turn in the negative direction. So the angles
 			<m>\theta = \frac{1}{4} \tau = \frac{1}{4}(2 \pi) = \frac{\pi}{2}</m>
 			and <m>\theta = -\frac{3}{4} \tau = -\frac{3}{4}(2 \pi) = -\frac{3\pi}{2}</m>
 			are two of the angles desired.
 			</p>
-			
+
 			<p>
-			Notice that these angles are <m>2 \pi</m> apart. 
+			Notice that these angles are <m>2 \pi</m> apart.
 			In fact, we can add any integer multiple of <m>2 \pi</m> and end at the same
 			spot.
 			One of writing this is to say
@@ -213,10 +213,10 @@
 			</p>
 		</solution>
 		</example>
-		
+
 		<example>
 		<statement>
-			Where does the angle <m>\theta = \frac{28 \pi}{3}</m> terminate?
+			<p>Where does the angle <m>\theta = \frac{28 \pi}{3}</m> terminate?</p>
 		</statement>
 		<solution>
 			<p>
@@ -227,16 +227,16 @@
 			Rewrite the fraction:
 			<me> \theta = \frac{28 \pi}{3} = 4 \cdot 2 \pi + \frac{4 \pi}{3}. </me>
 			</p>
-			
+
 			<p>
 			To interpret this angle, recognize that the integer multiple of <m>2 \pi</m>
-			corresponds to 4 complete rotations. Next, determine what fraction of a 
+			corresponds to 4 complete rotations. Next, determine what fraction of a
 			rotation corresponds to <m>\frac{4\pi}{3}</m>:
 			<me> \frac{4\pi}{3} = \frac{2}{3}(2 \pi). </me>
-			So we continue another two-thirds of a rotation, which is 60 degrees past 
+			So we continue another two-thirds of a rotation, which is 60 degrees past
 			a half rotation and 30 degrees short of vertical.
 			</p>
-			
+
 			<figure xml:id="fig-terminal-angle-example">
 				<caption>Terminal position of <m>\theta = \frac{28 \pi}{3}</m>.</caption>
 				<image>
@@ -250,7 +250,7 @@
 					\begin{tikzpicture}[auto, thick]
 					\pgfmathsetmacro{\rad}{3}
 					\pgfmathsetmacro{\theta}{65}
-				
+
 					\coordinate (c1) at (0,0);
 					\draw [dotted] (c1) circle (\rad);
 					\draw (\rad-0.6, 0)
@@ -270,6 +270,6 @@
 			</figure>
 		</solution>
 		</example>
-		
+
 	</subsection>
 </section>

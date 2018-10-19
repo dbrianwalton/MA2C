@@ -161,12 +161,15 @@
         <theorem xml:id="thm-monotonicity-from-rate-repeat">
             <title>Monotonicity Test for Accumulation Functions</title>
             <statement>
-            <p>Suppose that <m>A(x)</m> is an accumulation function with corresponding rate function <m>f(x)</m>, and suppose that <m>f(x)</m> is continuous on <m>[a,b]</m>.</p>
-            <ul>
+            <p>
+              Suppose that <m>A(x)</m> is an accumulation function with corresponding rate function <m>f(x)</m>,
+              and suppose that <m>f(x)</m> is continuous on <m>[a,b]</m>.
+              <ul>
                 <li><p>If <m>f(x) \gt 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is increasing on <m>[a,b]</m>.</p></li>
                 <li><p>If <m>f(x) \lt 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is decreasing on <m>[a,b]</m>.</p></li>
                 <li><p>If <m>f(x) = 0</m> for all <m>x \in (a,b)</m>, then <m>A(x)</m> is constant on <m>[a,b]</m>.</p></li>
-            </ul>
+              </ul>
+            </p>
             </statement>
             <proof>
                 <p>Consider any two points <m>c_1, c_2 \in [a,b]</m> with <m>c_1 \lt c_2</m>. Because <m>A(x)</m> is an accumulation function, by the splitting property of definite integrals, <me>A(c_2) - A(c_1) = \int_{c_1}^{c_2} f(x) \, dx.</me> On the other hand, because <m>f</m> is continuous, the Mean Value Theorem guarantees the existence of a point <m>c \in (c_1,c_2)</m> such that <me>A(c_2)-A(c_1) = \int_{c_1}^{c_2} f(x)\, dx = f(c)\cdot(c_2-c_1).</me></p>

@@ -64,7 +64,7 @@
         <mrow> &amp; = \lim_{h \to 0} \frac{h(3x^2+3xh+h^2-3)}{h} </mrow>
         <mrow> &amp; = \lim_{h \to 0} 3x^2+3xh+h^2-3 </mrow>
         <mrow> &amp; = 3x^2+3x(0)+(0)^2-3 </mrow>
-        <mrow> &amp; = 3x^2-3 </mrow>.
+        <mrow> &amp; = 3x^2-3. </mrow>
       </md>
       The derivative exactly matches the rate of accumulation.
     </p>
@@ -125,7 +125,7 @@
       This is a consequence of writing
       <me>\int_a^b f(x) \, dx = (b-a) \cdot \langle f(x) \rangle_{[a,b]}</me>.
       The average value multiplied by <m>b-a</m> equals the total signed area of <m>f(x)</m> from <m>a</m> to <m>b</m>,
-      so we can think of <m>(b-a) \cdot \langle f(x) \rangle_{[a,b]</m> as the signed area of a rectangle
+      so we can think of <m>(b-a) \cdot \langle f(x) \rangle_{[a,b]}</m> as the signed area of a rectangle
       with a vertical position given by the average value.
     </p>
     <p>

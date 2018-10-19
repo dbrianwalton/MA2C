@@ -327,7 +327,7 @@
             and then finding the reciprocal:
             <md>
               <mrow>f^{-1}(x) &amp;= \frac{1}{2}\Big(\frac{1}{\big(\frac{x-3}{4}\big)}+5\Big)</mrow>
-              <mrow> &amp;= \frac{1}{2}\Big(\frac{4}{x-3}+5\Big)</mrow>.
+              <mrow> &amp;= \frac{1}{2}\Big(\frac{4}{x-3}+5\Big).</mrow>
             </md>
             If we wanted to distribute the multiplication by <m>\frac{1}{2}</m>,
             we would obtain a slightly simpler expression,
@@ -828,13 +828,31 @@
       <li>
         <p>
           Common parametrized families of functions are linear, exponential, and power functions.
-          <md>
-            <mrow>f(x)&amp;=mx+b, \qquad &amp; \text{linear, slope-intercept}</mrow>
-            <mrow>f(x)&amp;=A \, x^p, \qquad &amp; \text{power}</mrow>
-            <mrow>f(x)&amp;=A \, b^x, \qquad &amp; \text{exponential, general base}</mrow>
-            <mrow>f(x)&amp;=A \, e^{kx}, \qquad &amp; \text{exponential, natural base <m>e</m>}</mrow>
-          </md>
         </p>
+        <sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell>Parametric Formula</cell>
+              <cell>Description</cell>
+            </row>
+            <row>
+              <cell><m>f(x)=mx+b</m></cell>
+              <cell>linear, slope-intercept</cell>
+            </row>
+            <row>
+              <cell><m>f(x)=A \, x^p</m></cell>
+              <cell>power</cell>
+            </row>
+            <row>
+              <cell><m>f(x)=A \, b^x</m></cell>
+              <cell>exponential, general base <m>b</m></cell>
+            </row>
+            <row>
+              <cell><m>f(x)=A \, e^{kx}</m></cell>
+              <cell>exponential, natural base <m>e</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
       </li>
       <li>
         A polynomial is a linear combination of simple powers <m>(1,x,x^2,\ldots,x^n)</m>,

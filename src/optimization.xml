@@ -6,25 +6,31 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="optimization">
     <title>Extreme Values and Optimization</title>
-    
+
     <introduction>
     <p>We have already learned that derivatives can help us identify the location of local extreme values, points that are the highest or lowest values in a neighborhood of that point. It is often the case that we need to find the highest or lowest value that a function ever achieves, not just in its own neighborhood. We call these global extremes.</p>
-    
+
     <p>Applications involving the identification of extreme values are often called optimization problems. The task in optimization is to identify the value of an independent variable in the system that will maximize or minimize some objective. Aside from the calculus in finding the extreme values, creating an appropriate function that will serve as the objective is often the greatest challenge.</p>
     </introduction>
-    
+
     <subsection>
         <title>Global Extreme Values</title>
-    
-        <p>The <xref ref='extreme-value-theorem' text='title'>Extreme Value Theorem</xref> guarantees that a continuous function restricted to a closed interval will always have global maximum minimum values. Those extremes can only occur at either the end points of the interval or at critical points (points with horizontal or undefined tangents). This guides our strategy.</p>
-        <ol>
+
+        <p>
+          The <xref ref='extreme-value-theorem' text='title'>Extreme Value Theorem</xref> guarantees
+          that a continuous function restricted to a closed interval will always have global maximum minimum values.
+          Those extremes can only occur at either the end points of the interval or at critical points
+          (points with horizontal or undefined tangents).
+          This guides our strategy.
+          <ol>
             <li><p>Compute <m>f'(x)</m>.</p></li>
             <li><p>Identify critical points: solve <m>f'(x)=0</m> and identify all points where <m>f'(x)</m> is not defined.</p></li>
             <li><p>Classify the points, including the end points for comparison.</p></li>
-        </ol>
+          </ol>
+        </p>
         
         <example>
             <statement>
@@ -90,15 +96,15 @@
                 </sidebyside>
             </solution>
         </example>
-        
+
         <p>When the function is not continuous or the interval is not a closed interval, the function is not guaranteed to have global extreme values. When an end point for a continuous function is not included, the function achieves every value up to the limit at that end point. This means that it is possible that the function does not actually have an extreme value. For every value the function does achieve, there may be another value that is more extreme.</p>
-        
+
         <example>
             <p>The function <m>f(x)=x</m> restricted to <m>(0,1)</m> is continuous. The values (range) is obviously <m>(0,1)</m>. But <m>f</m> does not have a maximum or minimum value. The upper limit <m>y=1</m> is never achieved because <m>x=1</m> is not in the restricted domain. But for any value <m>y \lt 1</m>, there will always be another value that is larger. Similarly, <m>y=0</m> is an unacheived lower limit and <m>f</m> does not have a minimum value.</p>
         </example>
-        
+
         <p>When looking for extreme values for functions that have discontinuities or where the domain is restricted to an open interval, we do the same things as for continuous functions: find critical points and compare values of the function. However, we need to include any relevant limits in the comparison. If a limiting value is more extreme than any of the achieved extreme values, then the function does not achieve that extreme value.</p>
-        
+
         <example>
             <statement>
                 <p>Find the extreme values of the function <m>f(x) = x^3+x^2-2x+2</m> on the interval <m>(-2,2)</m>.</p>
@@ -131,7 +137,7 @@
                         \addplot [-, samples=101, domain=-2:2, thick, blue] {x^3+x^2-2*x+2};
                         \addplot [only marks, mark=o, blue] coordinates {
                             (-2,2) (2,10)
-                        } 
+                        }
                         node [pos=0, right] {$x=-2$}
                         node [pos=1, left] {$x=2$};
 
@@ -147,7 +153,7 @@
                 </sidebyside>
             </solution>
         </example>
-        
+
         <example>
             <statement>
                 <p>Find the extreme values of the function <m>f(x)=\frac{10x-15}{x^2}</m>.</p>
@@ -209,13 +215,13 @@
             </solution>
         </example>
     </subsection>
-    
+
     <subsection>
         <title>Optimization</title>
-        
+
         <p>Optimization is the application of finding extreme values to either maximize or minimize some quantity of interest. In general, we will have a system where there is some variable that we have freedom to vary and some quantity that is a function of that variable that we want to be at a maximum or minimum value. The variable that we vary is the independent variable. The quantity that we optimize is called the <term>objective function</term>.</p>
         <p>For example, consider a crystal goblet. When a pure note is sounded, the goblet will resonate with a strength that depends on the frequency of the note. If we wanted to shatter the goblet, we would want to find the frequency with which the goblet resonated the most. In this example, the frequency of the note being played is the independent variable and the strength of resonance would be the objective function.</p>
-        
+
         <example>
             <statement>
                 <p>The most elementary example of resonance is for a forced simple harmonic oscillator. The independent variable is the forcing frequency <m>\omega</m>. The objective function is the amplification factor of the resonant response <m>A</m>. The system also has parameters related to the oscillator itself: <m>\omega_0</m>, which represents natural frequency of the oscillator in the absence of friction, and <m>\alpha</m>, which represents a rate at which the oscillator's motion would decay in the absence of a stimulus. The amplification factor is defined by the equation <me>A(\omega) = \frac{1}{\sqrt{(\omega^2-\omega_0^2)^2 + 4 \alpha^2 \omega^2}} = \big( (\omega^2-\omega_0^2)^2 + 4 \alpha^2 \omega^2\big)^{-1/2}.</me> Find the frequency that is amplified the most.</p>
@@ -271,9 +277,9 @@
                 <p>In the case that <m>\omega_0^2 \lt 2 \alpha^2</m> and the only critical value is <m>\omega=0</m>, the factor in the numerator of <m>A'(\omega)</m> given by <m>\omega^2 - \omega_0^2 + 2\alpha^2</m> will always be positive. This implies that <m>A'(\omega) \lt 0</m> for all <m>\omega \gt 0</m>, meaning that <m>A(\omega)</m> is a decreasing function whose maximum must be at the end-point <m>\omega=0</m>.</p>
             </solution>
         </example>
-        
+
         <p>Not every application involves unspecified parameters.</p>
-        
+
         <example>
             <statement>
                 <p>The number of births in a population during a given time period is equal to the per capita birth rate times the population size. Suppose that the per capita birth rate was found to also depend on the population size. Average per capita birth rates for certain controlled population sizes were experimentally obtained and shown in the table below. Find a model for the per capita birth rate as a function of population size and use that model to predict the maximum population birth rate.</p>

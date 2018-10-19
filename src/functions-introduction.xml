@@ -292,9 +292,9 @@
       then simply writing <m>f(2)</m> immediately implies <m>t=2</m> without having to say this separately.
       The three values of interest could be written,
       <md>
-        <mrow>f(2) = 500 (1.02)^2 = 520.20</mrow>,
-        <mrow>f(5) = 500 (1.02)^5 \approx 552.04</mrow>,
-        <mrow>f(10) = 500 (1.02)^{10} \approx 609.50</mrow>.
+        <mrow>f(2) = 500 (1.02)^2 = 520.20,</mrow>
+        <mrow>f(5) = 500 (1.02)^5 \approx 552.04,</mrow>
+        <mrow>f(10) = 500 (1.02)^{10} \approx 609.50.</mrow>
       </md>
     </p>
     <note xml:id="function-notation-not-multiplication">
@@ -619,8 +619,8 @@
         <me>b \overset{f^{-1}}{\mapsto} a = \frac{b-2}{3}</me>.
         Using a placeholder variable, like <m>x</m>, these can be written in function notation:
         <md>
-          <mrow>f(x) = 3x+2</mrow>,
-          <mrow>f^{-1}(x) = \frac{x-2}{3}</mrow>.
+          <mrow>f(x) = 3x+2,</mrow>
+          <mrow>f^{-1}(x) = \frac{x-2}{3}.</mrow>
         </md>
         </p>
       </statement>

@@ -67,41 +67,43 @@
         <mrow> y &amp;= 9(x-2)+2. </mrow>
       </md>
     </p>
-    <image>
-      <description>Graph of a function with tangent lines and their corresponding slopes shown at several points.</description>
-      <latex-image>
-      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-      <![CDATA[\tikzset{%
-      /pgfplots/table/row sep=crcr
-      }
-      \begin{tikzpicture}
-      \begin{axis}[
-          xmin=-3,xmax=3,
-          ymin=-5,ymax=5,
-          xlabel={$x$},
-          ylabel={$y$},
-      ]
+    <sidebyside width="60%">
+      <image>
+        <description>Graph of a function with tangent lines and their corresponding slopes shown at several points.</description>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-3,xmax=3,
+            ymin=-5,ymax=5,
+            xlabel={$x$},
+            ylabel={$y$},
+        ]
 
-      \addplot[blue, thick, samples=100]
-          ({x}, {x^3-3*x});
-      \addplot[only marks, blue] table {
-          -2 -2\\
-          -1 2\\
-          0 0\\
-          1 -2\\
-          2 2\\
-      };
-      \addplot[dashed, thick, red, domain=-1.5:-0.5]
-          ({x}, {2});
-      \addplot[dashed, thick, red, domain=-0.5:0.5]
-          ({x}, {-3*x});
-      \addplot[dashed, thick, red, domain=1.5:2.5]
-          ({x}, {2+9*(x-2)});
-      \addplot[mark=none, black] {0};
-      \end{axis}
-      \end{tikzpicture}]]>
-      </latex-image>
-    </image>
+        \addplot[blue, thick, samples=100]
+            ({x}, {x^3-3*x});
+        \addplot[only marks, blue] table {
+            -2 -2\\
+            -1 2\\
+            0 0\\
+            1 -2\\
+            2 2\\
+        };
+        \addplot[dashed, thick, red, domain=-1.5:-0.5]
+            ({x}, {2});
+        \addplot[dashed, thick, red, domain=-0.5:0.5]
+            ({x}, {-3*x});
+        \addplot[dashed, thick, red, domain=1.5:2.5]
+            ({x}, {2+9*(x-2)});
+        \addplot[mark=none, black] {0};
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </sidebyside>
     <definition xml:id='defn-derivative'>
       <title>The Derivative</title>
       <statement>
@@ -176,7 +178,7 @@
                 <md>
                   <mrow> f(x+h)-f(x) &amp;= (x^2+2xh+h^2-3x-3h)- (x^2-3x) </mrow>
                   <mrow> &amp; = x^2+2xh+h^2-3x-3h-x^2+3x </mrow>
-                  <mrow> &amp; = 2xh+h^2-3h </mrow>.
+                  <mrow> &amp; = 2xh+h^2-3h. </mrow>
                 </md>
               </p>
             </li>
@@ -186,7 +188,7 @@
                 <md>
                   <mrow> \frac{f(x+h)-f(x)}{h} &amp; = \frac{2xh+h^2-3h}{h} </mrow>
                   <mrow> &amp; = \frac{h(2x+h-3)}{h} </mrow>
-                  <mrow> &amp; = 2x+h-3 </mrow>.
+                  <mrow> &amp; = 2x+h-3. </mrow>
                 </md>
               </p>
             </li>
@@ -196,7 +198,7 @@
                 <md>
                   <mrow> \frac{df}{dx} &amp; = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
                   <mrow> &amp; = \lim_{h \to 0} 2x+h-3 </mrow>
-                  <mrow> &amp; = 2x+0-3 = 2x-3 </mrow>.
+                  <mrow> &amp; = 2x+0-3 = 2x-3. </mrow>
                 </md>
                 So we have found the derivative function, <m>\frac{df}{dx}(x) = 2x-3</m>.
                 We can see this exactly agrees with the rate of accumulation <m>f'(x)=2x-3</m>
@@ -264,7 +266,7 @@
                   <mrow> \frac{df}{dx} &amp; = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} </mrow>
                   <mrow> &amp; = \lim_{h \to 0} \frac{-2}{(2x+3)(2x+2h+3)} </mrow>
                   <mrow> &amp; = \frac{-2}{(2x+3)(2x+0+3)} </mrow>
-                  <mrow> &amp; = \frac{-2}{(2x+3)^2} </mrow>.
+                  <mrow> &amp; = \frac{-2}{(2x+3)^2}. </mrow>
                 </md>
                 This gives us the derivative function,
                 <me>\frac{df}{dx} = \frac{-2}{(2x+3)^2}.</me>
@@ -312,7 +314,7 @@
                   <mrow> &amp; = \frac{(\sqrt{x+h}-\sqrt{x})(\sqrt{x+h}+\sqrt{x})}{h(\sqrt{x+h}+\sqrt{x})} </mrow>
                   <mrow> &amp; = \frac{(\sqrt{x+h})^2-(\sqrt{x})^2}{h(\sqrt{x+h}+\sqrt{x})}
                   = \frac{x+h-x} {h(\sqrt{x+h}+\sqrt{x})} </mrow>
-                  <mrow> &amp; = \frac{h}{h(\sqrt{x+h}+\sqrt{x}})} = \frac{1}{\sqrt{x+h}+\sqrt{x}}</mrow>.
+                  <mrow> &amp; = \frac{h}{h(\sqrt{x+h}+\sqrt{x})} = \frac{1}{\sqrt{x+h}+\sqrt{x}}.</mrow>
                 </md>
               </p>
             </li>
@@ -361,7 +363,7 @@
                   <mrow> &amp; = \frac{(\sqrt{2x+2h-5}-\sqrt{2x-5})(\sqrt{2x+2h-5}+\sqrt{2x-5})}{h(\sqrt{2x+2h-5}+\sqrt{2x-5})} </mrow>
                   <mrow> &amp; = \frac{(\sqrt{2x+2h-5})^2-(\sqrt{2x-5})^2}{h(\sqrt{2x+2h-5}+\sqrt{2x-5})}
                   = \frac{(2x+2h-5)-(2x-5)} {h(\sqrt{2x+2h-5}+\sqrt{2x-5})} </mrow>
-                  <mrow> &amp; = \frac{2h}{h(\sqrt{2x+2h-5}+\sqrt{2x-5})} = \frac{2}{\sqrt{2x+2h-5}+\sqrt{2x-5}}</mrow>.
+                  <mrow> &amp; = \frac{2h}{h(\sqrt{2x+2h-5}+\sqrt{2x-5})} = \frac{2}{\sqrt{2x+2h-5}+\sqrt{2x-5}}.</mrow>
                 </md>
               </p>
             </li>
@@ -522,7 +524,7 @@
             <mrow> &amp;= \lim_{h \to 0^-} \frac{1+2h+h^2 - 1}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0^-} \frac{2h+h^2}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0^-} 2+h </mrow>
-            <mrow> &amp;= 2+0 = 2</mrow>.
+            <mrow> &amp;= 2+0 = 2.</mrow>
           </md>
           Next, using the function for <m>x \gt 1</m>,
           we have <m>f(1+h) = 1+h</m> when <m>h \gt 0</m>.
@@ -532,7 +534,7 @@
             <mrow> &amp;= \lim_{h \to 0^+} \frac{(1+h) - 1}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0^+} \frac{h}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0^+} 1 </mrow>
-            <mrow> &amp;= 1</mrow>.
+            <mrow> &amp;= 1.</mrow>
           </md>
           With different limits from the left and right,
           <me> \frac{df}{dx}(1) = \lim_{h \to 0} \frac{f(1+h)-f(1)}{h} </me>
@@ -588,7 +590,7 @@
             <mrow> &amp;= \lim_{h \to 0^-} \frac{(6+h+h^2) - 6}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0^-} \frac{h(1+h)}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0^-} 1+h </mrow>
-            <mrow> &amp;= 1+0 = 1</mrow>.
+            <mrow> &amp;= 1+0 = 1.</mrow>
           </md>
           When <m>h \gt 0</m>, we have
           <me> f(2+h) = 5(2+h)-(2+h)^2 = 6+h-h^2 </me>.
@@ -600,7 +602,7 @@
             <mrow> &amp;= \lim_{h \to 0^+} \frac{(6+h-h^2) - 6}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0^+} \frac{h(1-h)}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0^+} 1-h </mrow>
-            <mrow> &amp;= 1-0 = 1</mrow>.
+            <mrow> &amp;= 1-0 = 1.</mrow>
           </md>
           Since the left and right limits computing the left and right derivatives are the same,
           we conclude that
@@ -612,20 +614,22 @@
           When the left and right derivatives agree,
           the function transitions smoothly with no corner at <m>x=2</m>.
         </p>
-        <image>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}
-          \begin{axis}
-          [ xmin=-1, xmax=5, ymin=2, ymax=9 ]
-          \addplot[domain=-1:2, samples=51] (x, x^2-3*x+8);
-          \addplot[domain=2:5, samples=51] (x, 5*x-x^2);
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
+        <sidebyside>
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [ xmin=-1, xmax=5, ymin=2, ymax=9 ]
+            \addplot[domain=-1:2, samples=51] (x, x^2-3*x+8);
+            \addplot[domain=2:5, samples=51] (x, 5*x-x^2);
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
       </solution>
     </example>
   </subsection>

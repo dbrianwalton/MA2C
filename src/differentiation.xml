@@ -36,13 +36,13 @@
       Maps that take numbers as inputs and give numbers as outputs are called <term>functions</term>;
       a map that takes an entire function as an input is called an <term>operator</term>.
       When the independent variable is <m>x</m>,
-      the symbol for the differential operator is <m>\displaystyle \frac{d}{dx}</m>.
+      the symbol for the differential operator is <m>\frac{d}{dx}</m>.
       The <m>x</m> in the symbol is replaced by the appropriate independent variable for the function of interest.
     </p>
     <definition>
       <statement>
         <p>
-          The differential operator <m>\displaystyle \frac{d}{dx}</m> takes a function
+          The differential operator <m>\frac{d}{dx}</m> takes a function
           as its input and provides the derivative function as its output,
           <me> \frac{d}{dx}[f(x)] = \frac{df}{dx}(x) = f'(x). </me>
           If <m>y</m> is a dependent variable defined by a function <m>y=f(x)</m>,
@@ -82,7 +82,7 @@
           <me>\frac{d}{dx}[k] = 0</me>.
         </p>
       </statement>
-      <solution>
+      <proof>
         <p>
           The function of interest is <m>x \mapsto k</m>, or <m>f(x)=k</m>.
           Using the definition of the derivative,
@@ -90,12 +90,12 @@
             <mrow> \frac{d}{dx}[k] &amp;= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}</mrow>
             <mrow> &amp;= \lim_{h \to 0} \frac{k - k}{h}</mrow>
             <mrow> &amp;= \lim_{h \to 0} 0</mrow>
-            <mrow> &amp;= 0</mrow>.
+            <mrow> &amp;= 0.</mrow>
           </md>
           The last step in this sequence of equations is a consequence
           of the <xref ref="LE-Constant" text="title">Limit Rule for a Constant</xref>.
         </p>
-      </solution>
+      </proof>
     </theorem>
     <theorem xml:id="deriv-identity">
       <title>Derivative of the Identity</title>
@@ -105,7 +105,7 @@
           <me>\frac{d}{dx}[x] = 1</me>.
         </p>
       </statement>
-      <solution>
+      <proof>
         <p>
           Using the definition of the derivative,
           <md>
@@ -113,11 +113,11 @@
             <mrow> &amp;= \lim_{h \to 0} \frac{x+h - x}{h}</mrow>
             <mrow> &amp;= \lim_{h \to 0} \frac{h}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0} 1</mrow>
-            <mrow> &amp;= 1</mrow>.
+            <mrow> &amp;= 1.</mrow>
           </md>
           Again, the limit calculation at the last step uses the <xref ref="LE-Constant" text="title">Limit Rule for a Constant</xref>.
         </p>
-      </solution>
+      </proof>
     </theorem>
     <p>
       The identity function and constant functions are special cases of linear functions.
@@ -130,7 +130,7 @@
           <me>\frac{d}{dx}[mx+b] = m</me>.
         </p>
       </statement>
-      <solution>
+      <proof>
         <p>
           Using the definition of the derivative,
           <md>
@@ -139,10 +139,10 @@
             <mrow> &amp;= \lim_{h \to 0} \frac{mx+mh+b-mx-b}{h}</mrow>
             <mrow> &amp;= \lim_{h \to 0} \frac{mh}{h}</mrow>
             <mrow> &amp;= \lim_{h \to 0} m</mrow>
-            <mrow> &amp;= m</mrow>.
+            <mrow> &amp;= m.</mrow>
           </md>
         </p>
-      </solution>
+      </proof>
     </theorem>
     <p>
       To establish additional derivatives of elementary formulas,
@@ -163,8 +163,8 @@
         <p>
           This theorem is a collection of multiple theorems.
           The hypothesis for any statement that involves <m>f(x)</m> or <m>g(x)</m> is
-          that <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m> or that
-          <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>.
+          that <m>\frac{d}{dx}[f(x)] = f'(x)</m> or that
+          <m>\frac{d}{dx}[g(x)] = g'(x)</m>.
           Further, <m>k</m> is assumed to be a constant.
         </p>
         <table xml:id="table-derivative-rules">
@@ -172,43 +172,43 @@
           <tabular top="major" halign="left">
           <row>
             <cell>
-            <m>\displaystyle \frac{d}{dx}[k \cdot f(x)] = k \cdot f'(x)</m>
+            <m>\frac{d}{dx}[k \cdot f(x)] = k \cdot f'(x)</m>
             </cell>
             <cell>Constant Multiple Rule</cell>
           </row>
           <row>
             <cell>
-            <m>\displaystyle \frac{d}{dx}[f(x)+g(x)] = f'(x)+g'(x)</m>
+            <m>\frac{d}{dx}[f(x)+g(x)] = f'(x)+g'(x)</m>
             </cell>
             <cell>Sum Rule</cell>
           </row>
           <row>
             <cell>
-            <m>\displaystyle \frac{d}{dx}[f(x)-g(x)] = f'(x)-g'(x)</m>
+            <m>\frac{d}{dx}[f(x)-g(x)] = f'(x)-g'(x)</m>
             </cell>
             <cell>Difference Rule</cell>
           </row>
           <row>
             <cell>
-            <m>\displaystyle \frac{d}{dx}[\frac{1}{g(x)}] = \frac{-g'(x)}{(g(x))^2}</m>
+            <m>\frac{d}{dx}[\frac{1}{g(x)}] = \frac{-g'(x)}{(g(x))^2}</m>
             </cell>
             <cell>Reciprocal Rule</cell>
           </row>
           <row>
             <cell>
-            <m>\displaystyle \frac{d}{dx}[f(x) \cdot g(x)] = f'(x) g(x) +f(x) g'(x)</m>
+            <m>\frac{d}{dx}[f(x) \cdot g(x)] = f'(x) g(x) +f(x) g'(x)</m>
             </cell>
             <cell>Product Rule</cell>
           </row>
           <row>
             <cell>
-            <m>\displaystyle \frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x)f'(x)-f(x)g'(x)}{(g(x))^2}</m>
+            <m>\frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x)f'(x)-f(x)g'(x)}{(g(x))^2}</m>
             </cell>
             <cell>Quotient Rule</cell>
           </row>
           <row bottom="major" >
             <cell>
-            <m>\displaystyle \frac{d}{dx}[f\Big(g(x)\Big)] = f'\Big(g(x)\Big) \cdot g'(x)</m>
+            <m>\frac{d}{dx}[f\Big(g(x)\Big)] = f'\Big(g(x)\Big) \cdot g'(x)</m>
             </cell>
             <cell>Chain Rule</cell>
           </row>
@@ -349,10 +349,10 @@
         <p>
           We start by recognizing the formula <m>\frac{1}{x^2+3}</m>
           as the reciprocal of <m>g(x)=x^2+3</m>.
-          We know <m>g'(x) = 2x</m>, so the <xref ref="thm-reciprocal-derivatives"/> gives
+          We know <m>g'(x) = 2x</m>, so the <xref ref="deriv-reciprocal"/> gives
           <md>
             <mrow>\frac{d}{dx}[\frac{1}{x^2+3}] &amp;= \frac{-g'(x)}{(g(x))^2}</mrow>
-            <mrow> &amp;= \frac{-2x}{(x^2+3)^2} </mrow>.
+            <mrow> &amp;= \frac{-2x}{(x^2+3)^2}. </mrow>
           </md>
           That is, if <m>f(x) = \frac{1}{x^2+3}</m>,
           the derivative is <m>f'(x) = \frac{-2x}{(x^2+3)^2}</m>.
@@ -368,7 +368,7 @@
       The work in the example could be rewritten
       <md>
         <mrow>\frac{d}{dx}[\frac{1}{x^2+3}] &amp;= \frac{-\frac{d}{dx}[x^2+3]}{(x^2+3)^2}</mrow>
-        <mrow> &amp;= \frac{-2x}{(x^2+3)^2} </mrow>.
+        <mrow> &amp;= \frac{-2x}{(x^2+3)^2}. </mrow>
       </md>
     </p>
     <p>
@@ -402,14 +402,14 @@
             <mrow> \frac{d}{dx}[f(x)+g(x)] &amp;= \lim_{h \to 0} \frac{[f(x+h)+g(x+h)] - [f(x)+g(x)]}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0} \frac{f(x)+\Delta f + g(x) + \Delta g -f(x)-g(x)}{h} </mrow>
             <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f+\Delta g}{h} </mrow>
-            <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}+\frac{\Delta g}{h}\right] </mrow>.
+            <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}+\frac{\Delta g}{h}\right]. </mrow>
           </md>
           Again, because limit rules satisfy the ordinary rules of arithmetic,
-          the <xref ref="LC-Sum-Rule" text="title">limit rule for sums</xref> implies
+          the <xref ref="LC-Sum" text="title">limit rule for sums</xref> implies
           <md>
             <mrow> \frac{d}{dx}[f(x)+g(x)] &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}+\frac{\Delta g}{h}\right] </mrow>
             <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}\right]+ \lim_{h \to 0} \left[\frac{\Delta g}{h}\right] </mrow>
-            <mrow> &amp;= f'(x) + g'(x) </mrow>.
+            <mrow> &amp;= f'(x) + g'(x). </mrow>
           </md>
         </p>
       </proof>
@@ -419,7 +419,7 @@
       we consider the derivative of a product.
       Consider a function like <m>f(x)=(x^2-3)\cdot(2x+1)</m>.
       It is tempting to take derivatives of each formula in place
-      and assume that <m>f'(x)<m> would be <m>(2x) \cdot (2)=4x</m>.
+      and assume that <m>f'(x)</m> would be <m>(2x) \cdot (2)=4x</m>.
       We can see that this is incorrect if we rewrote <m>f(x)</m> after expanding the product,
       <me>f(x) = 2x^3+x^2-6x-3</me>.
       Once written as a simple polynomial, our experience with accumulation functions
@@ -441,7 +441,7 @@
           then <m>\frac{d}{dx}[f(x) \cdot g(x)] = f'(x) \cdot g(x) + f(x) \cdot g'(x)</m>.
         </p>
       </statement>
-      <solution>
+      <proof>
         <p>
           By hypothesis, <m>\displaystyle \frac{d}{dx}[f(x)] = f'(x)</m> and
           <m>\displaystyle \frac{d}{dx}[g(x)] = g'(x)</m>. This means that
@@ -464,18 +464,18 @@
           <md>
             <mrow> \frac{d}{dx}[f(x)g(x)]
             &amp;= \lim_{h \to 0} \frac{[f(x+h)g(x+h)] - [f(x)g(x)]}{h} </mrow>
-            <mrow> &amp;= \lim_{h \to 0} \frac{(\Delta f + f(x))(\Delta g + g(x)) - f(x)g(x)}{h} </mrow>
-            <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f \Delta g + \Delta f g(x) + f(x) \Delta g + f(x)g(x) - f(x)g(x)}{h} </mrow>
-            <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f \Delta g + \Delta f g(x) + f(x) \Delta g}{h} </mrow>
-            <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f \Delta g}{h} + \frac{\Delta f g(x)}{h} + \frac{f(x) \Delta g}{h} \right]. </mrow>
-            <mrow> &amp;= \lim_{h \to 0} \left[\Delta f \cdot \frac{\Delta g}{h} + \frac{\Delta f}{h} \cdot g(x) + f(x) \cdot \frac{\Delta g}{h} \right]. </mrow>
-            <mrow> &amp;= 0 \cdot g'(x) + f'(x) \cdot g(x) + f(x) \cdot g'(x) </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{(f(x)+\Delta f)(g(x) + \Delta g) - f(x)g(x)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{f(x) g(x) + \Delta f g(x) + f(x) \Delta g + \Delta f \Delta g - f(x)g(x)}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \frac{\Delta f g(x) + f(x) \Delta g + \Delta f \Delta g}{h} </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f g(x)}{h} + \frac{f(x) \Delta g}{h} + \frac{\Delta f \Delta g}{h}\right] </mrow>
+            <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h} \cdot g(x) + f(x) \cdot \frac{\Delta g}{h} + \Delta f \cdot \frac{\Delta g}{h}\right]. </mrow>
+            <mrow> &amp;= f'(x) \cdot g(x) + f(x) \cdot g'(x) + 0 \cdot g'(x) </mrow>
             <mrow> &amp;= f'(x) \cdot g(x) + f(x) \cdot g'(x), </mrow>
           </md>
           using the <xref ref="LC-Sum" text="title">Limit Rule of a Sum</xref>
           and the <xref ref="LC-Product" text="title">Limit Rule of a Product</xref>.
         </p>
-      </solution>
+      </proof>
     </theorem>
     <p>
       The quotient rule is a combination of the product rule and the reciprocal rule.
@@ -485,7 +485,7 @@
       <statement>
         <p>
           If <m>\frac{d}{dx}[f(x)] = f'(x)</m> and <m>\frac{d}{dx}[g(x)]=g'(x)</m>,
-          then <m>\frac{d}{dx}\left[{\displaystyle \frac{f(x)}{g(x)}}\right] = {\displaystyle \frac{f'(x)g(x) - f(x)g'(x)}{\left(g(x)\right)^2}}</m>.
+          then <m>\displaystyle \frac{d}{dx}\left[{\frac{f(x)}{g(x)}}\right] = {\displaystyle \frac{f'(x)g(x) - f(x)g'(x)}{\left(g(x)\right)^2}}</m>.
         </p>
       </statement>
     </theorem>
@@ -507,7 +507,7 @@
       The second, <m>b</m> is a constant function, so
       <me>\frac{d}{dx}[b] = 0</me>.
       Adding these together, we find
-      <me>\frac{d}{dx}[mx+b] = \frac{d}{dx}[mx} + \frac{d}{dx}[b] = m + 0 = m</me>,
+      <me>\frac{d}{dx}[mx+b] = \frac{d}{dx}[mx] + \frac{d}{dx}[b] = m + 0 = m</me>,
       exactly the same as we found applying the definition of the derivative in <xref ref="deriv-linear"/>.
     </p>
     <example>
@@ -527,8 +527,8 @@
           <me>x^2 = x \cdot x</me>.
         </p>
         <p>
-          Once you recognize that our function is a product,
-          we need to use the product rule with <m>f(x)=x</m> and <m>g(x)=x</m>.
+          Once we recognize that our function is a product,
+          we use the product rule with <m>f(x)=x</m> and <m>g(x)=x</m>.
           The <xref ref="deriv-product" text="title">product rule</xref> says
           <me> \frac{d}{dx}[f(x) g(x)] = f'(x) g(x) + f(x) g'(x)</me>,
           for which we use <m>f'(x)=1</m> and <m>g'(x)=1</m>.
@@ -536,7 +536,7 @@
           <md>
             <mrow>\frac{d}{dx}[x^2] &amp;= \frac{d}{dx}[x \cdot x]</mrow>
             <mrow> &amp;= 1 \cdot x + x \cdot 1</mrow>
-            <mrow> &amp;= x+x = 2x</mrow>.
+            <mrow> &amp;= x+x = 2x.</mrow>
           </md>
         </p>
       </solution>
@@ -593,7 +593,7 @@
           <md>
               <mrow> \frac{d}{dx}[x^4] &amp;= \frac{d}{dx}[x^2 \cdot x^2]</mrow>
               <mrow> &amp;= \frac{d}{dx}[x^2] \cdot x^2 + x^2 \cdot \frac{d}{dx}[x^2]</mrow>
-              <mrow> &amp;= 2x \cdot x^2 + x^2 \cdot (2x)</mrow>
+              <mrow> &amp;= 2x \cdot x^2 + x^2 \cdot 2x</mrow>
               <mrow> &amp;= 4x^3. </mrow>
           </md>
         </p>
@@ -646,17 +646,21 @@
     </p>
     <example>
       <statement>
-        Find <m> \displaystyle \frac{d}{dx}[\frac{1}{x^3}]</m>.
+        <p>
+          Find <m> \displaystyle \frac{d}{dx}[\frac{1}{x^3}]</m>.
+        </p>
       </statement>
       <solution>
-        We use the reciprocal rule of derivatives,
-        <me> \frac{d}{dx}[\frac{1}{u}] = \frac{-\frac{du}{dx}}{u^2}. </me>
-        So our derivative is
-        <md>
-            <mrow>\frac{d}{dx}[\frac{1}{x^3}] &amp;= \frac{-\frac{d}{dx}[x^3]}{(x^3)^2} </mrow>
-            <mrow> &amp;= \frac{-(3x^2)}{x^3 \cdot x^3} = \frac{-3x^2}{x^6} </mrow>
-            <mrow> &amp;= \frac{-3}{x^4}. </mrow>
-        </md>
+        <p>
+          We use the reciprocal rule of derivatives,
+          <me> \frac{d}{dx}[\frac{1}{u}] = \frac{-\frac{du}{dx}}{u^2}. </me>
+          So our derivative is
+          <md>
+              <mrow>\frac{d}{dx}[\frac{1}{x^3}] &amp;= \frac{-\frac{d}{dx}[x^3]}{(x^3)^2} </mrow>
+              <mrow> &amp;= \frac{-(3x^2)}{x^3 \cdot x^3} = \frac{-3x^2}{x^6} </mrow>
+              <mrow> &amp;= \frac{-3}{x^4}. </mrow>
+          </md>
+        </p>
       </solution>
     </example>
     <p>
@@ -739,7 +743,7 @@
             <mrow> &amp;= \frac{d}{dx}[x] \cdot x^n + x \cdot \frac{d}{dx}[x^n]</mrow>
             <mrow> &amp;= 1 \cdot x^n + x \cdot nx^{n-1}</mrow>
             <mrow> &amp;= x^n + nx^n</mrow>
-            <mrow> &amp;= (n+1)x^n</mrow>.
+            <mrow> &amp;= (n+1)x^n.</mrow>
           </md>
           This general recursive argument shows that if the rule is satisfied for an initial value of <m>p=n</m>,
           the statement will be immediately known to be true for the sequence of values <m>p \in (n, n+1, n+2, \ldots)</m>.
@@ -757,7 +761,7 @@
             <mrow> &amp;= \frac{-\frac{d}{dx}[x^n]}{(x^n)^2}</mrow>
             <mrow> &amp;= \frac{-nx^{n-1}}{x^{2n}}</mrow>
             <mrow> &amp;= -nx^{n-1}\cdot x^{-2n} = -nx^{n-1-2n}</mrow>
-            <mrow> &amp;= -nx^{-n-1} = px^{p-1}</mrow>.
+            <mrow> &amp;= -nx^{-n-1} = px^{p-1}.</mrow>
           </md>
           The argument did not depend so much on <m>n</m> being an integer as it required
           that we knew the power rule was true for <m>p=n</m>.
@@ -774,6 +778,8 @@
           Each function is an algebraic combination of more elementary expressions.
           Identify the last operation in the expression and the component expressions that operation combines.
           Repeat the process for each of the component expressions.
+        </p>
+        <p>
           For example, <m>3x^2-8x</m> involves a final operation of subtraction involving the terms <m>3x^2</m> and <m>8x</m>;
           <m>3x^2</m> is a constant multiple of the expression <m>x^2</m> with the constant 3;
           and <m>8x</m> is a constant multiple of the identity <m>x</m> with constant 8.
@@ -791,15 +797,104 @@
       </exercise>
       <exercise>
         <statement>
-          <p><m>g(x)=\frac{2x^3}{4x+1}</m></p>
+          <p><m>\displaystyle g(x)=\frac{2x^3}{4x+1}</m></p>
         </statement>
       </exercise>
     </exercisegroup>
     <exercisegroup>
       <introduction>
         <p>
+          Show that the derivative of each product is the same
+          whether the function is expanded into a sum before differentiation
+          or the product rule is used on the original formula.
         </p>
       </introduction>
+      <exercise>
+        <statement>
+          <p><m>P(x) = (2x+5)(3x-4)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>Q(t) = (3t-1)(t^2+4t-5)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>R(y) = (y^2-2)(y^2+2)</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Compute the derivatives.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[4 \sqrt{x}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[2x^{5/2} - 5x^{3/2}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dt}[\frac{1}{t^2+4t}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dt}[\frac{5}{3t-1}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dr}[\frac{r}{r^2+4}]</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Applications</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            Find the tangent line for <m>y=\frac{x-1}{x+1}</m> at <m>x=2</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find the tangent line for <m>y=\sqrt{x}</m> at <m>x=100</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find all points on the graph <m>\displaystyle y=\frac{1}{x}</m>
+            such that the slope of the tangent line has slope <m>-4</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            The height <m>y</m> (feet) from the ground of an object tossed from a tower
+            is a quadratic function of time <m>t</m> (seconds) given by
+            <me>y=50+40t-16t^2.</me>
+            <ol>
+              <li>Determine the velocity at which the object is thrown. (Velocity is the instantaneous rate of change of height.)</li>
+              <li>Find the time when the object is traveling at the same speed but opposite direction as when it was thrown.</li>
+              <li>Find the time such that the velocity is equal to the average velocity over the first two seconds of flight.</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
     </exercisegroup>
   </exercises>
 </section>

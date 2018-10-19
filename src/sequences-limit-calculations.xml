@@ -427,7 +427,7 @@
             <mrow> \lim_{n \to \infty} x_n &amp;= \lim_{n \to \infty} 400-100 \cdot 1.05^n</mrow>
             <mrow>&amp; = 400 - 100 \cdot +\infty</mrow>
             <mrow>&amp; = 400 - \infty</mrow>
-            <mrow> &amp;= - \infty</mrow>.
+            <mrow> &amp;= - \infty.</mrow>
           </md>
           The sequence will decrease without bound.
         </p>

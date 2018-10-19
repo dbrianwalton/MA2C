@@ -6,7 +6,7 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="sequence-increments">
   <title>Increments of Sequences</title>
 
@@ -72,13 +72,13 @@
         </p>
         <p>
           The increment <m>\nabla x_n</m> is defined by the backward difference <m>\nabla x_n = x_n - x_{n-1}</m>.
-          To calculate the backward difference, 
+          To calculate the backward difference,
           we substitute the explicit formulas in place of the state variables <m>x_n</m> and <m>x_{n-1}</m> and simplify:
           <md>
             <mrow> \nabla x_n &amp; = x_n - x_{n-1} </mrow>
             <mrow> &amp;= \big(3n+5\big) - \big(3n+2\big) </mrow>
             <mrow> &amp;= 3n+5 - 3n - 2 </mrow>
-            <mrow> &amp;= 3 </mrow>.
+            <mrow> &amp;= 3.</mrow>
           </md>
           Again, this only applies for <m>n=1,2,\ldots</m>.
           Because the increments were constant, we realize that <m>x</m> was an arithmetic sequence with <m>\beta = 3</m>.
@@ -147,13 +147,13 @@
         </p>
         <p>
           The increment <m>\nabla u_n</m> is defined by the backward difference <m>\nabla u_n = u_n - u_{n-1}</m>.
-          To calculate the backward difference, 
+          To calculate the backward difference,
           we substitute the explicit formulas in place of the state variables <m>u_n</m> and <m>u_{n-1}</m> and simplify:
           <md>
             <mrow> \nabla u_n &amp; = u_n - u_{n-1} </mrow>
             <mrow> &amp;= \big(n^2+2n\big) - \big(n^2-1\big) </mrow>
             <mrow> &amp;= n^2+2n-n^2+1 </mrow>
-            <mrow> &amp;= 2n+1 </mrow>.
+            <mrow> &amp;= 2n+1. </mrow>
           </md>
         </p>
         <p>
@@ -223,9 +223,9 @@
       </statement>
       <solution>
         <p>
-          The recurrence relation is already in the form of a recursive equation 
+          The recurrence relation is already in the form of a recursive equation
           with projection function <m>f(x)=1.25x-10</m>.
-          The increment <m>\nabla x_n = x_{n} - x_{n-1}</m> is computed 
+          The increment <m>\nabla x_n = x_{n} - x_{n-1}</m> is computed
           by subtracting the <m>x_{n-1}</m> from the formula for <m>x_n</m>:
           <me>\nabla x_n = x_n - x_{n-1} = \big(1.25 x_{n-1} - 10\big) - x_{n-1}</me>.
           Simplifying this formula gives
@@ -290,7 +290,7 @@
           <md>
             <mrow>g(x)&amp;=f(x)-x</mrow>
             <mrow>&amp; = 1.25x - 0.05x^2 - x</mrow>
-            <mrow>&amp; = 0.25x - 0.05x^2</mrow>.
+            <mrow>&amp; = 0.25x - 0.05x^2.</mrow>
           </md>
           This means that the increment is computed as <m>g : x_{n-1} \mapsto \nabla x_n</m>,
           or <me>\nabla x_n = 0.25 x_{n-1} - 0.05 x_{n-1}^2</me>.
@@ -380,7 +380,7 @@
           as is the formula for the increment.
         </p>
         <p>
-          Now that we have a formula for the increments, 
+          Now that we have a formula for the increments,
           we want to find the intervals where the increments are positive or negative.
           This corresponds to solving inequalities <m>\nabla x_n \gt 0</m> and <m>\nabla x_n \lt 0</m>.
           The increment is defined for index values <m>n=1,2,\ldots</m>.
@@ -408,7 +408,7 @@
           <me> \nabla x_n = 0 \quad \Leftrightarrow \quad n = 20\frac{1}{2} </me>.
           We now consider the intervals of values for <m>n</m> on either side of this value.
           The intervals are <m>\{1,\ldots,20\}</m> and <m>\{21,\ldots,\infty\}</m>.
-          The principle for solving the inequality is to choose one value from each interval and 
+          The principle for solving the inequality is to choose one value from each interval and
           use it to find the sign of <m>\nabla x_n</m>.
           For example, we can use <m>n=10</m> and <m>n=25</m>.
           <md>
@@ -526,7 +526,7 @@
           We use the quadratic formula:
           <md>
             <mrow> n &amp;= \frac{-(-143) \pm \sqrt{ (-143)^2 - 4 (3)(1071)}}{2(3)} </mrow>
-            <mrow> &amp;= \frac{143 \pm \sqrt{7597}}{6}</mrow>.
+            <mrow> &amp;= \frac{143 \pm \sqrt{7597}}{6}.</mrow>
           </md>
           To find the intervals, we need decimal approximations.
           <md>
@@ -592,8 +592,8 @@
           The intervals to test  are separated by this value, <m>\{-\infty,\ldots,24\}</m> and <m>\{25,\ldots,\infty\}</m>.
           Test one point in each interval:
           <md>
-            <mrow>\nabla^2 z_{0} &amp;= 6(0)-146 = -146</mrow>,
-            <mrow>\nabla^2 z_{25} &amp;= 6(25)-146 = 4</mrow>.
+            <mrow>\nabla^2 z_{0} &amp;= 6(0)-146 = -146,</mrow>
+            <mrow>\nabla^2 z_{25} &amp;= 6(25)-146 = 4.</mrow>
           </md>
           Now we can interpret our results.
           <ul>
@@ -638,7 +638,7 @@
           </li>
           <li>
             <p>
-            If <m>f(x) = x</m>, or equivalently <m>f(x)-x = 0</m>, then <m>u_n = x</m> implies <m>u</m> is <em>constant</em>. 
+            If <m>f(x) = x</m>, or equivalently <m>f(x)-x = 0</m>, then <m>u_n = x</m> implies <m>u</m> is <em>constant</em>.
             In this case, we call <m>x</m> a <term>fixed point</term> of <m>f</m> and an <term>equilibrium</term> for <m>u</m>.
             </p>
           </li>
@@ -662,7 +662,7 @@
       <md>
         <mrow> \nabla^2 u_{n+2} &amp;= \nabla u_{n+2} - \nabla u_{n+1} </mrow>
         <mrow> &amp; = \Big( f\big(f(x)\big) - f(x) \Big) - \Big( f(x) - x \Big)</mrow>
-        <mrow> &amp; = f\big(f(x)\big) - 2 f(x) + x </mrow>.
+        <mrow> &amp; = f\big(f(x)\big) - 2 f(x) + x .</mrow>
       </md>
       Sign analysis on this formula allows us to answer questions about concavity involving consecutive increments.
     </p>
@@ -684,7 +684,7 @@
           </li>
           <li>
             <p>
-            If <m>h(x) = 0</m>, then <m>u_n = x</m> implies <m>u</m> is <em>linear</em> (constant increments) on <m>\{n, n+1, n+2\}</m>. 
+            If <m>h(x) = 0</m>, then <m>u_n = x</m> implies <m>u</m> is <em>linear</em> (constant increments) on <m>\{n, n+1, n+2\}</m>.
             </p>
           </li>
         </ul>
@@ -731,13 +731,13 @@
           This gives the increment <m>\nabla u_{n+2} = u_{n+2} - u_{n+1}</m> as
           <md>
             <mrow> \nabla u_{n+2} &amp;= \big(1.5625x - 22.5\big) - \big(1.25x - 10\big) </mrow>
-            <mrow> &amp;= 0.3125 x - 12.5</mrow>.
+            <mrow> &amp;= 0.3125 x - 12.5.</mrow>
           </md>
           The second backward difference is therefore
           <md>
             <mrow> \nabla^2 u_{n+2} &amp;= \nabla u_{n+2} - \nabla u_{n+1} </mrow>
             <mrow> &amp;= \big(0.3125 x - 12.5\big) - \big( 0.25x -10 \big) </mrow>
-            <mrow> &amp;= 0.0625x - 2.5 </mrow>.
+            <mrow> &amp;= 0.0625x - 2.5 .</mrow>
           </md>
           Solving the equation <m>\nabla^2 u_{n+2} = 0</m> (Try it!) gives <m>x=40</m>,
           giving us the same test intervals as our sign analysis for monotonicity.
@@ -1087,7 +1087,7 @@
             </ul>
           </p>
           <p>
-            Suppose that the tail feathers of these birds are valuable 
+            Suppose that the tail feathers of these birds are valuable
             so that poachers come and kill an additional 100 birds per year.
             <ul>
               <li>

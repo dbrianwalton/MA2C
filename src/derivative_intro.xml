@@ -123,35 +123,37 @@
           <me>h(t) = 5+64t-16t^2</me>,
           then what is the average velocity over the interval <m>[1,4]</m>?
         </p>
-        <image>
-          <description>
-          Graph of y=x^2.
-          </description>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          /pgfplots/table/row sep=crcr
-          }
-          \begin{tikzpicture}
-          \begin{axis}[
-              xmin=0,xmax=4.5,
-              ymin=0,ymax=70,
-              xlabel={$t$},
-              ylabel={$h$},
-          ]
-          \addplot[blue, thick, samples=100]
-              ({x}, {5+64*x-16*x^2});
-          \addplot[red, samples=10]
-              ({x}, {53-16*(x-1)});
-          \addplot[only marks, blue] table {
-            1 53\\
-            4 5\\
-          };
-          \addplot[mark=none, black] {0};
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
+        <sidebyside width="60%">
+          <image>
+            <description>
+            Graph of y=x^2.
+            </description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \begin{tikzpicture}
+            \begin{axis}[
+                xmin=0,xmax=4.5,
+                ymin=0,ymax=70,
+                xlabel={$t$},
+                ylabel={$h$},
+            ]
+            \addplot[blue, thick, samples=100]
+                ({x}, {5+64*x-16*x^2});
+            \addplot[red, samples=10]
+                ({x}, {53-16*(x-1)});
+            \addplot[only marks, blue] table {
+              1 53\\
+              4 5\\
+            };
+            \addplot[mark=none, black] {0};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
       </statement>
       <solution>
         <p>
@@ -284,6 +286,8 @@
           where <m>h=b_k-1</m>.
         </p>
         <table xml:id="table-instant-rate-ex-1">
+          <caption>Illustration of using shrinking intervals to estimate the
+          instantaneous rate of change.</caption>
           <tabular top="major" halign="center">
             <row bottom="minor">
               <cell><m>n</m></cell>
@@ -326,8 +330,6 @@
               <cell><m>-0.996999</m></cell>
             </row>
           </tabular>
-          <caption>Illustration of using shrinking intervals to estimate the
-          instantaneous rate of change.</caption>
         </table>
         <p>
           From this table, we can see that the spacing between the points <m>h</m> is approaching zero
@@ -354,6 +356,9 @@
       <solution>
         <p>We will create two sequences of decreasing width intervals, one on the left and the other on the right of 1. This will allow us to more easily recognize the decimal representation of the limiting value. In addition, we will use a variable <m>h</m> to represent the offset from 1 to the other endpoint of the interval. One sequence will involve negative values of <m>h</m> (on the left) and the other will involve positive values of <m>h</m> (on the right). Notice how in these tables, we require more decimal places for the value of <m>f(1+h)</m> in order to obtain the average rate of change to the same number of significant digits.</p>
         <table xml:id="table-instant-rate-ex-2a">
+          <caption>
+            Illustration of using shrinking intervals on the left to estimate the instantaneous rate of change.
+          </caption>
           <tabular top="major" halign="center">
             <row bottom="minor">
               <cell><m>h</m></cell>
@@ -384,11 +389,11 @@
               <cell>3.2940</cell>
             </row>
           </tabular>
-          <caption>
-            Illustration of using shrinking intervals on the left to estimate the instantaneous rate of change.
-          </caption>
         </table>
         <table xml:id="table-instant-rate-ex-2b">
+          <caption>
+            Illustration of using shrinking intervals on the right to estimate the instantaneous rate of change.
+          </caption>
           <tabular top="major" halign="center">
             <row bottom="minor">
               <cell><m>h</m></cell>
@@ -419,9 +424,6 @@
               <cell>3.2976</cell>
             </row>
           </tabular>
-          <caption>
-            Illustration of using shrinking intervals on the right to estimate the instantaneous rate of change.
-          </caption>
         </table>
         <p>
           Looking at the columns for the average rate of change in these two tables,
@@ -688,6 +690,9 @@
         </p>
         <sidebyside widths="40% 40%">
           <table xml:id="table-population-rate-ex-1a">
+            <caption>
+              Table of <m>\frac{\Delta P}{\Delta t}</m> for <m>h \lt 0</m>.
+            </caption>
             <tabular top="major" halign="center">
               <row bottom="minor">
                 <cell><m>h</m></cell>
@@ -706,11 +711,11 @@
                 <cell><m>\displaystyle \frac{400 \cdot 1.1^{1.999} - 400 \cdot 1.1^2}{-0.001} \approx 46.1279</m></cell>
               </row>
             </tabular>
-            <caption>
-              Table of <m>\frac{\Delta P}{\Delta t}</m> for <m>h \lt 0</m>.
-            </caption>
           </table>
           <table xml:id="table-population-rate-ex-1b">
+            <caption>
+              Table of <m>\frac{\Delta P}{\Delta t}</m> for <m>h\gt 0</m>.
+            </caption>
             <tabular top="major" halign="center">
               <row bottom="minor">
                 <cell><m>h</m></cell>
@@ -729,9 +734,6 @@
                 <cell><m>\displaystyle \frac{400 \cdot 1.1^{2.001} - 400 \cdot 1.1^2}{0.001} \approx 46.1323</m></cell>
               </row>
             </tabular>
-            <caption>
-              Table of <m>\frac{\Delta P}{\Delta t}</m> for <m>h\gt 0</m>.
-            </caption>
           </table>
         </sidebyside>
         <p>

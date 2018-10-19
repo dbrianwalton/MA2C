@@ -6,7 +6,7 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2017  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="sequences-recursive">
   <title>Recursive Sequences and Projection Functions</title>
   <introduction>
@@ -56,7 +56,7 @@
       </md>
     </p>
     <p>
-      A <term>geometric sequence</term> is a sequence whose terms change by a fixed multiple or ratio. 
+      A <term>geometric sequence</term> is a sequence whose terms change by a fixed multiple or ratio.
       An example of a geometric sequence is given by <me> u= (2, 6, 18, 54, \ldots).</me>
       Each term is found by multiplying the previous term by 3, which is the <term>multiple</term> or <term>ratio</term> of the sequence.
       We call the value 3 the multiple because of the pattern
@@ -74,9 +74,9 @@
         <mrow>\ldots</mrow>
       </md>
     </p>
-    
+
     <p>
-      For recursively defined sequences, the equation that describes the relationship 
+      For recursively defined sequences, the equation that describes the relationship
       between consecutive terms of the sequence is called the <term>recurrence relation</term>.
       When the recurrence relation for a sequence <m>x</m> is solved for the next value as a dependent variable in terms of an expression involving of the previous term,
       we call this map or function the <term>projection function</term> because it allows us to <em>project</em> future values based on current values.
@@ -185,7 +185,7 @@
       <title>Projection Function</title>
       <statement>
         <p>
-        Suppose a sequence <m>x</m> is defined by a recurrence relation of the form 
+        Suppose a sequence <m>x</m> is defined by a recurrence relation of the form
         <me>x_{n} = f(x_{n-1}).</me>
         The function <m>f</m> defining the relation <m>x_{n-1} \mapsto x_{n}</m> is called the <term>projection function</term>.
         Equivalently, we could write the recurrence relation in terms of a previous value as
@@ -218,7 +218,7 @@
       </statement>
       <solution>
         <p>
-          The projection function defines the map <m>u_{n-1} \mapsto u_{n}</m> 
+          The projection function defines the map <m>u_{n-1} \mapsto u_{n}</m>
           according to the rule <m>f(x)=2x-5</m> or <m>f(\square) = 2 \cdot \square - 5</m>.
           It tells us that if we use an input coming from a sequence value,
           the output of the function will be the next sequence value.
@@ -227,9 +227,9 @@
           <me>u_1 = f(u_0) = f(3) = 2(3) - 5 = 1</me>.
           Now that we know <m>u_1</m>, we can use that value as an input to get <m>u_2</m>, and so on:
           <md>
-            <mrow>u_2 &amp;= f(u_1) = 2(1) - 5 = -3</mrow>,
-            <mrow>u_3 &amp;= f(u_2) = 2(-3) - 5 = -11</mrow>,
-            <mrow>u_4 &amp;= f(u_3) = 2(-11) - 5 = -27</mrow>.
+            <mrow>u_2 &amp;= f(u_1) = 2(1) - 5 = -3,</mrow>
+            <mrow>u_3 &amp;= f(u_2) = 2(-3) - 5 = -11,</mrow >
+            <mrow>u_4 &amp;= f(u_3) = 2(-11) - 5 = -27.</mrow>
           </md>
         </p>
       </solution>
@@ -245,7 +245,7 @@
           <me>w_{n+1}-w_n = 1.4 w_n - \frac{3}{w_n}, \quad n \ge -1,</me>
           and an initial value <m>w_{-1}=1</m>.
           Find the recursive equation corresponding to the projection function,
-          <m>w_n \mapsto w_{n+1}</m>, and find <m>f(x)</m>. 
+          <m>w_n \mapsto w_{n+1}</m>, and find <m>f(x)</m>.
           Use this to find <m>w_0</m> and <m>w_1</m>.
         </p>
       </statement>
@@ -412,42 +412,42 @@
             \begin{tikzpicture}[x=2cm]
             \draw [<->] (-3.5,0) -- (0.5,0) node [right] {$u_{n-1}$};
             \draw [<->] (-3.5,-2) -- (0.5,-2) node [right] {$u_{n}$};
-            \draw (0.3,-0.1) -- (0.3,0.1) 
+            \draw (0.3,-0.1) -- (0.3,0.1)
               node [pos=0, below] {$3$}
               node [pos=1, above] {$u_{0}$}
             ;
             \draw [->] (0.3,-0.5) -- (0.1,-1.5);
-            \draw (0.1,-2.1) -- (0.1,-1.9) 
+            \draw (0.1,-2.1) -- (0.1,-1.9)
               node [pos=0, below] {$1$}
               node [pos=1, above] {$u_{1}$}
             ;
             \draw [dashed] (0.1,-0.5) -- (0.1,-1.5);
-            \draw (0.1,-0.1) -- (0.1,0.1) 
+            \draw (0.1,-0.1) -- (0.1,0.1)
               node [pos=0, below] {$1$}
               node [pos=1, above] {$u_{1}$}
             ;
             \draw [->] (0.1,-0.5) -- (-0.3,-1.5);
-            \draw (-0.3,-2.1) -- (-0.3,-1.9) 
+            \draw (-0.3,-2.1) -- (-0.3,-1.9)
               node [pos=0, below] {$-3$}
               node [pos=1, above] {$u_{2}$}
             ;
             \draw [dashed] (-0.3,-0.5) -- (-0.3,-1.5);
-            \draw (-0.3,-0.1) -- (-0.3,0.1) 
+            \draw (-0.3,-0.1) -- (-0.3,0.1)
               node [pos=0, below] {$-3$}
               node [pos=1, above] {$u_{2}$}
             ;
             \draw [->] (-0.3,-0.5) -- (-1.1,-1.5);
-            \draw (-1.1,-2.1) -- (-1.1,-1.9) 
+            \draw (-1.1,-2.1) -- (-1.1,-1.9)
               node [pos=0, below] {$-11$}
               node [pos=1, above] {$u_{3}$}
             ;
             \draw [dashed] (-1.1,-0.5) -- (-1.1,-1.5);
-            \draw (-1.1,-0.1) -- (-1.1,0.1) 
+            \draw (-1.1,-0.1) -- (-1.1,0.1)
               node [pos=0, below] {$-11$}
               node [pos=1, above] {$u_{3}$}
             ;
             \draw [->] (-1.1,-0.5) -- (-2.7,-1.5);
-            \draw (-2.7,-2.1) -- (-2.7,-1.9) 
+            \draw (-2.7,-2.1) -- (-2.7,-1.9)
               node [pos=0, below] {$-27$}
               node [pos=1, above] {$u_{4}$}
             ;
@@ -472,27 +472,27 @@
             \begin{tikzpicture}
             \draw [<->] (-2.5,0) -- (4.5,0) node [right] {$w_n$};
             \draw [<->] (-2.5,-2) -- (4.5,-2) node [right] {$w_{n+1}$};
-            \draw (1,-0.1) -- (1,0.1) 
+            \draw (1,-0.1) -- (1,0.1)
               node [pos=0, below] {$1$}
               node [pos=1, above] {$w_{-1}$}
             ;
             \draw [->] (1,-0.5) -- (-0.6,-1.5);
-            \draw (-0.6,-2.1) -- (-0.6,-1.9) 
+            \draw (-0.6,-2.1) -- (-0.6,-1.9)
               node [pos=0, below] {$-0.6$}
               node [pos=1, above] {$w_{0}$}
             ;
             \draw [dashed] (-0.6,-0.5) -- (-0.6,-1.5);
-            \draw (-0.6,-0.1) -- (-0.6,0.1) 
+            \draw (-0.6,-0.1) -- (-0.6,0.1)
               node [pos=0, below] {$-0.6$}
               node [pos=1, above] {$w_{0}$}
             ;
             \draw [->] (-0.6,-0.5) -- (3.56,-1.5);
-            \draw (3.56,-2.1) -- (3.56,-1.9) 
+            \draw (3.56,-2.1) -- (3.56,-1.9)
               node [pos=0, below] {$3.56$}
               node [pos=1, above] {$w_{1}$}
             ;
             \draw [dashed] (3.56,-0.5) -- (3.56,-1.5);
-            \draw (3.56,-0.1) -- (3.56,0.1) 
+            \draw (3.56,-0.1) -- (3.56,0.1)
               node [pos=0, below] {$3.56$}
               node [pos=1, above] {$w_{1}$}
             ;
@@ -573,7 +573,7 @@
             [ xmin=-30, xmax=10, ymin=-30, ymax=10,
               xlabel={$u_{n-1}$}, ylabel={$u_{n}$},
             ]
-            \addplot [black, no marks] coordinates { (-30,0) (10,0) }; 
+            \addplot [black, no marks] coordinates { (-30,0) (10,0) };
             \addplot [domain=-30:10, samples=10, thick, blue] { 2*x-5 };
             \addplot [domain=-30:10, samples=2, dashed, red] {x};
             \addplot [violet, thick] coordinates {
@@ -592,7 +592,7 @@
     <p>
     <ul>
       <li>
-        A sequence <m>x</m> is recursive when 
+        A sequence <m>x</m> is recursive when
         the relation between consecutive values of the sequence is the same for every index.
         An equation describing this relation is called a <term>recurrence relation</term>.
         If we can solve for <m>x_{n}</m> as a dependent variable with <m>x_{n-1}</m> as the independent variable,
@@ -626,8 +626,8 @@
       <introduction>
         <p>
           Determine if each sequence is arithmetic, geometric, or neither.
-          For each sequence that is arithmetic or geometric, 
-          (i) state the recursive equation for the sequence, 
+          For each sequence that is arithmetic or geometric,
+          (i) state the recursive equation for the sequence,
           (ii) find the projection function <m>f(x)</m>,
           (iii) state an explicit formula for the sequence,
           and (iv) use the explicit formula to find the value with index 20.

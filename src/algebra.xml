@@ -10,7 +10,7 @@ Brian Walton          -->
 -->
 <section xml:id="elementary-algebraic-functions">
   <title>Algebra Review</title>
-  
+
   <subsection xml:id="appendix-linear-functions">
     <title>Lines and Linear Functions</title>
 
@@ -22,16 +22,18 @@ Brian Walton          -->
       Algebraically, we can define a line using an equation involving two variables.
       This section reviews the basic principles of the algebraic properties of lines.
     </p>
-    
+
     <definition xml:id="general-equation-line">
       <title>General Equation of a Line</title>
-      <p>
-        Every line in the <m>(x,y)</m> plane can be described as the set of points <m>(x,y)</m>
-        that satisfy an equation <men>Ax + By = C</men> where <m>A</m>, <m>B</m> and <m>C</m> are constants.
-        <notation><usage>Ax+By=C</usage><description>general equation of a line</description></notation>
-      </p>
+      <statement>
+        <p>
+          Every line in the <m>(x,y)</m> plane can be described as the set of points <m>(x,y)</m>
+          that satisfy an equation <men>Ax + By = C</men> where <m>A</m>, <m>B</m> and <m>C</m> are constants.
+          <notation><usage>Ax+By=C</usage><description>general equation of a line</description></notation>
+        </p>
+      </statement>
     </definition>
-    
+
     <p>
       There are some special cases that describe horizontal and vertical lines.
       The <m>(x,y)</m> plane uses <m>x</m> as the horizontal axis (independent variable)
@@ -39,68 +41,76 @@ Brian Walton          -->
       So a horizontal line is a line where the dependent variable is constant
       while a vertical line is a line where the independent variable constant.
     </p>
-    
+
     <definition xml:id="horizontal-line">
       <title>Horizontal Line</title>
-      <p>
-        A <term>horizontal line</term> in the <m>(x,y)</m> plane is the set of points
-        that satisfy an equation <men>y=k</men> where <m>k</m> is a constant.
-        <notation><usage>y=k</usage><description>equation of a horizontal line</description></notation>
-      </p>
+      <statement>
+        <p>
+          A <term>horizontal line</term> in the <m>(x,y)</m> plane is the set of points
+          that satisfy an equation <men>y=k</men> where <m>k</m> is a constant.
+          <notation><usage>y=k</usage><description>equation of a horizontal line</description></notation>
+        </p>
+      </statement>
     </definition>
-    
+
     <definition xml:id="vertical-line">
       <title>Vertical Line</title>
-      <p>
-        A <term>vertical line</term> in the <m>(x,y)</m> plane is the set of points
-        that satisfy an equation <men>x=h</men> where <m>h</m> is a constant.
-        <notation><usage>x=h</usage><description>equation of a vertical line</description></notation>
-      </p>
+      <statement>
+        <p>
+          A <term>vertical line</term> in the <m>(x,y)</m> plane is the set of points
+          that satisfy an equation <men>x=h</men> where <m>h</m> is a constant.
+          <notation><usage>x=h</usage><description>equation of a vertical line</description></notation>
+        </p>
+      </statement>
     </definition>
-    
+
     <p>
       All other lines have an equation that involves both variables.
       We often wish to think of the line as describing the dependent variable
       as a function of the independent variable.
       These equations involve the calculation of the slope, which represents a rate (or ratio) of change.
     </p>
-    
+
     <definition xml:id="slope-as-rate-of-change">
       <title>Slope as Rate of Change</title>
-      <p>
-        Given any two points <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m> on a non-vertical line,
-        the change in the dependent variable <m>\Delta y = y_2 - y_1</m> is proportional
-        to the change in the independent variable <m>\Delta x = x_2 - x_1</m>,
-        written <m>\Delta y = m \cdot \Delta x</m>.
-        The proportionality constant <m>m</m> is called the <term>slope</term> of the line,
-        calculated as the ratio of changes (rate of change)
-        <men>m = \frac{\Delta y}{\Delta x} = \frac{y_2-y_1}{x_2-x_1}.</men>
-        <notation>
-          <usage>\displaystyle \frac{\Delta y}{\Delta x}=\frac{y_2-y_1}{x_2-x_1}</usage>
-          <description>slope of line joining <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m></description>
-        </notation>
-      </p>
+      <statement>
+        <p>
+          Given any two points <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m> on a non-vertical line,
+          the change in the dependent variable <m>\Delta y = y_2 - y_1</m> is proportional
+          to the change in the independent variable <m>\Delta x = x_2 - x_1</m>,
+          written <m>\Delta y = m \cdot \Delta x</m>.
+          The proportionality constant <m>m</m> is called the <term>slope</term> of the line,
+          calculated as the ratio of changes (rate of change)
+          <men>m = \frac{\Delta y}{\Delta x} = \frac{y_2-y_1}{x_2-x_1}.</men>
+          <notation>
+            <usage>\displaystyle \frac{\Delta y}{\Delta x}=\frac{y_2-y_1}{x_2-x_1}</usage>
+            <description>slope of line joining <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m></description>
+          </notation>
+        </p>
+      </statement>
     </definition>
-    
+
     <p>
       Knowing the slope and one point is enough to quickly find an equation of a line.
     </p>
-    
+
     <definition xml:id="point-slope-line">
       <title>Point<ndash/>Slope Equation of Line</title>
-      <p>
-        Given that a line has slope <m>m</m> and passes through a point <m>(x,y)=(h,k)</m>,
-        every point on the line satisfies the equation <men>y=m \, (x-h)+k.</men>
-        We interpret <m>k</m> as the starting value for <m>y</m>
-        and the expression <m>\Delta y = m\,(x-h)</m> as the change in <m>y</m>
-        given the change in <m>x</m>, <m>\Delta x = x-h</m>.
-        <notation>
-          <usage>y=m(x-h)+k</usage>
-          <description>point<ndash />slope equation of a line</description>
-        </notation>
-      </p>
+      <statement>
+        <p>
+          Given that a line has slope <m>m</m> and passes through a point <m>(x,y)=(h,k)</m>,
+          every point on the line satisfies the equation <men>y=m \, (x-h)+k.</men>
+          We interpret <m>k</m> as the starting value for <m>y</m>
+          and the expression <m>\Delta y = m\,(x-h)</m> as the change in <m>y</m>
+          given the change in <m>x</m>, <m>\Delta x = x-h</m>.
+          <notation>
+            <usage>y=m(x-h)+k</usage>
+            <description>point<ndash />slope equation of a line</description>
+          </notation>
+        </p>
+      </statement>
     </definition>
-    
+
     <p>
       A special case of the point<ndash />slope equation of the line occurs
       when the point is on the <m>y</m>-axis or, in other words, is a <m>y</m>-intercept.
@@ -108,53 +118,59 @@ Brian Walton          -->
 
     <definition xml:id="slope-intercept-line">
       <title>Slope<ndash/>Intercept Equation of Line</title>
-      <p>
-        Given that a line has slope <m>m</m> and passes through a <m>y</m>-intercept <m>(x,y)=(0,b)</m>, every point on the line satisfies the equation <men>y=mx+b.</men>
-        <notation>
-          <usage>y=mx+b</usage>
-          <description>slope<ndash />intercept equation of a line</description>
-        </notation>
-      </p>
+      <statement>
+        <p>
+          Given that a line has slope <m>m</m> and passes through a <m>y</m>-intercept <m>(x,y)=(0,b)</m>, every point on the line satisfies the equation <men>y=mx+b.</men>
+          <notation>
+            <usage>y=mx+b</usage>
+            <description>slope<ndash />intercept equation of a line</description>
+          </notation>
+        </p>
+      </statement>
     </definition>
-    
+
     <remark>
       <p>
         Preparatory mathematics courses often emphasize the slope<ndash/>intercept equation of a line as if it were the most important.
         However, the point<ndash/>slope equation is the preferred equation to use in almost every circumstance.
       </p>
     </remark>
-    
+
     <p>Another special case of the point<ndash />slope equation of a line is when we know the slope and the <m>x</m>-intercept.</p>
 
     <definition xml:id="slope-x-intercept-line">
       <title>Slope and X-Intercept Equation of Line</title>
-      <p>
-        Given that a line has slope <m>m</m> and passes through an <m>x</m>-intercept <m>(x,y)=(a,0)</m>,
-        every point on the line satisfies the equation <men>y=m(x-a).</men>.
-        <notation>
-          <usage>y=m(x-a)</usage>
-          <description>slope and <m>x</m>-intercept equation of a line</description>
-        </notation>
-      </p>
+      <statement>
+        <p>
+          Given that a line has slope <m>m</m> and passes through an <m>x</m>-intercept <m>(x,y)=(a,0)</m>,
+          every point on the line satisfies the equation <men>y=m(x-a).</men>.
+          <notation>
+            <usage>y=m(x-a)</usage>
+            <description>slope and <m>x</m>-intercept equation of a line</description>
+          </notation>
+        </p>
+      </statement>
     </definition>
   </subsection>
-  
+
   <subsection xml:id="quadratic-polynomials">
     <title>Quadratic Polynomials</title>
-    
+
     <definition xml:id="define-quadratic-polynomial">
-      <p>
-        A <term>quadratic polynomial</term> in a variable <m>x</m> is an algebraic function
-        that is equal to a formula of the form
-        <men>f(x) = ax^2+bx+c,</men>
-        where <m>a</m>, <m>b</m> and <m>c</m> are constants called <term>coefficients</term>.
-        <notation>
-          <usage>f(x)=ax^2+bx+c</usage>
-          <description>general quadratic polynomial</description>
-        </notation>
-      </p>
+      <statement>
+        <p>
+          A <term>quadratic polynomial</term> in a variable <m>x</m> is an algebraic function
+          that is equal to a formula of the form
+          <men>f(x) = ax^2+bx+c,</men>
+          where <m>a</m>, <m>b</m> and <m>c</m> are constants called <term>coefficients</term>.
+          <notation>
+            <usage>f(x)=ax^2+bx+c</usage>
+            <description>general quadratic polynomial</description>
+          </notation>
+        </p>
+      </statement>
     </definition>
-    
+
     <p>
       The graph of a quadratic function, <m>y=ax^2+bx+c</m>, is a <term>parabola</term>.
       Such a parabola has a mirror symmetry across a vertical line that passes through its <term>vertex</term> <m>x=-\frac{b}{2a}</m>.
@@ -164,7 +180,7 @@ Brian Walton          -->
       The location of these points are called <m>x</m>-intercepts, <term>roots</term> or <term>zeros</term> of the function.
       The values of the roots can always be found using the <xref ref="thm-quadratic-formula" text="title">quadratic formula</xref>.
     </p>
-    
+
     <p>
       Zeros are closely related to factoring.
       If we know the zeros, then we can immediately rewrite the polynomial in a factored form.
@@ -172,7 +188,7 @@ Brian Walton          -->
       then we can quickly solve for the zeros without using the quadratic formula.
       This is a consequence of the fundamental properties of numbers in Theorem <xref ref="theorem-product-equals-zero"/>.
     </p>
-    
+
     <theorem xml:id="quadratic-factor-root-theorem">
       <title>Factor<ndash/>Root Theorem for Quadratics</title>
       <statement>
@@ -183,12 +199,12 @@ Brian Walton          -->
         </p>
       </statement>
     </theorem>
-    
+
     <p>
       A quadratic polynomial that has complex roots is called <term>irreducible</term>
       because it can not be rewritten in a factored form involving only real roots.
     </p>
-    
+
     <p>
       There are some tricks to factoring that can be useful to know.
       Factoring is the reverse process of multiplying by distribution,
@@ -198,13 +214,13 @@ Brian Walton          -->
       When trying to factor a quadratic, look for numbers that multiply to give the product term and add to give the coefficient of <m>x</m>.
       This is often a matter of trial and error.
     </p>
-    
+
     <p>
       Knowing one root <m>x=r</m> of a quadratic <m>f(x)=ax^2+bx+c</m> so that <m>f(r)=0</m>,
       we know that <m>x-r</m> is a factor.
       The other factor can be determined easily.
     </p>
-    
+
     <theorem xml:id="quadratic-simple-root-factor">
       <title>Using Roots to Factor Quadratics</title>
       <statement>
@@ -214,58 +230,58 @@ Brian Walton          -->
         </p>
       </statement>
     </theorem>
-    
+
     <p>
       Synthetic division is a procedure that works for quadratics as well as higher order polynomials.
       This procedure uses a table that starts with the coefficients on the first row.
       For a more thorough discussion for higher-order polynomials,
       see <xref ref="synthetic-division-algorithm"/>.
     </p>
-    
+
     <algorithm xml:id="synthetic-division-quadratics">
       <title>Synthetic Division (Quadratics)</title>
       <p>
         To divide a quadratic polynomial <m>f(x)=ax^2+bx+c</m> by the factor <m>x-r</m> (proposed root <m>x=r</m>),
         we will apply the following steps.
+        <ol>
+          <li>
+            <p>
+              Create a table that will have three rows and three columns.
+              The first row will have the coefficients <m>a</m>, <m>b</m> and <m>c</m> in the three columns.
+              The first entry of the second row will always be 0.
+              So the start of the table will look like the following.
+              <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \\ \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \end{matrix} </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              We finish a column, starting with the first column,
+              by adding the values from the first and second rows, which in this case gives <m>a</m> again.
+              <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \\ a &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \end{matrix} </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              We next update the second row of the next column by multiplying the most recent value in the third row by the proposed root value <m>r</m>, which in this case gives <m>ar</m>.
+              <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; ar &amp; \underline{\phantom{WW}} \\ a &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \end{matrix} </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Add the values in the second column to update the third row to define the new coefficient <m>d=ar+b</m> (recall <xref ref="quadratic-simple-root-factor"/>)
+              and multiply by <m>r</m> to update the second row.
+              <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; ar &amp; ar^2+br \\ a &amp; d=ar+b &amp; \underline{\phantom{WW}} \end{matrix} </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              When we finish updating the third row by adding the values in the third column,
+              we discover that the last entry in the third row corresponds to <m>f(r)=ar^2+br+c</m>.
+              <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; ar &amp; ar^2+br \\ a &amp; d=ar+b &amp; f(r)=ar^2+br+c \end{matrix} </me>
+            </p>
+          </li>
+        </ol>
       </p>
-      <ol>
-        <li>
-          <p>
-            Create a table that will have three rows and three columns.
-            The first row will have the coefficients <m>a</m>, <m>b</m> and <m>c</m> in the three columns.
-            The first entry of the second row will always be 0.
-            So the start of the table will look like the following.
-            <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \\ \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \end{matrix} </me>
-          </p>
-        </li>
-        <li>
-          <p>
-            We finish a column, starting with the first column,
-            by adding the values from the first and second rows, which in this case gives <m>a</m> again.
-            <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \\ a &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \end{matrix} </me>
-          </p>
-        </li>
-        <li>
-          <p>
-            We next update the second row of the next column by multiplying the most recent value in the third row by the proposed root value <m>r</m>, which in this case gives <m>ar</m>.
-            <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; ar &amp; \underline{\phantom{WW}} \\ a &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \end{matrix} </me>
-          </p>
-        </li>
-        <li>
-          <p>
-            Add the values in the second column to update the third row to define the new coefficient <m>d=ar+b</m> (recall <xref ref="quadratic-simple-root-factor"/>)
-            and multiply by <m>r</m> to update the second row.
-            <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; ar &amp; ar^2+br \\ a &amp; d=ar+b &amp; \underline{\phantom{WW}} \end{matrix} </me>
-          </p>
-        </li>
-        <li>
-          <p>
-            When we finish updating the third row by adding the values in the third column,
-            we discover that the last entry in the third row corresponds to <m>f(r)=ar^2+br+c</m>.
-            <me>\begin{matrix} a &amp; b &amp; c \\ 0 &amp; ar &amp; ar^2+br \\ a &amp; d=ar+b &amp; f(r)=ar^2+br+c \end{matrix} </me>
-          </p>
-        </li>
-      </ol>
       <p>
         Once the table is complete, we interpret the values in the third row as giving coefficients of the factored polynomial
         along with the value of the polynomial at <m>x=r</m> (called the remainder)
@@ -275,7 +291,7 @@ Brian Walton          -->
         Because synthetic division is quick, this can be a simple way to test for roots and factor simultaneously.
       </p>
     </algorithm>
-    
+
     <p>
       Every quadratic can be rewritten in a form <m>y=a(x-h)^2+k</m>
       where <m>(h,k)</m> is the vertex of the parabola
@@ -289,44 +305,43 @@ Brian Walton          -->
       The strategy involves adding a term to form a perfect square
       and subtracting the same term to guarantee the expression does not change.
     </p>
-    
+
     <algorithm xml:id="algorithm-completing-square">
       <title>Completing the Square</title>
-      
+
       <p>
         A quadratic <m>y=ax^2+bx+c</m> can be rewritten in terms of its vertex by completing the following steps.
+        <ol>
+          <li>
+            <p>
+              Factor the leading coefficient from the leading two terms
+              <me>y=a(x^2 + \frac{b}{a}x) + c.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Think of the <m>x</m> term as being double half its value and add and subtract the square of the half-value:
+              <me>y=a\Big(x^2+2 \frac{b}{2a} x + (\frac{b}{2a})^2 - (\frac{b}{2a})^2\Big) + c.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Recognize the square of a binomial, group those terms, and regroup the remaining terms:
+              <me>y=a\Big((x + \frac{b}{2a})^2 - (\frac{b}{2a})^2\Big) + c = a(x+\frac{b}{2a})^2 + \frac{-ab^2}{4a^2} + c.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Interpret the results:
+              The vertex is <m>(h,k)</m> where <m>h=-\frac{b}{2a}</m> (because vertex form uses <m>(x-h)^2</m>) and <m>k=-\frac{b^2}{4a} + c</m>.
+              The leading coefficient <m>a</m> is a scaling factor that determines the steepness of the parabola
+              and whether the parabola opens up (<m>a\gt 0</m>) or down (<m>a \lt 0</m>).
+            </p>
+          </li>
+        </ol>
       </p>
-      
-      <ol>
-        <li>
-          <p>
-            Factor the leading coefficient from the leading two terms
-            <me>y=a(x^2 + \frac{b}{a}x) + c.</me>
-          </p>
-        </li>
-        <li>
-          <p>
-            Think of the <m>x</m> term as being double half its value and add and subtract the square of the half-value:
-            <me>y=a\Big(x^2+2 \frac{b}{2a} x + (\frac{b}{2a})^2 - (\frac{b}{2a})^2\Big) + c.</me>
-          </p>
-        </li>
-        <li>
-          <p>
-            Recognize the square of a binomial, group those terms, and regroup the remaining terms:
-            <me>y=a\Big((x + \frac{b}{2a})^2 - (\frac{b}{2a})^2\Big) + c = a(x+\frac{b}{2a})^2 + \frac{-ab^2}{4a^2} + c.</me>
-          </p>
-        </li>
-        <li>
-          <p>
-            Interpret the results:
-            The vertex is <m>(h,k)</m> where <m>h=-\frac{b}{2a}</m> (because vertex form uses <m>(x-h)^2</m>) and <m>k=-\frac{b^2}{4a} + c</m>.
-            The leading coefficient <m>a</m> is a scaling factor that determines the steepness of the parabola
-            and whether the parabola opens up (<m>a\gt 0</m>) or down (<m>a \lt 0</m>).
-          </p>
-        </li>
-      </ol>
     </algorithm>
-    
+
     <example xml:id="example-completing-square">
       <statement>
         <p>
@@ -334,83 +349,89 @@ Brian Walton          -->
         </p>
       </statement>
       <solution>
-        <ol>
-          <li>
-            <p>
-              Group the non-constant terms and factor out the leading coefficient.
-              <md>
-                <mrow>3x^2-4x+1 &amp;= (3x^2-4x) + 1</mrow>
-                <mrow>&amp; = 3(x^2 - \frac{4}{3}x) + 1</mrow>
-              </md>
-            </p>
-          </li>
-          <li>
-            <p>
-              Recognize the coefficient <m>-\frac{4}{3}</m> as double <m>-\frac{2}{3}</m> and use this to complete the square.
-              <md>
-                <mrow>3x^2-4x+1 &amp; = 3\Big(x^2 + 2 \cdot \frac{-2}{3}x \Big) + 1 </mrow>
-                <mrow>&amp; = 3\Big(x^2 + 2 \cdot \frac{-2}{3}x + (\frac{-2}{3})^2 - (\frac{-2}{3})^2 \Big) + 1 </mrow>
-                <mrow>&amp; = 3 \Big(x^2 - \frac{4}{3} x + \frac{4}{9}\Big) - 3(\frac{4}{9}) + 1</mrow>
-                <mrow>&amp; = 3 \Big(x - \frac{2}{3}\Big)^2 - \frac{4}{3} + 1 = 3\Big(x-\frac{2}{3}\Big)^2 - \frac{1}{3}.</mrow>
-              </md>
-            </p>
-          </li>
-          <li>
-            <p>
-              Interpret the results as saying <m>h=\frac{2}{3}</m>
-              (because the completed square is always of the form <m>(x-h)^2</m>) and <m>k=-\frac{1}{3}</m>.
-              Thus the vertex of the parabola is at <m>(\frac{2}{3}, -\frac{1}{3})</m>.
-              The leading coefficient <m>a=3</m> indicates that the parabola opens up
-              and is three times steeper than the standard parabola <m>y=x^2</m>.
-            </p>
-          </li>
-        </ol>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Group the non-constant terms and factor out the leading coefficient.
+                <md>
+                  <mrow>3x^2-4x+1 &amp;= (3x^2-4x) + 1</mrow>
+                  <mrow>&amp; = 3(x^2 - \frac{4}{3}x) + 1</mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                Recognize the coefficient <m>-\frac{4}{3}</m> as double <m>-\frac{2}{3}</m> and use this to complete the square.
+                <md>
+                  <mrow>3x^2-4x+1 &amp; = 3\Big(x^2 + 2 \cdot \frac{-2}{3}x \Big) + 1 </mrow>
+                  <mrow>&amp; = 3\Big(x^2 + 2 \cdot \frac{-2}{3}x + (\frac{-2}{3})^2 - (\frac{-2}{3})^2 \Big) + 1 </mrow>
+                  <mrow>&amp; = 3 \Big(x^2 - \frac{4}{3} x + \frac{4}{9}\Big) - 3(\frac{4}{9}) + 1</mrow>
+                  <mrow>&amp; = 3 \Big(x - \frac{2}{3}\Big)^2 - \frac{4}{3} + 1 = 3\Big(x-\frac{2}{3}\Big)^2 - \frac{1}{3}.</mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                Interpret the results as saying <m>h=\frac{2}{3}</m>
+                (because the completed square is always of the form <m>(x-h)^2</m>) and <m>k=-\frac{1}{3}</m>.
+                Thus the vertex of the parabola is at <m>(\frac{2}{3}, -\frac{1}{3})</m>.
+                The leading coefficient <m>a=3</m> indicates that the parabola opens up
+                and is three times steeper than the standard parabola <m>y=x^2</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
       </solution>
     </example>
   </subsection>
-  
+
   <subsection xml:id="general-polynomials">
     <title>Polynomials</title>
-    
+
     <p>
       Linear and quadratic formulas are special cases of polynomials.
       This section gives an overview of principles about polynomials that are likely to appear in calculus.
       First, we introduce some basic definitions.
     </p>
-    
+
     <definition xml:id="definition-monomial">
       <title>Monomials</title>
-      <p>
-        A <term>monomial</term> is an expression that is a constant multiple of a variable raised to a non-negative integer power, <m>a x^k</m>,
-        where <m>k=0,1,2,3,\ldots</m> and <m>a \in \mathbb{R}</m>.
-      </p>
-      <p>
-        Examples include <m>4x^2</m> (with <m>a=4</m> and <m>k=2</m>), <m>\frac{1}{3}x^7</m>
-        (with <m>a=\frac{1}{3}</m> and <m>k=7</m>) and <m>3</m> (where <m>a=3</m> and <m>k=0</m>).
-        The following are not monomials: <m>3\sqrt{x} = 3x^{1/2}</m> (since not an integer power)
-        and <m>\frac{3}{x^2} = 3x^{-2}</m> since the power is a negative integer.
-      </p>
+      <statement>
+        <p>
+          A <term>monomial</term> is an expression that is a constant multiple of a variable raised to a non-negative integer power, <m>a x^k</m>,
+          where <m>k=0,1,2,3,\ldots</m> and <m>a \in \mathbb{R}</m>.
+        </p>
+        <p>
+          Examples include <m>4x^2</m> (with <m>a=4</m> and <m>k=2</m>), <m>\frac{1}{3}x^7</m>
+          (with <m>a=\frac{1}{3}</m> and <m>k=7</m>) and <m>3</m> (where <m>a=3</m> and <m>k=0</m>).
+          The following are not monomials: <m>3\sqrt{x} = 3x^{1/2}</m> (since not an integer power)
+          and <m>\frac{3}{x^2} = 3x^{-2}</m> since the power is a negative integer.
+        </p>
+      </statement>
     </definition>
-    
+
     <definition xml:id="definition-polynomial">
       <title>Polynomials</title>
-      <p>
-        An algebraic expression that can be rewritten as a sum of monomials is called a <term>polynomial</term>.
-        The monomials are called the <term>terms</term> of the polynomial.
-        The monomial with the highest power is called the <term>leading term</term>
-        and its power is called the <term>degree</term> of the polynomial.
-        The constant multiples in the monomials are called <term>coefficients</term>
-        and the coefficient in the leading term is called the <term>leading coefficient</term>.
-      </p>
-      <p>
-        We usually write a polynomial with terms ordered by decreasing powers, called <term>standard form</term>.
-        An abstract representation of a polynomial with degree <m>n</m> is written
-        <me>p(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0</me>
-        where the symbols <m>a_n, a_{n-1}, \ldots, a_0</m> represent the coefficients.
-        A missing term is represented by a coefficient zero.
-      </p>
+      <statement>
+        <p>
+          An algebraic expression that can be rewritten as a sum of monomials is called a <term>polynomial</term>.
+          The monomials are called the <term>terms</term> of the polynomial.
+          The monomial with the highest power is called the <term>leading term</term>
+          and its power is called the <term>degree</term> of the polynomial.
+          The constant multiples in the monomials are called <term>coefficients</term>
+          and the coefficient in the leading term is called the <term>leading coefficient</term>.
+        </p>
+        <p>
+          We usually write a polynomial with terms ordered by decreasing powers, called <term>standard form</term>.
+          An abstract representation of a polynomial with degree <m>n</m> is written
+          <me>p(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0</me>
+          where the symbols <m>a_n, a_{n-1}, \ldots, a_0</m> represent the coefficients.
+          A missing term is represented by a coefficient zero.
+        </p>
+      </statement>
     </definition>
-    
+
     <example xml:id="example-polynomials">
       <p>
         <m>x^4-2x^2+3x+1</m> is a polynomial with degree <m>n=4</m>.
@@ -426,13 +447,13 @@ Brian Walton          -->
         We see that the polynomial has degree <m>n=4</m> and coefficients <m>a_4=6</m>, <m>a_3=-10</m>, <m>a_2=-4</m> and <m>a_1=a_0=0</m>.
       </p>
     </example>
-    
+
     <p>
       Every polynomial <m>p(x)</m> is a function whose domain is all real numbers <m>(-\infty,\infty)</m>.
       Values of <m>x</m> for which <m>p(x)=0</m> are called zeros or roots of the polynomial.
       These roots are related to factors.
     </p>
-    
+
     <theorem xml:id="polynomial-root-factor-theorem">
       <title>Root<ndash/>Factor Theorem</title>
       <statement>
@@ -443,14 +464,14 @@ Brian Walton          -->
         </p>
       </statement>
     </theorem>
-    
+
     <p>
       Synthetic division is an algorithm that can both test if a value <m>x=r</m> is a root
       and determine the coefficients of the factored polynomial <m>q(x)</m> at the same time.
       Synthetic division for quadratic polynomials (degree <m>n=2</m>) is a special case of this process,
       described in <xref ref="synthetic-division-quadratics"/>.
     </p>
-    
+
     <algorithm xml:id="synthetic-division-algorithm">
       <title>Synthetic Division</title>
       <p>
@@ -462,126 +483,126 @@ Brian Walton          -->
         so that when <m>x=c</m> is a root, <m>p(c)=0</m> and <m>p(x)</m> factors as
         <me>p(x) = (x-c) q(x).</me>
         The coefficients for <m>q(x)</m> and the remainder are found using the steps below.
+        <ol>
+          <li>
+            <p>
+              We will create a table with three rows and <m>n+1</m> columns.
+              The first row consists of the coefficients of <m>p(x)</m>, using 0 for any skipped terms,
+              ordered by decreasing power.
+              The first value of the second row is always 0.
+              The table will start as follows:
+              <me>\begin{matrix}
+                a_n &amp; a_{n-1} &amp; \cdots &amp; a_1 &amp; a_0 \\
+                0 &amp; \underline{\phantom{WW}} &amp; \cdots &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \\
+                \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \cdots &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}}
+              \end{matrix}</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              A column will always be completed (finding the third row) by adding the values in the first and second rows.
+            </p>
+          </li>
+          <li>
+            <p>
+              Once a column is complete, the second row of the next column is found
+              by multiplying the previous value in the third row by the test value <m>c</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Repeat these two steps until the table is complete.
+              The third row of the table gives the coefficients and remainder as follows:
+              <me>\begin{matrix}
+                a_n &amp; a_{n-1} &amp; \cdots &amp; a_1 &amp; a_0 \\
+                0 &amp; c \cdot b_{n-1} &amp; \cdots &amp; c \cdot b_{1} &amp; c \cdot b_0 \\
+                b_{n-1} &amp; b_{n-2} &amp; \cdots &amp; b_0 &amp; r
+              \end{matrix} </me>
+              The interpretation is that
+              <me>p(x) = (x-c)(b_{n-1} x^{n-1} + \cdots + b_1 x + b_0) + r.</me>
+            </p>
+          </li>
+        </ol>
       </p>
-      <ol>
-        <li>
-          <p>
-            We will create a table with three rows and <m>n+1</m> columns.
-            The first row consists of the coefficients of <m>p(x)</m>, using 0 for any skipped terms, 
-            ordered by decreasing power.
-            The first value of the second row is always 0.
-            The table will start as follows: 
-            <me>\begin{matrix} 
-              a_n &amp; a_{n-1} &amp; \cdots &amp; a_1 &amp; a_0 \\ 
-              0 &amp; \underline{\phantom{WW}} &amp; \cdots &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \\ 
-              \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \cdots &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} 
-            \end{matrix}</me>
-          </p>
-        </li>
-        <li>
-          <p>
-            A column will always be completed (finding the third row) by adding the values in the first and second rows.
-          </p>
-        </li>
-        <li>
-          <p>
-            Once a column is complete, the second row of the next column is found 
-            by multiplying the previous value in the third row by the test value <m>c</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Repeat these two steps until the table is complete.
-            The third row of the table gives the coefficients and remainder as follows: 
-            <me>\begin{matrix} 
-              a_n &amp; a_{n-1} &amp; \cdots &amp; a_1 &amp; a_0 \\ 
-              0 &amp; c \cdot b_{n-1} &amp; \cdots &amp; c \cdot b_{1} &amp; c \cdot b_0 \\ 
-              b_{n-1} &amp; b_{n-2} &amp; \cdots &amp; b_0 &amp; r 
-            \end{matrix} </me> 
-            The interpretation is that 
-            <me>p(x) = (x-c)(b_{n-1} x^{n-1} + \cdots + b_1 x + b_0) + r.</me>
-          </p>
-        </li>
-      </ol>
     </algorithm>
-    
+
     <example>
       <statement>
         <p>
-          Use synthetic division with the polynomial <m>p(x)=x^3-6x+2</m> 
+          Use synthetic division with the polynomial <m>p(x)=x^3-6x+2</m>
           with the test value <m>x=2</m> and interpret the result.
         </p>
       </statement>
       <solution>
         <p>
           Start by identifying the coefficients.
-          Any missed terms have a coefficient of zero, 
-          <me>p(x) = x^3 + 0 x^2 + -6x + 2.</me> 
+          Any missed terms have a coefficient of zero,
+          <me>p(x) = x^3 + 0 x^2 + -6x + 2.</me>
           We start the synthetic division table using the coefficients in the first row.
-          <me>\begin{matrix} 
-            1 &amp; 0 &amp; -6 &amp; 2 \\ 
-            0 &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \\ 
-            \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} 
+          <me>\begin{matrix}
+            1 &amp; 0 &amp; -6 &amp; 2 \\
+            0 &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} \\
+            \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}} &amp; \underline{\phantom{WW}}
           \end{matrix}</me>
         </p>
         <p>
           We then finish filling the table.
-          To find values in the second row, we use the previous result in the third row 
+          To find values in the second row, we use the previous result in the third row
           and multiply by the test value 2.
           To find the values in the third row, we add the values in the column.
           The first value in the second row is always 0.
           The completed table is shown below.
-          <me>\begin{matrix} 
-            1 &amp; 0 &amp; -6 &amp; 2 \\ 
-            0 &amp; 2 &amp; 4 &amp; -4 \\ 
-            1 &amp; 2 &amp; -2 &amp; -2 
+          <me>\begin{matrix}
+            1 &amp; 0 &amp; -6 &amp; 2 \\
+            0 &amp; 2 &amp; 4 &amp; -4 \\
+            1 &amp; 2 &amp; -2 &amp; -2
           \end{matrix}</me>
         </p>
         <p>
-          Once the table is complete, we interpret the values in the third row 
+          Once the table is complete, we interpret the values in the third row
           as coefficients and a remainder.
-          The last value is the remainder, <m>r=-2</m>, 
-          and the other values are the coefficients of a polynomial 
+          The last value is the remainder, <m>r=-2</m>,
+          and the other values are the coefficients of a polynomial
           whose degree is one smaller than the original, in this case <m>n-1=2</m>.
           That is, the quotient polynomial is <m>q(x) = x^2 + 2x - 2</m>.
-          The original polynomial can be written 
+          The original polynomial can be written
           <md>
             <mrow>p(x) &amp;= (x-2)q(x) + r</mrow>
             <mrow>x^3-6x+2 &amp;= (x-2)(x^2+2x-2) + -2</mrow>
-          </md> 
-          The non-zero remainder means that <m>x-2</m> is not a factor 
+          </md>
+          The non-zero remainder means that <m>x-2</m> is not a factor
           and also tells us that <m>p(2) = -2</m>.
         </p>
       </solution>
     </example>
-    
+
     <p>
-      How do we know which numbers to try? 
-      If you have access to a graph of the polynomial, 
+      How do we know which numbers to try?
+      If you have access to a graph of the polynomial,
       you should use the values for roots that you see.
-      If you do not have access to a graph, 
-      then you might be able to use the results of the Integer Root Theorem or Rational Root Theorem 
+      If you do not have access to a graph,
+      then you might be able to use the results of the Integer Root Theorem or Rational Root Theorem
       so long as all of the coefficients of your polynomial are integers.
     </p>
-    
+
     <theorem xml:id="integer-root-theorem">
       <title>Integer Root Theorem</title>
       <statement>
         <p>
-          If the coefficients of a polynomial 
-          <me>p(x) = a_n x^n + \cdots + a_1 x + a_0</me> 
-          has all integer coefficients, 
+          If the coefficients of a polynomial
+          <me>p(x) = a_n x^n + \cdots + a_1 x + a_0</me>
+          has all integer coefficients,
           then the only possible integer roots are factors of the constant coefficient <m>a_0</m>.
         </p>
       </statement>
     </theorem>
-    
+
     <example>
       <p>
-        The polynomial <m>p(x) = x^3-6x+2</m> has only integer coefficients 
+        The polynomial <m>p(x) = x^3-6x+2</m> has only integer coefficients
         and a constant coefficient <m>a_0=2</m>.
         The only factors of <m>a_0</m> are <m>\pm 1</m> and <m>\pm 2</m>.
-        So the Integer Root Theorem guarantees that 
+        So the Integer Root Theorem guarantees that
         these four integers are the only four numbers that we need to check if they are roots.
         A quick test of each of those values (below) shows that <m>p(x)</m> has no integer roots.
         (Without the theorem, we wouldn't know how many points we had to check.)
@@ -599,51 +620,53 @@ Brian Walton          -->
         </tabular>
       </sidebyside>
     </example>
-    
+
     <theorem xml:id="rational-root-theorem">
       <title>Rational Root Theorem</title>
       <statement>
         <p>
-          If the coefficients of a polynomial 
-          <me>p(x) = a_n x^n + \cdots + a_1 x + a_0</me> 
-          has all integer coefficients, 
-          then a rational number <m>x=r/s</m> (where <m>r</m> and <m>s</m> are integers) 
+          If the coefficients of a polynomial
+          <me>p(x) = a_n x^n + \cdots + a_1 x + a_0</me>
+          has all integer coefficients,
+          then a rational number <m>x=r/s</m> (where <m>r</m> and <m>s</m> are integers)
           might be a root only if <m>r</m> is a factor of <m>a_0</m> and <m>s</m> is a factor of <m>a_n</m>.
         </p>
       </statement>
     </theorem>
-    
+
     <p>
-      The Integer Root Theorem is a special case of the Rational Root Theorem 
+      The Integer Root Theorem is a special case of the Rational Root Theorem
       where <m>s=1</m> (which is always a factor of <m>a_n</m>.
     </p>
   </subsection>
-  
+
   <subsection xml:id="appendix-absolute-value">
     <title>Absolute Value</title>
-    
+
     <p>
       The absolute value operation takes a number and finds its magnitude (or distance from zero).
-      Because magnitude is a non-negative value and positive and negative pairs are the same distance from zero, 
+      Because magnitude is a non-negative value and positive and negative pairs are the same distance from zero,
       we often imagine that the role of absolute value is to remove a negative sign, <m>|-3| = 3</m>.
-      However, when a variable is involved, a negative sign means finding the inverse of a value 
+      However, when a variable is involved, a negative sign means finding the inverse of a value
       for which we may not know if it is positive or negative.
       So it is incorrect to say that <m>|-x| = x</m> (FALSE).
       The proper definition of absolute value uses a piecewise formula.
     </p>
-    
+
     <definition xml:id="define-absolute-value">
       <title>Absolute Value</title>
-      <p>
-        <me>|x| = \begin{cases} x, &amp; x \ge 0 \\ -x, &amp; x \lt 0 \end{cases}</me>
-      </p>
+      <statement>
+        <p>
+          <me>|x| = \begin{cases} x, &amp; x \ge 0 \\ -x, &amp; x \lt 0 \end{cases}</me>
+        </p>
+      </statement>
     </definition>
-    
+
     <p>
-      As a function, the graph of absolute value <m>y=|x|</m> gives two lines: 
+      As a function, the graph of absolute value <m>y=|x|</m> gives two lines:
       <m>y=x</m> when <m>x \ge 0</m> and <m>y=-x</m> when <m>x \lt 0</m>.
     </p>
-    
+
     <figure xml:id="graph-absolute-value">
       <caption>Graph of the absolute value, <m>y=|x|</m></caption>
       <image>
@@ -675,12 +698,12 @@ Brian Walton          -->
         </latex-image>
       </image>
     </figure>
-    
+
     <p>
     It is sometimes useful to take advantage of an identity between the square root of a square and the absolute value.
     This is the source of the plus/minus when solving an equation with a square.
     </p>
-    
+
     <theorem xml:id="square-root-square-absval">
       <statement>
         <p>
@@ -688,7 +711,7 @@ Brian Walton          -->
         </p>
       </statement>
     </theorem>
-    
+
     <example>
       <statement>
         <p>
@@ -698,19 +721,19 @@ Brian Walton          -->
       <solution>
         <p>
           Applying a square root to both sides of the equation, we then get to use the absolute value identity.
-          <me>\sqrt{x^2} = \sqrt{16} \quad \Leftrightarrow \quad |x| = \sqrt{16} = 4</me> 
+          <me>\sqrt{x^2} = \sqrt{16} \quad \Leftrightarrow \quad |x| = \sqrt{16} = 4</me>
           The source of plus/minus is that there are two numbers with magnitude 4, <me>x = \pm 4.</me>
         </p>
       </solution>
     </example>
-    
+
     <p>
       The absolute value splits nicely with multiplication (and division).
-      However, addition of two values with opposite signs shows that absolute values do not add: 
+      However, addition of two values with opposite signs shows that absolute values do not add:
       <m>|3+-4| = |-1| \ne |3| + |-4| = 7</m>.
       Instead, we have an inequality called the triangle inequality.
     </p>
-    
+
     <theorem xml:id="theorem-absolute-value-products">
       <title>Properties of Absolute Values</title>
       <statement>
@@ -724,10 +747,10 @@ Brian Walton          -->
     </theorem>
 
     <p>
-      The triangle inequality is used to show that the absolute value of a sum (or difference) 
+      The triangle inequality is used to show that the absolute value of a sum (or difference)
       is bounded by the sum of the magnitudes of the individual terms.
     </p>
-    
+
     <theorem xml:id="triangle-inequality">
       <title>Triangle Inequality</title>
       <statement>
@@ -741,11 +764,11 @@ Brian Walton          -->
     </theorem>
 
     <p>
-      Occasionally we need to apply the triangle in reverse, 
-      showing that the absolute value of a sum (or difference) must be bigger 
+      Occasionally we need to apply the triangle in reverse,
+      showing that the absolute value of a sum (or difference) must be bigger
       than the difference in magnitudes of the parts.
     </p>
-    
+
     <theorem xml:id="triangle-inequality-reverse">
       <title>Reverse Triangle Inequality</title>
       <statement>
@@ -757,13 +780,13 @@ Brian Walton          -->
         </p>
       </statement>
     </theorem>
-    
+
     <p>
       Absolute value and subtraction is often used to describe the distance between two values.
-      For example, the graph <m>y=|x-2|</m> represents a shift of the graph <m>y=|x|</m> two units to the right, 
+      For example, the graph <m>y=|x-2|</m> represents a shift of the graph <m>y=|x|</m> two units to the right,
       so that instead of measuring the distance of <m>x</m> from 0 it measure the distance of <m>x</m> from 2.
     </p>
-    
+
     <sidebyside>
       <image>
         <description>graph of y=abs(x-2)</description>
@@ -794,7 +817,7 @@ Brian Walton          -->
         </latex-image>
       </image>
     </sidebyside>
-    
+
     <theorem xml:id="thm-absolute-value-distance">
       <statement>
         <p>
@@ -802,10 +825,10 @@ Brian Walton          -->
         </p>
       </statement>
     </theorem>
-    
+
     <p>
       Note that <m>|x+3| = |x--3|</m> so that it represents the distance between <m>x</m> and the value <m>-3</m>.
     </p>
-    
+
   </subsection>
 </section>
