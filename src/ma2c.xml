@@ -78,6 +78,7 @@
       <title>Rules of Differentiation</title>
       <xi:include href="./differentiation.xml" />
       <xi:include href="./practice-derivatives.xml" />
+      <xi:include href="./differentiation-applications.xml" />
       <xi:include href="./chain-rule.xml" />
       <xi:include href="./exponential_derivative.xml" />
       <xi:include href="./implicit-differentiation.xml" />

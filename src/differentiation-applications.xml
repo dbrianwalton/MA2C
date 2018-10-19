@@ -104,7 +104,7 @@
           The change in area is <m>\Delta A = A(10)-A(0) = 25 \: \hbox{mi}^2</m>
           and the change in time is <m>\Delta t = 10</m> years.
           Consequently, the average rate of change of area is
-          <me>\frac{\Delta A}{\Delta t} \Big|_{0,10} = \frac{25}{10} = 2.5\: \hbox{mi}^2/\hbox{yr}</m>.
+          <me>\frac{\Delta A}{\Delta t} \Big|_{0,10} = \frac{25}{10} = 2.5\: \hbox{mi}^2/\hbox{yr}</me>.
         </p>
         <sidebyside>
           <image>
