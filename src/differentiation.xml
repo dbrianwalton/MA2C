@@ -477,6 +477,29 @@
         </p>
       </proof>
     </theorem>
+    <example>
+      <statement>
+        <p>
+          Show that the derivative using the product rule for <m>\displaystyle \frac{d}{dx}[(x^2-3)\cdot(2x+1)]</m>
+          is consistent with first expanding and then differentiating the polynomial.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>f(x)=(x^2-3)\cdot(2x+1)</m> is a product of <m>u=x^2-3</m> and <m>v=2x+1</m>.
+          The product rule informs us that <m>\frac{d}{dx}[uv] = \frac{du}{dx} \, v + u \, \frac{dv}{dx}</m>:
+          <md>
+            <mrow>\frac{d}{dx}[(x^2-3) \cdot (2x+1)] &amp;= \frac{d}{dx}[x^2-3] \cdot (2x+1) + (x^2-3) \cdot \frac{d}{dx}[2x+1]</mrow>
+            <mrow> &amp;= (2x) \cdot (2x+1) + (x^2-3) \cdot (2)</mrow>
+            <mrow> &amp;= 4x^2+2x +2x^2-6</mrow>
+            <mrow> &amp;= 6x^2+2x-6 </mrow>
+          </md>
+          We saw prior to the theorem that <m>f(x)=(x^2-3)(2x+1)=2x^3+x^2-6x-3</m>
+          has a derivative <m>f'(x)=6x^2+2x-6</m>,
+          which is consistent with the result we obtained using the product rule.
+        </p>
+      </solution>
+    </example>
     <p>
       The quotient rule is a combination of the product rule and the reciprocal rule.
     </p>
