@@ -305,42 +305,81 @@
             </row>
             <row>
               <cell><m>f(t)</m></cell>
-              <cell><m>0</m></cell>
-              <cell><m>1</m></cell>
-              <cell><m>2</m></cell>
               <cell><m>3</m></cell>
-              <cell><m>4</m></cell>
+              <cell><m>1</m></cell>
               <cell><m>5</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>-3</m></cell>
             </row>
             <row>
               <cell><m>f'(t)</m></cell>
-              <cell><m>0</m></cell>
-              <cell><m>1</m></cell>
-              <cell><m>2</m></cell>
-              <cell><m>3</m></cell>
+              <cell><m>-2</m></cell>
               <cell><m>4</m></cell>
-              <cell><m>5</m></cell>
+              <cell><m>-3</m></cell>
+              <cell><m>-3</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>6</m></cell>
             </row>
             <row>
               <cell><m>g(t)</m></cell>
-              <cell><m>0</m></cell>
               <cell><m>1</m></cell>
-              <cell><m>2</m></cell>
               <cell><m>3</m></cell>
-              <cell><m>4</m></cell>
               <cell><m>5</m></cell>
+              <cell><m>6</m></cell>
+              <cell><m>4</m></cell>
+              <cell><m>2</m></cell>
             </row>
             <row>
               <cell><m>g'(t)</m></cell>
-              <cell><m>0</m></cell>
-              <cell><m>1</m></cell>
               <cell><m>2</m></cell>
               <cell><m>3</m></cell>
-              <cell><m>4</m></cell>
-              <cell><m>5</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>-4</m></cell>
+              <cell><m>-2</m></cell>
             </row>
           </tabular>
         </table>
+      </statement>
+      <solution>
+        <p>
+          We start with what we know, the equation <m>y = t^2 f(t) - 3 g(t)</m>.
+          We may not know the explicit formulas for <m>f(t)</m> or <m>g(t)</m>,
+          but we do know the algebraic operations that put the formulas together.
+          In this problem, <m>t</m> is the independent variable.
+          The differentiation operator will therefore be <m>\frac{d}{dt}</m>.
+        </p>
+        <p>
+          The last operation used to form <m>y</m> is addition (i.e. subtraction) of <m>t^2 f(t)</m> and <m>-3g(t)</m>.
+          The <xref ref='sum-deriv'>sum rule of derivatives</xref> then allows us to write
+          <me>\frac{d}{dt}[y] = \frac{d}{dt}[t^2 f(t)] + \frac{d}{dt}[-3g(t)].</me>
+          The expression <m>t^2 f(t)</m> is a product of <m>t^2</m> and <m>f(t)</m>,
+          so the <xref ref='product-deriv'>product rule</xref> tells us
+          <md>
+            <mrow>\frac{d}{dt}[t^2 f(t)] &amp;= \frac{d}{dt}[t^2] \cdot f(t) + t^2 \cdot \frac{d}{dt}[f(t)] </mrow>
+            <mrow> &amp;= 2t f(t) + t^2 f'(t).</mrow>
+          </md>
+          Meanwhile, <m>-3g(t)</m> is a <xref ref='constant-multiple-deriv'>constant multiple</xref> of <m>g(t)</m> so that
+          <me>\frac{d}{dt}[-3g(t)] = -3 \frac{d}{dt}[g(t)] = -3 g'(t).</me>
+          Putting all of these together in a single statement, we obtain
+          <me>\frac{dy}{dt} = 2t f(t) + t^2 f'(t) - 3g'(t).</me>
+        </p>
+        <p>
+          Now that we have the equation relating the different rates expressed as derivatives,
+          we can use our data from the table to find actual instantaneous rates of change.
+          When <m>t=2</m>, we find
+          <md>
+            <mrow>\frac{dy}{dt}\Big|_{2} &amp;= 2(2) f(2) + 2^2 f'(2) - 3g'(2) </mrow>
+            <mrow> &amp;= 4(5) + 4(-3) - 3(1) = 5.</mrow>
+          </md>
+          When <m>t=4</m>, we find
+          <md>
+            <mrow>\frac{dy}{dt}\Big|_{4} &amp;= 2(4) f(4) + 4^2 f'(4) - 3g'(4) </mrow>
+            <mrow> &amp;= 8(-1) + 16(2) - 3(-4) = 36.</mrow>
+          </md>
+        </p>
+      </solution>
     </example>
     <p>
       We now consider examples of using related rates of change
