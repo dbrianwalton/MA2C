@@ -137,8 +137,9 @@
       Now that you can compute derivatives of sums of elementary terms, you should practice
       computing derivatives of products. The product rule for derivatives do not follow
       the same simple rule as sums. A little memorization jingle that might help is,
-      "The derivative of <m>u</m> times <m>v</m> is ue-dee-vee plus vee-dee-ue," which as formula is
+      "The derivative of <m>u</m> times <m>v</m> is U dee-V plus V dee-U," which as formula is
       <me> \frac{d}{dx}[u \cdot v] = u \frac{dv}{dx} + v \frac{du}{dx}. </me>
+      Others like to say, "First D-Last plus Last D-First."
       Alternatively, I personally use a tactile approach where I touch each factor one at a time
       and write down a new product where I replace the factor I am touching with its derivative and
       leave all other factors alone, adding the results. For a product of <m>u</m> and <m>v</m>,
@@ -224,15 +225,20 @@
       After the product rule, you should master the quotient rule,
       <me> \frac{d}{dx}[\frac{f(x)}{g(x)}] = \frac{g(x) f'(x) - f(x) g'(x)}{(g(x))^2}. </me>
       I like to sing it as a song.
+      In symbols, this rhyme would be written
+      <me> \frac{d}{dx}[\frac{\hbox{Hi}}{\hbox{Lo}}] = \frac{\hbox{Lo} \frac{d}{dx}[\hbox{Hi}] - \hbox{Hi} \frac{d}{dx}[\hbox{Lo}]}{\hbox{Lo}\hbox{Lo}}. </me>
     </p>
+    <figure>
+        <title>The Quotient Rule Song</title>
+        <caption>Lo D Hi minus Hi D Lo over Lo Lo.</caption>
+        <video xml:id="quotient-rule-song" youtube="P7sKe46F8kY" width="40%"/>
+    </figure>
+    <!--
     <figure>
       <caption><url href="https://musescore.com/user/30079051/scores/5281685">Quotient Rule Song</url> by <url href="https://musescore.com/user/30079051">Brian Walton</url></caption>
       <score musescoreuser="30079051" musescore="5281685" />
     </figure>
-    <p>
-      In symbols, this rhyme would be written
-      <me> \frac{d}{dx}[\frac{\hbox{Hi}}{\hbox{Lo}}] = \frac{\hbox{Lo} \frac{d}{dx}[\hbox{Hi}] - \hbox{Hi} \frac{d}{dx}[\hbox{Lo}]}{\hbox{Lo}\hbox{Lo}}. </me>
-    </p>
+    -->
     <example>
       <statement>
         <p>
@@ -635,5 +641,78 @@
     </p>
   </subsection>
   <exercises>
+    <exercisegroup>
+      <title>Related Rates</title>
+      <introduction>
+        <p>
+          As you solve these related rates problems,
+          practice clearly identifying the dependent variables and the independent variable.
+          State the equation that relates these variables.
+          Use the rules of differentiation to create an equation that relates the rates of change.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            A candle is lit at both ends.
+            One end is burning at a rate of 1 cm/hour.
+            The other end is burning at a rate of 2 cm/hour.
+            What is the rate of change of the length of the candle?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A population of birds on an island changes due to births, deaths, and migration of individuals.
+            If the population has births occuring at a rate of 800 per year, deaths occuring at a rate of 720 per year,
+            immigration of 100 per year and emigration of 150 per year, what is the overall rate of change of the population?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A movie company's income is based on two money streams: direct online rental and DVD sales.
+            Suppose that the company receives <dollar/>2.50 for each online rental and <dollar/>6.00 for each sold DVD.
+            If the company rents movies at a rate of 2000 movies per month and sells DVDs at a rate of 1500 DVDs per month,
+            what is the rate of income?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            The concentration of an antibiotic drug in the bloodstream is affected by the rate of administration and by the rate of metabolism.
+            Suppose that an individual has 5 liters of blood and the drug is being administered by injection at a constant rate of 0.3 grams per hour.
+            In addition, the body removes the drug by metabolism at an instantaneous rate (grams per hour)
+            that is proportional to the total amount (mass in grams) of the drug in the body at that instant,
+            where the proportionality constant is 0.8.
+          </p>
+          <p>
+            Let <m>M</m> represent the total mass (grams) of the drug in the body,
+            and let <m>C</m> represent the concentration (grams per liter) of the drug.
+            Let <m>t</m> measure the time (hours) since the treatment began.
+            <ul>
+              <li>
+                State an equation relating <m>\frac{dM}{dt}</m> and <m>M</m>
+                based on the description of injection and metabolism.
+              </li>
+              <li>
+                State an equation relating <m>M</m> and <m>C</m>.
+                What is the corresponding related rates equation?
+              </li>
+              <li>
+                What is <m>\frac{dC}{dt}</m> at a particular moment when <m>C = 0.04</m> grams per liter?
+              </li>
+              <li>
+                An equilibrium has been reached if <m>\frac{dC}{dt}=0</m>.
+                What is the equilibrium concentration? That is, find <m>C</m> so that <m>\frac{dC}{dt}=0</m>.
+              </li>
+            </ul>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
   </exercises>
 </section>
