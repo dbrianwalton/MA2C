@@ -7,7 +7,7 @@
 <!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
 <section xml:id="derivative-rules">
-  <title>Differentiation</title>
+  <title>Derivative Rules</title>
   <introduction>
     <p>
       We have learned that the derivative is defined
@@ -150,7 +150,7 @@
     </p>
   </subsection>
   <subsection>
-    <title>Derivative Rules</title>
+    <title>Overview of the Derivative Rules</title>
     <p>
       Derivative rules are theorems that take as a hypothesis that one or two functions
       have known derivatives and the conclusion tells how to find the derivative of
