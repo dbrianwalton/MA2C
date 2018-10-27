@@ -642,6 +642,73 @@
   </subsection>
   <exercises>
     <exercisegroup>
+      <introduction>
+        <p>
+          Use the values of <m>f(x)</m> and <m>g(x)</m> and their derivatives
+          from the following table to calculate the indicated derivative.
+        </p>
+        <sidebyside>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+            </row>
+            <row>
+              <cell><m>f(x)</m></cell>
+              <cell>2</cell>
+              <cell>5</cell>
+              <cell>-3</cell>
+              <cell>4</cell>
+            </row>
+            <row>
+              <cell><m>g(x)</m></cell>
+              <cell>-2</cell>
+              <cell>1</cell>
+              <cell>6</cell>
+              <cell>5</cell>
+            </row>
+            <row>
+              <cell><m>f'(x)</m></cell>
+              <cell>3</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>-4</cell>
+            </row>
+            <row>
+              <cell><m>g'(x)</m></cell>
+              <cell>4</cell>
+              <cell>7</cell>
+              <cell>-1</cell>
+              <cell>2</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>If <m>h(x)=3f(x) + 2 g(x)</m>, find <m>h'(0)</m>.
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>If <m>H(x)=x^2f(x) + 4</m>, find <m>H'(3)</m>.
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>If <m>\displaystyle p(x)=\frac{3}{g(x)}</m>, find <m>p'(1)</m>.
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>If <m>\displaystyle Q(x)=\frac{f(x)}{2g(x)}</m>, find <m>Q'(2)</m>.
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
       <title>Related Rates</title>
       <introduction>
         <p>
@@ -710,6 +777,51 @@
                 What is the equilibrium concentration? That is, find <m>C</m> so that <m>\frac{dC}{dt}=0</m>.
               </li>
             </ul>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A city has a population of 40,000 and a total debt of <dollar/>54 million.
+            If the city's population is growing at a rate of 1,000 per year
+            and is borrowing additional money at a rate of <dollar/>2 million per year,
+            what is the rate of change of the per capita debt (total debt divided by population)?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A company has 300 employees that earn an average annual salary of <dollar/>40,000 per employee.
+            If the company's workforce is growing at a rate of 20 employees per year
+            and the average annual salary is increases at a rate of <dollar/>500 per employee per year.
+            What is the rate of change of total salary costs for the company?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Potential energy <m>P</m> of an object raised above the ground is defined
+            as the product of the mass <m>m</m> of the object times the height <m>h</m> above the ground
+            times the gravitational constant <m>g = 9.8</m> <quantity><unit base="meter"/><per base="second" exp="2"/></quantity>.
+            A bag of sand weighing 4 kilograms is at a height of 2 meters.
+            If the bag is losing 0.05 kg of sand per second
+            and is being lifted at a rate of 2 cm per second,
+            what is the rate of change of the potential energy?
+            Note: 1 joule of energy is the same as
+            <quantity><mag>1</mag><unit base="gram" prefix="kilo"/><unit base="meter"/><unit base="second" exp="2"/></quantity>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A city has a population of 40,000 and a total debt of <dollar/>54 million.
+            If the city's population is growing at a rate of 1,000 per year
+            and is borrowing additional money at a rate of <dollar/>2 million per year,
+            what is the rate of change of the per capita debt (total debt divided by population)?
           </p>
         </statement>
       </exercise>
