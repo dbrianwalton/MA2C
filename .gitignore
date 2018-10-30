@@ -1,0 +1,19 @@
+# Skip entire html directory #
+# archive and partial build  #
+##############################
+html/*
+build/images/*
+build/data/*
+archive/*
+
+# LaTeX output files #
+######################
+*.aux
+*.log
+*.toc
+*.out
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?

@@ -294,9 +294,10 @@
       <example>
         <statement>
           <p>
-            Suppose <m>y = t^2 f(t) - 3 g(t)</m>, where the functions <m>f</m> and <m>g</m> are not known explicitly.
+            Suppose <m>y = t^2 f(t) - 3 g(t)</m> and <m>\displaystyle z = \frac{2f(t)}{g(t)+1}</m>,
+            where the functions <m>f</m> and <m>g</m> are not known explicitly.
             However, we do know the following values at specific times, as shown in a table.
-            Find <m>\frac{dy}{dt}\Big|_{2}</m> and <m>\frac{dy}{dt}\Big|_{4}</m>.
+            Find <m>\frac{dy}{dt}\Big|_{2}</m> and <m>\frac{dz}{dt}\Big|_{4}</m>.
           </p>
           <table>
             <caption>Values of the functions <m>f</m> and <m>g</m> and their derivatives at specified points.</caption>
@@ -380,10 +381,19 @@
               <mrow>\frac{dy}{dt}\Big|_{2} &amp;= 2(2) f(2) + 2^2 f'(2) - 3g'(2) </mrow>
               <mrow> &amp;= 4(5) + 4(-3) - 3(1) = 5.</mrow>
             </md>
+          </p>
+          <p>
+            In a similar way, we know <m>\displaystyle z = \frac{2f(t)}{g(t)+1}</m> is a quotient.
+            The <xref ref='deriv-quotient' text='title'>quotient rule</xref> tells us
+            <md>
+              <mrow> \frac{dz}{dt} &amp;= \frac{(g(t)+1) \frac{d}{dt}[2f(t)] - (2f(t)) \frac{d}{dt}[g(t)+1]}{(g(t)+1)^2} </mrow>
+              <mrow> &amp;= \frac{2 (g(t)+1)f'(t) - 2f(t) g'(t)}{(g(t)+1)^2}. </mrow>
+            </md>
             When <m>t=4</m>, we find
             <md>
-              <mrow>\frac{dy}{dt}\Big|_{4} &amp;= 2(4) f(4) + 4^2 f'(4) - 3g'(4) </mrow>
-              <mrow> &amp;= 8(-1) + 16(2) - 3(-4) = 36.</mrow>
+              <mrow>\frac{dz}{dt}\Big|_{4} &amp;= \frac{2(g(4)+1) f'(4) - 2f(4) g'(4)}{(g(4)+1)^2} </mrow>
+              <mrow> &amp;= \frac{2(4+1) (-1) - 2(-1) (-4))}{(4+1)^2} </mrow>
+              <mrow> &amp;= \frac{-10-8)}{25} = \frac{-18)}{25}. </mrow>
             </md>
           </p>
         </solution>
