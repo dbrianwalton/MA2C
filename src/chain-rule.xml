@@ -221,9 +221,120 @@
         </p>
       </solution>
     </example>
+    <p>
+      Negative and rational powers are much simpler with the chain rule.
+      Using negative powers in composition often helps us avoid needing the quotient rule.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find <m>f''(x)</m> where <m>f(x) = \frac{3}{x^2+1}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The first derivative can be found using the quotient or reciprocal rule.
+          <md>
+            <mrow>f'(x) &amp;= 3 \frac{d}{dx}\Big[ \frac{1}{x^2+1} \Big] </mrow>
+            <mrow> &amp;= 3 \cdot \frac{-2x}{(x^2+1)^2} </mrow>
+            <mrow> &amp; = \frac{-6x}{(x^2+1)^2} </mrow>
+          </md>
+          We could also have done this using a chain rule.
+          The relevant chain and associated derivatives are given:
+          <me>
+            \begin{cases}
+            y = 3u^{-1} \\
+            u = x^2 + 1
+            \end{cases}
+            \qquad \Rightarrow \qquad
+            \begin{cases}
+            \frac{dy}{du} = -3u^{-2} \\
+            \frac{du}{dx} = 2x
+            \end{cases}
+          </me>
+          Consequently, we know <m>f'(x) = \frac{dy}{dx} = \frac{dy}{du} \frac{du}{dx}</m> and
+          <me> f'(x) = -3 (x^2+1)^{-2} \cdot (2x) = -6x (x^2+1)^{-2}. </me>
+        </p>
+        <p>
+          To calculate the second derivative, we differentiate <m>f'(x)</m>.
+          We could use either the quotient rule or the product rule with negative powers.
+          In the first case, we find
+          <md>
+            <mrow> f''(x) &amp;= \frac{d}{dx}\Big[ \frac{-6x}{(x^2+1)^2} \Big] </mrow>
+            <mrow> &amp;= \frac{(x^2+1)^2 \frac{d}{dx}[-6x] - (-6x) \frac{d}{dx}[(x^2+1)^2]}{(x^2+1)^4} </mrow>
+            <mrow> &amp;= \frac{(x^2+1)^2 (-6) + (6x) \cdot 2 (x^2+1) (2x)}{(x^2+1)^4}, </mrow>
+          </md>
+          where we have used the chain rule on <m>u^2</m> with <m>u=x^2+1</m> to obtain
+          <me>\frac{d}{dx}[(x^2+1)^2] = 2 (x^2+1) (2x).</me>
+          Notice that the numerator of <m>f''(x)</m> has <m>x^2+1</m> as a common factor,
+          which cancels with one of the corresponding factors in the denominator.
+          A simplified version of <m>f''(x)</m> is therefore given by
+          <md>
+            <mrow> f''(x) &amp;= \frac{-6(x^2+1) + (6x) \cdot 2 (2x)}{(x^2+1)^3} </mrow>
+            <mrow> &amp;= \frac{-6x^2-6+24x^2}{(x^2+1)^3} </mrow>
+            <mrow> &amp;= \frac{18x^2-6}{(x^2+1)^3}. </mrow>
+          </md>
+        </p>
+        <p>
+          The other approach to finding the second derivative is to start with the product representation of <m>f'(x)</m>
+          and differentiate using the product rule.
+          In order to differentiation <m>(x^2+1)^{-2}</m>, we use the chain rule on <m>u^{-2}</m> with <m>u=x^2+1</m>:
+          <me> \frac{d}{dx}\Big[ u^{-2} \Big] = -2u^{-3} \cdot \frac{du}{dx} = -2(x^2+1)^{-3} \cdot (2x).</me>
+          This will give us
+          <md>
+            <mrow> f''(x) &amp;= \frac{d}{dx}\Big[ (-6x) \cdot (x^2+1)^{-2} \Big] </mrow>
+            <mrow> &amp;= \frac{d}{dx}\Big[-6x] \cdot (x^2+1)^{-2} + -6x \frac{d}{dx}\Big[(x^2+1)^{-2}\Big] </mrow>
+            <mrow> &amp;= -6 \cdot (x^2+1)^{-2} + -6x \cdot -2 (x^2+1)^{-3} (2x) </mrow>
+            <mrow> &amp;= -6 \cdot (x^2+1)^{-2} + 24x^2 (x^2+1)^{-3} </mrow>
+          </md>
+          Remembering that negative exponents correspond to powers in the denominator,
+          we can see this formula requires a common denominator <m>(x^2+1)^3</m> to simplify
+          <md>
+            <mrow> f''(x) &amp;= \frac{-6}{(x^2+1)^{2}} + \frac{24x^2}{ (x^2+1)^{3}} </mrow>
+            <mrow> &amp;= \frac{-6(x^2+1) + 24x^2}{(x^2+1)^3} </mrow>
+            <mrow> &amp;= \frac{18x^2-6}{(x^2+1)^3} </mrow>
+          </md>
+          We found the same answer both ways.
+          Derivative rules are self-consistent.
+        </p>
+      </solution>
+    </example>
   </subsection>
   <subsection>
     <title>Related Rates and the Chain Rule</title>
+    <p>
+      Derivative rules are fundamentally about relationships between instantaneous rates.
+      The chain rule is no exception.
+      The biggest difference in the rates that are related by the chain rule and other related rates problems
+      is that the chain rule involves different independent variables for different steps in the chain.
+    </p>
+    <example>
+      <p>
+        Consider a temperature dependent chemical reaction.
+        At 20 degrees Celsius, the reaction generates a product at a rate of 30 grams per minute.
+        For small changes in temperature, the reaction can generate an addition 5 grams per minute per degree increase in temperature.
+        If the temperature is cooling at a rate of 0.05 degrees per minute,
+        what is happening to the reaction?
+      </p>
+      <p>
+        Conceptually, we recognize some variables in this problem:
+        the temperature <m>T</m> (in degrees Celsius), the time <m>t</m> (in minutes),
+        and the reaction rate <m>R</m> (in grams per minute).
+        Because temperature is changing in time, we know there is a map <m>t \mapsto T</m>.
+        Similarly, we know that the reaction rate depends on temperature, there is another map <m>T \mapsto R</m>.
+        In combination, we have a chain <m>t \mapsto T \mapsto R</m>.
+      </p>
+      <p>
+        We identify the values at the instant <m>t</m> in question.
+        We know <m>T=20</m> and <m>\frac{dT}{dt} = -0.05</m>. (Why?)
+        Similarly, we know <m>R=30</m> and <m>\frac{dR}{dT} = 5</m>.
+        The chain rule tells us the rate of change of the final variable in the chain
+        with respect to the original independent variable in the chain:
+        <me> \frac{dR}{dt} = \frac{dR}{dT} \cdot \frac{dT}{dt} = 5 \cdot -0.05 = -0.25. </me>
+        That is, the reaction rate is <em>decreasing</em> at a rate of 0.25 grams per minute per minute.
+        (<m>R</m> has units of grams per minute so <m>\frac{dR}{dt}</m> has units of grams per minute per minute.)
+      </p>
+    </exxample>
   </subsection>
   <subsection>
     <title>Summary</title>
