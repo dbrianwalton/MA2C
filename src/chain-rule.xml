@@ -132,6 +132,7 @@
           <md>
             <mrow> \frac{dy}{dx} &amp;= \frac{d}{dx}[f(g(x))] </mrow>
             <mrow> &amp; = f'(g(x)) \cdot g'(x) </mrow>
+            <mrow> &amp; = f'(u) \cdot \frac{du}{dx} </mrow>
             <mrow> &amp; = \left.\frac{dy}{du}\right|_{u=g(x)} \cdot \left. \frac{du}{dx} \right|_{x}. </mrow>
           </md>
         </p>
@@ -409,11 +410,11 @@
           Because our variables are related by a chain,
           the chain rule establishes this relationship:
           <me> \frac{dV}{dt} = \frac{dV}{ds} \frac{ds}{dt}. </me>
-          The problem gives us <m>\frac{dV}{dt} = <quantity><mag>-500</mag><unit base="meter" prefix="milli" exp="3"/><per base="second"/></quantity></m>.
+          The problem gives us <m>\frac{dV}{dt} = -500</m> <quantity><unit base="meter" prefix="milli" exp="3"/><per base="second"/></quantity>.
           The equation <m>V=s^3</m> is an explicit formula from which we can compute a derivative
           <me> \frac{dV}{ds} = 3s^2. </me>
-          At the instant in question, <m>s = <quantity><mag>30</mag><unit base="meter" prefix="milli"/></quantity></m>
-          so that <m>\frac{dV}{ds} = 3(30)^2 = <quantity><mag>2700</mag><unit base="meter" prefix="milli" exp="3"/><per base="meter" prefix="milli"/></quantity></m>.
+          At the instant in question, <m>s = 30</m> <quantity><unit base="meter" prefix="milli"/></quantity>
+          so that <m>\frac{dV}{ds} = 3(30)^2 = 2700</m> <quantity><unit base="meter" prefix="milli" exp="3"/><per base="meter" prefix="milli"/></quantity>.
           The related rates equation involved three rates, two of which we now know.
           Solving for <m>\frac{ds}{dt}</m>, we find
           <me> \frac{ds}{dt} = \frac{ \frac{dV}{dt} }{ \frac{dV}{ds} } = \frac{-500}{2700} = -\frac{5}{27}.</me>

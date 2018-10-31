@@ -9,292 +9,212 @@
 
 <section xml:id="exponential-derivative">
     <title>The Derivative of Exponential Functions</title>
-
+    <introduction>
+      <p>
+        We learned that the elementary exponential functions are of the form
+        <me>\exp_b(x) = b^x</me>
+        for positive real numbers <m>b</m>.
+        Because exponential functions involve powers,
+        a common mistake students make is to use the power rule of derivatives.
+        That rule only applies to power functions,
+        where the independent variable is the base and the exponent is a constant.
+        We will need a new rule for exponential functions.
+      </p>
+      <p>
+        In this section, we explore the derivative rule associate with exponential functions.
+        As this is a new rule, we return to the definition of the derivative.
+        We will learn that the derivative of an exponential function
+        is proportional to the value of the function itself.
+        The constant of proportionality is found using the base of the exponential.
+      </p>
+    </introduction>
     <subsection>
-    <title>Elementary Exponential Functions</title>
-    <p>
-    We learned that the elementary exponential functions are of the form
-    <me>\exp_b(x) = b^x</me>
-    for positive real numbers <m>b</m>. We now explore the derivative
-    rule associated with these functions. It is important to note that
-    the exponential functions are fundamentally different from the power
-    functions and therefore will have a different rule of differentiation.
-    </p>
-
-    <p>
-    We use the definition of the derivative. The key property necessary for
-    the exponential function is a consequence of the properties of exponents,
-    <me> \exp_b(x+y) = b^{x+y} = b^x \cdot b^y = \exp_b(x) \cdot \exp_b(y).</me>
-    Using these properties
-    <md>
-        <mrow> \exp_b'(x) &amp;= \lim_{h \to 0} \frac{\exp_b(x+h) - \exp_b(x)}{h} </mrow>
-        <mrow>  &amp;= \lim_{h \to 0} \frac{\exp_b(x) \cdot \exp_b(h) - \exp_b(x)}{h}
-        = \lim_{h \to 0} \exp_b(x) \cdot \frac{\exp_b(h)-1}{h} </mrow>
-        <mrow>  &amp;= \exp_b(x) \cdot \lim_{h \to 0} \frac{b^{h}-1}{h}.</mrow>
-    </md>
-    This means that the derivative of <m>b^x</m> is just <m>b^x</m> times some
-    number that depends on <m>b</m> that is calculated as the limit,
-    <me> L(b) = \lim_{h \to 0}\frac{b^h-1}{h}. </me>
-    The following table illustrates the value of this limit for a variety of bases.
-    </p>
-
-    <sidebyside>
+      <title>Elementary Exponential Functions</title>
+      <p>
+        The definition of the derivative allows us to develop a new differentiation rule.
+        The key property necessary for the exponential function is a consequence of the properties of exponents,
+        <me> \exp_b(x+y) = b^{x+y} = b^x \cdot b^y = \exp_b(x) \cdot \exp_b(y).</me>
+        Using these properties
+        <md>
+          <mrow> \exp_b'(x) &amp;= \lim_{h \to 0} \frac{\exp_b(x+h) - \exp_b(x)}{h} </mrow>
+          <mrow> &amp;= \lim_{h \to 0} \frac{b^{x+h} - b^x}{h} </mrow>
+          <mrow> &amp;= \lim_{h \to 0} \frac{b^x b^h - b^x}{h} </mrow>
+          <mrow> &amp;= \lim_{h \to 0} \exp_b(x) \cdot \frac{b^h-1}{h} </mrow>
+          <mrow> &amp;= \exp_b(x) \cdot \lim_{h \to 0} \frac{b^{h}-1}{h}.</mrow>
+        </md>
+      </p>
+      <p>
+        This means that the derivative of <m>b^x</m> is just <m>b^x</m> times some
+        number <m>L(b)</m> that depends on <m>b</m>,
+        <me> \frac{d}{dx}[b^x] = b^x \cdot L(b),</me>
+        where <m>L(b)</m> is calculated as the limit
+        <me> L(b) = \lim_{h \to 0}\frac{b^h-1}{h}. </me>
+        Unfortunately, this is not a limit that we know as of yet.
+        The following table illustrates some approximations for the value of this limit for a variety of bases.
+      </p>
+      <sidebyside>
         <tabular>
-            <row>
-                <cell> <m>h</m> </cell>
-                <cell> <m>\displaystyle \frac{2^h-1}{h}</m> </cell>
-                <cell> <m>\displaystyle \frac{3^h-1}{h}</m> </cell>
-                <cell> <m>\displaystyle \frac{5^h-1}{h}</m> </cell>
-                <cell> <m>\displaystyle \frac{10^h-1}{h}</m> </cell>
-            </row>
-            <row>
-                <cell> <m>h=0.1</m> </cell>
-                <cell> 0.71773 </cell>
-                <cell> 1.16123</cell>
-                <cell> 1.74619</cell>
-                <cell> 2.58925</cell>
-            </row>
-            <row>
-                <cell> <m>h=0.01</m> </cell>
-                <cell> 0.69555 </cell>
-                <cell> 1.10467</cell>
-                <cell> 1.62246</cell>
-                <cell> 2.32930</cell>
-            </row>
-            <row>
-                <cell> <m>h=0.001</m> </cell>
-                <cell> 0.69339 </cell>
-                <cell> 1.09922</cell>
-                <cell> 1.61073</cell>
-                <cell> 2.30524</cell>
-            </row>
-            <row>
-                <cell> <m>h=0.0001</m> </cell>
-                <cell> 0.69317 </cell>
-                <cell> 1.09867</cell>
-                <cell> 1.60957</cell>
-                <cell> 2.30285</cell>
-            </row>
-            <row>
-                <cell> <m>h \to 0</m> </cell>
-                <cell> 0.69315 </cell>
-                <cell> 1.09861 </cell>
-                <cell> 1.60944 </cell>
-                <cell> 2.30259 </cell>
-            </row>
+          <row>
+            <cell> <m>h</m> </cell>
+            <cell> <m>\displaystyle \frac{2^h-1}{h}</m> </cell>
+            <cell> <m>\displaystyle \frac{3^h-1}{h}</m> </cell>
+            <cell> <m>\displaystyle \frac{5^h-1}{h}</m> </cell>
+            <cell> <m>\displaystyle \frac{10^h-1}{h}</m> </cell>
+          </row>
+          <row>
+            <cell> <m>h=0.1</m> </cell>
+            <cell> 0.71773 </cell>
+            <cell> 1.16123</cell>
+            <cell> 1.74619</cell>
+            <cell> 2.58925</cell>
+          </row>
+          <row>
+            <cell> <m>h=0.01</m> </cell>
+            <cell> 0.69555 </cell>
+            <cell> 1.10467</cell>
+            <cell> 1.62246</cell>
+            <cell> 2.32930</cell>
+          </row>
+          <row>
+            <cell> <m>h=0.001</m> </cell>
+            <cell> 0.69339 </cell>
+            <cell> 1.09922</cell>
+            <cell> 1.61073</cell>
+            <cell> 2.30524</cell>
+          </row>
+          <row>
+            <cell> <m>h=0.0001</m> </cell>
+            <cell> 0.69317 </cell>
+            <cell> 1.09867</cell>
+            <cell> 1.60957</cell>
+            <cell> 2.30285</cell>
+          </row>
+          <row>
+            <cell> <m>h \to 0</m> </cell>
+            <cell> 0.69315 </cell>
+            <cell> 1.09861 </cell>
+            <cell> 1.60944 </cell>
+            <cell> 2.30259 </cell>
+          </row>
         </tabular>
-    </sidebyside>
-
+      </sidebyside>
     <p>
-    Every positive real number <m>b</m> has such a limit, <m>L(b)</m>.
-    This limit corresponds to the slope of the elementary exponential function <m>y=b^x</m>
-    at the point <m>x=0</m>,
-    <me> L(b) = \exp_b'(0) = \lim_{h \to 0} \frac{b^{0+h} - b^{0}}{h} = \lim_{h \to 0} \frac{b^h-1}{h}. </me>
-    What this calculation shows is that
-    <me> \frac{d}{dx}[b^x] = L(b) \cdot b^x. </me>
-    For the four bases used above, this corresponds to the following derivatives:
-    <md>
+      Every positive real number <m>b</m> has such a limit, <m>L(b)</m>.
+      This limit corresponds to the slope of the elementary exponential function <m>y=b^x</m>
+      at the point <m>x=0</m>,
+      <me> L(b) = \exp_b'(0) = \lim_{h \to 0} \frac{b^{0+h} - b^{0}}{h} = \lim_{h \to 0} \frac{b^h-1}{h}. </me>
+      For the four bases used above, this corresponds to the following derivatives:
+      <md>
         <mrow> \frac{d}{dx}[2^x] &amp;= L(2) \cdot 2^x \approx 0.69315 \cdot 2^x </mrow>
         <mrow> \frac{d}{dx}[3^x] &amp;= L(3) \cdot 3^x \approx 1.09861 \cdot 3^x </mrow>
         <mrow> \frac{d}{dx}[5^x] &amp;= L(5) \cdot 5^x \approx 1.60944 \cdot 5^x </mrow>
         <mrow> \frac{d}{dx}[10^x] &amp;= L(10) \cdot 10^x \approx 2.30259 \cdot 10^x </mrow>
-    </md>
+      </md>
     </p>
-
     <p>
-    There is a particular base <m>b</m> between 2 and 3 such that <m>L(b)=1</m>,
-    which has a value of <m>b \approx 2.71828183</m>, such that for this special
-    base, the derivative and the function are the same. This base is called the
-    <term>natural base</term> and is given the special symbol <m>e</m>.
-    Consequently,
-    <me> \frac{d}{dx}[e^x] = e^x. </me>
-    This is why the function <m>e^x</m> is so significant<mdash />it is the unique
-    elementary exponential function that is equal to its own derivative. Every other
-    exponential function is proportional to its derivative, with the proportionality
-    constant given by the value <m>L(b)</m>, which we will determine below as a
-    consequence of the chain rule.
+      We can see from the table that <m>L(2)\approx 0.69315</m> and <m>L(3) \approx 1.09861</m>.
+      This suggests that there is a particular base <m>b</m> between 2 and 3 such that <m>L(b)=1</m>.
+      Such a value does exist, using <m>b \approx 2.71828183</m>.
+      This value has the property that the elementary exponential function and its derivative are exactly equal.
+      The base is called the <term>natural base</term> and is given the special symbol <m>e</m>.
+      Consequently,
+      <me> \frac{d}{dx}[e^x] = e^x. </me>
+      Every other exponential function is proportional to its derivative,
+      but with the proportionality constant <m>L(b) \ne 1</m>.
+      We will soon discover another way to find <m>L(b)</m> for these other bases.
     </p>
-    </subsection>
-
-    <subsection>
+  </subsection>
+  <subsection>
     <title>The Chain Rule with Exponentials</title>
-
     <p>
-    Because the exponential function <m>\exp(x) = e^x</m> is defined with the natural base,
-    <m>\exp'(x) = e^x</m> is the same as the original function, <m>\exp'=\exp</m>. Combining this
-    with the chain rule, we get a generalized derivative of compositions with exponentials,
-    <me> \frac{d}{dx}[e^{u(x)}] = e^{u(x)} \cdot u'(x) = e^{u} \cdot \frac{du}{dx}. </me>
+      Because the exponential function <m>\exp(x) = e^x</m> is defined with the natural base,
+      <m>\exp'(x) = e^x</m> is the same as the original function, <m>\exp'=\exp</m>.
+      Combining this with the <xref ref="thm-chain-rule" text="title">chain rule</xref>,
+      we get a generalized derivative of compositions with exponentials,
+      <me xml:id="exponential-chain-rule"> \frac{d}{dx}[e^{u(x)}] = e^{u(x)} \cdot u'(x) = e^{u} \cdot \frac{du}{dx}. </me>
     </p>
-
     <example>
-    <statement>
+      <statement>
         <p>
-        Find the derivatives of the following functions.
-        <ol>
+          Find the derivatives of the following functions.
+          <ol>
             <li> <m>f(x) = e^{5x}</m> </li>
             <li> <m>g(x) = e^{x^3}</m> </li>
             <li> <m>h(x) = e^{x^2-4x}</m> </li>
-        </ol>
+          </ol>
         </p>
-    </statement>
-    <solution>
+      </statement>
+      <solution>
         <p>
         In each case, we will identify the formula <m>u(x)</m> and then apply the chain rule.
         <ol>
-            <li>
-                <p>
-                For <m>f(x) = e^{5x}</m>, we have <m>u(x)=5x</m> so that <m>f(x) = \exp(u(x))</m>.
-                We will use <m>u'(x)=5</m>.
-                The chain rule gives:
-                <md>
-                    <mrow>f'(x) &amp;= \frac{d}{dx}[e^{5x}] </mrow>
-                    <mrow> &amp; \underset{(u=5x)}{=} \frac{d}{dx}[e^u] \underset{(u=5x)}{=} e^u \frac{du}{dx} </mrow>
-                    <mrow> &amp;= e^{5x} \cdot 5 = 5e^{5x} </mrow>
-                </md>
-                So <m>f'(x) = 5e^{5x}</m>.
-                </p>
-            </li>
-            <li>
-                <p>
-                The function <m>g(x) = e^{x^3}</m> involves a composition with <m>u(x)=x^3</m>
-                such that <m>u'(x)=3x^2</m>.
-                <md>
-                    <mrow>g'(x) &amp;= \frac{d}{dx}[e^{x^3}] </mrow>
-                    <mrow> &amp;\underset{(u=x^3)}{=} \frac{d}{dx}[e^u] \underset{(u=x^3)}{=} e^u \frac{du}{dx} </mrow>
-                    <mrow> &amp;= e^{x^3} \cdot (3x^2) = 3x^2 e^{x^3} </mrow>
-                </md>
-                Thus <m>g'(x) = 3x^2e^{x^3}</m>.
-                </p>
-            </li>
-            <li>
-                <p>
-                The function <m>h(x) = e^{x^2-4x}</m> involves a composition with <m>u(x)=x^2-4x</m>
-                such that <m>u'(x)=2x-4</m>.
-                <md>
-                    <mrow>h'(x) &amp;= \frac{d}{dx}[e^{x^2-4x}] </mrow>
-                    <mrow> &amp;\underset{(u=x^2-4x)}{=} \frac{d}{dx}[e^u] \underset{(u=x^2-4x)}{=} e^u \frac{du}{dx} </mrow>
-                    <mrow> &amp;= e^{x^2-4x} \cdot (2x-4) = (2x-4) e^{x^2-4x} </mrow>
-                </md>
-                Thus <m>h'(x) = (2x-4)e^{x^2-4x}</m>.
-                </p>
-            </li>
+          <li>
+            <p>
+              For <m>f(x) = e^{5x}</m>, we have <m>u(x)=5x</m> so that <m>f(x) = e^u</m>.
+              We will use <m>u'(x)=5</m>.
+              The chain rule gives:
+              <md>
+                  <mrow>f'(x) &amp;= \frac{d}{dx}[e^{5x}] </mrow>
+                  <mrow> &amp; \underset{(u=5x)}{=} \frac{d}{dx}[e^u] \underset{(u=5x)}{=} e^u \frac{du}{dx} </mrow>
+                  <mrow> &amp;= e^{5x} \cdot 5 = 5e^{5x} </mrow>
+              </md>
+              So <m>f'(x) = 5e^{5x}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>g(x) = e^{x^3}</m> involves a composition with <m>u(x)=x^3</m>
+              such that <m>u'(x)=3x^2</m>.
+              <md>
+                <mrow>g'(x) &amp;= \frac{d}{dx}[e^{x^3}] </mrow>
+                <mrow> &amp;\underset{(u=x^3)}{=} \frac{d}{dx}[e^u] \underset{(u=x^3)}{=} e^u \frac{du}{dx} </mrow>
+                <mrow> &amp;= e^{x^3} \cdot (3x^2) = 3x^2 e^{x^3} </mrow>
+              </md>
+              Thus <m>g'(x) = 3x^2e^{x^3}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>h(x) = e^{x^2-4x}</m> involves a composition with <m>u(x)=x^2-4x</m>
+              such that <m>u'(x)=2x-4</m>.
+              <md>
+                <mrow>h'(x) &amp;= \frac{d}{dx}[e^{x^2-4x}] </mrow>
+                <mrow> &amp;\underset{(u=x^2-4x)}{=} \frac{d}{dx}[e^u] \underset{(u=x^2-4x)}{=} e^u \frac{du}{dx} </mrow>
+                <mrow> &amp;= e^{x^2-4x} \cdot (2x-4) = (2x-4) e^{x^2-4x} </mrow>
+              </md>
+              Thus <m>h'(x) = (2x-4)e^{x^2-4x}</m>.
+            </p>
+          </li>
         </ol>
         </p>
-    </solution>
+      </solution>
     </example>
-
+  </subsection>
+  <subsection>
+    <title>Other Exponential Bases</title>
     <p>
-    Now that we have the exponential function in our toolbox of elementary functions
-    with known derivatives, we can expand the class of functions we know how to differentiate.
+      Every function involving a positive base raised to an exponent can be rewritten
+      using the natural exponential function <m>\exp(x)=e^x</m>.
+      Recall that the exponential and the logarithm are inverse functions
+      so that for every number <m>u \gt 0</m> we have
+      <me> \exp(\ln(u)) e^{\ln(u)} = u. </me>
+      This identity and the rules for logarithms show that any power <m>u^w</m> with <m>u \gt 0</m>
+      can be rewritten as
+      <me> u^w = \exp(\ln(u^w)) = e^{\ln(u^w)} = e^{w \cdot \ln(u)}. </me>
     </p>
-    </subsection>
-
-    <subsection>
-    <title>Power Function or Exponential Function</title>
-
-    <p>
-    One of the challenges for a calculus novice is identifying which rule applies.
-    It is essential that you can distinguish between an exponential function and a
-    power function.
-    </p>
-
-    <p>
-    Recall that a power function has a constant power while an exponential function has
-    a constant as the base. Furthermore, don't be fooled by numbers that look like other
-    symbols. For example, <m>x^e</m> is a power function since the power is the number <m>e</m>
-    (the natural exponential base):
-    <me> \frac{d}{dx}[x^e] = e x^{e-1}. </me>
-    Similarly, <m>x^{\sqrt{2}}</m> is a power function because the power <m>\sqrt{2}</m>
-    is a number (even though it is represented as a formula, it does not have any variables):
-    <me> \frac{d}{dx}[x^{\sqrt{2}}] = \sqrt{2} x^{\sqrt{2}-1}. </me>
-    </p>
-
-    <p>
-    Furthermore, you must look at a formula and determine which operation determines the
-    differentiation rule that is required (constant multiple, sum, product, quotient or chain).
-    This is always based on the last operation to be applied under the rules of order of operations.
-    When the number of steps is small, you should be able to write the derivative down directly.
-    When the number of steps is large, you might need to use the differentiation operator to
-    allow yourself the chance to work part of the way and indicate that there are still steps
-    remaining.
-    </p>
-
     <example>
-        <statement>
-        <p>
-        Find the derivative <m>\displaystyle \frac{d}{dx}[ (x^2+4)^5 e^{5x^3} ]</m>.
-        </p>
-        </statement>
-        <solution>
-        <p>
-        Start by identifying the final operation. In this problem, the function
-        <m>f(x) = (x^2+4)^5 e^{5x^3}</m> is a product of <m>(x^2+4)^5</m> and <m>e^{5x^3}</m>.
-        So we begin by using the product rule. If you want to emphasize this without having
-        to write down the derivatives of the factors, then we use the differentiation operator:
-        <me> f'(x) = \frac{d}{dx}[(x^2+4)^5] \cdot e^{5x^3} + (x^2+4)^5 \cdot \frac{d}{dx}[e^{5x^3}]. </me>
-        Notice that the differentiation operator is pointing out where we still need to find derivatives
-        in order to complete the problem.
-        </p>
-
-        <p>
-        The first term <m>(x^2+4)^5</m> should be recognized as a composition with a
-        power function <m>u^5</m> where <m>u=x^2+4</m>. We will use the chain rule:
-        <me> \frac{d}{dx}[(x^2+4)^5] \underset{(u=x^2+4)}{=} \frac{d}{du}[u^5] \cdot \frac{du}{dx}
-        = 5(x^2+4)^4 \cdot (2x). </me>
-        The second term <m>e^{5x^3}</m> should be recognized as a composition with
-        the exponential function <m>e^u</m> where <m>u=5x^3</m>. Again, the chain rule guides us:
-        <me> \frac{d}{dx}[e^{5x^3}] \underset{(u=5x^3)}{=} \frac{d}{du}[e^u] \cdot \frac{du}{dx}
-        = e^{5x^3} \cdot (15x^2). </me>
-        </p>
-
-        <p>
-        The previous paragraph represents work that you either think through mentally or
-        write out as scratch work. Putting the pieces together gives us the overall answer.
-        <md>
-            <mrow> f'(x) = \frac{d}{dx}[(x^2+4)^5 e^{5x^3}]
-            &amp; = \frac{d}{dx}[(x^2+4)^5] \cdot e^{5x^3} + (x^2+4)^5 \cdot \frac{d}{dx}[e^{5x^3}]</mrow>
-            <mrow> &amp; = 5(x^2+4)^4 (2x) \cdot e^{5x^3} + (x^2+4)^5 \cdot e^{5x^3} \cdot (15x^2) </mrow>
-            <mrow> &amp; = 10x (x^2+4)^4 e^{5x^3} + 15x^2(x^2+4)^5 e^{5x^3} </mrow>
-        </md>
-        </p>
-        <p>
-        As we start to use our derivatives in applications, we will often need to factor our formulas.
-        To illustrate this principle, we identify all of the common factors of the terms.
-        <md>
-            <mrow> f'(x) &amp;= 5x(x^2+4)^4e^{5x^3} \cdot(2 + 3x(x^2+4)) </mrow>
-            <mrow> &amp; = 5x(x^2+4)^4 e^{5x^3} (2+12x+3x^2) </mrow>
-        </md>
-        </p>
-        </solution>
-    </example>
-    </subsection>
-
-    <subsection>
-    <title>Other Bases</title>
-
-    <p>
-    Every function involving an exponential can be rewritten using the
-    natural exponential function <m>\exp(x)=e^x</m>.
-    Recall that the exponential and the logarithm are inverse functions so that
-    for every number <m>u \gt 0</m> we have
-    <me> \exp(\ln(u)) = u. </me>
-    This means that any power <m>u^w</m> where <m>u \gt 0</m> can be rewritten as
-    <me> u^w = \exp(\ln(u^w)) = e^{\ln(u^w)} = e^{w \cdot \ln(u) \cdot w} = \exp(\ln(u) \cdot w). </me>
-    </p>
-
-    <example>
-    <statement>
+      <statement>
         <p>
         Rewrite each of the following in terms of the natural exponential function.
-            <ol>
-            <li> <m>f(x) = 2^x</m> </li>
-            <li> <m>g(x) = 5^x</m> </li>
-            <li> <m>p(x) = x^{3/4}</m> </li>
-            <li> <m>r(x) = x^x</m> </li>
-            </ol>
+        <ol>
+          <li> <m>f(x) = 2^x</m> </li>
+          <li> <m>g(x) = 5^x</m> </li>
+          <li> <m>p(x) = x^{3/4}</m> </li>
+          <li> <m>r(x) = x^x</m> </li>
+        </ol>
         </p>
-    </statement>
-    <solution>
+      </statement>
+      <solution>
       <p>
         <ol>
           <li> <m>f(x) = 2^x = \exp(\ln(2^x)) = e^{\ln(2^x)} = e^{x \ln(2)}</m> </li>
@@ -303,20 +223,90 @@
           <li> <m>r(x) = x^x = \exp(\ln(x^x)) = e^{\ln(x^x)} = e^{x \ln(x)}</m> </li>
         </ol>
       </p>
-    </solution>
+      </solution>
     </example>
-
     <p>
-    Because every exponential can be rewritten in terms of the natural exponential,
-    we have a special result for all other exponential functions,
-    <me> b^x = e^{x \cdot \ln(b)}. </me>
-    Using the chain rule with <m>u=x \cdot \ln(b)</m> and <m>\frac{du}{dx}=\ln(b)</m>,
-    we discover
-    <me> \frac{d}{dx}[b^x] = \frac{d}{dx}[e^{x \ln(b)}] = e^{x \ln(b)} \cdot \ln(b) = b^x \cdot \ln(b). </me>
-    In other words, the scaling factor for the derivative of an exponential is the natural logarithm
-    of the base:
-    <me> L(b) = \lim_{h \to 0} \frac{b^h-1}{h} = \ln(b). </me>
+      Because every exponential can be rewritten in terms of the natural exponential,
+      we have a special result for all other exponential functions,
+      <me> b^x = e^{x \cdot \ln(b)}. </me>
+      Using the chain rule with <m>u=x \cdot \ln(b)</m> and <m>\frac{du}{dx}=\ln(b)</m>,
+      we discover
+      <me xml:id="general-exponential-deriv"> \frac{d}{dx}[b^x] = \frac{d}{dx}[e^{x \ln(b)}] = e^{x \ln(b)} \cdot \ln(b) = b^x \cdot \ln(b). </me>
+      Because we already had a formula <m>\frac{d}{dx}[b^x] = L(b) \cdot b^x</m>,
+      we now have an exact expression for the limit <m>L(b)</m>:
+      <me> L(b) = \lim_{h \to 0} \frac{b^h-1}{h} = \ln(b). </me>
     </p>
-    </subsection>
+  </subsection>
+  <subsection>
+    <title>Power Function or Exponential Function</title>
+    <p>
+      One of the challenges for a calculus novice is identifying which rule applies.
+      It is essential that you can distinguish between an exponential function and a power function.
+    </p>
+    <p>
+      Recall that a power function has a constant power while an exponential function has a constant as the base.
+      Furthermore, don't be fooled by numbers that look like other symbols.
+      For example, <m>x^e</m> is a power function since the power is the constant value <m>e</m> (the natural exponential base):
+      <me> \frac{d}{dx}[x^e] = e x^{e-1}. </me>
+      Similarly, <m>x^{\sqrt{2}}</m> is a power function because the power <m>\sqrt{2}</m> is a number
+      (even though it is represented as a formula, it does not have any variables):
+      <me> \frac{d}{dx}[x^{\sqrt{2}}] = \sqrt{2} x^{\sqrt{2}-1}. </me>
+    </p>
+    <p>
+      Furthermore, you must look at a formula and determine which operation determines the
+      differentiation rule that is required (constant multiple, sum, product, quotient or chain).
+      This is always based on the last operation to be applied under the rules of order of operations.
+      When the number of steps is small, you should be able to write the derivative down directly.
+      When the number of steps is large, you might need to use the differentiation operator to
+      allow yourself the chance to work part of the way and indicate that there are still steps remaining.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the derivative <m>\displaystyle \frac{d}{dx}[ (x^2+4)^5 e^{5x^3} ]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Start by identifying the final operation. In this problem, the function
+          <m>f(x) = (x^2+4)^5 e^{5x^3}</m> is a product of <m>(x^2+4)^5</m> and <m>e^{5x^3}</m>.
+          So we begin by using the product rule. If you want to emphasize this without having
+          to write down the derivatives of the factors, then we use the differentiation operator:
+          <me> f'(x) = \frac{d}{dx}[(x^2+4)^5] \cdot e^{5x^3} + (x^2+4)^5 \cdot \frac{d}{dx}[e^{5x^3}]. </me>
+          Notice that the differentiation operator is pointing out where we still need to find derivatives
+          in order to complete the problem.
+        </p>
+        <p>
+          The first term <m>(x^2+4)^5</m> should be recognized as a composition with a
+          power function <m>u^5</m> where <m>u=x^2+4</m>. We will use the chain rule:
+          <me> \frac{d}{dx}[(x^2+4)^5] \underset{(u=x^2+4)}{=} \frac{d}{du}[u^5] \cdot \frac{du}{dx}
+          = 5(x^2+4)^4 \cdot (2x). </me>
+          The second term <m>e^{5x^3}</m> should be recognized as a composition with
+          the exponential function <m>e^u</m> where <m>u=5x^3</m>. Again, the chain rule guides us:
+          <me> \frac{d}{dx}[e^{5x^3}] \underset{(u=5x^3)}{=} \frac{d}{du}[e^u] \cdot \frac{du}{dx}
+          = e^{5x^3} \cdot (15x^2). </me>
+        </p>
+        <p>
+          The previous paragraph represents work that you either think through mentally or
+          write out as scratch work. Putting the pieces together gives us the overall answer.
+          <md>
+            <mrow> f'(x) = \frac{d}{dx}[(x^2+4)^5 e^{5x^3}]
+            &amp; = \frac{d}{dx}[(x^2+4)^5] \cdot e^{5x^3} + (x^2+4)^5 \cdot \frac{d}{dx}[e^{5x^3}]</mrow>
+            <mrow> &amp; = 5(x^2+4)^4 (2x) \cdot e^{5x^3} + (x^2+4)^5 \cdot e^{5x^3} \cdot (15x^2) </mrow>
+            <mrow> &amp; = 10x (x^2+4)^4 e^{5x^3} + 15x^2(x^2+4)^5 e^{5x^3} </mrow>
+          </md>
+        </p>
+        <p>
+          As we start to use our derivatives in applications, we will often need to factor our formulas.
+          To illustrate this principle, we identify all of the common factors of the terms.
+          <md>
+            <mrow> f'(x) &amp;= 5x(x^2+4)^4e^{5x^3} \cdot(2 + 3x(x^2+4)) </mrow>
+            <mrow> &amp; = 5x(x^2+4)^4 e^{5x^3} (2+12x+3x^2) </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
 
 </section>
