@@ -444,11 +444,12 @@
         </p>
         <figure>
           <caption>Illustration of partially filled cup of water in the shape of a cone.</caption>
-          <image src="img/cone-water-cup"/>
+          <image source="images/cone-water-cup" width="40%"/>
         </figure>
       </statement>
       <solution>
       </solution>
+    </example>
   </subsection>
   <subsection>
     <title>Summary</title>
@@ -486,7 +487,7 @@
         <statement>
           <p>
             Given <m>\frac{dy}{du} = 4</m> and <m>\frac{du}{dx} = -3</m>,
-            find <m<\frac{dy}{dx}</m>.
+            find <m>\frac{dy}{dx}</m>.
           </p>
           <p>Hint: Imagine a chain <m>x \mapsto u \mapsto y</m> and apply the chain rule.</p>
         </statement>
@@ -495,7 +496,7 @@
         <statement>
           <p>
             Given <m>\frac{dF}{dP} = 1.2</m> and <m>\frac{dP}{dt} = 40</m>,
-            find <m<\frac{dF}{dt}</m>.
+            find <m>\frac{dF}{dt}</m>.
           </p>
           <p>Hint: <m>t \mapsto P \mapsto F</m>.</p>
         </statement>
@@ -504,7 +505,7 @@
         <statement>
           <p>
             Given <m>\frac{dR}{dt} = 50000</m> and <m>\frac{dp}{dt} = -2</m>,
-            find <m<\frac{dR}{dp}</m>.
+            find <m>\frac{dR}{dp}</m>.
           </p>
           <p>Hint: <m>t \mapsto p \mapsto R</m>.</p>
         </statement>
@@ -513,7 +514,7 @@
         <statement>
           <p>
             Given <m>\frac{dR}{dt} = 50000</m> and <m>\frac{dp}{dt} = -2</m>,
-            find <m<\frac{dR}{dp}</m>.
+            find <m>\frac{dR}{dp}</m>.
           </p>
           <p>Hint: <m>t \mapsto p \mapsto R</m>.</p>
         </statement>

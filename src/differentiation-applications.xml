@@ -699,22 +699,22 @@
       </introduction>
       <exercise>
         <statement>
-          <p>If <m>h(x)=3f(x) + 2 g(x)</m>, find <m>h'(0)</m>.
+          <p>If <m>h(x)=3f(x) + 2 g(x)</m>, find <m>h'(0)</m>.</p>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <p>If <m>H(x)=x^2f(x) + 4</m>, find <m>H'(3)</m>.
+          <p>If <m>H(x)=x^2f(x) + 4</m>, find <m>H'(3)</m>.</p>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <p>If <m>\displaystyle p(x)=\frac{3}{g(x)}</m>, find <m>p'(1)</m>.
+          <p>If <m>\displaystyle p(x)=\frac{3}{g(x)}</m>, find <m>p'(1)</m>.</p>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <p>If <m>\displaystyle Q(x)=\frac{f(x)}{2g(x)}</m>, find <m>Q'(2)</m>.
+          <p>If <m>\displaystyle Q(x)=\frac{f(x)}{2g(x)}</m>, find <m>Q'(2)</m>.</p>
         </statement>
       </exercise>
     </exercisegroup>
