@@ -448,6 +448,99 @@
         </figure>
       </statement>
       <solution>
+        <p>
+          We will work through two different approaches to solving this problem.
+          The first method will be to consider two equations that relate our variables
+          and create two equations for the related rates.
+          The second method will use the two equations relating the variables to create a single function
+          to create a related rates equation.
+        </p>
+        <p>
+          There are three basic dependent variables: the height of water in the cup,
+          the radius of the circle at the top of the water level, and the volume of water in the cup.
+          All of these change with respect to the independent variable of time.
+          Let <m>t</m> measure time in seconds, let <m>h</m> measure the height of water,
+          let <m>r</m> measure the radius at the top of the water level,
+          and let <m>V</m> measure the volume of water in the cup.
+          Interpreting the given information, we should note the values of variables at the instant in question.
+          The units of how fast water is filling is a volume per unit time,
+          which we interpret as saying <m>\frac{dV}{dt} = 80</m>.
+          The depth of the water informs us that <m>h=6</m>.
+          The question asks us to determine <m>\frac{dh}{dt}</m>.
+        </p>
+        <p>
+          The volume of water is related to the radius and height by the equation
+          <me> V = \frac{1}{3} \pi r^2 h.</me>
+          In addition, we know that the radius and height must be similar dimensions to the radius and height of the cup itself.
+          This means that the ratios of corresponding sides must be equal, giving a second equation
+          <me>\frac{r}{5} = \frac{h}{12}.</me>
+          If we solve for <m>r</m>, we find <m>r = \frac{5}{12} h</m>.
+        </p>
+        <p>
+          From the equations relating the dependent variables,
+          we can differentiate to develop equations relating their rates of change.
+          The volume is defined as a constant multiple of <m>\frac{1}{3}\pi</m> with the product <m>r^2 h</m>,
+          and the derivative of <m>r^2</m> requires the chain rule:
+          <md>
+            <mrow> \frac{dV}{dt} &amp;= \frac{1}{3} \pi \frac{d}{dt}\Big[ r^2 h \Big] </mrow>
+            <mrow> &amp;= \frac{1}{3} \pi \Big(\frac{d}{dt}\Big[ r^2 \Big] \cdot h + r^2 \cdot \frac{dh}{dt} \Big) </mrow>
+            <mrow> &amp;= \frac{1}{3} \pi (2r \frac{dr}{dt}) \cdot h + \frac{1}{3} \pi r^2 \cdot \frac{dh}{dt} </mrow>
+            <mrow> &amp;= \frac{2}{3} \pi r h \frac{dr}{dt} + \frac{1}{3} \pi r^2 \frac{dh}{dt}. </mrow>
+          </md>
+          We can also differentiate the equation defining <m>r</m> to relate the rates for <m>r</m> and <m>h</m>:
+          <me> \frac{dr}{dt} = \frac{d}{dt}\Big[ \frac{5}{12} h \Big] = \frac{5}{12} \frac{dh}{dt}. </me>
+        </p>
+        <p>
+          With these equations and the data, we can solve for <m>\frac{dh}{dt}</m>.
+          Our related rates equation involves the variable <m>r</m>, for which we do not have a value.
+          We can use the similar dimensions equation to solve for <m>r</m>,
+          <me> r = \frac{5}{12}h = \frac{5}{12}(6) = \frac{5}{2}. </me>
+          Substituting the values of variables and rates into the related rates equation for <m>\frac{dV}{dt}</m>,
+          we find
+          <me> 80 =  \frac{2}{3} \pi (\frac{5}{2}) (6) \frac{dr}{dt} + \frac{1}{3} \pi (\frac{5}{2})^2 \frac{dh}{dt}. </me>
+          As this equation has both rates <m>\frac{dr}{dt}</m> and <m>\frac{dh}{dt}</m>,
+          we substitute into the equation our relation <m>\frac{dr}{dt} = \frac{5}{12} \frac{dh}{dt}</m>:
+          <md>
+            <mrow> 80 =  \frac{2}{3} \pi (\frac{5}{2}) (6) (\frac{5}{12}) \frac{dh}{dt} + \frac{1}{3} \pi (\frac{5}{2})^2 \frac{dh}{dt} </mrow>
+            <mrow> 80 =  \frac{25}{6} \pi \frac{dh}{dt} + \frac{25}{12} \pi \frac{dh}{dt} </mrow>
+            <mrow> 80 =  \frac{75}{12} \pi \frac{dh}{dt} </mrow>
+            <mrow> \frac{80(12)}{75\pi} = \frac{dh}{dt} </mrow>
+            <mrow> \frac{dh}{dt} = \frac{64}{5\pi} \approx 4.074.</mrow>
+          </md>
+          Consequently, we conclude the height of water is rising at a rate just higher than
+          <quantity><mag>4</mag><unit base="meter" prefix="centi"/><per base="second"/></quantity>.
+        </p>
+        <p>
+          The second method uses substitution earlier in the process.
+          Instead of substituting the rate of change from related rates,
+          this approach seeks to write an equation so that <m>V</m> is only a function of <m>h</m>.
+          (We choose <m>h</m> because it is that variable's rate of change that is desired.)
+          Because <m>r=\frac{5}{12}h</m>, we can create a single equation relating <m>V</m> and <m>h</m>:
+          <md>
+            <mrow> V &amp;= \frac{1}{3} \pi r^2 h </mrow>
+            <mrow> &amp;= \frac{1}{3} \pi (\frac{5}{12}h)^2 (h) </mrow>
+            <mrow> &amp;= \frac{1}{3} \pi (\frac{25}{144}) h^3 </mrow>
+            <mrow> &amp;= \frac{25}{432} \pi h^3. </mrow>
+          </md>
+        </p>
+        <p>
+          Once we have the equation relating volume and height of the water,
+          we can differentiate to find a single related rates equation using
+          the constant multiple rule and the chain rule for the power <m>h^3</m>:
+          <md>
+            <mrow> \frac{dV}{dt} &amp;= \frac{25}{432} \pi \frac{d}{dt}\Big[h^3\Big] </mrow>
+            <mrow>  &amp;= \frac{25}{432} \pi 3h^2 \frac{dh}{dt} </mrow>
+            <mrow>  &amp;= \frac{25}{144} \pi h^2 \frac{dh}{dt}. </mrow>
+          </md>
+          At this point, we can substitute our known values and solve for <m>\frac{dh}{dt}</m>:
+          <md>
+            <mrow> \frac{dV}{dt} = \frac{25}{144} \pi h^2 \frac{dh}{dt} </mrow>
+            <mrow> 80 = \frac{25}{144} \pi (6)^2 \frac{dh}{dt} </mrow>
+            <mrow> 80 = \frac{25}{4} \pi \frac{dh}{dt} </mrow>
+            <mrow> \frac{80(4)}{25 \pi} = \frac{dh}{dt} </mrow>
+            <mrow> \frac{dh}{dt} = \frac{64}{5 \pi}. </mrow>
+          </md>
+        </p>
       </solution>
     </example>
   </subsection>
@@ -592,8 +685,163 @@
     </exercisegroup>
     <exercisegroup>
       <introduction>
+        <p>
+          Use the values of <m>f(x)</m> and <m>g(x)</m> and their derivatives
+          from the following table to calculate the indicated values.
+        </p>
+        <sidebyside>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+            </row>
+            <row>
+              <cell><m>f(x)</m></cell>
+              <cell>5</cell>
+              <cell>3</cell>
+              <cell>1</cell>
+              <cell>0</cell>
+              <cell>2</cell>
+              <cell>4</cell>
+            </row>
+            <row>
+              <cell><m>g(x)</m></cell>
+              <cell>1</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>3</cell>
+              <cell>2</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell><m>f'(x)</m></cell>
+              <cell>-3</cell>
+              <cell>-2</cell>
+              <cell>-1</cell>
+              <cell>0</cell>
+              <cell>3</cell>
+              <cell>5</cell>
+            </row>
+            <row>
+              <cell><m>g'(x)</m></cell>
+              <cell>4</cell>
+              <cell>2</cell>
+              <cell>-1</cell>
+              <cell>-2</cell>
+              <cell>-4</cell>
+              <cell>-3</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            For <m>h(x) = f(g(x))</m>, find <m>h(2)</m> and <m>h'(2)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            For <m>h(x) = g(f(x))</m>, find <m>h(2)</m> and <m>h'(2)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            For <m>h(x) = g(2x-3)</m>, find <m>h(3)</m> and <m>h'(3)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            For <m>h(x) = f(x^2)</m>, find <m>h(2)</m> and <m>h'(2)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            For <m>h(x) = f^2(x) = (f(x))^2</m>, find <m>h(1)</m> and <m>h'(1)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            For <m>h(x) = f(2g(x))</m>, find <m>h(0)</m> and <m>h'(0)</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
         <p>Related Rates</p>
       </introduction>
+      <exercise>
+        <statement>
+          <p>
+            A ripple in a pond spreads as a circle whose radius grows at a speed of
+            <quantity><mag>30</mag><unit base="meter" prefix="centi"/><per base="second"/></quantity>.
+            At what rate is the area enclosed by the ripple increasing?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            An oil spill in the ocean is spreading as a circle such that the total area is increasing at a constant rate.
+            After 10 hours, the circle has a radius of <quantity><mag>0.1</mag><unit base="meter" prefix="kilo"/></quantity>.
+            What is the instantaneous rate of change of the radius at this time?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A bacteria colony grows on its substrate in the shape of a circle.
+            Your colleague suggests that the colony only grows along the outer edge
+            such that the rate of change of the area should be proportional to the circumference.
+            Show that this predicts a constant rate of change for the radius.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A spherical balloon is being filled with air at a rate of 0.5 cubic meters per minute.
+            How fast is the radius increasing when the balloon has a radius of 20 cm?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A spherical balloon is being filled with air at a rate of 0.5 cubic meters per minute.
+            At what radius will the balloon have its radius growing at a rate of 1 centimeter per second?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A pile of sand takes the form of a circular cone.
+            As the sand falls, the pile always maintains the same slope
+            so that the height and diameter have the same proportions.
+            When the pile is 2 meters high, the diameter is 4 meters.
+            If the sand pile at that instant is getting taller at a rate of 0.2 meters per minute,
+            at what rate (cubic meters per minute) is sand being added to the pile?
+          </p>
+        </statement>
+      </exercise>
     </exercisegroup>
   </exercises>
 </section>
