@@ -299,6 +299,49 @@
         </p>
       </solution>
     </example>
+    <p>
+      There may be times where the chain rule must be used more than once.
+      Any time the last operation on an expression is a function acting on an expression,
+      such as a power as opposed to arithmetic operations like sums or products joining two expressions,
+      we need to use the chain rule.
+    </p>
+    <example>
+      <statement>
+        <p>If <m>f(x) = (\sqrt{3x}+2)^4</m>, compute <m>f'(x)</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          The last operation in <m>f(x)</m> is raising an expression to the power 4.
+          The derivative will require a chain rule.
+          The first step is to differentiate this last operation.
+          <md>
+            <mrow> f'(x) &amp;= \frac{d}{dx}\Big[ (\sqrt{3x}+2)^4 \Big] </mrow>
+            <mrow> &amp;\underset{u=\sqrt{3x}+2}{=} \frac{d}{du}\Big[ u^4 ] \frac{d}{dx}\Big[ \sqrt{3x} + 2\Big] </mrow>
+            <mrow> &amp;\underset{u=\sqrt{3x}+2}{=} 4u^3 \cdot \frac{d}{dx}\Big[ (3x)^{1/2} + 2\Big] </mrow>
+            <mrow> &amp;= 4(\sqrt{3x}+2)^3 \cdot \frac{d}{dx}\Big[ (3x)^{1/2} + 2\Big] </mrow>
+          </md>
+        </p>
+        <p>
+          We need to continue by finding the derivative of the inner expression <m>u=\sqrt{3x}+2</m>.
+          This is a sum, and the second term in a sum is a constant.
+          The derivative of a constant is zero.
+          We need to compute the derivative of <m>(3x)^{1/2}</m>, which is another composition.
+          The expression <m>3x</m> is raised to a power <m>\frac{1}{2}</m>.
+          We need the chain rule one more time.
+          <md>
+            <mrow> \frac{d}{dx}\Big[ (3x)^{1/2} + 2\Big] &amp;= \frac{d}{dx}\Big[ (3x)^{1/2}\Big] + 0 </mrow>
+            <mrow> &amp; \underset{u=3x}{=} \frac{d}{du}\Big[ u^{1/2} \Big] \frac{d}{dx}\Big[ 3x \Big]</mrow>
+            <mrow> &amp; \underset{u=3x}{=} \frac{1}{2} u^{-1/2} \cdot 3 </mrow>
+            <mrow> &amp;= \frac{3}{2} (3x)^{-1/2} = \frac{3}{2 \sqrt{3x}} </mrow>
+          </md>
+          Substituting this into our original formula for <m>f'(x)</m>, we find
+          <md>
+            <mrow> f'(x) &amp;= 4(\sqrt{3x}+2)^3 \cdot  \frac{3}{2 \sqrt{3x}} </mrow>
+            <mrow> &amp;= \frac{6}{\sqrt{3x}} (\sqrt{3x}+2)^3. </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
   </subsection>
   <subsection>
     <title>Related Rates and the Chain Rule</title>
@@ -334,11 +377,194 @@
         That is, the reaction rate is <em>decreasing</em> at a rate of 0.25 grams per minute per minute.
         (<m>R</m> has units of grams per minute so <m>\frac{dR}{dt}</m> has units of grams per minute per minute.)
       </p>
-    </exxample>
+    </example>
+    <example>
+      <statement>
+        <p>
+          As an ice cube melts, it maintains the shape of a cube.
+          At one particular instant, each side of the cube is <quantity><mag>30</mag><unit base="meter" prefix="milli"/></quantity>
+          and the volume of the cube is melting at a rate of <quantity><mag>500</mag><unit base="meter" prefix="milli" exp="3"/><per base="second"/></quantity>.
+          What is the rate of change of the length of the sides at that instant?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Start by identifying the variables in the problem.
+          The state of the ice cube is characterized by the time,
+          the length of the sides, and the total volume.
+          Let <m>t</m> be the time (in seconds), <m>s</m> the length of a side (in millimeters),
+          and <m>V</m> the volume (in cubic millimeters).
+        </p>
+        <p>
+          Next identify the functions defining relations between the variables.
+          We know that the length and volume are both functions of time,
+          so we know there are maps <m>t \mapsto s</m> and <m>t \mapsto V</m>.
+          This is not a chain because <m>t</m> is the independent variable for both maps.
+          We also know that the volume is a function of the length of a side,
+          <m>s \mapsto V = s^3</m>.
+          From this, we can identify a chain, <m>t \mapsto s \mapsto V</m>.
+        </p>
+        <p>
+          We finish by creating an equation relating our rates.
+          Because our variables are related by a chain,
+          the chain rule establishes this relationship:
+          <me> \frac{dV}{dt} = \frac{dV}{ds} \frac{ds}{dt}. </me>
+          The problem gives us <m>\frac{dV}{dt} = <quantity><mag>-500</mag><unit base="meter" prefix="milli" exp="3"/><per base="second"/></quantity></m>.
+          The equation <m>V=s^3</m> is an explicit formula from which we can compute a derivative
+          <me> \frac{dV}{ds} = 3s^2. </me>
+          At the instant in question, <m>s = <quantity><mag>30</mag><unit base="meter" prefix="milli"/></quantity></m>
+          so that <m>\frac{dV}{ds} = 3(30)^2 = <quantity><mag>2700</mag><unit base="meter" prefix="milli" exp="3"/><per base="meter" prefix="milli"/></quantity></m>.
+          The related rates equation involved three rates, two of which we now know.
+          Solving for <m>\frac{ds}{dt}</m>, we find
+          <me> \frac{ds}{dt} = \frac{ \frac{dV}{dt} }{ \frac{dV}{ds} } = \frac{-500}{2700} = -\frac{5}{27}.</me>
+          That is, the lengths of the sides are decreasing at a rate of <m>-\frac{5}{27}</m> <quantity><unit base="meter" prefix="milli"/><per base="second"/></quantity>.
+        </p>
+      </solution>
+    </example>
   </subsection>
   <subsection>
     <title>Summary</title>
+    <p>
+      <ul>
+        <li>
+          <p>A composition or chain occurs when the output of one function acts as the input to another function.</p>
+        </li>
+        <li>
+          <p>
+            The derivative measures the limiting ratio of changes in the output to the input for small changes in the input.
+            Consequently, in a composition or chain of functions, the overall rate of change
+            is the product of the rates of change for each step.
+          </p>
+        </li>
+        <li>
+          <p>
+            The chain rule states that
+            <me>\frac{d}{dx}\big[ f\big(g(x)\big) \big] = f'(g(x)) \cdot g'(x).</me>
+            Represented as a chain <m>u=g(x)</m> and <m>y=f(u)</m> so that <m>y=f(g(x))</m>,
+            the chain rule would be written
+            <me>\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}.</me>
+            This is the derivative of the outer operation times the derivative of the inner expression.
+          </p>
+        </li>
+      </ul>
+    </p>
   </subsection>
   <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>Use the given rates to find the unknown rate.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            Given <m>\frac{dy}{du} = 4</m> and <m>\frac{du}{dx} = -3</m>,
+            find <m<\frac{dy}{dx}</m>.
+          </p>
+          <p>Hint: Imagine a chain <m>x \mapsto u \mapsto y</m> and apply the chain rule.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Given <m>\frac{dF}{dP} = 1.2</m> and <m>\frac{dP}{dt} = 40</m>,
+            find <m<\frac{dF}{dt}</m>.
+          </p>
+          <p>Hint: <m>t \mapsto P \mapsto F</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Given <m>\frac{dR}{dt} = 50000</m> and <m>\frac{dp}{dt} = -2</m>,
+            find <m<\frac{dR}{dp}</m>.
+          </p>
+          <p>Hint: <m>t \mapsto p \mapsto R</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Given <m>\frac{dR}{dt} = 50000</m> and <m>\frac{dp}{dt} = -2</m>,
+            find <m<\frac{dR}{dp}</m>.
+          </p>
+          <p>Hint: <m>t \mapsto p \mapsto R</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Compute the derivatives.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[(3x+2)^3]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[(x^2+1)^5]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[(2x-5)^{-2}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[\sqrt{4x+1}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[\frac{3}{\sqrt{x^2+4}}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[(x^3+2x)^{-2/3}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[x^4(x^2+1)^3]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[x \sqrt{2x+1}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[(3x+1)^{4}(2x-5)^3]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}[\frac{3x}{(2x+1)^2}]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>For <m>f(x)=x^3(2x+1)^5</m>, find <m>f''(x)</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>For <m>g(x)=\frac{3}{x^2+1}</m>, find <m>g''(x)</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>For <m>h(x)=\sqrt{x^3-1}</m>, find <m>h''(x)</m>.</p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Related Rates</p>
+      </introduction>
+    </exercisegroup>
   </exercises>
 </section>
