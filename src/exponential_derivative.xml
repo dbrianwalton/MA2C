@@ -119,6 +119,21 @@
       The base is called the <term>natural base</term> and is given the special symbol <m>e</m>.
       Consequently,
       <me> \frac{d}{dx}[e^x] = e^x. </me>
+    </p>
+    <definition xml:id="defn-limit-defining-e">
+      <statement>
+        <p>
+          The number <m>e</m> is that positive value such that
+          <me> \lim_{h \to 0} \frac{e^h - 1}{h} = 1. </me>
+        </p>
+      </statement>
+    </definition>
+    <theorem xml:id="deriv-exponential">
+      <statement>
+        <p><me> \frac{d}{dx}[e^x] = e^x</me></p>
+      </statement>
+    </theorem>
+    <p>
       Every other exponential function is proportional to its derivative,
       but with the proportionality constant <m>L(b) \ne 1</m>.
       We will soon discover another way to find <m>L(b)</m> for these other bases.
@@ -231,11 +246,16 @@
       <me> b^x = e^{x \cdot \ln(b)}. </me>
       Using the chain rule with <m>u=x \cdot \ln(b)</m> and <m>\frac{du}{dx}=\ln(b)</m>,
       we discover
-      <me xml:id="general-exponential-deriv"> \frac{d}{dx}[b^x] = \frac{d}{dx}[e^{x \ln(b)}] = e^{x \ln(b)} \cdot \ln(b) = b^x \cdot \ln(b). </me>
+      <me> \frac{d}{dx}[b^x] = \frac{d}{dx}[e^{x \ln(b)}] = e^{x \ln(b)} \cdot \ln(b) = b^x \cdot \ln(b). </me>
       Because we already had a formula <m>\frac{d}{dx}[b^x] = L(b) \cdot b^x</m>,
       we now have an exact expression for the limit <m>L(b)</m>:
       <me> L(b) = \lim_{h \to 0} \frac{b^h-1}{h} = \ln(b). </me>
     </p>
+    <theorem xml:id="deriv-exponential-general">
+      <statement>
+        <p><me> \frac{d}{dx}[b^x] = b^x \cdot \ln(b)</me></p>
+      </statement>
+    </theorem>
   </subsection>
   <subsection>
     <title>Power Function or Exponential Function</title>
@@ -307,6 +327,128 @@
       </solution>
     </example>
   </subsection>
-
-
+  <subsection>
+    <title>Another Limit Defining <m>e</m></title>
+    <p>
+      When we defined the number <m>e</m>, it was done so that <m>\frac{d}{dx}\Big[e^x\Big] = e^x</m>.
+      The natural base was then chosen so that
+      <me>\lim_{x \to 0} \frac{e^x-1}{x} = 1.</me>
+      Suppose that we instead looked for a function <m>f(x)</m> so that <m>f(0)=1</m> and <m>f'(x) = f(x)</m>.
+      An equation for an unknown function involving derivatives is called a differential equation.
+      We already know that <m>f(x)=e^x</m> is the solution to this differential equation.
+      However, we will use the differential equation to gain some additional insights into the function.
+    </p>
+    <p>
+      We begin by considering how we might approximate our function using only the differential equation.
+      Consider the interval <m>[0,x]</m> and create a partition with <m>n</m> subintervals,
+      <me>x_k = \frac{kx}{n}.</me>
+      We will recursively calculate a sequence of values <m>y_k \approx f(x_k)</m>.
+      From the definition of an accumulation function, we know
+      <me>f(x_{k+1}) = f(x_k) + \int_{x_k}^{x_{k+1}} f'(z) \, dz.</me>
+      We further know <m>f'(z) = f(z)</m> by our differential equation.
+      So if <m>\Delta x = \frac{x}{n}</m> is sufficiently small,
+      we can approximate <m>f'(z)</m> on the interval <m>[x_{k},x_{k+1}]</m>
+      by a constant value <m>f'(z) \approx f'(x_k)</m>.
+      This method for approximating the next value of the function defined by a differential equation,
+      <me>f(x_{k+1}) \approx f(x_k) + f'(x_k) (x_{k+1}-x_k) = f(x_k) + f'(x_k) \Delta x,</me>
+      is called the <term>Euler method</term>.
+    </p>
+    <p>
+      Our differential equation <m>f'(x)=f(x)</m> allows us to find a value for <m>f'(x_k) = f(x_k)</m>.
+      For our differential equation, the Euler method approximation gives us
+      <me>f(x_{k+1}) \approx f(x_k) + f(x_k) (x_{k+1}-x_k) = f(x_k) \cdot (1+\Delta x).</me>
+      The approximation is then characterized by the recursive sequence,
+      <md>
+        <mrow> y_0 &amp;= 1, </mrow>
+        <mrow> y_{k+1} &amp;= y_k (1 + \Delta x),</mrow>
+      </md>
+      which we identify as a geometric sequence
+      with  <xref ref="theorem-geometric-explicit-sequence" text="title">explicit formula</xref>
+      <me> y_k = (1 + \Delta x)^{k}. </me>
+    </p>
+    <p>
+      We also know that <m>f(x)=e^x</m> is the solution.
+      Since <m>x_n = x</m>, the Euler method approximation shows that <m>f(x_n) = e^x</m>
+      will be approximated by <m>y_n = (1 + \Delta x)^{n}</m>.
+      Because <m>\Delta x = \frac{x}{n}</m>, we can write <m>n = \frac{x}{\Delta x}</m> to obtain
+      <me> f(x) = e^x \approx (1+\Delta x)^{x/\Delta x} = \left((1+\Delta x)^{1/\Delta x}\right)^x. </me>
+    </p>
+    <p>
+      It would appear that <m>e</m> can be approximated by
+      <me> e \approx (1+\Delta x)^{1/\Delta x} </me>
+      when <m>\Delta x</m> is sufficiently small.
+      We state this heuristic result as the following unproved theorem.
+    </p>
+    <theorem xml:id="theorem-limit-defines-e">
+      <statement>
+        <p>
+          <me> e = \lim_{h \to 0} (1+h)^{1/h} = \lim_{n \to \infty} ({\textstyle 1 + \frac{1}{n}})^n. </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We don't have a proof at this point because without first knowing the function <m>e^x</m>,
+      we do not have a clear definition for nonrational powers to justify the following limit steps:
+      <md>
+        <mrow>f(x) &amp;= \lim_{\Delta x \to 0} \Big[ \left((1+\Delta x)^{1/\Delta x}\right)^x\Big] </mrow>
+        <mrow> &amp;= \Big( \lim_{\Delta x \to 0} \left[(1+\Delta x)^{1/\Delta x}\right]\Big)^x </mrow>
+        <mrow> &amp;= e^x. </mrow>
+      </md>
+      Mathematically, the best way to prove that these limits are valid is actually
+      to work with the inverse function, the natural logarithm.
+    </p>
+  </subsection>
+  <section>
+    <title>Summary</title>
+    <p>
+      <ul>
+        <li>
+          <p>
+            Given any positive base <m>b \gt 0</m>, we know
+            <me>\frac{d}{dx}[b^x] = b^x \cdot L(b)</me>
+            where <m>L(b)</m> is defined by a limit
+            <me> L(b) = \lim_{x \to 0} \frac{b^x - 1}{x}. </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            The number <m>e</m> is the natural base such that <m>L(e)=1</m>,
+            <me> \lim_{x \to 0} \frac{e^x-1}{x} = 1. </me>
+            Consequently,
+            <me> \frac{d}{dx}\Big[e^x\Big] = e^x.</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            The general derivative rule for exponentials applies the chain rule,
+            <me> \frac{d}{dx}\Big[e^u\Big] = e^u \cdot \frac{du}{dx}.</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Expressing other formulas involving powers in terms of <m>e</m>,
+            <me> u^v = e^{v \cdot \ln(u)}, </me>
+            we can show
+            <me> \frac{d}{dx}\Big[b^x\Big] = \frac{d}{dx}\Big[e^{x \ln(b)} \Big] = e^{x \ln(b)} \cdot \ln(b). </me>
+            This also shows that
+            <me> \lim_{x \to 0} \frac{b^x - 1}{x} = \ln(b).</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            The function <m>f(x) = e^x</m> is the solution to a differential equation <m>f'(x)=f(x)</m> with <m>f(0)=1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\displaystyle \lim_{h \to 0} (1+h)^{1/h} = e</m> and <m>\displaystyle \lim_{n \to \infty} (1 + \frac{1}{n})^n = e</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </section>
+  <exercises>
+    <exercisegroup>
+    </exercisegroup>
+  </exercises>
 </section>
