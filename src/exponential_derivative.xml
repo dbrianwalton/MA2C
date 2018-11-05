@@ -134,10 +134,25 @@
       </statement>
     </theorem>
     <p>
-      Every other exponential function is proportional to its derivative,
-      but with the proportionality constant <m>L(b) \ne 1</m>.
+      Every exponential function is proportional to its derivative.
+      This means that at every point on the graph <m>y=b^x</m>,
+      the ratio of the slope to the <m>y</m>-value is always the same constant.
+      The interactive graph in <xref ref="figure-exponential-proportionality"/> illustrates this principle.
+      The proportionality constant, <m>L(b)</m>, has been defined by a limit.
       We will soon discover another way to find <m>L(b)</m> for these other bases.
     </p>
+    <figure xml:id="figure-exponential-proportionality">
+      <caption>
+        A graph of <m>y=b^x</m> that illustrates the proportionality relation
+        between the slope and the <m>y</m>-value.
+      </caption>
+      <interactive xml:id="interactive-exponential-proportional" platform="jsxgraph" width="80%" aspect="4:3" source="js/jsx-exponential-proportional.js">
+        <slate xml:id="jsxgraph-exponential-proportional" surface="jsxboard" aspect="4:3"/>
+        <instructions>
+          <p>Drag the sliders to change the base <m>b</m> and the point of interest at <m>x</m>.</p>
+        </instructions>
+      </interactive>
+    </figure>
   </subsection>
   <subsection>
     <title>The Chain Rule with Exponentials</title>
@@ -212,7 +227,7 @@
       using the natural exponential function <m>\exp(x)=e^x</m>.
       Recall that the exponential and the logarithm are inverse functions
       so that for every number <m>u \gt 0</m> we have
-      <me> \exp(\ln(u)) e^{\ln(u)} = u. </me>
+      <me> \exp(\ln(u)) = e^{\ln(u)} = u. </me>
       This identity and the rules for logarithms show that any power <m>u^w</m> with <m>u \gt 0</m>
       can be rewritten as
       <me> u^w = \exp(\ln(u^w)) = e^{\ln(u^w)} = e^{w \cdot \ln(u)}. </me>
@@ -449,6 +464,165 @@
   </section>
   <exercises>
     <exercisegroup>
+      <introduction>
+        <p>
+          Foundations
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            Use the definition to find <m>L(\frac{1}{2})</m> using a table to approximate the limit.
+            Compare the result to <m>\ln(\frac{1}{2})</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Use the definition to find <m>L(4)</m> using a table to approximate the limit.
+            Compare the result to <m>2 \ln(2)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find the tangent line of <m>y = 3^x</m> at <m>x=0</m>, using an exact expression.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Find the indicated derivatives.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ e^{4x}\Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ 3^{2x} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dt}\Big[ 5e^{-3t}\Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ \frac{3}{e^{\frac{1}{2}x}} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{ds}\Big[ \frac{1}{3e^{-5s}} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ x \cdot 2^{-x} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ e^{x^2} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ e^{\sqrt{x}} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ e^{e^x} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ e^{(2x+1)^4} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ (e^{3x}-1)^5 \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dt}\Big[ \frac{2}{e^{-t}+1} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d^2}{dx^2}\Big[ 4xe^{-2x} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d^2}{dx^2}\Big[ x^2 e^{5x} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d^2}{dx^2}\Big[ e^{-x^2+3x} \Big]</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>Differential Equations</p>
+      </introduction>
+      <exercise xml:id="exercise-exponential-diffeq">
+        <statement>
+          <p>
+            Show that <m>y(t) = Ae^{kt}</m>, where <m>A</m> and <m>k</m> are constants,
+            is a solution to the differential equation <m>\frac{dy}{dt} = k y</m> for any value of <m>A</m>.
+            That is, using the proposed formula for <m>y(t)</m>,
+            compute <m>\frac{dy}{dt}</m> and <m>k \cdot y</m> and show that they are equal.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find a solution for the differential equation <m>\frac{dy}{dt} = 2y</m>
+            with an initial value <m>y(0) = 200</m>.
+            Use the proposed formula from <xref ref="exercise-exponential-diffeq"/>
+            and solve for the value <m>A</m> which also satisfies the initial value.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A population grows at a rate that is proportional to the current population size,
+            <me>\frac{dP}{dt} = k \cdot P.</me>
+            If the population <m>P</m> is currently 2000 individuals
+            and is growing at an instantaneous rate of 40 individuals per day,
+            find the value <m>k</m> and solve the differential equation.
+            Use the proposed formula from <xref ref="exercise-exponential-diffeq"/>.
+            What will be the population size in one week?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A radioactive substance decays at a rate that is proportional to the current mass of the substance,
+            <me>\frac{dM}{dt} = -k \cdot M.</me>
+            If the mass <m>M</m> is currently 50 milligrams
+            and is decaying at an instantaneous rate of 2 micrograms per second,
+            find the value <m>k</m> and solve the differential equation.
+            Use the proposed formula from <xref ref="exercise-exponential-diffeq"/>.
+            What will be the mass of the radioactive substance after one day?
+          </p>
+        </statement>
+      </exercise>
     </exercisegroup>
   </exercises>
 </section>
