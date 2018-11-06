@@ -9,252 +9,515 @@
 
 <section xml:id="implicit-differentiation">
     <title>Implicit Differentiation and Derivatives of Inverse Functions</title>
-
-    <subsection>
-    <title>Implicit Functions</title>
-
-    <p>A function is defined explicitly when a formula for the output is given in terms of the input. If we define a dependent variable using such a function, say <m>y=f(x)</m>, then we say <m>y</m> is defined explicitly as a function of <m>x</m>.</p>
-
-    <p>On the other hand, we also encounter situations where two variables are related through an equation but not in a way that is an explicit formula. When the graph of the equation defines a curve, say in the <m>(x,y)</m> plane, we say that the equation defines <m>y</m> as an implicit function of <m>x</m>. (It also defines <m>x</m> as an implicit function of <m>y</m>, depending on which variable we wish to consider as the dependent variable.)</p>
-
-    <example>
-    <statement>
-        <p>The equation <m>2x-3y=6</m> has a graph that is a line.  This equation defines <m>y</m> as an implicit function of <m>x</m>. If we solve for <m>y</m> to find <me> y = \frac{2x-6}{3}, </me> then we have now defined <m>y</m> as an explicit function of <m>x</m>.</p>
-    </statement>
-    </example>
-
-    <p>A graph does not represent a function when it fails the vertical line test. In spite of this, connected segments of the graph that individually pass the vertical line test can still be treated as functions for which we seek to find the derivative. It is in this context that we are interested in implicit functions.</p>
-
-    <example>
-    <statement>
-        <p>
-        The equation <m>x^2+y^2=4</m> has a graph that is a circle centered at <m>(0,0)</m> and with radius 2. The graph fails the vertical line test which means that the relation fails to define <m>y</m> as a function of <m>x</m>. However, the top half of the circle considered separately is a function, as is the bottom half of the circle. We see this when we attempt to solve the equation for <m>y</m> and obtain <md>
-            <mrow> y^2 = 4 - x^2, </mrow>
-            <mrow> y = \pm \sqrt{4-x^2}. </mrow>
-        </md> Each of the branches of the graph, <m>y=\sqrt{4-x^2}</m> and <m>y=-\sqrt{4-x^2}</m>, defines <m>y</m> as an explicit function of <m>x</m>. The original equation <m>x^2+y^2=4</m> defines both of these functions implicitly without requiring solving for <m>y</m>.</p>
-    </statement>
-    </example>
-
-    <p>When an equation involving two variables (like <m>x</m> and <m>y</m>) has a graph that consists of curves, the connected components of those curves that individually pass the vertical line test define the dependent variable (e.g., <m>y</m>) as an <term>implicit function</term> of the independent variable (e.g., <m>x</m>).</p>
-
-    </subsection>
-
-    <subsection>
-    <title>Implicit Differentiation</title>
-
-    <p>Once we recognize that an equation defines <m>y</m> as an implicit function of <m>x</m>, we can compute the derivative <m>y'=\frac{dy}{dx}</m> using a process called implicit differentiation. If <m>y</m> is a function of <m>x</m>, then computing a derivative of a function of <m>y</m> requires an application of the chain rule.</p>
-
-    <example>
-    <statement>
-        <p>Suppose that <m>y</m> is a function of <m>x</m>. Find the derivatives of the following expressions in terms of <m>x</m>, <m>y</m> and <m>y'</m>. <ol>
-            <li> <m>\displaystyle \frac{d}{dx}[y^3]</m> </li>
-            <li> <m>\displaystyle \frac{d}{dx}[x^2 y]</m> </li>
-            <li> <m>\displaystyle \frac{d}{dx}[xe^{x+y}]</m> </li>
-        </ol></p>
-    </statement>
-    <solution>
+    <introduction>
       <p>
-        We find the derivative by recognizing how the expression is computed and using the appropriate rules of differentiation.
+        When we developed the power rule for derivatives,
+        we were able to prove the rule was true for positive integers
+        as well as for the special case of integer multiples of <m>\frac{1}{2}</m>.
+        Other reciprocal powers like <m>\frac{1}{3}</m>, <m>\frac{1}{4}</m>, or <m>\frac{1}{5}</m>
+        are the inverses of the corresponding integer powers 3, 4, or 5, respectively.
+        Having established the differentiation rule for exponential functions,
+        we want to find the rule for their inverses, the logarithm functions.
+      </p>
+      <p>
+        In preparation for differentiation rules of inverse functions,
+        this section introduces the concept of an implicit function.
+        Implicit functions and the chain rule result in the process of implicit differentiation,
+        which creates an equation involving the derivative of the implicit function.
+        We then use this process to complete the rules of differentiation.
+      </p>
+    </introduction>
+    <subsection>
+      <title>Implicit Functions</title>
+      <p>
+        A function is defined explicitly when a formula for the output is given in terms of the input.
+        If we define a dependent variable using such a function, say <m>y=f(x)</m>,
+        then we say <m>y</m> is defined explicitly as a function of <m>x</m>.
+      </p>
+      <p>
+        On the other hand, we also encounter situations where two variables are related through an equation
+        but not in a way that is an explicit formula.
+        When the graph of the equation defines a curve, say in the <m>(x,y)</m> plane,
+        we say that the equation defines <m>y</m> as an <term>implicit function</term> of <m>x</m>.
+        (It also defines <m>x</m> as an implicit function of <m>y</m>,
+        depending on which variable we wish to consider as the dependent variable.)
+      </p>
+      <example>
+        <statement>
+          <p>
+            The equation <m>2x-3y=6</m> has a graph that is a line.
+            This equation defines <m>y</m> as an implicit function of <m>x</m>.
+            If we solve for <m>y</m> to find <me>y = \frac{2x-6}{3},</me>
+            then we have now defined <m>y</m> as an explicit function of <m>x</m>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        A graph does not represent a function when it fails the vertical line test.
+        In spite of this, connected segments of the graph that individually pass the vertical line test
+        can still be treated as functions for which we seek to find the derivative.
+        It is in this context that we are interested in implicit functions.
+      </p>
+      <example>
+        <statement>
+          <p>
+            The equation <m>x^2+y^2=4</m> has a graph that is a circle
+            centered at <m>(0,0)</m> and with radius 2.
+            The graph fails the vertical line test which means
+            that the relation fails to define <m>y</m> as a function of <m>x</m>.
+            However, the top half of the circle considered separately is a function,
+            as is the bottom half of the circle.
+            We see this when we attempt to solve the equation for <m>y</m> and obtain
+            <md>
+              <mrow> y^2 = 4 - x^2, </mrow>
+              <mrow> y = \pm \sqrt{4-x^2}. </mrow>
+            </md>
+            Each of the branches of the graph, <m>y=\sqrt{4-x^2}</m> and <m>y=-\sqrt{4-x^2}</m>,
+            defines <m>y</m> as an explicit function of <m>x</m>.
+            The original equation <m>x^2+y^2=4</m> defines both of these functions implicitly
+            without requiring solving for <m>y</m>.
+          </p>
+        </statement>
+      </example>
+      <p>
+        When an equation involving two variables (like <m>x</m> and <m>y</m>) has a graph that consists of curves,
+        the connected components of those curves that individually pass the vertical line test
+        define the dependent variable (e.g., <m>y</m>) as an <term>implicit function</term> of the independent variable (e.g., <m>x</m>).
+      </p>
+    </subsection>
+    <subsection>
+      <title>Implicit Differentiation</title>
+      <p>
+        Once we recognize that an equation defines <m>y</m> as an implicit function of <m>x</m>,
+        we can compute the derivative <m>y'=\frac{dy}{dx}</m>
+        using a process called implicit differentiation.
+        Recall that when a dependent variable <m>y</m> is a function of <m>x</m>,
+        computing a derivative of a function of <m>y</m> requires an application of the chain rule.
+        We also must use any other differentiation rule as appropriate.
+      </p>
+      <example>
+        <statement>
+          <p>
+            Suppose that <m>y</m> is a function of <m>x</m>.
+            Find the derivatives of the following expressions in terms of <m>x</m>,
+            <m>y</m> and <m>y'</m>.
+            <ol>
+              <li> <m>\displaystyle \frac{d}{dx}[y^3]</m> </li>
+              <li> <m>\displaystyle \frac{d}{dx}[x^2 y]</m> </li>
+              <li> <m>\displaystyle \frac{d}{dx}[xe^{x+y}]</m> </li>
+            </ol>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We find the derivative by recognizing how the expression is computed
+            and using the appropriate rules of differentiation.
+            <ol>
+              <li>
+                <p>
+                  The expression <m>y^3</m> is a composition <m>(y(x))^3</m>
+                  so that the chain rule along with the power rule allow us to find the derivative:
+                  <me> \frac{d}{dx}[y^3] = 3y^2 \cdot y'.</me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The expression <m>x^2 y</m> is a product of <m>x^2</m> and <m>y(x)</m>,
+                  so the derivative will require using the product rule of derivatives.
+                  <me> \frac{d}{dx}[x^2 y] = \frac{d}{dx}[x^2] \cdot y + x^2 \cdot \frac{d}{dx}[y] = 2xy + x^2 y'</me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The expression <m>xe^{x+y}</m> is a product of <m>x</m> and <m>e^{x+y}</m>,
+                  so we start by using the product rule.
+                  To differentiate <m>e^{x+y}</m>,
+                  we need the chain rule for <m>e^u</m> where <m>u=x+y</m>.
+                  Finally, when we differentiate <m>y</m>, we get the function <m>y'</m>.
+                  <md>
+                    <mrow> \frac{d}{dx}[xe^{x+y}] &amp;= \frac{d}{dx}[x] e^{x+y} + x \frac{d}{dx}[e^{x+y}] </mrow>
+                    <mrow> &amp;= e^{x+y} + x e^{x+y} \frac{d}{dx}[x+y] </mrow>
+                    <mrow> &amp;= e^{x+y} + x e^{x+y} (1+y') </mrow>
+                    <mrow> &amp; = e^{x+y}(1+x+xy') </mrow>
+                  </md>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </solution>
+      </example>
+      <p>
+        Implicit differentiation builds on the idea that if <m>f(x) = g(x)</m> for all <m>x</m> in an interval,
+        then <m>f'(x)=g'(x)</m> on the same interval.
+        That is, if two functions are equal then their derivatives must be equal.
+        So consider an equation in <m>x</m> and <m>y</m> that defines <m>y</m> as an implicit function of <m>x</m>.
+        We can think of the left side of the equation as defining one function (like the <m>f(x)</m> in the earlier sentence)
+        and the right side of the equation as defining a second function (like the <m>g(x)</m>).
+        Then the derivatives of the two sides of the equations must also be equal.
+      </p>
+      <p>Implicit differentiation uses the following steps.
         <ol>
           <li>
-              <p>The expression <m>y^3</m> is a composition <m>(y(x))^3</m> so that the chain rule along with the power rule allow us to find the derivative: <me> \frac{d}{dx}[y^3] = 3y^2 \cdot y'.</me></p>
+            <p>
+              Start with an equation involving your two variables, say <m>x</m> and <m>y</m>.
+              It may be desirable to find an equivalent equation for which derivatives are easier to compute.
+            </p>
           </li>
           <li>
-              <p>The expression <m>x^2 y</m> is a product of <m>x^2</m> and <m>y(x)</m>, so the derivative will require using the product rule of derivatives. <me> \frac{d}{dx}[x^2 y] = \frac{d}{dx}[x^2] \cdot y + x^2 \cdot \frac{d}{dx}[y] = 2xy + x^2 y'</me></p>
+            <p>
+              Create a new equation by differentiating each side of the equation.
+              The dependent variable must be treated as an implicit function
+              so that the new equation involves the variables <m>x</m> and <m>y</m>
+              and the derivative <m>y'=\frac{dy}{dx}</m>).
+            </p>
           </li>
           <li>
-              <p>The expression <m>xe^{x+y}</m> is a product of <m>x</m> and <m>e^{x+y}</m>, so we start by using the product rule. To differentiate <m>e^{x+y}</m>, we need the chain rule for <m>e^u</m> where <m>u=x+y</m>. Finally, when we differentiate <m>y</m>, we get the function <m>y'</m>. <md>
-                  <mrow> \frac{d}{dx}[xe^{x+y}] &amp;= \frac{d}{dx}[x] e^{x+y} + x \frac{d}{dx}[e^{x+y}] </mrow>
-                  <mrow> &amp;= e^{x+y} + x e^{x+y} \frac{d}{dx}[x+y] </mrow>
-                  <mrow> &amp;= e^{x+y} + x e^{x+y} (1+y') </mrow>
-                  <mrow> &amp; = e^{x+y}(1+x+xy') </mrow>
-              </md></p>
+            <p>
+              Solve the new equation for <m>y'=\frac{dy}{dx}</m> as a function of <m>x</m> and <m>y</m>.
+              If the slope at a particular point is desired,
+              substitute the values of <m>x</m> and <m>y</m> to find a value for <m>y'</m>.
+            </p>
           </li>
         </ol>
       </p>
-    </solution>
-    </example>
-
-    <p>Implicit differentiation builds on the idea that if <m>f(x) = g(x)</m> then <m>f'(x)=g'(x)</m>. That is, if two functions are equal then their derivatives must be equal. So consider an equation in <m>x</m> and <m>y</m> that defines <m>y</m> as an implicit function of <m>x</m>. We can think of the left side of the equation as defining one function (like the <m>f(x)</m> in the earlier sentence) and the right side of the equation as defining a second function (like the <m>g(x)</m>). Then the derivatives of the two sides of the equations must also be equal.</p>
-
-    <p>Implicit differentiation uses the following steps.
-      <ol>
-        <li>
-        <p>Start with an equation involving your two variables, say <m>x</m> and <m>y</m>. It may be desirable to find an equivalent equation for which derivatives are easier to compute.</p>
-        </li>
-        <li>
-        <p>Create a new equation by differentiating each side of the equation. The dependent variable must be treated as an implicit function so that the new equation involves the variables <m>x</m> and <m>y</m> and the derivative <m>y'=\frac{dy}{dx}</m>).</p>
-        </li>
-        <li>
-        <p>Solve the new equation for <m>y'=\frac{dy}{dx}</m> as a function of <m>x</m> and <m>y</m>. If the slope at a particular point is desired, substitute the values of <m>x</m> and <m>y</m> to find a value for <m>y'</m>.</p>
-        </li>
-      </ol>
-    </p>
-
-    <example>
-    <statement>
-        <p>The equation <m>x^2+5y^2 = 15-3xy</m> defines an ellipse, shown below. What is the slope of the curve at the point <m>(2,1)</m>?</p>
-        <sidebyside>
+      <example>
+        <statement>
+          <p>
+            The equation <m>x^2+5y^2 = 15-3xy</m> defines an ellipse, shown below.
+            What is the slope of the curve at the point <m>(2,1)</m>?
+          </p>
+          <sidebyside>
             <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                    \begin{axis}[
-                        xmin=-6,xmax=6,
-                        ymin=-4,ymax=4,
-                        xlabel={$x$},
-                        ylabel={$y$},
-                    ]
+              <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+                  \begin{axis}[
+                      xmin=-6,xmax=6,
+                      ymin=-4,ymax=4,
+                      xlabel={$x$},
+                      ylabel={$y$},
+                  ]
 
-                    \addplot[blue, domain=-6:6, thick, samples=100]
-                        ({x}, {(-3*x+sqrt(300-11*x^2))/10});
-                    \addplot[blue, domain=-6:6, thick, samples=100]
-                        ({x}, {(-3*x-sqrt(300-11*x^2))/10});
-                    \addplot[blue, domain=-6:6, thick, samples=100]
-                        ({(-3*x+sqrt(60-11*x^2))/2}, {x});
-                    \addplot[blue, domain=-6:6, thick, samples=100]
-                        ({(-3*x-sqrt(60-11*x^2))/2}, {x});
-                    \addplot[mark=*, blue] coordinates {(2,1)};
-                    \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
+                  \addplot[blue, domain=-6:6, thick, samples=100]
+                      ({x}, {(-3*x+sqrt(300-11*x^2))/10});
+                  \addplot[blue, domain=-6:6, thick, samples=100]
+                      ({x}, {(-3*x-sqrt(300-11*x^2))/10});
+                  \addplot[blue, domain=-6:6, thick, samples=100]
+                      ({(-3*x+sqrt(60-11*x^2))/2}, {x});
+                  \addplot[blue, domain=-6:6, thick, samples=100]
+                      ({(-3*x-sqrt(60-11*x^2))/2}, {x});
+                  \addplot[mark=*, blue] coordinates {(2,1)};
+                  \end{axis}
+              \end{tikzpicture}]]>
+              </latex-image>
             </image>
-        </sidebyside>
-    </statement>
-    <solution>
-        <p>
-        We recognize <m>y</m> as an implicit function of <m>x</m> and
-        differentiate the two functions in the equation to create a new equation.
-        <md>
-            <mrow> \frac{d}{dx}[x^2+5y^2] = \frac{d}{dx}[15-3xy] </mrow>
-            <mrow> 2x + 10 y y' = 0 - (3\cdot y + 3x \cdot y') </mrow>
-            <mrow> 2x + 10 y y' = -3y -3xy' </mrow>
-        </md>
-        From this new equation, we solve for <m>y'</m> by moving all terms
-        with <m>y'</m> to the same side of the equation.
-        <me> 2x+3y = -3xy' - 10yy' </me>
-        Next, factor out the common factor of <m>y'</m> and the solve for <m>y'</m> with division.
-        <md>
-            <mrow> 2x+3y = -(3x + 10y)y' </mrow>
-            <mrow> -\frac{2x+3y}{3x+10y} = y' </mrow>
-        </md>
-        This gives us the formula for the slope at any point in terms of <m>x</m> and <m>y</m>,
-        <me> \frac{dy}{dx} = y' = -\frac{2x+3y}{3x+10y}. </me>
-        To find the actual slope at the point <m>(x,y)=(2,1)</m>, we use the values <m>x=2</m> and <m>y=1</m>:
-        <me> \left.\frac{dy}{dx}\right|_{(x,y)=(2,1)} = -\frac{2(2)+3(1)}{3(2)+10(1)} = -\frac{7}{16} = -\frac{7}{16}. </me>
-        We could also find the equation of the tangent line knowing this information,
-        <me> y = \frac{-7}{16}(x-2) + 1. </me>
-        </p>
-
-        <sidebyside>
+          </sidebyside>
+        </statement>
+        <solution>
+          <p>
+            We recognize <m>y</m> as an implicit function of <m>x</m> and
+            differentiate the two functions in the equation to create a new equation.
+            <md>
+              <mrow> \frac{d}{dx}[x^2+5y^2] = \frac{d}{dx}[15-3xy] </mrow>
+              <mrow> 2x + 10 y y' = 0 - (3\cdot y + 3x \cdot y') </mrow>
+              <mrow> 2x + 10 y y' = -3y -3xy' </mrow>
+            </md>
+            From this new equation, we solve for <m>y'</m> by moving all terms
+            with <m>y'</m> to the same side of the equation.
+            <me> 2x+3y = -3xy' - 10yy' </me>
+            Next, factor out the common factor of <m>y'</m> and the solve for <m>y'</m> with division.
+            <md>
+              <mrow> 2x+3y = -(3x + 10y)y' </mrow>
+              <mrow> -\frac{2x+3y}{3x+10y} = y' </mrow>
+            </md>
+            This gives us the formula for the slope at any point in terms of <m>x</m> and <m>y</m>,
+            <me> \frac{dy}{dx} = y' = -\frac{2x+3y}{3x+10y}. </me>
+            To find the actual slope at the point <m>(x,y)=(2,1)</m>,
+            we use the values <m>x=2</m> and <m>y=1</m>:
+            <me> \left.\frac{dy}{dx}\right|_{(x,y)=(2,1)} = -\frac{2(2)+3(1)}{3(2)+10(1)} = -\frac{7}{16} = -\frac{7}{16}. </me>
+            We could also find the equation of the tangent line knowing this information,
+            <me> y = \frac{-7}{16}(x-2) + 1. </me>
+          </p>
+          <sidebyside>
             <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                    \begin{axis}[
-                        xmin=-6,xmax=6,
-                        ymin=-4,ymax=4,
-                        xlabel={$x$},
-                        ylabel={$y$},
-                    ]
+              <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+                  \begin{axis}[
+                      xmin=-6,xmax=6,
+                      ymin=-4,ymax=4,
+                      xlabel={$x$},
+                      ylabel={$y$},
+                  ]
 
-                    \addplot[blue, domain=-6:6, thick, samples=100]
-                        ({x}, {(-3*x+sqrt(300-11*x^2))/10});
-                    \addplot[blue, domain=-6:6, thick, samples=100]
-                        ({x}, {(-3*x-sqrt(300-11*x^2))/10});
-                    \addplot[blue, domain=-6:6, thick, samples=100]
-                        ({(-3*x+sqrt(60-11*x^2))/2}, {x});
-                    \addplot[blue, domain=-6:6, thick, samples=100]
-                        ({(-3*x-sqrt(60-11*x^2))/2}, {x});
-                    \addplot[red, domain=0:4, thick, samples=100]
-                        ({x}, {1-7*(x-2)/16});
-                    \addplot[mark=*, blue] coordinates {(2,1)};
-                    \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
+                  \addplot[blue, domain=-6:6, thick, samples=100]
+                      ({x}, {(-3*x+sqrt(300-11*x^2))/10});
+                  \addplot[blue, domain=-6:6, thick, samples=100]
+                      ({x}, {(-3*x-sqrt(300-11*x^2))/10});
+                  \addplot[blue, domain=-6:6, thick, samples=100]
+                      ({(-3*x+sqrt(60-11*x^2))/2}, {x});
+                  \addplot[blue, domain=-6:6, thick, samples=100]
+                      ({(-3*x-sqrt(60-11*x^2))/2}, {x});
+                  \addplot[red, domain=0:4, thick, samples=100]
+                      ({x}, {1-7*(x-2)/16});
+                  \addplot[mark=*, blue] coordinates {(2,1)};
+                  \end{axis}
+              \end{tikzpicture}]]>
+              </latex-image>
             </image>
-        </sidebyside>
-
-    </solution>
-    </example>
+          </sidebyside>
+        </solution>
+      </example>
     </subsection>
-
     <subsection>
-    <title>Derivatives of Inverse Functions</title>
-
-    <p>Suppose that we know a function <m>f(x)</m> and its derivative <m>f'(x)</m>. We are now interested in knowing how this information might relate to its inverse. In general, the function <m>f</m> does not necessarily have an inverse function unless it happens to be one-to-one. So suppose that <m>f</m> has an inverse  function <m>f^{-1}</m>.</p>
-
-    <p>The equation for the graph of the inverse function is <m>y=f^{-1}(x)</m>. By virtue of being an inverse function, this equation is equivalent to the inverse equation <me> f(y) = x. </me> We can use this equation and the ideas of implicit differentiation to find the derivative of the inverse function, <me> \frac{d}{dx}[f^{-1}(x)] = \frac{dy}{dx} = y'. </me> Differentiating the left side of the inverse equation and the chain rule leads to an implicit differentiation equation <me> f'(y) \cdot y' = 1, </me> from which we can solve for <m>y'</m> to get <me> y' = \frac{dy}{dx} = \frac{1}{f'(y)}. </me></p>
-
-    <p>This result is saying that the slope for the inverse function is related to the slope of the original function. If the graph of <m>f</m> has a point <m>(a,b)</m> and a derivative <m>f'(a)</m>, then the graph of the inverse function includes the corresponding point <m>(b,a)</m> and has the reciprocal rate of change <m>\left.\frac{df^{-1}}{dx}\right|_b=\frac{1}{f'(a)}</m>. To find the rate of change of an inverse function, we need to identify the corresponding point for the original function, <m>a=f^{-1}(b)</m>. This is formally stated in the following theorem, with <m>x</m> as a variable in place of <m>b</m>.</p>
-
-    <theorem xml:id='thm-inverse-function-derivative'>
-    <statement>
-        <p>Let <m>f^{-1}</m> be the inverse of a function <m>f</m> for which we know <m>\frac{d}{dx}[f(x)] = f'(x)</m>. Then <me>\frac{d}{dx}[f^{-1}(x)] = \frac{1}{f'(f^{-1}(x))}. </me></p>
-    </statement>
-    </theorem>
-
-    <p>This first example illustrates the principle for a specific point.</p>
-
-    <example>
+      <title>Derivatives of Inverse Functions</title>
+      <p>
+        Suppose that we know a function <m>f(x)</m> and its derivative <m>f'(x)</m>.
+        We are now interested in knowing how this information might relate to its inverse.
+        In general, the function <m>f</m> does not necessarily have an inverse function
+        unless it happens to be one-to-one.
+        So suppose that <m>f</m> has an inverse function <m>f^{-1}</m>.
+      </p>
+      <p>
+        The equation for the graph of the inverse function is <m>y=f^{-1}(x)</m>.
+        By virtue of being an inverse function,
+        this equation is equivalent to the inverse equation <me> f(y) = x. </me>
+        We can use this equation and the ideas of implicit differentiation
+        to find the derivative of the inverse function,
+        <me> \frac{d}{dx}[f^{-1}(x)] = \frac{dy}{dx} = y'. </me>
+        Differentiating the left side of the inverse equation
+        and the chain rule leads to an implicit differentiation equation
+        <me> f'(y) \cdot y' = 1, </me>
+        from which we can solve for <m>y'</m> to get
+        <me> y' = \frac{dy}{dx} = \frac{1}{f'(y)}. </me>
+      </p>
+      <p>
+        This result is saying that the slope for the inverse function
+        is related to the slope of the original function.
+        If the graph of <m>f</m> has a point <m>(a,b)</m> and a derivative <m>f'(a)</m>,
+        then the graph of the inverse function includes the corresponding point <m>(b,a)</m>
+        and has the reciprocal rate of change
+        <m>\left.\frac{df^{-1}}{dx}\right|_b=\frac{1}{f'(a)}</m>.
+        To find the rate of change of an inverse function,
+        we need to identify the corresponding point for the original function,
+        <m>a=f^{-1}(b)</m>.
+        This is formally stated in the following theorem,
+        with <m>x</m> as a variable in place of <m>b</m>.
+      </p>
+      <theorem xml:id='thm-inverse-function-derivative'>
         <statement>
-        <p>A function <m>f(x)= x^3+3x</m> has an inverse function because it is one-to-one, but the formula for the inverse function <m>f^{-1}(x)</m> is not easy to find. Because <m>f(1)=4</m> we know <m>f^{-1}(4)=1</m>. Find the equation of the tangent line to <m>y=f^{-1}(x)</m> at <m>x=4</m>.</p>
+          <p>
+            Let <m>f^{-1}</m> be the inverse of a function <m>f</m>
+            for which we know <m>\frac{d}{dx}[f(x)] = f'(x)</m>.
+            Then <me>\frac{d}{dx}[f^{-1}(x)] = \frac{1}{f'(f^{-1}(x))}. </me>
+          </p>
+        </statement>
+      </theorem>
+      <p>
+        This first example illustrates the principle for a specific point.
+      </p>
+      <example>
+        <statement>
+          <p>
+            A function <m>f(x)= x^3+3x</m> has an inverse function
+            because it is one-to-one,
+            but the formula for the inverse function <m>f^{-1}(x)</m> is not easy to find.
+            Because <m>f(1)=4</m> we know <m>f^{-1}(4)=1</m>.
+            Find the equation of the tangent line to <m>y=f^{-1}(x)</m> at <m>x=4</m>.
+          </p>
         </statement>
         <solution>
-        <p>This problem requires using the theorem for derivatives of inverse functions. We know that the original function <m>f(x)=x^3+3x</m> has a derivative <m>f'(x) = 3x^2+3</m>. Consequently, the graph of <m>f</m> has a tangent line with slope <m>f'(1)=3(1^2)+3=6</m> at the point <m>(1,4)</m>. The inverse function <m>y=f^{-1}(x)</m> must then have a corresponding point <m>(4,1)</m> and tangent line with slope <m>\frac{1}{6}</m>.</p>
-        <p>Formally, the theorem for <xref ref='thm-inverse-function-derivative' text='title'>derivatives of inverse functions</xref> states that for <m>y=f^{-1}(x)</m>, <me> \left. \frac{dy}{dx} \right|_{x=4} = \frac{1}{f'(f^{-1}(4))}. </me> Because <m>f^{-1}(4)=1</m> and <m>f'(1) = 6</m>, we know, <me> \left. \frac{dy}{dx} \right|_{x=4} = \frac{1}{f'(1)} = \frac{1}{6}. </me> Knowing the slope and the point, we can find the equation for the tangent line, <me> y = 1 + \frac{1}{6}(x-4). </me></p>
+          <p>
+            This problem requires using the theorem for derivatives of inverse functions.
+            We know that the original function <m>f(x)=x^3+3x</m> has a derivative <m>f'(x) = 3x^2+3</m>.
+            Consequently, the graph of <m>f</m> has a tangent line
+            with slope <m>f'(1)=3(1^2)+3=6</m> at the point <m>(1,4)</m>.
+            The inverse function <m>y=f^{-1}(x)</m> must then have a corresponding point <m>(4,1)</m>
+            and tangent line with slope <m>\frac{1}{6}</m>.
+          </p>
+          <p>
+            Formally, the theorem for
+            <xref ref='thm-inverse-function-derivative' text='title'>derivatives of inverse functions</xref>
+            states that for <m>y=f^{-1}(x)</m>,
+            <me> \left. \frac{dy}{dx} \right|_{x=4} = \frac{1}{f'(f^{-1}(4))}. </me>
+            Because <m>f^{-1}(4)=1</m> and <m>f'(1) = 6</m>, we know,
+            <me> \left. \frac{dy}{dx} \right|_{x=4} = \frac{1}{f'(1)} = \frac{1}{6}. </me>
+            Knowing the slope and the point, we can find the equation for the tangent line,
+            <me> y = 1 + \frac{1}{6}(x-4). </me>
+          </p>
         </solution>
-    </example>
-
-    <p>When finding the derivative of an inverse function with the goal of finding a formula, we need to simplify the expression <m>f'(f^{-1}(x))</m>. In many cases, this composition will simplify nicely.</p>
-
-    <example>
+      </example>
+      <p>
+        When finding the derivative of an inverse function with the goal of finding a formula,
+        we need to simplify the expression <m>f'(f^{-1}(x))</m>.
+        In many cases, this composition will simplify nicely.
+      </p>
+      <example>
         <statement>
-        <p> The functions <m>f(x)=x^2</m> for <m>x\ge 0</m> and <m>f^{-1}(x)=\sqrt{x}</m>
-        are inverse functions. Use the derivative of an inverse function to find
-        <m>\frac{d}{dx}[\sqrt{x}]</m>.
-        </p>
+          <p>
+            The functions <m>f(x)=x^2</m> for <m>x\ge 0</m> and <m>f^{-1}(x)=\sqrt{x}</m> are inverse functions.
+            Use the derivative of an inverse function to find <m>\frac{d}{dx}[\sqrt{x}]</m>.
+          </p>
         </statement>
         <solution>
-        <p>The original equation for the square root is <m>y=\sqrt{x}</m>, which
-        is equivalent to the inverse equation,
-        <me>y^2 = x.</me>
-        Implicit differentiation leads to
-        <me> 2y y' = 1 \quad \Rightarrow \quad y' = \frac{1}{2y}.</me>
-        Using the original inverse <m>y=\sqrt{x}</m>, this simplifies to
-        <me> \frac{d}{dx}[\sqrt{x}] = y' = \frac{1}{2 \sqrt{x}}. </me>
-        </p>
-
         <p>
-        Alternatively, just using the theorem for derivatives of inverse functions with
-        <m>f(x) = x^2</m> and <m>f^{-1}(x) =\sqrt{x}</m>, we have <m>f'(x)=2x</m> so that
-        <me> \frac{d}{dx}[\sqrt{x}] = \frac{1}{f'(f^{-1}(x))} = \frac{1}{2 \sqrt{x}}. </me>
+          The original equation for the square root is <m>y=\sqrt{x}</m>,
+          which is equivalent to the inverse equation,
+          <me>y^2 = x.</me>
+          Implicit differentiation leads to
+          <me> 2y y' = 1 \quad \Rightarrow \quad y' = \frac{1}{2y}.</me>
+          Using the original inverse <m>y=\sqrt{x}</m>, this simplifies to
+          <me> \frac{d}{dx}[\sqrt{x}] = y' = \frac{1}{2 \sqrt{x}}. </me>
         </p>
-        </solution>
+        <p>
+          Alternatively, just using the theorem for derivatives of inverse functions
+          with <m>f(x) = x^2</m> and <m>f^{-1}(x) =\sqrt{x}</m>,
+          we have <m>f'(x)=2x</m> so that
+          <me> \frac{d}{dx}[\sqrt{x}] = \frac{1}{f'(f^{-1}(x))} = \frac{1}{2 \sqrt{x}}. </me>
+        </p>
+      </solution>
     </example>
-
     <example>
-        <statement>
-        <p> The functions <m>f(x)=e^x</m> and <m>f^{-1}(x)=\ln{x}</m> are inverse functions. Use the derivative of an inverse function to find <m>\frac{d}{dx}[\ln(x)]</m>.</p>
-        </statement>
-        <solution>
-        <p>The original equation for the logarithm is <m>y=\ln(x)</m>, which is equivalent to the inverse equation, <me>e^y = x.</me> Implicit differentiation leads to <me> e^y y' = 1 \quad \Rightarrow \quad y' = \frac{1}{e^y}.</me> Using the original inverse <m>y=\ln(x)</m>, this simplifies to <me> \frac{d}{dx}[\ln(x)] = y' = \frac{1}{e^{\ln(x)}}= \frac{1}{x}. </me></p>
-
-        <p>The theorem for derivatives of inverse functions with <m>f(x) = e^x</m> and <m>f^{-1}(x) =\ln(x)</m>, we have <m>f'(x)=e^x</m> so that <me> \frac{d}{dx}[\ln(x)] = \frac{1}{f'(f^{-1}(x))} = \frac{1}{e^{\ln(x)}} = \frac{1}{x}. </me></p>
-        </solution>
+      <statement>
+        <p>
+          The functions <m>f(x)=e^x</m> and <m>f^{-1}(x)=\ln{x}</m> are inverse functions.
+          Use the derivative of an inverse function to find <m>\frac{d}{dx}[\ln(x)]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The original equation for the logarithm is <m>y=\ln(x)</m>,
+          defined for <m>x \gt 0</m>,
+          which is equivalent to the inverse equation, <me>e^y = x.</me>
+          Implicit differentiation leads to <me> e^y y' = 1 \quad \Rightarrow \quad y' = \frac{1}{e^y}.</me>
+          Using the original inverse <m>y=\ln(x)</m>, this simplifies to
+          <me> \frac{d}{dx}[\ln(x)] = y' = \frac{1}{e^{\ln(x)}}= \frac{1}{x}. </me>
+        </p>
+        <p>
+          The theorem for derivatives of inverse functions
+          with <m>f(x) = e^x</m> and <m>f^{-1}(x) =\ln(x)</m>,
+          we have <m>f'(x)=e^x</m> so that
+          <me> \frac{d}{dx}[\ln(x)] = \frac{1}{f'(f^{-1}(x))} = \frac{1}{e^{\ln(x)}} = \frac{1}{x}. </me>
+        </p>
+      </solution>
     </example>
-
-    <p>The previous example is important. We summarize the result as a theorem.</p>
-
-    <theorem xml:id='thm-ln-derivative'>
-        <title>Derivative of Natural Logarithm</title>
-        <statement>
-            <p><me>\frac{d}{dx}[\ln(x)] = \frac{1}{x}</me></p>
-        </statement>
+    <p>
+      The previous example is important.
+      We summarize the result as a theorem.
+      The implicit differentiation argument required <m>x \gt 0</m>.
+      We can extend the result by considering the logarithm of the absolute value of <m>x</m>.
+    </p>
+    <theorem xml:id='deriv-logarithm'>
+      <title>Derivative of Natural Logarithm</title>
+      <statement>
+        <p><me>\frac{d}{dx}[\ln(|x|)] = \frac{1}{x}</me></p>
+      </statement>
+      <proof>
+        <p>
+          For <m>x \gt 0</m>, we have <m>|x|=x</m> and <m>\ln(|x|) = \ln(x)</m>.
+          Implicit differentiation showed <m>\displaystyle \frac{d}{dx}[\ln(|x|)] = \frac{1}{x}</m>.
+          For <m>x \lt 0</m>, we have <m>|x|=-x</m> and <m>\ln(|x|) = \ln(-x)</m>.
+          Differentiation requires the chain rule,
+          <md>
+            <mrow> \frac{d}{dx}[\ln(|x|)] &amp;= \frac{d}{dx}[\ln(-x)] </mrow>
+            <mrow> &amp;\underset{u=-x}{=} \frac{1}{u} \cdot \frac{du}{dx} </mrow>
+            <mrow> &amp;= \frac{1}{-x} \cdot (-1) = \frac{1}{x}. </mrow>
+          </md>
+          Therefore, the differentiation rule is true for all <m>x \ne 0</m>
+        </p>
+      </proof>
     </theorem>
-    </subsection>
+    <p>
+      Using the chain rule gives us a more general differentiation rule,
+      <me> \frac{d}{dx}[\ln(|u|)] = \frac{1}{u} \frac{du}{dx}</me>.
+      This is summarized as a theorem.
+    </p>
+    <theorem xml:id='deriv-logarithm-general'>
+      <title>General Derivative of Natural Logarithm</title>
+      <statement>
+        <p><me>\frac{d}{dx}[\ln(|f(x)|)] = \frac{f'(x)}{f(x)}</me></p>
+      </statement>
+  </subsection>
+  <subsection>
+    <title>Logarithmic Differentiation</title>
+    <p>
+      Now that we know the derivative of the natural logarithm,
+      we can use properties of logarithms to differentiate additional functions.
+      Functions written as products, quotients, or powers can be rewritten as
+      equivalent equations using the logarithm of the absolute value of both sides.
+      The properties of logarithms then allow us to simplify the work.
+      We start by proving the power rule for arbitrary powers.
+    </p>
+    <theorem xml:id="thm-power-rule-general">
+      <statement>
+        <p>
+          For any power <m>p</m>, <m>\frac{d}{dx}[x^p] = p x^{p-1}</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Start with the equation <m>y = x^p</m>.
+          Create an equivalent equation by taking the logarithm of the absolute value of both sides,
+          <me>\ln(|y|) = \ln(|x^p|) = \ln(|x|^p).</me>
+          Using the properties of logarithms, this can be rewritten
+          <me>\ln(|y|) = p \ln(|x|).</me>
+          We now use implicit differentiation and differentiate both sides of the equation:
+          <md>
+            <mrow>\frac{d}{dx}[\ln(|y|)] = \frac{d}{dx}[ p \ln(|x|)]</mrow>
+            <mrow> \frac{1}{y} \cdot \frac{dy}{dx} = p \cdot \frac{1}{x}. </mrow>
+          </md>
+          Solving for the derivative, we have
+          <me> \frac{dy}{dx} = p \cdot \frac{y}{x}. </me>
+          Substituting the original equation <m>y=x^p</m>, we obtain the power rule
+          <me> \frac{dy}{dx} = p x^{p-1}. </me>
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      We can also use logarithms to differentiate expressions
+      involving products or quotients of factors.
+      In fact, the product rule and quotient rules can be considered
+      to be consequences of the logarithm's derivative along with the chain rule.
+      For example, if <m>y = f(x) g(x)</m>, then
+      <me> \ln(|y|) = \ln(|f(x) g(x)|) = \ln(|f(x)|) + \ln(|g(x)|). </me>
+      Implicit differentiation gives
+      <me> \frac{y'}{y} = \frac{f'(x)}{f(x)} + \frac{g'(x)}{g(x)}.</me>
+      Multiplying through by <m>y=f(x) g(x)</m>, we obtain the product rule
+      <me> y' = f'(x) g(x) + f(x) g'(x).</me>
+    </p>
+    <p>
+      When there are more than two factors,
+      using logarithmic differentiation can often simplify the work of finding the derivative.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use logarithmic differentiation to compute
+          <me> \frac{d}{dx}[ x^3 e^{3x} (2x+1)^5 ].</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Start by creating an equation involving a dependent variable.
+          <me> y = x^3 e^{3x} (2x+1)^5 </me>
+          Apply the logarithm of the absolute value to both sides:
+          <me> \ln(|y|) = \ln(|x^3 e^{3x} (2x+1)^5|). </me>
+          Use the properties of logarithms to expand the right side:
+          <me> \ln(|y|) = 3\ln(|x|) + \ln(|e^{3x}|) + 5 \ln(|2x+1|). </me>
+          Now use implicit differentiation and simplify:
+          <md>
+            <mrow> \frac{y'}{y} = 3 \cdot \frac{1}{x} + \frac{3e^{3x}}{e^{3x}} + 5 \cdot \frac{2}{2x+1}</mrow>
+            <mrow> \frac{y'}{y} = \frac{3}{x} + 3 + \frac{10}{2x+1}</mrow>
+            <mrow> y' = y \cdot \Big(\frac{3}{x} + 3 + \frac{10}{2x+1}\Big)</mrow>
+          </md>
+          We finish by substituting the original expression for <m>y</m>:
+          <me> y' = x^3 e^{3x} (2x+1)^5 \cdot \Big(\frac{3}{x} + 3 + \frac{10}{2x+1}\Big).</me>
+        </p>
+      </solution>
+    </example>
+  </subsection>
 </section>
