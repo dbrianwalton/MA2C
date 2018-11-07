@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="logarithmic-differentiation">
+  <title>Logarithmic Differentiation</title>
+  <introduction>
+    <p>
+      Knowing the derivative of the logarithm, the chain rule, and the properties of logarithms,
+      we can use the logarithm to find derivatives of formulas
+      involving otherwise awkward products, quotients, or powers.
+      If <m>f(x)</m> involves a product, then <m>\ln(|f(x)|)</m> involves a sum.
+      If <m>f(x)</m> involves a quotient, then <m>\ln(|f(x)|)</m> involves a difference.
+      And if <m>f(x)</m> involves a power, then <m>\ln(|f(x)|)</m> involves a product.
+      Because the differentiation rules of sums and differences are simpler than for products and quotients,
+      introducing a logarithm on an equation can often simplify the required work.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Logarithmic Differentiation</title>
+    <p>
+      The product rule and quotient rules for derivatives can be considered
+      to be consequences of the logarithm's derivative along with the chain rule.
+      For example, consider a product <m>y = f(x) g(x)</m>.
+      If we create an equivalent equation by applying the logarithm of the absolute value to both sides,
+      we obtain a formula that can be expanded using the properties of the logarithm.
+      <me> \ln(|y|) = \ln(|f(x) g(x)|) = \ln(|f(x)|) + \ln(|g(x)|). </me>
+      This also used the property of absolute values <m>|a \cdot b| = |a| \cdot |b|</m>.
+      Implicit differentiation gives an equation that relates the derivatives:
+      <me> \frac{y'}{y} = \frac{f'(x)}{f(x)} + \frac{g'(x)}{g(x)}.</me>
+      Multiplying through by <m>y=f(x) g(x)</m>, we obtain the product rule
+      <me> y' = f'(x) g(x) + f(x) g'(x).</me>
+      A similar argument can be used to derive the quotient rule.
+    </p>
+    <p>
+      The argument from the previous paragraph is typical of the process we call <term>logarithmic differentiation</term>.
+      <ol>
+        <li>Introduce a dependent variable such as <m>y</m> equal to the expression to differentiate.</li>
+        <li>Apply the logarithm of the absolute value to both sides of that equation.</li>
+        <li>
+          Use the properties of logarithms and absolute values
+          to expand the formula until there are no more logarithms of products, quotients, or powers.
+        </li>
+        <li>Use implicit differentiation and the general derivative of the logarithm to solve for <m>y'</m>.</li>
+      </ol>
+    </p>
+    <p>
+      When an expression has more than two factors or complicated powers,
+      using logarithmic differentiation can often simplify the work of finding the derivative.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use logarithmic differentiation to compute
+          <me> \frac{d}{dx}[ x^3 e^{3x} (2x+1)^5 ].</me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Start by creating an equation involving a dependent variable.
+          <me> y = x^3 e^{3x} (2x+1)^5 </me>
+          Apply the logarithm of the absolute value to both sides:
+          <me> \ln(|y|) = \ln(|x^3 e^{3x} (2x+1)^5|). </me>
+          Use the properties of logarithms to expand the right side:
+          <me> \ln(|y|) = 3\ln(|x|) + \ln(|e^{3x}|) + 5 \ln(|2x+1|). </me>
+          Now use implicit differentiation and simplify:
+          <md>
+            <mrow> \frac{y'}{y} = 3 \cdot \frac{1}{x} + \frac{3e^{3x}}{e^{3x}} + 5 \cdot \frac{2}{2x+1}</mrow>
+            <mrow> \frac{y'}{y} = \frac{3}{x} + 3 + \frac{10}{2x+1}</mrow>
+            <mrow> y' = y \cdot \Big(\frac{3}{x} + 3 + \frac{10}{2x+1}\Big)</mrow>
+          </md>
+          We finish by substituting the original expression for <m>y</m>:
+          <me> y' = x^3 e^{3x} (2x+1)^5 \cdot \Big(\frac{3}{x} + 3 + \frac{10}{2x+1}\Big).</me>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Proving the Power Rule</title>
+    <p>
+      Logarithmic differentiation allows us to differentiate additional functions
+      for which other rules may not apply.
+      We start by proving the power rule for arbitrary powers.
+      Using the known differentiation rules and the definition of the derivative,
+      we were only able to prove the power rule in the case of integer powers
+      and the special case of rational powers that were multiples of <m>\frac{1}{2}</m>.
+      Logarithmic differentiation gives us a tool that will prove it generally.
+    </p>
+    <theorem xml:id="thm-power-rule-general">
+      <statement>
+        <p>
+          For any power <m>p</m>, <m>\frac{d}{dx}[x^p] = p x^{p-1}</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Start with the equation <m>y = x^p</m>.
+          Create an equivalent equation by taking the logarithm of the absolute value of both sides,
+          <me>\ln(|y|) = \ln(|x^p|) = \ln(|x|^p).</me>
+          Using the properties of logarithms, this can be rewritten
+          <me>\ln(|y|) = p \ln(|x|).</me>
+          We now use implicit differentiation and differentiate both sides of the equation:
+          <md>
+            <mrow>\frac{d}{dx}[\ln(|y|)] = \frac{d}{dx}[ p \ln(|x|)]</mrow>
+            <mrow> \frac{1}{y} \cdot \frac{dy}{dx} = p \cdot \frac{1}{x}. </mrow>
+          </md>
+          Solving for the derivative, we have
+          <me> \frac{dy}{dx} = p \cdot \frac{y}{x}. </me>
+          Substituting the original equation <m>y=x^p</m>, we obtain the power rule
+          <me> \frac{dy}{dx} = p x^{p-1}. </me>
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      We can also use logarithmic differentiation to find derivatives of functions
+      represented by powers that are neither power functions nor exponential functions.
+      Recall that a power function must have a constant exponent
+      and an exponential function must have a constant base.
+      If the base and exponent both involve variables,
+      then we are dealing with a function for which we have no differentiation rule.
+    </p>
+    <example>
+      <statement>
+        <p>Find <m>\frac{d}{dx}[x^x]</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          The function <m>y=x^x</m> is not an exponential or a power function.
+          Using logarithmic differentiation, we first rewrite the equation
+          <me> \ln(|y|) = \ln(|x^x|) = \ln(|x|^x) = x \ln(|x|).</me>
+          The new expression involves only operations for which we have valid differentiation rules:
+          <md>
+            <mrow>\frac{y'}{y} &amp;= \frac{d}{dx}[x \ln(|x|)] </mrow>
+            <mrow> &amp;= 1 \cdot \ln(|x|) + x \cdot \frac{1}{x} </mrow>
+            <mrow> &amp;= \ln(|x|) + 1. </mrow>
+          </md>
+          Multiply by <m>y</m> and rewrite the formula gives
+          <me> y' = y \cdot (\ln(|x|) + 1) = x^x(\ln(|x|) + 1).</me>
+        </p>
+        <p>
+          The original function <m>y=x^x</m> is not continuous for <m>x \lt 0</m>.
+          This is because a power of a negative number is only defined at special rational powers.
+          For example, <m>(-\frac{1}{2})^{-1/2}</m> is not a real number but <m>(-2)^{-2}</m> is.
+          The function <m>x^x</m> is undefined almost everywhere for <m>x \lt 0</m>
+          and therefore <m>y'</m> does not exist for <m>x \lt 0</m>.
+          Consequently, the absolute value is not actually necessary if we state
+          <me> \frac{d}{dx}[x^x] = x^x (\ln(x) + 1), \quad x \gt 0.</me>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <ul>
+        <li>
+        </li>
+      </ul>
+    </p>
+  </subsection>
+</section>

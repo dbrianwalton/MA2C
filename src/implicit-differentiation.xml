@@ -443,81 +443,61 @@
       </statement>
   </subsection>
   <subsection>
-    <title>Logarithmic Differentiation</title>
+    <title>Summary</title>
     <p>
-      Now that we know the derivative of the natural logarithm,
-      we can use properties of logarithms to differentiate additional functions.
-      Functions written as products, quotients, or powers can be rewritten as
-      equivalent equations using the logarithm of the absolute value of both sides.
-      The properties of logarithms then allow us to simplify the work.
-      We start by proving the power rule for arbitrary powers.
+      <ul>
+        <li>
+          <p>
+            An equation in two variables generally defines a curve in the plane.
+            When the equation is solved for one of the variables,
+            the equation defines that dependent variable as an explicit function of the other.
+          </p>
+        </li>
+        <li>
+          <p>
+            When an equation defines a curve but is not solved for one of the variables,
+            we can still treat a dependent variable as an implicit function of the other.
+            The curve overall may not satisfy the vertical line test for a function,
+            but isolated segments of the curve could.
+          </p>
+        </li>
+        <li>
+          <p>
+            Implicit differentiation treats a dependent variable as an implicit function
+            and creates an equation for the derivative by differentiating both sides of the equation
+            and applying the chain rule for any functions of the dependent variable.
+          </p>
+        </li>
+        <li>
+          <p>
+            The equation for the derivative coming from implicit differentiation
+            will typically depend on both variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            Finding the derivative of an inverse function <m>y=f^{-1}(x)</m> is found
+            by writing the equivalent inverse equation <m>x = f(y)</m> and using implicit differentiation.
+            This gives <me>\frac{df^{-1}}{dx} = \frac{1}{f'(y)} = \frac{1}{f'(f^{-1}(x))}.</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>y=f(x)</m> has a point <m>(x,y)=(a,b)</m> with <m>\frac{df}{dx}(a) = m</m>,
+            then <m>y=f^{-1}(x)</m> has a corresponding point <m>(x,y)=(b,a)</m>
+            with <m>\frac{df^{-1}}{dx}(b) = \frac{1}{m}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Because the natural logarithm is the inverse function of the natural exponential,
+            we have <me>\frac{d}{dx}[\ln(x)] = \frac{1}{x},</me>
+            defined only for <m>x \gt 0</m>.
+            Using <m>|x|=-x</m> for <m>x \lt 0</m>, the chain rule gives us an extension for all <m>x \ne 0</m>,
+            <me>\frac{d}{dx}[\ln(|x|)] = \frac{1}{x}.</me>
+          </p>
+        </li>
+      </ul>
     </p>
-    <theorem xml:id="thm-power-rule-general">
-      <statement>
-        <p>
-          For any power <m>p</m>, <m>\frac{d}{dx}[x^p] = p x^{p-1}</m>.
-        </p>
-      </statement>
-      <proof>
-        <p>
-          Start with the equation <m>y = x^p</m>.
-          Create an equivalent equation by taking the logarithm of the absolute value of both sides,
-          <me>\ln(|y|) = \ln(|x^p|) = \ln(|x|^p).</me>
-          Using the properties of logarithms, this can be rewritten
-          <me>\ln(|y|) = p \ln(|x|).</me>
-          We now use implicit differentiation and differentiate both sides of the equation:
-          <md>
-            <mrow>\frac{d}{dx}[\ln(|y|)] = \frac{d}{dx}[ p \ln(|x|)]</mrow>
-            <mrow> \frac{1}{y} \cdot \frac{dy}{dx} = p \cdot \frac{1}{x}. </mrow>
-          </md>
-          Solving for the derivative, we have
-          <me> \frac{dy}{dx} = p \cdot \frac{y}{x}. </me>
-          Substituting the original equation <m>y=x^p</m>, we obtain the power rule
-          <me> \frac{dy}{dx} = p x^{p-1}. </me>
-        </p>
-      </proof>
-    </theorem>
-    <p>
-      We can also use logarithms to differentiate expressions
-      involving products or quotients of factors.
-      In fact, the product rule and quotient rules can be considered
-      to be consequences of the logarithm's derivative along with the chain rule.
-      For example, if <m>y = f(x) g(x)</m>, then
-      <me> \ln(|y|) = \ln(|f(x) g(x)|) = \ln(|f(x)|) + \ln(|g(x)|). </me>
-      Implicit differentiation gives
-      <me> \frac{y'}{y} = \frac{f'(x)}{f(x)} + \frac{g'(x)}{g(x)}.</me>
-      Multiplying through by <m>y=f(x) g(x)</m>, we obtain the product rule
-      <me> y' = f'(x) g(x) + f(x) g'(x).</me>
-    </p>
-    <p>
-      When there are more than two factors,
-      using logarithmic differentiation can often simplify the work of finding the derivative.
-    </p>
-    <example>
-      <statement>
-        <p>
-          Use logarithmic differentiation to compute
-          <me> \frac{d}{dx}[ x^3 e^{3x} (2x+1)^5 ].</me>
-        </p>
-      </statement>
-      <solution>
-        <p>
-          Start by creating an equation involving a dependent variable.
-          <me> y = x^3 e^{3x} (2x+1)^5 </me>
-          Apply the logarithm of the absolute value to both sides:
-          <me> \ln(|y|) = \ln(|x^3 e^{3x} (2x+1)^5|). </me>
-          Use the properties of logarithms to expand the right side:
-          <me> \ln(|y|) = 3\ln(|x|) + \ln(|e^{3x}|) + 5 \ln(|2x+1|). </me>
-          Now use implicit differentiation and simplify:
-          <md>
-            <mrow> \frac{y'}{y} = 3 \cdot \frac{1}{x} + \frac{3e^{3x}}{e^{3x}} + 5 \cdot \frac{2}{2x+1}</mrow>
-            <mrow> \frac{y'}{y} = \frac{3}{x} + 3 + \frac{10}{2x+1}</mrow>
-            <mrow> y' = y \cdot \Big(\frac{3}{x} + 3 + \frac{10}{2x+1}\Big)</mrow>
-          </md>
-          We finish by substituting the original expression for <m>y</m>:
-          <me> y' = x^3 e^{3x} (2x+1)^5 \cdot \Big(\frac{3}{x} + 3 + \frac{10}{2x+1}\Big).</me>
-        </p>
-      </solution>
-    </example>
   </subsection>
 </section>
