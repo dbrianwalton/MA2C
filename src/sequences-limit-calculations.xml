@@ -183,8 +183,8 @@
         <li>
           <p>Adding a number to infinity has no effect:
           <md>
-            <mrow>+\infty \pm c = = +\infty</mrow>
-            <mrow>-\infty \pm c = = +\infty</mrow>
+            <mrow>+\infty \pm c = +\infty</mrow>
+            <mrow>-\infty \pm c = -\infty</mrow>
           </md>
           </p>
         </li>
