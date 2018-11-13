@@ -441,6 +441,7 @@
       <statement>
         <p><me>\frac{d}{dx}[\ln(|f(x)|)] = \frac{f'(x)}{f(x)}</me></p>
       </statement>
+    </theorem>
   </subsection>
   <subsection>
     <title>Summary</title>
@@ -495,9 +496,13 @@
             defined only for <m>x \gt 0</m>.
             Using <m>|x|=-x</m> for <m>x \lt 0</m>, the chain rule gives us an extension for all <m>x \ne 0</m>,
             <me>\frac{d}{dx}[\ln(|x|)] = \frac{1}{x}.</me>
+            The general application gives
+            <me>\frac{d}{dx}[\ln(|f(x)|] = \frac{f'(x)}{f(x)}.</me>
           </p>
         </li>
       </ul>
     </p>
   </subsection>
+  <exercises>
+  </exercises>
 </section>

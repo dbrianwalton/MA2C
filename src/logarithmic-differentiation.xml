@@ -159,8 +159,77 @@
     <p>
       <ul>
         <li>
+          <p>
+            To differentiate an expression <m>f(x)</m> using logarithmic differentiation:
+            <ol>
+              <li>Create an equation <m>y = f(x)</m>.</li>
+              <li>Apply the logarithm of the absolute value to both sides of that equation, <m>\ln(|y|) = \ln(|f(x)|)</m>.</li>
+              <li>
+                Use the properties of logarithms and absolute values
+                to expand the formula <m>\ln(|f(x)|)</m>.
+              </li>
+              <li>Use implicit differentiation and solve for <m>y'</m>.</li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Logarithmic differentiation is useful when working with a product or quotient
+            for which the direct rules will be cumbersome,
+            as well as for any power.
+          </p>
         </li>
       </ul>
     </p>
   </subsection>
+  <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>Use logarithmic differentiation to compute the derivatives.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ 4(x+1)^3(2x-1)^4(x^2+3)^5 \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ \frac{2\sqrt{x} (x-1)^3}{(x^3+3x)^5} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ (x^2+1)^{x} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ (2x+1)^{\ln(x)} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ x^{(e^x))} \Big]</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>General consequences of logarithmic differentiation.</p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>Use logarithmic differentiation to prove the quotient rule.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Use logarithmic differentiation to establish a product rule for three factors.
+            That is, find <m>\frac{d}{dx}[f(x) g(x) h(x)]</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+  </exercises>
 </section>
