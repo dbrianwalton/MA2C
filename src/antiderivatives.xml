@@ -20,7 +20,7 @@
       This process can repeat indefinitely.
     </p>
     <p>
-      Consider <m>f(x) = x^4+2x^2-3x</m>.
+      Consider as an example <m>f(x) = x^4+2x^2-3x</m>.
       There is a sequence of functions corresponding to the derivatives:
       <md>
         <mrow> f(x) &amp;= x^4+2x^2-3x, </mrow>
@@ -67,10 +67,10 @@
       </statement>
     </definition>
     <p>
-      Differentiation is not one-to-one.
       The derivative of any constant is zero,
       so adding a constant to a function creates a new function
       that has the same derivative as the original.
+      This means that differentiation is not one-to-one.
     </p>
     <example>
       <statement>
@@ -100,7 +100,7 @@
       We will later prove the following theorem.
       It states that the <em>only</em> way that two antiderivatives
       can be different is that they differ by a constant.
-      The proof of the theorem will require a Mean Value Theorem for derivatives.
+      The proof of the theorem will use a Mean Value Theorem for derivatives.
     </p>
     <theorem xml:id='thm-antiderivative-up-to-constant'>
       <statement>
@@ -127,12 +127,17 @@
       In the case that <m>f(x)</m> is continuous on some interval <m>I</m>,
       we can define an accumulation function starting at any convenient point <m>a \in I</m>,
       <me>A(x) = \int_a^x f(z) \, dz.</me>
-      By the <xref ref='theorem-ftc-part-one' text='title'>First Part of the Fundamental Theorem of Calculus</xref>,
+      By the <xref ref='theorem-ftc-part-one' text='title'>Part One of the Fundamental Theorem of Calculus</xref>,
       we know that <m>A'(x) = f(x)</m>.
-      That is, <m>A(x)</m> is itself an antiderivative of <m>f(x)</m>.
-      Consequently, there is a close connection between antiderivatives and integrals.
-      This motivates the standard notation for finding antiderivatives,
-      called an indefinite integral.
+      That is, <m>A(x)</m> is itself an antiderivative of <m>f(x)</m>
+      and any other antiderivative could be written <m>F(x) = \int_a^x f(z) \, dz + C</m>.
+    </p>
+    <p>
+      Owing to this close connection between antiderivatives and integrals,
+      the standard notation for finding antiderivatives is with the integral symbol using an indefinite integral.
+      An indefinite integral will not have any limits of integration,
+      uses the same variable of integration as the independent variable,
+      and refers to antiderivatives rather than definite integrals.
     </p>
     <definition xml:id='defn-indefinite-integral'>
       <title>Indefinite Integrals</title>
@@ -150,10 +155,7 @@
     <p>
       Using our earlier example, we can write the indefinite integral of <m>2x+3</m> as
       <me>\int 2x+3 \, dx = x^2 + 3x + C.</me>
-      Notice that in contrast to accumulation functions defined by definite integrals
-      involving a different variable of integration,
-      the notation for an indefinite integral uses the same variable of integration
-      as the independent variable of the antiderivative.
+      The indefinite integral represents the infinite family of all antiderivatives of <m>2x+3</m>.
     </p>
   </subsection>
   <subsection>
@@ -162,8 +164,8 @@
       For the most part, finding antiderivatives corresponds to recognizing
       how a function might have been computed as a derivative.
       Every statement about differentiation has an equivalent statement about integrals.
-      Once we believe we know the antiderivative,
-      we verify that it is correct by checking its derivative.
+      To check whether a proposed function is an antiderivative,
+      we calculate its derivative and compare that with the function inside the integral.
     </p>
     <example>
       <statement>
@@ -186,14 +188,28 @@
           <me> \int 12 (3x+5)^3 \, dx = (3x+5)^4 + C.</me>
           This says that <m>(3x+5)^4</m> is an antiderivative of <m>12(3x+5)^3</m>,
           along with that same formula plus any constant.
+        </p>
       </solution>
     </example>
     <p>
-      We must learn to recognize which differentiation rules might have been used
-      to result in the formula of a given function.
-      When <m>f(x)</m> is written as a sum,
+      We must learn to recognize which differentiation rules would result
+      in a particular formula for a given function.
+      Because differentiation is a linear operator, antidifferentiation is as well.
+    </p>
+    <theorem xml:id="thm-antiderivative-linearity">
+      <statement>
+        <p>
+          If <m>F(x)</m> is an antiderivative of <m>f(x)</m> and <m>G(x)</m> is an antiderivative of <m>g(x)</m>,
+          then for any constants <m>c_1</m> and <m>c_2</m>,
+          <m>c_1 F(x) + c_2 G(x)</m> is an antiderivative of <m>c_1 f(x) + c_2 g(x)</m>.
+          We write
+          <me>\int [c_1 f(x) + c_2 g(x)] dx = c_1 \int f(x) \, dx + c_2 \int g(x) \, dx.</me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      If the integrand <m>f(x)</m> is expressed as a sum of terms,
       we typically first try to find antiderivatives of each term.
-      This follows from the sum rule of differentiation.
     </p>
     <example>
       <statement>
@@ -207,7 +223,7 @@
             <mrow> \frac{d}{dx}[x^4] = 4x^3, </mrow>
             <mrow> \frac{d}{dx}[e^{2x}] = 2e^{2x}. </mrow>
           </md>
-          We expect <m>F(x) = x^4-e^{2x}</m>.
+          This suggests we should use the difference <m>F(x) = x^4-e^{2x}</m>.
           We verify by differentiation:
           <me> F'(x) = \frac{d}{dx}[x^4-e^{2x}] = 4x^3 - 2e^{2x}.</me>
           This verifies that <m>F(x)</m> is an antiderivative of <m>4x^3-2e^{2x}</m>.
@@ -217,9 +233,11 @@
       </solution>
     </example>
     <p>
-      We have also learned that most derivative rules do not result in a product as the answer.
-      An exception would be if the chain rule is involved.
-      If we see formulas multiplied together,
+      Most derivative rules do not result in a product of expressions.
+      The <xref ref="deriv-product" text="title">product rule for derivatives</xref> results in the sum of two products.
+      The <xref ref="deriv-quotient" text="title">quotient rule</xref> results in in difference of quotients.
+      Only the chain rule creates a derivative by multiplying two expresions together.
+      Consequently, if we see an integrand with expressions multiplied together,
       we should consider whether we would benefit from expanding the product as a sum.
     </p>
     <example>
@@ -231,7 +249,12 @@
           The function <m>f(x) = x^2(x^2-3)</m> is a product
           that can be expanded to a sum using the distributive property.
           <me>f(x) = x^4 - 3x^2.</me>
-          Our experience with the power rule suggests an antiderivative
+          Our experience with the <xref ref="deriv-power-rule" text="title">power rule</xref>
+          suggests that we should be able to integrate this expression.
+          We know <me> \frac{d}{dx}[x^5] = 5x^4.</me>
+          To eliminate the unwanted constant multiple of 5, we can multiply both sides by <m>\frac{1}{5}</m> to get
+          <me>\frac{d}{dx}\Big[ \frac{1}{5}x^5 \Big] = x^4.</me>
+          This suggests an antiderivative
           <me>F(x) = \frac{1}{5}x^5 - x^3.</me>
           We verify using regular differentiation rules:
           <md>
@@ -239,11 +262,86 @@
             <mrow> &amp;= \frac{1}{5}(5x^4) - 3x^2 </mrow>
             <mrow> &amp;= x^4 - 3x^2 = f(x). </mrow>
           </md>
-          Having verified our antiderivative is correct,
-          we can write down the general antiderivative
+          We have found
           <me> \int x^2 (x^2-3) \, dx = \frac{1}{5}x^5 - x^3 + C. </me>
         </p>
       </solution>
     </example>
+    <p>
+      Just as it is useful to collect and learn the basic building blocks for differentiation,
+      we can collect and learn basic building blocks for integration.
+      Each derivative rule has its equivalent statement about antiderivatives.
+      If we incorporate the chain rule, we extend each of the elementary rules to generalized rules.
+    </p>
+    <assemblage xml:id="assemblage-elementary-integrals">
+      <statement>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Power Rule: For any power <m>n \ne -1</m>,
+                <me>\int x^n \, dx = \frac{1}{n+1} x^{n+1} + C.</me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Generalized Power Rule: For any power <m>n \ne -1</m> and expression <m>u</m>,
+                <me>\int u^n \cdot \frac{du}{dx} \, dx = \frac{1}{n+1} u^{n+1} + C.</me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Logarithm Rule:
+                <me>\int \frac{1}{x} \, dx = \ln(|x|) + C.</me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Generalized Logarithm Rule: For any expression <m>u</m>,
+                <me>\int \frac{u'}{u} \, dx = \ln(|u|) + C.</me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Elementary Exponential Rule: For any real value <m>k \ne 0</m>,
+                <me>\int e^{kx} \, dx = \frac{1}{k} e^{kx} + C.</me>
+              </p>
+            </li>
+            <li>
+              <p>
+                Generalized Exponential Rule: For any expression <m>u</m>,
+                <me>\int e^{u} \cdot \frac{du}{dx} \, dx = e^{u} + C.</me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </assemblage>
+    <example>
+      <statement>
+        <p><m>\displaystyle \int x^2 e^{x^3} \, dx</m></p>
+      </statement>
+      <solution>
+        <p>
+          Because the integrand has a product of expressions,
+          we should begin by looking to see if the problem involves the chain rule.
+          The exponential term <m>e^{x^3}</m> involves the expression <m>u=x^3</m>
+          which has a derivative <m>u'=3x^2</m>.
+          Notice that the other factor in the problem, <m>x^2</m>, differs from <m>u'</m> only by a constant multiple.
+          That is, we can recognize our problem as a generalized exponential
+          <md>
+            <mrow> \int x^2 e^{x^3} \, dx &amp;= \int \frac{1}{3}(3x^2) e^{x^3} \, dx </mrow>
+            <mrow> &amp;\underset{u=x^3}= \int \frac{1}{3} e^{u} \cdot \frac{du}{dx} \, dx</mrow>
+            <mrow> &amp;\underset{u=x^3}= \frac{1}{3} e^{u} + C</mrow>
+            <mrow> &amp;= \frac{1}{3} e^{x^3} + C.</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
   </subsection>
+  <subsection>
+    <title>Summary</title>
+  </subsection>
+  <exercises>
+  </exercises>
 </section>
