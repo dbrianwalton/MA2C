@@ -19,31 +19,38 @@
       we can apply differentiation again <m>f' \overset{\frac{d}{dx}}\mapsto f''</m>.
       This process can repeat indefinitely.
     </p>
-    <example>
-      <statement>
-        <p>
-          Consider <m>f(x) = x^4+2x^2-3x</m>.
-          There is a sequence of functions corresponding to the derivatives:
-          <md>
-            <mrow> f(x) &amp;= x^4+2x^2-3x, </mrow>
-            <mrow> f'(x) &amp;= 4x^3+4x-3, </mrow>
-            <mrow> f''(x) &amp;= 12x^2+4, </mrow>
-            <mrow> f^{(3)}(x) &amp;= 24x, </mrow>
-            <mrow> f^{(4)}(x) &amp;= 24, </mrow>
-            <mrow> f^{(5)}(x) &amp;= 0, </mrow>
-            <mrow> f^{(6)}(x) &amp;= 0. </mrow>
-          </md>
-          This pattern continues with <m>f^{(n)}(x) = 0</m> for <m>n=5,6,7,\ldots</m>.
-        </p>
-      </statement>
-    </example>
     <p>
-      As the example illustrates, given a function we can find its derivative.
+      Consider <m>f(x) = x^4+2x^2-3x</m>.
+      There is a sequence of functions corresponding to the derivatives:
+      <md>
+        <mrow> f(x) &amp;= x^4+2x^2-3x, </mrow>
+        <mrow> f'(x) &amp;= 4x^3+4x-3, </mrow>
+        <mrow> f''(x) &amp;= 12x^2+4, </mrow>
+        <mrow> f^{(3)}(x) &amp;= 24x, </mrow>
+        <mrow> f^{(4)}(x) &amp;= 24, </mrow>
+        <mrow> f^{(5)}(x) &amp;= 0, </mrow>
+        <mrow> f^{(6)}(x) &amp;= 0. </mrow>
+      </md>
+      This pattern continues with <m>f^{(n)}(x) = 0</m> for <m>n=5,6,7,\ldots</m>.
+    </p>
+    <p>
+      As the example above illustrates, given a function we can find its derivative.
       One of the major themes of mathematics is the idea of inverse operations.
       Is there an inverse operation to differentiation?
       That is, given <m>f(x)</m>, instead of computing <m>f'(x)</m>,
       can we find a function <m>F(x)</m> so that <m>F(x) \overset{\frac{d}{dx}}\mapsto f(x)</m>?
-      This inverse operation is called <term>antidifferentiation</term>.
+      This inverse operation, using <m>f(x)</m> to find <m>F(x)</m>, is called <term>antidifferentiation</term>.
+    </p>
+    <p>
+      In this section, we define antiderivatives.
+      We discuss why a function has infinitely many different antiderivatives.
+      Based on the First Part of the Fundamental Theorem of Calculus,
+      we recognize that accumulation functions are special examples of antiderivatives
+      for continuous rates of accumulation.
+      Motivated by this observation, we introduce the indefinite integral
+      as the notation for antidifferentiation.
+      Examples will illustrate how we use our known differentiation rules
+      to develop corresponding antidifferentiation rules.
     </p>
   </introduction>
   <subsection>
@@ -93,6 +100,7 @@
       We will later prove the following theorem.
       It states that the <em>only</em> way that two antiderivatives
       can be different is that they differ by a constant.
+      The proof of the theorem will require a Mean Value Theorem for derivatives.
     </p>
     <theorem xml:id='thm-antiderivative-up-to-constant'>
       <statement>
@@ -153,9 +161,33 @@
     <p>
       For the most part, finding antiderivatives corresponds to recognizing
       how a function might have been computed as a derivative.
+      Every statement about differentiation has an equivalent statement about integrals.
       Once we believe we know the antiderivative,
       we verify that it is correct by checking its derivative.
     </p>
+    <example>
+      <statement>
+        <p>
+          Find <m>\displaystyle \frac{d}{dx}\Big[ (3x+5)^4 \Big]</m>
+          and then write down the equivalent statement as an integral.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The last operation in the expression <m>(3x+5)^4</m> is the power
+          acting on the expression <m>u=3x+5</m>.
+          The derivative requires a chain rule:
+          <md>
+            <mrow>\frac{d}{dx}\Big[(3x+5)^4\Big] &amp;= 4u^3 \frac{du}{dx} </mrow>
+            <mrow>&amp;= 4(3x+5)^3(3)</mrow>
+            <mrow>&amp;=12 (3x+5)^3.</mrow>
+          </md>
+          Once we know the derivative, we can write the equivalent integral
+          <me> \int 12 (3x+5)^3 \, dx = (3x+5)^4 + C.</me>
+          This says that <m>(3x+5)^4</m> is an antiderivative of <m>12(3x+5)^3</m>,
+          along with that same formula plus any constant.
+      </solution>
+    </example>
     <p>
       We must learn to recognize which differentiation rules might have been used
       to result in the formula of a given function.
