@@ -274,48 +274,46 @@
       If we incorporate the chain rule, we extend each of the elementary rules to generalized rules.
     </p>
     <assemblage xml:id="assemblage-elementary-integrals">
-      <statement>
-        <p>
-          <ol>
-            <li>
-              <p>
-                Power Rule: For any power <m>n \ne -1</m>,
-                <me>\int x^n \, dx = \frac{1}{n+1} x^{n+1} + C.</me>
-              </p>
-            </li>
-            <li>
-              <p>
-                Generalized Power Rule: For any power <m>n \ne -1</m> and expression <m>u</m>,
-                <me>\int u^n \cdot \frac{du}{dx} \, dx = \frac{1}{n+1} u^{n+1} + C.</me>
-              </p>
-            </li>
-            <li>
-              <p>
-                Logarithm Rule:
-                <me>\int \frac{1}{x} \, dx = \ln(|x|) + C.</me>
-              </p>
-            </li>
-            <li>
-              <p>
-                Generalized Logarithm Rule: For any expression <m>u</m>,
-                <me>\int \frac{u'}{u} \, dx = \ln(|u|) + C.</me>
-              </p>
-            </li>
-            <li>
-              <p>
-                Elementary Exponential Rule: For any real value <m>k \ne 0</m>,
-                <me>\int e^{kx} \, dx = \frac{1}{k} e^{kx} + C.</me>
-              </p>
-            </li>
-            <li>
-              <p>
-                Generalized Exponential Rule: For any expression <m>u</m>,
-                <me>\int e^{u} \cdot \frac{du}{dx} \, dx = e^{u} + C.</me>
-              </p>
-            </li>
-          </ol>
-        </p>
-      </statement>
+      <p>
+        <ol>
+          <li>
+            <p>
+              Power Rule: For any power <m>n \ne -1</m>,
+              <me>\int x^n \, dx = \frac{1}{n+1} x^{n+1} + C.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Generalized Power Rule: For any power <m>n \ne -1</m> and expression <m>u</m>,
+              <me>\int u^n \cdot \frac{du}{dx} \, dx = \frac{1}{n+1} u^{n+1} + C.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Logarithm Rule:
+              <me>\int \frac{1}{x} \, dx = \ln(|x|) + C.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Generalized Logarithm Rule: For any expression <m>u</m>,
+              <me>\int \frac{u'}{u} \, dx = \ln(|u|) + C.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Elementary Exponential Rule: For any real value <m>k \ne 0</m>,
+              <me>\int e^{kx} \, dx = \frac{1}{k} e^{kx} + C.</me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Generalized Exponential Rule: For any expression <m>u</m>,
+              <me>\int e^{u} \cdot \frac{du}{dx} \, dx = e^{u} + C.</me>
+            </p>
+          </li>
+        </ol>
+      </p>
     </assemblage>
     <example>
       <statement>
@@ -341,7 +339,230 @@
   </subsection>
   <subsection>
     <title>Summary</title>
+    <p>
+      <ol>
+        <li>
+          <p>
+            An antiderivative of <m>f(x)</m> is any function <m>F(x)</m>
+            so that <m>\frac{d}{dx}[F(x)] = f(x)</m>.
+            If <m>F(x)</m> is an antiderivative of <m>f(x)</m>,
+            then so is <m>F(x)+C</m> for any value of <m>C</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <xref ref='theorem-ftc-part-one' text='title'>Fundamental Theorem of Calculus</xref>
+            guarantees that every continuous function has an antiderivative.
+            In particular, if <m>f(x)</m> is continuous on an interval <m>I</m> with <m>a \in I</m>,
+            then the accumulation function
+            <me>A(x) = \int_a^x f(z) \, dz</me>
+            is an antiderivative on the interval <m>I</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            We use the <term>indefinite integral</term> as the operator for antidifferentiation.
+            For a function <m>f(x)</m> with antiderivative <m>F(x)</m>, we write
+            <me>\int [ f(x) ]\, dx = F(x) + C</me>
+            where <m>C</m> (or any other chosen symbol) represents an arbitrary
+            <term>constant of integration</term>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The constant of integration graphically represents
+            an arbitrary vertical shift of the graph of a function.
+            Given any point representing an initial value,
+            we can solve for the constant of integration so that there is
+            the graph of an antiderivative which passes through the given point.
+          </p>
+        </li>
+      </ol>
+    </p>
   </subsection>
   <exercises>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Calculate the specified derivative
+          and then write the equivalent indefinite integral.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ 2x^4 \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ (2x+3)^5 \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ \sqrt{x^2+3} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ \ln(|x^2-4x|) \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ e^{3x^4} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ x^2 e^{-3x} \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ x \ln(|x|) \Big]</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \frac{d}{dx}\Big[ \frac{x-1}{x-3} \Big]</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Compute the indefinite integral by finding the general antiderivative.
+          Some integrands need to be rewritten before integration.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int -3x^5 + 2x^2 + 3 \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int 2x - 4x^{-1} + 5x^{-3} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int x^3(3x^2-4x+7) \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int (x+4)(x-8) \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int \frac{x^2+4x-5}{3x^2} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int e^{2x} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int 4e^{-3x} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int xe^{x^2} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int 2x^3e^{-x^4} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int \frac{1}{x+3} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int \frac{3}{2x+1} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int \frac{x}{x^2+4} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int \frac{e^{2x}}{e^{2x}+1} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int -xe^{-x} + e^{-x} \,dx</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle \int \frac{2xe^{2x}-e^{2x}}{x^2} \,dx</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Use the given information to find the particular function.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>f(x)</m> if <m>f'(x) = 2x-5</m> with <m>f(1)=4</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find <m>g(x)</m> if <m>g'(x) = 3e^{-3x}</m> with <m>g(0)=2</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            The velocity of a vehicle on track that runs left to right
+            is <m>v(t) = \frac{1}{2}t^2 - 8t + 24</m>.
+            If the vehicle is at a position <m>s=0</m> when <m>t=1</m>,
+            find the position <m>s(t)</m> as a function of time.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A population changes at a rate defined by
+            <m>R(t) = 0.24t^2 - 24 t + 216</m>,
+            where <m>t</m> is measured in years.
+            If the population is <m>P=120000</m> when <m>t=0</m>,
+            find the population as a function of time.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A radiation detector absorbs radiation at a rate of
+            <m>R(t) = 5e^{-0.1t}</m> (grays per minute).
+            Find the total amount of radiation absorbed by the detector
+            as a function of time <m>t</m> (minutes) since <m>t=0</m>.
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
   </exercises>
 </section>
