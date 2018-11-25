@@ -338,6 +338,140 @@
     </example>
   </subsection>
   <subsection>
+    <title>Finding a Particular Antiderivative</title>
+    <p>
+      Adding a constant to a function represents a graphical transformation of a vertical shift.
+      Consequently, different antiderivatives have the same graph shifted vertically from one another.
+      Consider the function <m>f(x) = x^2 - 4x</m>.
+      Integration gives us
+      <me> \int x^2 - 4x \, dx = \frac{1}{3}x^3 - 2x^2 + C. </me>
+      The function <m>F(x) = \frac{1}{3}x^3 - 2x^2</m> has the derivative <m>F'(x)=x^2-4x</m>,
+      as does every function <m>F(x)+C</m>.
+    </p>
+    <p>
+      The following dynamic graph has a slider for the integration constant <m>C</m>.
+      Notice that changing the value of <m>C</m> shifts the graph up or down.
+      See if you can find a value so that the graph <m>y=F(x)+C</m> goes through <m>(x,y) = (3,2)</m>.
+    </p>
+    <figure>
+      <caption><m>y=F(x)+C</m></caption>
+      <jsxgraph xml:id="jsx-fcn-antiderivative-shift" width="75%">
+        <input>
+        <![CDATA[
+        JXG.Options.axis.ticks.majorHeight = 8;
+        JXG.Options.axis.ticks.minorHeight = 4;
+        JXG.Options.axis.ticks.drawZero = false;
+        jcf1 = {};
+        jcf1.b = JXG.JSXGraph.initBoard("jsx-fcn-antiderivative-shift",
+          {
+            boundingbox:[-6,12,6,-12],
+            axis: true,
+            grid: false,
+            showCopyright:false,
+            showNavigation:false,
+          }
+        );
+        jcf1.b.create('text', [-5,8,"C"]);
+        jcf1.cSlider = jcf1.b.create('slider', [[-4.5,8], [-1.5,8], [-20,0,20]], {snapWidth:0.1} );
+        jcf1.b.create('functiongraph', [function(x) {return x*x*(x/3-2);}], { strokeColor:"blue", dash:2 });
+        jcf1.b.create('functiongraph',
+          [
+            function(x) {
+              var C=jcf1.cSlider.Value();
+              return x*x*(x/3-2)+C;
+            }
+          ], { strokeColor:"blue" });
+        jcf1.b.create('point', [3,2], {strokeColor:"blue", color:"blue", dash:2, frozen:true, withLabel:false });
+        ]]>
+        </input>
+      </jsxgraph>
+    </figure>
+    <p>
+      We can solve for the integration constant
+      to find a particular antiderivative passing through a given point.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the constant <m>C</m> so that <m>F(x) = \frac{1}{3}x^3 - 2x^2 + C</m>
+          satisfies <m>F(3)=2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Substitute the value <m>x=3</m> into the equation for <m>F(x)</m>.
+          <md>
+            <mrow>F(3) &amp;= \frac{1}{3}(3^3) - 2(3^2) + C</mrow>
+            <mrow> &amp;= 9 - 18 + C </mrow>
+            <mrow> &amp;= -9 + C</mrow>
+          </md>
+          Because we want <m>F(3)=2</m>, we create the equation
+          <me>-9+C = 2</me>
+          so that we can solve for <m>C</m> to get <m>C=11</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find a function <m>P(t)</m> so that <m>P'(t) = 20e^{-2t} + 3t</m> and <m>P(0) = 50</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Start by finding the general antiderivative.
+          <me> \int [ 20e^{-2t} + 3t ] dt = -10 e^{-2t} + \frac{3}{2}t^2 + C</me>
+          We therefore see that <m>P(t) = -10 e^{-2t} + \frac{3}{2}t^2 + C</m>.
+          Now we substitute <m>t=0</m> and <m>P(0)=50</m> to solve for <m>C</m>.
+          <md>
+            <mrow>P(0) &amp;= -10 e^{0} + \frac{3}{2} (0^2) + C </mrow>
+            <mrow>50 &amp;= -10 + C</mrow>
+            <mrow>60 &amp;= C</mrow>
+          </md>
+          Having found <m>C=60</m>, we can conclude
+          <me>P(t) = -10 e^{-2t} + \frac{3}{2}t^2 + 60.</me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Because the derivative represents a rate of change,
+      finding particular antiderivatives is equivalent
+      to finding a quantity as a function of an independent variable
+      when we know the rate of change as a function and we know an initial value.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A cup of coffee starts at a temperature of 160 degrees Fahrenheit.
+          The temperature changes at a rate of change (degrees per minute) modeled by the formula
+          <m>-3.6e^{-0.04t}</m> where <m>t</m> is the time in minutes.
+          Find the temperature as a function of time.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let <m>T</m> represent the temperature of the cup of coffee in degrees Fahrenheit.
+          Our given information shows that
+          <me>\frac{dT}{dt} = -3.6e^{-0.04t}.</me>
+          The temperature <m>T</m> must be an antiderivative of this formula,
+          <md>
+            <mrow> T &amp;= \int -3.6e^{-0.04t} \, dt </mrow>
+            <mrow> &amp;= \frac{-3.6}{-0.04}e^{-0.04t} + C </mrow>
+            <mrow> &amp;= 90e^{-0.04t} + C.</mrow>
+          </md>
+          To find the value of <m>C</m>, substitute <m>t=0</m> and <m>T=160</m>.
+          <md>
+            <mrow> T = 90e^{-0.04t} + C </mrow>
+            <mrow> 160 = 90e^{0} + C </mrow>
+            <mrow> 160 = 90 + C </mrow>
+            <mrow> 70 = C </mrow>
+          </md>
+          Consequently, we have <m>T = 90e^{-0.04t} + 70</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
     <title>Summary</title>
     <p>
       <ol>

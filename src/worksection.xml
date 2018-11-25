@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./ftc-one.xml" />
+            <xi:include href="./differentiable-functions.xml" />
 		</chapter>
 
     </book>

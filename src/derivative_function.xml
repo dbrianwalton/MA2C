@@ -494,7 +494,7 @@
       we would get two different values.
       The difference quotient has a jump discontinuity at <m>h=0</m>.
     </p>
-    <example>
+    <example xml:id="example-differentiability-piecewise">
       <statement>
         <p>
           Consider the piecewise function defined by

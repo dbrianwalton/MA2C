@@ -4,59 +4,721 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
 
 <section xml:id="differentiable-functions">
-    <title>Differentiable Functions</title>
-
-    <subsection>
-      <title>Differentiability From Formulas</title>
-      <p>Placeholder: Remember to address differentiability of rational powers somewhere.</p>
-    </subsection>
-    <subsection>
-        <title>Consequences of Differentiability</title>
-
-        <p>There are a number of important consequences of a function being differentiable. These consequences are stated as mathematical theorems that you will need to know by name. We begin by introducing terminology about local extreme values.</p>
-
-        <definition xml:id='defn-local-extremes'>
-            <title>Local Maximum and Minimum</title>
-            <statement>
-                <p>A function <m>f</m> has a <term>local maximum</term> at a point <m>x=a</m> if <m>f(a) \ge f(x)</m> for all <m>x</m> in a neighborhood of <m>a</m>. It has a <term>local minimum</term> at <m>x=a</m> if <m>f(a) \le f(x)</m> for all <m>x</m> in a neighborhood of <m>a</m>.</p>
-            </statement>
-        </definition>
-
-        <p>The first theorem is about the slope at a local extreme. It guarantees that a local extreme can only occur where the function either is not differentiable or has a horizontal tangent line.</p>
-
-        <theorem xml:id='fermats-theorem'>
-            <title>Fermat's Theorem</title>
-            <statement>
-                <p>If <m>f</m> has a local extreme at <m>x=a</m> and <m>f'(a)</m> exists, then <m>f'(a)=0</m>.</p>
-            </statement>
-        </theorem>
-
-        <p>The second theorem combines the <xref ref='extreme-value-theorem' text='title'>Extreme Value Theorem</xref> with Fermat's Theorem. If a function is continuous on a closed interval <m>[a,b]</m>, then it must achieve both a maximum and a minimum value. If that function has <m>f(a)=f(b)</m>, then one of the extreme values must occur inside the interval at some point <m>c \in (a,b)</m>. If the function is also differentiable, then we must have <m>f'(c)=0</m>. This result is named Rolle's theorem.</p>
-
-        <theorem xml:id='rolles-theorem'>
-            <title>Rolle's Theorem</title>
-            <statement>
-                <p>If <m>f</m> is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m> and <m>f(a)=f(b)</m>, then there must be some value <m>c \in (a,b)</m> so that <m>f'(c)=0</m>.</p>
-            </statement>
-        </theorem>
-
-        <p>The consequence of Rolle's theorem is that if a function starts and ends at the same value over an interval, it must turn around somewhere. For a differentiable function, the slope at that point must be <m>f'(c)=0</m>.</p>
-
-        <p>The third theorem about differentiability applies Rolle's theorem to say something about the average rate of change. Recall that the <xref ref='defn-average-rate-of-change' text='title'>average rate of change</xref>, <me>\left.\frac{\Delta f}{\Delta x}\right|_{[a,b]} = \frac{f(b)-f(a)}{b-a},</me> is the slope of the line, called a <term>secant line</term>, that joins the points <m>(a,f(a))</m> and <m>(b,f(b))</m>. The Mean Value Theorem guarantees that a continuous and differentiable function will have some point at which the tangent line has the same slope as the secant line over the interval.</p>
-
-        <theorem xml:id='mean-value-theorem'>
-            <title>Mean Value Theorem</title>
-            <statement>
-                <p>If <m>f</m> is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>, then there must be some value <m>c \in (a,b)</m> so that <me>f'(c)=\frac{f(b)-f(a)}{b-a}.</me> Alternatively, we sometimes rewrite this as <me>f(b)-f(a)=f'(c) \cdot (b-a).</me></p>
-            </statement>
-            <proof>
-                <p>Let <m>s(x)</m> be the linear function corresponding to this secant line and then define <m>g(x)=f(x)-s(x)</m>. Since <m>s(a)=f(a)</m> and <m>s(b)=f(b)</m>, we have <m>g(a)=g(b)=0</m>. If <m>f</m> is continuous and differentiable, then so is <m>g</m>. Rolle's theorem guarantees that <m>g'(c)=f'(c)-s'(c) = 0</m> for some value <m>c \in (a,b)</m>. Thus, <m>f'(c)=\left.\frac{\Delta f}{\Delta x}\right|_{[a,b]}</m>.</p>
-            </proof>
-        </theorem>
-
-    </subsection>
+  <title>Differentiable Functions</title>
+  <introduction>
+    <p>
+      When we learned about the definite integral and defined accumulation functions,
+      we were able to characterize the behavior of those functions
+      by considering the behavior of the rates of accumulation.
+      In particular, we learned that the monotonicity of a function
+      depended on the sign of the rate of accumulation,
+      and the concavity of a function depended, in turn, on the monotonicity of the rate.
+      These concepts have a natural analogue for functions in terms of their derivatives,
+      even when a function is not defined as an accumulation function.
+    </p>
+    <p>
+      In this section, we introduce the major theorems relating to differentiability.
+      Differentiability is a property of a function characterized by where the derivative is defined.
+      We first learn that local extremes can only occur at critical points,
+      or points where the derivative equals zero or is not defined.
+      We then learn about Rolle's theorem,
+      which is a theorem guaranteeing a point with zero derivative.
+      Rolle's theorem principal value is in proving the Mean Value Theorem for Derivatives.
+      The Mean Value Theorem plays a prominent role in characterizing the behavior of functions.
+      In particular, it will be used to prove that antiderivatives can only differ by constants.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Differentiability of Functions</title>
+    <p>
+      Recall that continuity and differentiability are properties of functions.
+      To say that a function is <xref ref="defn-continuity-at-point" text="title">continuous at a point</xref>
+      means that the function itself has a value at that point
+      and that the limits of the function from both the left and the right converge to the same value.
+      The property of continuity essentially characterizes the idea
+      that the graph of the function is connected at the given point.
+      In a similar way, <xref ref="defn-differentiable" text="title">differentiability</xref>
+      is a property that the limit defining the derivative at a point is defined.
+      Differentiability guarantees that a function has a linear tangent line approximation.
+    </p>
+    <p>
+      Now that we know how to compute derivatives with the rules of differentiation,
+      we can consider when these functions are differentiable.
+      As an example, consider power functions <m>f(x)=x^p</m>.
+      When <m>p</m> is an irrational number, this is defined in terms of the exponential
+      <m>f(x) = e^{p \ln(x)}</m>, so that the domain is <m>x \gt 0</m>.
+      However, when <m>p</m> is a rational number <m>p = \frac{k}{n}</m>
+      for integers <m>k</m> and <m>n</m> with <m>n \gt 0</m>,
+      then <m>f(x) = x^{k/n}</m> is defined by the <m>n</m>th roots of <m>x</m>,
+      <me>f(x) = x^{k/n} = (\sqrt[n]{x})^k.</me>
+      For odd values <m>n</m>, the root <m>\sqrt[n]{x}</m> is defined for all values of <m>x</m>.
+      However, <m>f(0)</m> is only defined if <m>k \ge 0</m>.
+    </p>
+    <p>
+      What about the derivative?
+      We have <me>f'(x) = \frac{k}{n} x^{(k-n)/n}.</me>
+      If <m>k \ge n</m>, then <m>f'(0)</m> will exist.
+      However, if <m>k \lt n</m> corresponding to <m>0 \lt p=\frac{k}{n} \lt 1</m>,
+      then <m>f'(0)</m> will not exist.
+      This is an example of a nondifferentiable function.
+      Graphically, the tangent line at the point is vertical
+      so that the slope is undefined with infinite limits.
+    </p>
+    <figure>
+      <caption>Examples of power functions that are nondifferentiable at <m>x=0</m>.</caption>
+      <sidebyside widths="40% 40%">
+        <figure>
+          <caption><m>p=\frac{2}{5}</m></caption>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [ xmin=-2, xmax=2 ]
+              \addplot [domain=-2.5:-0.001, samples=50] { exp(0.4*ln(abs(x))) };
+              \addplot [domain=0.001:2.5, samples=50] { exp(0.4*ln(abs(x))) };
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+        <figure>
+          <caption><m>p=\frac{3}{5}</m></caption>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [ xmin=-2, xmax=2 ]
+              \addplot [domain=-2.5:-0.001, samples=50] { -exp(0.6*ln(abs(x))) };
+              \addplot [domain=0.001:2.5, samples=50] { exp(0.6*ln(abs(x))) };
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+      </sidebyside>
+    </figure>
+    <p>
+      When we first introduced the concept of differentiability,
+      we used piecewise functions to provide
+      <xref ref="example-differentiability-piecewise" text="title">examples of nondifferentiable functions</xref>.
+      In those examples, we used the definition of the derivative.
+      With the rules of differentiation, we can determine differentiability more directly.
+    </p>
+    <theorem xml:id="thm-piecewise-differentiability">
+      <statement>
+        <p>
+          Suppose that a function <m>f(x)</m> is defined piecewise around <m>x=a</m>
+          so that for some <m>\delta \gt 0</m>,
+          <me>f(x) = \begin{cases} f_\ell(x), &amp;a-\delta \lt x \lt a, \\ f(a), &amp;x=a, \\ f_r(x), &amp;a \lt x \lt a+\delta. \end{cases} </me>
+          If <m>f_\ell(x)</m> and <m>f_r(x)</m> in their natural domains
+          are both continuous and differentiable at <m>x=a</m>,
+          then <m>f</m> is differentiable at <m>x=a</m> if and only if
+          <m>f_\ell(a) = f_r(a) = f(a)</m> and <m>f'_\ell(a) = f'_r(a)</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Because <m>f_\ell</m> and <m>f_r</m> are continuous,
+          the requirements of continuity that
+          <me>\lim_{x \to a^-} f(x) = f(a) \quad \text{and} \quad \lim_{x \to a^+} f(x) = f(a)</me>
+          are replaced by <m>f_\ell(a) = f(a)</m> and <m>f_r(a) = f(a)</m>.
+          Similarly, the calculation of the derivative using the definition
+          reduces to the values of the derivatives of <m>f_\ell</m> and <m>f_r</m> at <m>x=a</m>:
+          <md>
+            <mrow> \lim_{h \to 0^-} \frac{f(a+h) - f(a)}{h} &amp;= \lim_{h \to 0^-} \frac{f_\ell(a+h) - f_\ell(a)}{h}</mrow>
+            <mrow> &amp;= f'_\ell(a), </mrow>
+            <mrow> \lim_{h \to 0^+} \frac{f(a+h) - f(a)}{h} &amp;= \lim_{h \to 0^+} \frac{f_r(a+h) - f_r(a)}{h}</mrow>
+            <mrow> &amp;= f'_r(a). </mrow>
+          </md>
+          For the two sided limit to exist, and thus for the derivative itself to exist,
+          the left- and right-side limits must agree, <m>f'_\ell(a) = f'_r(a)</m>.
+          Then <m>f'(a) = f'_\ell(a) = f'_r(a)</m>.
+        </p>
+      </proof>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          Determine the values of <m>a</m> and <m>b</m> so that the function
+          <me>
+            f(x) = \begin{cases}
+            x^2-2x, &amp; x \le 2, \\
+            -2x^2+ax+b, &amp; x \gt 2,
+            \end{cases}
+          </me>
+          is differentiable at <m>x=2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function used for <m>x \lt 2</m> is <m>f_\ell(x)=x^2-2x</m>,
+          and the function used for <m>x \gt 2</m> is <m>f_r(x = -2x^2+ax+b</m>.
+          The derivatives are found using differentiation rules:
+          <md>
+            <mrow>f'_\ell(x) &amp;= 2x-2,</mrow>
+            <mrow>f'_r(x) &amp;= -4x+a.</mrow>
+          </md>
+        </p>
+        <p>
+          The requirement for continuity will give us one equation, which we simplify:
+          which becomes
+          <md>
+            <mrow>f_\ell(2) = f_r(2)</mrow>
+            <mrow>2^2-2(2) = -2(2^2)+a(2)+b</mrow>
+            <mrow>0 = 2a+b-8</mrow>
+            <mrow>2a+b = 8.</mrow>
+          </md>
+          This means that so long as <m>b=8-2a</m>, <m>f(x)</m> will be continuous at <m>x=2</m>.
+          However, it may or may not be differentiable, depending on whether the derivatives match.
+        </p>
+        <p>
+          The requirement that the left- and right-sided derivatives are equal
+          gives us a second equation, which we also simplify:
+          <md>
+            <mrow>f'_\ell(2) = f'_r(2)</mrow>
+            <mrow>2(2)-2 = -4(2)+a</mrow>
+            <mrow>2 = -8+a</mrow>
+            <mrow>a=10.</mrow>
+          </md>
+          Once we know <m>a=10</m>, we can substitute that into the first equation to find <m>b</m>:
+          <md>
+            <mrow>b = 8 - 2a</mrow>
+            <mrow>b = 8 - 2(10)</mrow>
+            <mrow>b = -12.</mrow>
+          </md>
+          Consequently, <m>f(x)</m> will be differentiable at <m>x=2</m> if and only if <m>a=10</m> and <m>b=-12</m>.
+        </p>
+        <figure xml:id="figure-dynamic-differentiable-piecewise">
+          <caption>
+            A graph of <m>f(x)</m> where parameters <m>a</m> and <m>b</m> can be changed dynamically.
+          </caption>
+          <interactive xml:id="interactive-piecewise-differentiable" platform="jsxgraph" width="80%" aspect="4:3" source="js/jsx-piecewise-differentiable.js">
+            <slate xml:id="jsxgraph-piecewise-differentiable" surface="jsxboard" aspect="4:3"/>
+            <instructions>
+              <p>
+                Drag the sliders to change parameters <m>a</m> and <m>b</m>
+                in order to make <m>f(x)</m> differentiable at <m>x=2</m>.</p>
+            </instructions>
+          </interactive>
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Consequences of Differentiability</title>
+    <p>
+      There are a number of important consequences of a function being differentiable.
+      These consequences are stated as mathematical theorems.
+      The first such theorem focuses on differentiability at local extreme values.
+    </p>
+    <theorem xml:id='fermats-theorem'>
+      <title>Fermat's Theorem</title>
+      <statement>
+        <p>
+          If <m>f</m> has a local extreme at <m>x=a</m> and <m>f'(a)</m> exists,
+          then <m>f'(a)=0</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Suppose that <m>f</m> has a local maximum at <m>x=a</m>.
+          Then there is some value <m>\delta \gt 0</m> so that if <m>a-\delta \lt x \lt a+\delta</m>,
+          we must have <m>f(x) \le f(a)</m>.
+          For <m>-\delta \lt h \lt 0</m>, we therefore have <m>f(a+h) - f(a) \le 0</m>
+          so that dividing by <m>h \lt 0</m> gives
+          <me> \frac{f(a+h) - f(a)}{h} \ge 0. </me>
+          This implies that
+          <me> \lim_{h \to 0^-} \frac{f(a+h) - f(a)}{h} \ge 0. </me>
+          For <m>0 \lt h \lt \delta</m>, we also have <m>f(a+h) - f(a) \le 0</m>
+          so that dividing by <m>h \gt 0</m> gives
+          <me> \frac{f(a+h) - f(a)}{h} \le 0. </me>
+          Thus, we have
+          <me> \lim_{h \to 0^+} \frac{f(a+h) - f(a)}{h} \le 0. </me>
+          If <m>f'(a)</m> exists, these limits must equal and <m>f'(a)=0</m>.
+        </p>
+        <p>
+          If <m>f</m> has a local minimum at <m>x=a</m>, the argument is similar.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      If we are looking for extreme values of a function,
+      we can ignore all points where <m>f'(x)</m> exists but <m>f'(x) \ne 0</m>.
+      The only points in the domain of <m>f</m> that might be considered
+      are where <m>f'(x)</m> does not exist
+      or where <m>f'(x)=0</m> and <m>f</m> has a horizontal tangent line.
+      We call such points the <term>critical points</term> of <m>f</m>.
+    </p>
+    <definition xml:id="defn-critical-points">
+      <statement>
+        <p>
+          The <term>critical points</term> of a function <m>f</m> are all values in the domain of <m>f</m>
+          such that <m>f'(x)</m> does not exist or <m>f'(x)=0</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The second theorem combines the <xref ref='extreme-value-theorem' text='title'>Extreme Value Theorem</xref> with Fermat's Theorem.
+      If a function is continuous on a closed interval <m>[a,b]</m>,
+      then it must achieve both a maximum and a minimum value.
+      If that function has <m>f(a)=f(b)</m>,
+      then one of the extreme values must occur inside the interval at some point <m>c \in (a,b)</m>.
+      If the function is also differentiable,
+      then we must have <m>f'(c)=0</m>.
+      This result is named Rolle's theorem.
+    </p>
+    <theorem xml:id='rolles-theorem'>
+      <title>Rolle's Theorem</title>
+      <statement>
+        <p>
+          If <m>f</m> is continuous on <m>[a,b]</m>
+          and differentiable on <m>(a,b)</m> and <m>f(a)=f(b)</m>,
+          then there must be some value <m>c \in (a,b)</m> so that <m>f'(c)=0</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The argument is given in the paragraph preceding the theorem.
+          The hypothesis of continuity allows us to apply the Extreme Value Theorem.
+          The hypothesis of differentiability allows us to apply Fermat's Theorem
+          to the local extreme that was guaranteed at the point between <m>a</m> and <m>b</m>.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      The consequence of Rolle's theorem is that if a function starts and ends at the same value over an interval,
+      it must turn around somewhere with a horizontal tangent.
+    </p>
+    <figure>
+      <caption>A graphical illustration of Rolle's theorem. Note that extreme values have horizontal tangents.</caption>
+      <image>
+        <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}
+          [ width=4in, height=2in, xmin=-1, xmax=5, ymin=-1, axis lines=none ]
+          \addplot [no marks, thick] coordinates { (-1,0) (5,0) };
+          \addplot [domain=0:4, samples=100, thick, blue] { -x*(x-4)*(x^2-5*x+7)/5 };
+          \addplot [only marks, blue] coordinates { (0,0) (0.802, 1.864) (4,0) };
+          \addplot [no marks] coordinates { (0.502, 1.864) (1.102, 1.864) };
+          \addplot [no marks] coordinates { (0,-.1) (0,.1) } node [pos=0,below] {$a$};
+          \addplot [no marks] coordinates { (0.802,-.1) (0.802,.1) } node [pos=0,below] {$c$};
+          \addplot [no marks] coordinates { (4,-.1) (4,.1) } node [pos=0,below] {$b$};
+          \end{axis}
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      Rolle's theorem is not usually applied on its own.
+      It is most often referenced in the context of proving more useful theorems.
+      The third theorem about differentiability applies Rolle's theorem
+      to create the Mean Value Theorem for derivatives in relation to the average rate of change.
+      Recall that the <xref ref='defn-average-rate-of-change' text='title'>average rate of change</xref>,
+      <me>\left.\frac{\Delta f}{\Delta x}\right|_{[a,b]} = \frac{f(b)-f(a)}{b-a},</me>
+      is the slope of the line, called a <term>secant line</term>,
+      that joins the points <m>(a,f(a))</m> and <m>(b,f(b))</m>.
+      The Mean Value Theorem guarantees that a continuous and differentiable function
+      will have some point at which the tangent line has the same slope
+      as the secant line over the given interval.
+    </p>
+    <figure>
+      <caption>A graphical illustration of the Mean Value theorem.
+        Note that at the point furthest from the secant line (dashed),
+        the slope matches that of the secant line.</caption>
+      <image>
+        <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}
+          [ width=4in, height=2in, xmin=-1, xmax=5, ymin=-2, axis lines=none ]
+          \addplot [no marks, thick] coordinates { (-1,-0.4) (5,-0.4) };
+          \addplot [domain=0:4, samples=100, thick, blue] { x-x*(x-4)*(x^2-5*x+7)/5 };
+          \addplot [only marks, blue] coordinates { (0,0) (0.802, 2.666) (4,4) };
+          \addplot [no marks, dashed, blue] coordinates { (0,0) (4,4) };
+          \addplot [no marks] coordinates { (0.502, 2.366) (1.102, 2.966) };
+          \addplot [no marks] coordinates { (0,-.5) (0,-.3) } node [pos=0,below] {$a$};
+          \addplot [no marks] coordinates { (0.802,-.5) (0.802,-.3) } node [pos=0,below] {$c$};
+          \addplot [no marks] coordinates { (4,-.5) (4,-.3) } node [pos=0,below] {$b$};
+          \end{axis}
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+    <theorem xml:id='mean-value-theorem'>
+      <title>Mean Value Theorem</title>
+      <statement>
+        <p>
+          If <m>f</m> is continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>,
+          then there must be some value <m>c \in (a,b)</m> so that
+          <me>f'(c)=\frac{\Delta f}{\Delta x}\Big|_{a,b} = \frac{f(b)-f(a)}{b-a}.</me>
+          Alternatively, we sometimes rewrite this as <me>f(b)-f(a)=f'(c) \cdot (b-a).</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Let <m>s(x)</m> be the linear function corresponding to this secant line.
+          That is, <m>s(a)=f(a)</m> and <m>s(b)=f(b)</m>
+          and <m>s(x)</m> has the constant slope
+          <me>s'(x) = \frac{f(b)-f(a)}{b-a}.</me>
+          We now define <m>g(x)=f(x)-s(x)</m>.
+          Since <m>s(a)=f(a)</m> and <m>s(b)=f(b)</m>, we have <m>g(a)=g(b)=0</m>.
+          If <m>f</m> is continuous and differentiable, then so is <m>g</m>.
+          Rolle's theorem guarantees that <m>g'(c)=f'(c)-s'(c) = 0</m>
+          for some value <m>c \in (a,b)</m>.
+          Thus, <m>\displaystyle f'(c)=s'(c)=\left.\frac{\Delta f}{\Delta x}\right|_{[a,b]}</m>.
+        </p>
+      </proof>
+    </theorem>
+  </subsection>
+  <subsection>
+    <title>Applications of the Mean Value Theorem</title>
+    <p>
+      The Mean Value Theorem for derivatives allows us
+      to know that the average rate of change
+      of a differentiable function between any two points
+      will be equal to the instantaneous rate of change at some point within the interval.
+      Consequently, if we know properties of the derivative on entire intervals,
+      that can provide information about how the function is changing on the interval.
+      In particular, we learn that the sign of a derivative can be used
+      to determine monotonicity of a function.
+    </p>
+    <theorem xml:id='thm-monotonicity-from-derivative'>
+      <title>Monotonicity of Differentiable Functions</title>
+      <statement>
+        <p>
+          Suppose that <m>f</m> is a differentiable on an interval <m>I</m> (open or closed).
+          <ul>
+            <li>
+              <p>
+                If <m>f'(x) \gt 0</m> for all <m>x \in I</m>,
+                then <m>f(x)</m> is increasing on <m>I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>f'(x) \lt 0</m> for all <m>x \in I</m>,
+                then <m>f(x)</m> is decreasing on <m>I</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>f'(x) = 0</m> for all <m>x \in I</m>,
+                then <m>f(x)</m> is constant on <m>I</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          If the interval <m>I</m> is open
+          but <m>f</m> is continuous up to and including the end-points,
+          then the conclusion can be extended to include the end-points as well.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Consider any two points <m>a,b \in I</m> with <m>a \lt b</m>.
+          Because <m>f</m> is differentiable on <m>I</m>,
+          we know that <m>f</m> is <xref ref='thm-differentiable-implies-continuous' text='title'>continuous</xref>
+          and differentiable on the subinterval <m>[a,b]</m>.
+          The <xref ref='mean-value-theorem' text='title'>Mean Value Theorem</xref>
+          guarantees the existence of a point <m>c \in (a,b)</m> such that
+          <me>f(b)-f(a) = f'(c)\cdot(b-a).</me>
+        </p>
+        <p>
+          Now assume that <m>f'(x) \gt 0</m> for all <m>x \in I</m>.
+          Then <m>f'(c) \gt 0</m> and <m>b-a \gt 0</m>,
+          guaranteeing that <m>f(b)-f(a) \gt 0</m>.
+          That is, <m>f(b) \gt f(a)</m>.
+          This is what is needed to show that <m>f</m> is increasing on <m>I</m>.
+        </p>
+        <p>
+          Next assume that <m>f'(x) \lt 0</m> for all <m>x \in I</m>.
+          Then <m>f'(c) \lt 0</m> while <m>b-a \gt 0</m>,
+          guaranteeing that <m>f(b)-f(a) \lt 0</m>.
+          That is, <m>f(b) \lt f(a)</m>, which shows that <m>f</m> is decreasing on <m>I</m>.
+        </p>
+        <p>
+          Finally assume that <m>f'(x) = 0</m> for all <m>x \in I</m>.
+          Then <m>f'(c) = 0</m>, implying that <m>f(b)-f(a) = 0</m>.
+          That is, <m>f(b) = f(a)</m>, which shows that <m>f</m> is constant on <m>I</m>.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      We can now justify doing the same sign analysis work using a derivative
+      as we did for the rate of accumulation functions.
+      What is different from then?
+      Our previous justification required that the function could be written
+      as an accumulation function with a known rate of accumulation.
+      Now, we can do the same type of sign analysis with any function
+      for which we can determine the derivative.
+    </p>
+    <p>
+      Because the second derivative gives the rate of change of the first derivative,
+      we can use sign analysis of <m>f''(x)</m> to describe concavity of <m>f(x)</m>.
+    </p>
+    <theorem xml:id='thm-concavity-from-derivative'>
+      <title>Concavity of Twice-Differentiable Functions</title>
+      <statement>
+        <p>
+          Given a function <m>f</m> for which <m>f'</m> and <m>f''</m> are defined on an interval <m>I</m>.
+          <ul>
+            <li><p>
+              If <m>f''(x) \gt 0</m> for all <m>x \in I</m>,
+              then <m>f(x)</m> is concave up on <m>I</m>.
+            </p></li>
+            <li><p>
+              If <m>f''(x) \lt 0</m> for all <m>x \in I</m>,
+              then <m>f(x)</m> is concave down on <m>I</m>.
+            </p></li>
+            <li><p>
+              If <m>f''(x) = 0</m> for all <m>x \in I</m>,
+              then <m>f(x)</m> is linear on <m>I</m>.
+            </p></li>
+          </ul>
+        </p>
+        <p>
+          If the interval <m>I</m> is open but <m>f'</m> is continuous up to and including the end-points,
+          then the conclusion can be extended to include the end-points as well.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          This is just an application of Theorem <xref ref='thm-monotonicity-from-derivative'/> applied to <m>f'</m>.
+          Once we know that <m>f'</m> is increasing on <m>I</m>,
+          the definition of concavity allows us to say that <m>f</m> is concave up on <m>I</m>.
+          Similarly, knowing that <m>f'</m> is decreasing is equivalent to saying that <m>f</m> is concave down.
+          If <m>f'</m> is constant on an interval <m>I</m>,
+          this is exactly what it means for <m>f</m> to be linear on <m>I</m>.
+        </p>
+      </proof>
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          Describe the monotonicity and concavity of <m>f(x) = xe^{-2x}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Start by computing the first and second derivatives.
+          Note that we must use the product rule:
+          <md>
+            <mrow> f(x) &amp;= xe^{-2x}, </mrow>
+            <mrow> f'(x) &amp;= 1 \cdot e^{-2x} + x \cdot -2e^{-2x} </mrow>
+            <mrow> &amp;= (1-2x)e^{-2x},</mrow>
+            <mrow> f''(x) &amp;= -2 \cdot e^{-2x} + (1-2x) \cdot -2e^{-2x} </mrow>
+            <mrow> &amp;= (-2-2+4x) e^{-2x} </mrow>
+            <mrow> &amp;= (-4+4x) e^{-2x}. </mrow>
+          </md>
+        </p>
+        <p>
+          We can now do sign analysis for <m>f'(x)</m> and <m>f''(x)</m>.
+          Because <m>e^{-2x}</m> is a factor for each of the functions,
+          we will use the fact that <m>e^{-2x} \gt 0</m> for all values of <m>x</m>.
+          The only point where <m>f'(x)=0</m> is where <m>1-2x=0</m> or <m>x=\frac{1}{2}</m>.
+          The resulting sign analysis summary for <m>f'(x)</m> is shown below.
+        </p>
+        <sidebyside width="80%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[<->] (-2,0) -- (4,0)
+              node[pos=1, above right] {$f'(x)=(1-2x)e^{-2x}$}
+              node[pos=1, below right] {$x$};
+            \draw (0.5, -0.1) -- (0.5,0.1)
+              node[pos=0, below] {$\frac{1}{2}$}
+              node[pos=1, above] {$0$};
+            \node [above] at (-.5,0.1) {$+$};
+            \node [above] at (1.5,0.1) {$-$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          The only point where <m>f''(x)=0</m> is where <m>-4+4x=0</m> or <m>x=1</m>.
+          The resulting sign analysis summary for <m>f''(x)</m> is shown below.
+        </p>
+        <sidebyside width="80%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[<->] (-2,0) -- (4,0)
+              node[pos=1, above right] {$f''(x)=(-4+4x)e^{-2x}$}
+              node[pos=1, below right] {$x$};
+            \draw (1, -0.1) -- (1,0.1)
+              node[pos=0, below] {$1$}
+              node[pos=1, above] {$0$};
+            \node [above] at (-.5,0.1) {$-$};
+            \node [above] at (2,0.1) {$+$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          We now interpret our results.
+          Because <m>f</m> is continuous, we can extend open intervals to include end-points.
+          The function <m>f(x)</m> is increasing on <m>(-\infty,\frac{1}{2}]</m>
+          and decreasing on <m>[\frac{1}{2},\infty)</m>.
+          In addition, <m>f(x)</m> is concave down on <m>(-\infty,1]</m>
+          and concave up on <m>[1,\infty)</m>.
+          A graph of <m>y=f(x)</m> is shown below,
+          with the local maximum at <m>x=\frac{1}{2}</m>
+          and the point of inflection at <m>x=1</m>.
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [ xmin=-1, xmax=3, ymin=-.25, ymax=.25 ]
+              \addplot [domain=-1:3, samples=80, thick, blue] {x*exp(-2*x)};
+              \addplot [only marks, blue, samples at={.5, 1}] {x*exp(-2*x)};
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Classifying Antiderivatives</title>
+    <p>
+      The Mean Value Theorem results in another important consequence:
+      all antiderivatives of a particular function differ by constants.
+      In particular, the result applies to intervals where the derivative is defined.
+    </p>
+    <theorem xml:id="thm-antiderivatives-differ-constants">
+      <statement>
+        <p>
+          Suppose that <m>F(x)</m> and <m>G(x)</m> are any two differentiable functions
+          defined on some interval <m>I</m> such that for all <m>x \in I</m>,
+          <m>F'(x)=G'(x)</m>. Then there exists some constant <m>C</m> so that
+          for all <m>x \in I</m>, <m>G(x) = F(x) + C</m>.
+        </p>
+        <p>
+          In particular, if <m>F(x)</m> and <m>G(x)</m> are antiderivatives of the same function <m>f(x)</m>,
+          and <m>F</m> and <m>G</m> are differentiable on an interval <m>I</m>, then <m>G(x)=F(x)+C</m> on that interval.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Define a function <m>H(x) = G(x) - F(x)</m>.
+          Because <m>F</m> and <m>G</m> are differentiable at all <m>x \in I</m>,
+          <m>H(x)</m> is both continuous and differentiable at all <m>x \in I</m>.
+          With <m>F'(x)=G'(x)</m>, we have <m>H'(x)=0</m> for all <m>x \in I</m>.
+          Consequently, by <xref ref="thm-monotonicity-from-derivative"/>,
+          <m>H(x)</m> is constant on <m>I</m>, or <m>H(x) = C</m> for some constant <m>C</m>.
+          Therefore <m>G(x)-F(x)=C</m> or <m>G(x)=F(x)+C</m>.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      Be aware that the constant only applies to an interval
+      where the antiderivatives are differentiable.
+      The constant can be different over different intervals.
+    </p>
+    <example>
+      <statement>
+        <p>
+          We know that <m>F(x) = \ln(|x|)</m> is an antiderivative of <m>\displaystyle f(x) = \frac{1}{x}</m>.
+          Now, construct
+          <me>
+            G(x)=\begin{cases}
+              \ln(-2x), &amp; x \lt 0, \\
+              \ln(3x), &amp; x \gt 0.
+            \end{cases}
+          </me>
+          We can differentiate on each interval:
+          <me>
+            G'(x)=\begin{cases}
+              \frac{d}{dx}\Big[\ln(-2x)\Big] = \frac{-2}{-2x} = \frac{1}{x}, &amp; x \lt 0, \\
+              \frac{d}{dx}\Big[\ln(3x)\Big] = \frac{3}{3x} = \frac{1}{x}, &amp; x \gt 0.
+            \end{cases}
+          </me>
+          This shows that <m>F(x)</m> and <m>G(x)</m> are each antiderivatives of <m>f(x)</m>.
+        </p>
+        <p>
+          So what are the constants on the intervals?
+          They can be found from the properties of logarithms:
+          <md>
+            <mrow>\ln(-2x) = \ln(2) + \ln(-x),</mrow>
+            <mrow>\ln(3x) = \ln(3) + \ln(x).</mrow>
+          </md>
+          We see that on the interval <m>(-\infty,0)</m>, <m>G(x) = F(x) + \ln(2)</m>,
+          but on the interval <m>(0,\infty)</m>, <m>G(x) = F(x) + \ln(3)</m>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <ol>
+        <li>
+          <p>
+            Differentiability: We look for points in the domain of <m>f(x)</m>
+            where <m>f'(x)</m> also exists.
+            The function is nondifferentiable if <m>f'(x)</m> does not exist.
+          </p>
+          <p>
+            Examples of causes for nondifferentiability:
+            <m>f(x)</m> not being continuous,
+            left- and right-slopes differ,
+            or the tangent line is vertical.
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="fermats-theorem"/>:
+            Local extremes of <m>f(x)</m> can only occur at critical points,
+            which are values where <m>f'(x)=0</m> or <m>f'(x)</m> does not exist.
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="rolles-theorem"/>:
+            For a continuous and differentiable function,
+            it will have a horizontal tangent between any two zeros.
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="mean-value-theorem"/>:
+            For a continuous and differentiable function,
+            the average rate of change on an interval will be matched
+            by the slope of the tangent line at some intermediate point.
+          </p>
+        </li>
+        <li>
+          <p>
+            The Mean Value Theorem provides the justification
+            of using sign analysis of <m>f'(x)</m> and <m>f''(x)</m>
+            to determine intervals of monotonicity and concavity, respectively,
+            for the function <m>f(x)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The Mean Value Theorem also provides the justification
+            that any two antiderivatives of a function <m>f(x)</m>
+            can differ at most by a constant value over an interval
+            on which they are differentiable.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </subsection>
+  <exercises>
+  </exercises>
 </section>

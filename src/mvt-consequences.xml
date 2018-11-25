@@ -374,22 +374,6 @@
 
         <p>Concavity is described by finding where the derivative is increasing or decreasing. Since the derivative is itself a function, we can find its derivative. This function will be the derivative of the derivative of the function <m>f</m>, or the <term>second derivative</term>. We write <me> f''(x) = \frac{d}{dx}[f'(x)] = \frac{d^2}{dx^2}[f(x)] = \frac{d^2f}{dx^2}.</me></p>
 
-        <theorem xml:id='thm-concavity-from-derivative'>
-            <title>Concavity of Twice-Differentiable Functions</title>
-            <statement>
-                <p>Given a function <m>f</m> for which <m>f'</m> and <m>f''</m> are defined on an interval <m>I</m>.
-            <ul>
-                <li><p>If <m>f''(x) \gt 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is concave up on <m>I</m>.</p></li>
-                <li><p>If <m>f''(x) \lt 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is concave down on <m>I</m>.</p></li>
-                <li><p>If <m>f''(x) = 0</m> for all <m>x \in I</m>, then <m>f(x)</m> is linear on <m>I</m>.</p></li>
-            </ul>
-            </p>
-            <p>If the interval <m>I</m> is open but <m>f'</m> is continuous up to and including the end-points, then the conclusion can be extended to include the end-points as well.</p>
-            </statement>
-            <proof>
-                <p>This is just an application of Theorem <xref ref='thm-monotonicity-from-derivative'/> applied to <m>f'</m>. Once we know that <m>f'</m> is increasing on <m>I</m>, the definition of concavity allows us to say that <m>f</m> is concave up on <m>I</m>. Similarly, knowing that <m>f'</m> is decreasing is equivalent to saying that <m>f</m> is concave down. If <m>f'</m> is constant on an interval <m>I</m>, this is exactly what it means for <m>f</m> to be linear on <m>I</m>.</p>
-            </proof>
-        </theorem>
 
         <example>
             <p>The concavity of a parabola is completely determined by the sign of the leading coefficient. Suppose <m>f(x) = ax^2+bx+c</m>, where <m>a</m>, <m>b</m> and <m>c</m> are parameters. Then <m>f'(x) = 2ax+b</m> and <m>f''(x)=2a</m>. The second derivative for a quadratic is constant, and the sign is determined by the sign of <m>a</m>. If <m>a \gt 0</m>, <m>f</m> is concave up on <m>(-\infty,\infty)</m>; if <m>a \lt 0</m>, <m>f</m> is concave down on <m>(-\infty,\infty)</m>.</p>

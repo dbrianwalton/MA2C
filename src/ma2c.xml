@@ -91,14 +91,13 @@
     </chapter>
 
     <chapter>
-      <title>Applications of Derivatives</title>
+      <title>Derivatives and Integrals</title>
+      <xi:include href="./antiderivatives.xml" />
       <xi:include href="./differentiable-functions.xml" />
-      <xi:include href="./mvt-consequences.xml" />
       <xi:include href="./ftc.xml" />
+      <xi:include href="./lhopital-rule.xml" />
       <xi:include href="./intro-optimization.xml" />
       <xi:include href="./optimization.xml" />
-      <xi:include href="./lhopital-rule.xml" />
-      <xi:include href="./antiderivatives.xml" />
       <xi:include href="./integrals-substitution.xml" />
     </chapter>
 
