@@ -283,6 +283,31 @@
     <p>
       <ol>
         <li>
+          <p>
+            The Fundamental Theorem of Calculus, Part 1, together with the Mean Value Theorem,
+            imply that for any continuous function <m>f(x)</m>, an accumulation function
+            and any other antiderivative will differ by a constant value.
+          </p>
+        </li>
+        <li>
+          <p>
+            The Fundamental Theorem of Calculus, Part 2, states that the definite integral
+            of a function that is continuous on the interval of integration
+            can be substituted for the change in <em>any</em> antiderivative of the rate.
+            That is, if <m>F(x)</m> is an antiderivative of <m>f(x)</m>
+            and <m>f(x)</m> is continuous on the interval containing <m>a</m> and <m>b</m>,
+            <me>\int_a^b f(x)\, dx \overset{\mathrm{FTC}}= \Big[F(x)\Big]_a^b = F(b)-F(a).</me>
+          </p>
+        </li>
+        <li>
+          <p>
+            The Fundamental Theorem of Calculus, Part 1, together with the chain rule,
+            allows us to compute the derivative of functions
+            where the limits of integration are expressions involving the independent variable.
+            Let <m>u</m> and <m>w</m> be expressions involving <m>x</m>
+            and suppose that <m>f(x)</m> is a continuous function.
+            <me> \frac{d}{dx}\Big[ \int_u^w f(z) \, dz \Big] \overset{\mathrm{FTC}}= f(w) \frac{dw}{dx} - f(u) \frac{du}{dx}</me>
+          </p>
         </li>
       </ol>
     </p>
