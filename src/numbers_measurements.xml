@@ -6,38 +6,38 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="numbers-measurements">
   <title>Numbers and Measurements</title>
 
   <subsection>
     <title>Overview</title>
-    
+
     <p>
       Numbers play a fundamental role in science because they allow us to quantify observations.
       That is, instead of saying things are big or small, we can assign numbers to measurements.
       Standards of measurement allow us to have confidence that repeated measurements will result in the same values, albeit with some variation due to measurement error.
       Science in large part has progressed because of our ability to determine mathematical relationships between different measurements that make prediction possible.
     </p>
-    
+
     <p>
       Mathematics admittedly takes a different view of numbers than just their ability to serve as measurements.
       A measurement can only be determined to a degree of accuracy that depends on the instrument and environment.
       For a mathematician, a number is an exact entity<mdash/>other numbers, regardless of how close they might be, are different.
       Consequently, a mathematical answer should always be left in an exact representation.
     </p>
-    
+
     <p>
-      Mathematicians classify numbers according to the complexity of their definition. 
+      Mathematicians classify numbers according to the complexity of their definition.
       This section provides a brief review of the most important classifications of numbers.
       An appendix (<xref ref="appendix-numbers-arithmetic"/>) reviews more details on the development of these different number sets.
       This section also reviews how basic formulas represent exact numerical values and how they can be simplified.
       Next, the section considers measurements.
       Because measurements are always inexact, many numbers will have values consistent with a given measurement.
       Thus, we introduce the ideas of precision and error.
-    </p> 
+    </p>
   </subsection>
-    
+
   <subsection>
     <title>Numbers in Mathematics</title>
 
@@ -50,7 +50,7 @@
       The <term>rational numbers</term> are all numbers that can be represented as a ratio of integers
       <me>\mathbb{Q} = \{ \frac{p}{q} : p \in \mathbb{Z}, q \in \mathbb{N} \}.</me>
     </p>
-    
+
     <p>
       We often visualize numbers geometrically using a number line.
       On the number line, the integers are equally spaced by a unit length starting at an origin of zero.
@@ -59,10 +59,11 @@
       (See <xref ref="fig-number-line-rational"/>.)
       However, even when all rational numbers are included,
       there are infinitely many points on the line that are never covered.
-      These are the <term>irrational numbers</term>, which include algebraic numbers like <m>\sqrt{2}</m> or <m>\sqrt{3}</m>, as well as transcendental numbers like <m>\pi</m> and <m>e</m>.
+      These are the <term>irrational numbers</term>, which include algebraic numbers like <m>\sqrt{2}</m> or <m>\sqrt{3}</m>,
+      as well as transcendental numbers like <m>\pi</m> and <m>e</m>.
       The set of <term>real numbers</term> is written <m>\mathbb{R}</m> and consists of both rational and irrational numbers.
     </p>
-    
+
     <figure xml:id="fig-number-line-example">
       <caption> The number line graphically represents real numbers, both rational and irrational.</caption>
       <image>
@@ -84,7 +85,7 @@
         </latex-image>
       </image>
     </figure>
-    
+
     <p>
       Every mathematical expression represents a specific point on the number line.
       A mathematical value represents that expression only when it refers to the very same point on the line.
@@ -104,7 +105,7 @@
       Canceling any common factors to find this representation would be simplification.
       Other examples of simplification include simplifying a root or rationalizing a denominator.
     </p>
-    
+
     <example>
       <p>
         The fraction <m>\frac{126}{24}</m> is not simplified.
@@ -123,13 +124,13 @@
         Because <m>21=3 \cdot 7</m> and <m>4=2^2</m> do not have common factors, we know this is simplified.
       </p>
     </example>
-    
+
     <p>
       A square root is not simplified if there is a factor inside the root that is a perfect square.
       Similarly, a cube root is not simplified if there is a factor inside that is a perfect cube.
       We use the factors of the value inside a root to determine if we can simplify it.
     </p>
-    
+
     <example>
       <p>
         The square root <m>\sqrt{126}</m> is not simplified.
@@ -138,7 +139,7 @@
         we can simplify as <me>\sqrt{126} = \sqrt{2 \cdot 3^2 \cdot 7} = \sqrt{9} \cdot \sqrt{14} = 3 \sqrt{14}.</me>
       </p>
     </example>
-    
+
     <example>
       <p>
         The cube root <m>\sqrt[3]{48}</m> is not simplified.
@@ -148,21 +149,21 @@
         We have <me> \sqrt[3]{48} = \sqrt[3]{2^4 \cdot 3} = \sqrt[3]{2^3 \cdot 2 \cdot 3} = 2 \sqrt[3]{6}.</me>
       </p>
     </example>
-    
+
     <p>
       Some rules of simplification you may have learned were created when fast calculators and computers were not accessible.
       These rules were taught so that scientists and engineers could express an answer
       that would be in a form where it would be faster to use the tables and slide rules available at the time.
       We no longer need such rules for efficiency, but they often illustrate important algebra rules.
     </p>
-    
+
     <p>
       One example of such a rule is the simplification of fractions with square roots, called rationalizing a fraction.
       It was much more costly to use a table or slide rule if the root was in the denominator.
       The practice was developed to rewrite such an answer so that the root was in the numerator.
       This could be accomplished by multiplying the fraction on top and bottom by a factor that would eliminate the undesired root.
     </p>
-    
+
     <example>
       <statement>
         <p>Simplify <m>\displaystyle \frac{4}{3\sqrt{2}}</m> by rationalizing the denominator.</p>
@@ -178,7 +179,7 @@
         </p>
       </solution>
     </example>
-    
+
     <p>
       In the previous example, the two expressions <m>\displaystyle \frac{4}{3\sqrt{2}}</m> and <m>\displaystyle \frac{2 \sqrt{2}}{3}</m>
       are equally simplified.
@@ -186,7 +187,7 @@
       The second expression has a rationalized denominator.
       You should ask your instructor whether they expect a preferred simplified form.
     </p>
-    
+
     <p>
       We close this subsection to illustrate that not all numbers are rational.
       Thanks to Pythagorus, the ancient Greeks knew that <m>\sqrt{2}</m> was a number that represented the hypotenuse of an isosceles right triangle with legs of unit length.
@@ -194,7 +195,7 @@
       Realizing that <m>\sqrt{2}</m> was irrational was so shocking that, according to legend,
       the discoverer of this fact was drowned at sea.
     </p>
-    
+
     <example>
       <statement>
         <p>
@@ -219,41 +220,51 @@
           This means <m>q</m> would also be an even number.
           This is where the contradiction occurs<mdash/>since <m>p</m> and <m>q</m> were to have had no common factors,
           they couldn't both be even.
-          This means that <m>\sqrt{2}</m> can be written as a reduced fraction,
+          This means that <m>\sqrt{2}</m> can not be written as a reduced fraction,
           which in turn means that <m>\sqrt{2}</m> is not a rational number.
         </p>
       </solution>
     </example>
   </subsection>
-    
+
   <subsection xml:id="section-numbers-as-measurements">
     <title>Numbers as Measurements</title>
     <introduction>
     <p>
       In science, numbers often arise from measurements.
-      The most elementary physical measurement is a measurement of length.
-      In fact, a ruler and a number line have many similar features.
-      A ruler has a standard unit, such as an inch or centimeter, with fractional marks.
-      Measurements that are on the actual units correspond to numbers that are integers.
-      Measurements that are on exact subdivisions of the unit correspond to rational numbers.
+      When counting objects, measurements use integers and are exact.
+      Most measurements, however, are not exact and require the use of a scale.
+      An instrument for measurement provides a physical tool
+      that allows us to identify a number of units associated with the physical quantity.
     </p>
     <p>
-      However, there is always uncertainty in measurement.
+      The most elementary physical measurement of this type is a measurement of length.
+      The instrument of measurement, a ruler, uses a constructed number line
+      such that the spacing between numbers on the ruler represents distance.
+      The standard unit for the ruler, such as an inch or centimeter,
+      sets the spacing between integer distances.
+      Fractional marks show equal subdivisions of the unit distance
+      and correspond to distances represented by rational numbers.
+    </p>
+    <p>
+      There is always uncertainty in measurement.
       A length can not be measured to an exact value.
       Given a ruler, the observer must choose a length based on the existing rulings.
+      Even a length that appears to be exactly on a ruling
+      might be found to be slightly off when examined under magnification.
       Consequently, there is a distinction between the actual length and the measured length.
       The difference between these lengths is called an <term>error</term>.
     </p>
-    
+
     <definition xml:id="definition-error">
       <statement>
         <p>
-          Given any quantity with an actual value <m>Q</m> and a measured value <m>\widehat{Q}</m>, 
-          the <term>error</term> or <term>residual</term> is a value, say <m>E</m>, 
-          that measures the difference between the actual and measured values, 
-          <me>E = Q - \widehat{Q}.</me> 
-          Equivalently, <m>E</m> is that quantity such that 
-          the actual value is equal to the measured value plus the error, 
+          Given any quantity with an actual value <m>Q</m> and a measured value <m>\widehat{Q}</m>,
+          the <term>error</term> or <term>residual</term> is a value, say <m>E</m>,
+          that measures the difference between the actual and measured values,
+          <me>E = Q - \widehat{Q}.</me>
+          Equivalently, <m>E</m> is that quantity such that
+          the actual value is equal to the measured value plus the error,
           <me>Q = \widehat{Q} + E.</me>
         </p>
       </statement>
@@ -262,19 +273,19 @@
     <subsubsection xml:id="subsection-significant-digits">
     <title>Significant Digits</title>
     <p>
-      In science, the precision of a measurement is often described using <term>significant digits</term>. 
-      Significant digits are those digits which represent the value measured up to the accuracy of the measurement. 
-      For example, consider an object with a length of 
-      <quantity><mag>15.2772</mag><unit prefix="centi" base="meter"/></quantity>, 
-      which is a measurement accurate to the nearest micron (micrometer). 
-      (We never really know exact lengths of physical objects.) 
-      If that object was measured using a ruler showing only centimeters, 
-      we would see that the length was between 15 and 16 
-      <quantity><unit prefix="centi" base="meter"/></quantity> but closer to 15. 
-      Our measurement would be written as 15 <quantity><unit prefix="centi" base="meter"/></quantity>, 
-      and we would have two significant digits. 
-      If the ruler showed millimeters, then our measurement would be 
-      <quantity><mag>15.3</mag><unit prefix="centi" base="meter"/></quantity> 
+      In science, the precision of a measurement is often described using <term>significant digits</term>.
+      Significant digits are those digits which represent the value measured up to the accuracy of the measurement.
+      For example, consider an object with a length of
+      <quantity><mag>15.2772</mag><unit prefix="centi" base="meter"/></quantity>,
+      which is a measurement accurate to the nearest micron (micrometer).
+      (We never really know exact lengths of physical objects.)
+      If that object was measured using a ruler showing only centimeters,
+      we would see that the length was between 15 and 16
+      <quantity><unit prefix="centi" base="meter"/></quantity> but closer to 15.
+      Our measurement would be written as 15 <quantity><unit prefix="centi" base="meter"/></quantity>,
+      and we would have two significant digits.
+      If the ruler showed millimeters, then our measurement would be
+      <quantity><mag>15.3</mag><unit prefix="centi" base="meter"/></quantity>
       with three significant digits.
     </p>
     <p>
@@ -329,64 +340,64 @@
         </latex-image>
       </image>
     </sidebyside>
-    
+
     <p>
-      Significant digits with zeros have some trickier rules. 
-      For example, in the previous example, 
-      if the length were reported in microns instead of centimeters, 
-      the two significant digit result would be 150,000 microns. 
-      The zeros following the 5 are only present as placeholders to maintain the appropriate  magnitude. 
-      To avoid any confusion, <term>scientific notation</term> would be best, 
-      writing this as <m>1.5 \times 10^5</m> microns. 
-      Zeros following the decimal point are considered significant. 
-      So a measurement of <m>2.530 \times 10^4</m> would have four significant digits 
+      Significant digits with zeros have some trickier rules.
+      For example, in the previous example,
+      if the length were reported in microns instead of centimeters,
+      the two significant digit result would be 150,000 microns.
+      The zeros following the 5 are only present as placeholders to maintain the appropriate  magnitude.
+      To avoid any confusion, <term>scientific notation</term> would be best,
+      writing this as <m>1.5 \times 10^5</m> microns.
+      Zeros following the decimal point are considered significant.
+      So a measurement of <m>2.530 \times 10^4</m> would have four significant digits
       but <m>2.53 \times 10^4</m> would only have three significant digits.
     </p>
     </subsubsection>
-    
+
     <subsubsection xml:id="subsection-margin-of-error">
     <title>Margin of Error</title>
-    
+
     <p>
-      An alternative to using significant digits is to state explicitly a <term>margin of error</term>. 
-      A measurement 15.3 <quantity><unit prefix="centi" base="meter"/></quantity> 
-      with three significant digits means that the true value is somewhere between 
-      <quantity><mag>15.25</mag><unit prefix="centi" base="meter"/></quantity> 
-      and <quantity><mag>15.35</mag><unit prefix="centi" base="meter"/></quantity>. 
-      Using a margin of error, this would be written as 
-      <m>15.3 \pm 0.05</m> <quantity><unit prefix="centi" base="meter"/></quantity>. 
-      A margin of error is more precise than significant digits. 
-      For example, if we wanted to say that a measurement was somewhere 
-      between <quantity><mag>15.2</mag><unit prefix="centi" base="meter"/></quantity> 
-      and <quantity><mag>15.4</mag><unit prefix="centi" base="meter"/></quantity>, 
-      then we would write <m>15.3 \pm 0.1</m> <quantity><unit prefix="centi" base="meter"/></quantity>. 
-      The value 15.3 was used as a central value 
-      and the margin of error gives a distance in either direction to reach the extreme values. 
+      An alternative to using significant digits is to state explicitly a <term>margin of error</term>.
+      A measurement 15.3 <quantity><unit prefix="centi" base="meter"/></quantity>
+      with three significant digits means that the true value is somewhere between
+      <quantity><mag>15.25</mag><unit prefix="centi" base="meter"/></quantity>
+      and <quantity><mag>15.35</mag><unit prefix="centi" base="meter"/></quantity>.
+      Using a margin of error, this would be written as
+      <m>15.3 \pm 0.05</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      A margin of error is more precise than significant digits.
+      For example, if we wanted to say that a measurement was somewhere
+      between <quantity><mag>15.2</mag><unit prefix="centi" base="meter"/></quantity>
+      and <quantity><mag>15.4</mag><unit prefix="centi" base="meter"/></quantity>,
+      then we would write <m>15.3 \pm 0.1</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      The value 15.3 was used as a central value
+      and the margin of error gives a distance in either direction to reach the extreme values.
       The true value must be between the extremes.
     </p>
-    
+
     <p>
-      We can write a statement about the margin of error using absolute values. 
-      Suppose that a quantity <m>Q</m> is being measured 
-      and we have measurement with a margin of error <m>Q = 15.3 \pm 0.1</m>. 
-      This is not an ordinary mathematical equation. 
-      Rather, it is saying that we have an approximate measurement 
-      <m>\widehat{Q}=15.3</m> and that the margin of error is between <m>\pm 0.1</m>. 
-      Writing the error as <m>Q-\widehat{Q} = Q-15.3</m>, 
-      the margin of error statement can be written <me> -0.1 \lt Q - 15.3 \lt 0.1.</me> 
-      This says that <m>Q</m> is within a margin of error 0.1 of the measurement 15.3. 
-      Absolute values measure the magnitude of numbers. 
-      A margin of error gives the largest magnitude of the error, 
+      We can write a statement about the margin of error using absolute values.
+      Suppose that a quantity <m>Q</m> is being measured
+      and we have measurement with a margin of error <m>Q = 15.3 \pm 0.1</m>.
+      This is not an ordinary mathematical equation.
+      Rather, it is saying that we have an approximate measurement
+      <m>\widehat{Q}=15.3</m> and that the margin of error is between <m>\pm 0.1</m>.
+      Writing the error as <m>Q-\widehat{Q} = Q-15.3</m>,
+      the margin of error statement can be written <me> -0.1 \lt Q - 15.3 \lt 0.1.</me>
+      This says that <m>Q</m> is within a margin of error 0.1 of the measurement 15.3.
+      Absolute values measure the magnitude of numbers.
+      A margin of error gives the largest magnitude of the error,
       so we would say <me>|Q-15.3| \lt 0.1.</me>
     </p>
-    
+
     <example>
       <statement>
         <p>
-          The length of the hypotenuse of a right triangle with legs of lengths 
-          4 <quantity><unit prefix="centi" base="meter"/></quantity> 
-          and 6 <quantity><unit prefix="centi" base="meter"/></quantity> 
-          is <m>H = \sqrt{4^2+6^2} = \sqrt{52} = 2 \sqrt{13}</m> 
+          The length of the hypotenuse of a right triangle with legs of lengths
+          4 <quantity><unit prefix="centi" base="meter"/></quantity>
+          and 6 <quantity><unit prefix="centi" base="meter"/></quantity>
+          is <m>H = \sqrt{4^2+6^2} = \sqrt{52} = 2 \sqrt{13}</m>
           <quantity><unit prefix="centi" base="meter"/></quantity>.
           A calculator shows the decimal approximation is <m>H \approx 7.211103</m>
           <quantity><unit prefix="centi" base="meter"/></quantity>.
@@ -425,7 +436,7 @@
         <p>
         <ul>
           <li>
-            Write <m>H</m> using a margin of error to state that the measurement 
+            Write <m>H</m> using a margin of error to state that the measurement
             to the nearest millimeter is <quantity><mag>7.2</mag><unit prefix="centi" base="meter"/></quantity>.
           </li>
           <li>
@@ -469,14 +480,14 @@
           </image>
         </sidebyside>
         <p>
-          The spacing from <m>\widehat{H}</m> and the edge of this interval is 
+          The spacing from <m>\widehat{H}</m> and the edge of this interval is
           <me>\epsilon = |7.25-7.2| = |7.15-7.2| = 0.05.</me>
-          This value <m>\epsilon</m> is the largest margin of error so that 
+          This value <m>\epsilon</m> is the largest margin of error so that
           <me>|H-7.2| \lt 0.05</me>.
           We write <m>H = 7.2 \pm 0.05</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
         </p>
         <p>
-          Next, we work with the range <m>7.2 \lt H \lt 7.3</m>. 
+          Next, we work with the range <m>7.2 \lt H \lt 7.3</m>.
           We find the mid-point of this interval as our recorded measurement
           <me> \widehat{H} = \frac{7.2+7.3}{2} = 7.25.</me>
         </p>
@@ -506,15 +517,15 @@
         <p>
           Then we measure the distance from the center to the edge,
           <me>\epsilon = |7.3-7.25| = |7.2-7.25| = 0.05</me>
-          to find the margin of error <quantity><mag>0.05</mag><unit prefix="centi" base="meter"/></quantity>. 
+          to find the margin of error <quantity><mag>0.05</mag><unit prefix="centi" base="meter"/></quantity>.
           We can then express our measurement with a margin of error as
           <m>H = 7.25 \pm 0.05</m> <quantity><unit prefix="centi" base="meter"/></quantity>
           corresponding to a bounded error <me> |H-7.25| \lt 0.05. </me>
         </p>
         <p>
-          Finally, we repeat this process to indicate that 
-          <m>H</m> is in the range <m>7.2 \lt H \lt 7.25</m>. 
-          The mid-point gives 
+          Finally, we repeat this process to indicate that
+          <m>H</m> is in the range <m>7.2 \lt H \lt 7.25</m>.
+          The mid-point gives
           <me> \widehat{H} = \frac{7.2+7.25}{2} = 7.225.</me>
         </p>
         <sidebyside width="60%" margins="auto">
@@ -541,29 +552,29 @@
           </image>
         </sidebyside>
         <p>
-          The margin of error is 0.025 so that 
-          our new approximate measurement with a margin of error is written 
-          <m>H = 7.25 \pm 0.025</m> <quantity><unit prefix="centi" base="meter"/></quantity>. 
-          Using an inequality involving absolute values, 
+          The margin of error is 0.025 so that
+          our new approximate measurement with a margin of error is written
+          <m>H = 7.25 \pm 0.025</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+          Using an inequality involving absolute values,
           we could write <me> |H-7.225| \lt 0.025. </me>
         </p>
       </solution>
     </example>
-    
+
     <p>
       When measurements are given with margins of error,
       dependent quantities calculated from them also have margins of error.
       Those errors need to be computed based on the margins of error that we know.
       One of the outcomes from calculus is understanding the relationships between these margins of error.
     </p>
-    
+
     <example>
       <statement>
         <p>
           Suppose that we have a square whose length is side <m>s</m>.
           From measurement, we have <m>s = 5.3 \pm 0.025</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
           What are the possible values for the perimeter <m>P</m> and the area <m>A</m>?
-          Write them using a margin of error. 
+          Write them using a margin of error.
         </p>
       </statement>
       <solution>
@@ -619,39 +630,39 @@
     <p><ul>
       <li>
         <p>
-        In mathematics, numbers represent specific points on the number line. 
-        Real numbers (<m>\mathbb{R}</m>) can be classified as natural numbers 
-        (<m>\mathbb{N}</m>), integers (<m>\mathbb{Z}</m>), 
+        In mathematics, numbers represent specific points on the number line.
+        Real numbers (<m>\mathbb{R}</m>) can be classified as natural numbers
+        (<m>\mathbb{N}</m>), integers (<m>\mathbb{Z}</m>),
         rational numbers (<m>\mathbb{Q}</m>), and irrational numbers.
         </p>
       </li>
       <li>
         <p>
-        To simplify an expression is to find an expression representing the same value in a simpler form. 
-        For fractions, there should be no common factors. 
+        To simplify an expression is to find an expression representing the same value in a simpler form.
+        For fractions, there should be no common factors.
         For roots, the power of prime factors inside should be less than the root.
         </p>
       </li>
       <li>
         <p>
-        In a physical context, numbers represent measurements that have limited precision. 
+        In a physical context, numbers represent measurements that have limited precision.
         This precision might be characterized by significant digits or by a margin of error.
         </p>
       </li>
       <li>
         <p>
-        The error of approximation <m>E</m> for a quantity <m>Q</m> 
-        and an approximation <m>\widehat{Q}</m> is defined by 
-        <me>E = Q-\widehat{Q}.</me> 
-        A symmetrical error bound <m>-\epsilon \lt E \lt \epsilon</m> 
-        corresponds to the absolute value inequality 
-        <m>|Q-\widehat{Q}| \lt \epsilon</m> 
+        The error of approximation <m>E</m> for a quantity <m>Q</m>
+        and an approximation <m>\widehat{Q}</m> is defined by
+        <me>E = Q-\widehat{Q}.</me>
+        A symmetrical error bound <m>-\epsilon \lt E \lt \epsilon</m>
+        corresponds to the absolute value inequality
+        <m>|Q-\widehat{Q}| \lt \epsilon</m>
         for a range of values <me>\widehat{Q}-\epsilon \lt Q \lt \widehat{Q}+\epsilon.</me>
         </p>
       </li>
     </ul></p>
   </subsection>
-    
+
   <exercises xml:id="exercises-numbers-measurements">
       <title>Exercises</title>
 
@@ -715,12 +726,12 @@
       <exercise>
         <statement>
           <p>
-            A right triangle is formed with legs measuring 
-            5 <quantity><unit prefix="centi" base="meter"/></quantity> 
+            A right triangle is formed with legs measuring
+            5 <quantity><unit prefix="centi" base="meter"/></quantity>
             and 8 <quantity><unit prefix="centi" base="meter"/></quantity>.
-            Express the length of the hypotenuse <m>H</m> to the nearest tenth of a centimeter, 
-            stating the margin of error based on a ruler showing millimeters. 
-            Rewrite your statement about margin of error 
+            Express the length of the hypotenuse <m>H</m> to the nearest tenth of a centimeter,
+            stating the margin of error based on a ruler showing millimeters.
+            Rewrite your statement about margin of error
             as an inequality involving absolute values.
           </p>
         </statement>
@@ -728,22 +739,22 @@
       <exercise>
         <statement>
           <p>
-            A right triangle is formed with one leg measuring 
-            10 <quantity><unit prefix="centi" base="meter"/></quantity> 
-            and the hypotenuse measuring 18 <quantity><unit prefix="centi" base="meter"/></quantity>. 
-            Express the length of the other leg <m>L</m> to the nearest tenth of a centimeter, 
-            stating the margin of error based on a ruler showing millimeters. 
+            A right triangle is formed with one leg measuring
+            10 <quantity><unit prefix="centi" base="meter"/></quantity>
+            and the hypotenuse measuring 18 <quantity><unit prefix="centi" base="meter"/></quantity>.
+            Express the length of the other leg <m>L</m> to the nearest tenth of a centimeter,
+            stating the margin of error based on a ruler showing millimeters.
             Rewrite your statement about margin of error as an inequality involving absolute values.
           </p>
         </statement>
-      </exercise>        
+      </exercise>
       <exercise>
         <statement>
           <p>
-            The circumference of a tree trunk, with margin of error, 
-            is recorded as <m>C = 138.4 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>. 
-            What is the corresponding estimate for the diameter of the tree <m>D</m> 
-            with its corresponding margin of error? 
+            The circumference of a tree trunk, with margin of error,
+            is recorded as <m>C = 138.4 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+            What is the corresponding estimate for the diameter of the tree <m>D</m>
+            with its corresponding margin of error?
             (Round the estimate and the margin of error to the nearest thousandth of a centimeter.)
           </p>
         </statement>
@@ -751,17 +762,17 @@
       <exercise>
         <statement>
           <p>
-            A rectangle is formed with a width <m>W=20 \pm 0.1</m> 
-            <quantity><unit prefix="centi" base="meter"/></quantity> 
-            and a height <m>H=15 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>. 
-            What range of areas are possible for this rectangle? 
-            Using the approximations <m>\widehat{W}=20</m> <quantity><unit prefix="centi" base="meter"/></quantity> 
-            and <m>\widehat{H}=15</m> <quantity><unit prefix="centi" base="meter"/></quantity>, 
-            the approximated area would be 
-            <m>\widehat{A}=300</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>. 
-            Can the range of possible areas be expressed using a symmetric margin of error 
+            A rectangle is formed with a width <m>W=20 \pm 0.1</m>
+            <quantity><unit prefix="centi" base="meter"/></quantity>
+            and a height <m>H=15 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+            What range of areas are possible for this rectangle?
+            Using the approximations <m>\widehat{W}=20</m> <quantity><unit prefix="centi" base="meter"/></quantity>
+            and <m>\widehat{H}=15</m> <quantity><unit prefix="centi" base="meter"/></quantity>,
+            the approximated area would be
+            <m>\widehat{A}=300</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>.
+            Can the range of possible areas be expressed using a symmetric margin of error
             from this approximated value,
-            <m>|A-\widehat{A}| \lt \epsilon</m>? 
+            <m>|A-\widehat{A}| \lt \epsilon</m>?
           Explain.
           </p>
         </statement>
