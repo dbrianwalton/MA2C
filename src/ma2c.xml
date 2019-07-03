@@ -18,7 +18,7 @@
 
     <chapter>
       <title>Overview to the Course</title>
-      <xi:include href="./learn_math.xml" />
+      <xi:include href="./learn_math.ptx" />
       <xi:include href="./numbers_measurements.ptx" />
       <xi:include href="./variables.xml" />
       <xi:include href="./graphs-relations.xml" />
