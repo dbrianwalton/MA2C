@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!-- This file is part of the book                -->
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
 <!-- Copyright (C) 2015-2019  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
-
 <section xml:id="numbers-measurements">
   <title>Numbers, Measurements and Relations</title>
-
   <subsection>
     <title>Overview</title>
-
     <p>
       Numbers play a fundamental role in science because they allow us to quantify observations.
       That is, instead of saying things are big or small, we can assign numbers to measurements.
       Science in large part has progressed because of our ability to determine mathematical relationships between different measurements that make prediction possible.
     </p>
-
     <p>
       Mathematics admittedly views numbers themselves as objects worthy of study.
       A number is an exact entity<mdash/>other numbers, regardless of how close they might be, are different.
@@ -28,7 +23,6 @@
       Historical conventions often suggest ways in which we can simplify an expression,
       often so that the classification can be more easily recognized.
     </p>
-
     <p>
       Measurements allow us to assign numerical values to physical attributes, such as length, temperature, mass, and speed.
       Instruments need to be designed so that repeated measurements will result in the same values using standard units.
@@ -38,11 +32,8 @@
       We generally wish to understand the relationships between these different quantities.
     </p>
   </subsection>
-
-
   <subsection>
     <title>Numbers in Mathematics</title>
-
     <p>
       In mathematics, numbers have precise meanings and classifications.
       Here, we review the basic <term>sets</term> of numbers.
@@ -54,7 +45,6 @@
       This <term>set-builder notation</term> indicates that <m>\mathbb{Q}</m> is a set of numbers
       that can be written in the form <m>p/q</m> where <m>p</m> is some integer and <m>q</m> is some natural number.
     </p>
-
     <p>
       We often visualize numbers geometrically using a number line.
       First, the origin of the line is specified with a value of zero.
@@ -68,7 +58,6 @@
       as well as transcendental numbers like <m>\pi</m> and <m>e</m>.
       The set of <term>real numbers</term> is written <m>\mathbb{R}</m> and consists of both rational and irrational numbers.
     </p>
-
     <figure xml:id="fig-number-line-example">
       <caption> The number line graphically represents real numbers, both rational and irrational.</caption>
       <image>
@@ -93,7 +82,6 @@
         </latex-image>
       </image>
     </figure>
-
     <p>
       Every mathematical value represents a singe point on the number line.
       Two values are equal only when they refer to the very same point on the line.
@@ -111,7 +99,6 @@
       Canceling any common factors to find this representation would be simplification.
       Other examples of simplification include simplifying a root or rationalizing a denominator.
     </p>
-
     <example>
       <p>
         The fraction <m>\frac{126}{24}</m> is not simplified.
@@ -130,13 +117,11 @@
         Because <m>21=3 \cdot 7</m> and <m>4=2^2</m> do not have common factors, we know this is simplified.
       </p>
     </example>
-
     <p>
       A square root is not simplified if there is a factor inside the root that is a perfect square.
       Similarly, a cube root is not simplified if there is a factor inside that is a perfect cube.
       We use the factors of the value inside a root to determine if we can simplify it.
     </p>
-
     <example>
       <p>
         The square root <m>\sqrt{126}</m> is not simplified.
@@ -145,7 +130,6 @@
         we can simplify as <me>\sqrt{126} = \sqrt{2 \cdot 3^2 \cdot 7} = \sqrt{9} \cdot \sqrt{14} = 3 \sqrt{14}.</me>
       </p>
     </example>
-
     <example>
       <p>
         The cube root <m>\sqrt[3]{48}</m> is not simplified.
@@ -155,21 +139,18 @@
         We have <me> \sqrt[3]{48} = \sqrt[3]{2^4 \cdot 3} = \sqrt[3]{2^3 \cdot 2 \cdot 3} = 2 \sqrt[3]{6}.</me>
       </p>
     </example>
-
     <p>
       Some additional rules of simplification you may have learned were created before fast calculators and computers were available.
       These rules were taught so that scientists and engineers could express an answer
       that would be in a form where it would be faster to use the tables and slide rules available at the time.
       We no longer need such rules for efficiency, but they often illustrate important algebra rules.
     </p>
-
     <p>
       One example of such a rule is the simplification of fractions with square roots, called rationalizing a fraction.
       It was much more costly to use a table or slide rule if the root was in the denominator.
       The practice was developed to rewrite such an answer so that the root was in the numerator.
       This could be accomplished by multiplying the fraction on top and bottom by a factor that would eliminate the undesired root.
     </p>
-
     <example>
       <statement>
         <p>Simplify <m>\displaystyle \frac{4}{3\sqrt{2}}</m> by rationalizing the denominator.</p>
@@ -185,7 +166,6 @@
         </p>
       </solution>
     </example>
-
     <p>
       In the previous example, the two expressions <m>\displaystyle \frac{4}{3\sqrt{2}}</m> and <m>\displaystyle \frac{2 \sqrt{2}}{3}</m>
       are equally simplified.
@@ -193,7 +173,6 @@
       The second expression has a rationalized denominator.
       You should ask your instructor whether they expect a preferred simplified form.
     </p>
-
     <p>
       Although we usually use simplification for aesthetic reasons,
       having a standard way to write numbers can be useful to prove mathematical results.
@@ -201,7 +180,6 @@
       The Greeks also originally thought that all numbers would ultimately be rational numbers.
       Realizing that <m>\sqrt{2}</m> was irrational was so shocking that, according to legend, the discoverer of this fact was drowned at sea.
     </p>
-
     <example>
       <statement>
         <p>
@@ -233,7 +211,6 @@
       </solution>
     </example>
   </subsection>
-
   <subsection xml:id="section-numbers-as-measurements">
     <title>Numbers as Measurements</title>
     <p>
@@ -264,7 +241,6 @@
       Consequently, a measurement represents an approximation of the value of a quantity.
       The difference between the true and measured values of a quantity is called an <term>error</term>.
     </p>
-
     <definition xml:id="definition-error">
       <statement>
         <p>
@@ -278,7 +254,6 @@
         </p>
       </statement>
     </definition>
-
     <definition xml:id="definition-absolute-error">
       <statement>
         <p>
@@ -288,7 +263,6 @@
         </p>
       </statement>
     </definition>
-
     <note>
       <p>
         Symbols that represent variables correspond to the entire symbol being used.
@@ -298,7 +272,6 @@
         Avoid the trap of thinking that the letter's name is the symbol.
       </p>
     </note>
-
     <p>
       In science, the error in a measurement is not know precisely but is represented by a <em>bound</em>.
       There are a variety of techniques used to indicate the bound for an error.
@@ -345,7 +318,6 @@
         The absolute error based on the measurement is bounded by  <quantity><mag>0.05</mag><unit prefix="centi" base="meter"/></quantity>.
       </p>
     </example>
-
     <p>
       An alternative to using significant digits is to state explicitly a <term>margin of error</term>.
       The margin of error is equivalent to providing a bound for the error.
@@ -368,7 +340,6 @@
       and the margin of error gives a distance in either direction to reach the extreme values.
       The true value must be between the extremes.
     </p>
-
     <example>
       <statement>
         <p>
@@ -584,15 +555,12 @@
       </li>
     </ul></p>
   </subsection>
-
   <exercises xml:id="exercises-numbers-measurements">
     <title>Exercises</title>
-
     <exercisegroup xml:id="exercise-simplify-arithmetic">
       <introduction>
           <p>Simplify the following values.</p>
       </introduction>
-
       <exercise>
           <statement><p><m>\frac{42}{12}</m></p></statement>
       </exercise>
@@ -618,7 +586,6 @@
           <statement><p><m>\frac{\sqrt{864}}{15}</m></p></statement>
       </exercise>
     </exercisegroup>
-
     <exercisegroup xml:id="exercise-rationalize-denominator-roots">
       <introduction>
           <p>Simplify the following values by rationalizing the denominator.</p>
@@ -633,7 +600,6 @@
           <statement><p><m>\displaystyle \frac{4\sqrt{2}}{\sqrt{3}}</m></p></statement>
       </exercise>
     </exercisegroup>
-
    <exercisegroup xml:id="exercise-rationalize-numerator-roots">
       <introduction>
           <p>Simplify the following values by rationalizing the numerator.</p>
@@ -645,7 +611,6 @@
           <statement><p><m>\displaystyle \frac{5 \sqrt[3]{4}}{\sqrt[3]{3}}</m></p></statement>
       </exercise>
     </exercisegroup>
-
     <exercise>
       <statement>
         <p>
