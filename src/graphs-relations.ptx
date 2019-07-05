@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!-- This file is part of the book                -->
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- Copyright (C) 2015-2019  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
-   
 <section xml:id="graphs-relations">
   <title>Graphs and Relations between Variables</title>
-
   <subsection>
     <title>Overview</title>
     <p>
@@ -22,25 +19,27 @@
       Graphs are often used to reveal relationships between different variables.
     </p>
     <p>
-      In this section, we explore graphs of equations and graphs of data through scatter plots.
+      In this section, we explore graphs of data through scatter plots and graphs of equations.
       An equation involving multiple variables represents a relation between those variables.
       We consider the role of solving equations in the context of these relations.
     </p>
   </subsection>
-  
   <subsection>
     <title>Systems, States and Variables</title>
     <p>
       In the course of an experiment, or even just in observation,
       many different quantities typically are covarying, or changing with one another.
       For example, an object in motion has changing position, changing velocity, and changing forces.
-      In the course of a chemical reaction, there are changing concentrations of the different reactants and products as well as possibly changing temperature, pH, and volume, for example.
+      In the course of a chemical reaction, there are changing concentrations of the different reactants and products.
+      Other quantities might also change, such as temperature, pH, and volume.
       While observing a changing population, there could be changing population numbers, total biomass, birth and death rates, consumption of resources, and production of products and waste.
     </p>
     <p>
       Mathematically, the <term>system</term> consists of all possible observable quantities associated with the experiment or observed physical system.
       The <term>state</term> of the system refers to the collection of instantaneous values of all such quantities at a particular instant or configuration of the system.
       A <term>state variable</term>, or more simply a variable, represents a single quantity that is or could be observed in the system.
+      Quantities that can be calculated in terms of state variables are mathematically <term>dependent variables</term>
+      and are also examples of state variables, even if they can not be directly measured.
     </p>
     <example>
       <p>
@@ -65,7 +64,7 @@
           </row>
           <row>
             <cell>1991</cell>
-            <cell>2.521E8</cell>
+            <cell>2.530E8</cell>
             <cell>4.111E6</cell>
             <cell>2.170E6</cell>
             <cell></cell>
@@ -76,7 +75,7 @@
           </row>
           <row>
             <cell>1992</cell>
-            <cell>2.550E8</cell>
+            <cell>2.565E8</cell>
             <cell>4.065E6</cell>
             <cell>2.176E6</cell>
             <cell></cell>
@@ -87,7 +86,7 @@
           </row>
           <row>
             <cell>1993</cell>
-            <cell>2.577E8</cell>
+            <cell>2.599E8</cell>
             <cell>4.000E6</cell>
             <cell>2.269E6</cell>
             <cell></cell>
@@ -98,7 +97,7 @@
           </row>
           <row>
             <cell>1994</cell>
-            <cell>2.602E8</cell>
+            <cell>2.631E8</cell>
             <cell>3.953E6</cell>
             <cell>2.279E6</cell>
             <cell></cell>
@@ -109,7 +108,7 @@
           </row>
           <row>
             <cell>1995</cell>
-            <cell>2.628E8</cell>
+            <cell>2.663E8</cell>
             <cell>3.900E6</cell>
             <cell>2.312E6</cell>
             <cell></cell>
@@ -120,7 +119,7 @@
           </row>
           <row>
             <cell>1996</cell>
-            <cell>2.652E8</cell>
+            <cell>2.694E8</cell>
             <cell>3.891E6</cell>
             <cell>2.315E6</cell>
             <cell></cell>
@@ -131,7 +130,7 @@
           </row>
           <row>
             <cell>1997</cell>
-            <cell>2.677E8</cell>
+            <cell>2.727E8</cell>
             <cell>3.881E6</cell>
             <cell>2.314E6</cell>
             <cell></cell>
@@ -142,7 +141,7 @@
           </row>
           <row>
             <cell>1998</cell>
-            <cell>2.703E8</cell>
+            <cell>2.758E8</cell>
             <cell>3.942E6</cell>
             <cell>2.337E6</cell>
             <cell></cell>
@@ -153,7 +152,7 @@
           </row>
           <row>
             <cell>1999</cell>
-            <cell>2.727E8</cell>
+            <cell>2.790E8</cell>
             <cell>3.959E6</cell>
             <cell>2.391E6</cell>
             <cell></cell>
@@ -177,7 +176,7 @@
       </sidebyside>
       <p>
         Each row (corresponding to the population in a given year) represents a distinct state of the system.
-        The observed values in the state are the <term>variables</term>: 
+        The observed values in the state are the <term>variables</term>:
         the year, the total population at the beginning of the year, the total number of births in the year, and the total number of deaths in the year.
         The year is included as one of the variables<mdash/>an independent variable<mdash/>in order to distinguish the different states with respect to time.
       </p>
@@ -198,7 +197,8 @@
         The year might be represented by the symbol <m>Y</m>.
       </p>
       <p>
-        Note that the symbols <m>p</m>, <m>b</m>, <m>d</m> and <m>y</m> are <em>not</em> the same as the symbols above.
+        Note that the symbols <m>p</m>, <m>b</m>, <m>d</m> and <m>y</m> are <em>not</em> the same as the symbols above,
+        even though they have the same letter names.
         They should not be used for this problem.
       </p>
     </example>
@@ -276,10 +276,8 @@
       </sidebyside>
     </example>
   </subsection>
-  
   <subsection>
     <title>Scatter Plots and Relationships Between Variables</title>
-  
     <p>
       The primary motivation for collecting data regarding different variables in the state of a system is to determine relationships between those variables.
       One of the ways that we look for relationships is using a <term>scatter plot</term>.
@@ -303,8 +301,7 @@
       These graphs contains the same information but viewed from a reverse perspective.
       When we switch the order of the variables, we call the relationships <term>inverse relations</term>.
     </p>
-  
-    <figure>
+    <figure xml:id="fig-electrophoresis-scatterplot">
       <caption>Scatter plot of electrophoresis data, displacement vs size and the inverse relation size vs displacement.</caption>
       <image width="80%">
         <description>
@@ -368,112 +365,124 @@
       For example, the population data has four state variables, <m>(Y,P,B,D)</m>.
       Three scatter plots can be formed by plotting the population, the total births and the total deaths versus the year, giving graphs of points <m>(Y,P)</m>, <m>(Y,B)</m>, <m>(Y,D)</m>.
       Because the births and deaths are on the same scale, we can combine the plots as one.
-      We could also plot the inverse relations <m>(P,Y)</m>, <m>(B,Y)</m> and <m>(D,Y)</m>, but these really contain the same information from a different view.
+      The inverse relations <m>(P,Y)</m>, <m>(B,Y)</m> and <m>(D,Y)</m> contain the same information from a different view and are not shown.
     </p>
-    <sidebyside width="80%" margins="auto">
-      <image>
-        <description>
-        Scatter plot of population, births and deaths with respect to time.
-        </description>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \pgfplotsset{ width=6cm }
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Year},
-          ylabel={Population},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=Y, y=P] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Year},
-          ylabel={Number},
-          ymin=0,
-          legend style={at={(0.95,0.05)},
-          anchor=south east,
-          legend entries={Births,Deaths}},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=Y, y=B] {data/pop-birth-death-demo.dat};
-        \addplot[
-          only marks,
-          color=red
-        ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
-  
+    <figure>
+      <caption>Scatter plot of population, births and deaths with respect to time.</caption>
+      <sidebyside widths="45% 45%" margins="auto">
+        <image>
+          <description>
+            Scatter plot of population vs time.
+          </description>
+          <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={Year},
+            ylabel={Population},
+          ]
+          \addplot[
+            only marks,
+            color=blue
+          ] table [x=Y, y=P] {data/pop-birth-death-demo.dat};
+          \end{axis}
+          \end{tikzpicture}
+          </latex-image>
+        </image>
+        <image>
+          <description>
+            Scatter plot of births and deaths vs time.
+          </description>
+          <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={Year},
+            ylabel={Number},
+            ymin=0,
+            legend style={at={(0.95,0.05)},
+            anchor=south east,
+            legend entries={Births,Deaths}},
+          ]
+          \addplot[
+            only marks,
+            color=blue
+          ] table [x=Y, y=B] {data/pop-birth-death-demo.dat};
+          \addplot[
+            only marks,
+            color=red
+          ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </sidebyside>
+    </figure>
     <p>
       We can also look at relationships between other pairs of variables.
       For example, we can look at how the number of births or deaths relate to the population, plotting <m>(P,B)</m> and <m>(P,D)</m>, or how the number of births relate to the number of deaths with <m>(B,D)</m>.
       The graph showing the relation between births and deaths to time (above) is very similar to the graph showing the relation between births and deaths to population (below).
       However, the relation between the births and deaths illustrates that sometimes variables do not show a clear relation.
     </p>
-  
-    <sidebyside width="80%">
-      <image>
-        <description>
-        Scatter plot of population, births and deaths with respect to each other.
-        </description>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \pgfplotsset{ width=6cm }
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Population},
-          ylabel={Number},
-          ymin=0,
-          legend style={at={(0.95,0.05)},
-          anchor=south east,
-          legend entries={Births,Deaths}},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=P, y=B] {data/pop-birth-death-demo.dat};
-        \addplot[
-          only marks,
-          color=red
-        ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Births},
-          ylabel={Deaths},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
+    <figure>
+      <caption>Graphs showing the relations <m>(P,B)</m>, <m>(P,D)</m>, and <m>(B,D)</m>.</caption>
+      <sidebyside widths="45% 45%">
+        <image>
+          <description>
+          Scatter plot of population vs annual births and deaths.
+          </description>
+          <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}[
+              xlabel={Population},
+              ylabel={Number},
+              ymin=0,
+              legend style={at={(0.95,0.05)},
+              anchor=south east,
+              legend entries={Births,Deaths}},
+            ]
+            \addplot[
+              only marks,
+              color=blue
+            ] table [x=P, y=B] {data/pop-birth-death-demo.dat};
+            \addplot[
+              only marks,
+              color=red
+            ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <image>
+          <description>
+          Scatter plot of annual births vs annual deaths.
+          </description>
+          <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={Births},
+            ylabel={Deaths},
+          ]
+          \addplot[
+            only marks,
+            color=blue
+          ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
+          \end{axis}
+          \end{tikzpicture}
+          </latex-image>
+        </image>
+      </sidebyside>
   </subsection>
   <subsection>
     <title>Graphs of Equations</title>
     <p>
-      An equation gives an abstract representation of a relationship between variables.
+      An <term>equation</term> gives an abstract representation of a relationship between variables
+      by stating that two <term>expressions</term> are equal in value.
       Just as the state of an experimental system is defined by the value of the variables defining the state,
       an equation can be considered as a mathematical way to define relationships between variables of an abstract system.
-      A scatter plot of data is generalized for an equation as a graph of all solutions.
+      A <term>solution</term> to the equation is a state for the variables such that the equation is true.
+      The graph of an equation generalizes a scatter plot by including all solutions of the equation.
       If we choose an ordering for the variables (e.g., alphabetical), the values for the variables can be conveniently listed as an ordered list.
-      When two variables are involved in an equation, the ordered list is called an ordered pair, or point, like <m>(x,y)</m>, and the graph of the equation is typically a curve in the plane.
+      When two variables are involved in an equation, the ordered list is called an ordered pair, or point, like <m>(x,y)</m>,
+      and the graph of the equation is typically a curve in the plane.
     </p>
     <example>
       <p>
@@ -488,11 +497,10 @@
       <sidebyside width="50%" margins="auto">
         <image>
           <description>
-          Graph of solutions to 2x+3y=12.
+          Graph of solutions to 2x+3y=12 showing three points on the line and one point off.
           </description>
           <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
+          \tikzset{%
           /pgfplots/table/row sep=crcr
           }
           \pgfplotsset{ width=6cm }
@@ -519,7 +527,7 @@
           \addplot[blue, samples=100, domain=-3:9]
             ({x}, {(12-2*x)/3});
           \end{axis}
-          \end{tikzpicture}]]>
+          \end{tikzpicture}
           </latex-image>
         </image>
       </sidebyside>
@@ -536,7 +544,8 @@
         </md>
         It is possible to show that the graph of solutions for this equation is a circle centered at <m>(3,0)</m> with radius 5.
         Other points on this circle include such points as <m>(-2,0)</m> and <m>(6,-4)</m>.
-        You should verify that these are also solutions, at least for one or two points to reinforce the idea that a solution makes the statement of the equation true.
+        You should verify that these are also solutions, at least for one or two points
+        to reinforce the idea that a solution makes the statement of the equation true.
       </p>
       <sidebyside width="50%" margins="auto">
         <image>
@@ -544,8 +553,7 @@
           Graph of solutions to u^2+v^2=16+6u.
           </description>
           <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
+          \tikzset{%
           /pgfplots/table/row sep=crcr
           }
           \pgfplotsset{ width=6cm }
@@ -568,7 +576,7 @@
           \addplot[blue, samples=100, domain=0:360]
             ({3+5*cos(x)}, {5*sin(x)});
           \end{axis}
-          \end{tikzpicture}]]>
+          \end{tikzpicture}
           </latex-image>
         </image>
       </sidebyside>
@@ -593,7 +601,8 @@
     </sage>
     <p>
       When an equation is written as a dependent variable being equal to an expression involving an independent variable,
-      we can easily generate points that are in the solution set using a table with the independent variable in the first column and the dependent variable in the second column.
+      we can easily generate points that are in the solution set using a table
+      with the independent variable in the first column and the dependent variable in the second column.
       We choose convenient values for the independent variable,
       compute the value of the expression that depends on that variable,
       and then use that resulting value for the dependent variable.
@@ -617,9 +626,11 @@
             <mrow>y = \frac{1}{3}(-2x+12)</mrow>
             <mrow>y = -\frac{2}{3} x + 4 </mrow>
           </md>
-          The final equation <m>y = -\frac{2}{3}x+4</m> should be recognized as a <xref ref="slope-intercept-line">slope-intercept equation</xref> of a line.
+          The final equation <m>y = -\frac{2}{3}x+4</m> should be recognized
+          as a <xref ref="slope-intercept-line" text="title">slope-intercept equation</xref> of a line.
           The slope is <m>m=-\frac{2}{3}</m> while the <m>y</m>-intercept value is <m>b=4</m>.
-          Having solved for <m>y</m>, we can now use four different values for <m>x</m> to find corresponding values for <m>y</m>.
+          Having solved for <m>y</m>, we can finish the task by using four different values for <m>x</m>
+          to find corresponding values for <m>y</m>.
           We do this in a table.
         </p>
         <sidebyside margins="auto">
@@ -653,218 +664,197 @@
         </sidebyside>
       </solution>
     </example>
-    <p>
-      Solving equations has a graphical interpretation.
-      Recall that an equation is a statement that two expressions are equal.
-      We can imagine that each expression defines a dependent variable, say <m>y_1</m> and <m>y_2</m>.
-      A solution would be where the dependent variables have the same value, <m>y_1=y_2</m>.
-      Graphically, that would be where the curves defined by the dependent variables cross.
-    </p>
-    <example>
-      <statement>
-        <p>
-          The equation <m>2x^2=3x+5</m> can be interpreted as having two dependent variables,
-          <md>
-            <mrow>y_1 &amp;= 2x^2,</mrow>
-            <mrow>y_2 &amp;= 3x+5.</mrow>
-          </md>
-          We can plot a graph of each equation in the same figure.
-          The first dependent variable <m>y_1</m> corresponds to a parabola
-          and the second dependent variable <m>y_2</m> corresponds to a line.
-          Points where the graphs cross correspond to solutions.
-        </p>
-        <sidebyside width="50%" margins="auto">
-          <image>
-            <description>Graphs of 2x^2 and 3x+5 showing them intersect at (-1,2) and (5/2,25/2).</description>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \pgfplotsset{ width=6cm }
-            \begin{tikzpicture}
-            \begin{axis}[
-              xlabel={$x$},
-              ylabel={$y$},
-              xmin=-3, xmax=5,
-              ymin=-5, ymax=15,
-            ]
-            \addplot[blue, samples=100, domain=-3:5]
-              ({x}, {2*x^2});
-            \addplot[red, samples=100, domain=-3:5]
-              ({x}, {3*x+5});
-            \addplot [black, only marks] coordinates { (-1,2) (2.5,12.5) }
-              node [pos=0, below] {$(-1,2)$}
-              node [pos=1, below right] {$(\frac{5}{2},\frac{25}{2})$};
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
-        <p>
-          The original equation only involved the independent variable <m>x</m>.
-          Consequently, the solution set corresponds to the set of the <m>x</m>-coordinates of the points of intersection.
-          That is, the solution set is <m>\{-1, \frac{5}{2}\}</m>.
-        </p>
-      </statement>
-    </example>
-    <p>
-      When we find an equivalent equation using balanced operations, 
-      the new equation involves different expressions.
-      Consequently, the graphs that would be involved will be different.
-      However, the locations where the graphs intersect will be at the same <m>x</m>-values.
-    </p>
-    <example>
-      <statement>
-        <p>
-          Compare the graphs for the equations <m>2x^2=3x+5</m>, <m>2x^2-3x=5</m>, <m>2x^2-5=3x</m>, and <m>2x^2-3x-5=0</m>, shown below.
-          Notice how the <m>x</m>-values for the points of intersection are always the same.
-        </p>
-        <sidebyside widths="40% 40%" margins="auto">
-          <figure>
-            <caption><m>y_1=2x^2</m> and <m>y_2=3x+5</m>.</caption>
-            <image>
-              <description>Graphs of 2x^2 and 3x+5 showing them intersect at x=-1 and x=2.5.</description>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \pgfplotsset{ width=6cm }
-              \begin{tikzpicture}
-              \begin{axis}[
-                xlabel={$x$},
-                ylabel={$y$},
-                xmin=-3, xmax=5,
-                ymin=-5, ymax=15,
-              ]
-              \addplot[blue, samples=100, domain=-3:5]
-                ({x}, {2*x^2});
-              \addplot[red, samples=100, domain=-3:5]
-                ({x}, {3*x+5});
-              \addplot [black, only marks] coordinates { (-1,2) (2.5,12.5) };
-              \draw [dotted] ({axis cs:-1,0}|-{rel axis cs:0,0}) -- ({axis cs:-1,0}|-{rel axis cs:0,1});
-              \draw [dotted] ({axis cs:2.5,0}|-{rel axis cs:0,0}) -- ({axis cs:2.5,0}|-{rel axis cs:0,1});
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </figure>
-          <figure>
-            <caption><m>y_1=2x^2-3x</m> and <m>y_2=5</m>.</caption>
-            <image>
-              <description>Graphs of 2x^2-3x and 5 showing them intersect at x=-1 and x=2.5.</description>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \pgfplotsset{ width=6cm }
-              \begin{tikzpicture}
-              \begin{axis}[
-                xlabel={$x$},
-                ylabel={$y$},
-                xmin=-3, xmax=5,
-                ymin=-5, ymax=15,
-              ]
-              \addplot[blue, samples=100, domain=-3:5]
-                ({x}, {2*x^2-3*x});
-              \addplot[red, samples=100, domain=-3:5]
-                ({x}, {5});
-              \addplot [black, only marks] coordinates { (-1,5) (2.5,5) };
-              \draw [dotted] ({axis cs:-1,0}|-{rel axis cs:0,0}) -- ({axis cs:-1,0}|-{rel axis cs:0,1});
-              \draw [dotted] ({axis cs:2.5,0}|-{rel axis cs:0,0}) -- ({axis cs:2.5,0}|-{rel axis cs:0,1});
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </figure>
-        </sidebyside>
-        <sidebyside widths="40% 40%" margins="auto">
-          <figure>
-            <caption><m>y_1=2x^2-5</m> and <m>y_2=3x</m>.</caption>
-            <image>
-              <description>Graphs of 2x^2-5 and 3x showing them intersect at x=-1 and x=2.5.</description>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \pgfplotsset{ width=6cm }
-              \begin{tikzpicture}
-              \begin{axis}[
-                xlabel={$x$},
-                ylabel={$y$},
-                xmin=-3, xmax=5,
-                ymin=-5, ymax=15,
-              ]
-              \addplot[blue, samples=100, domain=-3:5]
-                ({x}, {2*x^2-5});
-              \addplot[red, samples=100, domain=-3:5]
-                ({x}, {3*x});
-              \addplot [black, only marks] coordinates { (-1,-3) (2.5,7.5) };
-              \draw [dotted] ({axis cs:-1,0}|-{rel axis cs:0,0}) -- ({axis cs:-1,0}|-{rel axis cs:0,1});
-              \draw [dotted] ({axis cs:2.5,0}|-{rel axis cs:0,0}) -- ({axis cs:2.5,0}|-{rel axis cs:0,1});
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </figure>
-          <figure>
-            <caption><m>y_1=2x^2-3x-5</m> and <m>y_2=0</m>.</caption>
-            <image>
-              <description>Graphs of 2x^2-3x-5 and 0 showing them intersect at x=-1 and x=2.5.</description>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \pgfplotsset{ width=6cm }
-              \begin{tikzpicture}
-              \begin{axis}[
-                xlabel={$x$},
-                ylabel={$y$},
-                xmin=-3, xmax=5,
-                ymin=-5, ymax=15,
-              ]
-              \addplot[blue, samples=100, domain=-3:5]
-                ({x}, {2*x^2-3*x-5});
-              \addplot[red, samples=100, domain=-3:5]
-                ({x}, {0});
-              \addplot [black, only marks] coordinates { (-1,0) (2.5,0) };
-              \draw [dotted] ({axis cs:-1,0}|-{rel axis cs:0,0}) -- ({axis cs:-1,0}|-{rel axis cs:0,1});
-              \draw [dotted] ({axis cs:2.5,0}|-{rel axis cs:0,0}) -- ({axis cs:2.5,0}|-{rel axis cs:0,1});
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </figure>
-        </sidebyside>
-      </statement>
-    </example>
   </subsection>
   <subsection>
-    <title>Trend Lines and Regression Curves</title>
+    <title>Parametrized Models and Regression Curves</title>
     <p>
+      Suppose we have data that appear to show a relation between two variables in a scatter plot.
+      We would like to extend the relation to data that are not in the table of known values.
+      If we had a mathematical equation that described our relation,
+      we could use that equation to find the solution that would match the desired values.
+      As a practitioner, we choose a <term>parametrized model</term>
+      and then use a computational tool to select the best model given our data.
+      The most common computational strategy is called <term>regression</term>.
+    </p>
+    <p>
+      A <term>parametrized model</term> is an equation relating state variables
+      that includes additional variables representing <term>model parameters</term>.
+      The model is identified by choosing particular values for each of the parameters.
+      Once the parameters are known, the equation establishes a relation for the state variables.
+      A given parametrized model describes an entire family of different relations, one relation for each choice of parameters.
+    </p>
+    <p>
+      The most common example in algebra of a parametrized model is a linear equation
+      <me>y=mx+b</me>.
+      The symbols <m>m</m> and <m>b</m> are the model parameters,
+      and <m>x</m> and <m>y</m> are the state variables.
+      The particular equation <m>y=2x-5</m> is in this family of relations
+      based on the parameter values <m>m=2</m> and <m>b=-5</m>.
+    </p>
+    <p>
+      Another example of a parametrized model,
+      <me>y=ax^2+bx+c</me>,
+      which has three parameters <m>a</m>, <m>b</m>, and <m>c</m>,
+      can be used to create relations whose graphs are parabolas.
+      The simplest parabola, <m>y=x^2</m>, corresponds to the parameter values <m>a=1</m>, <m>b=0</m>, and <m>c=0</m>.
+      Curiously, linear models are contained in this family as well by choosing <m>a=0</m>.
+      Our earlier example <m>y=2x-5</m> could have been obtained from this model using <m>a=0</m>, <m>b=2</m>, and <m>c=-5</m>.
+    </p>
+    <p>
+      Notice that the symbols used for the parameters do not have universal meaning.
+      In the linear parametrized models, we had chosen <m>b</m> to represent the <m>y</m>-intercept value.
+      In the quadratic models, the parameter <m>b</m> was used for the coefficient of <m>x</m>.
+    </p>
+    <p>
+      Regression is a strategy to select parameters for a parametrized model
+      in such a way that it <q>best</q> matches data for a given relation.
       Mathematical equations are exact.
       Real data exhibit uncertainty and randomness.
-      Although they do not capture the uncertainty of data,
-      equations can be used to model or approximate the trend or average presented by the data.
-      A <term>trend line</term> or <term>trend curve</term> (if not linear) is a model that captures the general behavior of the data and stays close to the scatter points.
-      Most spreadsheets and graphing calculators have an option to show a <term>line of best fit</term> for a scatter plot, which is an example of a trend line.
-      The process these programs use is called <term>regression</term>.
-      They usually report the equation of the regression curve using the generic variable symbols <m>x</m> and <m>y</m>,
-      so it is the researcher's responsibility to interpret the equation in terms of the true variables.
+      Consequently, there usually aren't parameter values that will match all of the data simultaneously.
+      The most common regression algorithms seek to the sum of the squared errors
+      and are called <term>least-squares regression</term>.
+      Spreadsheets and graphing calculators that find a trend line for data use this type of regression.
+      We revisit finding parametrized model to match exact data in a later section.
+    </p>
+    <p>
+      A trend line or a trend curve resulting from regression provides a model
+      that allows us to predict values where there are not observed data.
+      When the prediction occurs between observed data, such prediction is called <term>interpolation</term>.
+      If the prediction is occurring beyond the extremes of the data, such prediction is called <term>extrapolation</term>.
+      We can use the value for one variable and the regression equation to solve for the predicted value of the related variable.
+      Often, a formula may not describe all of the data but provides a good approximation for a certain range of values.
+      Interpolation is usually safer than extrapolation.
     </p>
     <example>
       <p>
-        Consider the population example with the scatter plot of the number of deaths plotted with respect to the total population size, 
+        Consider the population example with the scatter plot of the number of deaths plotted with respect to the total population size.
+        Find the linear regression model for these data
         and predict the number of deaths in a year if the population were 300 million.
       </p>
       <p>
-        A spreadsheet reported the trend line of this data set with an equation <me>y=0.0049x+992711.</me>
-        Because the scatter plot had <m>P</m> on the horizontal axis and <m>D</m> on the vertical axis,
-        the more appropriate equation would be <me>D=0.0049P+992711.</me>
-        A spreadsheet may not give enough precision in the model equation when using the default settings.
-        Note that the equation reported above only has two significant digits in the slope value but an apparent 6 significant digits in the intercept.
-        By changing the settings for the equation of the trend line, we get a more precise model <me> D = 4.86666 \times 10^{-3} P + 9.92711 \times 10^5. </me>
-        Depending on the values of the data, the greater accuracy might make a significant difference.
+        The easiest tool to find a regression model seems to be at the website
+        <url href="https://www.desmos.com/calculator">desmos.com/calculator</url>.
+        The site desmos.com does not support scientific notation for data entry,
+        we can make a modified model.
+        Let <m>\widetilde{P}=P/10^8</m> be the population in units of 100 million
+        and let <m>\widetilde{D}=D/10^6</m> be the annual death rate in units of 1 million.
+        We are going to enter the data shown in the table below.
       </p>
+      <sidebyside margins="auto">
+        <tabular top="major" halign="center">
+          <col/> <col right="minor"/> <col right="minor"/>
+          <col/> <col right="minor"/> <col right="minor"/>
+          <col/> <col right="minor"/> <col right="minor"/>
+          <col/> <col/>
+          <row bottom="minor">
+            <cell><m>\widetilde{P}</m></cell>
+            <cell><m>\widetilde{B}</m></cell>
+            <cell></cell>
+            <cell><m>\widetilde{P}</m></cell>
+            <cell><m>\widetilde{B}</m></cell>
+            <cell></cell>
+            <cell><m>\widetilde{P}</m></cell>
+            <cell><m>\widetilde{B}</m></cell>
+            <cell></cell>
+            <cell><m>\widetilde{P}</m></cell>
+            <cell><m>\widetilde{B}</m></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>2.530</cell>
+            <cell>2.170</cell>
+            <cell/>
+            <cell>2.694</cell>
+            <cell>2.315</cell>
+            <cell/>
+            <cell>2.850</cell>
+            <cell>2.416</cell>
+            <cell/>
+            <cell>2.984</cell>
+            <cell>2.426</cell>
+          </row>
+          <row>
+            <cell>2.565</cell>
+            <cell>2.176</cell>
+            <cell/>
+            <cell>2.727</cell>
+            <cell>2.314</cell>
+            <cell/>
+            <cell>2.876</cell>
+            <cell>2.443</cell>
+            <cell/>
+            <cell>3.012</cell>
+            <cell>2.424</cell>
+          </row>
+          <row>
+            <cell>2.599</cell>
+            <cell>2.269</cell>
+            <cell></cell>
+            <cell>2.758</cell>
+            <cell>2.337</cell>
+            <cell></cell>
+            <cell>2.901</cell>
+            <cell>2.448</cell>
+            <cell/>
+            <cell>3.041</cell>
+            <cell>2.472</cell>
+          </row>
+          <row>
+            <cell>2.631</cell>
+            <cell>2.279</cell>
+            <cell/>
+            <cell>2.790</cell>
+            <cell>2.391</cell>
+            <cell/>
+            <cell>2.928</cell>
+            <cell>2.397</cell>
+            <cell/>
+            <cell>3.068</cell>
+            <cell>2.437</cell>
+          </row>
+          <row bottom="medium">
+            <cell>2.663</cell>
+            <cell>2.312</cell>
+            <cell/>
+            <cell>2.822</cell>
+            <cell>2.403</cell>
+            <cell/>
+            <cell>2.955</cell>
+            <cell>2.448</cell>
+            <cell/>
+            <cell>3.094</cell>
+            <cell>2.468</cell>
+          </row>
+        </tabular>
+      </sidebyside>
+      <p>
+        <ol>
+          <li>
+            Create a table to enter the data.
+            Either click the <c>+</c> menu and select <c>table</c>
+            or type <c>table</c> in the formula field.
+          </li>
+          <li>
+            Enter the population values <m>\widetilde{P}</m> in the column <m>x_1</m>
+            and the corresponding death rate values <m>\widetilde{D}</m> in the column <m>y_1</m>.
+            The data are now plotted and you should see they look roughly linear.
+          </li>
+          <li>
+            We now construct the parametrized model for the data.
+            In Desmos, this is done by creating an equation using the tilde symbol <c>~</c> in place of an equals.
+            If we want to use the parametrized model <m>\widetilde{D} = a \widetilde{P} + b</m> with parameters <m>a</m> and <m>b</m>,
+            we would type into the next formula <c>y1 ~ a x1 + b</c>.
+          </li>
+          <li>
+            Desmos should report values for the parameters <m>a</m> and <m>b</m>
+            and draw the trend line through the scatter plot.
+            The parameters are identified as <m>a=0.486666</m> and <m>b=0.992711</m>
+            so that the model equation is
+            <me>\widetilde{D} = 0.486666 \widetilde{P} + 0.992711</me>.
+          </li>
+        </ol>
+      </p>
+      <interactive desmos="my9xzvkfea" />
       <sidebyside width="50%" margins="auto">
         <image>
           <description>
@@ -872,8 +862,7 @@
           with respect to each other.
           </description>
           <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
+          \tikzset{%
           }
           \pgfplotsset{ width=6cm }
           \begin{tikzpicture}
@@ -889,96 +878,114 @@
             color=blue
           ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
           \addplot[black, samples=100, domain=2.5e8:3.2e8]
-            ({x}, {0.004867*x+992711});
+            ({x}, {0.00486666*x+992711});
           \end{axis}
-          \end{tikzpicture}]]>
+          \end{tikzpicture}
           </latex-image>
         </image>
       </sidebyside>
       <p>
-        Let us compare the two models with a population of 300 million, <m>P=300\times 10^6</m>.
-        The first model, which only has two significant digits in the first coefficient, gives <me>D = 0.0049(3\times 10^8) + 992711 = 2462711.</me>
-        Because one coefficient only had two significant digits, we can only expect the first two digits are accurate,
-        thus predicting <m>D=2.5</m> million deaths in the year.
-        Using the second model with six digits of accuracy in both coefficients,
-        we find <me>D = 4.86666 \times 10^{-3} \cdot 3 \times 10^{8} + 992711 = 2452709.</me>
-        With six digits of accuracy, this predicts <m>D=2,452,710</m> deaths in the year.
+        We can now use the model to predict the number of deaths per year for a population of 300 million.
+        This corresponds to <m>P=300 \times 10^6 = 3 \times 10^8</m> so that <m>\widetilde{P} = 3</m>.
+        Using the parametrized model, we find
+        <md>
+          <mrow>\widetilde{D} &amp;= 0.486666 (3) + 0.992711</mrow>
+          <mrow> &amp;= 2.452691 </mrow>
+        </md>
+        Because <m>\widetilde{D}</m> is the number of deaths in units of millions,
+        the model predicts 2,452,691 deaths per year for a population of 300 million.
+        Since the original data only had four significant digits,
+        we should not expect any more digits accuracy in the model prediction.
+        We would predict 2.453 million deaths.
       </p>
     </example>
-    <p>
-      A trend line or a trend curve provides a model that allows us to predict values where there are not observed data.
-      When the prediction occurs between observed data, such prediction is called <term>interpolation</term>.
-      If the prediction is occurring beyond the extremes of the data, such prediction is called <term>extrapolation</term>.
-      We can use the value for one variable and the regression equation to solve for the predicted value of the related variable.
-      Often, a formula may not describe all of the data but provides a good approximation for a certain range of values.
-      Interpolation is usually safer than extrapolation.
-    </p>
     <example xml:id="example-electrophoresis-quadratic-trend">
+      <statement>
+        <p>
+          Consider the electrophoresis gel data.
+          Suppose we had another DNA sample of unknown length that traveled a distance of <m>D=282</m> pixels.
+          Use a model to estimate the length of the DNA sample.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Because we know the distance displaced in the gel and want to predict the length of the polymer,
+          we treat <m>D</m> as the independent variable and <m>L</m> as the dependent variable.
+          We will look at the scatter plot <m>(D,L)</m> with the length of the DNA <m>L</m>
+          graphed with respect to the distance traveled in the gel <m>D</m> (<xref ref="fig-electrophoresis-scatterplot"/>).
+          The data appear smooth with a slight upward curve.
+          A nonlinear model will be required to model the bend, such as a quadratic parametrized model,
+          <me>L = aD^2 + bD + c</me>.
+        </p>
+        <p>
+          We enter the data in a table and apply regression with our model.
+          In Desmos, we would create a table for <m>(x_1, y_1)</m>
+          with values of <m>D</m> in <m>x_1</m> and values of <m>L</m> in <m>y_1</m>.
+          We then calculate model parameters using <c>y1 ~ a x1^2 + b x1 + c</c>.
+          The resulting model parameters are
+          <m>a=0.0573428</m>, <m>b=-43.381</m>, and <m>c=8241.57</m>.
+          Consequently, the trend curve is modeled by
+          <me> L = 0.0573428D^2-43.381D+8241.57</me>.
+          The graph of the data with the trend curve is shown below.
+        </p>
+        <sidebyside width="50%">
+          <image>
+            <description>
+            Scatter plot of electrophoresis data, size vs displacement, with trend.
+            </description>
+            <latex-image>
+            \tikzset{%
+            /pgfplots/table/row sep=crcr
+            }
+            \pgfplotsset{ width=6cm }
+            \begin{tikzpicture}
+            \begin{axis}[
+              xlabel={$D$},
+              ylabel={$L$},
+            ]
+            \addplot[
+              only marks,
+              color=blue
+            ] table {
+              342 100\\
+              327 200\\
+              312 300\\
+              299 400\\
+              288 500\\
+              278 600\\
+              270 700\\
+              263 800\\
+              256 900\\
+              249 1000\\
+            };
+            \addplot[black, samples=100, domain=240:350]
+              ({x}, {0.0573428*x^2-43.381*x+8241.57});
+            \end{axis}
+            \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
       <p>
-        Consider the electrophoresis gel scatter plot with the length of the DNA <m>L</m> graphed with respect to the distance traveled in the gel <m>D</m>.
-        The data appear to follow a nice curve without a lot of uncertainty.
-        Using a polynomial trend, a spreadsheet reports the following equation for the data:
-        <me> y = 0.0573x^2-43.381x+8241.6.</me>
-        Using the appropriate variables for the problem,
-        this equation should be rewritten as <me> L = 0.0573D^2-43.381D+8241.6.</me>
-        The graph of the data with the trend curve is shown below.
-      </p>
-      <sidebyside width="50%">
-        <image>
-          <description>
-          Scatter plot of electrophoresis data, size vs displacement, with trend.
-          </description>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          /pgfplots/table/row sep=crcr
-          }
-          \pgfplotsset{ width=6cm }
-          \begin{tikzpicture}
-          \begin{axis}[
-            xlabel={$D$},
-            ylabel={$L$},
-          ]
-          \addplot[
-            only marks,
-            color=blue
-          ] table {
-            342 100\\
-            327 200\\
-            312 300\\
-            299 400\\
-            288 500\\
-            278 600\\
-            270 700\\
-            263 800\\
-            256 900\\
-            249 1000\\
-          };
-          \addplot[black, samples=100, domain=240:350]
-            ({x}, {0.0573*x^2-43.381*x+8241.6});
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
-      <p>
-        Suppose we had another DNA sample of unknown length that traveled a distance of <m>D=282</m> pixels.
-        Using our value for <m>D</m>, we can find the value of <m>L</m> using the model, <me>L = 0.0573(282)^2 - 43.381(282)+8241.6 = 564.8832.</me>
-        Since our original data had 3 significant digits, we would estimate the length of the DNA in question as <m>L \approx 565</m> nucleotides.
+        Using our value for <m>D</m>, we can find the value of <m>L</m> using the model,
+        <me>L = 0.0573428(282)^2 - 43.381(282)+8241.57 \approx 568.26</me>.
+        Since our original data had 3 significant digits,
+        we would estimate the length of the DNA in question as <m>L \approx 568</m> nucleotides.
         In this way, a regression of known electrophoresis data allows us to estimate lengths of other molecules.
       </p>
     </example>
     <p>
       You should note that the number of significant digits reported is not the same as the uncertainty in the prediction.
-      The degree to which the original data vary around the trend curve leads to uncertainty in the coefficients of the regression model
+      The degree to which the original data vary around the trend curve
+      leads to uncertainty in the coefficients of the regression model
       and subsequent uncertainty to the trend curve itself.
-      However, analysis of this uncertainty is a topic for statistics and is outside the scope of this text.
+      In the last example, rounding the model parameters themselves to 3 significant digits
+      would have changed the predicted length by 11 nucleotides.
+      Analysis of this uncertainty is a topic for statistics and is outside the scope of this text.
+      For simplicity, we use models to make predictions and then round to comparable precision as the data.
     </p>
   </subsection>
-  
   <subsection>
     <title>Summary</title>
-    
     <p>
       <ul>
         <li>
@@ -1011,7 +1018,6 @@
       </ul>
     </p>
   </subsection>
-  
   <exercises>
     <exercisegroup>
       <introduction>
@@ -1084,14 +1090,6 @@
           </p>
         </statement>
       </exercise>
-      <exercise>
-        <title>Michaelis-Menten Kinetics</title>
-        <statement>
-          <p>
-          Given <m>R = \frac{AC}{C+K}</m>, solve for <m>C</m>.
-          </p>
-        </statement>
-      </exercise>
     </exercisegroup>
     <exercisegroup>
       <introduction>
@@ -1114,13 +1112,6 @@
         <statement>
           <p>
             Given the equation <m>n p = 1000</m>, find <m>n</m> for each value <m>p \in \{10, 20, 25, 40, 50\}</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            Given the equation <m>\displaystyle \frac{ac}{c+50} = 200</m>, find <m>c</m> for each value <m>a \in \{100, 200, 300, 400\}</m>.
           </p>
         </statement>
       </exercise>
@@ -1254,7 +1245,6 @@
         </statement>
       </exercise>
     </exercisegroup>
-    
     <exercisegroup>
       <title>Population-Growth Relationships</title>
       <introduction>
