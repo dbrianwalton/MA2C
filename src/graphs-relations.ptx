@@ -846,7 +846,7 @@
             we would type into the next formula <c>y1 ~ a x1 + b</c>.
           </li>
           <li>
-            Desmos should report values for the parameters <m>a</m> and <m>b</m>
+            Desmos will report values for the parameters <m>a</m> and <m>b</m>
             and draw the trend line through the scatter plot.
             The parameters are identified as <m>a=0.486666</m> and <m>b=0.992711</m>
             so that the model equation is
