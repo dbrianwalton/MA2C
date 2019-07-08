@@ -21,6 +21,7 @@
       <xi:include href="./learn_math.ptx" />
       <xi:include href="./numbers_measurements.ptx" />
       <xi:include href="./graphs-relations.ptx" />
+      <xi:include href="./formulas-models.ptx" />
       <xi:include href="./variables.xml" />
       <xi:include href="./modeling.xml" />
     </chapter>

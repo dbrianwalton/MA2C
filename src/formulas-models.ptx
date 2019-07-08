@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2019-2019  D. Brian Walton     -->
+<!-- See the file COPYING for copying conditions. -->
+<section xml:id="formulas-models">
+  <title>Formulas as Models of Relations</title>
+  <subsection>
+    <title>Overview</title>
+    <p>
+      Models are simplified abstract representations of something of interest.
+      Airplane and automobile manufacturers create scale models to test aerodynamics in wind tunnels.
+      Architects build models of future projects, whether a physical mock-up or a computerized 3-d representation,
+      to see how their plan will fit together and give clients a vision of pending products.
+      The models do not need to include every detail of the actual object of interest,
+      just those details that are relevant to the purpose of the model.
+    </p>
+    <p>
+      Scientists also regularly use models.
+      Physicists use high energy collisions of extremely fast particles to create conditions
+      that they expect are comparable to the moments immediately after the big bang.
+      A biologist may use mice from a well-controlled population as a model to study cancer,
+      considering its biology to mimic that of humans at some level of approximation.
+      A climatologist might use a computational model where a computer program tracks changes
+      in the makeup of the air, pollutant levels and air and ocean temperatures
+      according to known and assumed interactions.
+    </p>
+    <p>
+      A <term>mathematical model</term> is an abstract representation of measurable phenomena that is characterized through mathematical equations.
+      Recall that we think of a <term>system</term> as the collection of all possible measurements associated with the objects and environment involved in the phenomenon.
+      Each quantity is a <term>state variable</term>, even if we do not have a physical way to obtain the measurement.
+      Many laws of science are described using mathematical equations that relate state variables.
+      These equations are examples of mathematical models.
+      Knowing the value of one state variable, we can use the model to predict the value of other variables.
+    </p>
+    <p>
+      In this section, we explore some of the most common parametrized formulas used in mathematical models.
+      The most important concept that relates many of these families is the idea of proportionality.
+      When we have a mathematical model, we can use values for the variables to solve for unknowns.
+      We will introduce ways to solve equations using technology in this section
+      and review some strategies for solving equations by hand in later sections.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Proportionality</title>
+    <p>
+      The idea of proportionality occurs everytime there is a common ratio between two quantities.
+    </p>
+    <example>
+      <p>
+        In chemistry, we know that the atomic mass of an element (daltons) represents the mass (grams) of exactly one mole of atoms of that element.
+        The atomic mass of carbon-12 is exactly <quantity><mag>12</mag><unit base="dalton"/></quantity>.
+        Thus, 1 mole of carbon-12 atoms has a mass of 12 grams,
+        2 moles of carbon-12 atoms has a mass of 24 grams,
+        and 5 moles of carbon-12 atoms has a mass of 60 grams.
+        The ratio of the number of moles to the mass is always the same constant matching the atomic mass.
+        We say that the mass is <term>proportional to</term> the number of moles.
+      </p>
+    </example>
+    <p>
+      So what does proportionality really mean?
+      A <term>proportion</term> is a ratio between two quantities.
+      The quantities are <term>proportional</term> if the ratio between the quantities always equals the same value.
+      We sometimes say that the two quantities have a common proportion.
+    </p>
+    <definition xml:id="defn-proportional">
+      <statement>
+        <p>
+          A quantity <m>Q</m> is <term>proportional to</term> a quantity <m>P</m>
+          if the ratio <m>Q/P</m> is a constant, say <m>Q/P = k</m>.
+          The value <m>k</m> is called the <term>proportionality constant</term>
+          and we can rewrite the equation as
+          <me>Q = k P</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Many laws of physics are statements of proportionality.
+      Isaac Newton discovered that the force <m>F</m> acting on an object due to gravity
+      is proportional to the mass <m>m</m> of the object.
+      Newton's law of gravity could be written <me>F = mg</me>,
+      where the constant <m>g</m> is called the gravity acceleration constant.
+      The French physicist Charles-Augustin de Coulomb discovered a similar law,
+      that the electrical force <m>F</m> acting on a charged object is proportional to the charge of the object <m>q</m>.
+      Coulomb's law can be written <me>F = q E</me>, where <m>E</m> is the electrical field strength at the object's location.
+      The German physicist Georg Ohm discovered that the voltage drop <m>V</m> across a conductor in a circuit is proportional to the current <m>I</m> flowing through that conductor.
+      Ohm's law is written <me>V=IR</me> and <m>R</m> is called the resistance of the conducting component.
+    </p>
+    <p>
+      When we know that two quantities are proportional,
+      we can find the proportionality constant by calculating the ratio given observed data.
+      If there are errors or uncertainties in the data,
+      we can approximate the proportionality constant using an average of calculated ratios.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose we know that the birth rate for a population (number of births per unit time)
+          is proportional to the number of individuals in the population.
+          If the population has 20 births per month when it consists of 5000 individuals,
+          find the number of births per month when the population consists of 8000 individuals.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by assigning variables for our quantities.
+          Let <m>P</m> be the size of the population and let <m>B</m> be the birth rate.
+          Because the birth rate (births per month) is proportional to the population size (individuals),
+          we know that the ratio <m>B/P</m> is equal to some constant, which we will name <m>b</m>:
+          <me>b = \frac{B}{P} = \frac{20}{5000} = 0.004</me>.
+          The constant <m>b</m> is called a <term>per capita birth rate</term>.
+          Rewriting the equation <m>B/P = b = 0.004</m>, we have a model
+          <me>B = b P \qquad \Leftrightarrow \qquad B = 0.004 P</me>.
+        </p>
+        <p>
+          We now use our model.
+          When the population has 8000 individuals, we have <m>P=8000</m>.
+          Substituting this value in the model, we find
+          <me>B = 0.004(8000) = 32</me>.
+          That is, the population is predicted by our model to have 32 births per month.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Mathematically, the geometric idea of similarity is one of the most common sources of proportional relations.
+      Given two geometric polygons, we need a way to associate each vertex (points where edges meet) of one polygon
+      with a particular vertex on the other polygon.
+      The polygons are usually labeled by vertices, like a triangle <m>ABC</m> or a quadralateral <m>PQRS</m>.
+      If we relate triangle <m>ABC</m> to triangle <m>JKL</m>, then the corresponding vertices would be
+      <me>
+        A \leftrightarrow J \qquad B \leftrightarrow K \qquad C \leftrightarrow L
+      </me>.
+      Polygons are <term>similar</term> if the ratio of distances between any pair of corresponding vertices always equal the same constant.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose triangle <m>ABC</m> is similar to triangle <m>PQR</m>, shown in the figure below.
+          The lengths of the edges <m>AB</m> and <m>AC</m> are 4 and 6, respectively.
+          The lengths of the edges <m>PQ</m> and <m>QR</m> are 2.5 and 3.125, respectively.
+          Find the lengths of the other two edges.
+        </p>
+        <image width="70%">
+          <latex-image>
+            \begin{tikzpicture}[x=0.7cm,y=0.7cm]
+            \draw [fill=blue, fill opacity=0.3] (0,0)
+              node [left, opacity=1] {$A$}
+              -- (3.458,2.0111) node [above right, opacity=1] {$B$}
+              node [pos=0.5, above, opacity=1] {4}
+              -- (5.412,-2.591) node [below, opacity=1] {$C$}
+              -- cycle
+              node [pos=0.5, below, opacity=1] {6};
+            \draw [fill=orange, fill opacity=0.3] (7,0)
+              node [left, opacity=1] {$P$}
+              -- (9,-1.498) node [below, opacity=1] {$Q$}
+              node [pos=0.5, opacity=1, below left] {2.5}
+              -- (10.547,1.218) node [above right, opacity=1] {$R$}
+              node [pos=0.5, opacity=1, right] {3.125}
+              -- cycle;
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+      <solution>
+        <p>
+          The association between vertices of the triangles are
+          <me>
+            A \leftrightarrow P \qquad B \leftrightarrow Q \qquad C \leftrightarrow R
+          </me>.
+          Because the triangles are similar, the ratios of corresponding edges must all have the same value,
+          <me>
+            \rho = \frac{AB}{PQ} = \frac{AC}{PR} = \frac{BC}{QR}
+          </me>.
+          Because we know the lengths of both <m>AB</m> and <m>PQ</m>,
+          we can use those values to determine the common ratio,
+          <me>
+            \rho = \frac{AB}{PQ} = \frac{4}{2.5} = 1.6
+          </me>.
+          Using this ratio, we can solve for the remaining unknowns:
+          <md>
+            <mrow> 1.6 = \frac{AC}{PR} = \frac{6}{PR} \qquad \Rightarrow \qquad PR = \frac{6}{1.6} = 3.75 </mrow>,
+            <mrow> 1.6 = \frac{BC}{QR} = \frac{BC}{3.125} \qquad \Rightarrow \qquad BC = 1.6(3.125) = 5 </mrow>.
+          </md>
+          Thus, <m>PR = 3.75</m> and <m>BC = 5</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Common Models</title>
+    <p>
+      Many common models are based on a relation of proportionality between a quantity and a dependent variable based on another quantity.
+      Simple proportionality would be where a variable <m>y</m> is proportional to another variable <m>x</m>, <m>y=kx</m>.
+      We are now interested in models where <m>y</m> is proportional to some simple function of <m>x</m>.
+      We say that <m>y</m> is <term>inversely proportional to</term> <m>x</m> if <m>y</m> is proportional to the reciprocal of <m>x</m>,
+      <me>y = k \cdot \frac{1}{x} = \frac{k}{x}</me>.
+      This is equivalent to saying that the product <m>xy = k</m> is constant.
+    </p>
+    <p>
+      A <term>power law</term> refers to a dependent variable being proportional to some power <m>p</m> of the independent variable,
+      <me> y = A x^p </me>.
+      An <term>exponential relation</term> refers to a dependent variable being proportional
+      to some positive base <m>b</m> being raised to the independent variable as the power,
+      <me> y = A \, b^x </me>.
+      Although these two laws look similar, they have very different behaviors because of the role of the independent variable.
+      Find ways to train your mind to read these differently.
+      For example, for the power law, you might read the formula as <q><m>x</m> raised to a power <m>p</m></q>,
+      but for the exponential relation, you would read the formula as <q>the exponential of base <m>b</m> raised to the power <m>x</m></q>.
+      As you intentionally use language to distinguish between the two models,
+      you will more easily remember appropriate methods for each.
+    </p>
+    <p>
+      We now consider how we would find the model parameters given data.
+      Regression methods do exist.
+      For example, in Desmos, it would be possible to put given data in a table
+      and then compute parameters using a formula like <c>y1 ~ A x1^p</c> or <c>y1 ~ A b^x1</c>.
+      You would get perfectly good approximate values that could be used for applications.
+      However, our purpose is to introduce the role of equations in solving for exact values.
+    </p>
+    <p>
+      When we are given data that a model describes exactly,
+      we should consider each point in the data as being a solution to the model equation.
+      When we have multiple points, we have multiple equations, all of which need to be true simultaneously.
+      We then treat the parameters as variables and solve the system of equations to find parameter values.
+    </p>
+    <p>
+      We should have a clear separation in our thinking between creating the system of equations and solving the resulting system.
+      We first focus on creating the system of equations, and we will use a computational tool to solve for the values.
+      We will look at graphical methods of approximating solutions
+      as well as using computer algebra systems to find exact formulas.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose <m>y</m> has a power law relation with <m>x</m>, <m>y=Ax^p</m>.
+          Further, suppose that we have two data points, <m>(x,y)=(2,4)</m> and <m>(x,y)=(3,8)</m>.
+          Find the equations that determine the model parameters.
+          Graph the equations to find their values.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To find each equation, we substitute the values of <m>x</m> and <m>y</m> in the model equation.
+          For each given point, this will leave an equation that still involves the unknown model parameters.
+          Using the point <m>(x,y)=(2,4)</m>, we substitute <m>x=2</m> and <m>y=4</m> in <m>y=Ax^p</m>:
+          <me> 4 = A \cdot 2^p </me>.
+          Using the point <m>(x,y)=(3,8)</m>, we substitute <m>x=3</m> and <m>y=8</m> in <m>y=Ax^p</m>:
+          <me> 8 = A \cdot 3^p </me>.
+          To show that we have a system of equations that need to be solved together,
+          we group the equations with a curly brace,
+          <me>
+            \begin{cases}
+            A \cdot 2^p = 4, \\
+            A \cdot 3^p = 8.
+            \end{cases}
+          </me>
+        </p>
+        <p>
+          Our first method for finding the values will be graphical.
+          Because we have two parameters, <m>A</m> and <m>p</m>,
+          we can think of these as two variables that define a plane of points <m>(p,A)</m>.
+          Each equation defines a curve in the plane of solutions to that equation.
+          With two equations, we obtain two different curves.
+          Intersection points are the points in common to both curves and are the solutions that we seek.
+        </p>
+        <p>
+          Some graphing tools, like Desmos and most graphing calculators, require the variables to be <m>x</m> and <m>y</m>.
+          They also typically expect that we have solved for <m>y</m> as a dependent variable.
+          If we replace <m>p \leftrightarrow x</m> and <m>A \leftrightarrow y</m> and then solve for <m>y</m>,
+          our equations become
+          <me>
+            \begin{cases}
+            y = 4 / 2^x, \\
+            y = 8 / 3^x.
+            \end{cases}
+          </me>
+          In Desmos, you can click on the point of intersection and see approximate values <m>(1.71,1.223)</m>.
+          Using a handheld calculator, a menu option to find an intersection point gives a better approximation <m>(1.709511,1.223055)</m>
+          meaning that <m>p \approx 1.7095</m> and <m>A \approx 1.2231</m>.
+          A graph showing the points and the approximate model <m>y = 1.2231 \cdot x^{1.7095}</m> is shown below.
+        </p>
+        <figure>
+          <caption>Graph of <m>y=1.2231 \cdot x^{1.7095}</m> with given points <m>(2,4)</m> and <m>(3,8)</m>.</caption>
+          <image width="50%">
+            <description>graph of power law model passing through the given points (2,4) and (3,8)</description>
+            <latex-image>
+              \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-1, xmax=5, ymin=-1, ymax=10, axis lines=center ]
+                \addplot [only marks] coordinates {
+                  (2,4) (3,8)
+                };
+                \addplot [domain=0:4, samples=50, thick, blue] {1.2231*x^1.7095};
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Similar to the previous example, suppose <m>y</m> has an exponential relation with <m>x</m>, <m>y=A b^x</m>
+          with the two data points, <m>(x,y)=(2,5)</m> and <m>(x,y)=(3,8)</m>.
+          Find the equations that determine the new model's parameters and solve the system of equations.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To find each equation, we substitute the values of <m>x</m> and <m>y</m> in the model equation.
+          For each given point, this will leave an equation that still involves the unknown model parameters.
+          Using the point <m>(x,y)=(2,5)</m>, we substitute <m>x=2</m> and <m>y=5</m> in <m>y=Ab^x</m> to obtain
+          <me> 5 = A \cdot b^2 </me>.
+          Using the point <m>(x,y)=(3,8)</m>, we obtain the equation
+          <me> 8 = A \cdot b^3 </me>.
+          Our system of equations becomes
+          <me>
+            \begin{cases}
+            A \cdot b^2 = 5, \\
+            A \cdot b^3 = 8.
+            \end{cases}
+          </me>
+        </p>
+        <p>
+          The graphical method of solution used in the previous example results in approximate values.
+          To find exact values, we need to perform an algebraic solution.
+          A computational tool with expect us to provide it with our equations
+          as well as the variables for which we are solving.
+          In this text, we will work with the SageMath system, an open source computer algebra system.
+          A blank interactive SageMath cell can be opened at
+          <url href="https://sagecell.sagemath.org"/>.
+        </p>
+        <sage>
+          <input>
+            # Tell SageMath that A and b should be treated as variables
+            var('A','b')
+            # Define our equations
+            eq1 = (A*b^2 == 5)
+            eq2 = (A*b^3 == 8)
+            # Solve the system of equations for the system of variables
+            soln = solve([eq1, eq2], A, b)
+            # Display the result
+            show(soln)
+          </input>
+        </sage>
+        <p>
+          When this script is executed, SageMath reports a solution
+          <me>
+            A = \frac{125}{64}, \quad b = \frac{8}{5}
+          </me>.
+          Our model becomes <m>y = \frac{125}{64} \cdot \left(\frac85\right)^x</m>.
+          A graph of the model with our given points is shown in the figure below.
+        </p>
+        <figure>
+          <caption>Graph of <m>y = \frac{125}{64} \cdot \left(\frac85\right)^x</m> with given points <m>(2,5)</m> and <m>(3,8)</m>.</caption>
+          <image width="50%">
+            <description>graph of exponential model passing through the given points (2,5) and (3,8)</description>
+            <latex-image>
+              \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-2, xmax=5, ymin=-1, ymax=10, axis lines=center ]
+                \addplot [only marks] coordinates {
+                  (2,5) (3,8)
+                };
+                \addplot [domain=-2:4, samples=50, thick, blue] {125/64*(8/5)^x};
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+        <p>
+          I want to note that SageMath fails to solve the similar system for the previous power law example.
+          The change to the script above is minimal.
+          You should try it and see what happens.
+          This is a curious example where computer algebra systems sometimes know too much.
+          In more advanced mathematics that account for complex numbers,
+          there is an abiguity in that system of equations that is not obvious.
+          You can see a glimpse of the complexity if you try to solve the system of equations
+          using the <url href="https://www.wolframalpha.com">WolframAlpha</url> website.
+          Try the request <c>solve A*2^p=4 and A*3^p=8 for A and p</c>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Constructing More Models</title>
+    <p>
+      Once we have elementary models like powers and exponentials,
+      we can construct more complicated models by using arithmetic.
+      For example, <term>polynomials</term> are created by adding power functions
+      where each of the powers are non-negative integers.
+    </p>
+    <definition xml:id="def-polynomials">
+      <statement>
+        <p>
+          A <term>polynomial</term> is a sum of terms of the form <m>a_k x^k</m>
+          where <m>k</m> is a non-negative integer, <m>a_k</m> is a real number,
+          and <m>x</m> is the independent variable.
+          The values <m>a_k</m> are called <term>coefficients</term>.
+          The largest power <m>k</m> is called the <term>degree</term> of the polynomial.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The equation <m>y=4x^3-x+5</m> is a polynomial with degree 3, which we call a <term>cubic polynomial</term>.
+      The coefficients are <m>a_0=5</m>, <m>a_1=-1</m>, and <m>a_3=4</m>.
+      A model for <m>y</m> as cubic polynomial of <m>x</m> would look like
+      <me>
+        y = a_3 x^3 + a_2 x^2 + a_1 x + a_0
+      </me>.
+      We usually include zero coefficients for any skipped powers smaller than the degree,
+      so our example would also have <m>a_2=0</m>.
+    </p>
+    <p>
+      We can create a system of equations to find coefficients for a polynomial.
+      Because a cubic polynomial has 4 coefficients,
+      we will need four data points to find a unique solution.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find a quadratic polynomial (degree 2)
+          that goes through the points <m>(-1,1)</m>, <m>(1,2)</m>, and <m>(2,4)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A general degree 2 polynomial model would have the form
+          <me>
+            y=a_2 x^2 + a_1 x + a_0.
+          </me>
+          We substitute the values for <m>x</m> and <m>y</m> to get one equation for each point.
+          <me>
+            \begin{cases}
+            1 = a_2 (-1)^2 + a_1 (-1) + a_0 \\
+            2 = a_2 (1)^2 + a_1 (1) + a_0 \\
+            4 = a_2 (2)^2 + a_1 (2) + a_0
+            \end{cases}
+            \qquad \Leftrightarrow \qquad
+            \begin{cases}
+            1 = a_2 - a_1 + a_0 \\
+            2 = a_2 + a_1 + a_0 \\
+            4 = 4 a_2 + 2 a_1 + a_0
+            \end{cases}
+          </me>
+          We now use a computer algebra system to solve for the coefficients.
+        </p>
+        <sage>
+          <input>
+            # Declare the parameters as variables
+            var('a2','a1','a0')
+            # Create the equations
+            eq1 = 1 == a2 - a1 + a0
+            eq2 = 2 == a2 + a1 + a0
+            eq3 = 4 == 4*a2 + 2*a1 + a0
+            # Solve the system
+            soln = solve([eq1,eq2,eq3], a0, a1, a2)
+            show(soln)
+          </input>
+        </sage>
+        <p>
+          The result of the algebra solution is
+          <me>
+            a_0 = 1, \qquad a_1 = \frac12, \qquad a_2 = \frac12
+          </me>.
+          That is, our polynomial model is
+          <me>
+            y = \frac12 x^2 + \frac12 x + 1
+          </me>.
+          A graph of the data with the model is shown in the next figure.
+        </p>
+        <figure>
+          <caption>A graph of <m>y = \frac12 x^2 + \frac12 x + 1</m> with the points <m>(-1,1)</m>, <m>(1,2)</m>, and <m>(2,4)</m>.</caption>
+          <image width="50%">
+            <latex-image>
+              \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-3, xmax=5, ymin=-2, ymax=8, axis lines=center ]
+                \addplot [only marks] coordinates {
+                  (-1,1) (1,2) (2,4)
+                };
+                \addplot [domain=-3:5, samples=100, thick, color=blue] {1+x/2+x^2/2};
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </example>
+    <p>
+      We end this section by discussing the difference between regression and solving equations.
+      Regression is used when we have data that we want to approximate with a model.
+      This means that given data points will not necessarily be solutions<mdash/>and most likely, they will not be.
+      When we solve for a model passing through given data,
+      we are finding a curve that has the given data points as solutions.
+      Each point must actually lie on the curve.
+      If we tried to solve for a model where we should be doing a regression,
+      we will discover that there is no solution.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the three points <m>(1,-2)</m>, <m>(3,1)</m>, and <m>(6,6)</m>.
+          Can we model these with a linear function <m>y=mx+b</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the three data points, we can create a system of three equations for the model parameters.
+          <me>
+            \begin{cases}
+            -2 = m(1) + b \\
+            1 = m(3) + b \\
+            6 = m(6) + b
+            \end{cases}
+            \quad \Leftrightarrow \quad
+            \begin{cases}
+            m+b = -2 \\
+            3m+b = 1 \\
+            6m+b = 6
+            \end{cases}
+          </me>
+          If we try to solve the system of equations, the solution set is empty.
+        </p>
+        <sage>
+          <input>
+            var('m','b')
+            eq1 = m + b == -2
+            eq2 = 3*m + b == 1
+            eq3 = 6*m + b == 6
+            soln = solve([eq1,eq2,eq3],m,b)
+            show(soln)
+          </input>
+        </sage>
+        <p>
+          To visualize why there is no solution for this system,
+          let us consider the graphical approach.
+          We can solve each equation for <m>b</m> as the dependent variable and graph the resulting equations.
+          Recall that many graphing utilities require us to rename our variables, <m>m \leftrightarrow x</m> and <m>b \leftrightarrow y</m>:
+          <me>
+            \begin{cases}
+            b=-2-m \\
+            b=1-3m \\
+            b=6-6m
+            \end{cases}
+            \quad \leftrightarrow \quad
+            \begin{cases}
+            y=-2-x \\
+            y=1-3x \\
+            y=6-6x
+            \end{cases}
+          </me>
+          When we graph these equations, we get three lines.
+          Although they appear close to having a single point of intersection near <m>(m,b)=(1.6,-3.6)</m>,
+          there is not point where all three lines intersect simultaneously.
+          This is the graphical result of no solution.
+        </p>
+        <sidebyside widths="45% 45%">
+          <image>
+            <description>Graph of the parameter equations on a window -5 &lt; m &lt; 5 and -5 &lt; b &lt; 5.</description>
+            <latex-image>
+              \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-5, xmax=5, ymin=-5, ymax=5, xlabel={$m$}, ylabel={$b$}, legend pos=south west ]
+                \addplot [thick, color=blue] {-2-x};
+                \addplot [thick, color=orange] {1-3*x};
+                \addplot [thick, color=magenta] {6-6*x};
+                \addlegendentry{$b=-2-m$};
+                \addlegendentry{$b=1-3m$};
+                \addlegendentry{$b=6-6m$};
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <description>Graph of the parameter equations on a window 1 &lt; m &lt; 2 and -5 &lt; b &lt; -3.</description>
+            <latex-image>
+              \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=1, xmax=2, ymin=-5, ymax=-3, xlabel={$m$}, ylabel={$b$}, legend pos=south west ]
+                \addplot [thick, color=blue] {-2-x};
+                \addplot [thick, color=orange] {1-3*x};
+                \addplot [thick, color=magenta] {6-6*x};
+                \addlegendentry{$b=-2-m$};
+                \addlegendentry{$b=1-3m$};
+                \addlegendentry{$b=6-6m$};
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          When we approach this problem as a regression model,
+          we seek for a linear equation that is closest to all three points.
+          Desmos reports regression coefficients <m>m \approx 1.60526</m> and <m>b=-3.68421</m>
+          for a regression model
+          <me>
+            y = 1.60526 x - 3.68421
+          </me>.
+          Notice that this model only approximates our points of interest:
+          <md>
+            <mrow> x=1 \quad \Rightarrow \quad y = -2.07895 </mrow>,
+            <mrow> x=3 \quad \Rightarrow \quad y = 1.13158 </mrow>,
+            <mrow> x=6 \quad \Rightarrow \quad y = 5.94737 </mrow>.
+          </md>
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [ xmin=-2, xmax=8, ymin=-5, ymax=8, xlabel={$x$}, ylabel={$y$}, axis lines=center ]
+            \addplot [domain=-2:8, thick, color=blue] {1.60526*x-3.68421};
+            \addplot [only marks] coordinates {
+              (1,-2) (3,1) (6,6)
+            };
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <ul>
+        <li>
+          <p>
+            Proportionality between two variables is
+            when the ratio of their values is always the same constant.
+            As a parametrized model, to say <m>y</m> is proportional to <m>x</m>
+            means that <m>y=kx</m> for some constant <m>k</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Many models are generated by expressing a dependent variable
+            as being proportional to a function of the independent variable.
+            Common exampes are inverse proportionality, power law relations, and exponential relations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Given a parametrized model, a data point for the variables establishes an equation in the model parameters.
+            With enough data points, the resulting system of equations can be solved to find the parameters.
+          </p>
+        </li>
+        <li>
+          <p>
+            Solutions to a system of equations can be approximated based on the intersection of graphs.
+            Computer algebra systems can often help solve a system of equations to find exact solutions.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercise>
+      <statement>
+        <p>
+          The British physicist Robert Hooke observed that when a spring is stretched,
+          the strength of the force is proportional to the length of the stretch,
+          at least for small to moderate lengths.
+          When a spring is stretched <quantity><mag>5</mag><unit prefix="centi" base="meter"/></quantity>,
+          the force exerted by the spring is <quantity><mag>1.8</mag><unit base="newton"/></quantity>.
+          <ol>
+            <li>
+              If <m>F</m> is the force of the spring and <m>L</m> is the length the spring is stretched,
+              write down the general equation describing the relation that <m>F</m> is proportional to <m>L</m>.
+              Then use the given data to find the proportionality constant.
+            </li>
+            <li>
+              Find the force exerted by the spring if it is stretched <quantity><mag>8</mag><unit prefix="centi" base="meter"/></quantity>.
+            </li>
+            <li>
+              What lengths should the spring be stretched for a force of <quantity><mag>1</mag><unit base="newton"/></quantity>? <quantity><mag>2</mag><unit base="newton"/></quantity>?
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          The amount of heat (a form of energy) stored in a substance is proportional to the change in temperature.
+          When a gram of water absorbs <quantity><mag>10</mag><unit base="joule"/></quantity> of heat,
+          the temperature rises by 2.389 degrees Celsius.
+          <ol>
+            <li>
+              If <m>\Delta T</m> is the change in the temperature of the water
+              and <m>Q</m> is the heat added to the water,
+              write down the general equation describing the relation that <m>Q</m> is proportional to <m>\Delta T</m>.
+              Then use the given data to find the proportionality constant, which is called the specific heat of water.
+            </li>
+            <li>
+              How much will the temperature change if <quantity><mag>16</mag><unit base="joule"/></quantity> of heat is added to the water.
+            </li>
+            <li>
+              How much energy in added heat is required to raise a gram of water from 20 degrees to 100 degrees?
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          The surface area of a cube is proportional to the square of the length of one side.
+          <ol>
+            <li>
+              If <m>A</m> is the surface area and <m>s</m> is the length of a side,
+              write down the general equation describing the relation that <m>A</m> is proportional to the square of <m>s</m>.
+            </li>
+            <li>
+              Using geometrical reasoning, what is the proportionality constant?
+            </li>
+            <li>
+              What is the surface area of a cube whose sides are each <quantity><mag>5</mag><unit prefix="centi" base="meter"/></quantity> in length?
+            </li>
+            <li>
+              What the length is the side of a cube whose surface area is exactly <quantity><mag>1</mag><unit prefix="centi" base="meter" exp="2"/></quantity> in length?
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          The mass of a raindrop is proportional to the cube of its diameter.
+          A raindrop with a diameter of <quantity><mag>3</mag><unit prefix="milli" base="meter"/></quantity>
+          has a mass of <quantity><mag>14.137</mag><unit prefix="milli" base="gram"/></quantity>
+          <ol>
+            <li>
+              If <m>m</m> is the mass of a raindrop and <m>d</m> is the diameter,
+              write down the general equation describing the relation that <m>m</m> is proportional to the cube of <m>d</m>.
+            </li>
+            <li>
+              Find the constant of proportionality using the given data.
+            </li>
+            <li>
+              What is the mass of a raindrop with a diameter of  <quantity><mag>5</mag><unit prefix="milli" base="meter"/></quantity>?
+            </li>
+            <li>
+              What is the diameter of a raindrop with a mass of  <quantity><mag>25</mag><unit prefix="milli" base="gram"/></quantity>?
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          The time to complete a large manual labor job is inversely proportional to the number of people performing the labor.
+          Suppose a job will take 20 days when 5 people are working.
+          <ol>
+            <li>
+              If <m>T</m> the time required to complete the job and <m>L</m> is the number of laborers,
+              write down the general equation describing the relation that <m>T</m> is inversely proportional to <m>L</m>.
+            </li>
+            <li>
+              Find the constant of proportionality using the given data. What is the physical interpretation of this constant?
+            </li>
+            <li>
+              How long will the job take if there are 16 people working?
+            </li>
+            <li>
+              What is the fewest number of people that can complete the job in 8 days?
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          The intensity of radiation from the sun is inversely proportional to the square of the distance from the sun.
+          The earth, which is 1 AU (atronomical unit) from the sun, receives radiation from the sun
+          at an intensity of <quantity><mag>1367</mag><unit base="watt"/><per unit="meter" exp="2"/></quantity>.
+          <ol>
+            <li>
+              If <m>I</m> the radiation intensity and <m>r</m> is the distance fom the sun,
+              write down the general equation describing the relation that <m>I</m> is inversely proportional to the square of <m>r</m>.
+            </li>
+            <li>
+              Find the constant of proportionality using the given data.
+            </li>
+            <li>
+              Find the intensity of radiation at Mercury, which is 0.387 AU from the sun.
+            </li>
+            <li>
+              Find the distance at which the sun's radiation is half the intensity as compared to earth.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A right triangle <m>ABC</m> has legs <m>AC=4</m> and <m>BC=3</m>.
+          <ol>
+            <li>
+              Find the length of the hypotenuse <m>AB</m> by applying the Pythagorean theorem.
+            </li>
+            <li>
+              Find the lengths of a triangle <m>PQR</m> that is similar to <m>ABC</m> whose hypotenuse has length <m>PQ=1</m>.
+            </li>
+            <li>
+              Find the lengths of a triangle <m>STU</m> that is similar to <m>ABC</m> whose leg <m>SU</m> has length <m>SU=1</m>.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A right triangle <m>ABC</m> has a leg <m>AC</m> with length <m>AC=2</m> and a hypotenuse <m>AB</m> with length <m>AB=3</m>.
+          <ol>
+            <li>
+              Find the length of the other leg <m>BC</m> by applying the Pythagorean theorem.
+            </li>
+            <li>
+              Find the lengths of a triangle <m>PQR</m> that is similar to <m>ABC</m> whose hypotenuse has length <m>PQ=1</m>.
+            </li>
+            <li>
+              Find the lengths of a triangle <m>STU</m> that is similar to <m>ABC</m> whose leg <m>SU</m> has length <m>SU=1</m>.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Consider the parametrized model <m>y=ax^2+b</m> and data points <m>(x,y)=(1,3)</m> and <m>(x,y)=(2,9)</m>.
+          <ol>
+            <li>
+              Determine the system of equations in terms of <m>a</m> and <m>b</m>.
+            </li>
+            <li>
+              Graph the system of equations for the parameters in the <m>(a,b)</m>-plane.
+            </li>
+            <li>
+              Solve for <m>a</m> and <m>b</m>, using a computer to assist if needed.
+            </li>
+            <li>
+              Find the value of <m>y</m> when <m>x=4</m>.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Consider the parametrized model <m>y=ax^2+bx</m> and data points <m>(x,y)=(1,3)</m> and <m>(x,y)=(2,9)</m>.
+          <ol>
+            <li>
+              Determine the system of equations in terms of <m>a</m> and <m>b</m>.
+            </li>
+            <li>
+              Graph the system of equations for the parameters in the <m>(a,b)</m>-plane.
+            </li>
+            <li>
+              Solve for <m>a</m> and <m>b</m>, using a computer to assist if needed.
+            </li>
+            <li>
+              Find the value of <m>y</m> when <m>x=4</m>.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Consider the parametrized power law model <m>y=a \cdot x^b</m> and data points <m>(x,y)=(1,3)</m> and <m>(x,y)=(2,9)</m>.
+          <ol>
+            <li>
+              Determine the system of equations in terms of <m>a</m> and <m>b</m>.
+            </li>
+            <li>
+              Graph the system of equations for the parameters in the <m>(a,b)</m>-plane.
+            </li>
+            <li>
+              Solve for approximate values for <m>a</m> and <m>b</m> using a graphing utility.
+            </li>
+            <li>
+              Find the value of <m>y</m> when <m>x=4</m>.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Consider the polynomial model <m>y=ax^2 + bx + c</m>
+          and data points <m>(x,y)=(1,3)</m>, <m>(x,y)=(3,6)</m>, and <m>(x,y)=(-2,4)</m>.
+          <ol>
+            <li>
+              Determine the system of equations in terms of <m>a</m>, <m>b</m>, and <m>c</m>.
+            </li>
+            <li>
+              Solve the system of equations to find exact values for the model parameters
+            </li>
+            <li>
+              Find the value of <m>y</m> when <m>x=6</m>.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+</section>
