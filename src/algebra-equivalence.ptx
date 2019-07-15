@@ -4,29 +4,47 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2015  D. Brian Walton          -->
+<!-- Copyright (C) 2015-2019  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
 
-<section xml:id="variables-expressions-equations">
-  <title>Variables, Expressions, and Equations</title>
+<section xml:id="algebra-equivalence">
+  <title>Algebra and Equivalence</title>
 
   <subsection>
     <title>Overview</title>
     <p>
-      In algebra, a variable represents a number whose value is not specified.
-      Sometimes, variables are introduced to describe the process for a calculation
-      that depends on another value.
-      Other times, variables are used to find a quantity of interest that makes an equation true.
-      In this section, we review the concepts of variables, expressions, equations, and basic strategies for solving equations.
+      Algebra can sometimes feel complicated.
+      This feeling often arises when algebra is viewed as a long list of rules of manipulation.
+      Perhaps you think of algebra as rules for moving symbols
+      and then feel overwhelmed by the number of possible different problems.
+      Or you might feel like you are doing the same operation in different situations
+      and are counted correct in some situations but incorrect in others.
+    </p>
+    <p>
+      To be effective in algebra, we should organize our thinking around a small number of core principles.
+      The first principle is to distinguish between expressions and equations.
+      Our goals when working with an expression are different from when we are working with an equation.
+      The second principle is the idea of equivalence,
+      whether that refers to equivalent expressions or equivalent equations.
+      Third, we want to minimize the number of rules be relating them to the fundamental properties of algebra.
+    </p>
+    <p>
+      In this section, we will relate the algebra principles you should have previously learned around these core principles.
+      We will focus on the idea that algebra identities allow us
+      to replace one expression with another equivalent expression.
+      The operations on expressions all originate with the basic properties of real number arithmetic.
+      Equations are relations stating that two expressions have the same value.
+      Our operations on equations will be designed to generate simpler equations that are equivalent to the original.
+      These strategies focus on applying the same operation to both sides of the equation to maintain a balance,
+      with the goal of creating an equation that is more easily solved than the original.
     </p>
   </subsection>
-
   <subsection>
     <title>Expressions and Properties of Algebra</title>
     <p>
-      In algebra, we often use variables as placeholders for numerical values.
+      In algebra, we use variables as placeholders for numerical values.
       The variable is given a symbol, usually a letter like <m>x</m>, that takes the place of the value.
-      Some times, this is because we want to describe a calculation without referencing a specific value.
+      Sometimes, this is because we want to describe a calculation without referencing a specific value.
       Other times, we want a specific but unknown value and use a variable as a name.
     </p>
     <example>
@@ -53,7 +71,7 @@
           Start with <m>x</m> and add five to get <m>x+5</m>.
           Doubling this means to multiply by two to get <m>2(x+5)</m>.
           Subtracting four gives <m>2(x+5)-4</m>.
-          Dividing in half means divide this by two, resulting in a fraction, <m>\displaystyle  \frac{2(x+5)-4}{2}</m>.
+          Dividing in half means divide this by two, resulting in <m>\displaystyle  \frac{2(x+5)-4}{2}</m>.
           We end by subtracting the original value <m>x</m>.
           The formula that matches this calculation would be
           <me>\frac{2(x+5)-4}{2}-x</me>.
@@ -61,10 +79,10 @@
       </solution>
     </example>
     <p>
-      An <term>expression</term> is any formula involving numbers and variables, such as the formula in the previous example.
+      An <term>expression</term> is any <em>formula</em> involving numbers and variables, such as the formula in the previous example.
       An expression itself represents a numerical value.
       When an expression involves variables, the value of the expression itself is unknown until the values of all variables are known.
-      We say that the expression is a <term>dependent variable</term> and often represent its value by a symbol.
+      Consequently, the expression itself is a <term>dependent variable</term>, and we often represent its value by another symbol.
     </p>
     <example>
       <p>
@@ -77,7 +95,7 @@
     </p>
     <example>
       <p>
-        For a business that earns money by selling a number of items each of which is sold for the same price,
+        For a business that earns money by selling a number of items, each of which is sold for the same price,
         the <term>revenue</term> (money brought in through sales) is computed by multiplying the number of items sold by the price of each item.
         We can summarize this statement defining revenue using algebra if we represent the state variables by symbols.
         Let <m>R</m> represent the revenue, let <m>n</m> represent the number of items sold, and let <m>p</m> represent the price of each item.
@@ -127,7 +145,8 @@
         <p>
           Our pick-a-number example with the dependent variable <me>y=\frac{2(x+5)-4}{2}-x</me>
           could be used as a mind-reader trick.
-          If a volunteer does the math correctly, you can always guess the final number <m>y</m>.
+          If a volunteer from the audience chooses their own number for <m>x</m>
+          and then does the math correctly, you (the mentalist) can always guess the final number <m>y</m>.
           Use algebra properties to determine what you should predict.
         </p>
       </statement>
@@ -145,11 +164,67 @@
           The second line used the associative property and the multiplicative identity.
           Can you see where?
           The final step in the calculation is to subtract <m>x</m>,
-          <me>y = \frac{2(x+5)-4}{2}-x = x+3 - x = (x+-x)+3 = 3</me>.
+          <me>y = \frac{2(x+5)-4}{2}-x = (x+3) - x = (x+-x)+3 = 3</me>.
+          (What properties were used there?)
         </p>
         <p>
           In conclusion, we have discovered <m>y=3</m>.
           No matter what number is originally chosen, the final result of the described calculation will always be three.
+        </p>
+      </solution>
+    </example>
+    <p>
+      When finding equivalent expressions, we really are just using these basic rules.
+      We can add zero by adding an expression and its additive inverse.
+      We can multiply by one by multiplying by a nonzero expression and its multiplicative inverse, <m>1=u/u</m>.
+      The associative and commutative laws together allow us to reorder terms and operations
+      <em>with respect to a single operation type</em>.
+      A common mistake is to reorder terms or operations across different operations.
+      For example, <m>2+3y</m> might be incorrectly written as <m>5y</m>,
+      which would be incorrectly using the idea of associativity, <m>2+(3\cdot y) = (2+3)\cdot y</m> (false).
+    </p>
+    <p>
+      The distributive law is used to products of sums to sums of products and back.
+      The reverse operation is usually called <term>factoring</term>.
+      Adding fractions with common denominators is really about having a common factor.
+      Because division is really multiplication by reciprocals,
+      canceling common factors is an application of multiplicative inverses.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Rewrite <m>\displaystyle \frac{3}{x}+x</m> as a single fraction.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The first term <m>\frac{3}{x}</m> has an inverse factor <m>\div x</m>.
+          To combine terms as a fraction, this needs to be a common factor in both terms.
+          We take <m>x</m> and multiply it by the inverse factors <m>x \div x</m> and then factor:
+          <me>3 \div x + x = 3 \div x + x \, x \, \div x = (3+x^2) \div x </me>.
+          However, we usually do this using fraction notation:
+          <me>\frac{3}{x} + x = \frac{3}{x} + \frac{x \cdot x}{x} = \frac{3+x^2}{x} </me>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Simplify <m>\displaystyle \frac{3x^2y-6xy^2}{9x^2y^2}</m> by canceling common factors.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A common mistake would be to cancel the <m>x^2</m> in the first term and <m>y^2</m> in the second term.
+          Terms do not cancel over addition; they cancel in multiplication.
+          We need to rewrite the numerator as multiplication rather than addition (subtraction).
+          The distributive law allows us to identify common factors:
+          <me>\frac{3x^2y-6xy^2}{9x^2y^2} = \frac{3xy(x-2y)}{9x^2y^2}</me>.
+          By recognizing <m>9x^2y^2 = (3xy)(3xy)</m>, we can rewrite our fraction and cancel the common factors:
+          <me>\frac{3x^2y-6xy^2}{9x^2y^2} = \frac{3xy(x-2y)}{(3xy)(3xy)} = \frac{x-2y}{3xy}</me>.
+          This is the simplest way to rewrite as a fraction.
+          We could also distribute the division to get a simplified sum:
+          <me>\frac{x-2y}{3xy} = \frac{x}{3xy} - \frac{2y}{3xy} = \frac{1}{3y} - \frac{2}{3x}</me>.
         </p>
       </solution>
     </example>
@@ -169,11 +244,12 @@
     </example>
     <p>
       When an equation involves variables, the truth of the statement depends on the values of the variables.
-      If we specify particular values for each variable, then we calculate the exact numerical value of each expression and then test if the values are equal.
+      If we specify particular values for each variable,
+      then we calculate the exact numerical value of each expression and then test if the values are equal.
       For some values of the variables, the equation may be false; for other values, the equation will be true.
-      If the equation is true for all possible values of the variables, the equation is called an <term>identity</term>.
       A <term>solution</term> to the equation is a set of values for the variables in the equation that makes the statement true.
       The <term>solution set</term> of an equation is the set of all possible solutions.
+      If the equation is true for all possible values of the variables, the equation is called an <term>identity</term>.
     </p>
     <example>
       <p>
@@ -181,7 +257,7 @@
         When <m>x=1</m>, or when <m>x</m> represents the value 1, the equation is the same as our earlier example.
         In that case, the equation is false.
         However, when <m>x=2</m>, the equation corresponds to <m>2+1=3</m>, which is true.
-        The value <m>2</m> is in the solution set.
+        The value <m>2</m> is a solution and is in the solution set.
       </p>
     </example>
     <example>
@@ -196,9 +272,12 @@
       </p>
     </example>
     <p>
+      In the examples above, we took possible numbers and tested if they were solutions.
       Testing values to find solutions is impractical because there are infinitely many different values possible for each variable.
       Finding a solution by guessing would be a stroke of luck.
-      In addition, finding one solution would not tell you if there were more solutions not yet found.
+      If we did find a solution, we might use our intuition to say that we found all of the solutions.
+      But how do we <em>know</em>? What if our intuition is wrong?
+      Finding one solution does not tell you whether there might be more solutions.
     </p>
     <p>
       Instead, we use algebra to find solutions by <term>solving</term> the equation.
@@ -208,7 +287,7 @@
     <p>
       Most of these strategies rely on a principle of finding <term>equivalent</term> equations.
       Equations are equivalent when they true or false for exactly the same values of variables.
-      The symbol <m>\Leftrightarrow</m> can be used to say that statements are equivalent.
+      The symbol <m>\Leftrightarrow</m> is used to say that two logical statements are equivalent.
     </p>
     <p>
       You may have learned that an equation is like a balance or scale.
@@ -236,6 +315,7 @@
         we will later learn about invertible or one-to-one functions.
         An invertible function can be applied to both sides of an equation to create an equivalent equation,
         so long as the expressions have values in the function domain.
+        Noninvertible functions potentially introduce extraneous solutions.
       </p>
     </assemblage>
     <p>
@@ -243,6 +323,8 @@
       If a variable appears only once in an equation,
       then our strategy would be to apply balanced operations until one side of the equation only has that variable.
       Generally, we can use the <term>inverse operation</term> for the last operation in the expression based on the order of operations.
+      If we think about the operations involved in an expression as wrapping layers around the variable,
+      then applying inverse operations would be like unwrapping the variable one layer at a time.
     </p>
     <example>
       <statement>
@@ -255,7 +337,7 @@
           The <term>inverse operation</term> is to add <m>-5</m>, which we do in a balanced way.
           <me>2x+5 = 13 \quad \Leftrightarrow \quad 2x+5+-5=13+-5 \quad \Leftrightarrow \quad 2x=8</me>
           The last operation in the expression <m>2x</m> is now multiplication by 2.
-          The next balanced operation is to multiply by the inverse <m>\frac{1}{2}</m>.
+          The next balanced operation is to multiply by the inverse <m>\div 2 = \frac{1}{2}</m>.
           <me>2x+5 = 13 \quad \Leftrightarrow \quad 2x=8 \quad \Leftrightarrow \quad \frac{1}{2} \cdot 2x = \frac{1}{2} \cdot 8 \quad \Leftrightarrow \quad x = 4</me>
           The equation <m>x=4</m> has isolated the variable, so the only solution is <m>x=4</m>.
           The solution set <m>\{x : 2x+5=13\}</m><mdash/>the set of values <m>x</m> that make <m>2x+5=13</m> true<mdash/>has a single value <m>\{x : 2x+5=13\} = \{4\}</m>.
@@ -315,6 +397,7 @@
     <p>
       Consequently, when an equation is written as a product equalling zero,
       we can identify all solutions for each factor individually equal to zero.
+      The solution set will then be the <term>union</term> of the solutions of these separate equations.
     </p>
     <example>
       <statement>
@@ -341,80 +424,17 @@
           Now, each factor might equal zero leading to a different solution:
           <m>x=0</m>, <m>x=-2</m>, or <m>x=2</m>.
           Because these are the only values that make a factor equal zero, they are the only solutions.
-          The solution set is
+          The solution set is the union of the three values,
           <me>\{x : x^3-4x \} = \{-2, 0, 2\}</me>.
         </p>
       </solution>
     </example>
     <p>
-      In addition to the general strategies of isolating a variable and factoring an expression equal to zero,
-      we have a special strategy for solving a quadratic polynomial equal to zero, even when it does not easily factor.
-      This strategy is to use the quadratic formula.
+      In the next section, we will explore the strategy of factoring in more depth
+      in the context of solving polynomial equations.
+      We will also review using the quadratic formula to solve equations.
+      The next example reminds you to be careful about what you think will be equivalent equations.
     </p>
-    <theorem xml:id="thm-quadratic-formula">
-      <title>Quadratic Formula</title>
-      <statement>
-      <p>
-        Suppose <m>a</m>, <m>b</m>, and <m>c</m> are numbers with <m>a \ne 0</m>.
-        The equation <m>ax^2+bx+c=0</m> has solutions
-        <me>x=\frac{-b \pm \sqrt{b^2-4ac}}{2a}</me>.
-        If <m>b^2-4ac \lt 0</m> (negative discriminant),
-        then the solutions are complex numbers and there are no real solutions.
-        If <m>b^2-4ac = 0</m> (zero discriminant),
-        then the solutions are the same numbers and there is exactly one real solutions.
-        If <m>b^2-4ac \gt 0</m> (positive discriminant),
-        then there are two different real solutions.
-      </p>
-      </statement>
-    </theorem>
-    <p>
-      I like to remember the quadratic formula using the tune to <q>Pop Goes the Weasel</q>:
-      <q><m>x</m> equals negative <m>b</m> plus or minus square-root <m>b</m>-squared minus <m>4ac</m>
-      all over <m>2a</m>.</q>
-    </p>
-    <example>
-      <statement>
-        <p>
-          Solve <m>2x^2 = 3x + 5</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          First, we need to write an equivalent equation that is in the standard quadratic form.
-          This requires all terms on the left side of the equation,
-          <me>2x^2 - 3x - 5 =0</me>.
-          Once in this form, we identify <m>a=2</m>, <m>b=-3</m> and <m>c=-5</m>.
-          Knowing the coefficients <m>a</m>, <m>b</m>, and <m>c</m>, we can apply the quadratic formula:
-          <me>x = \frac{+3 \pm \sqrt{(-3)^2-4(2)(-5)}}{2(2)}</me>.
-          We then simplify the terms
-          <me>x = \frac{3 \pm \sqrt{9+40}}{4} = \frac{3 \pm \sqrt{49}}{4}</me>.
-          The notation <m>\pm</m> indicates that we find two solutions be either adding or subtracting the square-root.
-          So one solution will be
-          <me>x = \frac{3 + 7}{4} = \frac{10}{4} = \frac{5}{2}</me>,
-          and the other solution will be
-          <me>x = \frac{3 - 7}{4} = \frac{-4}{4} = -1</me>.
-        </p>
-        <p>
-          Simple quadratic problems can often be solved directly by factoring.
-          In this case, we would have the following equivalent equations
-          <md>
-            <mrow>2x^2-3x-5 = 0</mrow>
-            <mrow>2x^2-5x+2x-5 = 0</mrow>
-            <mrow>x(2x-5) + (2x-5) = 0</mrow>
-            <mrow>(x+1)(2x-5) = 0</mrow>
-          </md>
-          The solutions then solve <m>x+1=0</m> or <m>2x-5=0</m>, giving <m>x=-1</m> and <m>x=\frac{5}{2}</m>.
-        </p>
-        <p>
-          This example illustrates a strategy of grouping to factor quadratics.
-          We multiplied the coefficients <m>a=2</m> and <m>c=-5</m> to get <m>ac=-10</m>.
-          We then looked for factors of <m>-10</m> that added to <m>-3</m>, in this case <m>-5+2=-3</m>.
-          We then rewrite <m>-3x</m> as <m>-3x = -5x + 2x</m> and group what are now four terms into two groups.
-          Once we pull out common factors from the groups, we can identify the factors which are used in simpler equations.
-        </p>
-      </solution>
-    </example>
-    <p>The next example reminds you to be careful about what you think will be equivalent equations.</p>
     <example>
       <statement>
         <p>
@@ -482,13 +502,12 @@
     </example>
   </subsection>
   <subsection>
-    <title>Systems of Equations and Constraints</title>
+    <title>Systems of Equations</title>
     <p>
-      An equation involving multiple variables establishes a relation between the variables.
-      We often have multiple equations, each of which constrains the possible values for the variables.
-      A useful strategy for solving equations is to isolate a dependent variable in one equation
-      and then substitute the resulting value or formula into the other equation.
-      That equation then has one variable which can be solved using the usual methods.
+      We have just discussed solving an equation for a single variable.
+      Equations might involve multiple variables.
+      Such an equation establishes a relation between the variables.
+      Solutions will require that the value of one variable depends on the values of any other variables.
     </p>
     <example>
       <statement>
@@ -549,7 +568,78 @@
       </solution>
     </example>
     <p>
-      Equations allow us to answer questions involving variables whose relation is known.
+      When working with multiple variables, we often have multiple equations.
+      For example, when we created equations for the parameters of a parametrized model from data,
+      we created a different equation involving the parameters for each data point.
+      A solution for one equation is a state giving values for each of the variables such that the equation is true.
+      A solution for the <em>system</em> of equations is a state that makes all of the equations true.
+    </p>
+    <p>
+      A useful strategy for solving equations is to isolate a dependent variable in one equation
+      and then substitute the resulting value or formula into the other equation.
+      That equation then has one variable which can be solved using the usual methods.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find a model of the form <m>y=ax+bx^2</m> that passes through the points <m>(x,y)=(1,2)</m> and <m>(x,y)=(2,5)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Using the data provides us with an equation for <m>a</m> and <m>b</m> for each point:
+          <md>
+            <mrow> (x,y)=(1,2) \amp \quad \Rightarrow \quad 2 = a(1) + b(1)^2 </mrow>,
+            <mrow> (x,y)=(2,5) \amp \quad \Rightarrow \quad 5 = a(2) + b(2)^2 </mrow>.
+          </md>
+          These equations form a system of equations that must be satisfied simultaneously,
+          <me>
+            \begin{cases}
+            a+b=2, \\
+            2a+4b=5.
+            \end{cases}
+          </me>
+          This sets up the mathematical problem that we will solve.
+        </p>
+        <p>
+          We begin by solving one of the equations for one of the variables.
+          If we take the equation <m>a+b=2</m> and solve for <m>b</m>, we obtain <m>b=2-a</m>.
+          We can now substitute the expression <m>2-a</m> in place of <m>b</m> in the <em>other</em> equation,
+          and then solve for <m>a</m>:
+          <md>
+            <mrow> 2a+4(2-a) \amp= 5 </mrow>
+            <mrow> 2a+8-4a \amp= 5 </mrow>
+            <mrow> -2a+8 \amp= 5 </mrow>
+            <mrow> -2a \amp= -3 </mrow>
+            <mrow> a \amp= \frac{3}{2} </mrow>
+          </md>
+          Knowing that <m>a=\frac{3}{2}</m> and that <m>b=2-a</m>, we find <m>b=\frac{1}{2}</m>.
+          The model passing through the data is therefore <m>y=\frac{3}{2} x + \frac{1}{2} x^2</m>.
+          A graph showing this solution is shown below.
+        </p>
+        <image width="50%">
+          <description>Graph of y = 3/2 x + 1/2 x^2 passing through (1,2) and (2,5).</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-2, xmax=5,
+                axis lines = center, xlabel={$x$}, ylabel={$y$}
+              ]
+              \addplot [ samples=100, thick, blue ] { 3/2*x +x^2/2 };
+              \addplot [ only marks ] coordinates {
+                (1,2) (2,5)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </solution>
+    </example>
+    <p>
+      Systems of equations allow us to answer questions involving variables that are subject to multiple constraints.
+      A constraint, which provides information about how the variables need to be related, is represented by an equation.
+      Solving the system of equations finds the values that satisfy all constraints.
     </p>
     <example>
       <statement>
@@ -610,39 +700,415 @@
       </solution>
     </example>
   </subsection>
-
+  <subsection>
+    <title>Equivalence and Graphs</title>
+    <p>
+      It is useful to think about how graphs relate to equivalent expressions, equivalent equations, and equivalent systems of equations.
+      Understanding the interpretation relating to graphs should help us understand the concepts.
+    </p>
+    <p>
+      Because two expressions are equivalent if and only if they produce the identical values for any choice of the variables,
+      the graphs of equivalent expressions should look identical.
+      When there is only one variable involved, say <m>x</m>, then a simple graph suffices.
+      Suppose <m>u_1</m> and <m>u_2</m> are the two expressions.
+      In a graphing utility, if we graph the two expressions, <m>y=u_1</m> and <m>y=u_2</m>,
+      then the graphs should exactly overlap.
+      It can be difficult to check if an overlap is exact or only approximate.
+    </p>
+    <p>
+      We could instead create a single graph that subtracts one expression from the other, <m>y=u_1 - u_2</m>.
+      When the expressions are equivalent, the graph will show <m>y=0</m> for all values <m>x</m>.
+      However, because computers only approximately represent numbers,
+      computer arithmetic can introduce small errors.
+      Consequently, we should not be surprised to see a graph with small fluctuations.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use a graph to test whether the following expressions are equivalent.
+          <ol>
+            <li>
+              <m>\sqrt{x^2+16}</m> and <m>x+4</m>
+            </li>
+            <li>
+              <m>\displaystyle \frac{\sqrt{x+1}-1}{x}</m> and <m>\displaystyle \frac{1}{\sqrt{x+1}+1}</m>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The first comparison between <m>\sqrt{x^2+16}</m> and <m>x+4</m> is checked
+          by graph <m>y=\sqrt{x^2+16}</m> and <m>y=x+4</m> on the same figure.
+        </p>
+        <image width="50%">
+          <description>Graphs of y=sqrt(x^2+16) and y=x+4 that shows two different curves</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [ xmin=-5, xmax=5, axis lines=center, xlabel={$x$}, ylabel={$y$} ]
+              \addplot [thick, blue] {sqrt(x^2+16)};
+              \addplot [thick, orange] {x+4};
+              \addlegendentry{$y=\sqrt{x^2+16}$};
+              \addlegendentry{$y=x+4$};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          The graphs clearly are different.
+          This is definitive evidence that the expressions are not equivalent.
+          Even identifying just one point, like <m>x=3</m>, and showing the formulas give different results
+          proves that the expressions are not equivalent:
+          <md>
+            <mrow>x \amp= 3 \quad \Rightarrow \quad \sqrt{x^2+16} = \sqrt{9+16} = \sqrt{25} = 5, </mrow>
+            <mrow> x \amp= 3 \quad \Rightarrow \quad x+4 = 3+4 = 7. </mrow>
+          </md>
+          The value used provides a <term>counterexample</term> to the claim of equivalence.
+        </p>
+        <p>
+          The second claim is that <m>\displaystyle \frac{\sqrt{x+1}-1}{x}</m> and <m>\displaystyle \frac{1}{\sqrt{x+1}+1}</m> are equivalent.
+          When we graph these two expressions, we only see one curve in the figure.
+        </p>
+        <image width="50%">
+          <description>Graphs of y=(sqrt(x+1)-1)/x and y=1/(sqrt(x+1)+1) that shows just one curve</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [ xmin=-5, xmax=5, axis lines=center, xlabel={$x$}, ylabel={$y$}, legend pos=south west ]
+              \addplot [thick, blue] {(sqrt(x+1)-1)/x};
+              \addplot [thick, orange] {1/(sqrt(x+1)+1)};
+              \addlegendentry{$y=(\sqrt{x+1}-1)/x$};
+              \addlegendentry{$y=1/(\sqrt{x+1}+1)$};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          Is this because the graphs are the same?
+          Or is it because one of the graphs is so different that it just doesn't appear in the window?
+          To avoid that uncertainty, we can instead graph their difference,
+          <me>y = \frac{ \sqrt{x+1}-1 }{x} - \frac{1}{\sqrt{x+1}+1}</me>.
+        </p>
+        <image width="50%">
+          <description>Graph of y=(sqrt(x+1)-1)/x  minus 1/(sqrt(x+1)+1)</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [ xmin=-5, xmax=5, axis lines=center, xlabel={$x$}, ylabel={$y$} ]
+              \addplot [thick, blue, samples=100] {(sqrt(x+1)-1)/x - 1/(sqrt(x+1)+1)};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          What do we see?
+          Something interesting seems to be happening at <m>x=0</m>.
+          Notice that the first expression is undefined for <m>x=0</m> (can't divide by zero).
+          The other expression has a value <m>\frac{1}{2}</m>.
+          So the two expressions are not really equivalent because of this one point.
+        </p>
+        <p>
+          What about the other points?
+          The rest of the graph has very small values that appear to fluctuate.
+          We must consider the possibility that this is due to computer error.
+          Let us try some values for which the square root will be simple.
+          <md>
+            <mrow>x \amp= 3 \quad \Rightarrow \quad \frac{\sqrt{x+1}-1}{x} = \frac{\sqrt{4}-1}{3} = \frac{1}{3}</mrow>
+            <mrow>x \amp= 3 \quad \Rightarrow \quad \frac{1}{\sqrt{x+1}+1} = \frac{1}{\sqrt{4}+1} = \frac{1}{3}</mrow>
+          </md>
+          That's a match.
+          <md>
+            <mrow>x \amp= 8 \quad \Rightarrow \quad \frac{\sqrt{x+1}-1}{x} = \frac{\sqrt{9}-1}{8} = \frac{2}{8}</mrow>
+            <mrow>x \amp= 8 \quad \Rightarrow \quad \frac{1}{\sqrt{x+1}+1} = \frac{1}{\sqrt{9}+1} = \frac{1}{4}</mrow>
+          </md>
+          Again, it's a match.
+          We start to think that the expressions probably are equivalent.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Graphical evidence that expressions are equivalent can give us confidence but do not provide definitive evidence.
+      Ultimately, that needs to come from algebraic arguments.
+      In our example, <m>\displaystyle \frac{\sqrt{x+1}-1}{x}</m> and <m>\displaystyle \frac{1}{\sqrt{x+1}+1}</m> appear to be equivalent for <m>x \ne 0</m>.
+      Let us use algebra to simplify the difference between the expressions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Show that <m>\displaystyle \frac{\sqrt{x+1}-1}{x}</m> and <m>\displaystyle \frac{1}{\sqrt{x+1}+1}</m> are equivalent for <m>x \ne 0</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We will simplify the difference by finding a common denominator.
+          Notice how we have to use the distributive property as we FOIL out the product.
+          <md>
+            <mrow> \frac{\sqrt{x+1}-1}{x} - \frac{1}{\sqrt{x+1}+1} \amp= \frac{(\sqrt{x+1}-1)(\sqrt{x+1}+1)}{x(\sqrt{x+1}+1)} - \frac{x}{x(\sqrt{x+1}+1)}</mrow>
+            <mrow> \amp= \frac{(\sqrt{x+1})^2+\sqrt{x+1}-\sqrt{x+1}-1-x}{x(\sqrt{x+1}+1)} </mrow>
+            <mrow> \amp= \frac{x+1-1-x}{x(\sqrt{x+1}+1)} </mrow>
+            <mrow> \amp= \frac{0}{x(\sqrt{x+1}+1)} = 0 </mrow>
+          </md>
+          This proves that the expressions are equivalent for <m>x \ne 0</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The graphical interpretation of equivalent equations is not the same as equivalent expressions.
+      That should make sense because expressions and equations are not the same type of objects.
+      Recall that equations are equivalent if they have the same solution sets.
+      Consequently, we need to understand the graphical meaning of solution sets.
+    </p>
+    <p>
+      An equation is a statement that two expressions have the same value.
+      We can graph the value of an expression in terms of its independent variable.
+      Since an equation has two expressions, we consider two different graphs.
+      A solution to an equation is a value for the variable where the expressions have the same value.
+      This corresponds to a point where the graphs intersect.
+      Consequently, two equations are equivalent if the values of the variable where the expressions agree are the same.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Solve the equation <m>\displaystyle \frac{3}{1+3x} = 2</m> using equivalent equations.
+          For each stage of the solution, graph the expressions in the equations to illustrate the equivalence.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To solve the equation, we will multiply both sides by <m>1+3x</m> and then isolate the variable <m>x</m>.
+          This gives us the following sequence of equivalent equations.
+          <md>
+            <mrow> \frac{3}{1+3x} = 2 </mrow>
+            <mrow> 3 = 2(1+3x) </mrow>
+            <mrow> 3 = 2 + 6x </mrow>
+            <mrow> 1 = 6x </mrow>
+            <mrow> \frac{1}{6} = x </mrow>
+          </md>
+          For each equation, we should see the expression intersect exactly at <m>x=\frac{1}{6}</m>.
+          We graph the two expressions for each equation and the vertical line at <m>x=\frac16</m>.
+          Each figure shows the graphs intersect at the same <m>x</m>-value.
+          The <m>y</m>-values for the intersection points are changing because the expressions are changing.
+        </p>
+        <sbsgroup>
+          <sidebyside widths="45% 45%">
+            <image>
+              <description>Graphs of y=3/(1+3x) and y=2</description>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [ xmin=-2, xmax=5, ymin=-6, ymax=6, xlabel={$x$}, ylabel={$y$}, legend pos=south east ]
+                  \addplot [samples=50, domain=-4:-0.4, thick, blue] { 3/(1+3*x) };
+                  \addplot [samples=50, domain=-0.18:5, thick, blue, forget plot] { 3/(1+3*x) };
+                  \addplot [thick, orange] {2};
+                  \addlegendentry{$y=3/(1+3x)$};
+                  \addlegendentry{$y=2$};
+                  \draw [dashed, black] ({axis cs:0.166,0}|-{rel axis cs:0,1}) -- ({axis cs:0.166,0}|-{rel axis cs:0,0});
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            <image>
+              <description>Graphs of y=3 and y=2(1+3x)</description>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [ xmin=-2, xmax=5, ymin=-6, ymax=6, xlabel={$x$}, ylabel={$y$}, legend pos=south east ]
+                  \addplot [thick, blue] { 3 };
+                  \addplot [thick, orange] {2+6*x};
+                  \addlegendentry{$y=3$};
+                  \addlegendentry{$y=2(1+3x)$};
+                  \draw [dashed, black] ({axis cs:0.166,0}|-{rel axis cs:0,1}) -- ({axis cs:0.166,0}|-{rel axis cs:0,0});
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </sidebyside>
+          <sidebyside widths="45% 45%">
+            <image>
+              <description>Graphs of y=1 and y=6x</description>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [ xmin=-2, xmax=5, ymin=-6, ymax=6, xlabel={$x$}, ylabel={$y$}, legend pos=south east ]
+                  \addplot [thick, blue] { 1 };
+                  \addplot [thick, orange] {6*x};
+                  \addlegendentry{$y=1$};
+                  \addlegendentry{$y=6x$};
+                  \draw [dashed, black] ({axis cs:0.166,0}|-{rel axis cs:0,1}) -- ({axis cs:0.166,0}|-{rel axis cs:0,0});
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            <image>
+              <description>Graphs of y=1/6 and y=x</description>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [ xmin=-2, xmax=5, ymin=-6, ymax=6, xlabel={$x$}, ylabel={$y$}, legend pos=south east ]
+                  \addplot [thick, blue] { 1/6 };
+                  \addplot [thick, orange] {x};
+                  \addlegendentry{$y=1/6$};
+                  \addlegendentry{$y=x$};
+                  \draw [dashed, black] ({axis cs:0.166,0}|-{rel axis cs:0,1}) -- ({axis cs:0.166,0}|-{rel axis cs:0,0});
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </sidebyside>
+        </sbsgroup>
+      </solution>
+    </example>
+    <p>
+      When we visualized one equation as a graph of two expressions,
+      we introduced a new variable <m>y</m> so that the graph could be shown in the <m>(x,y)</m> plane.
+      The value of <m>y</m> at the point of intersection is not necessarily the same when we change to an equivalent equation.
+      However, when we work with systems of equations, all of the variables are essential.
+      An equivalent system of equations needs solutions to keep the same values for all variables at the point of intersection.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Solve the system of equations
+          <me>
+            \begin{cases}
+            x+4y = 6 \\
+            3x-y = 5
+            \end{cases}
+          </me>
+          and graph the equivalent systems at each stage.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Solving the first equation for <m>x</m>, we get <m>x=6-4y</m>.
+          When we substitute this expression into the second equation, we have a new system.
+          <me>
+            \begin{cases}
+            x = 6 - 4y \\
+            3(6-4y)-y = 5
+            \end{cases}
+            \quad \Leftrightarrow \quad
+            \begin{cases}
+            x = 6 - 4y \\
+            18 - 13y = 5
+            \end{cases}
+          </me>
+          The second equation in this system simplifies to <m>-13y = -13</m> or <m>y=1</m>.
+          When we substitute that value back into the first equation, we get <m>x=6-4(1)</m> or <m>x=2</m>.
+          The solution to the system is <m>(x,y) = (2,1)</m>.
+        </p>
+        <p>
+          When graphing the equations in the equivalent systems, we note that each equation is the graph of a line.
+          We can graph the lines quickly by plotting their intercepts found by setting <m>x=0</m> or <m>y=0</m> and solving for the other value.
+          The equation <m>x+4y=6</m> has a <m>y</m>-intercept (<m>x=0</m>) at <m>y=\frac{3}{2}</m> and an <m>x</m>-intercept (<m>y=0</m>) at <m>x=6</m>.
+          The equation <m>3x-y=5</m> has a <m>y</m>-intercept (<m>x=0</m>) at <m>y=-5</m> and an <m>x</m>-intercept (<m>y=0</m>) at <m>x=\frac{5}{3}</m>.
+          In our second system, the equation <m>y=1</m> is a horizontal line because <m>x</m> can have any value.
+          In the final system (the solution), the equation <m>x=2</m> corresponds to a vertical line where <m>y</m> can have any value.
+        </p>
+        <sbsgroup>
+          <sidebyside widths="45% 45%">
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [
+                    xmin=-5, xmax=5, ymin=-5, ymax=5,
+                    axis lines = center, xlabel={$x$}, ylabel={$y$},
+                  ]
+                  \addplot [ thick, blue ] {(6-x)/4};
+                  \addplot [ thick, orange ] {3*x-5};
+                  \addplot [ only marks ] coordinates { (2,1) };
+                  \addlegendentry{$x+4y=6$};
+                  \addlegendentry{$3x-y=5$};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [
+                    xmin=-5, xmax=5, ymin=-5, ymax=5,
+                    axis lines = center, xlabel={$x$}, ylabel={$y$},
+                  ]
+                  \addplot [ thick, blue ] {(6-x)/4};
+                  \addplot [ thick, orange ] {1};
+                  \addplot [ only marks ] coordinates { (2,1) };
+                  \addlegendentry{$x = 6-4y$};
+                  \addlegendentry{$y=1$};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </sidebyside>
+          <sidebyside width="45%">
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [
+                    xmin=-5, xmax=5, ymin=-5, ymax=5,
+                    axis lines = center, xlabel={$x$}, ylabel={$y$},
+                  ]
+                  \addplot [ thick, blue ] (2, {x});
+                  \addplot [ thick, orange ] {1};
+                  \addplot [ only marks ] coordinates { (2,1) };
+                  \addlegendentry{$x=2$};
+                  \addlegendentry{$y=1$};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </sidebyside>
+        </sbsgroup>
+      </solution>
+    </example>
+  </subsection>
   <subsection>
     <title>Summary</title>
     <p>
     <ul>
       <li>
         <p>
-          Variables in algebra are symbols that represent a placeholder for a number.
-          Variable names can be letters, symbols, or words.
-          Uppercase and lowercase letters are different symbols and should not be interchanged.
-        </p>
-      </li>
-      <li>
-        <p>
           An expression is any value or a formula that represents a value.
-          An equation is a logical statement that two expressions are equal.
+          Expressions are equivalent if they have the same value for all possible assignments of the variables.
+          Simplifying an expression is to find an equivalent expression in a form that meets an established convention.
         </p>
       </li>
       <li>
         <p>
+        </p>
+      </li>
+      <li>
+        <p>
+          An equation is a logical statement that two expressions are equal.
           A solution to an equation is a state (values specified for all variables) that makes the equation true.
           The solution set is the set of all possible solutions.
+          Equations are equivalent if they have exactly the same solution sets.
         </p>
       </li>
       <li>
         <p>
-          Solving an equation for the value of one variable when the value of the other variable is given allows us to predict the state of a system.
+          The primary method for solving an equation is to find an equivalent equation that isolates the variable.
+        </p>
+      </li>
+      <li>
+        <p>
+          A key fact about arithmetic is that the only way a product can equal zero is if one factor is zero.
+          This fact is used to solve equations written as an expression equal to zero by factoring.
+        </p>
+      </li>
+      <li>
+        <p>
+          A system of equations has solutions described by states with all variables having values that make every equation true.
+          Equivalent systems of equations have the same solutions.
         </p>
       </li>
     </ul>
     </p>
   </subsection>
-
   <exercises>
     <exercise>
       <statement>
@@ -722,27 +1188,6 @@
           </p>
         </statement>
       </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>x^2-5x-14</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>5x^2-8x+3</m>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-            <m>5x^2-8x+3</m>
-          </p>
-        </statement>
-      </exercise>
     </exercisegroup>
     <exercisegroup>
       <introduction>
@@ -786,6 +1231,13 @@
       <exercise>
         <statement>
           <p>
+            <m>2(x+5)-3 = 7</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
             <m>3t+5 = t-2</m>
           </p>
         </statement>
@@ -800,42 +1252,42 @@
       <exercise>
         <statement>
           <p>
-            <m>x^2-2x = x+4</m>
+            <m>\displaystyle \frac{4u}{u+5} = 4</m>
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-            <m>y^2-y = y+5</m>
+            <m>\displaystyle \frac{2y}{y-1} = 2</m>
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-            <m>p^2-1 = 3(p-2)</m>
+            <m>\displaystyle \frac{2y}{y-1} = 3</m>
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-            <m>z^3-5z = 2z^2-6</m>
+            <m>(2x-3)(x+2) = 0</m>
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-            <m>\displaystyle \frac{2x^2+3x}{x+1} = 2x</m>
+            <m>t(5t-1)(3-t) = 0</m>
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-            <m>\displaystyle \frac{4x^2-5x}{x-2} = 4x+3</m>
+            <m>\displaystyle \frac{p(p+1)}{p+2} = 0</m>
           </p>
         </statement>
       </exercise>

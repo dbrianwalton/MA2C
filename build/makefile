@@ -52,7 +52,7 @@ single: $(LATEX_single).pdf;
 .PHONY: $(LATEX_single).tex
 
 $(LATEX_single).tex:
-	xsltproc --xinclude $(XSL)/$(LATEX_XSL) $(XML)/$(XML_single)
+	xsltproc -o $(LATEX_single).tex --xinclude $(XSL)/$(LATEX_XSL) $(XML)/$(XML_single)
 
 $(LATEX_single).pdf: images $(LATEX_single).tex
 	cp -a $(MA2Croot)/img/ images/

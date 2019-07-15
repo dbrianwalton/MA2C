@@ -7,7 +7,7 @@
 -->
 <!DOCTYPE doc>
 
-<mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude">
 
     <xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
 
@@ -15,9 +15,9 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./differentiable-functions.xml" />
+            <xi:include href="./algebra-equivalence.ptx" />
 		</chapter>
 
     </book>
 
-</mathbook>
+</pretext>
