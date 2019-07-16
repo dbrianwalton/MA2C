@@ -308,8 +308,7 @@
         Scatter plot of electrophoresis data, displacement vs size and size vs displacement.
         </description>
         <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
+        \tikzset{%
         /pgfplots/table/row sep=crcr
         }
         \pgfplotsset{ width=6cm }
@@ -356,7 +355,7 @@
           249 1000\\
         };
         \end{axis}
-        \end{tikzpicture}]]>
+        \end{tikzpicture}
         </latex-image>
       </image>
     </figure>
@@ -411,7 +410,7 @@
             color=red
           ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
           \end{axis}
-          \end{tikzpicture}]]>
+          \end{tikzpicture}
           </latex-image>
         </image>
       </sidebyside>
@@ -470,6 +469,7 @@
           </latex-image>
         </image>
       </sidebyside>
+    </figure>
   </subsection>
   <subsection>
     <title>Graphs of Equations</title>
@@ -965,13 +965,14 @@
             </latex-image>
           </image>
         </sidebyside>
-      <p>
-        Using our value for <m>D</m>, we can find the value of <m>L</m> using the model,
-        <me>L = 0.0573428(282)^2 - 43.381(282)+8241.57 \approx 568.26</me>.
-        Since our original data had 3 significant digits,
-        we would estimate the length of the DNA in question as <m>L \approx 568</m> nucleotides.
-        In this way, a regression of known electrophoresis data allows us to estimate lengths of other molecules.
-      </p>
+        <p>
+          Using our value for <m>D</m>, we can find the value of <m>L</m> using the model,
+          <me>L = 0.0573428(282)^2 - 43.381(282)+8241.57 \approx 568.26</me>.
+          Since our original data had 3 significant digits,
+          we would estimate the length of the DNA in question as <m>L \approx 568</m> nucleotides.
+          In this way, a regression of known electrophoresis data allows us to estimate lengths of other molecules.
+        </p>
+      </solution>
     </example>
     <p>
       You should note that the number of significant digits reported is not the same as the uncertainty in the prediction.
