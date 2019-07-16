@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2019  D. Brian Walton     -->
+<!-- See the file COPYING for copying conditions. -->
+<section xml:id="factoring">
+  <title>Factoring</title>
+  <subsection>
+    <title>Overview</title>
+    <p>
+      Factoring provides a powerful algebraic tools to analyze where an expression equals zero.
+      In the previous section, we noted that a product of two factors can only equal zero
+      if at least one of the factors itself equals zero (see <xref ref="thm-product-equals-zero" />).
+      More generally, factoring helps us understand the relation between a product and zero,
+      whether it is greater than or less than zero.
+    </p>
+    <p>
+      In this section, we will review some strategies for factoring expressions.
+      We introduce some technological approaches to factoring.
+      Then we review some strategies that you would have seen in an algebra course.
+      We also use our knowledge of how factoring to develop meaningful models.
+    </p>
+  </subsection>
+  <subsection xml:id="factoring-with-technology">
+    <title>Factoring with Technology</title>
+    <p>
+      Factoring is a process that is best accomplished using technology.
+      Every technique that we learn by hand can be accomplished much more quickly and more reliably by a computer.
+      Once the computer has been programmed correctly, it doesn't commit the arithmetic errors that we are prone to make.
+      In a practical setting, except for simple problems, you will be better off obtaining factors from a computer algebra system.
+    </p>
+    <p>
+      A computer algebra system (CAS) is a computer program that is designed to apply the rules of algebra according to the user's request.
+      The popular website WolframAlpha (<url href="https://www.wolframalpha.com" />) allows you to ask mathematical questions using natural language.
+      It interprets your request and shows a variety of mathematical responses that might answer your question.
+      For example, to factor a polynomial like <m>x^3-7x+6</m>, we would submit a request <c>factor x^3-7x+6</c>.
+      WolframAlpha would give a response that the result is <m>(x-1)(x-2)(x+3)</m>.
+    </p>
+    <p>
+      WolframAlpha can perform many other basic computations.
+      It is built on the same CAS as a stand alone application called Mathematica, which is sold by Wolfram.
+      A web-based system like WolframAlpha has a disadvantage that we can not create a chain of dependent calculation.
+      Systems like Mathematica that use scripts or notebooks, on the other hand, do allow for interrelated calculations.
+      Popular commercially available CAS programs include Wolfram's Mathematica and MapleSoft's Maple.
+      Many college campuses have license agreements with one of these programs.
+    </p>
+    <p>
+      A free and open-source alternative CAS is SageMath (<url href="http://www.sagemath.org/"/>).
+      While you can download and use this program on your own computer,
+      you can also access and use its capabilities through web-access.
+      Similar to using WolframAlpha to use the power of Mathematica,
+      you can use the power of SageMath in what are known as SageCells.
+      A SageCell can be accessed at <url href="https://sagecell.sagemath.org"/>.
+      The online version of this text also has live SageCells embedded as interactive demonstrations.
+    </p>
+    <p>
+      In SageMath, we can create mathematical objects (like expressions or equations) and then perform actions on those objects.
+      The creation and naming of a mathematical object occurs through an <em>assignment</em>.
+      For example, to create the expression <m>x^3-7x+6</m> and assign it to a name <c>expr1</c>,
+      we type the command <c>expr1 = x^3-7*x+6</c> on its own line.
+      Notice how we must explicity state that there is multiplication between <m>7</m> and <m>x</m>.
+      To create a new expression that is the factored form and name it <c>expr2</c>,
+      we perform a new assignment where the value is based on the factoring action applied to <c>expr1</c>.
+      The relevant command would be <c>expr2 = expr1.factor()</c>.
+    </p>
+    <p>
+      The SageCell script below illustrates the commands working together.
+      There are also two commands that show us a nicely formatted version of our expressions for comparison.
+      Be sure to try this script.
+      Push the <c>Evaluate</c> button in the live online cell,
+      or copy this into a clean SageCell and evaluate it there.
+      You should see the results:
+      <md>
+        <mrow> x^3-7x+6 </mrow>
+        <mrow> (x+3)(x-1)(x-2) </mrow>
+      </md>
+    </p>
+    <sage>
+      <input>
+        expr1 = x^3-7*x+6
+        expr2 = expr1.factor()
+        show(expr1)
+        show(expr2)
+      </input>
+    </sage>
+    <p>
+      Using named expressions is useful when we have additional actions to do later.
+      For simple problems like this, we can actually skip naming the expressions.
+      Try changing the script to the following command and re-evaluate:
+      <c>show( factor(x^3-7*x+6) )</c>.
+      What happens if you don't include the command <c>show</c>?
+    </p>
+    <p>
+      The reverse process of multiplying out a factored expression also is frequently needed.
+      It is also tedious to do by hand and more reliable using a computer.
+      The relevant command is to <c>expand</c> the expression.
+      Suppose we want to know what <m>(x+1)(x+2)(x+3)(x+4)</m> is as a polynomial in standard form.
+      Using the SageCell script below reveals the answer to be
+      <me>
+        (x+1)(x+2)(x+3)(x+4) = x^{4} + 10 x^{3} + 35 x^{2} + 50 x + 24.
+      </me>
+      Again, notice how the CAS requires that we show explicitly where each multiplication occurs.
+      What happens if there aren't parentheses? What do you think might be happening?
+    </p>
+    <sage>
+      <input>
+        expr1 = (x+1)*(x+2)*(x+3)*(x+4)
+        expr2 = expr1.expand()
+        show(expr1)
+        show(expr2)
+      </input>
+    </sage>
+  </subsection>
+  <subsection xml:id="factoring-strategies">
+    <title>Strategies for Factoring by Hand</title>
+    <p>
+      Although technology makes factoring fast and simple,
+      we should be prepared to perform simple factoring by hand.
+      We review some basic strategies for factoring that you would have learned in an algebra class.
+    </p>
+    <p>
+      It helps to remember that factoring is the reverse process of the distributive property of multiplication over addition.
+      That is, when we expand <m>a \, (b+c) = ab + ac</m>, we see that <m>ab</m> and <m>ac</m> have the common factor of <m>a</m> from distribution.
+      If we can identify a common factor, then we can reverse the process and write our expression as a multiplication over addition of terms.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Factor <m>4x^2+6x^3</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Recalling that <m>4=2\cdot 2</m> and <m>6=2\cdot 3</m>,
+          we recognize that the terms <m>4x^2</m> and <m>6x^3</m> have a common factor of <m>2x^2</m>:
+          <me>4x^2+6x^3 = 2x^2 \cdot 2 + 2x^2 \cdot 3x</me>.
+          Factoring this out, we have
+          <me>4x^2+6x^3 = 2x^2(2 + 3x)</me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      More advanced factoring approaches often are built on top of this idea.
+      For example, a method known as <term>factoring by grouping</term> arises
+      by expressing a sum of terms as a sum of two groups of terms that can be found to have a common factor.
+      Some cubic polynomials (but not most) can be factored using this approach.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Use factoring by grouping to factor <m>x^3-3x^2-4x+12</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The strategy is to group the <m>x^3</m> and <m>x^2</m> terms together
+          and to group the <m>x</m> and constant terms together,
+          <me>x^3-3x^2-4x+12 = (x^3-3x^2) + (-4x+12)</me>,
+          and then factor out common factors.
+          The first group <m>x^3-3x^2</m> has a common factor of <m>x^2</m> to give
+          <me>x^3-3x^2 = x^2(x-3)</me>.
+          The second group <m>-4x+12</m> has a common factor of <m>4</m> to give
+          <me>-4x+12 = 4(-x+3)</me>.
+          To get a common factor, we should recognize that we should have used a common factor of <m>-4</m>:
+          <me>-4x+12 = -4(x-3)</me>.
+          We now have groups with a common factor:
+          <md>
+            <mrow> x^3-3x^2-4x+12 &amp;= (x^3-3x^2) + (-4x+12) </mrow>
+            <mrow> &amp;= x^2(x-3) + -4(x-3) </mrow>
+            <mrow> &amp;= (x^2-4)(x-3) </mrow>
+          </md>
+          A full factorization would also factor <m>x^2-4 = (x+2)(x-2)</m> to give
+          <me>x^3-3x^2-4x+12 = (x+2)(x-2)(x-3)</me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      In many cases, a mathematical solution to a problem is easier to find when we anticipate what it should look like.
+      We use this concept to guide us in factoring quadratic polynomials.
+      Quadratic polynomials result from expanding a product of the form <m>(ax+b)(cx+d)</m>.
+      That expansion is often described using the acronym <em>FOIL</em> (First-Outside-Inside-Last):
+      <me>(ax+b)(cx+d) = ac \, x^2 + ad \, x + bc \, x + bd = ac \, x^2 + (ad + bc) x + bd</me>.
+      Notice that in the middle expression, we have four terms, similar to what we had with cubic polynomials.
+      This means that we might be able to factor if we can find a clever way to do grouping.
+    </p>
+    <p>
+      If we want to factor a quadratic expression <m>Ax^2 + Bx + C</m>,
+      then we are looking for values for <m>a,b,c,d</m> so that
+      <me>A x^2 + B x + C = (ax+b) (cx+d)</me>.
+      This requires that <m>A = ac</m>, <m>C=bd</m>, and <m>B=ad+bc</m>.
+      A clever observation is that <m>AC = (ac)(bd) = (ad)(bc)</m>, so that we are writing <m>B</m> as a sum of factors of <m>AC</m>.
+      This will be how we create our grouping.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Factor <m>2x^2-x-6</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We begin by recognizing the coefficients <m>A=2</m>, <m>B=-1</m>, and <m>C=-6</m>.
+          We want to write <m>B=-1</m> as a sum of factors of <m>AC = -12</m>.
+          Our strategy is to think through all of the simple factors of <m>-12</m> and see if any pair of factors add to <m>-1</m>.
+          What are the factors of <m>-12</m>?
+          <me>
+            -12 = (-1)(12) = (1)(-12) = (-2)(6) = (2)(-6) = (-3)(4) = (3)(-4)
+          </me>
+          When we check the sum of those pairs, we find:
+          <md>
+            <mrow> -1+12 \amp= 11 </mrow>
+            <mrow> 1+-12 \amp= -11 </mrow>
+            <mrow> -2+6 \amp= 4 </mrow>
+            <mrow> 2+-6 \amp= -4 </mrow>
+            <mrow> -3+4 \amp= 1 </mrow>
+            <mrow> 3+-4 \amp= -1 </mrow>
+          </md>
+          In practice, we would likely add the factor pairs in our head rather than write them down.
+        </p>
+        <p>
+          Once we find the pair of factors with the correct sum, <m>3+-4 = -1</m>,
+          we expand the term <m>-x</m> as a sum <m>3x-4x</m>
+          to rewrite the quadratic as a sum of four terms that can now be grouped.
+          <md>
+            <mrow> 2x^2-x-6 \amp= 2x^2 + 3x - 4x -6 </mrow>
+            <mrow> \amp= (2x^2+3x) + (-4x-6) </mrow>
+            <mrow> \amp= x(2x+3) + -2(2x+3) </mrow>
+            <mrow> \amp= (x-2)(2x+3) </mrow>
+          </md>
+          We thus have the factors
+          <me>2x^2-x-6 = (x-2)(2x+3)</me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      When using the method of grouping for quadratics, be sure that you consider both positive and negative factors as pairs.
+    </p>
+    <p>
+      Another example of anticipating the form of a solution occurs when we know a polynomial's root.
+      Knowing that a polynomial has a root means that we also know a factor.
+    </p>
+    <theorem xml:id="polynomial-root-factor-theorem">
+      <title>Root<ndash/>Factor Theorem</title>
+      <statement>
+        <p>
+          Suppose <m>p(x)</m> is a polynomial of degree <m>n</m> for which <m>x=c</m> is a root, <m>p(c)=0</m>.
+          Then <m>p(x)</m> can be written in a factored form <me>p(x) = (x-c) \cdot q(x)</me>
+          where <m>q(x)</m> is a polynomial of degree <m>n-1</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      If we can find a root to a polynomial, then we know a simple factor.
+      One way to find the root is by looking at its graph.
+      Knowing the original polynomial and a factor, we can work out the other polynomial factor.
+      Finding that other factor corresponds to polynomial division.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Factor the polynomial <m>6x^3 - 5x^2 - 17x + 6</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          When we graph the polynomial, we can identify possible roots.
+        </p>
+        <image width="50%">
+          <description>Graph of 6x^3-5x^2-17x+6</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [ xmin=-5, xmax=5, ymin=-20, ymax=20, axis lines=center, xlabel={$x$} ]
+              \addplot [domain=-5:5, samples=100, thick, blue] {6*x^3-5*x^2-17*x+6};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          The graph suggests that there might be a root at <m>x=2</m>, between -1 and -2, and between 0 and 1.
+          We verify that <m>x=2</m> is a root by substituting that value into the formula:
+          <md>
+            <mrow> 6x^3-5x^2-17x+6 \amp= 6(2)^3 - 5(2)^2-17(2)+6 </mrow>
+            <mrow> \amp= 6(8)-5(4)-17(2)+6 </mrow>
+            <mrow> \amp= 48-20-34+6 </mrow>
+            <mrow> \amp= 0 </mrow>
+          </md>
+          The factor that corresponds to <m>x=2</m> as a factor is <m>x-2</m> (because <m>x=2</m> is equivalent to <m>x-2=0</m>).
+          We now know that there is a polynomial <m>q(x) = ax^2 + bx + c</m> with degree 2 so that
+          <me> 6x^3 - 5x^2-17x + 6 = (x-2) \cdot (ax^2 + bx + c) </me>.
+        </p>
+        <p>
+          We find <m>q(x) = ax^2 + bx + c</m> by polynomial division.
+          In effect, however, we are multiplying by this polynomial with unknown coefficients
+          and determining the coefficient values so that the product equals the original polynomial.
+          <md>
+            <mrow> (x-2)\cdot(ax^2 + bx + c) \amp= x \cdot (ax^2+bx+c) - 2(ax^2+bx+c) </mrow>
+            <mrow> \amp= ax^3 + bx^2 + cx -2ax^2 - 2bx - 2c </mrow>
+            <mrow> \amp= ax^3 + (b-2a)x^2 + (c-2b)x - 2c </mrow>
+          </md>
+          Because this product must equal <m>6x^3-5x^2-17x+6</m>,
+          we have a system of equations based on matching coefficients:
+          <me>
+            \begin{cases}
+            a=6 \\
+            b-2a = -5 \\
+            c-2b = -17 \\
+            -2c = 6
+            \end{cases}
+            \quad \Leftrightarrow \quad
+            \begin{cases}
+            a = 6 \\
+            b = 2a -5 \\
+            c = 2b -17 \\
+            -2c = 6
+            \end{cases}
+          </me>
+          Substituting <m>a=6</m> into the second equation gives <m>b=2(6)-5=7</m>.
+          Substituting <m>b=7</m> into the third equation gives <m>c=2(7)-17 = -3</m>.
+          This matches the fourth equation solved for <m>c</m>.
+          We can therefore write the factorization using the values of the coefficients for <m>q(x)</m>.
+          <me>6x^3-5x^2-17x+6 = (x-2)(6x^2+7x-3)</me>.
+        </p>
+        <p>
+          We finish the problem by factoring the new quadratic factor.
+          The product <m>ac = 6(-3) = -18</m> has factors <m>-18 = (-2)(9)</m> that sum to <m>-2+9=7</m>.
+          We can rewrite and group the quadratic to have common factors:
+          <md>
+            <mrow> 6x^2+7x-3 \amp= 6x^2 + -2x + 9x -3 </mrow>
+            <mrow> \amp= (6x^2-2x) + (9x-3)</mrow>
+            <mrow> \amp= 2x(3x-1) + 3(3x-1)</mrow>
+            <mrow> \amp= (2x+3)(3x-1)</mrow>.
+          </md>
+          Consequently, our final factorization can be written
+          <me>
+            6x^3-5x^2-17x+6 = (x-2)(2x+3)(3x-1)
+          </me>
+          The other roots can be found from the factors:
+          <m>x=-\frac{3}{2}</m> (from <m>2x+3=0</m>) and <m>x=\frac{1}{3}</m> (from <m>3x-1=0</m>).
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="factoring-polynomial-models">
+    <title>Factors for Polynomial Modeling</title>
+    <p>
+      Polynomials have easily understood behavior based on their factors.
+      The roots of the factors are exactly the roots of the polynomial.
+      Furthermore, these roots are the only possible locations where the polynomial might change sign.
+      It is easy to show that each simple factor changes sign exactly at its root by solving an inequality directly.
+      Then, knowing the signs of each factor allows us to determine the sign of the polynomial as a whole, based on the following theorem.
+    </p>
+    <theorem xml:id="thm-factor-sign-analysis">
+      <statement>
+        <p>
+          The relation of product of expressions <m>w = u_1 \cdot u_2 \cdots u_n</m> with zero is based the relations of the factors:
+          <ul>
+            <li>
+              The product <m>w = 0</m> if and only if at least one <m>u_k = 0</m>.
+            </li>
+            <li>
+              The product <m>w \gt 0</m> if and only if all <m>u_k \ne 0</m> and there are an even number of <m>u_k \lt 0</m>.
+            </li>
+            <li>
+              The product <m>w \lt 0</m> if and only if all <m>u_k \ne 0</m> and there are an odd number of <m>u_k \lt 0</m>.
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We can analyze the behavior of a polynomial, in terms of its relation to zero, using the factors.
+      This process is called <term>sign analysis</term>.
+      <ol>
+        <li>
+          Find the factored version of the polynomial.
+        </li>
+        <li>
+          Identify the roots of all of the factors and order them on the number line.
+        </li>
+        <li>
+          The roots divide the number line into a collection of intervals.
+          On each interval between roots, count the number of factors that will be negative.
+        </li>
+        <li>
+          On each interval, if the number of negative factors is even, then the polynomial will be greater than zero.
+          If the number of negative factors is odd, then the polynomial will be less than zero.
+        </li>
+      </ol>
+      Sometimes, a polynomial has repeated roots that appear as a factor raised to a power.
+      When counting factors, the power is used as multiplicity of repetition.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Perform sign analysis of the polynomial <me>p(x) = x^2(x+2)(2x-5)</me>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The polynomial has four factors<mdash /><m>x</m> (double), <m>x+2</m>, and <m>2x-5</m>.
+          The roots of these factors are <m>x=0</m>, <m>x=-2</m>, and <m>x=\frac{5}{2}</m>.
+          We order these roots graphically on a number line.
+        </p>
+        <sidebyside width="60%">
+          <image>
+            <latex-image>
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[&lt;-&gt;] (-4,0) -- (4,0)
+              node[pos=1, below right] {$x$};
+            \draw (-2, -0.1) -- (-2,0.1)
+              node[pos=0, below] {$2$};
+            \draw (0, -0.1) -- (0,0.1)
+              node[pos=0, below] {$0$};
+            \draw (2.5, -0.1) -- (2.5,0.1)
+              node[pos=0, below] {$\frac{5}{2}$};
+            \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          Once the roots are ordered on the number line, we can see the intervals of interest.
+          Intervals represent continuous segments of the number line and are described as a range from left to right.
+          There are four intervals: <m>(-\infty,-2)</m>, <m>(-2,0)</m>, <m>(0,\frac{5}{2})</m>, and <m>(\frac{5}{2}, \infty)</m>.
+          On each interval, we can determine the sign of each factor, illustrated in the table below.
+          Then, when we multiply these factors together, we find the overall sign of the polynomial.
+          The polynomial is negative when there is an odd number of negative factors
+          and positive when there is an even number of negative factors.
+        </p>
+        <sidebyside>
+          <tabular>
+            <col right="major"/><col halign="center"/><col halign="center"/><col halign="center" right="major"/><col halign="center"/>
+            <row bottom="major">
+              <cell>Interval</cell>
+              <cell><m>x^2</m></cell>
+              <cell><m>x+2</m></cell>
+              <cell><m>2x-5</m></cell>
+              <cell><m>p(x)</m></cell>
+            </row>
+            <row>
+              <cell><m>(-\infty,-2)</m></cell>
+              <cell><m>(-)^2</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+            <row>
+              <cell><m>(-2,0)</m></cell>
+              <cell><m>(-)^2</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell><m>(0,\frac{5}{2})</m></cell>
+              <cell><m>(+)^2</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>-</m></cell>
+              <cell><m>-</m></cell>
+            </row>
+            <row>
+              <cell><m>(\frac{5}{2},\infty)</m></cell>
+              <cell><m>(+)^2</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+              <cell><m>+</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          Rather than create a table of signs,
+          we can label the signs of the factors directly on the number line above each interval.
+        </p>
+        <sidebyside width="80%">
+          <image>
+            <latex-image>
+            \begin{tikzpicture}[x=1.2cm,y=1cm]
+            \draw[&lt;-&gt;] (-4,0) -- (4,0)
+              node[pos=1, above right] {$p(x)$}
+              node[pos=1, below right] {$x$};
+            \draw (-2, -0.1) -- (-2,0.1)
+              node[pos=0, below] {$2$};
+            \draw (0, -0.1) -- (0,0.1)
+              node[pos=0, below] {$0$};
+            \draw (2.5, -0.1) -- (2.5,0.1)
+              node[pos=0, below] {$\frac{5}{2}$};
+            \node at (-3,0.1) [above] {$(-)^2(-)(-)$};
+            \node at (-1,0.1) [above] {$(-)^2(+)(-)$};
+            \node at (1.25,0.1) [above] {$(+)^2(+)(-)$};
+            \node at (3.25,0.1) [above] {$(+)^2(+)(+)$};
+            \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          The table or the number allows us to interpret the relation of the polynomial with zero.
+          The polynomial is positive (greater than zero) on the intervals <m>(-\infty,-2)</m> and <m>(\frac{5}{2},\infty)</m>
+          and negative (less than zero) on the intervals <m>(-2,0)</m> and <m>(0,\frac{5}{2})</m>.
+          When we look at a graph of the polynomial, we can see that the graph is above the axis on the outer intervals
+          and below the axis on the inner intervals.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-4, xmax=4, ymin=-30, ymax=30,
+                axis lines=center, xlabel={$x$}, ylabel={$p(x)$},
+              ]
+              \addplot [blue, thick, domain=-4:4, samples=100] {x^2*(x+2)*(2*x-5)};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </solution>
+    </example>
+    <p>
+      Performing sign analysis on a polynomial might seem like a silly exercise.
+      After all, with our graphing calculators and computers,
+      it is easy enough to graph the polynomial directly and look where the graph is above or below the axis.
+      It is in the reverse process that we start to see the power.
+    </p>
+    <p>
+      Suppose that we want to explore a mathematical model for a phenomenon
+      where we know how a quantity relates with zero on the number line.
+      However, we would like to have a simple mathematical formula that captures that relation.
+      By constructing a polynomial with factors that will match the sign analysis,
+      we can use that polymomial as our model.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A simple model for density-dependent population growth has a population's growth rate as
+          positive when the population is between zero and a carrying capacity
+          and negative when the population is above the carrying capacity.
+          Create a simple polynomial model that will capture this behavior.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We will let <m>P</m> be our symbol to represent the value of the population.
+          In biology, the carrying capacity is most often symbolized by the symbol <m>K</m>.
+          The symbol for a quantity's growth rate is called the <term>derivative</term> with respect to time
+          and has the symbol <m>\frac{dP}{dt}</m>.
+          (The goal of calculus is to understand what this derivative really means.)
+          We want to create a model that describes how the growth rate <m>\frac{dP}{dt}</m> depends on the population <m>P</m>
+          such that this formula is positive when <m>P</m> is in the interval <m>(0,K)</m> and negative when <m>P</m> is in <m>(K,\infty)</m>.
+        </p>
+        <p>
+          We can start by creating a number line summary of the behavior we want.
+          Because <m>P \lt 0</m> is not physically relevant, the sign used on <m>(-\infty,0)</m> doesn't matter.
+          However, since polynomials change sign at roots unless a factor has an even power,
+          we will choose to make <m>\frac{dP}{dt}</m> negative when <m>P \lt 0</m>.
+        </p>
+        <sidebyside width="80%">
+          <image>
+            <latex-image>
+            \begin{tikzpicture}[x=1.5cm,y=1cm]
+            \draw[&lt;-&gt;] (-2,0) -- (4,0)
+              node[pos=1, above right] {$\frac{dP}{dt}$}
+              node[pos=1, below right] {$P$};
+            \draw (0, -0.1) -- (0,0.1)
+              node[pos=0, below] {$0$};
+            \draw (2.5, -0.1) -- (2.5,0.1)
+              node[pos=0, below] {$K$};
+            \node at (-1,0.1) [above] {$-$};
+            \node at (1.25,0.1) [above] {$+$};
+            \node at (3.25,0.1) [above] {$-$};
+            \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          The roots help us know our basic factors.
+          A root at <m>P=0</m> corresponds to a factor of <m>P</m>.
+          A root at <m>P=K</m> corresponds to a factor of <m>P-K</m>.
+          The product <m>P(P-K)</m>, however, would have the opposite signs on the intervals.
+          This is corrected by multiplying by a third constant factor, <m>-a</m>, where <m>a</m> itself is some positive constant.
+          This gives us our basic model,
+          <me>\frac{dP}{dt} = -aP(P-K)</me>.
+          If we multiply the negative sign by the factor <m>P-K</m>, we obtain an equivalent model
+          <me>\frac{dP}{dt} = aP(K-P)</me>.
+          The constants <m>a</m> and <m>K</m> become model parameters.
+        </p>
+        <p>
+          In biology, slightly different model parameters are more commonly used.
+          We rewrite our factor <m>K-P = K-\frac{PK}{K}</m> and then factor out the common factor <m>K</m>
+          We now have a model
+          <me>\frac{dP}{dt} = aK\, P(1-\frac{P}{K})</me>.
+          The product <m>aK</m> can be replaced by another parameter, <m>r</m>, to obtain
+          <me>\frac{dP}{dt} = r\, P(1-\frac{P}{K})</me>.
+          The parameter <m>r</m> is called the intrinsic per capita growth rate.
+          This model is known as the <term>logistic growth rate model</term> for density-dependent growth.
+        </p>
+      </solution>
+    </example>
+    <p>
+      In our model, we used a factor <m>1-\frac{P}{K}</m> instead of the factor <m>K-P</m>.
+      These two factors have the same roots.
+      One advantage to a factor like <m>1-\frac{P}{K}</m> is that the units of <m>P</m> and <m>K</m> cancel
+      so that the factor is dimensionless.
+      Polynomial models are often written with factors of the form <m>\frac{x}{a}-1</m> or <m>1-\frac{x}{a}</m>
+      where <m>x=a</m> is the desired root.
+      In particular, a linear model with known <m>x</m>- and <m>y</m>-intercepts is most easily modeled using factors and does not require finding the slope.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose <m>S</m> is the number of seeds a plant produces and <m>D</m> is the density of competing plants around it.
+          When there is no competition, <m>D=0</m>, the plant can produce its highest output, <m>S=M</m> seeds.
+          When the competition reach a critical level, <m>D=D_M</m>, the plant no longer produces seed, <m>S=0</m>.
+          Develop a linear model for how <m>S</m> relates to <m>D</m> for <m>0 \le D \le D_M</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A linear model has a single root, which in this modeling scenario is <m>S=0</m> at <m>D=D_M</m>.
+          This means we have a factor <m>D-D_M</m> or <m>\displaystyle \frac{D}{D_M} - 1</m>.
+          We need another constant factor, say <m>A</m> to account for the vertical scale, such as the other intercept.
+          Our model has the form
+          <me>S = A \left( \frac{D}{D_M} - 1 \right)</me>.
+          When we substitute <m>D=0</m>, we find <m>S = -A = M</m> so that the parameter <m>A=-M</m>.
+          The model can then be written in terms of the data provided,
+          <me>S = -M \left( \frac{D}{D_M} - 1 \right) = M \left( 1 - \frac{D}{D_M} \right)</me>.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-2, xmax=4, ymin=-2, ymax=4, axis lines = center, xlabel={$D$}, ylabel={$S$},
+                xtick={3}, xticklabels={$D_M$}, ytick={2}, yticklabels={$M$},
+              ]
+              \addplot [blue, thick, domain=-2:4] { 2*(1-x/3) };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="factoring-summary">
+    <title>Summary</title>
+    <p>
+      <ol>
+        <li>
+          <p>
+            In practical applications, technology is the most efficient method to factor expressions.
+            Computer Algebra Systems (CAS) like SageMath provide tools to perform operations on mathematical objects.
+          </p>
+        </li>
+        <li>
+          <p>
+            The first priority in factoring involves common factors.
+            Grouping terms sometimes allows us to find common factors among the groups.
+          </p>
+        </li>
+        <li>
+          <p>
+            Quadratic polynomials with integer coefficients <m>Ax^2+Bx+C</m> can be factored by grouping
+            if you can find factors of <m>AC</m> that add to the value of <m>B</m>.
+            This is accomplished by rewriting the term <m>Bx</m> as two terms using the factors and then grouping terms.
+          </p>
+        </li>
+        <li>
+          <p>
+            Knowing a root <m>x=a</m> of a polynomial tells us that <m>x-a</m> is a factor.
+            The other factor can be found by polynomial division.
+          </p>
+        </li>
+        <li>
+          <p>
+            The factored form of an expression allows us to perform sign analysis.
+            <ol>
+              <li>
+                Identify the roots of all of the factors and order them on the number line.
+              </li>
+              <li>
+                The roots divide the number line into a collection of intervals.
+                On each interval between roots, count the number of factors that will be negative.
+              </li>
+              <li>
+                On each interval, if the number of negative factors is even, then the expression will be greater than zero.
+                If the number of negative factors is odd, then the expression will be less than zero.
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Alternatively, knowing the roots and desired results for sign analysis,
+            we can use a factored polynomial to generate a model for the relation between two variables.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </subsection>
+  <exercises xml:id="exercises-factoring">
+    <exercisegroup>
+      <introduction>
+        <p>
+          Use technology to factor the following formulas.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^3+x^2-5x+3</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^4-4x^3-11x^2+30x</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^4+10x^3+35x^2+50+24</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>24x^3+14x^2-11x-6</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Use the method of grouping to factor each cubic.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^3-2x^2+3x-6</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^3-5x^2-3x+15</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>4x^3-12x^2-x+3</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Factor each quadratic polynomial.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^2-2x-3</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^2-9x+20</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^2+4x-21</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>2x^2+3x-2</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>2x^2-7x-15</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>6x^2+11x-10</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          For each problem, verify that the given value is a root of the given polynomial.
+          Use the Root-Factor theorem and polynomial division to factor the polynomial.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^3-6x^2-x+30</m>; <m>x=-2</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x^3-2x^2-11x+12</m>; <m>x=4</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>2x^3-x^2-13x-6</m>; <m>x=3</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          For each factored polynomial, complete sign analysis to describe the intervals
+          where the polynomial is greater than zero and where it less than zero.
+          Then compare your results with a graph.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p>
+            <m>3x(x-4)</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>2x(2-x)(3-x)</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>x(x+2)(x-1)^2</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>(x-4)(2x-3)(3x+1)^3</m>
+          </p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercise>
+      <statement>
+        <p>
+          Find a linear model for the following graph without finding the slope.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-5, xmax=5, ymin=-6, ymax=6,
+                axis lines = center, xlabel={$x$}, ylabel={$y$},
+              ]
+              \addplot [blue, thick, domain=-4:6, samples=100] { 2*(1-x/3) };
+              \addplot [ only marks ] coordinates {
+                (0,2) (3,0)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Find a linear model for the following graph without finding the slope.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-25, xmax=25, ymin=-25, ymax=25,
+                axis lines = center, xlabel={$x$}, ylabel={$y$},
+              ]
+              \addplot [blue, thick, domain=-25:25, samples=100] { 10*(x/15+1) };
+              \addplot [ only marks ] coordinates {
+                (0,10) (-15,0)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Find a polynomial model for the following graph.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-5, xmax=25, ymin=-20, ymax=20, grid=major,
+                xtick={-5,0,...,25}, ytick={-20,-15,...,20},
+                axis lines = center, xlabel={$x$}, ylabel={$y$},
+              ]
+              \addplot [blue, thick, domain=-10:30, samples=100] { x*(x-20)/10 };
+              \addplot [ only marks ] coordinates {
+                (0,0) (10,-10) (20,0)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Find a polynomial model for the following graph.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-5, xmax=5, ymin=-10, ymax=10, grid=major,
+                xtick={-5,-4,...,5}, ytick={-10,-8,...,10},
+                axis lines = center, xlabel={$x$}, ylabel={$y$},
+              ]
+              \addplot [blue, thick, domain=-10:30, samples=100] { -(x+2)*(x-3) };
+              \addplot [ only marks ] coordinates {
+                (-2,0) (0,6) (3,0)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Find a polynomial model for the following graph.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-10, xmax=30, ymin=-20, ymax=20, grid=major,
+                xtick={-10,-5,...,30}, ytick={-20,-15,...,20},
+                axis lines = center, xlabel={$x$}, ylabel={$y$},
+              ]
+              \addplot [blue, thick, domain=-10:30, samples=100] { 6*x*(x/20-1)^2 };
+              \addplot [ only marks ] coordinates {
+                (0,0) (10,15) (20,0)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Find a polynomial model for the following graph.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-4, xmax=6, ymin=-6, ymax=6,
+                axis lines = center, xlabel={$x$}, ylabel={$y$},
+              ]
+              \addplot [blue, thick, domain=-4:6, samples=100] { 2*(x+3)*(x-1)*(x-5)/15 };
+              \addplot [ only marks ] coordinates {
+                (-3,0) (1,0) (0,2) (5,0)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Find a polynomial model for the following graph.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-5, xmax=5, ymin=-5, ymax=5,
+                xtick={-5,-4,...,5}, ytick={-5,-4,...,5}, grid=major,
+                axis lines = center, xlabel={$x$}, ylabel={$y$},
+              ]
+              \addplot [blue, thick, domain=-5:5, samples=100] { x*(x^2-16)^2*(x^2-4)/225 };
+              \addplot [ only marks ] coordinates {
+                (-4,0) (-2,0) (0,0) (1,-3) (2,0) (4,0)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          In economics, the demand for a product, which measures the number of units a company can sell, is related to the price charged to purchase the product.
+          Let <m>p</m> be the price being charged and let <m>n</m> be the demand or number of units that are sold.
+          A simple model is that the demand has a linear relation with the price.
+          Suppose that if the company gave away product for free, <m>p=0</m>, the demand is <m>n=5000</m>.
+          On the other hand, if the price charged is <m>p=50</m>, there is no demand, <m>n=0</m>.
+        </p>
+        <p>
+          Create a linear model for the demand as it depends on the price.
+          Then, create a corresponding model for the revenue as it relates to the price,
+          where the revenue is the price charged times the number of units sold.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Some populations will die off (negative growth rate) unless the size of the population is above some minimum value.
+          Populations that exhibit this behavior are said to have the Allee effect.
+          Let <m>K</m> be the population carrying capacity
+          and <m>M</m> be the minimum threshold for population growth,
+          and assume that <m>0 \lt M \lt K</m>.
+        </p>
+        <p>
+          Create a polynomial model for the population's growth rate such that
+          the growth rate is positive for <m>M \lt P \lt K</m>
+          and negative for <m>0 \lt P \lt M</m> and <m>P \gt K</m>.
+          The growth rate should be zero at <m>P=0</m>, <m>P=M</m>, and <m>P=K</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Optical tweezers (also called laser tweezers) use a tightly focused laser beam to create a force on small transparent objects.
+          The force depends on the location of the object from the center of the beam.
+          When the object is further from the beam than a particular distance, <m>\delta</m>, the force pushes the object away.
+          When the distance is less than <m>\delta</m>, the force pulls the object toward the center.
+        </p>
+        <p>
+          Create a polynomial model for the force <m>F</m> as it depends on the position <m>x</m> of the object.
+          Assume that <m>x=0</m> is the center of the tweezers.
+          The force will have roots at <m>x=\pm \delta</m> and <m>x=0</m>.
+          A positive force pushes the object to the right and a negative force pushes it to the left.
+          Include a constant factor <m>k</m> and use dimensionless factors for the roots at <m>x=\pm \delta</m>.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+</section>

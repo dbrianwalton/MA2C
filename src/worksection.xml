@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./algebra-equivalence.ptx" />
+            <xi:include href="./factoring.ptx" />
 		</chapter>
 
     </book>
