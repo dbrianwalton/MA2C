@@ -23,8 +23,7 @@
       <xi:include href="./graphs-relations.ptx" />
       <xi:include href="./formulas-models.ptx" />
       <xi:include href="./algebra-equivalence.ptx" />
-      <xi:include href="./factoring.ptx" />
-      <xi:include href="./modeling.xml" />
+      <xi:include href="./algebra-factoring.ptx" />
     </chapter>
 
     <chapter xml:id="chapter-sequences">
