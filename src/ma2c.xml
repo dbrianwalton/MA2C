@@ -13,6 +13,7 @@
 
   <book xml:id="model-calculus">
     <title>A Modeling Approach to Calculus</title>
+    <subtitle>MA2C</subtitle>
 
     <xi:include href="./frontmatter.xml" />
 
@@ -24,6 +25,8 @@
       <xi:include href="./formulas-models.ptx" />
       <xi:include href="./algebra-equivalence.ptx" />
       <xi:include href="./algebra-factoring.ptx" />
+      <xi:include href="./exponents-roots-logarithms.ptx" />
+      <xi:include href="./logarithm-properties.ptx" />
     </chapter>
 
     <chapter xml:id="chapter-sequences">
@@ -31,8 +34,6 @@
       <xi:include href="./sequences-intro.xml" />
       <xi:include href="./sequences-recursive.xml" />
       <xi:include href="./sequences-computing.xml" />
-      <xi:include href="./sequences-exponents-logarithms.xml" />
-      <xi:include href="./logarithm-properties.xml" />
       <xi:include href="./sequences-modeling.xml" />
     </chapter>
 

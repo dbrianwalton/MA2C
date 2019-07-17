@@ -71,7 +71,7 @@ data:
 .PHONY: $(LATEX_base).tex
 
 $(LATEX_base).tex:
-	xsltproc --xinclude $(XSL)/$(LATEX_XSL) $(XML)/$(XML_base)
+	xsltproc -o $(LATEX_base).tex --xinclude $(XSL)/$(LATEX_XSL) $(XML)/$(XML_base)
 
 $(LATEX_base).pdf: images $(LATEX_base).tex
 	cp -a $(MA2Croot)/img/ images/

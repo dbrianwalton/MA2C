@@ -12,7 +12,7 @@ Setting this one to "index" makes for a good default page
 when you host your project on a server.
 -->
 
-<frontmatter xml:id="index">
+<frontmatter>
   <!--
   Items typically on the main title page, perhaps duplicated
   in the half-title page, page headings, etc.
@@ -44,7 +44,7 @@ when you host your project on a server.
   are supported in the book document type.  Such a diverse range
   is not yet available for articles.  Send requests.
   -->
-   
+
   <preface xml:id="preface">
     <p>
     Calculus is a branch of mathematics that studies functions
@@ -58,11 +58,11 @@ when you host your project on a server.
     </p>
     <p>
     The text begins with a basic review of numbers and variables
-    with an aim of connecting these foundational concepts 
+    with an aim of connecting these foundational concepts
     to the goals of modeling relationships between physically measured quantities.
     It then turns to the development of functions as the mathematical
     tool used for predictive relationships between variables.
-    Intuitive ideas of continuity are introduced in relationship 
+    Intuitive ideas of continuity are introduced in relationship
     to making piecewise functions connected, with limits introduced as a way
     to characterize the behavior of a function at the break points.
     </p>
@@ -103,7 +103,7 @@ when you host your project on a server.
     Applications of derivatives and antiderivatives are included.
     </p>
     <p>
-    You can download a PDF copy of the book with the links below. 
+    You can download a PDF copy of the book with the links below.
     There are differently formatted options, depending on how you intend to use the PDF.
     </p>
     <p>
@@ -116,12 +116,12 @@ when you host your project on a server.
         </li>
       </ul>
     </p>
-    
+
     <p>
-    In order to keep track of changes during the semester, 
-    the following list describes the changes that have taken 
+    In order to keep track of changes during the semester,
+    the following list describes the changes that have taken
     place in the text since August 2018.</p>
-    
+
     <p>
       <ul>
           <li>n/a</li>

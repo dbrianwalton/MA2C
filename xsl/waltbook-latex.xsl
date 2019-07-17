@@ -28,20 +28,20 @@ This file a customization file to work with MathBook XML.
     <xsl:text>%% begin: half-title&#xa;</xsl:text>
     <xsl:text>\thispagestyle{empty}&#xa;</xsl:text>
     <xsl:choose>
-        <xsl:when test="/mathbook/docinfo/coverimage">
+        <xsl:when test="/pretext/docinfo/coverimage">
             <xsl:text>{\centering&#xa;</xsl:text>
             <xsl:text>\vspace*{0.2\textheight}&#xa;</xsl:text>
             <xsl:text>\includegraphics[width=\textwidth]{</xsl:text>
-            <xsl:value-of select="/mathbook/docinfo/coverimage"/>
+            <xsl:value-of select="/pretext/docinfo/coverimage"/>
             <xsl:text>}&#xa;&#xa;</xsl:text>
             <xsl:text>\vspace{-0.8\textwidth}&#xa;</xsl:text>
             <xsl:text>{\Huge \color{white}</xsl:text>
-            <xsl:apply-templates select="/mathbook/book" mode="title-full"/>
+            <xsl:apply-templates select="/pretext/book" mode="title-full"/>
             <xsl:text>}\\</xsl:text> <!-- always end line inside centering -->
-            <xsl:if test="/mathbook/book/subtitle">
+            <xsl:if test="/pretext/book/subtitle">
                 <xsl:text>[2\baselineskip]&#xa;</xsl:text> <!-- extend line break if subtitle -->
                 <xsl:text>{\LARGE  \color{white}</xsl:text>
-                <xsl:apply-templates select="/mathbook/book" mode="subtitle"/>
+                <xsl:apply-templates select="/pretext/book" mode="subtitle"/>
                 <xsl:text>}\\&#xa;</xsl:text>
             </xsl:if>
             <xsl:text>}&#xa;</xsl:text>
@@ -50,12 +50,12 @@ This file a customization file to work with MathBook XML.
             <xsl:text>{\centering&#xa;</xsl:text>
             <xsl:text>\vspace*{0.28\textheight}&#xa;</xsl:text>
             <xsl:text>{\Huge </xsl:text>
-            <xsl:apply-templates select="/mathbook/book" mode="title-full"/>
+            <xsl:apply-templates select="/pretext/book" mode="title-full"/>
             <xsl:text>}\\</xsl:text> <!-- always end line inside centering -->
-            <xsl:if test="/mathbook/book/subtitle">
+            <xsl:if test="/pretext/book/subtitle">
                 <xsl:text>[2\baselineskip]&#xa;</xsl:text> <!-- extend line break if subtitle -->
                 <xsl:text>{\LARGE </xsl:text>
-                <xsl:apply-templates select="/mathbook/book" mode="subtitle"/>
+                <xsl:apply-templates select="/pretext/book" mode="subtitle"/>
                 <xsl:text>}\\&#xa;</xsl:text>
             </xsl:if>
             <xsl:text>}&#xa;</xsl:text> <!-- finish centering -->
