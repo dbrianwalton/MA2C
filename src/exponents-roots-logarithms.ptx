@@ -940,6 +940,54 @@
       <exercise>
         <statement>
           <p>
+            Find a power law for <m>y</m> as a function of <m>x</m>
+            that includes data <m>(x,y)=(1,5)</m> and <m>(x,y)=(4,10)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find a power law for <m>y</m> as a function of <m>x</m>
+            that includes data <m>(x,y)=(2,20)</m> and <m>(x,y)=(4,5)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find a power law for <m>y</m> as a function of <m>x</m>
+            that includes data <m>(x,y)=(2,4)</m> and <m>(x,y)=(20,8)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find an exponential law for <m>y</m> as a function of <m>x</m>
+            that includes data <m>(x,y)=(0,5)</m> and <m>(x,y)=(4,15)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find an exponential law for <m>y</m> as a function of <m>x</m>
+            that includes data <m>(x,y)=(0,5)</m> and <m>(x,y)=(10,2)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Find an exponential law for <m>y</m> as a function of <m>x</m>
+            that includes data <m>(x,y)=(1,5)</m> and <m>(x,y)=(6,10)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
             The average body mass and life span of mammals have been observed to follow an approximate power law.
             A mouse has an average body mass of 0.021 kg and a life span of 1.5 years.
             A horse has an average body mass of 400 kg and a life span of 40 years.
