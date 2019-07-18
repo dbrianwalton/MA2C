@@ -1,0 +1,875 @@
+<p>
+  We close this subsection to illustrate that not all numbers are rational.
+  Thanks to Pythagorus, the ancient Greeks knew that <m>\sqrt{2}</m> was a number
+  that represented the hypotenuse of an isosceles right triangle with legs of unit length.
+  However, they originally thought that all numbers would ultimately be rational numbers.
+  Realizing that <m>\sqrt{2}</m> was irrational was so shocking that, according to legend,
+  the discoverer of this fact was drowned at sea.
+</p>
+<example>
+  <statement>
+    <p>
+      The basic argument is to consider a rational number that <em>might</em> represent <m>\sqrt{2}</m>
+      and then proceed to show that such a representation doesn't make sense.
+      The detailed argument is shown below.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      Suppose that <m>\sqrt{2}</m> is a rational number.
+      Then it can be written as the ratio of two integers <m>\sqrt{2} = \frac{p}{q}</m> in reduced form,
+      meaning <m>p</m> and <m>q</m> do not have common factors.
+      By definition of square roots, we must have <m>\frac{p^2}{q^2} = 2</m> which implies <me>p^2 = 2 q^2</me>
+      so that <m>p^2</m> is an even number.
+      The only way that <m>p^2</m> can be even is if <m>p</m> itself is even,
+      since the product of two odd numbers is always odd.
+    </p>
+    <p>
+      Once we know <m>p</m> is even, we can factor out 2 and write <m>p=2k</m> where <m>k</m> is also an integer.
+      Now <m>p^2 = 4k^2</m> which implies <m>4k^2=2q^2</m> or <me>q^2 = 2k^2.</me>
+      This means <m>q</m> would also be an even number.
+      This is where the contradiction occurs<mdash/>since <m>p</m> and <m>q</m> were to have had no common factors,
+      they couldn't both be even.
+      This means that <m>\sqrt{2}</m> can not be written as a reduced fraction,
+      which in turn means that <m>\sqrt{2}</m> is not a rational number.
+    </p>
+  </solution>
+</example>
+
+<p>
+  We can think of a measurement with its given precision as representing many possible exact lengths.
+  These possible lengths correspond to <term>intervals</term> on the number line.
+  On a ruler measuring in centimeters, all lengths between 14.5 and 15.5 centimeters would be represented by the measurement of 15 centimeters.
+  Consequently, a measurement of 15 cm corresponds to the interval of possible lengths <m>[14.5,15.5)</m> (centimeters).
+  We include the left end-point because we round the digit 5 up, and an exact length of 15.5 would round up to 16.
+  (We'd actually have a hard time knowing exactly where those lengths are because of measurement error;
+  we should probably flip a coin if we can't decide which side is closer.)
+</p>
+<sidebyside width="50%" margins="auto">
+  <image>
+    <latex-image>
+    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+    <![CDATA[\tikzset{%
+    }
+    \begin{tikzpicture}[x=1cm,y=1cm]
+    \draw[-] (12.2,0) -- (17.8,0);
+    \draw[(-), thick, red] (14.5,0) -- (15.5,0);
+    \draw[->, black] (15,0.5) -- (15,0.2)
+      node [pos=0, above] {$\widehat{L}=15$};
+    \foreach \x in {13,14,...,17} {
+      \draw[-, black] (\x,-0.1) -- (\x,0) node [pos=0, below] {\x};
+    }
+    \end{tikzpicture}]]>
+    </latex-image>
+  </image>
+</sidebyside>
+<p>
+  Similarly, if the ruler showed millimeters, all lengths between 15.25 and 15.35 centimeters would be represented by the measurement of 15.3 centimeters.
+  A measurement of 15.3 cm then corresponds to the interval <m>[15.25,15.35)</m> (centimeters).
+</p>
+<sidebyside width="50%" margins="auto">
+  <image>
+    <latex-image>
+    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+    <![CDATA[\tikzset{%
+    }
+    \begin{tikzpicture}[x=4cm,y=1cm]
+    \draw[-] (14.73,0) -- (16.07,0);
+    \draw[(-), thick, red] (15.25,0) -- (15.35,0);
+    \draw[->, black] (15.3,0.5) -- (15.3,0.2)
+      node [pos=0, above] {$\widehat{L}=15.3$};
+    \foreach \x in {15,16} {
+      \draw[-, black] (\x,-0.15) -- (\x,0) node [pos=0, below] {\x};
+    }
+    \foreach \x in {14.8,14.9,...,16.0} {
+      \draw[-, black] (\x,-0.05) -- (\x,0);
+    }
+    \end{tikzpicture}]]>
+    </latex-image>
+  </image>
+</sidebyside>
+
+<p>
+  Significant digits with zeros have some trickier rules.
+  For example, in the previous example,
+  if the length were reported in microns instead of centimeters,
+  the two significant digit result would be 150,000 microns.
+  The zeros following the 5 are only present as placeholders to maintain the appropriate  magnitude.
+  To avoid any confusion, <term>scientific notation</term> would be best,
+  writing this as <m>1.5 \times 10^5</m> microns.
+  Zeros following the decimal point are considered significant.
+  So a measurement of <m>2.530 \times 10^4</m> would have four significant digits
+  but <m>2.53 \times 10^4</m> would only have three significant digits.
+</p>
+
+<p>
+  When measurements are given with margins of error,
+  dependent quantities calculated from them also have margins of error.
+  Those errors need to be computed based on the margins of error that we know.
+  One of the outcomes from calculus is understanding the relationships between these margins of error.
+</p>
+
+<example>
+  <statement>
+    <p>
+      Suppose that we have a square whose length is side <m>s</m>.
+      From measurement, we have <m>s = 5.3 \pm 0.025</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      What are the possible values for the perimeter <m>P</m> and the area <m>A</m>?
+      Write them using a margin of error.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      The perimeter is the sum of the lengths of the sides.
+      For a square, we have <m>P = 4s</m>.
+      Because our measurement for <m>s</m> is <m>\widehat{s} = 5.3</m> <quantity><unit prefix="centi" base="meter"/></quantity>,
+      our estimate of the perimeter is <m>\widehat{P} = 4(5.3) = 21.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+    </p>
+    <p>
+      This does not capture the margin of error.
+      A common mistake is to use the same margin of error as we had for <m>s</m>.
+      A better approach is to think about the entire range of possible values.
+      The smallest possible value for <m>s</m> would be <m>s=5.3-0.025 = 5.275</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      Using that value, the perimeter would be <m>P=4(5.275) = 21.1</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      Similarly, the largest possible value for <m>s</m> would be <m>s=5.3+0.025 = 5.325</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      Using this value, the perimeter would be <m>P=4(5.325) = 21.3</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      The true perimeter must be a value in the range <m>21.1 \lt P \lt 21.3</m>.
+    </p>
+    <p>
+      Using the estimate <m>\widehat{P} = 21.2</m>, we measure the distance to each edge of the possible range.
+      Both edges are a distance 0.1 away from the estimate, so we can write
+      <m>P = 21.2 \pm 0.1</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      What do you notice about the margin of error for <m>P</m> in comparison to the margin of error for <m>s</m>?
+    </p>
+    <p>
+      The area of a square is the square of the length of its side, <m>A = s^2</m>.
+      Using the measurement <m>\widehat{s} = 5.3</m> <quantity><unit prefix="centi" base="meter"/></quantity>,
+      we obtain an estimate <m>\widehat{A} = (5.3)^2 = 28.09</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>.
+      To find the margin of error, we first need to consider the range of possible values.
+      Using the smallest possible side <m>s = 5.275</m> <quantity><unit prefix="centi" base="meter"/></quantity>,
+      we obtain an area <m>A = 27.825625</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>.
+      The largest square gives <m>A = 28.355625</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>.
+      We now know <m>27.825625 \lt A \lt 28.355625</m>.
+    </p>
+    <p>
+      To consider the margin of error, we need to measure the distance
+      from the estimate <m>\widehat{A} = 28.09</m> to each edge of the range.
+      <md>
+        <mrow>| 27.825625 - 28.09 | = 0.264375 </mrow>
+        <mrow>| 28.355625 - 28.09 | = 0.265625 </mrow>
+      </md>
+      We can see that the range of possible values is not symmetric around the estimate.
+      The margin of error will be the <em>largest</em> distance to an edge:
+      <me>| A - 28.09 | \lt 0.265625</me>.
+    </p>
+  </solution>
+</example>
+
+<exercise>
+  <statement>
+    <p>
+      The circumference of a tree trunk, with margin of error,
+      is recorded as <m>C = 138.4 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      What is the corresponding estimate for the diameter of the tree <m>D</m>
+      with its corresponding margin of error?
+      (Round the estimate and the margin of error to the nearest thousandth of a centimeter.)
+    </p>
+  </statement>
+</exercise>
+<exercise>
+  <statement>
+    <p>
+      A rectangle is formed with a width <m>W=20 \pm 0.1</m>
+      <quantity><unit prefix="centi" base="meter"/></quantity>
+      and a height <m>H=15 \pm 0.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>.
+      What range of areas are possible for this rectangle?
+      Using the approximations <m>\widehat{W}=20</m> <quantity><unit prefix="centi" base="meter"/></quantity>
+      and <m>\widehat{H}=15</m> <quantity><unit prefix="centi" base="meter"/></quantity>,
+      the approximated area would be
+      <m>\widehat{A}=300</m> <quantity><unit prefix="centi" base="meter" exp="2"/></quantity>.
+      Can the range of possible areas be expressed using a symmetric margin of error
+      from this approximated value,
+      <m>|A-\widehat{A}| \lt \epsilon</m>?
+    Explain.
+    </p>
+  </statement>
+</exercise>
+
+<p>
+  Solving equations has a graphical interpretation.
+  Recall that an equation is a statement that two expressions are equal.
+  We can imagine that each expression defines a dependent variable, say <m>y_1</m> and <m>y_2</m>.
+  A solution would be where the dependent variables have the same value, <m>y_1=y_2</m>.
+  Graphically, that would be where the curves defined by the dependent variables cross.
+</p>
+<example>
+  <statement>
+    <p>
+      The equation <m>2x^2=3x+5</m> can be interpreted as having two dependent variables,
+      <md>
+        <mrow>y_1 &amp;= 2x^2,</mrow>
+        <mrow>y_2 &amp;= 3x+5.</mrow>
+      </md>
+      We can plot a graph of each equation in the same figure.
+      The first dependent variable <m>y_1</m> corresponds to a parabola
+      and the second dependent variable <m>y_2</m> corresponds to a line.
+      Points where the graphs cross correspond to solutions.
+    </p>
+    <sidebyside width="50%" margins="auto">
+      <image>
+        <description>Graphs of 2x^2 and 3x+5 showing them intersect at (-1,2) and (5/2,25/2).</description>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={$x$},
+          ylabel={$y$},
+          xmin=-3, xmax=5,
+          ymin=-5, ymax=15,
+        ]
+        \addplot[blue, samples=100, domain=-3:5]
+          ({x}, {2*x^2});
+        \addplot[red, samples=100, domain=-3:5]
+          ({x}, {3*x+5});
+        \addplot [black, only marks] coordinates { (-1,2) (2.5,12.5) }
+          node [pos=0, below] {$(-1,2)$}
+          node [pos=1, below right] {$(\frac{5}{2},\frac{25}{2})$};
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </sidebyside>
+    <p>
+      The original equation only involved the independent variable <m>x</m>.
+      Consequently, the solution set corresponds to the set of the <m>x</m>-coordinates of the points of intersection.
+      That is, the solution set is <m>\{-1, \frac{5}{2}\}</m>.
+    </p>
+  </statement>
+</example>
+<p>
+  When we find an equivalent equation using balanced operations,
+  the new equation involves different expressions.
+  Consequently, the graphs that would be involved will be different.
+  However, the locations where the graphs intersect will be at the same <m>x</m>-values.
+</p>
+<example>
+  <statement>
+    <p>
+      Compare the graphs for the equations <m>2x^2=3x+5</m>, <m>2x^2-3x=5</m>, <m>2x^2-5=3x</m>, and <m>2x^2-3x-5=0</m>, shown below.
+      Notice how the <m>x</m>-values for the points of intersection are always the same.
+    </p>
+    <sidebyside widths="40% 40%" margins="auto">
+      <figure>
+        <caption><m>y_1=2x^2</m> and <m>y_2=3x+5</m>.</caption>
+        <image>
+          <description>Graphs of 2x^2 and 3x+5 showing them intersect at x=-1 and x=2.5.</description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \pgfplotsset{ width=6cm }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={$x$},
+            ylabel={$y$},
+            xmin=-3, xmax=5,
+            ymin=-5, ymax=15,
+          ]
+          \addplot[blue, samples=100, domain=-3:5]
+            ({x}, {2*x^2});
+          \addplot[red, samples=100, domain=-3:5]
+            ({x}, {3*x+5});
+          \addplot [black, only marks] coordinates { (-1,2) (2.5,12.5) };
+          \draw [dotted] ({axis cs:-1,0}|-{rel axis cs:0,0}) -- ({axis cs:-1,0}|-{rel axis cs:0,1});
+          \draw [dotted] ({axis cs:2.5,0}|-{rel axis cs:0,0}) -- ({axis cs:2.5,0}|-{rel axis cs:0,1});
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <figure>
+        <caption><m>y_1=2x^2-3x</m> and <m>y_2=5</m>.</caption>
+        <image>
+          <description>Graphs of 2x^2-3x and 5 showing them intersect at x=-1 and x=2.5.</description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \pgfplotsset{ width=6cm }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={$x$},
+            ylabel={$y$},
+            xmin=-3, xmax=5,
+            ymin=-5, ymax=15,
+          ]
+          \addplot[blue, samples=100, domain=-3:5]
+            ({x}, {2*x^2-3*x});
+          \addplot[red, samples=100, domain=-3:5]
+            ({x}, {5});
+          \addplot [black, only marks] coordinates { (-1,5) (2.5,5) };
+          \draw [dotted] ({axis cs:-1,0}|-{rel axis cs:0,0}) -- ({axis cs:-1,0}|-{rel axis cs:0,1});
+          \draw [dotted] ({axis cs:2.5,0}|-{rel axis cs:0,0}) -- ({axis cs:2.5,0}|-{rel axis cs:0,1});
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+    </sidebyside>
+    <sidebyside widths="40% 40%" margins="auto">
+      <figure>
+        <caption><m>y_1=2x^2-5</m> and <m>y_2=3x</m>.</caption>
+        <image>
+          <description>Graphs of 2x^2-5 and 3x showing them intersect at x=-1 and x=2.5.</description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \pgfplotsset{ width=6cm }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={$x$},
+            ylabel={$y$},
+            xmin=-3, xmax=5,
+            ymin=-5, ymax=15,
+          ]
+          \addplot[blue, samples=100, domain=-3:5]
+            ({x}, {2*x^2-5});
+          \addplot[red, samples=100, domain=-3:5]
+            ({x}, {3*x});
+          \addplot [black, only marks] coordinates { (-1,-3) (2.5,7.5) };
+          \draw [dotted] ({axis cs:-1,0}|-{rel axis cs:0,0}) -- ({axis cs:-1,0}|-{rel axis cs:0,1});
+          \draw [dotted] ({axis cs:2.5,0}|-{rel axis cs:0,0}) -- ({axis cs:2.5,0}|-{rel axis cs:0,1});
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <figure>
+        <caption><m>y_1=2x^2-3x-5</m> and <m>y_2=0</m>.</caption>
+        <image>
+          <description>Graphs of 2x^2-3x-5 and 0 showing them intersect at x=-1 and x=2.5.</description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \pgfplotsset{ width=6cm }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={$x$},
+            ylabel={$y$},
+            xmin=-3, xmax=5,
+            ymin=-5, ymax=15,
+          ]
+          \addplot[blue, samples=100, domain=-3:5]
+            ({x}, {2*x^2-3*x-5});
+          \addplot[red, samples=100, domain=-3:5]
+            ({x}, {0});
+          \addplot [black, only marks] coordinates { (-1,0) (2.5,0) };
+          \draw [dotted] ({axis cs:-1,0}|-{rel axis cs:0,0}) -- ({axis cs:-1,0}|-{rel axis cs:0,1});
+          \draw [dotted] ({axis cs:2.5,0}|-{rel axis cs:0,0}) -- ({axis cs:2.5,0}|-{rel axis cs:0,1});
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+    </sidebyside>
+  </statement>
+</example>
+
+<exercisegroup>
+  <introduction>
+    <p>
+      Each problem has an equation involving multiple variables.
+      Solve for the indicated dependent variable.
+    </p>
+  </introduction>
+  <exercise>
+    <title>Perimeter of Rectangle</title>
+    <statement>
+      <p>
+      Given <m>2L + 2W = P</m>, solve for <m>W</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Volume of Rectangular Prism</title>
+    <statement>
+      <p>
+      Given <m>V = LWH</m>, solve for <m>L</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Volume of Cylinder</title>
+    <statement>
+      <p>
+      Given <m>V = \pi r^2 h</m>, solve for <m>h</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Ideal Gas Law</title>
+    <statement>
+      <p>
+      Given <m>PV = nRT</m>, solve for <m>P</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Michaelis-Menten Kinetics</title>
+    <statement>
+      <p>
+      Given <m>R = \frac{AC}{C+K}</m>, solve for <m>C</m>.
+      </p>
+    </statement>
+  </exercise>
+</exercisegroup>
+
+<exercise>
+  <statement>
+    <p>
+      Given the equation <m>\displaystyle \frac{ac}{c+50} = 200</m>, find <m>c</m> for each value <m>a \in \{100, 200, 300, 400\}</m>.
+    </p>
+  </statement>
+</exercise>
+
+When the phenomenon is considered under a single environmental condition,
+the measurements relating to that condition which do not change are called <term>state parameters</term>.
+From a mathematical perspective, both state variables and state parameters are variables.
+Often the equations involve additional coefficients or constants.
+These constants are called <term>model parameters</term>.
+
+<subsection>
+  <title>Systems of Equations and Constraints</title>
+  <p>
+    An equation involving multiple variables establishes a relation between the variables.
+    We often have multiple equations, each of which constrains the possible values for the variables.
+    A useful strategy for solving equations is to isolate a dependent variable in one equation
+    and then substitute the resulting value or formula into the other equation.
+    That equation then has one variable which can be solved using the usual methods.
+  </p>
+  <example>
+    <statement>
+      <p>
+        The equation <me>u^2+v^2=16+6u</me> forms a relation between variables <m>u</m> and <m>v</m>.
+        <ul>
+          <li>Find the possible values for <m>v</m> when <m>u=-1</m>.</li>
+          <li>Find the possible values for <m>u</m> when <m>v=2</m>.</li>
+          <li>Find the possible values for <m>u</m> and <m>v</m> when <m>u=v</m>.</li>
+        </ul>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        First, to solve the equation when <m>u=-1</m>, we substitute the value of <m>u=-1</m>
+        and then use algebra to isolate <m>v</m>.
+        <md>
+          <mrow>u^2+v^2=16+6u</mrow>
+          <mrow>(-1)^2+v^2 = 16 + 6(-1)</mrow>
+          <mrow>1+v^2=10</mrow>
+          <mrow>v^2=9</mrow>
+          <mrow>v=\pm 3</mrow>
+        </md>
+        There are two values for <m>v</m> when <m>u=-1</m>.
+        The solutions are the states <m>(u,v)=(-1,3)</m> and <m>(u,v)=(-1,-3)</m>.
+      </p>
+      <p>
+        Next, to solve the equation when <m>v=2</m>, we substitute the value <m>v=2</m>.
+        However, because <m>u</m> appears in the equation with terms <m>u^2</m> and <m>6u</m>, we can not combine terms to isolate <m>u</m>.
+        Instead, we need to use the <xref ref="thm-quadratic-formula" text="title">quadratic formula</xref>.
+        <md>
+          <mrow>u^2+v^2=16+6u</mrow>
+          <mrow>u^2+(2)^2 = 16 + 6u</mrow>
+          <mrow>u^2+4=16+6u</mrow>
+          <mrow>u^2-6u-12=0</mrow>
+          <mrow>u=\frac{6 \pm \sqrt{(-6)^2-4(-12)}}{2}</mrow>
+          <mrow>u=\frac{6 \pm \sqrt{84}}{2} = \frac{6 \pm 2\sqrt{21}}{2}</mrow>
+          <mrow>u=3 \pm \sqrt{21}</mrow>
+        </md>
+        Again, two states are solutions, <m>(u,v)=(3+\sqrt{21},2)</m> and <m>(u,v)=(3-\sqrt{21},2)</m>.
+      </p>
+      <p>
+        Finally, the equation <m>u=v</m> is a constraint involving both variables.
+        Because <m>v</m> is shown as a dependent variable in the constraint <m>v=u</m>,
+        we substitute <m>u</m> in place of <m>v</m> in the original equation.
+        <md>
+          <mrow>u^2+v^2=16+6u</mrow>
+          <mrow>u^2+(u)^2 = 16 + 6u</mrow>
+          <mrow>2u^2-6u-16=0</mrow>
+          <mrow>u^2-3u-8=0</mrow>
+          <mrow>u=\frac{3 \pm \sqrt{(-3)^2-4(1)(-8)}}{2}</mrow>
+          <mrow>u=\frac{3 \pm \sqrt{9+32}}{2} = \frac{3 \pm \sqrt{41}}{2}</mrow>
+        </md>
+        For each value of <m>u</m>, we have <m>v=u</m>.
+        One solution would be <m>(u,v) = (\frac{3 + \sqrt{41}}{2},\frac{3 + \sqrt{41}}{2})</m>
+        while the other solution would be <m>(u,v) = (\frac{3 - \sqrt{41}}{2},\frac{3 - \sqrt{41}}{2})</m>.
+      </p>
+    </solution>
+  </example>
+  <p>
+    Equations allow us to answer questions involving variables whose relation is known.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Is it possible to enclose an area of 25 <quantity><unit base="meter" exp="2"/></quantity> in a rectangle with perimeter of 18 <quantity><unit base="meter"/></quantity>?
+        If so, how?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        In this problem, we need to identify the relevant variables for the system and the equations that constrain the state.
+        We are working with a rectangle, which is characterized by a length and a width.
+        Let us draw a figure and use variables <m>L</m> for the length and <m>W</m> for the width.
+      </p>
+      <sidebyside width="50%" margins="auto">
+        <image>
+          <latex-image>
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+          \draw (0,0) -- (4,0) node[pos=0.5,above] {$L$}
+          -- (4,3) node[pos=0.5,right] {$W$}
+          -- (0,3) -- (0,0);
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </sidebyside>
+      <p>
+        The perimeter <m>P</m> and the area <m>A</m> can be considered to be dependent variables,
+        defined by the equations
+        <md>
+          <mrow>P=2L+2W,</mrow>
+          <mrow>A=L \cdot W.</mrow>
+        </md>
+        The problem gives us two additional pieces of information, <m>P=18</m> and <m>A=25</m>.
+        When we substitute those values of the state into the equations, we have two equations for two variables:
+        <me>2L+2W=18, \qquad L \cdot W = 25.</me>
+        In order to solve these equations, we use one equation to isolate one of the variables,
+        say <m>L</m>, and then substitute the resulting expression into the other equation.
+        <md>
+          <mrow>2L+2W=18 \qquad \Rightarrow \qquad L=9-W</mrow>
+          <mrow>L\cdot W = 25 \qquad \Rightarrow \qquad (9-W)W = 25</mrow>
+        </md>
+        Then we solve the equation that only involves <m>W</m>.
+        <md>
+          <mrow>(9-W)W = 25</mrow>
+          <mrow>9W-W^2=25</mrow>
+          <mrow>W^2-9W+25=0</mrow>
+          <mrow>W=\frac{9 \pm \sqrt{(-9)^2-4(25)}}{2}</mrow>
+          <mrow>W=\frac{9 \pm \sqrt{81-100}}{2}=\frac{9\pm \sqrt{-19}}{2}</mrow>
+        </md>
+        When solving this quadratic formula, we have the square-root of a negative number giving complex numbers.
+      </p>
+      <p>
+        In conclusion, we found that there are no real solutions.
+        This means that it is not possible to create a rectangle with a perimeter of 18 <quantity><unit base="meter"/></quantity> and an area of 25 <quantity><unit base="meter" exp="2"/></quantity>.
+      </p>
+    </solution>
+  </example>
+</subsection>
+
+<subsection xml:id="subsec-exponent-inverse-operations">
+  <title>Exponent Operations and Their Inverses</title>
+  <p>
+    When we think of a function as a map between variables, say <m>f : A \mapsto C</m>,
+    we think of <m>f</m> as the rule that goes from an input value on the <m>A</m> number line
+    to a corresponding predicted output value on the <m>C</m> number line.
+    An <term>inverse function</term> would be a rule that goes in the reverse direction, <m>C \mapsto A</m>.
+    A function and its inverse function allow us to go back and forth between the two variables in either direction.
+  </p>
+  <definition xml:id="definition-inverse-as-reverse-map">
+    <statement>
+      <p>
+        A function representing a map <m>f : A \mapsto C</m> has an <term>inverse function</term>,
+        which we write <m>f^{-1} : C \mapsto A</m>,
+        if the equation <m>f(a)=c</m> is equivalent to <m>f^{-1}(c)=a</m> for every state <m>(A,C)=(a,c)</m>.
+        <fn xml:id="footnote-inverse-as-reverse-map-domain">
+        This condition on the state will correspond to a requirement on the domain and range of a function and its inverse.
+        </fn>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We first illustrate the idea of an inverse function with a function defined by a simple map and no formula.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Imagine a theater that has a promotional wheel so that the price of a ticket is based on which number you spin.
+        The prices are listed in the table below.
+      </p>
+      <sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell>Spin</cell><cell>Price</cell>
+          </row>
+          <row>
+            <cell>1</cell><cell><dollar/>2</cell>
+          </row>
+          <row>
+            <cell>2</cell><cell><dollar/>5</cell>
+          </row>
+          <row>
+            <cell>3</cell><cell><dollar/>8</cell>
+          </row>
+          <row>
+            <cell>4</cell><cell><dollar/>10</cell>
+          </row>
+        </tabular>
+      </sidebyside>
+      <p>
+        We introduce variables for the system.
+        Let <m>S</m> represent the result of the spin and let <m>P</m> represent the price of a ticket.
+        The map <m>f : S \mapsto P</m> can be visualized using number lines.
+      </p>
+      <sidebyside width="70%">
+        <image>
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm]
+            \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
+            \foreach \x in {1, 2, 3, 4} {
+                \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
+                \fill ({2*\x-3},0) circle [radius=2pt];
+            }
+            \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
+            \foreach \x in {2, 5, 8, 10} {
+                \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                \fill (\x,-2) circle [radius=2pt];
+            }
+            \draw [->] (-1,-0.8) -- (2, -1.8);
+            \draw [->] (1,-0.8) -- (5, -1.8);
+            \draw [->] (3,-0.8) -- (8, -1.8);
+            \draw [->] (5,-0.8) -- (10, -1.8);
+            \draw [->] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f$};
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </sidebyside>
+      <p>
+        The inverse map <m>f^{-1} : P \mapsto S</m> reverses the direction of the arrows.
+      </p>
+      <sidebyside width="70%">
+        <image>
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm]
+            \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
+            \foreach \x in {1, 2, 3, 4} {
+                \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
+                \fill ({2*\x-3},0) circle [radius=2pt];
+            }
+            \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
+            \foreach \x in {2, 5, 8, 10} {
+                \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                \fill (\x,-2) circle [radius=2pt];
+            }
+            \draw [<-] (-1,-0.8) -- (2, -1.8);
+            \draw [<-] (1,-0.8) -- (5, -1.8);
+            \draw [<-] (3,-0.8) -- (8, -1.8);
+            \draw [<-] (5,-0.8) -- (10, -1.8);
+            \draw [<-] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f^{-1}$};
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </sidebyside>
+      <p>
+        Based on this system, we see that <m>f(1)=2</m> because when <m>S=1</m> we have <m>P=2</m>.
+        The equivalent inverse equation is <m>f^{-1}(2)=1</m> because a price <m>P=2</m> comes from <m>S=1</m>.
+        Similarly, <m>f(2)=5</m> and <m>f^{-1}(5)=2</m> are equivalent.
+        Because the system is defined by the table and not a formula, <m>f(5)</m> and <m>f^{-1}(3)</m> each have no meaning.
+        In the first case, <m>f(5)</m> has no meaning because <m>S=5</m> is not a possibile spin.
+        In the second case, <m>f^{-1}(3)</m> has no meaning because <m>P=3</m> is not a possible ticket price.
+      </p>
+    </statement>
+  </example>
+  <p>
+    You might have realized a possible problem.
+    What happens if two input values map to the same output value?
+    We wouldn't know which arrow to follow for the reverse mapping.
+    A function that guarantees that different input values always have different output values is called <term>one-to-one</term>.
+    A function that is <em>not</em> one-to-one has at least one value that is the output to two or more different input values.
+  </p>
+  <theorem xml:id="theorem-invertible-one-to-one">
+    <statement>
+      <p>
+        If a function <m>f : A \mapsto C</m> is one-to-one, then the inverse <m>f^{-1}: C \mapsto A</m> is also a function.
+        If <m>f</m> is not one-to-one, then the inverse relation is not a function.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    When an algebraic equation defines the relation between the variables, we can attempt to solve the equation for either of the variables.
+    If both variables can successfully be written as dependent variables, the corresponding formulas define the inverse functions.
+  </p>
+  <example>
+    <statement>
+      <p>
+        A rope of length 100 centimeters is cut into exactly five pieces
+        Two of the pieces are of one length, and the other three pieces are of another length.
+        Let <m>d</m> be the length of the ropes in the group of two.
+        Let <m>t</m> be the length of the ropes in the group of three.
+      </p>
+      <p>
+        Find the functions <m>f : d \mapsto t</m> and <m>g : t \mapsto d</m>.
+        Interpret the meaning of <m>f(10)</m> and <m>g(10)</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We start by finding an equation relating <m>d</m> and <m>t</m>.
+        The total length of the five pieces of rope added together must equal the original length of rope.
+        This results in an equation
+        <me>2d + 3t = 100</me>.
+      </p>
+      <p>
+        With this equation, we can solve for each of the state variables in turn.
+        Solving for <m>d</m>, we subtract <m>3t</m> and divide by <m>2</m>:
+        <me>d = \frac{100-3t}{2}</me>.
+        Solving for <m>t</m>, we subtract <m>2d</m> and divide by <m>3</m>:
+        <me>t = \frac{100-2d}{3}</me>.
+      </p>
+      <p>
+        The function <m>f</m> was defined as the map <m>d \mapsto t</m>,
+        so we use the equation with <m>t</m> as the dependent variable,
+        <me>t = f(d) = \frac{100-2d}{3}</me>.
+        We can find and interpret <m>f(10)</m>.
+        With <m>10</m> as an input, we find <m>f(10) = \frac{100-2(10)}{3} = \frac{80}{3} = 26 \frac{2}{3}</m>.
+        To interpret this, we recall that the input represents a value for <m>d</m>.
+        The equation represents the state <m>d=10</m> and <m>t=26 \frac{2}{3}</m>
+        If the group of two has length 10 centimeters, then the group of three has length <m>26 \frac{2}{3}</m> centimeters.
+      </p>
+      <p>
+        The function <m>g</m> was defined as the map <m>t \mapsto d</m>,
+        so we now use the equation with <m>d</m> as the dependent variable,
+        <me>d = g(t) = \frac{100-3t}{2}</me>.
+        With <m>t=10</m> as an input, we find <m>g(10) = \frac{100-3(10)}{2} = \frac{70}{2} = 35</m>.
+        The function tells us that <m>d=35</m> when <m>t=10</m>.
+        The group of two has length 35 centimeters whenever the group of three has length <m>10</m> centimeters.
+      </p>
+      <p>
+        The functions <m>f</m> and <m>g</m> are inverse functions to each other.
+        If we used a placeholder variable instead of the state variables,
+        we would write
+        <me>f(x) = \frac{100-2x}{3}</me>
+        with its inverse function
+        <me>f^{-1}(x) = g(x) = \frac{100-3x}{2}</me>.
+        Similarly, <m>g^{-1}(x) = f(x)</m>.
+      </p>
+    </solution>
+  </example>
+</subsection>
+
+<subsection>
+  <title>Inverse Questions for Sequences</title>
+  <p>
+    In our discussions about sequences, we introduced two maps.
+    The first was in relation to an explicit definition of a sequence,
+    where we mapped from the index to the sequence value, <m>n \mapsto x_n</m>.
+    The second was in relation to a recursive definition of a sequence by a projection function, <m>x_{n-1} \mapsto x_{n}</m>.
+    The inverse map for these functions can help answer interesting questions for sequences.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Suppose you start with one cent.
+        Each day your money doubles.
+        When will you have a million dollars?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We start by identifying our sequence.
+        We might choose the name <m>W</m> for our sequence to represent our wealth.
+        Because the sequence doubles each day, our index <m>n</m> will represent the day
+        and the sequence has recursive equation <m>W_{n} = 2 W_{n-1}</m>.
+        This means our sequence is a geometric sequence.
+        The initial value is <m>W_1 = 0.01</m> (dollars).
+        We can then write down the explicit formula using <xref ref="theorem-geometric-explicit-sequence"/>,
+        <me>W_n = 0.01 \cdot 2^{(n-1)}</me>.
+        The properties of exponents allow us to rewrite this as an equivalent expression
+        <me>W_n = 0.01 \cdot \frac{2^n}{2^1} = 0.005 \cdot 2^n</me>.
+      </p>
+      <p>
+        The question is when the value of our wealth is a million dollars.
+        That is, we want to know the day <m>n</m> when <m>W_n = 1000000</m>.
+        This is an inverse function question.
+        To answer a single question like this, we do not need to know the actual function.
+        We can just solve for <m>n</m>, using balanced operations until <m>n</m> is isolated.
+        <md>
+          <mrow>W_n = 0.005 \cdot 2^n</mrow>
+          <mrow>0.005 \cdot 2^n = 10^6</mrow>
+          <mrow>2^n=\frac{10^6}{0.005}</mrow>
+          <mrow>2^n = 2 \times 10^8</mrow>
+        </md>
+        On the left, we have an elementary exponential with base <m>b=2</m>.
+        To isolate <m>n</m>, we need to use the logarithm with base <m>b=2</m>.
+        <md>
+          <mrow>\log_2( 2^n) = \log_2( 2 \times 10^8 ) </mrow>
+          <mrow>n = \log_2( 2 \times 10^8 ) </mrow>
+        </md>
+        Using the change of base rule for logarithms, we can use a calculator to identify the value.
+        <me>n = \frac{\log(2 \times 10^8)}{\log(2)} \approx 27.5754</me>
+      </p>
+      <p>
+        We try to interpret the result.
+        The value <m>n \approx 27.5754</m> is not possible an index, which must be an integer.
+        That means that our wealth is never exactly a million dollars.
+        We need to reinterpret the question as saying when we first <em>exceed</em> a million dollars.
+        Because our solution is between <m>n=27</m> and <m>n=28</m> and the value doubles each day,
+        we can see that day <m>n=27</m> will be the last day we have a wealth below a million dollars
+        and that day <m>n=28</m> will be the first day when our wealth is above a million dollars.
+      </p>
+    </solution>
+  </example>
+  <example>
+    <statement>
+      <p>
+        A population of insects is tracked weekly and found to follow a recursive model.
+        We let <m>P</m> be the sequence of population measurements with an index <m>n</m> counting the number of weeks.
+        The insect population follows the recurrence relation
+        <me>P_{n} = 1.5 P_{n-1} - 100</me>
+        with a value of <m>P_0 = 5000</m>, the population recorded for the first week of observation.
+        What was the population two weeks before observations began?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The recurrence relation shows that <m>P</m> is not arithmetic nor is it geometric.
+        We do not yet know how to find an explicit formula.
+        However, we do know the projection function <m>f : P_{n-1} \mapsto P_{n}</m>.
+        The inverse of the projection function would reverse the direction of projection,
+        allowing us to determine the preceding value of the sequence instead of the subsequent value.
+      </p>
+      <p>
+        We find the inverse function (the reverse projection function) by solving the recurrent relation for <m>P_n</m>.
+        <md>
+          <mrow>P_{n} = 1.5 P_{n-1} - 100</mrow>
+          <mrow>P_{n} + 100 = 1.5 P_{n-1} = \frac{3}{2} P_{n-1}</mrow>
+          <mrow>\frac{2}{3}(P_{n} + 100) = P_{n-1}</mrow>
+        </md>
+        Consequently, the inverse projection function is <m>f^{-1}(x) = \frac{2}{3}(x+100)</m>.
+      </p>
+      <p>
+        With the inverse projection function, we can work the sequence backwards from the initial value.
+        Starting with <m>P_0 = 5000</m>, we find
+        <md>
+          <mrow>P_{-1} = f^{-1}(5000) = \frac{2}{3}(5000+100) = 3400</mrow>
+          <mrow>P_{-2} = f^{-1}(3400) = \frac{2}{3}(3400+100) = \frac{7000}{3}</mrow>
+        </md>
+        The exact value from our model is <m>P_{-2} \approx 2333\frac{1}{3}</m>.
+        Even though a population has integer values and this prediction is definitely not an integer,
+        we would report our model value unless we had information on how many significant digits to keep.
+      </p>
+    </solution>
+  </example>
+</subsection>
