@@ -4,30 +4,30 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2015-2017  D. Brian Walton          -->
+<!-- Copyright (C) 2015-2019  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="logarithm-properties">
   <title>Logarithms and Their Properties</title>
   <introduction>
     <p>
-      In the previous section, we learned about the algebraic properties of exponents.
-      Because logarithms are the inverses of elementary exponential functions,
+      We previously learned about the algebraic properties of exponents.
+      Because logarithms are the inverses of exponential operations,
       they inherit related algebraic properties.
       The properties of logarithms allow us to rewrite expressions involving products and exponents in new ways.
     </p>
     <p>
       In this section, we will introduce the properties of logarithms and how they relate to the properties of exponents.
-      As a consequence of these properties, we will learn new methods for solving equations involving exponentials.
+      These properties are closely related to the logarithmic scale.
+      We will learn new methods for solving equations involving exponentials using the properties of the logarithm.
       In addition, we will learn how to rewrite exponential functions in terms of other bases
       and justify the change of base formula for logarithms.
     </p>
   </introduction>
   <subsection>
     <title>The Logarithmic Scale</title>
-    
     <p>
-      Historically, the logarithm was invented so that calculations involving multiplication and division 
+      Historically, the logarithm was invented so that calculations involving multiplication and division
       could be solved using the much simpler operations of addition and subtraction.
       Addition and multiplication share many of the same properties<mdash/>commutativity, associativity, and the existence of an identity and inverses.
       These shared properties suggest that there might be a way to think about multiplication in terms of addition.
@@ -38,29 +38,24 @@
       then the product <m>uv</m> can be written as a power of that base as <m>uv = b^{x+y}</m>.
       Division <m>u \div v</m> can similarly be written as a power, <m>u \div v = b^{x-y}</m>.
       In this way, multiplication and division of numbers directly corresponds to addition and subtraction of their associated powers for a given base.
-      The logarithm is the map from a number and its associated power for a given base.
-    </p>
-    <theorem>
-      <statement>
-        <p>
-          For every number <m>u \gt 0</m> and base <m>b \gt 0</m> with <m>b \ne 1</m>,
-          the equation <m>b^x = u</m> has a solution and <m>x = \log_b(u)</m>.
-        </p>
-      </statement>
-    </theorem>
-    <p>
-      This theorem states that the logarithm can be computed for positive numbers.
-      It does not yet tell us how to find the value of that logarithm.
-      I hope you are curious about how someone would be able to guarantee that such a number always exists.
-      Some values are easy to see, but it is not going to be obvious why it always works.
     </p>
     <p>
+      The logarithm relates a number and its associated power for a given base.
+      For every number <m>u \gt 0</m> and base <m>b \gt 0</m> with <m>b \ne 1</m>,
+      <me>u = b^x \qquad \Leftrightarrow \qquad x = \log_b(u)</me>.
       We will try to develop an intuition by creating the map between a number and its logarithm.
       In the process, we will develop something called a logarithmic number line or logarithmic scale.
-      To make our example precise, we will create the map for a base <m>b=2</m>.
-      However, the process could be done for any base <m>b \gt 0</m> with <m>b \ne 1</m>.
     </p>
     <p>
+      A map is a way of thinking about the relationship between two variables.
+      We use one variable as the independent variable, or input, for the map.
+      This is the value we start with.
+      The relation tells us that this value for the independent variable is associated with a particular value of the dependent variable.
+      The value of the dependent variable is the output of the map.
+    </p>
+    <p>
+      To make our example precise, we will create the map for a base <m>b=2</m>.
+      However, the process could be done for any base <m>b \gt 0</m> with <m>b \ne 1</m>.
       With a base <m>b=2</m>, we find <m>\log_2(u)</m> by solving the equation <m>2^x = u</m>.
       The logarithm is the map <m>u \mapsto x</m>.
       The equation is easy to solve when <m>u</m> is a known power of 2.
@@ -292,7 +287,7 @@
     <example>
       <statement>
         <p>
-        A reference table shows <m>\log(2) \approx 0.30103</m>, <m>\log(3) \approx 0.47712</m> 
+        A reference table shows <m>\log(2) \approx 0.30103</m>, <m>\log(3) \approx 0.47712</m>
         and <m>\log(5) \approx 0.69897</m>.
         Use properties of logarithms to determine <m>\log(1.2)</m>.
         </p>
@@ -300,8 +295,8 @@
       <solution>
         <p>
         Start by writing 1.2 as a product of the factors 2, 3, and 5.
-        <me>1.2 = \frac{12}{10} = \frac{4(3)}{2(5)} = \frac{2(3)}{5}</me> 
-        The properties of logarithms allow us to rewrite <m>\log(1.2)</m> as 
+        <me>1.2 = \frac{12}{10} = \frac{4(3)}{2(5)} = \frac{2(3)}{5}</me>
+        The properties of logarithms allow us to rewrite <m>\log(1.2)</m> as
         <md>
           <mrow> \log(1.2) &amp;= \log\left(\frac{2(3)}{5}\right) </mrow>
           <mrow> &amp;= \log(2(3)) - \log(5) &amp; \text{(Quotient)} </mrow>
@@ -311,7 +306,7 @@
         </p>
       </solution>
     </example>
-    
+
     <p>
       Historically, the logarithm was invented so that multiplication and division calculations could be solved using the much simpler operations of addition and subtraction.
       Engineers and scientists would often reference logarithm tables to find the logarithms of the factors and add the values by hand.
@@ -322,6 +317,38 @@
     <p>
       Although modern calculators and computers have eliminated this particular need for logarithms in calculations,
       we still use logarithms in order to expand symbolic formulas expressed as products and powers in terms of sums of the logarithms of the factors.
+      To expand a logarithm, we look at the structure of the expression to which the logarithm is applied.
+      There are likely many parts, but we look at the final operation that is used to form that expression.
+      <ol>
+        <li>
+          <p>
+            If the input of the logarithm is a <em>product</em> of expressions,
+            then we expand the logarithm by rewriting it as a sum of logarithms each with one of the factors as input.
+          </p>
+        </li>
+        <li>
+          <p>
+            If the input of the logarithm is a <em>quotient</em> of expressions,
+            then we expand the logarithm by rewriting it as a difference of logarithms,
+            adding the logarithm of the numerator and subtracting the logarithm of the denominator.
+          </p>
+        </li>
+        <li>
+          <p>
+            If the input of the logarithm is a <em>power</em> applied to an expression,
+            then we expand the logarithm by rewriting it as the value of the power times the logarithm of the base.
+          </p>
+        </li>
+        <li>
+          <p>
+            If the input of the logarithm is a <em>anything else</em>,
+            then the rules of logarithms do not apply.
+            In particular, we can not expand the logarithm of a sum.
+          </p>
+        </li>
+      </ol>
+      By changing any quotients into multiplication by negative powers,
+      we can reduce the process of expanding logarithms to only two rules: the product and power rules.
     </p>
     <example>
       <statement>
@@ -331,24 +358,54 @@
       </statement>
       <solution>
         <p>
-        Each factor of the expression inside the logarithm will get its own term 
+        Each factor of the expression inside the logarithm will get its own term
         using the product and quotient rules for logarithms.
         If we think of every division in terms of negative powers, then we only need to deal with products.
-        In particular, the inner expression can be rewritten 
+        In particular, the inner expression can be rewritten
         <me>\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5} = 4x^3(2x+5)^{\frac{1}{2}}(x^2+3)^{-5}</me>.
         The factors identified are <m>4</m>, <m>x^3</m>, <m>(2x+5)^{\frac{1}{2}}</m>, and <m>(x^2+3)^{-5}</m>.
-        Using the logarithm's product rule followed by the logarithm's power rule, we find 
+        Using the logarithm's product rule followed by the logarithm's power rule, we find
         <md>
           <mrow> \log\left(\frac{4x^3\sqrt{2x+5}}{(x^2+3)^5}\right) &amp;= \log(4) + \log(x^3) + \log\left( (2x+5)^{\frac{1}{2}}\right) + \log\left( (x^2+3)^{-5} \right) </mrow>
           <mrow> &amp;= \log(4) + 3\log(x) + {\textstyle \frac{1}{2}}\log(2x+5) -5 \log(x^2+3).</mrow>
-        </md> 
+        </md>
         Notice that we could have used the quotient rule of logarithms instead of negative powers to get the term <m>-5 \log(x^2+3)</m>.
         </p>
       </solution>
     </example>
     <p>
+      The rules for expanding logarithms can also be used in reverse to collect terms into a single logarithm.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Collect the terms of
+          <me>2 + 4 \log x + 2 \log y - \frac{1}{2}\log(x+y)</me>
+          to write the expression in terms of a single logarithm.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We first recognize that every logarithm times an expression can be rewritten
+          as a logarithm with the expression in the exponent.
+          <me>2 + 4 \log x + 2 \log y - \frac{1}{2}\log(x+y) = 2+ \log(x^4) + \log(y^2) + \log \left( (x+y)^{-1/2} \right)</me>
+          Now that the expression is a sum of logarithms.
+          What about the isolated number 2?
+          Using the common logarithm with base <m>b=10</m>, we know <m>\log(10^2) = 2</m>.
+          <md>
+            <mrow> 2 + 4 \log x + 2 \log y - \frac{1}{2}\log(x+y) \amp= 2 + \log(x^4) + \log(y^2) + \log \left( (x+y)^{-1/2} \right) </mrow>
+            <mrow> \amp= \log(10^2 \, x^4 \, y^2 \, (x+y)^{-1/2}) </mrow>
+            <mrow> \amp= \log \left( \frac{100 x^4 y^2}{\sqrt{x+y}} \right) </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Using Logarithms to Solve Equations</title>
+    <p>
       The properties of logarithms help solve us equations, particularly where the variable is in an exponent.
-      Because inverse functions are one-to-one, we can apply such a function to both sides of an equation with positive values and form a new equivalent equation.
+      Logarithm and exponential operations are invertible, so we can use them as balanced operations on an equation to obtain new equivalent equations.
       The properties of the logarithm can then be used to our advantage.
     </p>
     <example>
@@ -363,8 +420,8 @@
         <md>
           <mrow> 3 \cdot 2^{3x} = 5 </mrow>
           <mrow> 2^{3x} = \frac{5}{3} </mrow>
-        </md> 
-        We next apply the logarithm base 10 to both sides of this equation, 
+        </md>
+        We next apply the logarithm base 10 to both sides of this equation,
         which then allows us to apply the logarithm power rule on the left.
         Then we can isolate <m>x</m>.
         <md>
@@ -392,14 +449,14 @@
     <theorem xml:id="logarithm-change-base">
       <statement>
         <p>
-        For any two exponential bases <m>b</m> and <m>c</m>, 
+        For any two exponential bases <m>b</m> and <m>c</m>,
         <me> \log_b(u) = \frac{\log_c(u)}{\log_c(b)}</me>.
         </p>
       </statement>
       <proof>
         <p>
         Consider <m>x=\log_b(u)</m>, which solves <m>b^x=u</m>.
-        If we solve this equation using <m>\log_c</m> to both sides, 
+        If we solve this equation using <m>\log_c</m> to both sides,
         we find the change of base formula.
         <md>
           <mrow> b^x = u </mrow>
@@ -419,7 +476,7 @@
       In effect, this is a change of units calculation, similar to finding a distance measured in inches when we know the distance measured in centimeters.
     </p>
     <p>
-      Closely related to the change of base formula is the fact that 
+      Closely related to the change of base formula is the fact that
       we can rewrite any power with a positive base using a composition with an elementary exponential.
       We will soon discover that the number <m>e</m> is the natural exponential base.
       Thus, every power can be rewritten in terms of the natural exponential function.
@@ -443,8 +500,8 @@
         </md>
         </p>
         <p>
-        Another approach is to just rewrite the base using the inverse property, 
-        <m>3 = e^{\ln(3)}</m>, 
+        Another approach is to just rewrite the base using the inverse property,
+        <m>3 = e^{\ln(3)}</m>,
         and then finish by using properties of powers.
         <md>
           <mrow> f(x) &amp;= 4 \cdot 3^{2x} </mrow>
@@ -461,7 +518,7 @@
     <theorem xml:id="exponentials-base-e">
       <statement>
         <p>
-          Every exponential function <m>f(x) = A b^x</m> can be written using the natural exponential 
+          Every exponential function <m>f(x) = A b^x</m> can be written using the natural exponential
           <m>f(x) = Ae^{kx}</m> where <m>k = \ln(b)</m>.
         </p>
       </statement>
@@ -477,9 +534,9 @@
       <solution>
         <p>
         This is an exponential model <m>P=Ae^{kt}</m> with unknown parameters <m>A</m> and <m>k</m>.
-        We use the data <m>(t,P)=(0,500)</m> and <m>(t,P)=(5,1500)</m> (the population triples in 5 years) 
+        We use the data <m>(t,P)=(0,500)</m> and <m>(t,P)=(5,1500)</m> (the population triples in 5 years)
         to create equations based on our model that constrain the parameters.
-        <me> \left\{ \begin{matrix} 500 = Ae^{0k} \\ 1500 = Ae^{5k} \end{matrix} \right.</me> 
+        <me> \left\{ \begin{matrix} 500 = Ae^{0k} \\ 1500 = Ae^{5k} \end{matrix} \right.</me>
         The first equation gives <m>A=500</m>.
         Substituting that into the second equation, we can solve for <m>k</m>.
         <md>
@@ -488,7 +545,7 @@
           <mrow>e^{5k} = 3 </mrow>
           <mrow>5k = \ln(3) </mrow>
           <mrow>k = {\textstyle \frac{1}{5}} \ln(3)</mrow>
-        </md> 
+        </md>
         Using these parameters, we have our model <me>P = 500 e^{\frac{1}{5} \ln(3) t}</me>.
         </p>
       </solution>
@@ -496,7 +553,6 @@
   </subsection>
   <subsection>
     <title>Summary</title>
-    
     <p>
     <ul>
       <li>
@@ -506,7 +562,7 @@
       </li>
       <li>
         <p>
-        The properties of logarithms are consequences of properties of exponents. 
+        The properties of logarithms are consequences of properties of exponents.
         <ul>
           <li>
           <p>
@@ -534,6 +590,13 @@
           </p>
           </li>
         </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          To expand a logarithm is to identify if the input of a logarithm is a product, quotient, or power,
+          and then to rewrite that logarithm as a sum of logarithms, a difference of logarithms, or a product with a logarithm.
+          This is repeated until no logarithm has an input that is a product, quotient, or power.
         </p>
       </li>
     </ul>
@@ -590,7 +653,7 @@
     <exercise>
       <statement>
         <p>
-        Rewrite the expanded formula <m>\displaystyle 2 + 3\log(x) - \log(2x+1)</m> 
+        Rewrite the expanded formula <m>\displaystyle 2 + 3\log(x) - \log(2x+1)</m>
         as the logarithm (base 10) of a single expression.
         </p>
       </statement>
@@ -598,12 +661,12 @@
     <exercise>
       <statement>
         <p>
-        Rewrite the expanded formula <m>\displaystyle {\textstyle \frac{1}{2}}\ln(x) - \ln(x+1) - \ln(x-1)</m> 
+        Rewrite the expanded formula <m>\displaystyle {\textstyle \frac{1}{2}}\ln(x) - \ln(x+1) - \ln(x-1)</m>
         as the logarithm (base e) of a single expression.
         </p>
       </statement>
     </exercise>
-    
+
     <exercise>
       <statement>
         <p>
@@ -618,7 +681,7 @@
         </p>
       </statement>
     </exercise>
-    
+
     <exercise>
       <statement>
         <p>

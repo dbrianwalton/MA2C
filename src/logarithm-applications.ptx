@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2019  D. Brian Walton          -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="logarithm-applications">
+  <title>Applications of Logarithms</title>
+  <introduction>
+    <p>
+      The properties of logarithms are useful for a variety of applications.
+      In this section, we discuss using a logarithm to transform data.
+      We will see that data following an exponential model look linear in a semi-log transformation;
+      data following a power law model look linear in a log-log transformation.
+      We also consider an application to probability in relation to log-likelihood.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Logarithmic Transformations</title>
+    <p>
+      Sometimes we look at data that are at many different scales.
+      On a standard number line, the numbers 1, 10, 100, and 1000 would be spread very far apart
+      while the numbers 0.1, 0.01, 0.001, and 0.0001 would be clustered very close to 0.
+      If we use the common logarithm (<m>b=10</m>), then these numbers would map to equally spaced integer from -4 to 3.
+      The logarithm spaces values apart according to the order of magnitude.
+      Quality plotting tools allow us to scale one or both axes according to the logarithmic scale.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Brain size is strongly correlated with overall body mass in mammals.
+          However, mammals cover a wide range of different sizes.
+          The graph of brain size versus body mass for 96 species is shown in <xref ref="img-body-brain-size"/>,
+          based on data from <pubtitle>The Statistical Sleuth</pubtitle> by Ramsey and Schafer (2013).
+          Because the elephant is so large relative to many other species,
+          its data point requires a wide window in the figure.
+          The majority of species, however, are much smaller and form a crowded cluster of points near the origin.
+        </p>
+        <figure xml:id="img-body-brain-size">
+          <caption>Plot of body mass (kg) and brain size (g) for 96 species of mammals.</caption>
+          <image width="60%" source="images/Body-Brain-plot.pdf">
+            <description>Scatter plot of brain size versus body mass using linear axes</description>
+          </image>
+        </figure>
+        <p>
+          This suggests replotting the data using a logarithmic scale.
+          The same data a shown with logarithmic scales for both variables in the <xref ref="img-body-brain-size-loglog"/>.
+          Using a logarithmic scale on both axes is called a <term>log-log plot</term>.
+          The transformed data spreads the points out more uniformly across the figure.
+          In addition, the log-log plot suggests that the transformed data is approximately linear.
+        </p>
+        <figure xml:id="img-body-brain-size-loglog">
+          <caption>Log-log plot of body mass (kg) and brain size (g) for 96 species of mammals.</caption>
+          <image width="60%" source="images/Body-Brain-loglogplot.pdf">
+            <description>Scatter plot of brain size versus body mass using logarithmic axes</description>
+          </image>
+        </figure>
+      </statement>
+    </example>
+    <p>
+      The previous example illustrated a dataset where transformed data look linear.
+      Let us work out what that relation must be like.
+    </p>
+    <p>
+      Suppose we have raw data with variables <m>(x,y)</m> and we transform the data with logarithms.
+      This creates two new variables, <m>u = \log(x)</m> and <m>v = \log(y)</m>.
+      The log-log plot is a figure showing data <m>(u,v)</m> but with the axes showing the original values on a logarithmic scale.
+      If the transformed data are linear, there must be a model
+      <me>v = a \, u + b</me>.
+    </p>
+    <p>
+      We now substitute our original variables and solve for <m>y</m>.
+      We collect terms in the logarithm.
+      <md>
+        <mrow> \log(y) \amp= a \, \log(x) + b </mrow>
+        <mrow> \amp= \log(x^a) + \log(10^b) </mrow>
+        <mrow> \amp= \log(10^b \cdot x^a) </mrow>
+      </md>
+      Thus, we find <m>y = 10^b \cdot x^a</m>, which is a power law model.
+      We summarize our result as a theorem for future reference.
+    </p>
+    <theorem xml:id="thm-power-law-log-transform">
+      <statement>
+        <p>
+          Data <m>(x,y)</m> such that the transformed data <m>(\log(x), \log(y))</m> (a log-log plot) has a linear relation will satisfy a power law relation.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Another common transformation is a semi-log plot.
+      This occurs when only the dependent variable is transformed.
+      In other words, only the <m>y</m>-axis is transformed to a logarithmic scale.
+      What relationship does this reveal?
+    </p>
+    <p>
+      Suppose we have raw data with variables <m>(x,y)</m> and we only transform <m>y</m> with a logarithm,
+      <me>v=\log(y)</me>.
+      The semi-log plot is a figure showing data <m>(x,v)</m> but with the axes showing the original values on a logarithmic scale.
+      If the transformed data are linear, there must be a model
+      <me>v = a \, x + b</me>.
+    </p>
+    <p>
+      We now substitute our original variables and solve for <m>y</m>.
+      <me> \log(y) = a \, x + b </me>.
+      To solve for <m>y</m>, we use the inverse operation to the logarithm, which is an exponential.
+      <me> y = 10^{a \, x + b} </me>.
+      Using the properties of exponents, we can rewrite this
+      <me> y = 10^{a \, x} \cdot 10^{b} = 10^{b} \cdot (10^a)^x</me>.
+      Thus, we find <m>y = A \, B^x</m>, with <m>A=10^b</m> and <m>B=10^a</m>, which is an exponential model.
+    </p>
+    <theorem xml:id="thm-exponential-law-semilog-transform">
+      <statement>
+        <p>
+          Data <m>(x,y)</m> such that the transformed data <m>(x, \log(y))</m> (a semi-log plot) has a linear relation will satisfy an exponential relation.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We can use the log-transformations to find the power law and exponential relations for actual data.
+      If we know that <m>(x,y)</m> satisfies a power law for given data,
+      then we know <m>(\log(x), \log(y))</m> satisfies a linear model.
+      We can calculate the slope and intercept of the transformed linear model and then solve for <m>y</m>.
+      If we know that <m>(x,y)</m> satisfies an exponential model for given data,
+      then we can find the equation of a line for <m>(x,\log(y))</m> and then solve for <m>y</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the power law for <m>(x,y)</m> that includes data <m>(x,y)=(2,5)</m> and <m>(4,8)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Power law data is linear under a log-log transformation, <m>u=log(x)</m> and <m>v=log(y)</m>
+          The transformed points are <m>(u,v)=(\log(2), \log(5))</m> and  <m>(u,v)=(\log(4), \log(8))</m>
+          The slope is calculated and simplified using properties of logarithms,
+          <md>
+            <mrow> m \amp= \frac{\Delta v}{\Delta u} = \frac{\log(8) - \log(5)}{\log(4) - \log(2)} </mrow>
+            <mrow> \amp= \frac{\log(8/5)}{\log(4/2)} </mrow>
+            <mrow> \amp= \frac{\log(8/5)}{\log(2)} </mrow>
+          </md>
+          Using the point-slope form of a line, we have
+          <md>
+            <mrow> v-\log(5) \amp= m(u-\log(2)) </mrow>
+            <mrow>  \amp= \frac{\log(8/5)}{\log(2)} (u - \log(2)) </mrow>.
+          </md>
+        </p>
+        <p>
+          Now we substitute back the original variables with <m>u=\log(x)</m> and <m>v=\log(y)</m>
+          and simplify using the properties of logarithms.
+          <md>
+            <mrow> \log(y) - \log(5) \amp= \frac{\log(8/5)}{\log(2)} (\log(x) - \log(2))</mrow>
+            <mrow> \log(y/5) \amp= \frac{\log(8/5)}{\log(2)} \log(x/2) </mrow>
+          </md>
+          The value that we used as a slope becomes the power, <m>p=\displaystyle \frac{\log(8/5)}{\log(2)} = \log_2(8/5)</m>,
+          <md>
+            <mrow> \log(y/5) \amp= \log \left( \frac{x}{2} \right)^p </mrow>
+            <mrow> \frac{y}{5} \amp= \left( \frac{x}{2} \right)^p </mrow>
+            <mrow> y \amp=  5 \cdot \left( \frac{x}{2} \right)^p </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Log-Likelihood</title>
+    <p>
+      Suppose that we are performing an experiment that has a random outcome from two possibilities.
+      We do not know in advance the probabilities associated with the two outcomes.
+      We would like to repeat the experiment in order to determine these probabilities.
+    </p>
+    <p>
+      In statistics, there is a method commonly used to estimate unknown parameters called the maximum likelihood principle.
+      Each observation is assumed to have outcomes governed by a probability distribution characterized by certain model parameters.
+      The likelihood <m>L</m> is the product of the probabilities densities associated with each observation.
+      The maximum likelihood method adopts the parameter values that makes the likelihood as large as possible.
+    </p>
+    <p>
+      For our experiment, where there are two different outcomes,
+      the probability distribution is characterized by one parameter, <m>p</m>,
+      which gives the probability of the first outcome (often called a success).
+      The probability of the second outcome (often called a failure) will be <m>1-p</m> since probabilities must add to 1.
+      Suppose that we repeated the experiment ten times and counted six successes and four failures.
+      Then the likelihood will have a product of six factors with <m>p</m> and four factors with <m>1-p</m>.
+      Writing these with powers, the likelihood is a function of <m>p</m>,
+      <me>L = p^6 (1-p)^4</me>.
+    </p>
+    <p>
+      How will we maximize this value?
+      Until we learn some calculus, we will need to find the maximum using a graph.
+      The graph of this formula is shown below.
+      (To make a graph, most graphing utilities require that you use the independent variable <m>x</m> in place of <m>p</m>.)
+    </p>
+    <image width="50%">
+      <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=-2, xmax=2, ymin=-2, ymax=2,
+            xlabel = {$p$}, ylabel = {$L$},
+          ]
+          \addplot [domain=-.8:1.8, samples=100, thick, blue] { x^6 * (1-x)^4 };
+          \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+    <p>
+      How do we interpret this graph?
+      Because the parameter <m>p</m> is supposed to be a probability,
+      we require <m>0 \lt p \lt 1</m>.
+      But the graph doesn't seem to show a maximum there.
+      If we redo the graph so that the domain only include <m>[0,1]</m>, we can get a better picture.
+    </p>
+    <image width="50%">
+      <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=0, xmax=1,
+            xlabel = {$p$}, ylabel = {$L$},
+          ]
+          \addplot [domain=0:1, samples=100, thick, blue] { x^6 * (1-x)^4 };
+          \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+    <p>
+      This graph has a maximum value at <m>p=0.6</m>.
+      We can also see why the earlier graph didn't show the maximum.
+      The scale on the axis for <m>L</m> on the restricted interval has a magnitude of order <m>10^{-3}</m>.
+      If we had even more data than ten observations, this magnitude would be even smaller.
+      In practice, because of this effect of the likelihood shrinking in magnitude with more data,
+      the value can even drop below the smallest number a computer can represent.
+    </p>
+    <p>
+      To avoid this issue, data scientists typically record the log-likelihood rather than the likelihood.
+      Maximizing the log-likelihood will always give the same values as maximizing the likelihood itself.
+      The log-likelihood is calculated as the natural logarithm of the likelihood,
+      <me>\log L = \ln(L)</me>.
+      Because the logarithm of a product is equal to the sum of the logarithms of the factors,
+      the log-likelihood is calculated by <em>adding</em> the logarithms of the probability densities corresponding to the observations.
+      For our example,
+      <md>
+        <mrow> \log L \amp= \ln \left( p^6 \, (1-p)^4 \right) </mrow>
+        <mrow> \amp= \ln \left( p^6 \right) + \ln \left( (1-p)^4 \right) </mrow>
+        <mrow> \amp= 6 \ln \left( p \right) + 4 \ln \left(1-p \right) </mrow>
+      </md>
+      A graph of the log-likelihood <m>\log L</m> versus <m>p</m> is shown in the figure below.
+      The maximum value again occurs at <m>p=0.6</m>.
+    </p>
+    <image width="50%">
+      <latex-image>
+        \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=0, xmax=1, ymin=-15, ymax=-5,
+            xlabel = {$p$}, ylabel = {$\log L$},
+          ]
+          \addplot [domain=0.05:0.98, samples=100, thick, blue] { 6*ln(x) + 4*ln(1-x) };
+          \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+    <example>
+      <statement>
+        <p>
+          An exponential time is a random time until some event occurs that is characterized
+          by gaining no information by knowing how long has already passed without the event yet occurring.
+          The time until a radioactive particle decays is an example of an exponential time.
+          The mathematical model for the probability density of an exponential time <m>t</m> has a single parameter,
+          usually represented by the Greek letter lambda <m>\lambda</m>,
+          <me>f(t) = \lambda e^{-\lambda t}</me>.
+        </p>
+        <p>
+          In a series of five experiments, the observed exponential times were recorded as
+          <m>t_1 = 12.3</m>, <m>t_2 = 4.6</m>, <m>t_3 = 23.1</m>, <m>t_4 = 0.4</m>, and <m>t_5 = 10.5</m>.
+          Calculate the log-likelihood for this collection of data,
+          plot the log-likelihood,
+          and determine the maximum likelihood value for the parameter <m>\lambda</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The logarithm of the density is
+          <md>
+            <mrow> \ln f(t) \amp= \ln \left( \lambda e^{-\lambda t} \right) </mrow>
+            <mrow> \amp= \ln(\lambda) + \ln(e^{-\lambda t}) </mrow>
+          </md>
+          Because the natural logarithm and the exponential with the natural base <m>e</m> are inverses,
+          we can simplify further to obtain
+          <me>\ln f(t) = \ln(\lambda) -\lambda t </me>.
+        </p>
+        <p>
+          The log-likelihood is the sum of the logarithms of the densities using the observed times.
+          Each observation will result in adding <m>\ln(\lambda)</m>, so we obtain
+          <md>
+            <mrow> \log L \amp= 5 \ln(\lambda) - \lambda(12.3 + 4.6 + 23.1 + 0.4 + 10.5) </mrow>
+            <mrow> \amp= 5 \ln(\lambda) - 50.9 \lambda </mrow>
+          </md>
+          The parameter <m>\lambda</m> only needs to be a positive number.
+          If we plot values <m>0 \lt \lambda \lt 10</m> to explore where the maximum might be, we get the figure on the left.
+          It shows the graph steadily decreasing, which means the maximum is close to zero.
+          If we plot value <m>0 \lt \lambda \lt 0.5</m>, we get the figure on the right.
+          The maximum value occurs at <m>\lambda = 0.098231</m>, which is our maximum likelihood estimate of the parameter.
+        </p>
+        <sidebyside widths="45% 45%">
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+                \begin{axis}
+                [
+                  xmin=0, xmax=10, ymin=-500, ymax=0,
+                  xlabel={$\lambda$}, ylabel={$\log L$},
+                ]
+                \addplot [domain=0.01:10, samples=100, thick, blue] { 5*ln(x)-50.9*x };
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+                \begin{axis}
+                [
+                  xmin=0, xmax=0.5, ymin=-30, ymax=-15,
+                  xlabel={$\lambda$}, ylabel={$\log L$},
+                ]
+                \addplot [domain=0.001:0.5, samples=100, thick, blue] { 5*ln(x)-50.9*x };
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+    <ul>
+      <li>
+        Transforming data with a logarithm allows us to view the distribution of data spread over a wide range of magnitudes.
+      </li>
+      <li>
+        <p>
+          Data that appear linear in a log-log plot (both axes in logarithmic scale) follow a power law relation.
+        </p>
+      </li>
+      <li>
+        <p>
+          Data that appear linear in a semi-log plot (only <m>y</m>-axis in logarithmic scale) follow an exponential relation.
+        </p>
+      </li>
+      <li>
+        <p>
+          Estimating parameters for probability distributions is frequently based on maximum likelihood estimation.
+          To avoid numerical underflow (exponentially small magnitudes) of the likelihood,
+          this is more common done using the log-likelihood.
+        </p>
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercise>
+      <statement>
+        <p>
+          Suppose data for <m>(t,M)</m> appear linear in a semi-log plot.
+          If the data include the points <m>(t,M)=(2,5)</m> and <m>(t,M)=(5,2)</m>,
+          find a linear model for the tranformed data
+          and use it to find the appropriate model for the original data.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Suppose data for <m>(P,S)</m> appear linear in a log-log plot.
+          If the data include the points <m>(P,S)=(2,5)</m> and <m>(P,S)=(5,2)</m>,
+          find a linear model for the tranformed data
+          and use it to find the appropriate model for the original data.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+  <exercise>
+    <statement>
+      <p>
+        A random experiment has two possible outcomes, high or low.
+        The probability the result is high is represented by <m>p</m>, with <m>0 \lt p \lt 1</m>,
+        and the probability the result is low is represented by <m>1-p</m>.
+        Twenty independent replicates of the experiment resulted in six highs and fourteen lows.
+        Calculate the formula for the likelihood and use it to compute the log-likelihood.
+        With a graph, estimate the maximum likelihood value for <m>p</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        An experiment results in randomly distributed exponential times.
+        The probability density used in the likelihood has a single parameter <m>\lambda</m>,
+        <me>f(t) = \lambda e^{-\lambda t}</me>.
+        Replicating the experiment six times results in measured times
+        <m>t_1 = 0.826</m>, <m>t_2 = 0.293</m>, <m>t_3=0.218</m>,
+        <m>t_4 = 0.024</m>, <m>t_5 = 0.561</m>, and <m>t_6=0.233</m>.
+        Calculate the formula for the likelihood and use it to compute the log-likelihood.
+        With a graph, estimate the maximum likelihood value for <m>\lambda</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        A manufacturer tracks quality control by testing random samples for proper performance.
+        The number <m>n</m> of identified flaws is a random value that occurs with a probability
+        <me>f(n) = a_n e^{-\lambda} \lambda^n</me>,
+        where <m>a_n</m> does not depend on the model parameter <m>\lambda</m>.
+        To find the maximum likelihood value for <m>\lambda</m>, the value of <m>a_n</m> does not matter.
+        For five days of quality control tracking,
+        the number of observed flaws were recorded.
+        <m>n_1 = 4</m>, <m>n_2 = 2</m>, <m>n_3=5</m>,
+        <m>n_4 = 4</m>, and <m>n_5 = 8</m>.
+        Calculate the formula for the likelihood using <m>a_n=1</m> and use it to compute the log-likelihood.
+        With a graph, estimate the maximum likelihood value for <m>\lambda</m>.
+      </p>
+    </statement>
+  </exercise>
+</exercises>
+</section>

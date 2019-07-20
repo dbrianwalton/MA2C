@@ -27,6 +27,7 @@
       <xi:include href="./algebra-factoring.ptx" />
       <xi:include href="./exponents-roots-logarithms.ptx" />
       <xi:include href="./logarithm-properties.ptx" />
+      <xi:include href="./logarithm-applications.ptx" />
     </chapter>
 
     <chapter xml:id="chapter-sequences">
