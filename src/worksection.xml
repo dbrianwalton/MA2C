@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./logarithm-applications.ptx" />
+            <xi:include href="./functions-introduction.ptx" />
 		</chapter>
 
     </book>

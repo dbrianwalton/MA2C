@@ -385,49 +385,48 @@
         </p>
       </statement>
     </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A random experiment has two possible outcomes, high or low.
+          The probability the result is high is represented by <m>p</m>, with <m>0 \lt p \lt 1</m>,
+          and the probability the result is low is represented by <m>1-p</m>.
+          Twenty independent replicates of the experiment resulted in six highs and fourteen lows.
+          Calculate the formula for the likelihood and use it to compute the log-likelihood.
+          With a graph, estimate the maximum likelihood value for <m>p</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          An experiment results in randomly distributed exponential times.
+          The probability density used in the likelihood has a single parameter <m>\lambda</m>,
+          <me>f(t) = \lambda e^{-\lambda t}</me>.
+          Replicating the experiment six times results in measured times
+          <m>t_1 = 0.826</m>, <m>t_2 = 0.293</m>, <m>t_3=0.218</m>,
+          <m>t_4 = 0.024</m>, <m>t_5 = 0.561</m>, and <m>t_6=0.233</m>.
+          Calculate the formula for the likelihood and use it to compute the log-likelihood.
+          With a graph, estimate the maximum likelihood value for <m>\lambda</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A manufacturer tracks quality control by testing random samples for proper performance.
+          The number <m>n</m> of identified flaws is a random value that occurs with a probability
+          <me>f(n) = a_n e^{-\lambda} \lambda^n</me>,
+          where <m>a_n</m> does not depend on the model parameter <m>\lambda</m>.
+          To find the maximum likelihood value for <m>\lambda</m>, the value of <m>a_n</m> does not matter.
+          For five days of quality control tracking,
+          the number of observed flaws were recorded.
+          <m>n_1 = 4</m>, <m>n_2 = 2</m>, <m>n_3=5</m>,
+          <m>n_4 = 4</m>, and <m>n_5 = 8</m>.
+          Calculate the formula for the likelihood using <m>a_n=1</m> and use it to compute the log-likelihood.
+          With a graph, estimate the maximum likelihood value for <m>\lambda</m>.
+        </p>
+      </statement>
+    </exercise>
   </exercises>
-  <exercise>
-    <statement>
-      <p>
-        A random experiment has two possible outcomes, high or low.
-        The probability the result is high is represented by <m>p</m>, with <m>0 \lt p \lt 1</m>,
-        and the probability the result is low is represented by <m>1-p</m>.
-        Twenty independent replicates of the experiment resulted in six highs and fourteen lows.
-        Calculate the formula for the likelihood and use it to compute the log-likelihood.
-        With a graph, estimate the maximum likelihood value for <m>p</m>.
-      </p>
-    </statement>
-  </exercise>
-  <exercise>
-    <statement>
-      <p>
-        An experiment results in randomly distributed exponential times.
-        The probability density used in the likelihood has a single parameter <m>\lambda</m>,
-        <me>f(t) = \lambda e^{-\lambda t}</me>.
-        Replicating the experiment six times results in measured times
-        <m>t_1 = 0.826</m>, <m>t_2 = 0.293</m>, <m>t_3=0.218</m>,
-        <m>t_4 = 0.024</m>, <m>t_5 = 0.561</m>, and <m>t_6=0.233</m>.
-        Calculate the formula for the likelihood and use it to compute the log-likelihood.
-        With a graph, estimate the maximum likelihood value for <m>\lambda</m>.
-      </p>
-    </statement>
-  </exercise>
-  <exercise>
-    <statement>
-      <p>
-        A manufacturer tracks quality control by testing random samples for proper performance.
-        The number <m>n</m> of identified flaws is a random value that occurs with a probability
-        <me>f(n) = a_n e^{-\lambda} \lambda^n</me>,
-        where <m>a_n</m> does not depend on the model parameter <m>\lambda</m>.
-        To find the maximum likelihood value for <m>\lambda</m>, the value of <m>a_n</m> does not matter.
-        For five days of quality control tracking,
-        the number of observed flaws were recorded.
-        <m>n_1 = 4</m>, <m>n_2 = 2</m>, <m>n_3=5</m>,
-        <m>n_4 = 4</m>, and <m>n_5 = 8</m>.
-        Calculate the formula for the likelihood using <m>a_n=1</m> and use it to compute the log-likelihood.
-        With a graph, estimate the maximum likelihood value for <m>\lambda</m>.
-      </p>
-    </statement>
-  </exercise>
-</exercises>
 </section>

@@ -29,15 +29,17 @@
       <xi:include href="./logarithm-properties.ptx" />
       <xi:include href="./logarithm-applications.ptx" />
     </chapter>
-
-    <chapter xml:id="chapter-sequences">
-      <title>Sequences as Models</title>
-      <xi:include href="./sequences-intro.xml" />
-      <xi:include href="./sequences-recursive.xml" />
-      <xi:include href="./sequences-computing.xml" />
-      <xi:include href="./sequences-modeling.xml" />
+    <chapter xml:id="chapter-functions">
+      <title>Functions to Model Relationships</title>
+      <xi:include href="./functions-introduction.ptx" />
+      <xi:include href="./functions-construction.xml" />
+      <xi:include href="./functions-composition.xml" />
+      <xi:include href="./functions-inverses.xml" />
+      <xi:include href="./functions-transformation.xml" />
+      <xi:include href="./accumulation-rates.xml" />
+      <xi:include href="./accumulate-change.xml" />
+      <xi:include href="./accumulation-functions.xml" />
     </chapter>
-
     <chapter xml:id="chapter-discrete-calculus">
       <title>Discrete Calculus</title>
       <xi:include href="./discrete-calculus-intro.xml" />
@@ -47,30 +49,24 @@
       <xi:include href="./sequences-limits.xml" />
       <xi:include href="./sequences-limit-calculations.xml" />
     </chapter>
-
-    <chapter xml:id="chapter-functions">
-      <title>Functions as Continuous Models</title>
-      <xi:include href="./functions-introduction.xml" />
-      <xi:include href="./functions-construction.xml" />
-      <xi:include href="./functions-transformation.xml" />
-      <xi:include href="./functions-and-intervals.xml" />
+    <chapter xml:id="chapter-definite-integrals">
+      <title>Calculus of Continuous Functions</title>
+      <xi:include href="./calculus-overview.xml" />
+      <xi:include href="./riemann-sums.xml" />
+      <xi:include href="./integral-properties.xml" />
       <xi:include href="./functions-limits.xml" />
       <xi:include href="./functions-continuity.xml" />
+    </chapter>
+    <chapter xml:id="extras">
+      <title>Other Stuff Not Yet Placed</title>
+      <xi:include href="./functions-and-intervals.xml" />
       <xi:include href="./functions-behavior.xml" />
     </chapter>
 
-    <chapter xml:id="chapter-definite-integrals">
-      <title>Continuous Accumulation and Integration</title>
-      <xi:include href="./calculus-overview.xml" />
-      <xi:include href="./accumulate-change.xml" />
-      <xi:include href="./riemann-sums.xml" />
-      <xi:include href="./integral-properties.xml" />
-      <xi:include href="./accumulation-functions.xml" />
-    </chapter>
+
 
     <chapter>
       <title>Modeling Rates of Change</title>
-      <xi:include href="./accumulation-rates.xml" />
       <xi:include href="./extreme-values.xml" />
       <xi:include href="./derivative_intro.xml" />
       <xi:include href="./derivative_function.xml" />
@@ -111,6 +107,15 @@
       <xi:include href="./accumulation-applications.xml" />
       <xi:include href="./rate-functions.xml" />
     </chapter>
+    <chapter xml:id="chapter-sequences">
+      <title>Sequences as Models</title>
+      <xi:include href="./sequences-intro.xml" />
+      <xi:include href="./sequences-recursive.xml" />
+      <xi:include href="./sequences-computing.xml" />
+      <xi:include href="./sequences-modeling.xml" />
+    </chapter>
+
+
 
     <backmatter>
       <appendix>

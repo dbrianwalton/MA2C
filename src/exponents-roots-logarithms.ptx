@@ -344,7 +344,7 @@
             [
               xmin=-4, xmax=4, ymin=-5, ymax=15,
               ytick={0.5, 1, 2, 4, 8},
-              yticklabel={$b^{-1}$, 1, $b$, $b^2$, $b^3$},
+              yticklabels={$b^{-1}$, 1, $b$, $b^2$, $b^3$},
               axis lines = center, xlabel={$x$}, ylabel={$y$}, legend pos=north west,
             ]
             \addplot [blue, thick, domain=-4:4, samples=100] {2^x};
@@ -360,7 +360,7 @@
             [
               xmin=-4, xmax=4, ymin=-5, ymax=15,
               ytick={0.25, 0.5, 1, 2, 4, 8},
-              yticklabel={$b^2$, $b$, 1, $b^{-1}$, $b^{-2}$, $b^{-3}$},
+              yticklabels={$b^2$, $b$, 1, $b^{-1}$, $b^{-2}$, $b^{-3}$},
               axis lines = center, xlabel={$x$}, ylabel={$y$}, legend pos=north west,
             ]
             \addplot [blue, thick, domain=-4:4, samples=100] {1/2^x};
@@ -572,16 +572,16 @@
     <example>
       <statement>
         <p>
-          A colony of bacteria is observed to cover an area of <quantity><mag>2.5</mag><unit prefix="milli" base="meter" exp=2/></quantity>.
-          Six hours later, the colony has expanded to cover a space of <quantity><mag>100</mag><unit prefix="milli" base="meter" exp=2/></quantity>.
+          A colony of bacteria is observed to cover an area of <quantity><mag>2.5</mag><unit prefix="milli" base="meter" exp="2"/></quantity>.
+          Six hours later, the colony has expanded to cover a space of <quantity><mag>100</mag><unit prefix="milli" base="meter" exp="2"/></quantity>.
           Assuming that the bacteria is growing according to an exponential growth model,
           develop a model for the area of the colony as a function of the time since the first observation.
-          If the population continues to follow this model, at what time will the bacteria colony fill a dish with <quantity><mag>6000</mag><unit prefix="milli" base="meter" exp=2/></quantity>?
+          If the population continues to follow this model, at what time will the bacteria colony fill a dish with <quantity><mag>6000</mag><unit prefix="milli" base="meter" exp="2"/></quantity>?
         </p>
       </statement>
       <solution>
         <p>
-          An exponential model relates the area of the colony <m>C</m> (<quantity><unit prefix="milli" base="meter" exp=2/></quantity>) as a function of time <m>t</m> (hours)
+          An exponential model relates the area of the colony <m>C</m> (<quantity><unit prefix="milli" base="meter" exp="2"/></quantity>) as a function of time <m>t</m> (hours)
           according to the formula
           <me>C = A \, b^{t}</me>,
           where <m>A</m> and <m>b</m> are model parameters to be determined by the data.

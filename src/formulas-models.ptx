@@ -187,6 +187,58 @@
         </p>
       </solution>
     </example>
+    <p>
+      The last example of simple proportionality arises in linear relations.
+      Traditionally, we think of <m>y</m> as the dependent variable and <m>x</m> as the independent variable.
+      Given any two points in the relation <m>P_1 = (x_1,y_1)</m> and <m>P_2 = (x_2,y_2)</m>,
+      we calculate the ordered increments of change going from <m>P_1</m> to <m>P_2</m> as <m>\Delta x = x_2 - x_1</m> and <m>\Delta y = y_2 - y_1</m>.
+      We always calculate increments of change as the ending value minus where the starting value.
+      A relation is <term>linear</term> if the ratio <m>\Delta y / \Delta x</m> is always the same constant.
+      This constant value is called the <term>slope</term>, traditionally using the symbol <m>m</m>,
+      <men xml:id="formula-slope">m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}</men>.
+    </p>
+    <p>
+      The slope represents the proportionality constant between <m>\Delta x</m> and <m>\Delta y</m>.
+      If we know any point <m>(x,y)=(a,b)</m> that satisfies the linear relation and the slope,
+      then if we take any other point <m>(x,y)</m>, we must have
+      <men xml:id="formula-point-slope-line">y - b = m \, (x-a)</men>.
+      This equation is called the point<ndash/>slope equation of a line.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A container of ice water containing 200 grams of ice and 600 grams of water
+          requires heat added to raise its temperature.
+          The relation between temperature increase and required energy in heat is linear.
+          To raise the temperature 10 degrees Celsius, we need 110.19 kJ.
+          To raise the temperature 20 degrees Celsius, we need 133.67 kJ.
+          How much energy is required to raise the temperature 25 degrees Celsius?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Because the relation between the temperature increase and the energy added to the water is linear,
+          we can calculate the slope as the ratio of change in these values.
+          Let <m>T</m> be the amount the temperature rises and let <m>Q</m> be the energy in heat added.
+          Thinking of <m>Q</m> as the dependent variable, the slope will be
+          the ratio of the change in <m>Q</m> to the change in <m>T</m>,
+          <me>m = \frac{\Delta Q}{\Delta T} = \frac{133.67-110.19}{20-10} = 2.348</me>.
+        </p>
+        <p>
+          Knowing the slope, we can create an equation that models the relation between <m>Q</m> and <m>T</m>.
+          The point<ndash/>slope equation of a line using the point <m>(T,Q) = (10, 110.19)</m> becomes
+          <me>Q - 110.19 = 2.348 \, (T-10)</me>.
+          To find the energy required to raise the temperature 25 degrees Celsius,
+          we substitute <m>T = 25</m> and can then solve for <m>Q</m>.
+          <md>
+            <mrow> Q - 110.19 \amp= 2.348 \, (25-10) </mrow>
+            <mrow> Q - 110.19 \amp= 35.22 </mrow>
+            <mrow> Q \amp = 145.41 </mrow>
+          </md>
+          It will take 145.41 kJ to raise the temperature to 25 degrees Celsius.
+        </p>
+      </solution>
+    </example>
   </subsection>
   <subsection>
     <title>Common Models</title>

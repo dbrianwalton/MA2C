@@ -4,217 +4,98 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2017  D. Brian Walton          -->
+<!-- Copyright (C) 2017-2019  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
 
 <section xml:id="functions-introduction">
   <title>An Introduction to Functions</title>
-
   <introduction>
     <title>Overview</title>
-
     <p>
       Calculus studies the relationships between variables.
-      These relationships are most often expressed in terms of functions.
-      In mathematics, a function is a predictive relationship between an independent and a dependent variable
-      such that knowing the value of the independent variable allows us to predict the value of the dependent variable.
-    </p>
-    <p>
-      We have previously learned to think of these relationships as maps.
-      One of the easiest ways to establish a map is with an equation
+      We have been learning about relationships described by equations
       where a dependent variable, say <m>y</m>, is equal to an expression involving only the independent variable, say <m>x</m>.
-      The equation defines the map <m>x \mapsto y</m>.
+      In mathematics, such relationships are most are generalized to create the concept of functions.
+      A function is a predictive relationship between an independent and a dependent variable
+      which we interpret as a <term>map</term>, <m>x \mapsto y</m>, meaning that knowing <m>x</m> we can predict the value of <m>y</m>.
     </p>
     <p>
-    In this section, we will review and extend these concepts relating to functions.
-    We use linear functions to review the concepts of maps and to introduce the idea of rate of change.
-    We discuss composition of functions as a way of applying a sequence of operations.
-    Finally, we look at inverse functions in terms of function composition.
+      In this section, we will study an overview of the core concepts relating to functions.
+      Functions will generalize our idea of operations that can act on expressions.
+      We will learn how to think of a function as a map between two variables.
+      Associated with a function as a map are the sets known as the domain, codomain, and range.
     </p>
   </introduction>
   <subsection>
-    <title>Linear Functions</title>
+    <title>Models as Functions</title>
     <p>
-      A linear function describes a relationship between variables that has a constant rate of change.
-      Let us review this in the context of maps between variables <m>x</m> and <m>y</m>.
-      Suppose we know two states for the variables <m>(x,y)</m>, say <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m>.
-      From the perspective of a map, we want a function that maps <m>x_1 \mapsto y_1</m> and <m>x_2 \mapsto y_2</m>.
-      These two points states have corresponding increments in <m>x</m> and <m>y</m>
-      given by <m>\Delta x = x_2 - x_1</m> and <m>\Delta y = y_2 - y_1</m>.
+      We have previously used equations as models of relations between variables.
+      When we think of one variable as a dependent variable based on the other variable as the independent variable,
+      we are mentally thinking of the equation as defining a map.
+      Each model equation where one variable is defined as an expression in terms of the other variable represents such a map.
+      We define the <term>domain</term> as the set of all possible values of the independent variable
+      and the <term>range</term> as the set of all resulting values of the dependent variable.
     </p>
     <p>
-      A constant rate of change is a constant <em>ratio</em> of the increments.
-      The ratio of the increment in the output to the increment in the input,
-      <me>m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}</me>,
-      will always have the same value regardless of which two states are selected.
-      The rate of change is called the <term>slope</term> of the line.
+      A graphical view of a map is using two number lines, one for the domain and one for the range.
+      For each value in the domain, we imagine that the map defines an arrow
+      originating at the point in the domain and ending at the point in the range.
+      If a value on the number line does not belong to the domain,
+      there just isn't any arrow originating at that point.
     </p>
-    <p>
-      Below is an interactive figure illustrating a linear function with states <m>(x,y)=(1,2)</m> and <m>(x,y)=(3,8)</m>.
-      The increment of the input is <m>\Delta x = x_2 -x_1 = 3-1 = 2</m>.
-      The increment of the output is <m>\Delta y = y_2 - y_1 = 8-2 = 6</m>.
-      The rate of change is <m>m=\frac{6}{2} = 3</m> because the increment of the output is three times the increment of the input.
-      You can adjust a slider controlling the value of <m>x</m> as input.
-      Notice that the increment of output relative to <m>(x,y)=(1,2)</m> is always <m>m=3</m> times the increment of the output.
-    </p>
-    <figure>
-      <caption>The linear function that maps <m>x=1 \mapsto y=2</m> and <m>x=3 \mapsto y=8</m> has rate of change <m>m=2</m>.</caption>
-      <jsxgraph xml:id="jsx-linear-function-as-map" width="75%" aspect="4:1">
-        <input>
-        <![CDATA[
-        var jcf1 = {
-          f : function(x)
-            {
-              var y=2+3*(x-1);
-              return y;
-             },
-          input : { name:'x', color:'blue', value:1, fix:[1,3], min:-2.5, max:9.5 },
-          output : { name:'y', color:'red', min:-2.5, max:9.5 },
-        };
-        createMap(jcf1, 'jsx-linear-function-as-map');
-        ]]>
-        </input>
-      </jsxgraph>
-    </figure>
     <example>
       <statement>
         <p>
-        For each of the following data tables, determine if the data could come from a linear relation.
-        If so, give an equation of the line.
-        <ol>
-          <li>
-            <sidebyside margins="0% 100%">
-              <tabular>
-                <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
-                <row bottom="major">
-                  <cell><m>x</m></cell> <cell>1</cell> <cell>4</cell> <cell>10</cell>
-                </row>
-                <row>
-                  <cell><m>y</m></cell> <cell>5</cell> <cell>3</cell> <cell>-1</cell>
-                </row>
-              </tabular>
-            </sidebyside>
-          </li>
-          <li>
-            <sidebyside margins="0% 100%">
-              <tabular>
-                <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
-                <row bottom="major">
-                  <cell><m>x</m></cell> <cell>2</cell> <cell>6</cell> <cell>12</cell>
-                </row>
-                <row>
-                  <cell><m>y</m></cell> <cell>11</cell> <cell>19</cell> <cell>27</cell>
-                </row>
-              </tabular>
-            </sidebyside>
-          </li>
-        </ol>
+          Consider a function defined by a linear relation with states <m>(x,y)=(1,2)</m> and <m>(x,y)=(3,8)</m>.
+          We can find the equation of the line by finding the slope and using the <xref ref="slope-intercept-line" text="title">slope<ndash/>intercept</xref> equation.
+          The slope is interpreted as the ratio of the change in the output to the change in the input.
+          The increment of the input is <m>\Delta x = x_2 -x_1 = 3-1 = 2</m>.
+          The increment of the output is <m>\Delta y = y_2 - y_1 = 8-2 = 6</m>.
+          The slope or rate of change is therefore <m>m=\frac{6}{2} = 3</m>.
+          The equation of the line using the point <m>(x,y)=(1,2)</m> becomes
+          <me>y-2 = 3 \, (x-1)</me>.
+          If we solve for <m>y</m>, we get <m>y</m> as an explicit function of <m>x</m>,
+          <me>y = 3 \, (x-1) + 2</me>.
+        </p>
+        <p>
+          The interactive figure below illustrates the idea of a map.
+          The top number line contains the domain, while the bottom number line contains the range.
+          A slider on the top line allows you to choose a value in the domain.
+          The arrow dynamically moves to connect the point in the domain to the point in the range.
+        </p>
+        <figure>
+          <caption>The linear function that maps <m>x=1 \mapsto y=2</m> and <m>x=3 \mapsto y=8</m> has rate of change <m>m=2</m>.</caption>
+          <jsxgraph xml:id="jsx-linear-function-as-map" width="75%" aspect="4:1">
+            <input>
+            <![CDATA[
+            var jcf1 = {
+              f : function(x)
+                {
+                  var y=2+3*(x-1);
+                  return y;
+                 },
+              input : { name:'x', color:'blue', value:1, fix:[1,3], min:-2.5, max:9.5 },
+              output : { name:'y', color:'red', min:-2.5, max:9.5 },
+            };
+            createMap(jcf1, 'jsx-linear-function-as-map');
+            ]]>
+            </input>
+          </jsxgraph>
+        </figure>
+        <p>
+          This map view of the linear function gives an interesting visual interpretation of the slope.
+          We consider the initial point <m>(x,y)=(1,2)</m> as giving reference values on each number line.
+          The map sends <m>x=1 \mapsto y=2</m>.
+          As we move the slider away from <m>x=1</m>, the gap between the value of <m>x</m> and <m>x=1</m> defines <m>\Delta x</m>.
+          The slope of the line then forces the gap from <m>y=2</m> and the value <m>y</m> coming from <m>x</m> will be <m>\Delta y = 3 \, \Delta x</m>.
+          That is, the slope is the scaling factor going from <m>\Delta x</m> to <m>\Delta y</m>.
         </p>
       </statement>
-      <solution>
-        <p><ol>
-          <li>
-            <p>
-            For the first data set, we measure the slope if we compare the first point with each of the other two points.
-            If those are the same, then the data are consistent with a linear relation.
-            Let us label the states <m>(x_1,y_1)=(1,5)</m>, <m>(x_2,y_2)=(4,3)</m>, and <m>(x_3,y_3)=(10,-1)</m>.
-            Compute the slopes:
-            <md>
-              <mrow> \frac{y_2-y_1}{x_2-x_1} &amp;= \frac{3-5}{4-1} = -\frac{2}{3} </mrow>
-              <mrow> \frac{y_3-y_1}{x_3-x_1} &amp;= \frac{-1-5}{10-1} = -\frac{6}{9} = -\frac{2}{3} </mrow>
-            </md>
-            Because the slopes are the same value <m>m=-\frac{2}{3}</m>, there is a linear relation with these states.
-            </p>
-            <p>
-            We find the equation <m>y=mx+b</m> by computing <m>b=y-mx</m> using one of the given states and <m>m=-\frac{2}{3}</m>,
-            such as <m>(x_1,y_1)=(1,5)</m>: <me>\textstyle b = 5-(-\frac{2}{3})(1) = 5+\frac{2}{3} = \frac{17}{3}.</me>
-            The linear relation is characterized by the equation <me>\textstyle y=-\frac{2}{3}x+\frac{17}{3}.</me>
-            If we multiply both sides by 3, we can find an equivalent equation involving only integers <m>3y = -2x+17</m>,
-            which is equivalent to an equation <m>2x+3y=17</m>.
-            The graph of this line along with the data are shown below.
-            </p>
-            <sidebyside width="50%" margins="auto">
-              <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}[
-                  xlabel={$x$},
-                  ylabel={$y$},
-                  axis lines=center,
-                ]
-                \addplot[
-                  only marks,
-                  color=blue
-                ] coordinates {
-                  (1,5) (4,3) (10,-1)
-                %table {
-                %    1 5
-                %    4 3
-                %    10 -1
-                };
-                \addplot [domain=-4:12,samples=2] {(-2*x+17)/3};
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-              </image>
-            </sidebyside>
-          </li>
-          <li>
-            <p>
-            For the second data set, we measure the slopes using the states
-            <m>(x_1,y_1)=(2,11)</m>, <m>(x_2,y_2)=(6,19)</m>, and <m>(x_3,y_3)=(12,27)</m>:
-            <md>
-              <mrow> \frac{y_2-y_1}{x_2-x_1} &amp;= \frac{19-11}{6-2} = \frac{8}{4} = 2 </mrow>
-              <mrow> \frac{y_3-y_1}{x_3-x_1} &amp;= \frac{27-11}{12-2} = \frac{16}{10} = \frac{8}{5} </mrow>
-            </md>
-            Because the slopes have different values, these data are not consistent with a linear relation.
-            The figure below illustrates the data along with the line passing through the first two states.
-            The third data point is not on the line.
-            </p>
-            <sidebyside width="50%" margins="auto">
-              <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}[
-                  xlabel={$x$},
-                  ylabel={$y$},
-                  axis lines=center,
-                ]
-                \addplot[
-                  only marks,
-                  color=blue
-                ] coordinates {
-                  (2,11) (6,19) (12,27)
-                };
-                \addplot [domain=-4:18,samples=2] {2*(x-2)+11};
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-              </image>
-            </sidebyside>
-          </li>
-        </ol></p>
-      </solution>
     </example>
     <p>
-      In the context of functions, the equation of a line solved for <m>y</m> defines a function <m>x \mapsto y</m>.
-      Most algebra courses introduce the <xref ref="slope-intercept-line">slope-intercept form</xref> of a line,
-      <me>y=mx+b</me>,
-      where <m>m</m> is the slope and <m>b</m> is the <m>y</m>-value of the <m>y</m>-intercept.
-      However, the <xref text="title" ref="point-slope-line">point-slope form</xref> of a line is actually more useful to remember,
-      <me>y=m(x-h) + k</me>,
-      where <m>m</m> is still the slope but <m>(h,k)</m> is <em>any</em> point included on the line.
-      Rewriting this slightly, the equation is equivalent to
-      <me>y-k = m (x-h)</me>.
-      The point-slope form of a line guarantees that <m>x=h \mapsto y=k</m>
-      and the change in output from that point <m>\Delta y = y-k</m>
-      is exactly equal to the slope <m>m</m> times the change in input <m>\Delta x = x-h</m>.
+      The algebraic interpretation of a map defined by an equation uses variable substitution.
+      To find the value of the dependent variable, we substitute the assigned value of the independent variable into the equation.
+      After we simplify the expression, we determine the value of the dependent variable.
     </p>
     <example>
       <statement>
@@ -223,12 +104,13 @@
           In 2010, the population was 48,914.
           If the rate of change of the population increased at a constant rate,
           find a model for the population of Harrisonburg as a function of the year.
+          What does the model predict for the year 2020?
         </p>
       </statement>
       <solution>
         <p>
-          A model with a constant rate of change is a linear function, <m>y \mapsto P</m>,
-          where <m>y</m> is the year and <m>P</m> is the population.
+          The variables involved in the model are the year <m>y</m> and the population <m>P</m>.
+          By saying that the rate of change is constant means that the model uses a linear function.
           The given data show <m>y=1990 \mapsto P=30707</m> and <m>y=2010 \mapsto P=48914</m>.
           We find the slope as the ratio of <m>\Delta P</m> (change in output) to <m>\Delta y</m> (change in input).
           <md>
@@ -238,27 +120,613 @@
           </md>
           Using the point-slope form of the line, we start with the known mapping <m>1990 \mapsto 30707</m>
           and the constant rate of change to give
-          <me>P = 30707 + 910.35(y - 1990)</me>.
+          <me>P = 30707 + 910.35 \, (y - 1990)</me>.
+          The graph of this line is shown below.
         </p>
         <sidebyside width="60%">
           <image>
             <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
+            \tikzset{%
             }
             \begin{tikzpicture}
             \begin{axis}[
               xlabel={$y$},
               ylabel={$P$},
               axis lines=center,
-              xmin=1985, xmax=2015,
+              xmin=1985, xmax=2025,
               ymin=25000, ymax=60000,
             ]
-            \addplot [domain=1985:2015,samples=2] {30707+910.35*(x-1990)};
-            \addplot [only marks, black] coordinates { (1990, 30707) (2010,48914) }
+            \addplot [domain=1985:2025,samples=2] {30707+910.35*(x-1990)};
+            \addplot [only marks, black] coordinates { (1990, 30707) (2010,48914) (2020, 58017) }
               node [pos=0,below right] {(1990,30707)}
-              node [pos=1, above left] {(2010,48914)};
+              node [pos=0.5, above left] {(2010,48914)};
             \end{axis}
+            \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          To find the predicted population for 2020, we use the model with substitution.
+          Let <m>y=2020</m> and substitute this into the model:
+          <md>
+            <mrow> P \amp= 30707 + 910.35 \, (y - 1990) </mrow>
+            <mrow> \amp= 30707 + 910.35 \, (2020 - 1990) </mrow>
+            <mrow> \amp= 30707 + 910.35 \cdot 30 </mrow>
+            <mrow> \amp= 58017.5 </mrow>.
+          </md>
+          Consequently, the model predicts the map <m>y=2020 \mapsto P=58017.5</m>.
+          Of course, the real population will not be a non-integer value.
+          This example reminds us to distinguish between a prediction of a model and an actual value.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Because we use functions to find values of the dependent variable by substitution,
+      we have a special notation called <term>function notation</term>.
+      The map or function is assigned a name.
+      The name of the function followed by an expression inside of parentheses
+      represents the value of the dependent variable when the input expression is substituted for the independent variable.
+    </p>
+    <p>
+      For example, if we write <m>f : x \mapsto y = 3x^2</m>, then the name of the function is <m>f</m>.
+      The equation defining the relation is <m>y=3x^2</m>.
+      This is more commonly written <m>y = f(x) = 3x^2</m>.
+      The expression <m>f(1)</m>, substituting <m>x</m> with <m>x=1</m>, we find <m>y=3(1)^2 = 3</m>.
+      More simply, we write <m>f(1) = 3(1)^2 = 3</m>.
+      Substitution can involve entire expressions as well as single values.
+      The expression <m>f(2+h)</m> represents the expression <m>3x^2</m> when <m>2+h</m> is substituted for <m>x</m>,
+      <me>f(2+h) = 3 \, (2+h)^2</me>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose we have a function <m>f : t \mapsto B</m>
+          where <m>t</m> measures the time in years since we opened a bank account
+          and <m>B</m> measures the account balance.
+          If the account grows according to the model <m>B = 500 (1.02)^t</m>,
+          we can write <m>f(t) = 500 \, (1.02)^t</m>.
+          Find the balance after two, five, and ten years using function notation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The values that we want, using function notation, are <m>f(2)</m>, <m>f(5)</m>, and <m>f(10)</m>.
+          Each of these expressions represent values for <m>B</m> when the value of <m>t</m> is replaced by <m>t=2</m>, <m>t=5</m>, and <m>t=10</m>.
+          The three values are
+          <md>
+            <mrow>f(2) = 500 (1.02)^2 = 520.20,</mrow>
+            <mrow>f(5) = 500 (1.02)^5 \approx 552.04,</mrow>
+            <mrow>f(10) = 500 (1.02)^{10} \approx 609.50.</mrow>
+          </md>
+          Thus, the model predicts balance values of <m>B=520.20</m> when <m>t=2</m>,
+          <m>B=552.04</m> when <m>t=5</m>, and <m>B=609.50</m> when <m>t=10</m>.
+        </p>
+      </solution>
+    </example>
+    <note xml:id="function-notation-not-multiplication">
+      <p>
+        Although writing parentheses in mathematics next to a number or a variable means multiplication,
+        a function is not a variable.
+        The parentheses after the function do <em>not</em> mean multiplication but evaluation.
+        It is unfortunate that the same symbols have different meanings,
+        so you will need to pay close attention to the context.
+        When reading aloud, a function expression like <m>f(x)</m> should be read <q><m>f</m> of <m>x</m></q>.
+      </p>
+    </note>
+    <p>
+      If we have an equation involving two variables and can solve to isolate one of the variables to be equal to some expression involving the other variable,
+      then the equation defines a function.
+      The isolated variable is the dependent variable (output) and the other variable is the independent variable.
+      This is a function because once you know the value of the independent variable,
+      the equation allows you to substitute that value and determine a single value of the dependent variable.
+      An equation where the dependent variable is isolated defines the dependent variable as an <term>explicit function</term> of the independent variable.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Given the equation <m>\frac{xy}{x+y} = 3</m>,
+          rewrite <m>y</m> as an explicit function of <m>x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To show that <m>y</m> is a function of <m>x</m>, we need to solve the equation for <m>y</m>.
+          We can cross multiply the equation and then collect terms involving <m>y</m>.
+          Once we factor the common factor of <m>y</m>, we can isolate the variable.
+          <md>
+            <mrow> \frac{xy}{x+y} \amp= 3 </mrow>
+            <mrow> xy \amp= 3(x+y) </mrow>
+            <mrow> xy \amp= 3x + 3y </mrow>
+            <mrow> xy - 3y \amp= 3x </mrow>
+            <mrow> (x-3) \, y \amp= 3x </mrow>
+            <mrow> y \amp= \frac{3x}{x-3} </mrow>
+          </md>
+          The equation shows that we have a function <m>x \mapsto y = \displaystyle \frac{3x}{x-3}</m>,
+          an explicit function of <m>x</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      If an equation can be solved for two different values of the dependent variable for a single value of the independent variable,
+      then the equation does not define the dependent variable as a function of the independent variable.
+      We will later learn that we can often restrict the equation to define an implicit function.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Show that <m>x^2+y^2=25</m> does not define <m>y</m> as a function of <m>x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The equation <m>x^2+y^2=25</m> defines a circle with radius <m>r=5</m>.
+          For each value <m>a</m> with <m>-5 \lt a \lt 5</m>, the graph of the circle will intersect the vertical line <m>x=a</m> at two different points.
+          To demonstrate this, consider <m>x=3</m>.
+          When we substitute <m>x=3</m> into the equation <m>x^2+y^2=25</m>,
+          we obtain the equation <m>9 + y^2 = 25</m> which is equivalent to <m>y^2=16</m>.
+          There are two values, <m>y=\pm 4</m>, that solve this equation.
+          Because there are two values for the dependent variable for this point, we see that the equation does not define an explicit function.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Domain and Range</title>
+    <p>
+      The <term>domain</term> of a function is the set of possible input values for the function.
+      The domain might be all possible real numbers.
+      It might also be a set restricted by algebraic constraints or by physical considerations.
+      A second set associated with a function is the <term>range</term>.
+      The range is the set of all possible output values for the function.
+      We often consider a set called the <term>codomain</term>, which is a set to which all output values must belong.
+      The range is always a subset of the codomain.
+    </p>
+    <definition xml:id="definition-function-as-set-relation">
+      <title>Function</title>
+      <statement>
+        <p>
+          A function <m>f</m> is a rule or relation from a given set <m>D</m> (the domain) to another set <m>D'</m> (the codomain)
+          such that <em>every</em> value <m>a \in D</m> is related (mapped) to a <em>unique</em> value <m>b \in D'</m>.
+          We write <m>f : D \to D'</m>.
+          If <m>D'</m> is not stated, it is assumed that <m>D' = \mathbb{R}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      A function must assign a value for the output for <em>every</em> value in the domain.
+      Functions using the same rule but for different domains are different functions.
+      Choosing a domain is part of the modeling process.
+      The domain specifies what type of values are acceptable for the independent variable (input).
+      For example, some modeling scenarios might require that the independent variable must be an integer,
+      so we choose a domain <m>D = \mathbb{Z}</m>.
+      Other modeling scenarios might require that the independent variable is constrained to be between two values <m>a \lt b</m>,
+      so we choose a domain <m>D = (a,b)</m>.
+    </p>
+    <p>
+      The codomain could always be chosen to be the set of real numbers <m>\mathbb{R}</m>.
+      In mathematics, the codomain is usually required to distinguish different types of functions,
+      such as whether the value of the function is a real number, a complex number, or even maybe a more complicated object like a matrix.
+      For modeling, we would specify a codomain that is more precise in order to characterize some aspect of a function.
+      For example, if the output variable is meant to represent a probability, then only values from 0 to 1 make sense, and we choose <m>D' = [0,1]</m>.
+      Frequently, we want to have a function that is non-negative.
+      We can communicate this by saying <m>D' = [0,\infty)</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider a grocery store that charges $0.25 per ear of corn.
+          We can define a function <m>n \mapsto c</m> that maps the number of ears purchased <m>n</m> to the pre-tax subtotal to charge <m>c</m> in dollars.
+          Describe the function.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function is characterized by the rule and by the domain.
+          The rule is one of proportionality, <m>c = 0.25 n</m>.
+          The independent (input) variable <m>n</m> is discrete and only makes sense for non-negative integers.
+          We include <m>n=0</m> because a customer might not purchase corn.
+          Consequently, <m>D = \{0, 1, 2, \ldots\} = \mathbb{N}_0</m>.
+          If a store had a customer limit on how many ears could be purchased, then our domain <m>D</m> would have to be modified.
+        </p>
+        <p>
+          If we named our function <m>f</m>, the following notation communicates our summary:
+          <me>f : \mathbb{N}_0 \to \mathbb{R}; n \mapsto c = 0.25 n</me>.
+          The notation states the name of the function <m>f</m>, the domain <m>\mathbb{N}_0</m>,
+          the input and output variables <m>n</m> and <m>c</m>, and the rule <m>c = 0.25 n</m>.
+        </p>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Consider a grocery store that charges $0.25 per pound of bananas.
+          We can define a function <m>w \mapsto c</m> that maps the weight of bananas purchased <m>w</m> to the pre-tax subtotal to charge <m>c</m> in dollars.
+          Describe the function.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The function is characterized by the rule and by the domain.
+          The rule is again one of proportionality, <m>c = 0.25 w</m>.
+          However, weight is a continuous variable; the weight of bananas purchased could conceivably be any positive real number.
+          To allow for no purchase, we again include <m>w=0</m>.
+          The domain is therefore an interval of values <m>0 \le w</m>, written <m>D = [0,\infty)</m>.
+          If we named our function <m>g</m>, the following notation communicates our summary:
+          <me>g : [0,\infty) \to \mathbb{R}; w \mapsto c = 0.25 w</me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      In the two previous examples, the formulas for two different functions described the same calculation<mdash/>multiply the input by 0.25.
+      In the examples, we used mapping notation to describe the functions.
+      Mapping notation has the advantage of being precise but a disadvantage in being a little cumbersome.
+      We can use function notation to define each function if we include a restriction on the domain.
+      For <m>f</m> we would write
+      <me>f(n) = c = 0.25 n, \quad n=0, 1, 2, \ldots</me>.
+      For <m>g</m> we would write
+      <me>g(w) = c = 0.25 w, \quad w \ge 0</me>.
+      Notice that if we were to substitute a generic variable <m>x</m> for the input values,
+      we would have <m>f(x)=0.25x</m> and <m>g(x)=0.25x</m>.
+      Nevertheless, the functions are not the same because they have different domains.
+    </p>
+    <p>
+      The graphs of these functions are also related but different.
+      The discrete function <m>f</m> will have isolated points for its graph.
+      The continuous function <m>g</m> will have a connected graph.
+      Both functions will have all points on their graphs sitting on the line <m>y=0.25x</m>.
+    </p>
+    <figure>
+      <caption>Graphs of the functions <m>f : \mathbb{N}_0 \to \mathbb{R}; n \mapsto c = 0.25 n</m> and <m>g : [0,\infty) \to \mathbb{R}; w \mapsto c = 0.25 w</m>, each overlaid with the graph of the line <m>y=0.25 x</m>.</caption>
+      <sidebyside widths="45% 45%">
+        <image>
+          <description>Graph of the discrete function f showing isolated points on the line y = 0.25 x.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-3, xmax=11, ymin=-4, ymax=4,
+                xlabel={$n$}, ylabel={$c$}, axis lines=center,
+              ]
+              \addplot [ dashed, black, domain=-3:11.5 ] {0.25*x};
+              \addplot [ blue, only marks, samples at={0,1,...,11} ] {0.25*x};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <image>
+          <description>Graph of the continuous function g along with the line y = 0.25 x.</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-3, xmax=11, ymin=-4, ymax=4,
+                xlabel={$w$}, ylabel={$c$}, axis lines=center,
+              ]
+              \addplot [ dashed, black, domain=-3:11.5 ] {0.25*x};
+              \addplot [ blue, thick, domain=0:11.5 ] {0.25*x};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </sidebyside>
+    </figure>
+    <p>
+      Unless specified otherwise, the domain of a function defined by a formula will be the largest set of real numbers for which the formula is defined.
+      This type of domain is called the <term>natural domain</term> of the function or of the defining expression.
+      However, the codomain might include values that are not necessarily in the range.
+      For example, the function <m>x \mapsto y = 3</m> can be defined for a domain <m>\mathbb{R}</m> (all real numbers)
+      and the range is the set with a single value <m>\{3\}</m>.
+      The codomain could be defined to be any set that includes 3,
+      such as the set of non-negative numbers <m>[0,\infty)</m>
+      or the set of all real numbers <m>\mathbb{R}</m>.
+      The default codomain will be <m>\mathbb{R}</m>.
+    </p>
+    <definition xml:id="definition-natural-domain">
+      <statement>
+        <p>
+        For a function <m>f</m> defined by a formula, such as <m>y=f(x)</m>,
+        the <term>natural domain</term> is the set of all real numbers for which the formula is defined.
+        </p>
+      </statement>
+    </definition>
+    <definition xml:id="definition-function-range">
+      <statement>
+        <p>
+        For a function <m>f : D \to D'</m>,
+        the <term>range</term> is the set of all values <m>y</m>
+        for which there exists a state <m>(x,y)</m>.
+        That is, there exists <m>x \in D</m> so that <m>f(x)=y</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We find the natural domain by identifying which operations might not be defined for all values
+      and then solve either equations or inequalities that will identify where the function is defined.
+      Our elementary operations and functions use the following constraints to find the domain.
+      <ul>
+        <li>Division is undefined if the denominator equals zero.</li>
+        <li>Even roots (e.g., square roots) and irrational powers are undefined if the inner expression is negative.</li>
+        <li>Logarithms are undefined if the inner expression is non-positive (zero or negative).</li>
+      </ul>
+      The inequalities that arise in finding the domain can be solved directly or by using factor analysis.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Determine the domain of <m>\displaystyle f(x) = \frac{2x+3}{x^2-4}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Because <m>f(x)</m> is defined as a quotient,
+          the domain will be the set of all values where <m>x^2-4 \ne 0</m>.
+          We solve this inequality by factoring and considering the complementary equation <m>x^2-4=0</m>,
+          since a product can only equal zero if one of the factors equals zero.
+          <md>
+            <mrow>x^2-4 = 0</mrow>
+            <mrow>(x+2)(x-2) = 0 </mrow>
+            <mrow>x+2 = 0 \quad \text{or} \quad x-2=0</mrow>
+            <mrow>x=-2 \quad \text{or} \quad x=2</mrow>
+          </md>
+          This means <m>f(x)</m> is defined for all inputs except <m>x=-2</m> or <m>x=2</m>.
+        </p>
+        <p>
+          To describe the domain using intervals, we think of the real number line and remove <m>x=\pm 2</m>.
+          A graphical representation of the set using a number line is shown below.
+          Intervals are read from the line left-to-right.
+          It starts at <m>-\infty</m> and continues until <m>-2</m>, then goes from <m>-2</m> to <m>2</m>,
+          and finally goes from <m>2</m> until <m>+\infty</m>.
+          We write <me>D = (-\infty,-2) \cup (-2, 2) \cup (2,+\infty)</me>.
+        </p>
+        <sidebyside width="75%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[<->] (-4,0) -- (4,0);
+            \draw (-2, -0.1) -- (-2,0.1) node[pos=0, below] {$-2$};
+            \draw (2, -0.1) -- (2,0.1) node[pos=0, below] {$2$};
+            \draw [<-, blue, thick] (-4,0.2) -- (-2.1,0.2);
+            \draw [blue, thick] (-2,0.2) circle (0.1);
+            \draw [blue, thick] (-1.9,0.2) -- (1.9,0.2);
+            \draw [blue, thick] (2,0.2) circle (0.1);
+            \draw [->, blue, thick] (2.1,0.2) -- (4,0.2) node [right] {$D$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    <p>
+      Sometimes finding the domain of a function involves performing sign analysis (such as for a square root or a logarithm).
+      We identify end points of intervals where the expression of interest <em>might</em> change sign by solving equations.
+      These end points only occur where the expression equals zero or where the expression itself is undefined (a discontinuity).
+      We test the sign of the expression in each of the resulting intervals by using test points or counting the number of negative factors.
+      Testing the sign at single points is often more efficient than counting negative factors.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the domain of the function <m>\displaystyle g(x)=\log_{4}(x^2-x-6)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The logarithm in <m>g(x)</m> will only have a real value when the input expression is positive,
+          <m>x^2-x-6 \gt 0</m>.
+          Our task becomes determining the signs of the expression <m>x^2-x-6</m>.
+          To illustrate the process of testing points in intervals, we first find possible sign-changing points.
+          The expression is always defined (no discontinuities) so we just solve for zeros <m>x^2-x-6=0</m> by factoring.
+          <md>
+            <mrow>x^2-x-6=0 </mrow>
+            <mrow>(x-3)(x+2)=0</mrow>
+            <mrow>x-3=0 \quad \text{or} \quad x+2=0</mrow>
+            <mrow>x=3 \quad \text{or} \quad x=-2</mrow>
+          </md>
+          If we mark these points on a number line, we can easily identify the intervals to test for signs.
+          It is helpful to use the same number line to record the resulting signs,
+          so we can label <m>x</m>-values below the line and the resulting sign or value of the expression above the line.
+        </p>
+        <sidebyside width="75%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.7cm,y=0.7cm]
+            \draw[<->] (-5,0) -- (5,0)
+              node[pos=1, above right] {$x^2-x-6$}
+              node[pos=1, below right] {$x$};
+            \draw (-2, -0.1) -- (-2,0.1)
+              node[pos=0, below] {$-2$}
+              node[pos=1, above] {$0$};
+            \draw (3, -0.1) -- (3,0.1)
+              node[pos=0, below] {$3$}
+              node[pos=1, above] {$0$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          The number line shows we need to test the intervals <m>(-\infty,-2)</m>, <m>(-2,3)</m>, and <m>(3,\infty)</m>.
+          Choosing one value from each interval, we can evaluate the expression at that point and identify the sign.
+          <md>
+            <mrow>x=-3 \quad &amp;\Rightarrow \quad x^2-x-6 = (-3)^2-(-3)-6 = 6</mrow>
+            <mrow>x=0 \quad &amp;\Rightarrow \quad x^2-x-6 = 0^2-0-6 = -6</mrow>
+            <mrow>x=4 \quad &amp; \Rightarrow \quad x^2-x-6 = 4^2-4-6 = 6</mrow>
+          </md>
+          We can now update the number line we started by recording
+          either <m>+</m> or <m>-</m> above each interval that we tested.
+          These signs are identical to what we would get by using the number of negative factors for values in each interval.
+          In fact, we could test the intervals by thinking about the factors instead of completely evaluating the expression's value.
+        </p>
+        <sidebyside width="75%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.7cm,y=0.7cm]
+            \draw[<->] (-5,0) -- (5,0)
+              node[pos=1, above right] {$x^2-x-6$}
+              node[pos=1, below right] {$x$};
+            \draw (-2, -0.1) -- (-2,0.1)
+              node[pos=0, below] {$-2$}
+              node[pos=1, above] {$0$};
+            \draw (3, -0.1) -- (3,0.1)
+              node[pos=0, below] {$3$}
+              node[pos=1, above] {$0$};
+            \node [above] at (-3,0.1) {$+$};
+            \node [above] at (0,0.1) {$-$};
+            \node [above] at (4,0.1) {$+$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          We were finding the domain of <m>g(x)=\log_4(x^2-x-6)</m>, which requires <m>x^2-x-6 \gt 0</m>.
+          Based on our summary, we need to find all values which result in the expression having a positive sign.
+          So our solution is the set <m>D</m> formed from the union of intervals <m>(-\infty,-2)</m> and <m>(3,\infty)</m>,
+          <me>D = (-\infty,-2) \cup (3,\infty)</me>.
+          A visualization of the domain on the number line might also help solidify
+          the connections between the sign analysis number line and the domain set.
+        </p>
+        <sidebyside width="75%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[<->] (-4,0) -- (4,0);
+            \draw (-2, -0.1) -- (-2,0.1) node[pos=0, below] {$-2$};
+            \draw (3, -0.1) -- (3,0.1) node[pos=0, below] {$3$};
+            \draw [<-, blue, thick] (-4,0.2) -- (-2.1,0.2);
+            \draw [blue, thick] (-2,0.2) circle (0.1);
+            \draw [blue, thick] (3,0.2) circle (0.1);
+            \draw [->, blue, thick] (3.1,0.2) -- (4,0.2) node [right] {$D$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    <example>
+      <statement>
+        <p>
+        Find the domain of the function <m>\displaystyle h(x) = \sqrt{\frac{4x}{x^2-9}}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A square root (any even root) requires that the input expression is non-negative.
+          Our domain is to solve the inequality <me>D = \{ x : \frac{4x}{x^2-9} \ge 0 \}</me>.
+        </p>
+        <p>
+          To use sign analyis, we need to know the zeros and discontinuities and then test each resulting interval.
+          Discontinuities occur when we try to divide by zero.
+          <md>
+            <mrow>x^2-9 = 0</mrow>
+            <mrow>(x+3)(x-3) = 0</mrow>
+            <mrow>x+3=0 \quad \text{or} \quad x-3=0</mrow>
+            <mrow>x=-3 \quad \text{or} \quad x=3</mrow>
+          </md>
+          Zeros for a quotient require that the numerator equals zero.
+          <md>
+            <mrow>4x=0</mrow>
+            <mrow>x=0</mrow>
+          </md>
+          Our sign analysis number line will have three points.
+        </p>
+        <sidebyside width="75%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.7cm,y=0.7cm]
+            \draw[<->] (-5,0) -- (5,0)
+              node[pos=1, above right] {$\displaystyle \frac{4x}{(x+3)(x-3)}$}
+              node[pos=1, below right] {$x$};
+
+            \draw (-3, -0.1) -- (-3,0.1)
+              node[pos=0, below] {$-3$}
+              node[pos=1, above] {und};
+            \draw (0, -0.1) -- (0,0.1)
+              node[pos=0, below] {$0$}
+              node[pos=1, above] {$0$};
+            \draw (3, -0.1) -- (3,0.1)
+              node[pos=0, below] {$3$}
+              node[pos=1, above] {und};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          Checking one point in each resulting interval gives us the sign.
+          To find the sign, we count the number of negative factors, including the factors in the denominator.
+          <md>
+            <mrow>x = -4 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(-4)}{(-4+3)(-4-3)} = \frac{(-)}{(-)(-)}</mrow>
+            <mrow>x = -1 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(-1)}{(-1+3)(-1-3)} = \frac{(-)}{(+)(-)}</mrow>
+            <mrow>x = 1 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(1)}{(1+3)(1-3)} = \frac{(+)}{(+)(-)}</mrow>
+            <mrow>x = 4 \quad &amp;\Rightarrow \quad \frac{4x}{(x+3)(x-3)} = \frac{4(4)}{(4+3)(4-3)} = \frac{(+)}{(+)(+)}</mrow>
+          </md>
+          The signs can be summarized on the number line.
+        </p>
+        <sidebyside width="75%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.7cm,y=0.7cm]
+            \draw[<->] (-5,0) -- (5,0)
+              node[pos=1, above right] {$\displaystyle \frac{4x}{(x+3)(x-3)}$}
+              node[pos=1, below right] {$x$};
+            \draw (-3, -0.1) -- (-3,0.1)
+              node[pos=0, below] {$-3$}
+              node[pos=1, above] {und};
+            \draw (0, -0.1) -- (0,0.1)
+              node[pos=0, below] {$0$}
+              node[pos=1, above] {$0$};
+            \draw (3, -0.1) -- (3,0.1)
+              node[pos=0, below] {$3$}
+              node[pos=1, above] {und};
+            \node [above] at (-4,0.1) {$-$};
+            \node [above] at (-1,0.1) {$+$};
+            \node [above] at (1,0.1) {$-$};
+            \node [above] at (4,0.1) {$+$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          We interpret our analysis to find the domain of <m>h(x)</m>.
+          The domain must include intervals where the inner expression is positive, <m>(-3,0)</m> and <m>(3,\infty)</m>,
+          along with points where the expression equals zero, <m>x=0</m>.
+          The set is visualized below.
+          We do not include the points where the expression was undefined, <m>x = \pm 3</m>.
+          The domain is the set <me>D = (-3,0] \cup (3,\infty)</me>.
+        </p>
+        <sidebyside width="75%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.7cm,y=0.7cm]
+            \draw[<->] (-5,0) -- (5,0);
+
+            \draw (-3, -0.1) -- (-3,0.1) node[pos=0, below] {$-3$};
+            \draw (0, -0.1) -- (0,0.1) node[pos=0, below] {$0$};
+            \draw (3, -0.1) -- (3,0.1) node[pos=0, below] {$3$};
+            \draw [blue, thick] (-2.9,0.2) -- (-0.1,0.2);
+            \draw [->, blue, thick] (3.1,0.2) -- (5,0.2) node [right] {$D$};
+            \draw [blue, thick] (-3,0.2) circle (0.1);
+            \draw [blue, fill, thick] (0,0.2) circle (0.1);
+            \draw [blue, thick] (3,0.2) circle (0.1);
             \end{tikzpicture}]]>
             </latex-image>
           </image>
@@ -266,606 +734,98 @@
       </solution>
     </example>
   </subsection>
-  <subsection>
-    <title>Function Composition</title>
+  <subsection xml:id="subsec-">
+    <title>Other Representations for Functions</title>
     <p>
-      In <xref ref="subsection-functions-as-maps"/>, we introduced the idea
-      that a function is often assigned a name, which might be a letter, a word, or any symbol.
-      In math textbooks, the most common name for a function is <m>f</m>.
-      We write <m>x \overset{f}{\mapsto} y</m> or <m>f : x \mapsto y</m> as a symbolic statement
-      that <m>f</m> is the name of the function relating an independent variable <m>x</m> and a dependent variable <m>y</m>.
-      When the function is defined by an equation, as in our parametric models,
-      we often define the function by saying <m>f(x)</m> is equal to the expression that defines the map.
-    </p>
-    <p>
-      Imagine we had a function <m>t \mapsto B</m> where <m>t</m> measures the time in years since we opened a bank account and <m>B</m> measures the account balance.
-      This account hypothetically grows according to the model
-      <me>B = 500 (1.02)^t</me>.
-      Consider how we would communicate calculating the balance after two, five, and ten years.
-      We would use a statement like, <q>When <m>t=2</m>, we have <m>B=500 (1.02)^{2}</m>,</q> and then we could compute the value.
-      For each value of time, we have to specify the value we substitute for <m>t</m> in the equation.
-    </p>
-    <p>
-      Function notation provides a concise way of specifying which value we are using in substitution.
-      If we would introduce a function <m>f</m> to represent the map,
-      <me>B = f(t) = 500 (1.02)^t</me>,
-      then simply writing <m>f(2)</m> immediately implies <m>t=2</m> without having to say this separately.
-      The three values of interest could be written,
-      <md>
-        <mrow>f(2) = 500 (1.02)^2 = 520.20,</mrow>
-        <mrow>f(5) = 500 (1.02)^5 \approx 552.04,</mrow>
-        <mrow>f(10) = 500 (1.02)^{10} \approx 609.50.</mrow>
-      </md>
-    </p>
-    <note xml:id="function-notation-not-multiplication">
-      <p>
-      Although writing parentheses in mathematics next to a number or a variable means multiplication,
-      a function is not a variable.
-      The parentheses after the function do <em>not</em> mean multiplication but evaluation.
-      It is unfortunate that the same symbols have different meanings,
-      so you will need to pay close attention to the context.
-      </p>
-    </note>
-    <p>
-      The next few examples illustrate how evaluation notation relates to substitution.
+      A function can be defined by rules other than formulas.
+      Any method that creates a unique output result for each given input value in the domain is a valid function.
+      When the domain is a small finite set, we can simply define the output values with a table.
+      We could also define a function through a graph of the pairs <m>(x,y)</m>.
+      Sometimes, a function can be defined according to an algorithm that is not described by a formula.
     </p>
     <example>
       <statement>
         <p>
-        For <m>f(x)=-\frac{2}{3}x+2</m>, simplify each of the following expressions.
-        <ol>
-          <li><m>f(4)</m></li>
-          <li><m>f(t)</m></li>
-          <li><m>f(3x+1)</m></li>
-        </ol>
+          One round of a game called <q>Pig</q> involves the throw of a single six-sided die.
+          If the die shows one dot, the round scores 100 points.
+          If the die shows five dots, the round scores 50 points.
+          Any other face on the die results in 0 points.
+        </p>
+        <p>
+          The score for a round is a function of the thrown face.
+          The input for the function, or independent variable, is the number of dots showing on the thrown die's face, say <m>D</m>.
+          The output for the function, or dependent variable, is the score for the round, say <m>S</m>.
+          The domain involves six possible values,
+          <me>D = \{ 1, 2, 3, 4, 5, 6 \}</me>.
+          The range has three values, <m>R = \{0, 50, 100\}</m>.
+        </p>
+        <p>
+          The function can be characterized by a table.
+          The table has two columns, one for the input (dots on the die) and one for the output (round score).
+          The key feature of this table representing a function is that <em>every</em> value in the domain appears as exactly one entry in the input column.
+          The function maps <m>D \mapsto S</m>
+          We can never allow a single input value to map to two different output values.
+        </p>
+        <sidebyside width="50%">
+          <tabular>
+            <row bottom="major">
+              <cell>Number of Dots (<m>D</m>)</cell>
+              <cell>Score for Round (<m>S</m>)</cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>100</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>4</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>5</cell>
+              <cell>50</cell>
+            </row>
+            <row>
+              <cell>6</cell>
+              <cell>0</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          A graph of this function has exactly six points, corresponding to the six values in the domain.
+          Each point is a state <m>(D,S)</m> appearing in the table.
+          Notice how the graph and the table show the same information in different ways.
+        </p>
+        <sidebyside width="50%">
+          <image>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-1.5, xmax=7.5, ymin=-10, ymax=110,
+                xlabel={$D$}, ylabel={$S$}, axis lines=center,
+              ]
+              \addplot [only marks] coordinates {
+                (1,100) (2,0) (3,0) (4,0) (5,50) (6,0)
+              };
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+            The inverse relation using the same table <m>(S,D)</m> is not a function.
+            Multiple die throws correspond to the same score.
+            Thus, knowing the score <m>S</m> is not enough information to know the value of the number of dots showing on a throw <m>D</m>.
         </p>
       </statement>
-      <solution>
-        <p><ol>
-          <li>
-            <p>
-            To simplify <m>f(4)</m>, we see that the value inside parentheses is 4.
-            So we substitute the independent variable with the value 4.
-            <md>
-              <mrow>f(x) &amp;= -{\textstyle \frac{2}{3}}x+2</mrow>
-              <mrow>f(4) &amp;= -{\textstyle \frac{2}{3}}(4)+2 = {-\textstyle \frac{8}{3} + \frac{6}{3}} = {\textstyle -\frac{2}{3}}</mrow>
-            </md>
-            </p>
-          </li>
-          <li>
-            <p>
-            The expression <m>f(t)</m> substitutes the variable <m>t</m> in place of <m>x</m>:
-            <me>f(t) = -{\textstyle \frac{2}{3}}t+2.</me>
-            </p>
-          </li>
-          <li>
-            <p>
-            The expression <m>f(3x+1)</m> substitutes the expression <m>3x+1</m> for the independent variable <m>x</m>.
-            Although the original independent variable of <m>f(x)=-\frac{2}{3}x+2</m> is <m>x</m>,
-            we should think of this substitution in terms of a placeholder
-            <m>f(\square)=-\frac{2}{3}\square+2</m> and substitution <m>\square = 3x+1</m>.
-            <md>
-              <mrow>f(x) &amp;= -{\textstyle \frac{2}{3}}x+2</mrow>
-              <mrow>f(\square) &amp;= -{\textstyle \frac{2}{3}}\square+2</mrow>
-              <mrow>f(3x+1) &amp;= -{\textstyle \frac{2}{3}}(3x+1)+2</mrow>
-              <mrow> &amp;= \textstyle -\frac{2}{3}(3x) + -\frac{2}{3}(1) + 2 </mrow>
-              <mrow> &amp;= \textstyle -2x + \frac{4}{3}</mrow>
-            </md>
-            Introducing the placeholder symbol <m>\square</m> is not necessary
-            but might help emphasize that we are not just <em>including</em> things with the <m>x</m>.
-            We are performing an actual substitution, <m>\square = 3x+1</m>.
-            </p>
-          </li>
-        </ol></p>
-      </solution>
-    </example>
-    <note>
-      <p>
-      When an expression is inside the parentheses of function evaluation notation,
-      you should use parentheses at the substitution step as well to ensure that the entire expression is being used.
-      Once substitution occurs, you should then apply standard algebraic rules appropriately.
-      </p>
-    </note>
-    <example>
-      <statement>
-        <p>
-        For <m>g(y)=-\frac{3}{2}y+3</m>, simplify each of the following expressions.
-        <ol>
-          <li><m>g(x)</m></li>
-          <li><m>g(2t)</m></li>
-          <li><m>3g(2x)+1</m></li>
-        </ol>
-        </p>
-      </statement>
-      <solution>
-        <p><ol>
-          <li>
-            To find <m>g(x)</m> requires a simple substitution.
-            <md>
-              <mrow>g(y) &amp;= \textstyle -\frac{3}{2}y+3</mrow>
-              <mrow>g(x) &amp;= \textstyle -\frac{3}{2}x+3</mrow>
-            </md>
-          </li>
-          <li>
-            To find <m>g(2t)</m> requires a substitution of the expression <m>x=2t</m>.
-            <md>
-              <mrow>g(2t) &amp;= \textstyle -\frac{3}{2}(2t)+3</mrow>
-              <mrow> &amp;= -3t+3</mrow>
-            </md>
-          </li>
-          <li>
-            To find <m>3g(2x)+1</m> will require substitution of <m>g(2x)</m>
-            by a formula that itself involves substitution.
-            Note the use of parentheses.
-            <md>
-              <mrow>3g(2x)+1 &amp;= 3\Big({\textstyle  -\frac{3}{2}(2x)+3}\Big) + 1</mrow>
-              <mrow> &amp;= 3(-3x+3)+1 = -9x+9+1</mrow>
-              <mrow> &amp;=-9x+10</mrow>
-            </md>
-          </li>
-        </ol></p>
-      </solution>
-    </example>
-    <p>
-      Evaluating a function using an expression as the input is called <term>composition</term>.
-      In the examples above, <m>f(3x+1)</m> and <m>g(2t)</m> were composition of functions.
-      First, <m>f(3x+1)</m> is the composition of <m>f</m> with an input expression of <m>3x+1</m>.
-      Second, <m>g(2t)</m> is the composition of the function <m>g</m> with an input expression <m>2t</m>.
-      In each case, the input of the function is itself a dependent variable (expression) involving another variable.
-    </p>
-    <p>
-      Composition corresponds to linking functions together, with the output of one function becoming the input to another function.
-      In the context of a physical system, we are considering where the state involves multiple variables, say <m>(A,B,C,\ldots)</m>.
-      Suppose we know one function, <m>f: A \mapsto B</m>, that determines the value of <m>B</m> knowing the value of <m>A</m>.
-      Then suppose know another function, <m>g: B \mapsto C</m>, that predicts the value of <m>C</m> from the value of <m>B</m>.
-      If we link these together in a chain, we can start with a value of <m>A</m>, compute the value of <m>B=f(A)</m>,
-      and then use that value of <m>B</m> to compute the value of <m>C=g(B)</m>.
-      Together, this creates a map <m>A \mapsto C</m> which is the composition of the individual maps.
-      Using substitution, we have <m>C= g\big(f(A)\big)</m>, the output of <m>f</m> becoming the input to <m>g</m>.
-    </p>
-    <sidebyside width="70%">
-      <image>
-        <latex-image>
-        <![CDATA[\tikzset{%
-        }
-        \begin{tikzpicture}
-        \draw[<->] (0,0) -- (8,0) node[pos=0, left] {$A$};
-        \draw (2,0.1) -- (2,-0.1) node[pos=0, above] {$a$};
-        \draw[<->] (0,-1.25) -- (8,-1.25) node[pos=0, left] {$B$};
-        \draw (4,-1.15) -- (4,-1.35) node[pos=0, above] {$b$};
-        \draw [->] (2,-0.15) -- (4,-1) node [pos=0.5, right] {$f$};
-        \draw[<->] (0,-2.5) -- (8,-2.5) node[pos=0, left] {$C$};
-        \draw (5,-2.4) -- (5,-2.6) node[pos=0, above] {$c$};
-        \draw [->] (4,-1.4) -- (5,-2.25) node [pos=0.5, right] {$g$};
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
-    <example>
-      <statement>
-        <p>
-        The radius <m>r</m>, circumference <m>C</m>, and area <m>A</m> of a circle are all related.
-        The equation <m>C=2 \pi r</m> defines <m>C</m> as a function of <m>r</m>
-        and the equation <m>A = \pi r^2</m> defines <m>A</m> as a function of <m>r</m>.
-        Use composition to define the function <m>C \mapsto A</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-        The final output should be area <m>A</m>, which we can compute if we know <m>r</m>.
-        We can use the relation between <m>C</m> and <m>r</m> to solve for <m>r</m> as a function of <m>C</m>.
-        <md>
-          <mrow>C = 2 \pi r</mrow>
-          <mrow>\frac{C}{2 \pi} = r</mrow>
-        </md>
-        This equation defines <m>C \mapsto r</m>, so that we have a chain
-        <md>
-          <mrow>r &amp;= \frac{C}{2 \pi},</mrow>
-          <mrow>A &amp;= \pi r^2.</mrow>
-        </md>
-        Composition uses substitution to replace <m>r</m> by its formula,
-        <me>A = \pi r^2 = \pi \Big(\frac{C}{2\pi}\Big)^2 = \frac{\pi C^2}{2^2 \pi^2} = \frac{C^2}{4 \pi}.</me>
-        </p>
-      </solution>
-    </example>
-    <p>
-      We use <term>circle notation</term> to represent the composition of functions.
-      We write <m>f \circ g(x)</m> to mean that <m>g(x)</m> is the input expression to the function
-      <m>f</m>: <me>f \circ g(x) = f\big( g(x) \big).</me>
-      We can remember the order if we notice that the input to a function is always on the right of the function name.
-      So <m>f \circ g(x)</m> has <m>x</m> as the input to <m>g</m>, which has an output as input to <m>f</m>.
-    </p>
-    <p>
-      Even when a function is introduced without the context of mapping between variables,
-      we can think of a composition as a chain of relations.
-      The composition <m>f \circ g(x) = f\big(g(x)\big)</m> has an inner expression <m>g(x)</m> as the input to <m>f</m>.
-      We treat <m>g(x)</m> as an intermediate variable, say <m>u</m>.
-      There are two functions: <m>x \overset{g}\mapsto u</m> and <m>u \overset{f} \mapsto y</m>.
-      The composition <m>f \circ g</m> puts these together as a chain
-      <m>x \overset{f \circ g} \mapsto y = x \overset{g}\mapsto u \overset{f}\mapsto y</m>
-      to find the value of <m>y</m> starting from <m>x</m>.
-    </p>
-    <example>
-      <statement>
-        <p>
-        Suppose <m>f(x)=x^2</m> and <m>g(x)=x+3</m>.
-        Compute and simplify the compositions <m>f \circ g(x)</m> and <m>g \circ f(x)</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-        The composition <m>f \circ g(x)=f(g(x))</m> corresponds a chain.
-        The inner expression defines an intermediate variable <m>x \overset{g}\mapsto u=x+3</m>,
-        while the outer function squares the result <m>u \overset{f}\mapsto y=u^2</m>.
-        The composition <m>f \circ g(x) = (x+3)^2</m> combines the operations,
-        <me>x \overset{g}\mapsto x+3 \overset{f}\mapsto (x+3)^2</me>.
-        The chain is illustrated in the figure below.
-        </p>
-        <p>
-          The composition <m>g \circ f(x)=g(f(x))</m> reverses the order in which the chain is applied.
-          The inner expression <m>f(x)</m> defines a different intermediate variable <m>x \overset{f}\mapsto w=w^2</m>,
-          while the outer function adds three to the result <m>w \overset{g}\mapsto y=w+3</m>.
-          The composition <m>g \circ f(x) = x^2+3</m> combines the operations,
-          <me>x \overset{f}\mapsto x^2 \overset{g}\mapsto x^2+3</me>.
-          This chain is illustrated in the next figure.
-        </p>
-      </solution>
-    </example>
-    <p>
-      The previous example clearly illustrated that the order of composition matters.
-      Compositions <m>f \circ g</m> and <m>g \circ f</m> represent different functions.
-      We can see this visually by considering the chains represented by interactive maps.
-    </p>
-    <figure>
-      <caption><m>f \circ g(x) = (x+3)^2</m></caption>
-      <jsxgraph xml:id="jsx-fcn-intro-chain-ex1" width="75%" aspect="4:2">
-        <input>
-        var jcm1 = {
-          outer : function(u) { var y; y=u*u; return y; },
-          inner : function(x) { var u; u=x+3; return u; },
-          input : { name:'x', color:'blue', value:-1 },
-          middle : { name:'u', color:'orange'},
-          output : { name:'y', color:'red' },
-        };
-        createChainMap(jcm1, 'jsx-fcn-intro-chain-ex1');
-        </input>
-      </jsxgraph>
-    </figure>
-    <figure>
-      <caption><m>g\circ f(x) = x^2+3</m></caption>
-      <jsxgraph xml:id="jsx-fcn-intro-chain-ex2" width="75%" aspect="4:2">
-        <input>
-        var jcm2 = {
-          outer : function(u) { var y; y=u+3; return y; },
-          inner : function(x) { var u; u=x*x; return u; },
-          input : { name:'x', color:'blue', value:-1 },
-          middle : { name:'w', color:'orange'},
-          output : { name:'y', color:'red' },
-        };
-        createChainMap(jcm2, 'jsx-fcn-intro-chain-ex2');
-        </input>
-      </jsxgraph>
-    </figure>
-    <p>
-      We now consider some additional examples of using substitution
-      to find a simplified formula for a composition.
-    </p>
-    <example>
-      <statement>
-        <p>
-        Suppose <m>f(x)=2x-3</m> and <m>g(x)=3x+1</m>.
-        Simplify each of the following expressions.
-        <ol>
-          <li><m>f(x^2-1)</m></li>
-          <li><m>f \circ g(x)</m></li>
-          <li><m>g \circ f(x-2)</m></li>
-        </ol>
-        </p>
-      </statement>
-      <solution>
-        <p>
-        <ol>
-          <li>
-            <p>
-            <m>f(x^2-1)</m> is a composition of <m>f</m> with input <m>x^2-1</m>.
-            Since <m>f(x)=2x-3</m> or <m>f(\square)=2\,\square - 3</m>, using substitution,
-            we find <me>f(x^2-1) = 2(x^2-1)-3 = 2x^2-2-3 = 2x^2-5</me>.
-            </p>
-          </li>
-          <li>
-            <p>
-            <m>f\circ g(x)</m> is a composition of <m>f</m> with input <m>g(x)</m>.
-            Since <m>f(x)=2x-3</m> and <m>g(x)=3x+1</m>, using substitution,
-            we find <me>f\circ g(x) = f(g(x)) = 2(3x+1)-3 = 6x+2-3 = 6x-1</me>.
-            </p>
-          </li>
-          <li>
-            <p>
-            <m>g\circ f(x-2)</m> is a composition of a composition.
-            The outermost function is <m>g</m> has an input coming from the output of <m>f</m>,
-            and <m>f</m> has an input expression <m>x-2</m>.
-            Careful substitution one step at a time will give the value.
-            <md>
-              <mrow>g \circ f(x-2) &amp; = g\big(f(x-2)\big)</mrow>
-              <mrow> &amp; = g\big(2(x-2)-3\big) &amp; \hbox{substitute $f(x-2)$}</mrow>
-              <mrow> &amp; = g\big(2x-7\big) &amp; \text{simplify}</mrow>
-              <mrow> &amp; = 3(2x-7)+1 &amp; \hbox{substitute $g(2x-7)$}</mrow>
-              <mrow> &amp; = 6x-20 </mrow>
-            </md>
-            </p>
-          </li>
-        </ol>
-        </p>
-      </solution>
-    </example>
-  </subsection>
-  <subsection>
-    <title>Inverse Functions and Composition</title>
-    <p>
-      When we discussed inverse functions earlier in <xref ref="subsection-inverse-functions"/>,
-      we thought of them as inverse maps.
-      Given an equation defining the map <m>x \mapsto y</m>,
-      if we could solve the equation for the input <m>x</m> as a single expression involving <m>y</m>,
-      then this new equation defined the inverse function.
-      Inverse functions undo one another's operations.
-    </p>
-    <example>
-      <statement>
-        <p>
-        Consider the function <me>a \overset{f}{\mapsto} b = 3a+2</me>.
-        The inverse function is found by solving for <m>a</m> in the equation <m>b=3a+2</m>
-        which gives <m>\displaystyle a = \frac{b-2}{3}</m>.
-        We have the inverse function
-        <me>b \overset{f^{-1}}{\mapsto} a = \frac{b-2}{3}</me>.
-        Using a placeholder variable, like <m>x</m>, these can be written in function notation:
-        <md>
-          <mrow>f(x) = 3x+2,</mrow>
-          <mrow>f^{-1}(x) = \frac{x-2}{3}.</mrow>
-        </md>
-        </p>
-      </statement>
-    </example>
-    <p>
-      Let us consider the calculations involved in the previous example.
-      The function <m>f</m> took an input and performed the following operations in order:
-      <ul>
-        <li>Multiply by 3.</li>
-        <li>Add 2.</li>
-      </ul>
-      The inverse function <m>f^{-1}</m> took an input and performed related operations:
-      <ul>
-        <li>Subtract 2.</li>
-        <li>Divide by 3.</li>
-      </ul>
-      The functions are inverse because they will exactly undo one another's operations.
-    </p>
-    <p>
-      Consider what happens if you create a chain and apply <m>f^{-1}</m> immediately after <m>f</m>:
-      <ul>
-        <li>Multiply by 3.</li>
-        <li>Add 2.</li>
-        <li>Subtract 2.</li>
-        <li>Divide by 3.</li>
-      </ul>
-      The middle two steps cancel one another's effects, so this would be the same as the simpler chain of steps:
-      <ul>
-        <li>Multiply by 3.</li>
-        <li>Divide by 3.</li>
-      </ul>
-      Again, the operations cancel each other out.
-      The output will always be the same as the original input,
-      <me>f^{-1} \circ f(x) = x</me>.
-      The following interactive figure shows this composition as a chain of maps.
-    </p>
-    <figure>
-      <caption>
-        Composition <m>y=f^{-1} \circ f(a)</m>, corresponding to chain <m>a \overset{f}\mapsto b \overset{f^{-1}}\mapsto y</m>.
-        As the functions are inverses, this always yields <m>y=a</m>.
-      </caption>
-      <jsxgraph xml:id="jsx-fcn-intro-chain-inverse1" platform="jsxgraph" width="75%" aspect="4:2">
-        <input>
-          var jcm2 = {
-            outer : function(a) { var b; b=3*a+2; return b; },
-            inner : function(b) { var a; a=(b-2)/3; return a; },
-            input : { name:'a', color:'blue', value:0 },
-            middle : { name:'b', color:'orange'},
-            output : { name:'y', color:'red' },
-          };
-          createChainMap(jcm2, 'jsx-fcn-intro-chain-inverse1');
-        </input>
-      </jsxgraph>
-    </figure>
-    <p>
-      A composition in the reverse order, <m>f \circ f^{-1}(x)</m>, also results in exact cancellation.
-    </p>
-    <figure>
-      <caption>
-        Composition <m>y=f \circ g(b)</m>, corresponding to chain
-        <m>b \overset{g}\mapsto a \overset{f}\mapsto y</m>.
-        As the functions are inverses, this always yields <m>y=b</m>.
-      </caption>
-      <jsxgraph xml:id="jsx-fcn-intro-chain-inverse2" width="75%" aspect="4:2">
-        <input>
-        var jcm2 = {
-          outer : function(b) { var a; a=(b-2)/3; return a; },
-          inner : function(a) { var b; b=3*a+2; return b; },
-          input : { name:'b', color:'blue', value:0 },
-          middle : { name:'a', color:'orange'},
-          output : { name:'y', color:'red' },
-        };
-        createChainMap(jcm2, 'jsx-fcn-intro-chain-inverse2');
-        </input>
-      </jsxgraph>
-    </figure>
-    <p>
-      Simplifying the composition of inverse functions algebraically reveals the cancellation directly.
-    </p>
-    <example>
-      <statement>
-        <p>
-        For <m>f(x)=3x+2</m> and <m>\displaystyle f^{-1}(x)=\frac{x-2}{3}</m>
-        compute and simplify <m>f \circ g(x)</m> and <m>g \circ f(x)</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-        Using substitution and algebraic simplification, we find the values requested.
-        <md>
-          <mrow>f \circ g(x) &amp; = f\big(g(x)\big) </mrow>
-          <mrow> &amp;= f\Big( \frac{x-2}{3} \Big) &amp; \hbox{substitute $g(x)$} </mrow>
-          <mrow> &amp;= 3\Big( \frac{x-2}{3} \Big)+2 &amp; \hbox{substitute $f(\square)$} </mrow>
-          <mrow> &amp;= x-2+2 = x </mrow>
-        </md>
-        <md>
-          <mrow>g \circ f(x) &amp; = g\big(f(x)\big) </mrow>
-          <mrow> &amp;= g\big( 3x+2 \big) &amp; \hbox{substitute $f(x)$} </mrow>
-          <mrow> &amp;= \frac{(3x+2)-2}{3} &amp; \hbox{substitute $g(\square)$} </mrow>
-          <mrow> &amp;= \frac{3x}{3} = x </mrow>
-        </md>
-        </p>
-      </solution>
-    </example>
-    <p>
-      Inverse functions will always simplify in this way:
-      the composition of inverse functions cancel to just leave the input.
-      Functions are not always defined by an equation, so we shouldn't define inverses through solving equations.
-      Mathematicians actually define inverse functions in terms of the property of composition.
-    </p>
-    <definition xml:id="inverse-functions">
-      <statement>
-        <p>
-          Two functions <m>f</m> and <m>g</m> are inverses of one another,
-          and we write <m>g=f^{-1}</m> and <m>f=g^{-1}</m>,
-          if for every <m>x</m> in the domain of <m>g</m>, we have
-          <me>f \circ g(x) = f\big(g(x)\big) = x,</me>
-          and for every <m>x</m> in the domain of <m>f</m>, we have
-          <me>g \circ f(x) = g \big(f(x)\big) = x.</me>
-        </p>
-      </statement>
-    </definition>
-    <p>
-      It is time for a comment about real variables.
-      In science, variables represent physical measurements and the variables are the objects of study.
-      These variables can be related by functions.
-      However, in mathematics, it is the function itself that is being studied.
-      For simplicity, mathematics textbooks have adopted an approach
-      where <m>x</m> is almost universally the independent variable of every function
-      and <m>y</m> is the dependent variable.
-      This makes it easier to remember the role each variable plays,
-      but it can lead to confusion in actual applications.
-    </p>
-    <example>
-      <statement>
-        <p>
-          An enzyme is a protein that helps catalyze a chemical reaction.
-          For many enzymes, the rate of reaction <m>R</m> and the concentration of the reactant <m>C</m>
-          satisfy a relation called Michaelis-Menten kinetics
-          <me>R = \frac{aC}{C+K},</me>
-          where <m>a</m> and <m>K</m> are parameters that characterize the particular reaction.
-          Physically, we require <m>C \ge 0</m>.
-          In mathematics, this relation might be characterized by a function
-          <me>f(x) = \frac{ax}{x+K}.</me>
-          We would then say <m>R = f(C)</m>.
-          This is equivalent to mapping notation
-          <me>C \overset{f}{\mapsto} R = \frac{aC}{C+K}.</me>
-        </p>
-        <p>
-          To find the inverse function, most mathematics textbooks say to write <m>y=f(x)</m>,
-          switch all <m>x</m> and <m>y</m> and then solve for <m>y</m>.
-          The only reason to switch the variables is to preserve <m>x</m> as the independent variable of the relation.
-          This is an artificial requirement.
-          We might as well just solve for <m>C</m> as a function of <m>R</m>.
-          Start by cross-multiplying to eliminate the denominator in the equation.
-          <md>
-            <mrow>R = \frac{aC}{C+K}</mrow>
-            <mrow>R(C+K) = aC</mrow>
-            <mrow>RC+KR = aC</mrow>
-          </md>
-          Because we are solving for <m>C</m>, we need to collect <m>C</m> terms on one side of the equation and then factor.
-          <md>
-            <mrow>RC-aC = -KR</mrow>
-            <mrow>C(R-a) = -KR</mrow>
-            <mrow>C = \frac{-KR}{R-a}</mrow>
-          </md>
-          Multiplying the numerator and denominator each by <m>-1</m>,
-          we get an equivalent and simpler explicit function
-          <me>R \overset{g}{\mapsto}C = \frac{KR}{a-R}.</me>
-          As the functions come from the same relation, we know <m>g = f^{-1}</m>.
-        </p>
-        <p>
-          This equation shows that <m>C</m> is the dependent variable
-          and is a function of the independent variable <m>R</m>.
-          Mathematically, using <m>x</m> as the independent variable,
-          we would have written <me>f^{-1}(x) = \frac{Kx}{a-x}</me>.
-          However, this equation loses the context of what the input variable <m>x</m> and the output value represent.
-          In applications, it is better to include the variables so that their interpretation can be preserved.
-        </p>
-      </statement>
-    </example>
-    <p>
-      Recall that the composition of inverse functions should result in the input of the inner function.
-      Consider how that applies in the context of actual variables.
-      Recall the earlier example relating a reaction rate <m>R</m> and the reactant concentration <m>C</m>.
-      We had inverse functions <m>C \overset{f}{\mapsto} R</m> and <m>R \overset{g}{\mapsto} C</m>.
-      Composition applies these operations one immediately after the other, with the inner function applied first.
-      Composition <m>f \circ g</m> applies <m>g</m> to the input followed by <m>f</m>,
-      which would be written in mapping notation with the variables as
-      <me>R \overset{g}{\mapsto} C \overset{f}{\mapsto} R</me>.
-      The original input is the value <m>R</m> and the final output is also the value <m>R</m>.
-      So the comoposition is equal to the original input.
-      Algebra should verify that this actually works.
-    </p>
-    <example>
-      <statement>
-        <p>
-        For the inverse functions of Michaelis-Menten kinetics,
-        <md>
-          <mrow> C \overset{f}{\mapsto} R = \frac{aC}{C+K},</mrow>
-          <mrow> R \overset{g}{\mapsto} C = \frac{KR}{a-R},</mrow>
-        </md>
-        show that the composition of functions cancel.
-        </p>
-      </statement>
-      <solution>
-        <p>
-        To compute <m>f \circ g(x)</m>, we use <m>g(x)</m> as the input to <m>f</m>.
-        Using meaningful variables, <m>g</m> takes a reaction rate as input,
-        so we compute <m>f(g(R))</m> and simplify.
-        Recall that function evaluation is just substitution of the input in a formula.
-        <md>
-          <mrow>f\big(g(R)\big) &amp;= f\big( \frac{KR}{a-R}\big) </mrow>
-          <mrow> &amp;= \frac{a\big( \frac{KR}{a-R}\big)}{\big( \frac{KR}{a-R}\big)+K}</mrow>
-        </md>
-        We replaced the <m>C</m> as input to <m>f</m> with the formula for <m>g(R)</m>.
-        To simplify this, we can clear the denominator of the fractions inside the fraction
-        by multiplying numerator and denominator by <m>(a-R)</m>.
-        <md>
-          <mrow>f\big(g(R)\big) &amp;= \frac{a\big( \frac{KR}{a-R}\big)(a-R)}{\big( \frac{KR}{a-R}+K\big)(a-R)}</mrow>
-          <mrow> &amp;= \frac{aKR}{KR + K(a-R)}</mrow>
-          <mrow> &amp;= \frac{aKR}{KR + Ka-KR}</mrow>
-          <mrow> &amp;= \frac{aKR}{Ka} </mrow>
-          <mrow> &amp;= R</mrow>
-        </md>
-        Using the placeholder variable <m>x</m>, we have <m>f \circ g(x)=x</m>, as required for inverse functions.
-        </p>
-        <p>
-        The algebraic verification that <m>g</m> undoes the evaluation of <m>f</m>,
-        <me>C \overset{f}{\mapsto} R \overset{g}{\mapsto} C,</me>
-        follows a similar calculation.
-        To compute <m>g \circ f(x)</m>, we use <m>f(x)</m> as the input to <m>g</m>.
-        In context, <m>f</m> takes a reactant concentration <m>C</m> as input,
-        so we compute <m>g(f(C))</m> and simplify.
-        <md>
-          <mrow>g\big(f(C)\big) &amp;= g\big(\frac{aC}{C+K}\big) </mrow>
-          <mrow> &amp;= \frac{K\big( \frac{aC}{C+K}\big)}{a-\big( \frac{aC}{C+K}\big)}</mrow>
-          <mrow> &amp;= \frac{K\big( \frac{aC}{C+K}\big)(C+K)}{\big(a- \frac{aC}{C+K}\big)(C+K)}</mrow>
-          <mrow> &amp;= \frac{aKC}{a(C+K) - aC}</mrow>
-          <mrow> &amp;= \frac{aKC}{aC+aK -aC}</mrow>
-          <mrow> &amp;= \frac{aKC}{aK} </mrow>
-          <mrow> &amp;= C</mrow>
-        </md>
-        </p>
-      </solution>
     </example>
   </subsection>
   <subsection>
@@ -884,12 +844,6 @@
         the expression defines an explicit function.
       </li>
       <li>
-        A linear function <m>x \mapsto y</m> is a relationship between variables that have a constant rate of change.
-        The rate of change equals the slope between two states <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m>
-        and is the ratio of the change in the output to the change in the input:
-        <me>m = \frac{\Delta y}{\Delta x} = \frac{y_2-y_1}{x_2-x_1}</me>.
-      </li>
-      <li>
         Function mapping notation <m>x \overset{f}{\mapsto} y</m> indicates
         that <m>y</m> is a function of <m>x</m> and <m>f</m> is the name of the function.
       </li>
@@ -897,80 +851,36 @@
         Function evaluation notation <m>f(\square)</m> uses substitution of
         whatever appears between the parentheses <m>(\square)</m> in place of the independent variable.
       </li>
-      <li>
-        Composition <m>f \circ g</m> is evaluation of the outer function <m>f</m>
-        with an input using the output of the inner function <m>g</m>,
-        <me>f \circ g(x) = f\big(g(x)\big)</me>.
-        As maps, if <m>g:x \mapsto u</m> and <m>f:u \mapsto y</m>, then
-        <me>x \overset{f \circ g}\mapsto y \quad = \quad x \overset{g}\mapsto u \overset{f}\mapsto y.</me>
-      </li>
-      <li>
-        <p>
-          Two functions <m>f</m> and <m>g</m> are inverses of one another if
-          <m>f \circ g(x) = x</m> for all <m>x</m> in the domain of <m>g</m>
-          <em>and</em>
-          <m>g \circ f(x) = x</m> for all <m>x</m> in the domain of <m>f</m>.
-          This means that inverse functions cancel one another when applied in a chain:
-          <me>f \circ f^{-1}(x) = x \quad \text{and} \quad f^{-1}\circ f(x) = x</me>.
-        </p>
-      </li>
-      <li>
-        If an equation can be solved for each variable in terms of the other
-        (<eg/>, <m>x \mapsto y</m> and <m>y \mapsto x</m>), the relation is one-to-one.
-        The two resulting functions are inverse functions.
-      </li>
     </ul>
     </p>
   </subsection>
   <exercises>
     <exercisegroup>
       <introduction>
-        <p>
-        For each equation, determine if the relation defines functions <m>x \mapsto y</m> and <m>y \mapsto x</m>
-        by solving the equation for the dependent variable.
-        </p>
+        For each function defining a map between two variables,
+        interpret the stated function value by indicating the value of each variable.
       </introduction>
       <exercise>
         <statement>
           <p>
-          For the equation <m>3x-5y=10</m>, do the following.
-          <ol>
-            <li>Determine if <m>x \mapsto y</m>.</li>
-            <li>Determine if <m>y \mapsto x</m>.</li>
-          </ol>
+            Suppose that <m>P</m> represents the population size in millions and <m>B</m> represents the birth rate in hundreds of births per month.
+            If <m>f : P \mapsto B</m>, interpret <m>f(30) = 12</m>.
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-          For the equation <m>2xy - 6 = 4x - 3y</m>, do the following.
-          <ol>
-            <li>Determine if <m>x \mapsto y</m>.</li>
-            <li>Determine if <m>y \mapsto x</m>.</li>
-          </ol>
+            Suppose that <m>t</m> represents time in seconds and <m>h</m> represents the height of an object above the ground in meters.
+            If <m>g : t \mapsto h</m>, interpret <m>g(2) = 3</m>.
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-          For the equation <m>6x+4y-3xy=0</m>, do the following.
-          <ol>
-            <li>Determine if <m>x \mapsto y</m>.</li>
-            <li>Determine if <m>y \mapsto x</m>.</li>
-          </ol>
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          For the equation <m>x^2+3y=25</m>, do the following.
-          <ol>
-            <li>Determine if <m>x \mapsto y</m>.</li>
-            <li>Determine if <m>y \mapsto x</m>.</li>
-          </ol>
+            Suppose that <m>n</m> represents the number of items a company will sell in thousands and <m>p</m> represents the price the company charges per item in dollars.
+            If <m>h : p \mapsto n</m>, interpret <m>h(2) = 5</m>.
           </p>
         </statement>
       </exercise>
@@ -978,66 +888,159 @@
     <exercisegroup>
       <introduction>
         <p>
-        Given a function, compute and simplify the expressions listed.
+        For each function, illustrate how the function maps values between variables.
+        Draw two parallel number lines, with the top number line corresponding to the independent variable.
+        Mark the given domain as shaded segments or points, as appropriate.
+        Choose three different values in the domain and then indicate with arrows how the function maps these values.
         </p>
       </introduction>
       <exercise>
         <statement>
           <p>
-          Suppose <m>f(x)=\frac{2}{3}x+4</m>.
-          Simplify each of the following expressions.
-          </p>
-          <ol>
-            <li><m>f(5)</m></li>
-            <li><m>f(t)</m></li>
-            <li><m>f(t^2-1)</m></li>
-            <li><m>3f(2x)-8</m></li>
-          </ol>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          Suppose <m>\displaystyle g(x)=\frac{4}{x+1}</m>.
-          Simplify each of the following.
-          </p>
-          <ol>
-            <li><m>g(1)</m></li>
-            <li><m>g(\frac{1}{x})</m></li>
-            <li><m>\displaystyle \frac{1}{g(x)}</m></li>
-            <li><m>g\big(\frac{1}{x}-1\big)</m></li>
-          </ol>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          Suppose <m>f(x)=2x-5</m>, <m>g(x)=\frac{1}{2}x+5</m>, and <m>h(x)=\frac{1}{2}(x+5)</m>.
-          Simplify each of the following.
-          <ol>
-            <li><m>f \circ g(x)</m></li>
-            <li><m>f \circ h(x)</m></li>
-            <li><m>g \circ f(x)</m></li>
-            <li><m>g \circ h(x)</m></li>
-          </ol> What conclusion can be drawn?
+            <m>\displaystyle f: [0,1] \to \mathbb{R}; x \mapsto y = 2x - 5</m>
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-          Suppose <m>\displaystyle f(x)=\frac{3}{x+2}</m> and <m>\displaystyle g(x)=\frac{3}{x}-2</m>.
-          Simplify each of the following.
-          <ol>
-            <li><m>f(x-2)</m></li>
-            <li><m>g(\frac{1}{x})</m></li>
-            <li><m>f \circ g(x)</m></li>
-            <li><m>g \circ f(x)</m></li>
-          </ol> Is <m>g = f^{-1}</m>?
+            <m>\displaystyle g: [-1,1] \to \mathbb{R}; s \mapsto T = \frac{1}{s+2}</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle h: {0,1,2,3,4,5} \to \mathbb{R}; n \mapsto p = 10-2n</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            <m>\displaystyle F: \mathbb{N} \to \mathbb{R}; t \mapsto x = 2^t</m>
           </p>
         </statement>
       </exercise>
     </exercisegroup>
+    <exercisegroup>
+      <introduction>
+        <p>
+          Find the natural domain for each function defined by an equation.
+        </p>
+      </introduction>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = x^2-4x+3</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle g(x) = \sqrt{x^2-4x+3}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle h(x) = \log\left(x^2-4x+3\right)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = \frac{x^2-1}{x^2-4}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle g(x) = \sqrt{\frac{x^2-1}{x^2-4}}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle h(x) = \log\left(\frac{x^2-1}{x^2-4}\right)</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle f(x) = \frac{2x}{x^2-x-6}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle g(x) = \sqrt{\frac{2x}{x^2-x-6}}</m></p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p><m>\displaystyle h(x) = \log\left(\frac{2x}{x^2-x-6}\right)</m></p>
+        </statement>
+      </exercise>
+    </exercisegroup>
+    <exercise>
+      <statement>
+        <p>
+          A function <m>f : x \mapsto y</m> is defined by a table shown below.
+          <ol>
+            <li>Graph the points represented by the function.</li>
+            <li>What are the domain and range of <m>f</m>?</li>
+            <li>What is <m>f(3)</m>?</li>
+            <li>What value or values of <m>x</m> satisfy <m>f(x)=4</m>?</li>
+          </ol>
+        </p>
+        <sidebyside>
+          <tabular>
+            <col right="major"/><col/>
+            <row bottom="major">
+              <cell><m>x</m></cell><cell><m>y</m></cell>
+            </row>
+            <row>
+              <cell>1</cell> <cell>4</cell>
+            </row>
+            <row>
+              <cell>2</cell> <cell>2</cell>
+            </row>
+            <row>
+              <cell>3</cell> <cell>1</cell>
+            </row>
+            <row>
+              <cell>4</cell> <cell>3</cell>
+            </row>
+            <row>
+              <cell>5</cell> <cell>4</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          A function <m>g : x \mapsto y</m> is defined by a graph shown below.
+          <ol>
+            <li>What are the domain and range of <m>g</m>?</li>
+            <li>What is <m>g(4)</m>?</li>
+            <li>What value or values of <m>x</m> satisfy <m>g(x)=3</m>?</li>
+            <li>Find the table representation for <m>g</m>.</li>
+          </ol>
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-4.5, xmax=4.5, ymin=-6, ymax=6,
+                grid=both, axis lines = center,
+                xlabel={$x$}, ylabel={$y$},
+              ]
+              \addplot [only marks] coordinates {
+                (-4,3) (-3,1) (-2,0) (-1,2) (0,0)
+                (1,-2) (2,0) (3,-1) (4,-3)
+              };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+    </exercise>
     <exercisegroup>
       <introduction>
       <p>Applications</p>
@@ -1051,13 +1054,10 @@
           and <m>h(x) = \frac{5}{9}(x-32)</m> defines <m>h : F \mapsto C</m>.
           <ol>
             <li>
-              Use algebra to verify that <m>g</m> and <m>h</m> are inverse functions.
-            </li>
-            <li>
               What is the value and interpretation of <m>g(30)</m>?
             </li>
             <li>
-              What is the value and interpretation of <m>g \circ h(30)</m>?
+              What is the value and interpretation of <m>h(70)</m>?
             </li>
           </ol>
           </p>
@@ -1096,7 +1096,7 @@
             </li>
             <li>
               Determine functions <m>g</m> and <m>h</m> so that
-              <m>F \overset{g}{\mapsto} L</m> and <m>L \overset{h}{\mapsto} F</m>.
+              <m>g : F \mapsto L</m> and <m>h : L \mapsto F</m>.
               What are the corresponding equations using evaluation notation?
             </li>
             <li>
@@ -1115,42 +1115,16 @@
       <exercise>
         <statement>
           <p>
-          The perimeter <m>P</m> and area <m>A</m> of a square are each
-          functions of the length of the sides <m>s</m> by <m>P=4s</m> and <m>A=s^2</m>.
-          Find perimeter as a function of area, <m>P \mapsto A</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          The volume of a sphere is related to the radius of the sphere
-          by the equation <m>V = \frac{4}{3} \pi r^3</m>.
-          Suppose the radius is a function of time defined by <m>r = 1+2t</m>.
-          Find the volume as a function of time, <m>t \mapsto V</m>.
-          </p>
-        </statement>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
           The cost <m>C</m> of materials for a project depends on the required area <m>A</m> of materials needed.
-          The unit price is <dollar/>3.50 per <quantity><unit base="meter" exp="2"/></quantity>.
+          The unit price is $3.50 per <quantity><unit base="meter" exp="2"/></quantity>.
           The project involves making two squares, each of them having sides with length <m>s</m> (meters).
           <ol>
-            <li>Find <m>A \overset{f}{\mapsto} C</m>.</li>
-            <li>Find <m>s \overset{g}{\mapsto} A</m>.</li>
-            <li>
-              <p>
-              Use composition to find <m>s \mapsto C</m>.
-              Is this <m>f \circ g</m> or <m>g \circ f</m>?
-              </p>
-            </li>
+            <li>Find <m>f : A \mapsto C</m>.</li>
+            <li>Find <m>g : s \mapsto A</m>.</li>
             <li>
               <p>
               How much would a project with <m>s=4</m> cost?
-              How much area of materials will be required?
-              What function is used for each calculation?
+              How is each function used in order to answer this question?
               </p>
             </li>
           </ol>
