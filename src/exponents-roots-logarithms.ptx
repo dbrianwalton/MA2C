@@ -1007,6 +1007,43 @@
           </p>
         </statement>
       </exercise>
+      <exercise>
+        <statement>
+          <p>
+            P-32 is a radioactive isotope of phosphorus used in labeling biological molecules.
+            P-32 has a half-life of 14.29 days.
+            Suppose an experiment begins with 10 <quantity><unit prefix="micro" base="gram"/></quantity> of P-32.
+            Find a parametrized model for the mass (in <quantity><unit prefix="micro" base="gram"/></quantity>)
+            as a function of time (in days) measured from the start of the experiment, <m>t \mapsto M</m>,
+            in order to determine how much P-32 remains after 10 days and after 100 days.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Create two constraints using <m>t=0</m> and <m>t=14.29</m>.
+          </p>
+        </hint>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            The isotope of plutonium Pu-239 has a half-life of 24,110 years,
+            which is the time after which half of the mass has decayed.
+            For an initial mass of 1 kg, how much plutonium remains after 100 years?
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+          An exponentially growing population that doubles in size every 5 years currently has 1000 individuals.
+          <ol>
+            <li>What will the population be in 4 years?</li>
+            <li>How long does it take for the population to triple?</li>
+          </ol>
+          </p>
+        </statement>
+      </exercise>
     </exercisegroup>
   </exercises>
 </section>

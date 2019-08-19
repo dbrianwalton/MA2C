@@ -32,9 +32,9 @@
     <chapter xml:id="chapter-functions">
       <title>Functions to Model Relationships</title>
       <xi:include href="./functions-introduction.ptx" />
-      <xi:include href="./functions-construction.xml" />
-      <xi:include href="./functions-composition.xml" />
-      <xi:include href="./functions-inverses.xml" />
+      <xi:include href="./functions-construction.ptx" />
+      <xi:include href="./functions-composition.ptx" />
+      <!--<xi:include href="./functions-inverses.xml" />-->
       <xi:include href="./functions-transformation.xml" />
       <xi:include href="./accumulation-rates.xml" />
       <xi:include href="./accumulate-change.xml" />

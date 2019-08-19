@@ -4,7 +4,7 @@
 <!--                                              -->
 <!--      A Modeling Approach to Calculus         -->
 <!--                                              -->
-<!-- Copyright (C) 2017  D. Brian Walton          -->
+<!-- Copyright (C) 2017-2019  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
 
 <section xml:id="functions-construction">
@@ -12,401 +12,279 @@
   <introduction>
     <title>Overview</title>
     <p>
-      We have learned previously that functions provide a map between two variables of a system.
+      We have learned that functions provide a map between two variables of a system.
       In modeling, the functions are almost always defined by formulas,
       with the dependent variable being equal to an expression involving only the independent variable.
       As we analyze these functions with calculus,
-      the rules of computation will depend on how a function algebraically put together.
+      the rules of computation for limits, derivatives, and integrals will depend on how a function is algebraically put together.
     </p>
     <p>
       This section focuses on how expressions and functions are constructed.
       We start by reviewing elementary functions that represent basic operations on the independent variable.
-      Expressions formed by these elementary operations are combined with the basic arithmetic operations and function composition.
-      Common constructions often take the same form, so we consider parametrized families of functions,
-      particularly including power functions and exponential functions.
+      These will serve as the building blocks for our functions.
+      We will then consider the basic arithmetic operations of addition, subtraction, multiplication, and division.
     </p>
   </introduction>
   <subsection>
     <title>Elementary Functions</title>
-    <introduction>
-      <p>
-        Every expression defining a function can be interpreted as a combination of various operations.
-        Operations that act on a single expression are functions.
-        Operations that combine multiple expressions include the binary arithmetic operations,
-        particularly addition and multiplication.
-        In order to characterize expressions,
-        we first review the elementary operations that can be considered as elementary functions.
-      </p>
-    </introduction>
-    <subsubsection>
-      <title>Constant and Identity Functions</title>
-      <p>
+    <p>
+      Every expression defining a function can be interpreted as a combination of various operations.
+      Operations that act on a single expression are functions.
+      Operations that combine multiple expressions include the binary arithmetic operations,
+      particularly addition and multiplication.
+      In order to characterize expressions,
+      we first review the elementary operations that can be considered as elementary functions.
+      We will consider an <term>elementary operation</term> to be a single operation on the variable.
+    </p>
+    <p>
       The simplest operations are the constant functions and the identity function.
       As an operation, the constant function ignores the variable and always gives the same value for the output.
       The identity function, on the other hand, has no net change with the variable and returns an output that matches the input.
-      </p>
-      <definition>
-        <statement>
-          <p>
-          A <term>constant function</term> is a function that has the same output value for every input value,
-          <m>f(x)=c</m> for some constant <m>c</m>.
-          </p>
-        </statement>
-      </definition>
-      <figure>
-        <caption>The constant function <m>f(x)=3</m> as a map <m>x \overset{f}\mapsto 3</m>.</caption>
-        <jsxgraph xml:id="jsx-fcn-construct-constant-ex1" width="75%" aspect="4:1">
-          <input>
-          var jcf1 = {
-            f : function(x) { var y; y=3; return y; },
-            input : { name:'x', color:'blue', value:0, fix:[0,1,2] },
-            output : { name:'y', color:'red' },
-          };
-          createMap(jcf1, 'jsx-fcn-construct-constant-ex1');
-          </input>
-        </jsxgraph>
-      </figure>
-      <figure>
-        <caption>The graph of the constant function <m>y=f(x)=3</m> in the <m>(x,y)</m> plane.</caption>
-        <jsxgraph xml:id="jsx-fcn-construct-constant-graph1" width="75%" aspect="1:1">
-          <input>
-          var jcg1 = {
-            f : function(x) { var y; y=3; return y; },
-            input : { name:'x', color:'blue', value:2 },
-            output : { name:'y', color:'red' },
-          };
-          createFGraph(jcg1, 'jsx-fcn-construct-constant-graph1');
-          </input>
-        </jsxgraph>
-      </figure>
-      <definition>
-        <statement>
-          <p>
-          The <term>identity function</term> is a function
-          where the output value is the same as the input value, <m>f(x)=x</m>.
-          </p>
-        </statement>
-      </definition>
-      <figure>
-        <caption>The identity function <m>f(x)=x</m> as a map <m>x \overset{f}\mapsto x</m>.</caption>
-        <jsxgraph xml:id="jsx-fcn-construct-identity-ex1" width="75%" aspect="4:1">
-          <input>
-          var jcf2 = {
-            f : function(x) { var y; y=x; return y; },
-            input : { name:'x', color:'blue', value:2 },
-            output : { name:'y', color:'red' },
-          };
-          createMap(jcf2, 'jsx-fcn-construct-identity-ex1');
-          </input>
-        </jsxgraph>
-      </figure>
-      <figure>
-        <caption>The graph of the identity function <m>y=f(x)=x</m> in the <m>(x,y)</m> plane.</caption>
-        <jsxgraph xml:id="jsx-fcn-construct-identity-graph1" width="75%" aspect="1:1">
-          <input>
-          var jcg2 = {
-            f : function(x) { var y; y=x; return y; },
-            input : { name:'x', color:'blue', value:2 },
-            output : { name:'y', color:'red' },
-          };
-          createFGraph(jcg2, 'jsx-fcn-construct-identity-graph1');
-          </input>
-        </jsxgraph>
-      </figure>
-      <p>
-        We earlier learned that inverse functions <m>f</m> and <m>f^{-1}</m> have composition
-        <me>f \circ f^{-1}(x) = x, \quad f^{-1}\circ f(x) = x;</me>
-        this is equivalent to saying that <m>f \circ f^{-1}</m> and <m>f^{-1}\circ f</m> are equivalent to an identity function.
-      </p>
-    </subsubsection>
-    <subsubsection xml:id="subsubsection-elementary-arithmetic-operations">
-      <title>Elementary Arithmetic Operations</title>
-      <p>
-        The four basic arithmetic operations of addition, subtraction, multiplication, and division can be used as functions.
-        Because these binary operations require two operands (the expressions being acted on),
-        the simplest functions involve operating on the variable and a particular constant.
-      </p>
-      <p>
-        For example, <m>x \mapsto x+4</m> is an elementary operation that adds the constant 4 to the independent variable.
-        Similarly, <m>x \mapsto 4x</m> is an elementary operation that multiplies the input by 4.
-        Because subtraction is really addition with an additive inverse (the negation) of a number,
-        an operation like <m>x \mapsto x-4</m> is equivalent to <m>x \mapsto x+-4</m>.
-        Likewise, division is really multiplication with a multiplicative inverse (the reciprocal) of a number,
-        so an operation like <m>x \mapsto x \div 4</m> is equivalent to <m>x \mapsto \frac{1}{4} x</m>.
-      </p>
-      <p>
-        We therefore start with two families of constant arithmetic operations:
-        the constant sum and the constant multiple.
-      </p>
-      <definition>
-        <statement>
-          <p>
-            For every real number (constant) <m>c</m>,
-            we can define the constant sum operation
-            <me>x \mapsto x+c</me>
-            and the constant multiple operation
-            <me>x \mapsto cx</me>.
-          </p>
-        </statement>
-      </definition>
-      <p>
-        A constant sum represents a mapping that maintains a constant offset between the input and output.
-        For example, the function <m>x \mapsto x-3</m> has an output that is always 3 units to the left of the input.
-        This mapping is illustrated in the following interactive figure.
-      </p>
-      <figure>
-        <caption>The constant sum <m>f(x)=x-3</m> as a map <m>x \overset{f}\mapsto x-3</m>.</caption>
-        <jsxgraph xml:id="jsx-fcn-construct-constant-sum" width="75%" aspect="4:1">
-          <input>
-          var jcf3 = {
-            f : function(x) { var y; y=x-3; return y; },
-            input : { name:'x', color:'blue', value:2 },
-            output : { name:'y', color:'red' },
-          };
-          createMap(jcf3, 'jsx-fcn-construct-constant-sum');
-          </input>
-        </jsxgraph>
-      </figure>
-      <p>
-        A constant multiple represents a mapping that maintains a constant scaling or ratio between the input and output.
-        For example, the function <m>x \mapsto 2x</m> has an output that is always twice the value of the input.
-        This mapping is illustrated in the following interactive figure.
-      </p>
-      <figure>
-        <caption>The constant multiple <m>f(x)=2x</m> as a map <m>x \overset{f}\mapsto 2x</m>.</caption>
-        <jsxgraph xml:id="jsx-fcn-construct-constant-multiple" width="75%" aspect="4:1">
-          <input>
-          var jcf4 = {
-            f : function(x) { var y; y=2*x; return y; },
-            input : { name:'x', color:'blue', value:2 },
-            output : { name:'y', color:'red' },
-          };
-          createMap(jcf4, 'jsx-fcn-construct-constant-multiple');
-          </input>
-        </jsxgraph>
-      </figure>
-      <p>
-        There are two more arithmetic operations possible with constants.
-        Taking a constant and subtracting the variable, as in <m>x \mapsto 4-x</m>,
-        is not equivalent to a constant sum because we are not adding something to <m>x</m>.
-        Similarly, dividing a constant by a variable, as in <m>x \mapsto 4 \div x</m>,
-        is not equivalent to a constant multiple.
-        We can, however, obtain these functions and others
-        by introducing the reciprocal operation as an elementary arithmetic operation
-        and then using composition of these elementary operations.
-      </p>
-      <definition>
-        <statement>
-          <p>
-            The reciprocal or inverse operation is the function <me>x \mapsto \div x = \frac{1}{x}</me>,
-            defined for all <m>x \ne 0</m>.
-          </p>
-        </statement>
-      </definition>
-      <example>
-        <statement>
-          <p>
-            Express the functions <m>x \mapsto 4-x</m> and <m>x \mapsto 4 \div x</m> as compositions of elementary arithmetic operations.
-          </p>
-        </statement>
-        <solution>
-          <p>
-            We start with the function <m>x \mapsto 4-x</m>.
-            The negation of a number is always equal to that number times <m>-1</m><mdash/>a constant multiple,
-            <me>f_1(x) = -1 x</me>.
-            Because <m>4-x = -x + 4</m>, we can see that we take the output of <m>f_1</m>
-            and apply the elementary arithmetic operation of adding 4,
-            <me>f_2(x) = x+4</me>.
-            The function is question is the composition,
-            <me>f_2 \circ f_1(x) = f_2(-x) = -x + 4 = 4-x</me>.
-          </p>
-          <p>
-            For the second function, <m>x \mapsto 4 \div x</m>, we recall <m>4 \div x = 4 \cdot \frac{1}{x}</m>.
-            Our first elementary operation is the reciprocal,
-            <me>g_1(x) = \frac{1}{x}</me>.
-            We then multiply by the constant 4,
-            <me>g_2(x) = 4x</me>.
-            Our function is the composition
-            <me>g_2 \circ g_1(x) = g_2(\frac{1}{x}) = 4 \cdot \frac{1}{x} = \frac{4}{x}</me>.
-          </p>
-        </solution>
-      </example>
-      <p>
-        We can construct fairly complex operations by composition of various elementary operations.
-        Our ability to recognize compositions will be very important in calculus,
-        so we take advantage of this opportunity to develop this skill.
-      </p>
-      <example>
-        <statement>
-          <p>
-            Express <m>\displaystyle x \mapsto 3 + \frac{4}{2x-5}</m> as a composition of elementary arithmetic operations.
-          </p>
-        </statement>
-        <solution>
-          <p>
-            We start by looking for the variable <m>x</m> in the formula.
-            Using the order of operations, we state in words (at least in our minds) what happens to that value.
-            <ul>
-              <li>Start with <m>x</m>.</li>
-              <li>Multiply by 2.</li>
-              <li>Subtract 5, or, in other words, add <m>-5</m>.</li>
-              <li>Divide 4 by the result.</li>
-              <li>Add 3.</li>
-            </ul>
-            The step where we divide 4 by the result is not an elementary operation.
-            We break it into two steps: (i) find the reciprocal and (ii) multiply by 4.
-          </p>
-          <p>
-            Now that each step is an elementary operation, we can state our composition.
-            First, we define the relevant functions, one for each step.
-            <md>
-              <mrow>f_1(x)=2x</mrow>
-              <mrow>f_2(x)=x+-5</mrow>
-              <mrow>f_3(x)=\frac{1}{x}</mrow>
-              <mrow>f_4(x)=4x</mrow>
-              <mrow>f_5(x)=x+3</mrow>
-            </md>
-            Our function is the composition
-            <me>f_5 \circ f_4 \circ f_3 \circ f_2 \circ f_1(x) = 4 \cdot \frac{2x+-5}+3</me>.
-          </p>
-          <p>
-            It is common for learners to be confused by the functions used in composition.
-            For example, many learners think that <m>f_2(x)</m> should have been <m>2x+-5</m>.
-            Remember that the function representing the operation describes what happens to its input
-            and does not take into account what we might separately know will become the input.
-            The composition of the first two operations would be <m>f_2 \circ f_1(x) = 2x+-5</m>.
-            It might be helpful to use a different placeholder for the input.
-            We could have written <m>\square</m> as a placeholder for the input of subsequent operations
-            to remind us that the operation acts on the input and not on the <m>x</m> of the ultimate formula.
-            <md>
-              <mrow>f_1(x)=2x</mrow>
-              <mrow>f_2(\square)=\square+-5</mrow>
-              <mrow>f_3(\square)=\frac{1}{\square}</mrow>
-              <mrow>f_4(\square)=4\square</mrow>
-              <mrow>f_5(\square)=\square+3</mrow>
-            </md>
-          </p>
-        </solution>
-      </example>
-      <p>
-        When a function can be represented as a composition of elementary arithmetic operations,
-        the inverse function can easily be found by the reverse composition of inverse arithmetic operations.
-        <ul>
-          <li>The inverse of a constant sum operation is another sum with the negation of that constant.</li>
-          <li>The inverse of a constant multiple operation is another multiple with the inverse or reciprocal of that constant. (Multiplying by zero can not be inverted.)</li>
-          <li>The inverse of a reciprocal operation is to apply the reciprocal operation again.</li>
-        </ul>
-      </p>
-      <example>
-        <statement>
-          <p>Find the inverse function for <m>\displaystyle f(x)=\frac{4}{2x-5}+3</m>.</p>
-        </statement>
-        <solution>
-          <p>
-            In the previous example, we identified that <m>f(x)</m> was a composition of the following operations,
-            starting with the input <m>x</m>:
-            <ol>
-              <li>Multiply by 2.</li>
-              <li>Add <m>-5</m>.</li>
-              <li>Reciprocal.</li>
-              <li>Multiply by 4.</li>
-              <li>Add 3.</li>
-            </ol>
-            The inverse function must apply the inverse operations in the reverse order.
-            <ol>
-              <li>Add <m>-3</m>.</li>
-              <li>Multiply by <m>\frac{1}{4}</m>.</li>
-              <li>Reciprocal.</li>
-              <li>Add 5.</li>
-              <li>Multiply by <m>\frac{1}{2}</m>.</li>
-            </ol>
-            The composition of these operations gives us an inverse function,
-            <me>f^{-1}(x) = \frac{1}{2}\Big(\frac{1}{\frac{1}{4}(x+-3)}+5\Big)</me>.
-            We can rewrite this expression in a simpler equivalent form.
-            We can simplify the fraction within a fraction by recognizing <m>\frac{1}{4}(x+-3) = \frac{x-3}{4}</m>
-            and then finding the reciprocal:
-            <md>
-              <mrow>f^{-1}(x) &amp;= \frac{1}{2}\Big(\frac{1}{\big(\frac{x-3}{4}\big)}+5\Big)</mrow>
-              <mrow> &amp;= \frac{1}{2}\Big(\frac{4}{x-3}+5\Big).</mrow>
-            </md>
-            If we wanted to distribute the multiplication by <m>\frac{1}{2}</m>,
-            we would obtain a slightly simpler expression,
-            <me>f^{-1}(x) = \frac{2}{x-3} + \frac{5}{2}</me>.
-          </p>
-        </solution>
-      </example>
-    </subsubsection>
-    <subsubsection>
-      <title>Exponentials, Powers, and Logarithms</title>
-      <p>
-        While studying sequences, we learned about the operations of <xref ref="definition-exponential-function">exponentials</xref> and <xref ref="definition-power-function">powers</xref>.
-        In effect, these two operations add powers involving constants to our collection of elementary operations.
-        We also include the inverse operations.
-      </p>
-      <definition>
-        <statement>
-          <p>
-            The <term>elementary power function</term> with power <m>p</m> is the function
-            that raises the variable to a constant power,
-            <me>\mathrm{pow}_p(x)=x^p</me>.
-          </p>
-        </statement>
-      </definition>
-      <definition>
-        <statement>
-          <p>
-            The <term>elementary exponential function</term> with base <m>b</m>, where <m>b \gt 0</m> and <m>b \ne 1</m>
-            is the function that raises a constant base to the power of the variable,
-            <me>\exp_b(x)=b^x</me>.
-          </p>
-        </statement>
-      </definition>
-      <p>
-        The inverse operations for a power is a root, which is itself a power:
-        <me>\mathrm{pow}_p^{-1}(x) = \sqrt[p]{x} = x^{(1/p)}</me>.
-        Technically, the power operation is not one-to-one for <m>p</m> an even power,
-        so the root is only a true inverse operation for <m>p</m> odd.
-        When <m>p</m> is even, the root is an inverse operation only for non-negative values.
-      </p>
-      <p>
-        The inverse operation for an exponential is a logarithm,
-        <me>\exp_b^{-1}(x) = \log_b(x)</me>
-        We consider logarithms as elementary functions.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title>Trigonometric Functions</title>
-      <p>
-        The trigonometric functions are used in relation to triangles as well as cyclic behavior.
-        There are two fundamental trigonometric functions, the sine and cosine functions,
-        from which the others are defined.
-        We will study these functions in more depth soon,
-        but for the purpose of summary include the following table here.
-        <md>
-          <mrow> \sin(x) &amp; &amp; \text{sine} </mrow>
-          <mrow> \cos(x) &amp; &amp; \text{cosine} </mrow>
-          <mrow> \tan(x) &amp;= \frac{\sin(x)}{\cos(x)} &amp; \text{tangent} </mrow>
-          <mrow> \sec(x) &amp;= \frac{1}{\cos(x)} &amp; \text{secant} </mrow>
-          <mrow> \cot(x) &amp;= \frac{\cos(x)}{\sin(x)} &amp; \text{cotangent} </mrow>
-          <mrow> \csc(x) &amp;= \frac{1}{\sin(x)} &amp; \text{cosecant} </mrow>
-        </md>
-      </p>
-      <p>
-        The trigonometric functions are periodic, which implies that they must not be one-to-one.
-        Inverse trigonometric functions are defined to solve equations for a limited interval
-        and provide additional elementary functions for our use.
-        <md>
-          <mrow> \sin^{-1}(x) &amp;= \arcsin(x) &amp; \text{arcsine} </mrow>
-          <mrow> \cos^{-1}(x) &amp;= \arccos(x) &amp; \text{arccosine} </mrow>
-          <mrow> \tan^{-1}(x) &amp;= \arctan(x) &amp; \text{arctangent} </mrow>
-          <mrow> \sec^{-1}(x) &amp;= \mathop{\mathrm{arcsec}}(x) &amp; \text{arcsecant} </mrow>
-        </md>
+    </p>
+    <definition>
+      <statement>
+        <p>
+        A <term>constant function</term> is a function that has the same output value for every input value,
+        <m>f(x)=c</m> for some constant <m>c</m>.
+        </p>
+      </statement>
+    </definition>
+    <figure>
+      <caption>The constant function <m>f(x)=3</m> as a map <m>x \overset{f}\mapsto 3</m>.</caption>
+      <jsxgraph xml:id="jsx-fcn-construct-constant-ex1" width="75%" aspect="4:1">
+        <input>
+        var jcf1 = {
+          f : function(x) { var y; y=3; return y; },
+          input : { name:'x', color:'blue', value:0, fix:[0,1,2] },
+          output : { name:'y', color:'red' },
+        };
+        createMap(jcf1, 'jsx-fcn-construct-constant-ex1');
+        </input>
+      </jsxgraph>
+    </figure>
+    <figure>
+      <caption>The graph of the constant function <m>y=f(x)=3</m> in the <m>(x,y)</m> plane.</caption>
+      <jsxgraph xml:id="jsx-fcn-construct-constant-graph1" width="75%" aspect="1:1">
+        <input>
+        var jcg1 = {
+          f : function(x) { var y; y=3; return y; },
+          input : { name:'x', color:'blue', value:2 },
+          output : { name:'y', color:'red' },
+        };
+        createFGraph(jcg1, 'jsx-fcn-construct-constant-graph1');
+        </input>
+      </jsxgraph>
+    </figure>
+    <definition>
+      <statement>
+        <p>
+        The <term>identity function</term> is a function
+        where the output value is the same as the input value, <m>f(x)=x</m>.
+        </p>
+      </statement>
+    </definition>
+    <figure>
+      <caption>The identity function <m>f(x)=x</m> as a map <m>x \overset{f}\mapsto x</m>.</caption>
+      <jsxgraph xml:id="jsx-fcn-construct-identity-ex1" width="75%" aspect="4:1">
+        <input>
+        var jcf2 = {
+          f : function(x) { var y; y=x; return y; },
+          input : { name:'x', color:'blue', value:2 },
+          output : { name:'y', color:'red' },
+        };
+        createMap(jcf2, 'jsx-fcn-construct-identity-ex1');
+        </input>
+      </jsxgraph>
+    </figure>
+    <figure>
+      <caption>The graph of the identity function <m>y=f(x)=x</m> in the <m>(x,y)</m> plane.</caption>
+      <jsxgraph xml:id="jsx-fcn-construct-identity-graph1" width="75%" aspect="1:1">
+        <input>
+        var jcg2 = {
+          f : function(x) { var y; y=x; return y; },
+          input : { name:'x', color:'blue', value:2 },
+          output : { name:'y', color:'red' },
+        };
+        createFGraph(jcg2, 'jsx-fcn-construct-identity-graph1');
+        </input>
+      </jsxgraph>
+    </figure>
+    <p>
+      The four basic arithmetic operations of addition, subtraction, multiplication, and division can be used as functions.
+      Because these binary operations require two operands (the expressions being acted on),
+      the elementary arithmetic operations will involve the variable and a particular constant.
+    </p>
+    <p>
+      For example, <m>x \mapsto x+4</m> is an elementary operation that adds the constant 4 to the independent variable.
+      Similarly, <m>x \mapsto 4x</m> is an elementary operation that multiplies the input by 4.
+      Because subtraction is really addition with an additive inverse (the negation) of a number,
+      an operation like <m>x \mapsto x-4</m> is equivalent to <m>x \mapsto x+-4</m>.
+      Likewise, division is really multiplication with a multiplicative inverse (the reciprocal) of a number,
+      so an operation like <m>x \mapsto x \div 4</m> is equivalent to <m>x \mapsto \frac{1}{4} x</m>.
+    </p>
+    <p>
+      This motivates two new elementary operations:
+      the constant sum and the constant multiple.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          For every real number (constant) <m>c</m>,
+          we can define the <term>constant sum</term> operation
+          <me>x \mapsto x+c</me>
+          and the <term>constant multiple</term> operation
+          <me>x \mapsto cx</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      A constant sum represents a mapping that maintains a constant offset between the input and output.
+      For example, the function <m>x \mapsto x-3</m> has an output that is always 3 units to the left of the input.
+      We can think of the constant sum as a shift or translation.
+      This mapping is illustrated in the following interactive figure.
+    </p>
+    <figure>
+      <caption>The constant sum <m>f(x)=x-3</m> as a map <m>x \overset{f}\mapsto x-3</m>.</caption>
+      <jsxgraph xml:id="jsx-fcn-construct-constant-sum" width="75%" aspect="4:1">
+        <input>
+        var jcf3 = {
+          f : function(x) { var y; y=x-3; return y; },
+          input : { name:'x', color:'blue', value:2 },
+          output : { name:'y', color:'red' },
+        };
+        createMap(jcf3, 'jsx-fcn-construct-constant-sum');
+        </input>
+      </jsxgraph>
+    </figure>
+    <p>
+      A constant multiple represents a mapping that maintains a constant scaling or ratio between the input and output.
+      For example, the function <m>x \mapsto 2x</m> has an output that is always twice the value of the input.
+      We can think of the constant multiple as stretching or squeezing by a scale.
+      This mapping is illustrated in the following interactive figure.
+    </p>
+    <figure>
+      <caption>The constant multiple <m>f(x)=2x</m> as a map <m>x \overset{f}\mapsto 2x</m>.</caption>
+      <jsxgraph xml:id="jsx-fcn-construct-constant-multiple" width="75%" aspect="4:1">
+        <input>
+        var jcf4 = {
+          f : function(x) { var y; y=2*x; return y; },
+          input : { name:'x', color:'blue', value:2 },
+          output : { name:'y', color:'red' },
+        };
+        createMap(jcf4, 'jsx-fcn-construct-constant-multiple');
+        </input>
+      </jsxgraph>
+    </figure>
+    <p>
+      There are two more arithmetic operations possible with constants.
+      Taking a constant and subtracting the variable, as in <m>x \mapsto 4-x</m>,
+      is not equivalent to a constant sum because we are not adding something to <m>x</m>.
+      Similarly, dividing a constant by a variable, as in <m>x \mapsto 4 \div x</m>,
+      is not equivalent to a constant multiple.
+      These operations each involve two steps.
+      The first step to each, however, introduces a new elementary operation.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          The <term>negation</term> or additive inverse operation is the function <m>x \mapsto -x</m>, defined for all <m>x</m>.
+          The <term>reciprocal</term> or multiplicative inverse operation is the function <me>x \mapsto \div x = \frac{1}{x}</me>,
+          defined for all <m>x \ne 0</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The negation operation maps a value <m>x</m> to its opposite value.
+      This corresponds to a reflection on the numberline across zero.
+    </p>
+    <figure>
+      <caption>The negation <m>f(x)=-x</m> as a map <m>x \overset{f}\mapsto -x</m>.</caption>
+      <jsxgraph xml:id="jsx-fcn-construct-negation" width="75%" aspect="4:1">
+        <input>
+        var jcf5 = {
+          f : function(x) { var y; y=-x; return y; },
+          input : { name:'x', color:'blue', value:2 },
+          output : { name:'y', color:'red' },
+        };
+        createMap(jcf5, 'jsx-fcn-construct-negation');
+        </input>
+      </jsxgraph>
+    </figure>
+    <p>
+      The reciprocal operation maps a value <m>x</m> to its multiplicative inverse.
+      The product of a number and its inverse always equals <m>1</m>.
+      We could think of this operation as a multiplicative reflection across <m>1</m> for positive values and across <m>-1</m> for negative values.
+    </p>
+    <figure>
+      <caption>The reciprocal <m>f(x)=\div x = 1/x</m> as a map <m>x \overset{f}\mapsto \div x</m>.</caption>
+      <jsxgraph xml:id="jsx-fcn-construct-reciprocal" width="75%" aspect="4:1">
+        <input>
+        var jcf6 = {
+          f : function(x) { var y; y=1/x; return y; },
+          input : { name:'x', color:'blue', value:2 },
+          output : { name:'y', color:'red' },
+        };
+        createMap(jcf6, 'jsx-fcn-construct-reciprocal');
+        </input>
+      </jsxgraph>
+    </figure>
+    <p>
+      The other elementary functions that we have studied can also be considered to be elementary operations.
+      These include the basic powers and roots and exponentials and logarithms.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          The <term>elementary power function</term> with power <m>p</m> is the function
+          that raises the variable to a constant power,
+          <me>\mathrm{pow}_p(x)=x^p</me>.
+          Because roots are also powers, roots are also elementary operations,
+          <me>\mathrm{pow}_p^{-1}(x) = \sqrt[p]{x} = x^{(1/p)}</me>.
+        </p>
+      </statement>
+    </definition>
+    <definition>
+      <statement>
+        <p>
+          The <term>elementary exponential function</term> with base <m>b</m>, where <m>b \gt 0</m> and <m>b \ne 1</m>
+          is the function that raises a constant base to the power of the variable,
+          <me>\exp_b(x)=b^x</me>.
+          Logarithms, as the inverses of exponentials, are included as elementary functions as well,
+          <me>\exp_b^{-1}(x) = \log_b(x)</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The other elementary functions that we will work with are the trigonometric functions.
+      Trigonometric functions are used in relation to triangles as well as cyclic or periodic behavior.
+      There are two fundamental trigonometric functions, the sine and cosine functions,
+      from which the others are defined.
+      We will study these functions in more depth later,
+      but for the purpose of summary include the following table here.
+      <md>
+        <mrow> \sin(x) &amp; &amp; \text{sine} </mrow>
+        <mrow> \cos(x) &amp; &amp; \text{cosine} </mrow>
+        <mrow> \tan(x) &amp;= \frac{\sin(x)}{\cos(x)} &amp; \text{tangent} </mrow>
+        <mrow> \sec(x) &amp;= \frac{1}{\cos(x)} &amp; \text{secant} </mrow>
+        <mrow> \cot(x) &amp;= \frac{\cos(x)}{\sin(x)} &amp; \text{cotangent} </mrow>
+        <mrow> \csc(x) &amp;= \frac{1}{\sin(x)} &amp; \text{cosecant} </mrow>
+      </md>
+    </p>
+    <p>
+      The trigonometric functions are periodic, which implies that they must not be one-to-one.
+      Inverse trigonometric functions are defined to solve equations for a limited interval
+      and provide additional elementary functions for our use.
+      <md>
+        <mrow> \sin^{-1}(x) &amp;= \arcsin(x) &amp; \text{arcsine} </mrow>
+        <mrow> \cos^{-1}(x) &amp;= \arccos(x) &amp; \text{arccosine} </mrow>
+        <mrow> \tan^{-1}(x) &amp;= \arctan(x) &amp; \text{arctangent} </mrow>
+        <mrow> \sec^{-1}(x) &amp;= \mathop{\mathrm{arcsec}}(x) &amp; \text{arcsecant} </mrow>
+      </md>
       The arccotangent and arccosecant functions can be defined but are not used in practice.
-      </p>
-    </subsubsection>
+    </p>
   </subsection>
   <subsection xml:id="subsection-combining-expressions">
-    <title>Algebraic Combinations</title>
+    <title>Algebraic Combinations and Composition</title>
     <p>
       Functions defined by a formula are generally formed by combining these operations and functions into more complicated expressions.
       One of the most valuable skills in calculus is the ability to recognize how a formula is constructed.
@@ -415,8 +293,13 @@
       addition (a <term>sum</term>), subtraction (a <term>difference</term>),
       multiplication (a <term>product</term>), and division (a <term>quotient</term>)
       along with the operation of function <term>composition</term>.
-      Although powers are usually considered algebraic operations,
-      we will think of powers in terms of power and exponential functions.
+    </p>
+    <p>
+      Composition occurs whenever we apply a function or operation to an expression rather than a simple variable.
+      That is, <m>x^4</m> is a simple power operation, but <m>(2x+1)^4</m> is a composition because the power acts on the expression <m>2x+1</m>.
+      We use the arithmetic operations when we take two expressions and combine them.
+      We use composition when we apply a function or operation to a single expression.
+      The expression on which a composition acts is called the <term>input expression</term> or <term>inner expression</term>.
     </p>
     <p>
       Most formulas involve more than one operation.
@@ -428,20 +311,19 @@
       The same technically applies for division being multiplication, but this is less frequently used.
       We will change the meaning of <c>E</c> to stand for <em>Every function</em>, including powers and exponentials,
       as all functions have higher precedence than the arithmetic operations.
-      Composition occurs whenever the operation is a function acting on the output of another operation involving a variable.
     </p>
     <example>
       <statement>
         <p>
-        Classify each function by the last operation that is applied, and then classify each component expression.
-        Make note of when a binary operation involves a constant instead of two variable expressions.
-        <ol>
-          <li><m>f(x)=x^2-3x\sin(x)</m></li>
-          <li><m>g(x)=(2x+1)(x-3)</m></li>
-          <li><m>h(x)=(x^2+3)^4</m></li>
-          <li><m>j(x)=\displaystyle \frac{2xy}{\sqrt{3x-1}}</m></li>
-          <li><m>k(x)=5e^{2x}</m></li>
-        </ol>
+          Classify each function by the last operation that is applied, and then classify each component expression.
+          Make note of when a binary operation involves a constant instead of two variable expressions.
+          <ol>
+            <li><m>f(x)=x^2 - 3x \sin(x)</m></li>
+            <li><m>g(x)=(2x+1)(x-3)</m></li>
+            <li><m>h(x)=(x^2+3)^4</m></li>
+            <li><m>j(x)=\displaystyle \frac{2xy}{\sqrt{3x-1}}</m></li>
+            <li><m>k(x)=5e^{2x}</m></li>
+          </ol>
         </p>
       </statement>
       <solution>
@@ -461,20 +343,16 @@
           <li>
             The function <m>h(x)=(x^2+3)^4</m> has the power (<m>p=4</m>) as its last operation.
             Because we treat powers as functions, this is a composition.
-            The inner expression is <m>u=x^2+3</m>, and <m>h(x)=u^4</m>.
-            If we define outer function <m>O(x)=x^4</m> and inner function <m>I(x)=x^2+3</m>,
-            then <m>h(x) = O \circ I(x)</m>.
-            The outer expression is an elementary power.
+            The inner expression is <m>u=x^2+3</m>, and the operation is the elementary power <m>\mathrm{pow}_4(u) = u^4</m>.
             The inner expression is a sum of <m>x^2</m> and the constant <m>3</m>.
           </li>
           <li>
-            The function <m>j(x)=\displaystyle \frac{2xe^x}{\sqrt{3x-1}}</m> is
-            a <em>quotient</em> of expressions <m>2xe^x</m> and <m>\sqrt{3x-1}</m>.
+            The function <m>j(x)=\displaystyle \frac{2x e^x}{\sqrt{3x-1}}</m> is
+            a <em>quotient</em> of expressions <m>2x e^x</m> and <m>\sqrt{3x-1}</m>.
             The first expression <m>2xe^x</m> is a product of <m>2x</m> and <m>e^x</m>;
-            the second expression <m>\sqrt{3x-1}</m> is a square root (a function) of the expression <m>3x-1</m>,
-            meaning this is a composition.
-            The outer function would be <m>O(x)=\sqrt{x}</m> and the inner function would be <m>I(x)=3x-1</m>.
-            We could also think of the square root as an elementary power function, <m>O(x)=x^{\frac{1}{2}}</m>.
+            the second expression <m>\sqrt{3x-1}</m> is a square root (a function) of the expression <m>u = 3x-1</m>,
+            meaning this is a composition with the operation would be <m>\sqrt{u}</m>.
+            We could also think of the square root as an elementary power function, <m>\sqrt{u} = \mathrm{pow}_{1/2}(u) = u^{1/2}</m>.
           </li>
           <li>
             The expression <m>5e^{2x}</m> is a <em>constant multiple</em> of <m>5</m> with <m>e^{2x}</m>.
@@ -490,37 +368,34 @@
       we often see them in expressions involving more than two terms, such as <m>a+b+c</m> or <m>3xy</m>.
       By convention, the operations are performed left to right as <m>(a+b)+c</m> or <m>(3x)y</m>.
       Because addition and multiplication are commutative and associative,
-      this order doesn't matter and we act as if it were one sum or one product.
+      this order doesn't matter; we act as if it were one sum or one product.
       In calculus, however, all of the rules are based on the binary nature of the operations.
       When classifying the structure of a formula, we should identify exactly two operands.
     </p>
-    <paragraphs>
-      <title>Linear Combinations and Polynomials</title>
-      <p>
-        One of the most common ways to combine expressions in mathematics is to create a sum of constant multiples of those expressions.
-        Such a combination is called a linear combination.
-        The calculus operations of limits, integrals, and derivatives all satisfy a linearity
-        in that they preserve linear combinations.
-        It is therefore useful to recognize them.
-      </p>
-      <definition xml:id="defn-linear-combination">
-        <statement>
-          <p>
-          Given a finite set of expressions, <m>u=(u_1, u_2, \ldots, u_n)</m>,
-          and the same number of constants, <m>c = (c_1, c_2, \ldots, c_n)</m>,
-          the <term>linear combination</term> of the expressions <m>u</m> with <term>coefficients</term> <m>c</m>
-          is the sum of constant multiples of the expressions
-          <me>c_1 u_1 + c_2 u_2 + \cdots + c_n u_n.</me>
-          </p>
-        </statement>
-      </definition>
-      <p>
-        The non-negative integer powers of <m>x</m> are the powers <m>x^0=1</m>, <m>x^1=x</m>, <m>x^2</m>, <m>x^3</m>, etc.,
-        and form the basis for an important family of functions called polynomials.
-      </p>
-      <definition xml:id="defn-polynomial">
-        <statement>
-          <p>
+    <p>
+      One of the most common ways to combine expressions in mathematics is to create a sum of constant multiples of those expressions.
+      Such a combination is called a <term>linear combination</term>.
+      The calculus operations of limits, integrals, and derivatives all satisfy a linearity in that they preserve linear combinations.
+      It is therefore useful to recognize them.
+    </p>
+    <definition xml:id="defn-linear-combination">
+      <statement>
+        <p>
+        Given a finite set of expressions, <m>u=(u_1, u_2, \ldots, u_n)</m>,
+        and the same number of constants, <m>c = (c_1, c_2, \ldots, c_n)</m>,
+        the <term>linear combination</term> of the expressions <m>u</m> with <term>coefficients</term> <m>c</m>
+        is the sum of constant multiples of the expressions
+        <me>c_1 u_1 + c_2 u_2 + \cdots + c_n u_n.</me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The non-negative integer powers of <m>x</m> are the powers <m>x^0=1</m>, <m>x^1=x</m>, <m>x^2</m>, <m>x^3</m>, etc.
+      Linear combinations of non-negative integer powers establish a family of functions called polynomials.
+    </p>
+    <definition xml:id="defn-polynomial">
+      <statement>
+        <p>
           Let <m>n</m> be a non-negative integer.
           A <term>polynomial</term> of <term>degree</term> <m>n</m> is a function
           that can be written in the form
@@ -528,277 +403,418 @@
           where <m>a_0, a_1, \ldots, a_n</m> are constants called the <term>coefficients</term>.
           The term with the highest power <m>a_n x^n</m> is called the <term>leading term</term> and
           <m>a_n</m> is called the <term>leading coefficient</term>.
-          </p>
-        </statement>
-      </definition>
-      <p>
-        Polynomials are just linear combinations of non-negative integer powers of <m>x</m>.
-        A constant multiple of just one such power is called a <term>monomial</term>.
-        The sum of two constant multiples is called a <term>binomial</term>.
-      </p>
-      <example>
-        <statement>
-          <p>
+          A single term <m>a_k x^k</m> is called a <term>monomial</term> of degree <m>k</m>.
+          A polynomial with exactly two terms is called a <term>binomial</term>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
           The polynomial <m>f(x)=3x^3+x^2-5x+8</m> is a linear combination of the powers <m>(1, x, x^2, x^3)</m>.
           The degree of the polynomial is <m>n=3</m>, and the coefficients are <m>(c_0, c_1, c_2, c_3) = (8, -5, 1, 3)</m>.
           The leading coefficient is <m>c_3=3</m>.
-          </p>
-        </statement>
-      </example>
-      <example>
-        <statement>
-          <p>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
           Write down the polynomial <m>f(x)</m> of degree <m>n=4</m> with coefficients <m>(c_0,c_1,c_2,c_3,c_4) = (16, 0, -8, 0, 1)</m>.
-          </p>
-        </statement>
-        <solution>
-          <p>
-          Because <m>c_1=0</m> and <m>c_3=0</m>, we skip the terms with powers <m>x^1=x</m> and <m>x^3</m>.
-          We usually write polynomials in decreasing powers, so we have
-          <md>
-            <mrow>f(x) &amp;= 1x^4 + 0x^3 + -8x^2 + 0x^1 + 16 x^0 </mrow>
-            <mrow> &amp;= x^4-8x^2+16.</mrow>
-          </md>
-          </p>
-        </solution>
-      </example>
-    </paragraphs>
+        </p>
+      </statement>
+      <solution>
+        <p>
+        Because <m>c_1=0</m> and <m>c_3=0</m>, we skip the terms with powers <m>x^1=x</m> and <m>x^3</m>.
+        We usually write polynomials in decreasing powers, so we have
+        <md>
+          <mrow>f(x) &amp;= 1x^4 + 0x^3 + -8x^2 + 0x^1 + 16 x^0 </mrow>
+          <mrow> &amp;= x^4-8x^2+16.</mrow>
+        </md>
+        </p>
+      </solution>
+    </example>
   </subsection>
   <subsection>
-    <title>Parametrized Functions</title>
+    <title>Models From Arithmetic</title>
     <p>
-      When functions have the same structure but use different constants,
-      we say they are in the same parametrized (or parametric) family.
-      For example, linear functions can always be written in the form <m>f(x)=mx+b</m> with different values of <m>m</m> and <m>b</m>.
-      The constants are called the <term>parameters</term> of the family.
-      Some examples of parametrized functions are:
-      <ol>
-        <li>Linear functions <m>f(x)=mx+b</m>, parameters <m>m</m> and <m>b</m>;</li>
-        <li>General power functions <m>f(x)=Ax^p</m>, parameters <m>A</m> and <m>p</m>;</li>
-        <li>
-          General exponential functions <m>f(x)=Ab^x</m>, parameters <m>A</m> and <m>b</m> with <m>b \gt 0</m> and <m>b \ne 1</m>.
-          These can always be written (see <xref ref="exponentials-base-e"/>) in terms of the natural base <m>f(x) = Ae^{kx}</m>, with parameters <m>A</m> and <m>k</m>.
-        </li>
-      </ol>
-      In addition, polynomials could also be considered a parametrized function where the coefficients are the parameters.
-      <ol>
-        <li>Quadratic functions <m>f(x)=ax^2+bx+c</m>, parameters <m>a</m>, <m>b</m>, and <m>c</m>;</li>
-        <li>Cubic functions <m>f(x)=ax^3+bx^2+cx+d</m>, parameters <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m>;</li>
-      </ol>
-    </p>
-    <p>
-      To find the values of the parameters for a function, we use given states for the relation to create equations.
-      The equation associated with each state is called a <term>constraint</term>.
-      We generally need as many constraints as parameters in the function.
-      We solve the system of equations simultaneously to find the parameters.
-      This usually requires a method called solving by substitution.
-    </p>
-    <p>
-      The <term>method of substitution</term> for a system of equations is to take one equation
-      and solve for one of the unknowns.
-      We then substitute that formula in place of that unknown in the <em>other</em> equation.
-      This allows us to find the value of the second unknown.
-      We then back-substitute that value into our first equation to solve for the first unknown.
+      Understanding how functions are constructed also helps us develop models.
+      When a quantity has contributions from multiple sources,
+      we might create a model for each source and then add the contributions.
+      Multiplication often combines factors that affect a single contribution.
+      Division is used when the quantity of interest is defined as a ratio.
     </p>
     <example>
       <statement>
         <p>
-        Use parameter constraint equations to find a linear function <m>f(x)=mx+b</m>
-        satisfying <m>f(2)=5</m> and <m>f(5)=1</m>.
+          Suppose that a population of an diploid organism has a trait characterized by a single gene.
+          That gene has two alleles, a dominant allele <m>A</m> and a recessive allele <m>a</m>.
+          The dominant trait will be present in two possible ways.
+          Either the individual has two copies of the dominant allele (homozygous dominant)
+          or the individual has one copy of each allele (heterozygous).
+          If the population is subject to random mating that is independent of this trait,
+          then the probability that an individual in the next generation will exhibit the dominant genotype
+          can be calculated knowing the proportion of all alleles that are dominant.
+        </p>
+        <p>
+          Because there are two distinct ways to exhibit the dominant genotype,
+          the probability of exhibiting the dominant genotype will be the <em>sum</em>
+          of the probabilities of being homozygous dominant and heterozygous.
+          This is often described as the sum rule of probability,
+          which states that the probability of some outcome that can be attained through multiple pathways
+          is the sum of the probabilities of each of the possible pathways.
+          To calculate the probability of each pathway, we use a <em>product</em> rule associated with sequential events.
+          When a pathway requires that a sequence of random outcomes occur,
+          the probability of that individual pathway is the product of the probabilities of the individual outcomes along the pathway.
+        </p>
+        <p>
+          We can create a diagram showing all of the pathways by creating a decision tree.
+          An individual receives one allele from each parent.
+          Our tree will consider which allele is received from each parent.
+          Let us call <m>p</m> the proportion of alleles in the current generation with the dominant allele.
+          The remaining alleles must be recessive, and we call <m>q=1-p</m> the proportion of alleles that are recessive.
+          The probability associated with receiving an allele from a parent will be equal to the proportion of that allele in the population.
+        </p>
+        <figure>
+          <caption>Tree showing inheritance of alleles from two parents.</caption>
+          <image width="50%">
+            <description>Tree showing inheritance of alleles from two parents</description>
+            <latex-image>
+              \begin{tikzpicture}
+              [
+                grow                    = right,
+                level 1/.style = {sibling distance=5em},
+                level 2/.style = {sibling distance=3em},
+                level distance          = 10em,
+                edge from parent/.style = {draw, -latex},
+              ]
+              \node [ sibling distance = 6em ] {}
+                child { node {$a$}
+                  child {
+                      node {$a \longrightarrow aa$}
+                      edge from parent node [below] {$q$}
+                  }
+                  child {
+                      node {$A \longrightarrow aA$}
+                      edge from parent node [below] {$p$}
+                  }
+                  edge from parent node [below] {$q$}
+                }
+                child { node {$A$}
+                  child {
+                      node {$a \longrightarrow Aa$}
+                      edge from parent node [below] {$q$}
+                  }
+                  child {
+                      node {$A \longrightarrow AA$}
+                      edge from parent node [below] {$p$}
+                  }
+                  edge from parent node [below] {$p$}
+                };
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+        <p>
+          There are three pathways that result in the dominant trait: <m>AA</m>, <m>Aa</m>, and <m>aA</m>.
+          The probabilities associated with each pathway are <m>p^2</m>, <m>pq=p(1-p)</m>, and <m>qp=(1-p)p</m>, respectively.
+          Consequently, the probability that an offspring will have the dominant trait will be
+          <me>f(p) = p^2 + p(1-p) + (1-p)p</me>.
+          The structure of this unsimplified formula reveals a direct relation to the tree.
+          A slightly simplified version,
+          <me>f(p) = p^2 + 2pq = p^2 + 2p(1-p)</me>,
+          combines the two pathways resulting in a heterozygous genotype.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Suppose a population of plants reproduces annually and is subject to density dependence.
+          Density dependence typically results from the effects of competition and crowding with other individuals.
+          The number of seeds each plant can produce is likely to depend on the population density.
+          In addition, the probability that individual seeds will germinate and grow to maturity in the subsequent generation also depends on the population density.
+          If we could characterize these dependencies as functions, then we could create a function that would predict the population size in a subsequent generation.
+        </p>
+        <p>
+          Let <m>P_0</m> represent the population size of the current generation.
+          The subscript <m>0</m> refers to the number of generations in the future.
+          We wish to create a function <m>f: P_0 \mapsto P_1</m>, where <m>P_1</m> is the population one generation in the future.
+          Suppose that <m>S_0</m> measures the average number of seeds produced by each plant in the current generation.
+          The function <m>s: P_0 \mapsto S_0</m> characterizes the dependence of seed production on the population size
+          so that <m>s(P_0)</m> gives the average number of seeds per plant in a population of size <m>P_0</m>.
+          Now suppose that <m>\sigma(P_0)</m> is another function that gives the success probability
+          for an individual seed to survive to maturity coming from a population of size <m>P_0</m>.
+        </p>
+        <p>
+          We can use these elements to construct our function <m>f(P_0)</m>.
+          The total number of seeds produced will be the current population size <m>P_0</m> times the average number of seeds produced per plant.
+          This means that <m>P_0 s(P_0)</m> gives the total number of seeds produced.
+          Not all seeds survive to maturity, so we multiply this by the success probability to give
+          <me>f(P_0) = P_0 \, s(P_0) \, \sigma(P_0)</me>.
+          Thus, the function used to project the subsequent generation's population size is constructed as a product of terms.
+          If there were other ways that seeds could mature to new plants, we would add similar models for those other terms.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          At the beginning of 2018, the US national debt was 20.493 trillion dollars.
+          At the end of the year, the debt had risen to 21.974 trillion dollars.
+          At the beginning of 2018, the US population was 326.2 million.
+          A year later, the population was 328.2 million.
+        </p>
+        <p>
+          Develop a model for the per capita debt as a function of time,
+          where per capita debt is calculated as the ratio of the total debt to the total population size.
         </p>
       </statement>
       <solution>
         <p>
-        We could find an equation of the function by computing the slope and <m>y</m>-intercept,
-        but we want to illustrate parameter constraints.
-        The data will give us equations for <m>m</m> and <m>b</m>.
-        We use the parametrized formula <m>f(x)=mx+b</m> for the two given values
-        <m>x=2</m> and <m>x=5</m> to give us two constraint equations.
-        <md>
-          <mrow>f(2)=5 \quad \Rightarrow \quad \left\{ \begin{matrix} x=2 \\ f(x)=5 \end{matrix} \right. \quad \Rightarrow \quad 5 = m(2)+b </mrow>
-          <mrow>f(5)=1 \quad \Rightarrow \quad \left\{ \begin{matrix} x=5 \\ f(x)=1 \end{matrix} \right. \quad \Rightarrow \quad 1 = m(5)+b </mrow>
-        </md>
-        The system of equations that we need to solve is given by
-        <me> \left\{ \begin{matrix}
-          2m+b = 5, \\
-          5m+b= 1.
-        \end{matrix}\right.</me>
+          The per capita debt will be the total debt <m>D</m> (trillions of dollars) divided by the total population <m>P</m> (millions of individuals).
+          To create a model, we need to make some modeling choices for <m>t \mapsto D</m> and <m>t \mapsto P</m>,
+          where <m>t</m> measures the year.
         </p>
         <p>
-        We solve for <m>b</m> in the first equation.
-        <md>
-          <mrow>2m+b = 5</mrow>
-          <mrow>b=5-2m</mrow>
-        </md>
-        Now substitute this formula into the second equation.
-        <md>
-          <mrow>5m+b=1</mrow>
-          <mrow>5m+(5-2m)=1</mrow>
-          <mrow>3m+5=1</mrow>
-          <mrow>\textstyle m=-\frac{4}{3}</mrow>
-        </md>
-        We finish by back-substituting this value into the first equation
-        to find the value for <m>b</m>,
-        <me>\textstyle b=5-2m=5-2(\frac{4}{3})=5-\frac{8}{3}=\frac{7}{3}.</me>
-        The function is <m>f(x)=-\frac{4}{3}x+\frac{7}{3}</m>.
+          The simplest model might be to use linear functions for both.
+          For a change in time <m>\Delta t = 1</m> (year), we can see that
+          <md>
+            <mrow> \Delta D \amp= 21.974 - 20.493 = 1.481 </mrow>,
+            <mrow> \Delta P \amp= 328.2 - 326.2 = 2.0 </mrow>,
+          </md>
+          which are also slopes (dividing by <m>\Delta t = 1</m> year).
+          Consequently, our linear models for <m>D</m> and <m>P</m> are given by
+          <md>
+            <mrow> D \amp= 20.493 + 1.481 (t-2018) </mrow>,
+            <mrow> P \amp= 326.2 + 2.0 (t-2018) </mrow>.
+          </md>
+          The per capita debt according to this model will be approximated by
+          <me>f(t) = \frac{D}{P} = \frac{20.493 + 1.481 (t-2018)}{ 326.2 + 2.0 (t-2018)}</me>.
         </p>
+        <p>
+          We expect that populations and debt grow exponentially.
+          Consequently, an exponential model for our functions might be more appropriate.
+          Using exponential models, <m>D = A \, b^t</m> and <m>P = B \, a^t</m>, we use our data to find equations for the model parameters.
+          <md>
+            <mrow> t=2018 \quad \amp\Rightarrow \quad 20.493 = A \, b^{2018} </mrow>
+            <mrow> \amp\Rightarrow \quad 326.2 = B \, a^{2018} </mrow>
+            <mrow> t=2019 \quad \amp\Rightarrow \quad 21.974 = A \, b^{2019} </mrow>
+            <mrow> \amp\Rightarrow \quad 328.2 = B \, a^{2019} </mrow>
+          </md>
+          We might use the 2018 equations to solve for <m>A</m> and <m>B</m>,
+          <md>
+            <mrow> A = \frac{20.493}{b^{2018}} </mrow>,
+            <mrow> B = \frac{326.2}{a^{2018}} </mrow>.
+          </md>
+          Then we substitute our results into the 2019 equations:
+          <md>
+            <mrow> 21.974 = \frac{20.493}{b^{2018}} \, b^{2019} = 20.493 b </mrow>
+            <mrow> b = \frac{21.974}{20.493} </mrow>,
+            <mrow> 328.2 = \frac{326.2}{a^{2018}} \, a^{2019} = 326.2 a</mrow>
+            <mrow> a = \frac{328.2}{326.2} </mrow>.
+          </md>
+          Our models can now be written down:
+          <md>
+            <mrow> D \amp= A \, b^t = \frac{20.493}{b^{2018}} \, b^t = 20.493 \, b^{t-2018} </mrow>
+            <mrow> \amp= 20.493 \, \left( \frac{21.974}{20.493} \right)^{(t-2018)} </mrow>,
+            <mrow> P \amp= B \, a^t = \frac{326.2}{a^{2018}} \, a^t = 326.2 \, a^{t-2018} </mrow>
+            <mrow> \amp= 326.2 \, \left( \frac{328.2}{326.2} \right)^{(t-2018)} </mrow>.
+          </md>
+          The function for the per capita debt is then calculated as a ratio,
+          <md>
+            <mrow>f(t) \amp= \frac{D}{P} = \frac{20.493 \, b^{t-2018}}{326.2 \, a^{t-2018}} </mrow>
+            <mrow>  \amp= \frac{20.493}{326.2} \, \left( \frac{21.974(326.2)}{20.493(328.2)} \right)^{t-2018} </mrow>
+            <mrow>  \amp\approx 6.2823 \times 10^{-2} \, (1.0657)^{t-2018} </mrow>
+          </md>
+        </p>
+        <p>
+          Because we modeled the units of the debt as trillions of dollars and of the population as millions of individuals,
+          the units for the per capita debt is in trillions of dollars per millions of individuals.
+          To make sense of the units, it would help to go back to simple units of dollars and individuals.
+          We would need to multiply <m>D</m> by <m>10^{12}</m> to account for each debt unit representing a trillion dollars.
+          Similarly, we multiply <m>P</m> by <m>10^{6}</m> to account for each population unit representing a million individuals.
+          The per capita debt is the ratio, so we multiply the numerator by <m>10^{12}</m> and the denominator by <m>10^6</m>,
+          with a net effect of multiplying by <m>10^6</m>.
+        </p>
+        <figure>
+          <caption>Models of US Per Capita Debt around 2018 in dollars per person.</caption>
+          <image width="50%">
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-3.5, xmax=3.5, ymin=0, ymax=80000,
+                xtick = {-3,-2,-1,0,1,2,3}, xticklabels = {2015, 2016, 2017, 2018, 2019, 2020, 2021},
+                legend pos = south east,
+                scaled y ticks = false,
+                yticklabel={\pgfkeys{/pgf/fpu}%
+                    \pgfmathparse{\tick}%
+                    \pgfmathfloatifflags{\pgfmathresult}{0}{0}{%
+                        \pgfmathprintnumber[fixed,precision=1]{\tick}%
+                    }%
+                    \pgfkeys{/pgf/fpu=false}%
+                },              ]
+              \addplot [blue, thick, domain=-3.5:3.5, samples=50] { 10^6*(20.493 + 1.481*x)/(326.2 + 2.0*x) };
+              \addplot [orange, thick, domain=-3.5:3.5, samples=50] { 62823*1.0657^x };
+              \legend { linear, exponential };
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+
       </solution>
     </example>
+  </subsection>
+  <subsection>
+    <title>Piecewise-Defined Functions</title>
     <p>
-      Solving the parameter equations for a parametric model provides us a way
-      of identifying a function from a particular family that passes through given points.
+      It is often the case that we use different models for different parts of the domain.
+      When we introduced restricted domains, we defined functions by stating an inequality that specified the domain.
+      For example, the equation
+      <me>f(x) = x^2, \quad x \ge 0</me>
+      defines a function with a domain <m>[0,\infty)</m> based on the restriction <m>x \ge 0</m>.
+      If we wanted a different rule for <m>x \lt 0</m>, say
+      <me>f(x) = -x, \quad x \lt 0</me>,
+      then the function now has domain <m>(-\infty, 0)</m>.
+    </p>
+    <p>
+      Functions that do this are called <term>piecewise-defined functions</term>.
+      A piecewise-defined function allows us to specify rules on different parts of the domain.
+      The notation is similar to restricted domains, but we group all of the rules with a curly brace.
+      The function
+      <me>f(x) = \begin{cases} x^2, \amp x \ge 0, \\ -x, \amp x \lt 0 \end{cases}</me>
+      is defined for all values <m>x</m> so that the domain is <m>(-\infty,\infty)</m>.
+    </p>
+    <figure>
+      <caption>Comparison of functions with restricted domains and a piecewise-defined function.</caption>
+      <sbsgroup>
+        <sidebyside widths="40% 40%">
+          <figure>
+            <caption><m>f(x)=x^2, \: x \ge 0</m></caption>
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                \begin{axis}
+                [
+                  axis lines = center,
+                  xmin=-3, xmax=3, ymin=-1, ymax=5,
+                ]
+                \addplot [domain=0:3, samples=50, black, thick] {x^2};
+                \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+          <figure>
+            <caption><m>f(x)=-x, \: x \lt 0</m></caption>
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                \begin{axis}
+                [
+                  axis lines = center,
+                  xmin=-3, xmax=3, ymin=-1, ymax=5,
+                ]
+                \addplot [domain=-3:0, samples=50, black, thick] {-x};
+                \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </sidebyside>
+        <sidebyside width="40%">
+          <figure>
+            <caption><m>f(x)=\begin{cases} x^2, \amp x \ge 0, \\ -x, \amp x \lt 0 \end{cases}</m></caption>
+            <image>
+              <latex-image>
+                \begin{tikzpicture}
+                \begin{axis}
+                [
+                  axis lines = center,
+                  xmin=-3, xmax=3, ymin=-1, ymax=5,
+                ]
+                \addplot [domain=-3:0, samples=50, black, thick] {-x};
+                \addplot [domain=0:3, samples=50, black, thick] {x^2};
+                \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
+        </sidebyside>
+      </sbsgroup>
+    </figure>
+    <p>
+      Piecewise functions appear when there is a sudden change in behavior.
+      The income tax structure in the United States is called a graduated tax
+      because the tax rate increases as the amount of taxable income increases.
     </p>
     <example>
       <statement>
         <p>
-        Find a power function <m>f(x)=Ax^p</m> satisfying <m>f(2)=5</m> and <m>f(5)=1</m>.
+          For 2019, the first three IRS tax brackets for single individuals are as follows:
+          <ol>
+            <li>
+              <p>
+                If taxable income is not over $9700, then the tax is 10% of the taxable income.
+              </p>
+            </li>
+            <li>
+              <p>
+                If taxable income is over $9700 but not over $39475, then the tax is $970 plus 12% of the excess over $9700.
+              </p>
+            </li>
+            <li>
+              <p>
+                If taxable income is over $39475 but not over $84200, then the tax is $4543 plus 22% of the excess over $39475.
+              </p>
+            </li>
+          </ol>
+          Create a piecewise function that calculates the tax given the taxable income.
         </p>
       </statement>
       <solution>
         <p>
-        Start by creating the system of constraint equations.
-        <me> \left\{ \begin{matrix} A \cdot 2^p = 5 \\ A \cdot 5^p = 1 \end{matrix} \right.</me>
-        To use the method of substitution, it is easiest to solve for <m>A</m>:
-        <md>
-          <mrow> A \cdot 2^p = 5, </mrow>
-          <mrow> A = \frac{5}{2^p}.</mrow>
-        </md>
-        Substitute this into the second equation to get an equation for <m>p</m>:
-        <md>
-          <mrow> A \cdot 5^p = 1 </mrow>
-          <mrow> \Big( \frac{5}{\displaystyle 2^p} \Big) \cdot 5^p = 1 </mrow>
-          <mrow> 5 \cdot \Big( \frac{5^p}{2^p} \Big) = 1 </mrow>
-          <mrow> 5 \cdot (\textstyle \frac{5}{2})^p = 1 </mrow>
-        </md>
-        To solve this, we isolate the <em>exponential</em> with base <m>\frac{5}{2}</m>
-        and then use a logarithm as the inverse operation.
-        <md>
-          <mrow> 5 \cdot (\textstyle \frac{5}{2})^p = 1 </mrow>
-          <mrow>(\textstyle \frac{5}{2})^p = \frac{1}{5} </mrow>
-          <mrow>\textstyle \log_{\frac{5}{2}}(\exp_{\frac{5}{2}}(p)) = \log_{\frac{5}{2}}(\frac{1}{5})</mrow>
-          <mrow>\textstyle p = \log_{\frac{5}{2}}(\frac{1}{5})</mrow>
-          <mrow>p = \frac{\log(\frac{1}{5})}{\log(\frac{5}{2})} \approx -1.7565</mrow>
-        </md>
-        This allows us to find the value of <m>A</m>:
-        <me>A = \frac{5}{2^p} \approx \frac{5}{2^{-1.7565}} \approx 16.894.</me>
-        The exact function is defined by
-        <me>f(x) = \frac{5}{2^p} \cdot x^p, \qquad p = \log_{\frac{5}{2}}({\textstyle \frac{1}{5}}),</me>
-        with an approximate form
-        <me>f(x) \approx 16.894 \cdot x^{-1.7565}.</me>
-        </p>
-      </solution>
-    </example>
-    <example>
-      <statement>
-        <p>
-        Find an exponential function <m>f(x)=Ab^x</m> satisfying <m>f(2)=5</m> and <m>f(5)=1</m>.
-        </p>
-      </statement>
-      <solution>
-        <p>
-        Start by creating the system of constraint equations.
-        <me> \left\{ \begin{matrix} A \cdot b^2 = 5 \\ A \cdot b^5 = 1 \end{matrix} \right.</me>
-        We solve for <m>A</m>:
-        <md>
-          <mrow> A \cdot b^2 = 5, </mrow>
-          <mrow> A = \frac{5}{b^2}.</mrow>
-        </md>
-        Substitute this into the second equation to get an equation for <m>p</m>:
-        <md>
-          <mrow> A \cdot b^5 = 1 </mrow>
-          <mrow> \Big( \frac{5}{\displaystyle b^2} \Big) \cdot b^5 = 1 </mrow>
-          <mrow> 5 \cdot \Big( \frac{b^5}{b^2} \Big) = 1 </mrow>
-          <mrow> 5 \cdot b^3 = 1 </mrow>
-          <mrow> b^3 = \textstyle{\frac{1}{5}}</mrow>
-          <mrow> b = \sqrt[3]{\textstyle \frac{1}{5}} = \frac{1}{5^{\frac{1}{3}}} = 5^{-\frac{1}{3}} </mrow>
-        </md>
-        The value of <m>A</m> can be found:
-        <me>A = \frac{5}{b^2} = \frac{5}{(5^{-\frac{1}{3}})^2} = \frac{5}{5^{-\frac{2}{3}}} = 5 \cdot 5^{\frac{2}{3}} = 5^{\frac{5}{3}}.</me>
-        The exact exponential function is defined by
-        <me>f(x) =5^{\frac{5}{3}} \cdot (5^{-\frac{1}{3}})^x</me>,
-        and is approximated by
-        <me>f(x) \approx 14.620 \cdot 0.58480^x</me>.
+          The taxable income <m>I</m> is the independent variable.
+          The <q>if</q> statements describing the taxable income levels describe the intervals of the domain.
+          The first tax bracket is for <m>0 \le I \le 9700</m>,
+          the second bracket is for <m>9700 \lt I \le 39475</m>,
+          and the third bracket is for <m>39475 \lt I \le 84200</m>.
+          Notice how the phrase <q>not over</q> is interpreted as including the stated value.
+          The description of the tax amount uses percentages, which we will need to translate as a decimal multiplication.
+          In addition, the phrase <q>excess over</q> will be interpreted as subtraction.
+          Putting the pieces together,
+          we create the function
+          <me>
+            f(I) = \begin{cases}
+            0.10 I, \amp 0 \le I \le 9700, \\
+            970 + 0.12 (I - 9700), \amp 9700 \lt I \le 39475, \\
+            4543 + 0.22 (I - 39475), \amp 39475 \lt I \le 84200.
+            \end{cases}
+          </me>
+          The function could be extended further if we had additional information for the remaining tax brackets.
         </p>
       </solution>
     </example>
     <p>
-      When we know how to find models for functions, we can use those models to answer questions about physical systems.
+      The absolute value function is a particularly important mathematical function defined piecewise.
+      For values that are negative, the absolute value returns the opposite (positive) value.
+      For zero or for values that are already positive, the absolute value returns the original value.
     </p>
-    <example>
+    <definition xml:id="def-absolute-value">
       <statement>
         <p>
-          A chemical reaction is tracked with concentrations measured every five minutes.
-          The concentration of one reactant is predicted to follow an exponential decay.
-          Let <m>R</m> be the concentration of that reactant in moles per liter as a function of time <m>t</m> in minutes.
-          When <m>t=0</m>, the concentration was <m>R=2.5</m>.
-          When <m>t=5</m>, the concentration was <m>R=2.1</m>.
-          At what time will the concentration be <m>R=1.0</m>?
+          The absolute value function is defined as
+          <me>
+            \mathrm{abs}(x) = |x| = \begin{cases}
+            -x, \amp x \lt 0, \\
+            x, \amp x \ge 0.
+            \end{cases}
+          </me>
         </p>
       </statement>
-      <solution>
-        <p>
-          This question is a bit more challenging as it will involve several stages.
-          We begin by looking at the question.
-          We want to find the time <m>t</m> knowing the concentration <m>R</m>.
-          That is, we would like to apply a map <m>R \mapsto t</m> which would be the inverse of <m>t \mapsto R</m>.
-          To find our answer, we will first need to write <m>R</m> as a dependent variable with <m>t</m> as the independent variable.
-        </p>
-        <p>
-          Next, we look at the given information to see what it says about the relation <m>f: t \mapsto R</m>.
-          Because the problem states that the reactant follows exponential decay,
-          we interpret this as telling us that <m>R = f(t)</m> is an exponential function.
-          The general exponential function has the form
-          <me>f(t) = A \cdot b^{t}</me>
-          where <m>A</m> and <m>b</m> are the model parameters (constants).
-        </p>
-        <p>
-          We use the given information to determine the values of <m>A</m> and <m>b</m>.
-          Each state will give us an equation that can be used to constrain the values of the parameters.
-          The state <m>(t,R) = (0,2.5)</m> corresponds to the equation <m>f(0) = 2.5</m>.
-          The exponential function applied to this equation gives
-          <me>f(0) = A \cdot b^0 = A \qquad \Rightarrow \qquad A = 2.5</me>.
-          The state <m>(t,R) = (5,2.1)</m> corresponds to the equation <m>f(5)=2.1</m>,
-          which gives an equation
-          <me>f(5) = A \cdot b^5 \qquad \Rightarrow \qquad A \cdot b^5 = 2.1</me>.
-          Substituting <m>A=2.5</m> into the second equation, we can then solve for <m>b</m>.
-          <md>
-            <mrow>2.5 \cdot b^5 = 2.1</mrow>
-            <mrow>b^5 = \frac{2.1}{2.5} = 0.84</mrow>
-          </md>
-          The inverse operation of a power <m>p=5</m> is a fifth-root or a power <m>p=\frac{1}{5}</m>.
-          <me>b = \sqrt[5]{0.84} = 0.84^{1/5} \approx 0.96573</me>
-          We will use the exact value.
-        </p>
-        <p>
-          Knowing <m>A=2.5</m> and <m>b = 0.84^{1/5}</m>, we have our function <m>f : t \mapsto R</m>,
-          <me>R = f(t) = 2.5 \cdot (0.84^{1/5})^{t} = 2.5 \cdot 0.84^{t/5}.</me>
-          The inverse function <m>f^{-1} : R \mapsto t</m> can be used to take a concentration and report back a time.
-          We need to solve the equation for <m>t</m> as the dependent variable.
-          When choosing what operation to apply an inverse, we first need to isolate the exponential.
-          <md>
-            <mrow>R = 2.5 \cdot 0.84^{t/5}</mrow>
-            <mrow>\frac{R}{2.5} = 0.84^{t/5}</mrow>
-          </md>
-          We now have an exponential with base <m>b=0.84</m> on the right.
-          The balanced inverse operation would be to use a logarithm with <m>b=0.84</m> on both sides.
-          <md>
-            <mrow>\log_{0.84}(\frac{R}{2.5}) = \frac{t}{5}</mrow>
-            <mrow>5 \log_{0.84}(\frac{R}{2.5}) = t</mrow>
-          </md>
-          We finish by using the change of base formula for logarithms:
-          <me>t = 5 \cdot \frac{\log(R/2.5)}{\log(0.84)}</me>.
-        </p>
-        <p>
-          To answer the question, we use the inverse relation with <m>R=1.0</m> and compute <m>t</m>.
-          <md>
-            <mrow>t &amp;= 5 \cdot \frac{\log(1.0/2.5)}{\log(0.84)}</mrow>
-            <mrow>&amp;= 5 \cdot \frac{\log(0.4)}{\log(0.84)}</mrow>
-            <mrow>&amp;\approx 26.277</mrow>
-          </md>
-          The concentration will be <m>R=1.0</m> approximately 26.277 minutes after the experiment begins.
-        </p>
-      </solution>
-    </example>
+    </definition>
   </subsection>
   <subsection>
     <title>Summary</title>
@@ -862,9 +878,7 @@
         The term <m>a_n x^n</m> is called the leading term.
       </li>
       <li>
-        Knowing the value of a parametrized function for a state establishes
-        a constraint equation for the parameters.
-        With enough constraints, we can often solve for the parameter values using the method of substitution.
+        A piecewise-defined function uses different rules for different portions of the domain.
       </li>
     </ul>
     </p>
@@ -984,77 +998,50 @@
     <exercisegroup>
       <introduction>
         <p>
-        Parametrized functions are often used to model real-life scenarios.
-        In particular, exponential functions are often used to model problems involving radioactive decay.
-        A <term>half-life</term> is a length of time during which the amount of the radioactive substance
-        loses exactly half of its mass.
-        We think of the mass <m>M</m> as a function of time <m>t</m>,
-        <m>M=A\cdot b^t</m>, with parameters <m>A</m> and <m>b</m>.
-        </p>
-        <p>
-        Use the information given in each problem to find a parametrized exponential function
-        satisfying the given data and use it to answer the question.
+          Use the description of each relation to create a corresponding piecewise-defined function.
         </p>
       </introduction>
       <exercise>
         <statement>
           <p>
-          P-32 is a radioactive isotope of phosphorus used in labeling biological molecules.
-          P-32 has a half-life of 14.29 days.
-          Suppose an experiment begins with 10 <quantity><unit prefix="micro" base="gram"/></quantity> of P-32.
-          Find a parametrized model for the mass (in <quantity><unit prefix="micro" base="gram"/></quantity>)
-          as a function of time (in days) measured from the start of the experiment, <m>t \mapsto M</m>,
-          in order to determine how much P-32 remains after 10 days and after 100 days.
+            The marginal tax rate is the percentage rate applied
+            to the amount of taxable income that falls in the tax bracket.
+            Based on the example, we see the marginal tax rate is 10% for income no greater than $9700,
+            12% for income greater than $9700 and no greater than $39475,
+            and 22% for income greater than $39475 and no greater than $84200.
+            Define the function that takes the taxable income and returns the marginal tax rate for these three brackets.
           </p>
         </statement>
-        <hint>
-          <p>
-          Create two constraints using <m>t=0</m> and <m>t=14.29</m>.
-          </p>
-        </hint>
       </exercise>
-
-      <exercise>
+      <exercise xml:id="exercise-gem-stone-marginal-price">
         <statement>
           <p>
-          C-14 is a radioactive isotope of carbon used in dating biological samples.
-          C-14 has a half-life of 5730 years.
-          Due to cosmic rays on atmospheric nitrogen, C-14 has a steady concentration in the atmosphere.
-          The tissue of living plants match the atmospheric concentration until the time of death.
-          Measuring how much the fraction of carbon that is C-14 allows us
-          to estimate the time the plant tissue died.
-          </p>
-          <p>
-          Suppose a sample is measured as having 3.5 <quantity><unit prefix="milli" base="gram"/></quantity>.
-          How old is the sample if the living sample is estimated to have had
-          5.0 <quantity><unit prefix="milli" base="gram"/></quantity>?
-          </p>
-        </statement>
-        <hint>
-          <p>
-          The current measurement gives a constraint for <m>t=0</m>; the half-life gives a second constraint.
-          Solve for <m>t</m> corresponding to the living sample.
-          </p>
-        </hint>
-      </exercise>
-      <exercise>
-        <statement>
-          <p>
-          Radioactive masses decay according to an exponential function of time.
-          The isotope of plutonium Pu-239 has a half-life of 24,110 years,
-          which is the time after which half of the mass has decayed.
-          For an initial mass of 1 kg, how much plutonium remains after 100 years?
+            Many bulk supplies are sold at a discount when enough items are purchased at once.
+            An online gem store sells packages with two amethyst beads.
+            If you purchase fewer than 15 packages, each package costs $10.89.
+            If you purchase at least 15 packages but fewer than 50, each package costs $8.57.
+            If you purchase at least 50 packages but fewer than 100, each package costs $6.42.
+            If you purchase at least 100 packages, each package costs $5.87.
+            Define the function that takes the number of packages ordered and returns the per package cost.
+            Be clear about the domain.
           </p>
         </statement>
       </exercise>
       <exercise>
         <statement>
           <p>
-          An exponentially growing population that doubles in size every 5 years currently has 1000 individuals.
-          <ol>
-            <li>What will the population be in 4 years?</li>
-            <li>How long does it take for the population to triple?</li>
-          </ol>
+            For the gem example in <xref ref="exercise-gem-stone-marginal-price"/>,
+            define the function that takes the number of packages ordered and returns the total cost of the order.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            An electronic scooter can be unlocked for $1.00 and then you are charged $0.15 per minute of use.
+            Partial minutes are rounded up to the next minute, so a rental of two minutes and fifteen seconds would be charged for three minutes or $1.45 total.
+            Define a piecewise function that gives the cost for rental times up to five minutes.
+            What is the domain?
           </p>
         </statement>
       </exercise>

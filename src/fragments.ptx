@@ -873,3 +873,212 @@ These constants are called <term>model parameters</term>.
     </solution>
   </example>
 </subsection>
+
+<exercisegroup>
+  <introduction>
+    <p>
+    In each problem, a relation between two variables is defined by a table of data.
+    Illustrate the relations using arrows between two number lines.
+    In which direction does the relation define a map corresponding to a function?
+    Does that function have an inverse function?
+    Explain why or why not.
+    </p>
+  </introduction>
+  <exercise>
+    <statement>
+      <sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>A</m></cell><cell><m>C</m></cell>
+          </row>
+          <row>
+            <cell>0</cell><cell>5</cell>
+          </row>
+          <row>
+            <cell>1</cell><cell>8</cell>
+          </row>
+          <row>
+            <cell>2</cell><cell>9</cell>
+          </row>
+          <row>
+            <cell>3</cell><cell>8</cell>
+          </row>
+          <row>
+            <cell>4</cell><cell>11</cell>
+          </row>
+        </tabular>
+      </sidebyside>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>x</m></cell><cell><m>E</m></cell>
+          </row>
+          <row>
+            <cell>0</cell><cell>1</cell>
+          </row>
+          <row>
+            <cell>1</cell><cell>2</cell>
+          </row>
+          <row>
+            <cell>2</cell><cell>4</cell>
+          </row>
+          <row>
+            <cell>3</cell><cell>8</cell>
+          </row>
+          <row>
+            <cell>4</cell><cell>16</cell>
+          </row>
+        </tabular>
+      </sidebyside>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>t</m></cell><cell><m>Q</m></cell>
+          </row>
+          <row>
+            <cell>0</cell><cell>8</cell>
+          </row>
+          <row>
+            <cell>1</cell><cell>5</cell>
+          </row>
+          <row>
+            <cell>2</cell><cell>2</cell>
+          </row>
+          <row>
+            <cell>0</cell><cell>-1</cell>
+          </row>
+          <row>
+            <cell>1</cell><cell>-4</cell>
+          </row>
+          <row>
+            <cell>2</cell><cell>-7</cell>
+          </row>
+        </tabular>
+      </sidebyside>
+    </statement>
+  </exercise>
+</exercisegroup>
+<exercisegroup>
+  <introduction>
+    <p>
+    For each equation defining a relation between two variables, find the pair of inverse functions.
+    Identify each function as a map, showing clearly the input and output variables.
+    </p>
+  </introduction>
+  <exercise>
+    <statement>
+      <p><m>4x-5y=2</m></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p><m>2L+2W=20</m></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p><m>2rs - 6 = 4r - 3s</m></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p><m>P=20 \cdot 2^{t/8}</m></p>
+    </statement>
+  </exercise>
+</exercisegroup>
+<exercise>
+  <statement>
+    <p>
+      Temperature can be measured in degrees Celsius and degrees Fahrenheit.
+      Let <m>C</m> be the temperature measured in degrees Celsius,
+      and let <m>F</m> be the temperature measured in degrees Fahrenheit.
+      Under standard conditions, water freezes at the state <m>(C,F) = (0,32)</m>
+      and boils at the state <m>(C,F)=(100,212)</m>.
+      The relation between <m>F</m> and <m>C</m> is a linear relation.
+    </p>
+    <p>
+      Answer the following questions.
+      <ol>
+        <li>
+          Explain what the states <m>(C,F)=(0,32)</m> and <m>(C,F)=(100,212)</m> means in terms of individual variables.
+        </li>
+        <li>
+          Show that both given states satisfy the equation <m>5F-9C=160</m>.
+        </li>
+        <li>
+          Find explicit functions <m>g : F \mapsto C</m> and
+          <m>h : C \mapsto F</m>.
+        </li>
+        <li>
+          Compute <m>g(45)</m>.
+          What does this calculation represent?
+        </li>
+        <li>
+          Compute <m>h(45)</m>.
+          What does this calculation represent?
+        </li>
+      </ol>
+    </p>
+  </statement>
+</exercise>
+
+<example>
+  <statement>
+    <p>
+      The function <m>f</m> defined by
+      <me>f:[0,1] \to \mathbb{R}; x \mapsto 2x+5</me>
+      uses the same formula as the previous example but has a domain <m>D=[0,1]</m>.
+      The interval corresponds to values <m>x</m> that satisfy <m>0 \le x \le 1</m>.
+      Consequently, we could also write the function using a conditional statement as
+      <me> f(x) = 2x+5, \quad 0 \le x \le 1.</me>
+    </p>
+    <p>
+      The graphical representations of <m>f</m> as a map and as a graph are shown in the interactive figures below.
+      Note how the value of the dependent variable is undefined for values of the independent variable outside of the restricted domain.
+    </p>
+    <figure>
+      <caption>The restricted function <m>f(x)=2x+5</m> for <m>0 \le x \le 1</m> as a map.</caption>
+      <jsxgraph xml:id="jsx-fcn-piecewise-restrict-ex1" width="75%" aspect="4:1">
+        <input>
+        <![CDATA[
+        var jcf1 = {
+          f : function(x)
+            {
+              var y=undefined;
+              if (x >= 0 && x <= 1)
+                y=2*x+5;
+              return y;
+             },
+          input : { name:'x', color:'blue', value:0, min:-2.5, max:2.5 },
+          output : { name:'y', color:'red', min:-0.5, max:10.5 },
+        };
+        createMap(jcf1, 'jsx-fcn-piecewise-restrict-ex1');
+        ]]>
+        </input>
+      </jsxgraph>
+    </figure>
+    <figure>
+      <caption>The graph of the restricted function <m>y=f(x)=2x+5</m> for <m>0 \le x \le 1</m>  in the <m>(x,y)</m> plane.</caption>
+      <jsxgraph xml:id="jsx-fcn-piecewise-restrict-graph1" width="75%" aspect="1:1">
+        <input>
+        <![CDATA[
+        var jcg2 = {
+          f : function(x) { var y=undefined; if (x >= 0 && x <= 1) y=2*x+5; return y; },
+          input : { name:'x', color:'blue', value:0.4, min:-1, max:3 },
+          output : { name:'y', color:'red', min:-1, max:10 },
+        };
+        createFGraph(jcg2, 'jsx-fcn-piecewise-restrict-graph1');
+        ]]>
+        </input>
+      </jsxgraph>
+    </figure>
+  </statement>
+</example>
