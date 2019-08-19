@@ -1082,3 +1082,212 @@ These constants are called <term>model parameters</term>.
     </figure>
   </statement>
 </example>
+
+<example>
+  <statement>
+    <p>
+      Express the functions <m>x \mapsto 4-x</m> and <m>x \mapsto 4 \div x</m> as compositions of elementary arithmetic operations.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We start with the function <m>x \mapsto 4-x</m>.
+      The negation of a number is always equal to that number times <m>-1</m><mdash/>a constant multiple,
+      <me>f_1(x) = -1 x</me>.
+      Because <m>4-x = -x + 4</m>, we can see that we take the output of <m>f_1</m>
+      and apply the elementary arithmetic operation of adding 4,
+      <me>f_2(x) = x+4</me>.
+      The function is question is the composition,
+      <me>f_2 \circ f_1(x) = f_2(-x) = -x + 4 = 4-x</me>.
+    </p>
+    <p>
+      For the second function, <m>x \mapsto 4 \div x</m>, we recall <m>4 \div x = 4 \cdot \frac{1}{x}</m>.
+      Our first elementary operation is the reciprocal,
+      <me>g_1(x) = \frac{1}{x}</me>.
+      We then multiply by the constant 4,
+      <me>g_2(x) = 4x</me>.
+      Our function is the composition
+      <me>g_2 \circ g_1(x) = g_2(\frac{1}{x}) = 4 \cdot \frac{1}{x} = \frac{4}{x}</me>.
+    </p>
+  </solution>
+</example>
+<p>
+  We can construct fairly complex operations by composition of various elementary operations.
+  Our ability to recognize compositions will be very important in calculus,
+  so we take advantage of this opportunity to develop this skill.
+</p>
+<example>
+  <statement>
+    <p>
+      Express <m>\displaystyle x \mapsto 3 + \frac{4}{2x-5}</m> as a composition of elementary arithmetic operations.
+    </p>
+  </statement>
+  <solution>
+    <p>
+      We start by looking for the variable <m>x</m> in the formula.
+      Using the order of operations, we state in words (at least in our minds) what happens to that value.
+      <ul>
+        <li>Start with <m>x</m>.</li>
+        <li>Multiply by 2.</li>
+        <li>Subtract 5, or, in other words, add <m>-5</m>.</li>
+        <li>Divide 4 by the result.</li>
+        <li>Add 3.</li>
+      </ul>
+      The step where we divide 4 by the result is not an elementary operation.
+      We break it into two steps: (i) find the reciprocal and (ii) multiply by 4.
+    </p>
+    <p>
+      Now that each step is an elementary operation, we can state our composition.
+      First, we define the relevant functions, one for each step.
+      <md>
+        <mrow>f_1(x)=2x</mrow>
+        <mrow>f_2(x)=x+-5</mrow>
+        <mrow>f_3(x)=\frac{1}{x}</mrow>
+        <mrow>f_4(x)=4x</mrow>
+        <mrow>f_5(x)=x+3</mrow>
+      </md>
+      Our function is the composition
+      <me>f_5 \circ f_4 \circ f_3 \circ f_2 \circ f_1(x) = 4 \cdot \frac{2x+-5}+3</me>.
+    </p>
+    <p>
+      It is common for learners to be confused by the functions used in composition.
+      For example, many learners think that <m>f_2(x)</m> should have been <m>2x+-5</m>.
+      Remember that the function representing the operation describes what happens to its input
+      and does not take into account what we might separately know will become the input.
+      The composition of the first two operations would be <m>f_2 \circ f_1(x) = 2x+-5</m>.
+      It might be helpful to use a different placeholder for the input.
+      We could have written <m>\square</m> as a placeholder for the input of subsequent operations
+      to remind us that the operation acts on the input and not on the <m>x</m> of the ultimate formula.
+      <md>
+        <mrow>f_1(x)=2x</mrow>
+        <mrow>f_2(\square)=\square+-5</mrow>
+        <mrow>f_3(\square)=\frac{1}{\square}</mrow>
+        <mrow>f_4(\square)=4\square</mrow>
+        <mrow>f_5(\square)=\square+3</mrow>
+      </md>
+    </p>
+  </solution>
+</example>
+<p>
+  When a function can be represented as a composition of elementary arithmetic operations,
+  the inverse function can easily be found by the reverse composition of inverse arithmetic operations.
+  <ul>
+    <li>The inverse of a constant sum operation is another sum with the negation of that constant.</li>
+    <li>The inverse of a constant multiple operation is another multiple with the inverse or reciprocal of that constant. (Multiplying by zero can not be inverted.)</li>
+    <li>The inverse of a reciprocal operation is to apply the reciprocal operation again.</li>
+  </ul>
+</p>
+<example>
+  <statement>
+    <p>Find the inverse function for <m>\displaystyle f(x)=\frac{4}{2x-5}+3</m>.</p>
+  </statement>
+  <solution>
+    <p>
+      In the previous example, we identified that <m>f(x)</m> was a composition of the following operations,
+      starting with the input <m>x</m>:
+      <ol>
+        <li>Multiply by 2.</li>
+        <li>Add <m>-5</m>.</li>
+        <li>Reciprocal.</li>
+        <li>Multiply by 4.</li>
+        <li>Add 3.</li>
+      </ol>
+      The inverse function must apply the inverse operations in the reverse order.
+      <ol>
+        <li>Add <m>-3</m>.</li>
+        <li>Multiply by <m>\frac{1}{4}</m>.</li>
+        <li>Reciprocal.</li>
+        <li>Add 5.</li>
+        <li>Multiply by <m>\frac{1}{2}</m>.</li>
+      </ol>
+      The composition of these operations gives us an inverse function,
+      <me>f^{-1}(x) = \frac{1}{2}\Big(\frac{1}{\frac{1}{4}(x+-3)}+5\Big)</me>.
+      We can rewrite this expression in a simpler equivalent form.
+      We can simplify the fraction within a fraction by recognizing <m>\frac{1}{4}(x+-3) = \frac{x-3}{4}</m>
+      and then finding the reciprocal:
+      <md>
+        <mrow>f^{-1}(x) &amp;= \frac{1}{2}\Big(\frac{1}{\big(\frac{x-3}{4}\big)}+5\Big)</mrow>
+        <mrow> &amp;= \frac{1}{2}\Big(\frac{4}{x-3}+5\Big).</mrow>
+      </md>
+      If we wanted to distribute the multiplication by <m>\frac{1}{2}</m>,
+      we would obtain a slightly simpler expression,
+      <me>f^{-1}(x) = \frac{2}{x-3} + \frac{5}{2}</me>.
+    </p>
+  </solution>
+</example>
+
+<example>
+  <statement>
+    <p>
+      A chemical reaction is tracked with concentrations measured every five minutes.
+      The concentration of one reactant is predicted to follow an exponential decay.
+      Let <m>R</m> be the concentration of that reactant in moles per liter as a function of time <m>t</m> in minutes.
+      When <m>t=0</m>, the concentration was <m>R=2.5</m>.
+      When <m>t=5</m>, the concentration was <m>R=2.1</m>.
+      At what time will the concentration be <m>R=1.0</m>?
+    </p>
+  </statement>
+  <solution>
+    <p>
+      This question is a bit more challenging as it will involve several stages.
+      We begin by looking at the question.
+      We want to find the time <m>t</m> knowing the concentration <m>R</m>.
+      That is, we would like to apply a map <m>R \mapsto t</m> which would be the inverse of <m>t \mapsto R</m>.
+      To find our answer, we will first need to write <m>R</m> as a dependent variable with <m>t</m> as the independent variable.
+    </p>
+    <p>
+      Next, we look at the given information to see what it says about the relation <m>f: t \mapsto R</m>.
+      Because the problem states that the reactant follows exponential decay,
+      we interpret this as telling us that <m>R = f(t)</m> is an exponential function.
+      The general exponential function has the form
+      <me>f(t) = A \cdot b^{t}</me>
+      where <m>A</m> and <m>b</m> are the model parameters (constants).
+    </p>
+    <p>
+      We use the given information to determine the values of <m>A</m> and <m>b</m>.
+      Each state will give us an equation that can be used to constrain the values of the parameters.
+      The state <m>(t,R) = (0,2.5)</m> corresponds to the equation <m>f(0) = 2.5</m>.
+      The exponential function applied to this equation gives
+      <me>f(0) = A \cdot b^0 = A \qquad \Rightarrow \qquad A = 2.5</me>.
+      The state <m>(t,R) = (5,2.1)</m> corresponds to the equation <m>f(5)=2.1</m>,
+      which gives an equation
+      <me>f(5) = A \cdot b^5 \qquad \Rightarrow \qquad A \cdot b^5 = 2.1</me>.
+      Substituting <m>A=2.5</m> into the second equation, we can then solve for <m>b</m>.
+      <md>
+        <mrow>2.5 \cdot b^5 = 2.1</mrow>
+        <mrow>b^5 = \frac{2.1}{2.5} = 0.84</mrow>
+      </md>
+      The inverse operation of a power <m>p=5</m> is a fifth-root or a power <m>p=\frac{1}{5}</m>.
+      <me>b = \sqrt[5]{0.84} = 0.84^{1/5} \approx 0.96573</me>
+      We will use the exact value.
+    </p>
+    <p>
+      Knowing <m>A=2.5</m> and <m>b = 0.84^{1/5}</m>, we have our function <m>f : t \mapsto R</m>,
+      <me>R = f(t) = 2.5 \cdot (0.84^{1/5})^{t} = 2.5 \cdot 0.84^{t/5}.</me>
+      The inverse function <m>f^{-1} : R \mapsto t</m> can be used to take a concentration and report back a time.
+      We need to solve the equation for <m>t</m> as the dependent variable.
+      When choosing what operation to apply an inverse, we first need to isolate the exponential.
+      <md>
+        <mrow>R = 2.5 \cdot 0.84^{t/5}</mrow>
+        <mrow>\frac{R}{2.5} = 0.84^{t/5}</mrow>
+      </md>
+      We now have an exponential with base <m>b=0.84</m> on the right.
+      The balanced inverse operation would be to use a logarithm with <m>b=0.84</m> on both sides.
+      <md>
+        <mrow>\log_{0.84}(\frac{R}{2.5}) = \frac{t}{5}</mrow>
+        <mrow>5 \log_{0.84}(\frac{R}{2.5}) = t</mrow>
+      </md>
+      We finish by using the change of base formula for logarithms:
+      <me>t = 5 \cdot \frac{\log(R/2.5)}{\log(0.84)}</me>.
+    </p>
+    <p>
+      To answer the question, we use the inverse relation with <m>R=1.0</m> and compute <m>t</m>.
+      <md>
+        <mrow>t &amp;= 5 \cdot \frac{\log(1.0/2.5)}{\log(0.84)}</mrow>
+        <mrow>&amp;= 5 \cdot \frac{\log(0.4)}{\log(0.84)}</mrow>
+        <mrow>&amp;\approx 26.277</mrow>
+      </md>
+      The concentration will be <m>R=1.0</m> approximately 26.277 minutes after the experiment begins.
+    </p>
+  </solution>
+</example>
