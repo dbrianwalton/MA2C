@@ -857,7 +857,15 @@
       <exercise>
         <statement>
           <p>
-            
+            The density of plants (number of plants per square meter) on a plot of land
+            from year to year has been modeled by the projection function <m>f(x) = 2.8x - 0.18x^2</m>.
+            The plot in the current year is observed to have 3.50 plants per square meter.
+            <ol>
+              <li>What is the predicted density of plants in one year?</li>
+              <li>What is the predicted density of plants in two years?</li>
+              <li>What is the predicted density of plants in three years?</li>
+              <li>Find the function that predicts the density of plants two years from the present.</li>
+            </ol>
           </p>
         </statement>
       </exercise>
