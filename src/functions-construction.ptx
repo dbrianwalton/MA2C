@@ -1045,6 +1045,16 @@
           </p>
         </statement>
       </exercise>
+      <exercise>
+        <statement>
+          <p>
+            A car has a gas tank that holds 12 gallons and drives 35 miles per gallon.
+            The owner starts with a full tank of gas, drives 300 miles, refills the tank, and then drives another 200 miles.
+            Define a piecewise function that gives the amount of gas in the tank as a function of total distance traveled.
+            What is the domain? Are there any ambiguities?
+          </p>
+        </statement>
+      </exercise>
     </exercisegroup>
   </exercises>
 </section>
