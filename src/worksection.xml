@@ -15,7 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./functions-composition.ptx" />
+            <xi:include href="./functions-inverses.ptx" />
 		</chapter>
 
     </book>

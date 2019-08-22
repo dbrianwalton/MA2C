@@ -11,8 +11,525 @@
   <introduction>
     <title>Overview</title>
     <p>
+      A function defines a map from one variable <m>A</m> to another variable <m>B</m>, <m>A \mapsto B</m>.
+      In the context of the function, we call <m>A</m> the independent variable and call <m>B</m> the dependent variable.
+      Knowing <m>A</m>, the function provides the rule to determine <m>B</m>.
+      There are times when knowing <m>B</m>, we wish to find the value of <m>A</m>.
+      This corresponds to using the function to solve an equation.
+      When each value of <m>B</m> results in only a single value of <m>A</m>, the relation defines a new function <m>B \mapsto A</m>.
+      In this case, the inverse relation is called the <term>inverse function</term>.
+    </p>
+    <p>
+      This section discusses the general concept of inverse functions.
+      We will learn to compute inverse functions for given functions by solving equations and by interpreting tables and graphs.
+      Because not all functions are defined by equations that can be solved,
+      the definition of an inverse function will need to be more general and will involve function composition.
+      We will identify attributes of functions that indicate if an inverse function exists.
+      The calibration of instruments using standardized measurements will illustrate a practical application of inverse relations.
     </p>
   </introduction>
+  <subsection xml:id="subsec-finding-inverses">
+    <title>Finding Inverse Functions</title>
+    <p>
+      When we think of a function as a map between variables, say <m>f : A \mapsto B</m>,
+      we think of <m>f</m> as the rule that goes from an input value on the <m>A</m> number line
+      to a corresponding predicted output value on the <m>B</m> number line.
+      An <term>inverse function</term> would be a rule that goes in the reverse direction, <m>B \mapsto A</m>.
+      A function and its inverse function allow us to go back and forth between the two variables in either direction.
+    </p>
+    <definition xml:id="definition-inverse-as-reverse-map">
+      <statement>
+        <p>
+          A function representing a map <m>f : A \mapsto B</m> has an <term>inverse function</term>,
+          which we write <m>f^{-1} : B \mapsto A</m>,
+          if the equation <m>f(a)=b</m> is equivalent to <m>f^{-1}(b)=a</m> for every state <m>(A,B)=(a,b)</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We first illustrate the idea of an inverse function with a function defined by a simple map and no formula.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Imagine a theater that has a promotional wheel so that the price of a ticket is based on which number you spin.
+          The prices are listed in the table below.
+        </p>
+        <sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell>Spin</cell><cell>Price</cell>
+            </row>
+            <row>
+              <cell>1</cell><cell><dollar/>2</cell>
+            </row>
+            <row>
+              <cell>2</cell><cell><dollar/>5</cell>
+            </row>
+            <row>
+              <cell>3</cell><cell><dollar/>8</cell>
+            </row>
+            <row>
+              <cell>4</cell><cell><dollar/>10</cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          We introduce variables for the system.
+          Let <m>S</m> represent the result of the spin and let <m>P</m> represent the price of a ticket.
+          The map <m>f : S \mapsto P</m> can be visualized using number lines.
+          It represents the idea that if you know what spin was achieved,
+          then you will be able to know the price of the tickets.
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}[x=0.5cm]
+              \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
+              \foreach \x in {1, 2, 3, 4} {
+                  \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
+                  \fill ({2*\x-3},0) circle [radius=2pt];
+              }
+              \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
+              \foreach \x in {2, 5, 8, 10} {
+                  \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                  \fill (\x,-2) circle [radius=2pt];
+              }
+              \draw [->] (-1,-0.8) -- (2, -1.8);
+              \draw [->] (1,-0.8) -- (5, -1.8);
+              \draw [->] (3,-0.8) -- (8, -1.8);
+              \draw [->] (5,-0.8) -- (10, -1.8);
+              \draw [->] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f$};
+              \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          The inverse map <m>f^{-1} : P \mapsto S</m> reverses the direction of the arrows.
+          The inverse indicates that knowing the price of the tickets is enough information to know the result of the customer's spin.
+        </p>
+        <sidebyside width="70%">
+          <image>
+            <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}[x=0.5cm]
+              \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
+              \foreach \x in {1, 2, 3, 4} {
+                  \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
+                  \fill ({2*\x-3},0) circle [radius=2pt];
+              }
+              \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
+              \foreach \x in {2, 5, 8, 10} {
+                  \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                  \fill (\x,-2) circle [radius=2pt];
+              }
+              \draw [<-] (-1,-0.8) -- (2, -1.8);
+              \draw [<-] (1,-0.8) -- (5, -1.8);
+              \draw [<-] (3,-0.8) -- (8, -1.8);
+              \draw [<-] (5,-0.8) -- (10, -1.8);
+              \draw [<-] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f^{-1}$};
+              \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+          Based on this system, we see that <m>f(1)=2</m> because when <m>S=1</m> we have <m>P=2</m>.
+          The equivalent inverse equation is <m>f^{-1}(2)=1</m> because a price <m>P=2</m> comes from <m>S=1</m>.
+          Similarly, <m>f(2)=5</m> and <m>f^{-1}(5)=2</m> are equivalent.
+          Because the system is defined by the table and not a formula, <m>f(5)</m> and <m>f^{-1}(3)</m> each have no meaning.
+          In the first case, <m>f(5)</m> has no meaning because <m>S=5</m> is not a possibile spin.
+          In the second case, <m>f^{-1}(3)</m> has no meaning because <m>P=3</m> is not a possible ticket price.
+        </p>
+      </statement>
+    </example>
+    <p>
+      You might have realized a possible problem.
+      What happens if two input values map to the same output value?
+      We wouldn't know which arrow to follow for the reverse mapping.
+      A function that guarantees that different input values always have different output values is called <term>one-to-one</term>.
+      A function that is <em>not</em> one-to-one has at least one value that is the output to two or more different input values.
+    </p>
+    <theorem xml:id="theorem-invertible-one-to-one">
+      <statement>
+        <p>
+          If a function <m>f : A \mapsto C</m> is one-to-one, then the inverse <m>f^{-1}: C \mapsto A</m> is also a function.
+          If <m>f</m> is not one-to-one, then the inverse relation is not a function.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      When an algebraic equation defines the relation between the variables, we can attempt to solve the equation for either of the variables.
+      If both variables can successfully be written as dependent variables, the corresponding formulas define the inverse functions.
+    </p>
+    <example>
+      <statement>
+        <p>
+          A rope of length 100 centimeters is cut into exactly five pieces
+          Two of the pieces are of one length, and the other three pieces are of another length.
+          Let <m>d</m> be the length of the ropes in the group of two.
+          Let <m>t</m> be the length of the ropes in the group of three.
+        </p>
+        <p>
+          Find the functions <m>f : d \mapsto t</m> and <m>g : t \mapsto d</m>.
+          Interpret the meaning of <m>f(10)</m> and <m>g(10)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by finding an equation relating <m>d</m> and <m>t</m>.
+          The total length of the five pieces of rope added together must equal the original length of rope.
+          This results in an equation
+          <me>2d + 3t = 100</me>.
+        </p>
+        <p>
+          With this equation, we can solve for each of the state variables in turn.
+          Solving for <m>d</m>, we subtract <m>3t</m> and divide by <m>2</m>:
+          <me>d = \frac{100-3t}{2}</me>.
+          Solving for <m>t</m>, we subtract <m>2d</m> and divide by <m>3</m>:
+          <me>t = \frac{100-2d}{3}</me>.
+        </p>
+        <p>
+          The function <m>f</m> was defined as the map <m>d \mapsto t</m>,
+          so we use the equation with <m>t</m> as the dependent variable,
+          <me>t = f(d) = \frac{100-2d}{3}</me>.
+          We can find and interpret <m>f(10)</m>.
+          With <m>10</m> as an input, we find <m>f(10) = \frac{100-2(10)}{3} = \frac{80}{3} = 26 \frac{2}{3}</m>.
+          To interpret this, we recall that the input represents a value for <m>d</m>.
+          The equation represents the state <m>d=10</m> and <m>t=26 \frac{2}{3}</m>
+          If the group of two has length 10 centimeters, then the group of three has length <m>26 \frac{2}{3}</m> centimeters.
+        </p>
+        <p>
+          The function <m>g</m> was defined as the map <m>t \mapsto d</m>,
+          so we now use the equation with <m>d</m> as the dependent variable,
+          <me>d = g(t) = \frac{100-3t}{2}</me>.
+          With <m>t=10</m> as an input, we find <m>g(10) = \frac{100-3(10)}{2} = \frac{70}{2} = 35</m>.
+          The function tells us that <m>d=35</m> when <m>t=10</m>.
+          The group of two has length 35 centimeters whenever the group of three has length <m>10</m> centimeters.
+        </p>
+        <p>
+          The functions <m>f</m> and <m>g</m> are inverse functions to each other.
+          If we used a placeholder variable instead of the state variables,
+          we would write
+          <me>f(x) = \frac{100-2x}{3}</me>
+          with its inverse function
+          <me>f^{-1}(x) = g(x) = \frac{100-3x}{2}</me>.
+          Similarly, <m>g^{-1}(x) = f(x)</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      A function might be defined through a graph.
+      You may remember something about the graph of the inverse being a reflection of the graph of the original.
+      The following example will help clarify where that idea originates.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the function defined by the following table.
+          Create a table representing the inverse function.
+          Compare the graphs of the function and its inverse.
+        </p>
+        <sidebyside>
+          <tabular>
+            <col right="major"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <row bottom="major">
+              <cell><m>x</m></cell>
+              <cell><m>-4</m></cell>
+              <cell><m>-3</m></cell>
+              <cell><m>-2</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>3</m></cell>
+              <cell><m>4</m></cell>
+            </row>
+            <row>
+              <cell><m>f(x)</m></cell>
+              <cell><m>4</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>0.5</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>-0.5</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>-2</m></cell>
+              <cell><m>-4</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+      </statement>
+      <solution>
+        <p>
+          Functions represent maps between variables, so let us say that <m>f : A \mapsto B</m>.
+          This gives us a physical interpretation of the values in the table.
+          The row for <m>x</m> corresponds to values of the input <m>A</m>.
+          The row for <m>f(x)</m> correspond to values of the output <m>B</m>.
+          If we were to relabel our table with our variables, we would create the following table.
+        </p>
+        <sidebyside>
+          <tabular>
+            <col right="major"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <row bottom="major">
+              <cell><m>A</m></cell>
+              <cell><m>-4</m></cell>
+              <cell><m>-3</m></cell>
+              <cell><m>-2</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>3</m></cell>
+              <cell><m>4</m></cell>
+            </row>
+            <row>
+              <cell><m>B</m></cell>
+              <cell><m>4</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>0.5</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>-0.5</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>-2</m></cell>
+              <cell><m>-4</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          An inverse function <m>f^{-1}</m> would be the map <m>B \mapsto A</m>.
+          The row associated with <m>B</m> now represents the independent variable
+          while the row for <m>A</m> represents the dependent variable.
+          Because we usually sort the values of the independent variable,
+          we would reorder the columns while keeping the states for <m>(A,B)</m> together.
+        </p>
+        <sidebyside>
+          <tabular>
+            <col halign="center" right="major"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <col halign="center"/><col halign="center"/><col halign="center"/>
+            <row bottom="major">
+              <cell><m>x = B</m></cell>
+              <cell><m>-4</m></cell>
+              <cell><m>-2</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>-0.5</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>0.5</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>4</m></cell>
+            </row>
+            <row>
+              <cell><m>f^{-1}(x) = A</m></cell>
+              <cell><m>4</m></cell>
+              <cell><m>3</m></cell>
+              <cell><m>2</m></cell>
+              <cell><m>1</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>-1</m></cell>
+              <cell><m>-2</m></cell>
+              <cell><m>-3</m></cell>
+              <cell><m>-4</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          A graph of the function is formed by points created from ordered pairs.
+          The graph <m>y=f(x)</m> corresponds to points <m>(x,y)=(A,B)</m>,
+          because <m>f : A \mapsto B</m>.
+          The graph <m>y=f^{-1}(x)</m> corresponds to points <m>(x,y)=(B,A)</m>,
+          because <m>f^{-1} : B \mapsto A</m>.
+          For example, the state <m>(A,B) = (-1,0.5)</m>
+          corresponds to the point <m>(x,y)=(-1,0.5)</m> on the graph <m>y=f(x)</m>
+          and to the point <m>(x,y)=(0.5,-1)</m> on the graph <m>y=f^{-1}(x)</m>.
+          This state is highlighted using a star in the graphs of the two functions below.
+        </p>
+        <sidebyside widths="45% 45%">
+          <image>
+            <description>Graph of the function f</description>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-4.5, xmax=4.5, ymin=-4.5, ymax=4.5,
+                grid=both, axis lines = center, minor tick num=1,
+                xlabel={$x=A$}, ylabel={$y=f(x)=B$},
+              ]
+              \addplot [only marks, thick, blue] coordinates
+              { (-4,4) (-3,2) (-2,1) (0,0) (1,-0.5) (2,-1) (3,-2) (4,-4) };
+              \addplot [only marks, mark = star, mark size=4, thick, blue] coordinates
+              { (-1,0.5) };
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <description>Graph of the inverse function of f</description>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-4.5, xmax=4.5, ymin=-4.5, ymax=4.5,
+                grid=both, axis lines = center, minor tick num=1,
+                xlabel={$x=B$}, ylabel={$y=f^{-1}(x)=A$},
+              ]
+              \addplot [only marks, thick, blue] coordinates
+              { (-4,4) (-2,3) (-1,2) (-0.5,1) (0,0) (1,-2) (2,-3) (4,-4) };
+              \addplot [only marks, mark = star, mark size=4, thick, blue] coordinates
+              { (0.5,-1) };
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    <p>
+      From our example, we see that the graph of an inverse function takes each point
+      on the graph of the original function and reverses the role of the coordinates.
+      Reversing the coordinates of every point in the graph geometrically corresponds to reflecting the graph across the line <m>y=x</m>.
+      This result can help us remember graphs of inverse pairs.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The graph of <m>y=2^x</m> is fairly easy to construct.
+          It is exponential growth that doubles every integer increment of <m>x</m>.
+          So we include, for example, the points <m>(0,1)</m>, <m>(1,2)</m>, and <m>(2,4)</m>.
+          The inverse function of the exponential is the logarithm with base <m>b=2</m>.
+          The graph of the logarithm is the reflection of the exponential graph across <m>y=x</m>
+          and includes the corresponding points <m>(1,0)</m>, <m>(2,1)</m>, and <m>(4,2)</m>.
+        </p>
+        <sidebyside widths="45% 45%">
+          <image>
+            <description>Graph of the exponential base 2</description>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-4.5, xmax=4.5, ymin=-2.5, ymax=6.5,
+                grid=both, axis lines = center, minor tick num=1,
+                xlabel={$x$}, ylabel={$y=2^x$},
+              ]
+              \addplot [domain=-4.5:3, samples=100, thick, blue] {2^x};
+              \addplot [only marks, thick, blue] coordinates
+              { (0,1) (1,2) (2,4) };
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <description>Graph of the logarithm base 2</description>
+            <latex-image>
+              \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-2.5, xmax=6.5, ymin=-4.5, ymax=4.5,
+                grid=both, axis lines = center, minor tick num=1,
+                xlabel={$x$}, ylabel={$y=\log_2(x)$},
+              ]
+              \addplot [domain=-4.5:3, samples=100, thick, blue] ({2^x},{x});
+              \addplot [only marks, thick, blue] coordinates
+              { (1,0) (2,1) (4,2) };
+              \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+      </statement>
+    </example>
+    <p>
+      Now consider a function that is defined as a composition of operations.
+      When we solve the equation to find the inverse function,
+      we will discover that the inverse corresponds to applying the inverses of the original operations in the reverse order.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the function <m>\displaystyle f(x) = \frac{5}{3x+2}</m> corresponding to a map
+          <me>a \overset{f}{\mapsto} b = \frac{5}{3a+2}</me>.
+          The inverse function is found by solving for <m>a</m> in the equation.
+          Cross-multiplying the equation gives
+          <me>b(3a+2) = 5</me>.
+          Dividing by <m>b</m> then gives
+          <me>3a+2 = \frac{5}{b}</me>
+          from which we get
+          <me>a = \frac{\frac{5}{b}-2}{3}</me>.
+        </p>
+        <p>
+          Although we would normally simplify this equation,
+          we have successfully solved for <m>a</m> and so have a formula for the inverse,
+          <me>b \overset{f^{-1}}{\mapsto} a = \frac{ \frac{5}{b}-2}{3}</me>.
+          To simplify the fraction so that there is not a fraction in the numerator,
+          we can multiply top and bottom by the value <m>b</m> giving
+          <me>a = \frac{5 - 2b}{3b} = \frac{5}{3b} - \frac{2}{3}</me>.
+          Using a placeholder variable, like <m>x</m>, instead of the physical variables <m>a</m> and <m>b</m>,
+          the pair of inverse functions are
+          <md>
+            <mrow>f(x) = \frac{5}{3x+2},</mrow>
+            <mrow>f^{-1}(x) = \frac{\frac{5}{x}-2}{3} = \frac{5}{3x} - \frac{2}{3}.</mrow>
+          </md>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let us consider the operations involved in the previous example.
+      The function <m>\displaystyle f(x) = \frac{5}{3x+2}</m> involved the following sequence of operations:
+      <ol>
+        <li>Take the value of <m>x</m>.</li>
+        <li>Multiply by <m>3</m>.</li>
+        <li>Add <m>2</m>.</li>
+        <li>Divide <m>5</m> by the result.</li>
+      </ol>
+      The inverse function <m>\displaystyle f^{-1}(x) = \frac{\frac{5}{x}-2}{3}</m> did the inverse operations in the reverse order:
+      <ol>
+        <li>Take the value of <m>x</m>.</li>
+        <li>Divide <m>5</m> by the value.</li>
+        <li>Subtract <m>2</m>.</li>
+        <li>Divide by <m>3</m>.</li>
+      </ol>
+    </p>
+    <p>
+      This should make sense.
+      Solving the equation for the original independent variable is accomplished by starting at the end and working backwards.
+      This is summarized in the following theorem.
+      The proof captures the idea of solving the equation by working in reverse.
+    </p>
+    <theorem xml:id="thm-inverse-of-composition">
+      <statement>
+        <p>
+          Suppose <m>f(x) = g \circ h(x)</m> and <m>g</m> and <m>h</m> each have inverse functions.
+          Then <m>f^{-1}(x) = h^{-1} \circ g^{-1}(x)</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          The composition corresponds to a chain.
+          Suppose the independent variable is <m>a</m> and the ultimate dependent variable is <m>c</m> so that <m>f: a \mapsto c</m>.
+          Then there is an intermediate variable <m>b = h(a)</m> so that <m>c = g(b)</m>.
+          The inverse function <m>f^{-1}</m> is the map going from <m>c</m> to <m>a</m>, <m>f^{-1}: c \mapsto a</m>.
+          Because <m>g</m> has an inverse and <m>c=g(b)</m>, we can apply <m>c \mapsto b = g^{-1}(c)</m>.
+          Then, because <m>h</m> has an inverse and <m>b = h(a)</m>, we can similarly apply <m>b \mapsto a = h^{-1}(b)</m>.
+          Combining the chain, we have
+          <me>a = h^{-1}(b) = h^{-1}\big( g^{-1}(c) \big) = h^{-1} \circ g^{-1} (c)</me>.
+          The result follows by using a generic independent variable <m>x</m>.
+        </p>
+      </proof>
+    </theorem>
+  </subsection>
   <subsection>
     <title>Inverse Functions and Composition</title>
     <p>
@@ -23,22 +540,6 @@
       then this new equation defined the inverse function.
       Inverse functions undo one another's operations.
     </p>
-    <example>
-      <statement>
-        <p>
-        Consider the function <me>a \overset{f}{\mapsto} b = 3a+2</me>.
-        The inverse function is found by solving for <m>a</m> in the equation <m>b=3a+2</m>
-        which gives <m>\displaystyle a = \frac{b-2}{3}</m>.
-        We have the inverse function
-        <me>b \overset{f^{-1}}{\mapsto} a = \frac{b-2}{3}</me>.
-        Using a placeholder variable, like <m>x</m>, these can be written in function notation:
-        <md>
-          <mrow>f(x) = 3x+2,</mrow>
-          <mrow>f^{-1}(x) = \frac{x-2}{3}.</mrow>
-        </md>
-        </p>
-      </statement>
-    </example>
     <p>
       Let us consider the calculations involved in the previous example.
       The function <m>f</m> took an input and performed the following operations in order:
