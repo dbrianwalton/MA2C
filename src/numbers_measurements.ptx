@@ -83,7 +83,7 @@
       </image>
     </figure>
     <p>
-      Every mathematical value represents a singe point on the number line.
+      Every mathematical value represents a single point on the number line.
       Two values are equal only when they refer to the very same point on the line.
       Calculators give decimal approximations for numbers using a limited number of digits
       and so they can actually only represent a finite collection of the infinitely many possible numbers.
@@ -111,7 +111,7 @@
       <p>
         In practice, we don't always have to find the prime factorization.
         Instead, we can find one common factor at a time until no common factors remain.
-        For example, since 126 and 24 are both even, we would write <me>\frac{126}{24} = \frac{63}{12}.</me>
+        For example, since 126 and 24 are both even, we could write <me>\frac{126}{24} = \frac{63}{12}.</me>
         Then, we look at 63 and 12 and recognize that they are both divisible by 3,
         allowing us to rewrite the fraction as <me>\frac{126}{24} = \frac{63}{12} = \frac{21}{4}.</me>
         Because <m>21=3 \cdot 7</m> and <m>4=2^2</m> do not have common factors, we know this is simplified.
@@ -273,9 +273,9 @@
       </p>
     </note>
     <p>
-      In science, the error in a measurement is not know precisely but is represented by a <em>bound</em>.
+      In science, the error in a measurement is not known precisely but is represented by a <em>bound</em>.
       There are a variety of techniques used to indicate the bound for an error.
-      We will briefly discuss how the use of significant digits or of a margin of error represent error bounds.
+      We will briefly discuss how the use of significant digits or a margin of error represent error bounds.
     </p>
     <p>
       One way that the accuracy of measurements are described is using a number of <term>significant digits</term>.

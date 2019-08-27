@@ -2,6 +2,8 @@
 # archive and partial build  #
 ##############################
 html/*
+html_old/*
+build/pdf/*
 build/images/*
 build/data/*
 archive/*
@@ -12,6 +14,10 @@ archive/*
 *.log
 *.toc
 *.out
+
+# HTML output files #
+#####################
+*.html
 
 # OS generated files #
 ######################
