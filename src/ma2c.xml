@@ -54,6 +54,7 @@
     </chapter>
     <chapter xml:id="chapter-definite-integrals">
       <title>Calculus of Continuous Functions</title>
+      <xi:include href="./integrals-preview.ptx" />
       <xi:include href="./calculus-overview.xml" />
       <xi:include href="./riemann-sums.xml" />
       <xi:include href="./integral-properties.xml" />

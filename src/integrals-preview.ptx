@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2017-2019  D. Brian Walton     -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="integrals-preview">
+  <title>Accumulation Functions and the Definite Integral</title>
+  <introduction>
+    <title>Overview</title>
+    <p>
+      The concept of the <term>definite integral</term> can be motivated by the notion of accumulated change.
+      When we learn about linear functions, the idea of a constant slope or rate of change serves as the fundamental concept.
+      For a definite integral, we generalize this notion to a changing rate.
+    </p>
+    <p>
+      In this section, we begin with an example of linear functions and piecewise linear functions as models of accumulation.
+      Using these examples, we establish some basic principles that we want to hold in general.
+      These principles become the fundamental properties of the definite integral.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Linear Functions as Accumulation</title>
+    <p>
+      The word accumulation is defined as <q>the acquisition or gradual gathering of something</q> (Oxford Dictionary, <href ref="https://www.lexico.com/en/definition/accumulation"/>, accessed August 27, 2019).
+      Consider a tank of water that has water added at a constant rate of <quantity><mag>5</mag><unit base="liter"/><per base="minute"/></quantity>.
+      At the start of our observation, the tank contains <quantity><mag>200</mag><unit base="liter"/></quantity> of water.
+      We wish to think of the amount of water in the tank as an accumulation of the water that has flowed into the tank as a function of time.
+    </p>
+    <p>
+      Quantities that have a constant rate of change are modeled with linear functions,
+      and the rate of change is used as the slope.
+      If <m>V</m> is the volume of water that the tank contains (in liters)
+      and <m>t</m> is the time of observation (in minutes),
+      then the state of the tank is given by <m>(t,V)</m>.
+      The equation that models the accumulation is then given by
+      <me>V = 200 + 5t</me>.
+      The <m>V</m>-intercept of 200 represents the starting value (when <m>t=0</m>),
+      and the product <m>5t</m> represents the accumulation of additional water
+      that is added during the interval of time <m>(0,t)</m>.
+    </p>
+    <p>
+      The point-slope equation of a line similarly captures the idea of accumulation.
+      Suppose after 10 minutes, the water flowing into the tank stops and water begins to drain at a rate of  <quantity><mag>15</mag><unit base="liter"/><per base="minute"/></quantity>.
+      We can use our earlier model to find the volume of water after the 10 minutes of filling has completed,
+      <me>V = 200 + 5(10) = 250</me>.
+      This becomes a new initial value for the tank relative to the draining, which corresponds to a negative rate of change or slope.
+      For <m>t \gt 10</m>, we have a new model,
+      <me>V = 250 - 15(t-10)</me>.
+      The expression <m>-15(t-10)</m> represents the accumulated loss of water.
+      We multiply the rate <m>-15</m> by the <em>increment</em> of time <m>t-10</m>,
+      since that is how long the tank was left to drain.
+    </p>
+    <p>
+      Putting our models together, we obtain a piecewise function that represents the accumulation of water in the tank.
+      <me>
+        V = \begin{cases}
+        200 + 5t, \amp 0 \le t \le 10, \\
+        250 - 15(t-10), \amp t \gt 10.
+        \end{cases}
+      </me>
+      We can think of the rate of accumulation <m>R</m> as another variable, which is also piecewise,
+      <me>
+        R = \begin{cases}
+        5, \amp 0 \lt t \lt 10, \\
+        -15, \amp t \gt 10.
+        \end{cases}
+      </me>
+      We do not define <m>R</m> when <m>t=10</m> because of the ambiguity in how the transition occurs.
+      Because <m>R</m> is the rate of accumulation corresponding to the accumulation <m>V</m>,
+      we write <m>R = V'</m> (read <m>V</m>-prime).
+      We will later learn that <m>R</m> is the derivative of <m>V</m> at points where <m>R</m> is continuous.
+    </p>
+    <figure>
+      <caption>
+        The volume of the tank of water that fills for 10 minutes and then drains,
+        and the corresponding rate of accumulation, as functions of time.
+      </caption>
+      <sidebyside widths="45% 45%">
+        <image>
+          <description>Graph of the volume of water V</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=0, xmax=20, ymin=0, ymax=300,
+                xlabel={$t$}, ylabel={$V$}, axis lines=center,
+              ]
+              \addplot [domain=0:10, blue, thick] {200+5*x};
+              \addplot [domain=10:20, blue, thick] {250-15*(x-10)};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <image>
+          <description>Graph of the rate of accumulation R</description>
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=0, xmax=20, ymin=-20, ymax=20,
+                xlabel={$t$}, ylabel={$R=V'$}, axis lines=center,
+              ]
+              \addplot [domain=0:10, blue, thick] {5};
+              \addplot [domain=10:20, blue, thick] {-15};
+              \addplot [only marks, blue, fill=white] coordinates
+              { (10,5) (10,-15) };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </sidebyside>
+    </figure>
+    <p>
+      Given any piecewise constant rate of accumulation <m>f(x)=A'(x)</m> for an accumulation <m>A(x)</m>,
+      we can easily compute the formulas for <m>A(x)</m> as a piecewise linear function.
+      We repeatedly apply the point-slope equation of a line and require that <m>A(x)</m> is continuous at each transition point.
+      This will then help motivate some general properties that will relate to the definite integral.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Suppose <m>f(x)=A'(x)</m> is defined as
+          <me>
+            f(x) = \begin{cases}
+            3, \amp x \lt 2, \\
+            -2, \amp 2 \lt x \lt 5, \\
+            5, \amp x \gt 5.
+            \end{cases}
+          </me>
+          If <m>A(0) = 2</m>, find <m>A(x)</m> as a piecewise function.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Because the initial value is given as <m>A(0)=2</m>,
+          we begin our construction at <m>x=0</m>.
+          This point on the domain is inside the interval <m>x \lt 2</m>,
+          so we start with a rate <m>A'=3</m>.
+          The formula for <m>A(x)</m> with <m>x \lt 2</m> is therefore
+          <me>A(x) = 2 + 3x, \quad x \lt 2</me>.
+          So that <m>A(x)</m> is continuous, we must have <m>A(2) = 2+3(2) = 8</m>.
+        </p>
+        <p>
+          Having found the value of <m>A(x)</m> on the interval <m>(-\infty,2]</m>,
+          we next consider the interval <m>(2,5)</m> where <m>A'=-2</m>.
+          Using our value <m>A(2)=8</m> as an initial value, we can write
+          <me>A(x) = 8 + -2(x-2), \quad 2 \lt x \lt 5</me>.
+          To have continuity at <m>x=5</m>, we require <m>A(5)=8+-2(3)=2</m>.
+          Repeating the process on the last interval, <m>(5,\infty)</m>,
+          where <m>A' = 5</m>, we obtain
+          <me>A(x) = 2 + 5(x-5), \quad x \gt 5</me>.
+        </p>
+        <p>
+          Putting the pieces together, we obtain our final piecewise representation of <m>A(x)</m>:
+          <me>
+            A(x) = \begin{cases}
+            2 + 3x, \amp x \le 2, \\
+            8 + -2(x-2), \amp 2 \lt x \le 5, \\
+            2 + 5(x-5), \amp x \gt 5.
+            \end{cases}
+          </me>
+        </p>
+        <figure>
+          <caption>
+            Graphs of the piecewise constant rate of accumulation <m>f(x) = A'(x)</m>
+            and the piecewise linear accumulation <m>A(x)</m>.
+          </caption>
+          <sidebyside widths="45% 45%">
+            <image>
+              <description>Graph of the rate of accumulation f(x)</description>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [
+                    xmin=-2, xmax=8, ymin=-4, ymax=6,
+                    xlabel={$x$}, ylabel={$f(x)=A'(x)$}, axis lines=center,
+                  ]
+                  \addplot [domain=-2:2, blue, thick] {3};
+                  \addplot [domain=2:5, blue, thick] {-2};
+                  \addplot [domain=5:8, blue, thick] {5};
+                  \addplot [only marks, blue, fill=white] coordinates
+                  { (2,3) (2,-2) (5,-2) (5,5) };
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+            <image>
+              <description>Graph of the accumulation function A(x)</description>
+              <latex-image>
+                \begin{tikzpicture}
+                  \begin{axis}
+                  [
+                    xmin=-2, xmax=8, ymin=-4, ymax=16,
+                    xlabel={$x$}, ylabel={$f(x)=A'(x)$}, axis lines=center,
+                  ]
+                  \addplot [domain=-2:2, blue, thick] {2+3*x};
+                  \addplot [domain=2:5, blue, thick] {8+-2*(x-2)};
+                  \addplot [domain=5:8, blue, thick] {2+5*(x-5)};
+                  \end{axis}
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+    <ul>
+      <li>
+      </li>
+    </ul>
+    </p>
+  </subsection>
+  <exercises>
+    <exercise>
+      <statement>
+      </statement>
+    </exercise>
+  </exercises>
+</section>
