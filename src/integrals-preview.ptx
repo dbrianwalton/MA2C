@@ -120,7 +120,7 @@
       We repeatedly apply the point-slope equation of a line and require that <m>A(x)</m> is continuous at each transition point.
       This will then help motivate some general properties that will relate to the definite integral.
     </p>
-    <example>
+    <example xml:id="example-piecewise-linear-from-rates">
       <statement>
         <p>
           Suppose <m>f(x)=A'(x)</m> is defined as
@@ -210,10 +210,311 @@
     </example>
   </subsection>
   <subsection>
+    <title>A Geometric Interpretation of Accumulation</title>
+    <p>
+      In our earlier example (<xref ref="example-piecewise-linear-from-rates"/>),
+      we had the point <m>A(0)=2</m> and a rate <m>f(x)=3</m> for <m>x \lt 2</m>.
+      When we used the point-slope formula to find <m>A(2)</m>, we had
+      <me>A(2) = 2 + 3(2) = 8</me>.
+      Then, having found <m>A(2)=8</m> and knowing <m>f(x)=-2</m> for <m>2 \lt x \lt 5</m>,
+      we were able to compute <m>A(5)</m> as
+      <me>A(5) = 8 + -2(5-2) = 2</me>.
+      In each case, we took a known starting value (<m>A(0)=2</m> or <m>A(5)=8</m>)
+      and then added an <em>increment of change</em>.
+      With a constant rate of accumulation, these increments were calculated
+      as the rate of change times the increment of change in the independent variable, <m>\Delta x</m>.
+    </p>
+    <p>
+      Expressing the increment of change as a product of two values has a useful geometric interpretation.
+      The most basic geometric idea that is calculated as a product of two numbers is area.
+      Can we interpret the increment of change as an area?
+      Almost.
+      An area is always a positive number, but our second increment of change <m>-2(3)=-6</m> was a negative value.
+      So we modify our idea to <term>signed area</term>.
+    </p>
+    <p>
+      How does the area geometrically appear?
+      Consider the graph of the rate of accumulation, <m>y=f(x)</m>.
+      The rate of change corresponds to the height of the graph from the axis.
+      We should soon recognize that there are rectangles from which we can find the signed area.
+      When the graph is below the axis, we have a signed height that is considered negative.
+      When the graph is above the axis, the signed height is positive.
+      The increment of <m>x</m> depends on which direction we are going.
+      We compute
+      <me>\Delta x = x_{\text{end}} - x_{\text{start}}</me>.
+      Consequently, if the increment moves to the right, we have <m>\Delta x \gt 0</m>;
+      if the increment moves to the left, we have <m>\Delta x \lt 0</m>.
+      The signed area is simply the product of the signed height times the signed increment of <m>x</m>.
+    </p>
+    <figure>
+      <caption>
+        A graph of the rate of accumulation function <m>y=f(x)</m>
+        showing the increments of change as signed areas, shaded in color.
+        The increment as <m>x</m> goes from <m>x=0</m> to <m>x=2</m> is shaded in purple.
+        The increment as <m>x</m> goes from <m>x=2</m> to <m>x=5</m> is shaded in orange.
+      </caption>
+      <image width="60%">
+        <description>Graph of the rate of accumulation f(x) with increments shaded</description>
+        <latex-image>
+          \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-2, xmax=8, ymin=-4, ymax=6,
+              xlabel={$x$}, ylabel={$f(x)=A'(x)$}, axis lines=center,
+            ]
+            \addplot [domain=-2:2, blue, thick] {3};
+            \addplot [domain=2:5, blue, thick] {-2};
+            \addplot [domain=5:8, blue, thick] {5};
+            \addplot [only marks, blue, fill=white] coordinates
+            { (2,3) (2,-2) (5,-2) (5,5) };
+            \fill [violet!25, opacity=0.5] (axis cs:0,0) rectangle (axis cs:2,3);
+            \fill [orange!25, opacity=0.5] (axis cs:2,0) rectangle (axis cs:5,-2);
+            \end{axis}
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      We will generalize the idea of accumulation from constant rates of change to arbitrary rates of change using signed area.
+      Suppose we are given the graph of a function <m>f(x)</m> that is a rate of accumulation <m>f(x)=A'(x)</m> for some quantity <m>A(x)</m>.
+      We will require the function to be piecewise continuous and have no infinite limits.
+      The increment of change for <m>A(x)</m> as <m>x</m> goes from <m>x=a</m> to <m>x=b</m> will be equal
+      to the sum of the signed areas formed by the regions between <m>y=f(x)</m> and the axis <m>y=0</m>.
+      This increment of change will be represented by a definite integral,
+      <me>\Delta A = A(b) - A(a) = \int_a^b f(x) \, dx</me>.
+    </p>
+    <p>
+      The notation for a definite integral is meant to be suggestive of this interpretation.
+      The integral symbol <m>\displaystyle \int</m> is drawn to look like the letter S to represent summation.
+      The limits of integration <m>a</m> and <m>b</m> indicate the value for <m>x</m> where we start on the bottom
+      the the value for <m>x</m> where we end on the top.
+      What do we add? The increments <m>f(x) \, dx</m> that are being accumulated.
+      The expression <m>f(x)</m> is the function giving the rate of accumulation and symbolically represents the signed height of incremental rectangles.
+      The symbol <m>dx</m> is called the <term>infinitesimal</term> and symbolically represents the signed increment of the independent variable or width of the rectangle.
+      When <m>b \gt a</m>, we are integrating to the right and <m>dx \gt 0</m>;
+      when <m>b \lt a</m>, we are integrating to the left (reverse) and <m>dx \lt 0</m>.
+    </p>
+    <p>
+      When the shape of the graph of <m>f(x)</m> uses straight line segments or other simple geometric shapes,
+      we can calculate the signed area using simple geometric formulas.
+    </p>
+    <assemblage xml:id="assemblage-geometric-area-formulas">
+      <title>Area Formulas for Common Geometric Regions</title>
+      <p>
+        <ul>
+          <li>
+            <p>
+              Rectangle, length <m>\ell</m> and width <m>w</m>.
+              <me>
+                A = \ell \, w
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Triangle, base <m>b</m> and height <m>h</m> (perpendicular to base).
+              <me>
+                A = {\textstyle \frac{1}{2}} b \, h
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Parallelogram, base <m>b</m> and height <m>h</m> (perpendicular to base).
+              <me>
+                A = b \, h
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Trapezoid, parallel sides <m>b_1</m> and <m>b_2</m> and height <m>h</m> (perpendicular to parallel sides).
+              <me>
+                A = {\textstyle \frac{1}{2}} (b_1 + b_2) \, h
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Circle, radius <m>r</m>.
+              <me>
+                A = \pi r^2
+              </me>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </assemblage>
+    <example>
+      <statement>
+        <p>
+          Consider the graph of the function <m>f(t)</m> shown below.
+          Suppose that <m>f(t)</m> is the rate of accumulation for <m>A(t)</m>, <m>f(t) = A'(t)</m>.
+          If we know <m>A(2)=5</m>, find the values for <m>A(6)</m> and <m>A(-3)</m>.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-6, xmax=8, ymin=-7.5, ymax=7.5,
+                axis lines=center, xlabel={$t$}, ylabel={$f(t)$},
+                grid = both, minor x tick num=1, minor y tick num=4,
+              ]
+              \addplot [thick, blue, no marks] coordinates
+              { (-7,-2) (-5,-2) (-3,2) (0,2) };
+              \addplot [thick, blue, no marks] coordinates
+              { (0,6) (3,6) (7,-6) (9,-6) };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+      <solution>
+        <p>
+          To find <m>A(6)</m>, we start at the known value <m>A(2)=5</m>
+          and add the accumulated increment of change as <m>t</m> goes from 2 to 6.
+          That is, using the notation of a definite integral, we have
+          <me>A(6) = A(2) + \int_2^6 f(t) \, dt</me>.
+          We will calculate this definite integral using geometric shapes.
+        </p>
+        <p>
+          We identify our shapes by considering the regions vertically between the graph of <m>f(t)</m> and the <m>t</m>-axis.
+          At <m>t=2</m>, the graph is above the axis and remains above the axis until <m>t=5</m>.
+          Our first region consists of a trapezoid bounded by <m>t=2</m> on the left, the <m>t</m>-axis below,
+          and the graph of <m>f(t)</m> above and to the right.
+          From <m>t=5</m> to <m>t=6</m>, the graph of <m>f(t)</m> is below the axis.
+          The second region consists of a triangle bounded by the <m>t</m>-axis on the top,
+          the line <m>t=6</m> on the right, and the graph of <m>f(t)</m> on the left.
+          These shapes are illustrated in the graph below as shaded regions.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-6, xmax=8, ymin=-7.5, ymax=7.5,
+                axis lines=center, xlabel={$t$}, ylabel={$f(t)$},
+                grid = both, minor x tick num=1, minor y tick num=4,
+              ]
+              \addplot [thick, blue, no marks] coordinates
+              { (-7,-2) (-5,-2) (-3,2) (0,2) };
+              \addplot [thick, blue, no marks] coordinates
+              { (0,6) (3,6) (7,-6) (9,-6) };
+              \draw [fill=violet!25, opacity=0.4]
+                (axis cs:2,0) -- (axis cs:2,6) --
+                (axis cs:3,6) -- (axis cs:5,0) -- cycle;
+              \draw [fill=violet!25, opacity=0.4]
+                (axis cs:5,0) -- (axis cs:6,-3) --
+                (axis cs:6,0) -- cycle;
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          Having identified the relevant regions, we now calculate their signed area.
+          We first recall that the direction of <m>t</m> is left to right, so that horizontal signed lengths are positive.
+          Vertical signed lengths depend on whether we are above (positive) or below (negative) the axis.
+          The trapezoid between <m>t=2</m> and <m>t=5</m> has parallel bases of signed length 1 (top) and 3 (bottom)
+          and a perpendicular height of 5 units.
+          The resulting area for this trapezoid is
+          <me>\text{area}_1={\textstyle \frac12} (1+3)(5) = 10</me>.
+          The triangle has a base of signed length 1 and a height of signed length <m>-3</m>, with corresponding area
+          <me>\text{area}_2={\textstyle \frac12} (1)(-3) = {\textstyle -\frac{3}{2}}</me>.
+          Note that we could instead have used a single rectangle for <m>t=2</m> to <m>t=3</m> and a triangle for <m>t=3</m> to <m>t=5</m> in place of the trapezoid.
+        </p>
+        <p>
+          The total accumulated increment of change is the sum of the signed areas,
+          <me>
+            \int_{2}^{6} f(t) \, dt = {\textstyle 10 + -\frac{3}{2} = \frac{17}{2}}
+          </me>.
+          Consequently, we find
+          <me>A(6) = A(2) + \int_{2}^{6} f(t) \, dt = {\textstyle 5 + \frac{17}{2} = \frac{27}{2}}</me>.
+        </p>
+        <p>
+          To find <m>A(-3)</m>, we again start at the known value <m>A(2)=5</m>
+          and add the accumulated increment of change as <m>t</m> goes from 2 to -3.
+          Using a definite integral, we have
+          <me>A(-3) = A(2) + \int_{2}^{-3} f(t) \, dt</me>.
+          Because <m>t</m> is going backwards, our increments of <m>t</m> will be negative.
+          When we calculate geometric signed areas, illustrated in the graph below, our horizontal edges will have negative signed lengths.
+        </p>
+        <image width="50%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-6, xmax=8, ymin=-7.5, ymax=7.5,
+                axis lines=center, xlabel={$t$}, ylabel={$f(t)$},
+                grid = both, minor x tick num=1, minor y tick num=4,
+              ]
+              \addplot [thick, blue, no marks] coordinates
+              { (-7,-2) (-5,-2) (-3,2) (0,2) };
+              \addplot [thick, blue, no marks] coordinates
+              { (0,6) (3,6) (7,-6) (9,-6) };
+              \draw [fill=violet!25, opacity=0.4]
+                (axis cs:2,0) -- (axis cs:2,6) --
+                (axis cs:0,6) -- (axis cs:0,0) -- cycle;
+              \draw [fill=violet!25, opacity=0.4]
+                (axis cs:0,0) -- (axis cs:0,2) --
+                (axis cs:-3,2) -- (axis cs:-3,0) -- cycle;
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          This time, the regions consist of two rectangles.
+          The signed area for the rectangle from <m>t=2</m> to <m>t=0</m>,
+          formed by a horizontal edge with signed length <m>-2</m>
+          and a vertical edge with signed length <m>6</m>, is
+          <me>\text{area}_1 = (-2)(6) = -12</me>.
+          The signed area for the second rectangle from <m>t=0</m> to <m>t=-3</m>,
+          formed by a horizontal edge with signed length <m>-3</m>
+          and a vertical edge with signed length <m>2</m>, is
+          <me>\text{area}_2 = (-3)(2) = -6</me>.
+          The total accumulated increment is the sum,
+          <me>
+            \int_{2}^{-3} f(t) \, dt = {\textstyle -12 - 6} = -18
+          </me>.
+          Consequently, we find
+          <me>A(-3) = A(2) + \int_{2}^{-3} f(t) \, dt = {\textstyle 5 -18 = -13}</me>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
     <title>Summary</title>
     <p>
     <ul>
       <li>
+        Piecewise constant rates of change correspond to continuous, piecewise linear functions.
+      </li>
+      <li>
+        <p>
+          Given a function <m>f(x)</m> that provides the rate of change for another function <m>A(x)</m>,
+          the function <m>A</m> is called the accumulation function with rate <m>f</m>
+          and the function <m>f</m> is called the rate of accumulation for <m>A</m>.
+          We write <m>f(x) = A'(x)</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The change in an accumation function <m>A(x)</m> as <m>x</m> goes from <m>x=a</m> to <m>x=b</m>,
+          calculated from <m>A</m> by <m>A(b)-A(a)</m>,
+          is represented by a <term>definite integral</term> of its rate of accumulation,
+          <me>A(b) - A(a) = \int_a^b f(x) \, dx</me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The definite integral calculates a sum of increments, each represented by the product <m>f(x) \, dx</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The geometric interpretation of the definite integral is the sum of the increments of signed area 
+          of regions bounded by the graph of the rate of accumlation <m>f(x)</m> and the <m>x</m>-axis.
+        </p>
       </li>
     </ul>
     </p>

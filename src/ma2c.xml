@@ -53,16 +53,16 @@
       <xi:include href="./sequences-limit-calculations.xml" />
     </chapter>
     <chapter xml:id="chapter-definite-integrals">
-      <title>Calculus of Continuous Functions</title>
+      <title>Accumulation and Integrals</title>
       <xi:include href="./integrals-preview.ptx" />
-      <xi:include href="./calculus-overview.xml" />
+      <xi:include href="./integral-properties.ptx" />
       <xi:include href="./riemann-sums.xml" />
-      <xi:include href="./integral-properties.xml" />
       <xi:include href="./functions-limits.xml" />
       <xi:include href="./functions-continuity.xml" />
     </chapter>
     <chapter xml:id="extras">
       <title>Other Stuff Not Yet Placed</title>
+      <xi:include href="./calculus-overview.xml" />
       <xi:include href="./functions-and-intervals.xml" />
       <xi:include href="./functions-behavior.xml" />
     </chapter>
