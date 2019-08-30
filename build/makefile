@@ -59,6 +59,8 @@ $(LATEX_single).pdf: images $(LATEX_single).tex
 	cp -a $(MA2Croot)/src/data/ data/
 	pdflatex $(LATEX_single).tex
 
+pdf1: $(LATEX_base)-1page.pdf ;
+
 pdf: $(LATEX_base).pdf ;
 
 latex: $(LATEX_base).tex ;
@@ -71,9 +73,18 @@ data:
 .PHONY: $(LATEX_base).tex
 
 $(LATEX_base).tex:
-	xsltproc -o $(LATEX_base).tex --xinclude $(XSL)/$(LATEX_XSL) $(XML)/$(XML_base)
+	xsltproc -o $(LATEX_base).tex --stringparam latex.sides "two" --xinclude $(XSL)/$(LATEX_XSL) $(XML)/$(XML_base)
+
+$(LATEX_base)-1page.tex:
+	xsltproc -o $(LATEX_base)-1page.tex --stringparam latex.sides "one" --xinclude $(XSL)/$(LATEX_XSL) $(XML)/$(XML_base)
 
 $(LATEX_base).pdf: images $(LATEX_base).tex
+	cp -a $(MA2Croot)/img/ images/
+	cp -a $(MA2Croot)/src/data/ data/
+	pdflatex $(LATEX_base).tex
+	pdflatex $(LATEX_base).tex
+
+$(LATEX_base)-1page.pdf: images $(LATEX_base)-1page.tex
 	cp -a $(MA2Croot)/img/ images/
 	cp -a $(MA2Croot)/src/data/ data/
 	pdflatex $(LATEX_base).tex

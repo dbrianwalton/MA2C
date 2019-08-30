@@ -20,18 +20,79 @@
       We essentially think of these properties as the axioms of definite integrals,
       basic properties which must always be true.
     </p>
+    <p>
+      Because accumulation functions are defined in terms of definite integrals,
+      we also develop properties of accumulation functions in terms of our knowledge of the rate of accumulation.
+      We will learn how the sign of the rate of accumulation determines if the accumulation function is increasing or decreasing.
+      We will also learn how the concavity of the accumulation function is related to the rate of accumulation.
+    </p>
   </introduction>
   <subsection>
-    <title>Splitting and Linearity Properties</title>
+    <title>Integrability</title>
+    <p>
+      Before we talk about the properties of the definite integral,
+      we need to establish some terminology about when the definite integral is even defined.
+      From our introduction, we know that the definite integral will be defined
+      if we can describe the geometric region as a finite number of rectangles and triangles.
+      Such shapes will occur for functions that are defined piecewise constant or piecewise linear.
+      However, more complicated functions might have potential issues.
+    </p>
+    <p>
+      One of the most significant developments of modern mathematics was developing an understanding of when functions can be integrated or not.
+      Mathematicians would take an interpretation of the definite integral and then construct bizarre functions for which that interpretation would break.
+      Then they would create new definitions for integrals that worked over progressively more complex circumstances.
+      For our purposes, we will focus on the definition of the integral using limits of Riemann sums.
+    </p>
+    <definition xml:id="defn-integrability">
+      <title>Integrability</title>
+      <statement>
+      <p>
+        A function <m>f : [a,b] \to \mathbb{R}</m> is <term>integrable</term>
+        (or, more simply, integrable) on <m>[a,b]</m>
+        if <m>\displaystyle \int_{a}^{b} f(x) \, dx</m> is defined.
+      </p>
+      </statement>
+    </definition>
+    <p>
+      The actual interpretation of when the definite integral is defined is described in <xref ref="section-riemann-sums"/>.
+      The scope of mathematics for this text is not concerned with determining which functions are or are not integrable,
+      with one exception.
+      Continuous functions are integrable.
+    </p>
+    <theorem xml:id='thm-continuous-integrable'>
+      <title>Continuous Functions are Integrable</title>
+      <statement>
+      <p>
+        If <m>f : [a,b] \to \mathbb{R}</m> is continuous,
+        then <m>f</m> is integrable on <m>[a,b]</m>.
+      </p>
+      </statement>
+    </theorem>
+    <p>
+      In fact, we get a result a little better than this.
+      The function can have a finite number of discontinuities on the interval
+      as long as left- and right-limits exist at all of the discontinuities.
+      We do not allow infinite discontinuities at this stage of learning,
+      as that will require a concept called improper integrals.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Splitting Properties</title>
+    <p>
+      Consider any region in the plane for which we can find its area.
+      Suppose we could cut the region, like we might cut a shape in two parts with scissors.
+      The area of the original region would be the sum of the areas of the subregions created by our cut.
+      This fact of geometric area motivates the <term>splitting</term> property of the definite integral.
+    </p>
     <p>
       Splitting properties are motivated by considering adjacent intervals,
       say <m>[a,b]</m> and <m>[b,c]</m>,
       and requiring that the definite integral on <m>[a,c]</m>
       is the sum of the integrals over the two pieces,
       <me>\int_{a}^{b} f(x) \, dx + \int_b^c f(x) \, dx = \int_{a}^{c} f(x) \, dx.</me>
-      However, this would seem to require that <m>a \lt b \lt c</m>.
-      While this is certainly true, the definite integral
-      is defined in a way that the order does not matter.
+      As described, this would seem to require that <m>a \lt b \lt c</m>.
+      However, the definite integral is defined in a way that the order does not matter,
+      so long as we replace our idea about intervals into directed excursions through an interval.
     </p>
     <p>
       Recalling that the definite integral is motivated
@@ -46,25 +107,24 @@
     <theorem xml:id="thm-definite-integral-splitting">
       <title>Splitting Property of Definite Integrals</title>
       <statement>
-      <p>
-      Suppose that <m>f</m> is integrable on an interval
-      that contains <m>a</m>, <m>b</m> and <m>c</m>.
-      Then <me> \int_{a}^{b} f(x) dx + \int_{b}^{c} f(x) dx = \int_{a}^{c} f(x) dx. </me>
-      </p>
+        <p>
+          Suppose that <m>f</m> is integrable on an interval that contains <m>a</m>, <m>b</m> and <m>c</m>.
+          Then <me> \int_{a}^{b} f(x) dx + \int_{b}^{c} f(x) dx = \int_{a}^{c} f(x) dx. </me>
+        </p>
       </statement>
     </theorem>
     <p>
-    Similarly, if <m>x</m> does not change,
-    then the dependent quantity <m>Q</m> should also not change,
-    regardless of the function defining the rate of change.
-    This is the motivation for the next theorem.
+      Similarly, if <m>x</m> does not change,
+      then the dependent quantity <m>Q</m> should also not change,
+      regardless of the function defining the rate of change.
+      This is the motivation for the next theorem.
     </p>
     <theorem xml:id="thm-integral-empty">
       <title>Integral on an Empty Interval</title>
       <statement>
-      <p>
-      For any function <m>f</m>, <me> \int_{a}^{a} f(x) \, dx = 0. </me>
-      </p>
+        <p>
+          For any function <m>f</m>, <me> \int_{a}^{a} f(x) \, dx = 0. </me>
+        </p>
       </statement>
     </theorem>
     <p>
@@ -76,7 +136,7 @@
       <title>Integral in Reverse</title>
       <statement>
         <p>
-          For any function <m>f</m>,
+          For any integrable function <m>f</m>,
           <me> \int_{b}^{a} f(x) \, dx = - \int_{a}^{b} f(x) \, dx. </me>
         </p>
       </statement>
@@ -91,10 +151,14 @@
       </proof>
     </theorem>
     <p>
-      It is important to remember that the interpretation of a definite integral
-      as signed area only applied when the limits of integration go from left to right.
-      When the limits of integration go from right to left,
-      we compute the signed area but need to reverse the sign because of the direction of integration.
+      When we interpret a definite integral as signed area,
+      we must take into account the direction of integration.
+      The usual integration over an interval <m>[a,b]</m> is interpreted as going from <m>x=a</m> to <m>x=b</m>.
+      Regions above the axis generate positive signed area; regions below the axis generate negative signed area.
+      However, if we were to reverse direction, going from <m>x=b</m> to <m>x=a</m>,
+      then the signs are reversed.
+      This potential stumbling block can be mitigated if we remember to think of <m>dx</m> as having a sign as well.
+      Integrals going from left to right result in <m>dx \gt 0</m>; integrals going from right to left have <m>dx \lt 0</m>.
     </p>
     <example>
       <statement>
@@ -106,27 +170,26 @@
       </statement>
       <solution>
         <p>
-        We use the splitting property of definite integrals.
-        The interval <m>[0,4]</m> can be split into <m>[0,3]</m> and <m>[3,4]</m>
-        so that <me> \int_{0}^{4} f(x)\, dx = \int_0^3 f(x)\,dx + \int_3^4 f(x)\,dx. </me>
-        We know two of the integrals and can solve for the third:
-        <me> 6 = \int_0^3 f(x)\,dx + 10 \qquad \Leftrightarrow \qquad \int_0^3 f(x)\,dx = -4. </me>
+          We use the splitting property of definite integrals.
+          The interval <m>[0,4]</m> can be split into <m>[0,3]</m> and <m>[3,4]</m>
+          so that <me> \int_{0}^{4} f(x)\, dx = \int_0^3 f(x)\,dx + \int_3^4 f(x)\,dx. </me>
+          We know two of the integrals and can solve for the third:
+          <me> 6 = \int_0^3 f(x)\,dx + 10 \qquad \Leftrightarrow \qquad \int_0^3 f(x)\,dx = -4. </me>
         </p>
         <p>
-        An alternate approach for finding the integral is
-        to start with the integral that is wanted, using the interval <m>[0,3]</m>,
-        so that we start at <m>0</m> and end at <m>3</m>.
-        We will use the splitting property using out-of-order points
-        and go from <m>0</m> to <m>4</m> and then from <m>4</m> to <m>3</m>:
-        <me> \int_{0}^{3} f(x)\, dx = \int_0^4 f(x)\,dx + \int_4^3 f(x)\,dx. </me>
-        The second integral is in a reversed order.
-        If we switch the order to go left-to-right,
-        then the integral is subtracted instead of added:
-        <me> \int_{0}^{3} f(x)\, dx = \int_0^4 f(x)\,dx - \int_3^4 f(x)\,dx = 6 - 10 = -4. </me>
+          An alternate approach for finding the integral is
+          to start with the integral that is wanted, using the interval <m>[0,3]</m>,
+          so that we start at <m>0</m> and end at <m>3</m>.
+          We will use the splitting property using out-of-order points
+          and go from <m>0</m> to <m>4</m> and then from <m>4</m> to <m>3</m>:
+          <me> \int_{0}^{3} f(x)\, dx = \int_0^4 f(x)\,dx + \int_4^3 f(x)\,dx. </me>
+          The second integral is in a reversed order.
+          If we switch the order to go left-to-right,
+          then the integral is subtracted instead of added:
+          <me> \int_{0}^{3} f(x)\, dx = \int_0^4 f(x)\,dx - \int_3^4 f(x)\,dx = 6 - 10 = -4. </me>
         </p>
       </solution>
     </example>
-
     <example>
       <statement>
         <p>
@@ -166,13 +229,14 @@
       </statement>
       <solution>
         <p>
-        Because the graph consists of straight lines, we can use geometry to calculate areas and use signed area to determine values of definite integrals. Shading the region between the graph <m>y=f(x)</m> and the axis <m>y=0</m> and between <m>x=-3</m> and <m>x=0</m>, we get the figure shown below.
+        Because the graph consists of straight lines, we can use geometry to calculate areas
+        and use signed area to determine values of definite integrals.
+        Shading the region between the graph <m>y=f(x)</m> and the axis <m>y=0</m> and between <m>x=-3</m> and <m>x=0</m>,
+        we get the figure shown below.
         </p>
-        <sidebyside width="60%" margins="auto">
-        <image>
+        <image width="60%">
           <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
+          \tikzset{%
           }
           \begin{tikzpicture}
           \begin{axis} [
@@ -198,65 +262,60 @@
           \fill [opacity=0.25, blue] (axis cs:-1,0) -- (axis cs:0,3)
             -- (axis cs: 0,0) -- cycle;
           \end{axis}
-          \end{tikzpicture}]]>
+          \end{tikzpicture}
           </latex-image>
         </image>
-        </sidebyside>
         <p>
-        The region between <m>x=-3</m> and <m>x=-1</m> is a trapezoid
-        that has area <m>\frac{1}{2}(1+2)(3) = \frac{9}{2}</m>.
-        The region between <m>x=-1</m> and <m>x=0</m> is a triangle
-        with area <m>\frac{1}{2}(1)(3) = \frac{3}{2}</m>.
-        Signed area corresponds to an integral from left-to-right so that
-        <me> \int_{-3}^{0} f(x)\,dx = -\frac{9}{2} + \frac{3}{2} = -\frac{6}{2} = -3. </me>
-        The integral of interest uses the opposite order,
-        and so has the opposite sign:
-        <me> \int_{0}^{-3} f(x)\, dx = -\int_{-3}^0 f(x)\,dx = -(-3) = 3. </me>
+          The region between <m>x=-3</m> and <m>x=-1</m> is a trapezoid
+          that has area <m>\frac{1}{2}(1+2)(3) = \frac{9}{2}</m>.
+          The region between <m>x=-1</m> and <m>x=0</m> is a triangle
+          with area <m>\frac{1}{2}(1)(3) = \frac{3}{2}</m>.
+          Signed area corresponds to an integral from left-to-right so that
+          <me> \int_{-3}^{0} f(x)\,dx = -\frac{9}{2} + \frac{3}{2} = -\frac{6}{2} = -3. </me>
+          The integral of interest uses the opposite order,
+          and so has the opposite sign:
+          <me> \int_{0}^{-3} f(x)\, dx = -\int_{-3}^0 f(x)\,dx = -(-3) = 3. </me>
         </p>
       </solution>
     </example>
-
+  </subsection>
+  <subsection>
+    <title>Summary</title>
     <p>
-    Because a definite integral is defined in terms of summation
-    and summation has linearity properties,
-    the definite integral inherits a constant multiple rule and a sum rule.
+      <ul>
+        <li>
+          <p>
+            <term>Integrability</term>: A function <m>f(x)</m> is <term>integrable</term> on an interval
+            if the definite integral <m>\displaystyle \int_a^b f(x) \, dx</m> can be computed
+            for any values <m>a,b</m> in the interval.
+          </p>
+          <p>
+            We will need a clear definition for the definite integral to be more specific.
+          </p>
+        </li>
+        <li>
+          <p>
+            Continuity implies integrability. If <m>f(x)</m> is continuous on an interval,
+            then it is guaranteed to also be integrable on that interval.
+          </p>
+          <p>
+            In fact, so long as <m>f(x)</m> is piecewise continuous with a finite number of discontinuities
+            and <m>f(x)</m> has one-sided limits at all of those discontinuities,
+            then <m>f(x)</m> will still be integrable. (The value at the end points don't matter to integrals.)
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Splitting</term>: A definite integral <m>\displaystyle \int_a^b f(x) \, dx</m>
+            involves the independent variable <m>x</m> going through the values
+            from <m>x=a</m> (start) to <m>x=b</m> (end).
+            The splitting principle means that you can consider going from <m>x=a</m> and take a diversion to any other point <m>x=c</m>,
+            and then continue from <m>x=c</m> to <m>x=b</m> and get the same result,
+            <me>\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx</me>,
+            so long as <m>f(x)</m> is integrable on an interval that includes all three points <m>a,b,c</m>.
+          </p>
+        </li>
+      </ul>
     </p>
-
-    <theorem xml:id="thm-definite-integral-constant-multiple">
-      <title>Constant Multiple Rule of Definite Integrals</title>
-      <statement>
-      <p>
-      Suppose <m>f</m> is integrable on <m>[a,b]</m> and <m>\alpha</m> is a constant.
-      Then <me> \int_{a}^{b} [\alpha f(x)] dx = \alpha \int_{a}^{b} f(x)\,dx. </me>
-      </p>
-      </statement>
-    </theorem>
-
-    <theorem xml:id="thm-definite-integral-sum-rule">
-      <title>Sum Rule of Definite Integrals</title>
-      <statement>
-      <p>
-      Suppose <m>f</m> and <m>g</m> are both integrable on <m>[a,b]</m>.
-      Then <me> \int_{a}^{b} [ f(x) + g(x)] dx = \int_{a}^{b} f(x)\,dx + \int_{a}^{b} g(x) \, dx. </me>
-      </p>
-      </statement>
-    </theorem>
-
-    <p>
-    We often want to apply these two properties immediately after one another.
-    The combination of the constant multiple rule and sum rule is called linearity.
-    </p>
-
-    <theorem xml:id="thm-definite-integral-linearity">
-      <title>Linearity of Definite Integrals</title>
-      <statement>
-        <p>
-        Suppose <m>f</m> and <m>g</m> are both integrable on <m>[a,b]</m>
-        and <m>\alpha</m> and <m>\beta</m> are constants.
-        Then <me> \int_{a}^{b} [\alpha f(x) + \beta g(x)] dx = \alpha \int_{a}^{b} f(x)\,dx + \beta \int_{a}^{b} g(x) \, dx. </me>
-        </p>
-      </statement>
-    </theorem>
-
   </subsection>
 </section>

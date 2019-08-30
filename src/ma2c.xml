@@ -16,109 +16,109 @@
     <subtitle>MA2C</subtitle>
 
     <xi:include href="./frontmatter.xml" />
-
-    <chapter xml:id="chapter-foundations">
-      <title>Foundational Principles</title>
-      <xi:include href="./learn_math.ptx" />
-      <xi:include href="./numbers_measurements.ptx" />
-      <xi:include href="./graphs-relations.ptx" />
-      <xi:include href="./formulas-models.ptx" />
-      <xi:include href="./algebra-equivalence.ptx" />
-      <xi:include href="./algebra-factoring.ptx" />
-      <xi:include href="./exponents-roots-logarithms.ptx" />
-      <xi:include href="./logarithm-properties.ptx" />
-      <xi:include href="./logarithm-applications.ptx" />
-    </chapter>
-    <chapter xml:id="chapter-functions">
-      <title>Functions to Model Relationships</title>
-      <xi:include href="./functions-introduction.ptx" />
-      <xi:include href="./functions-construction.ptx" />
-      <xi:include href="./functions-composition.ptx" />
-      <xi:include href="./functions-inverses.ptx" />
-      <xi:include href="./functions-transformation.xml" />
-    </chapter>
-    <chapter xml:id="chapter-accumulation">
-      <title>Accumulation and Rates of Change</title>
-      <xi:include href="./accumulation-rates.xml" />
-      <xi:include href="./accumulate-change.xml" />
-      <xi:include href="./accumulation-functions.xml" />
-    </chapter>
-    <chapter xml:id="chapter-discrete-calculus">
-      <title>Discrete Calculus</title>
-      <xi:include href="./discrete-calculus-intro.xml" />
-      <xi:include href="./sequences-increments.xml" />
-      <xi:include href="./sequences-accumulation.xml" />
-      <xi:include href="./sequences-summation.xml" />
-      <xi:include href="./sequences-limits.xml" />
-      <xi:include href="./sequences-limit-calculations.xml" />
-    </chapter>
-    <chapter xml:id="chapter-definite-integrals">
-      <title>Accumulation and Integrals</title>
-      <xi:include href="./integrals-preview.ptx" />
-      <xi:include href="./integral-properties.ptx" />
-      <xi:include href="./riemann-sums.xml" />
-      <xi:include href="./functions-limits.xml" />
-      <xi:include href="./functions-continuity.xml" />
-    </chapter>
-    <chapter xml:id="extras">
-      <title>Other Stuff Not Yet Placed</title>
-      <xi:include href="./calculus-overview.xml" />
-      <xi:include href="./functions-and-intervals.xml" />
-      <xi:include href="./functions-behavior.xml" />
-    </chapter>
-
-
-
-    <chapter>
-      <title>Modeling Rates of Change</title>
-      <xi:include href="./extreme-values.xml" />
-      <xi:include href="./derivative_intro.xml" />
-      <xi:include href="./derivative_function.xml" />
-      <xi:include href="./ftc-one.xml" />
-    </chapter>
-
-    <chapter>
-      <title>Rules of Differentiation</title>
-      <xi:include href="./differentiation.xml" />
-      <xi:include href="./differentiation-applications.xml" />
-      <xi:include href="./chain-rule.xml" />
-      <xi:include href="./exponential_derivative.xml" />
-      <xi:include href="./implicit-differentiation.xml" />
-      <xi:include href="./logarithmic-differentiation.xml" />
-    </chapter>
-
-    <chapter>
-      <title>Derivatives and Integrals</title>
-      <xi:include href="./antiderivatives.xml" />
-      <xi:include href="./differentiable-functions.xml" />
-      <xi:include href="./ftc.xml" />
-      <xi:include href="./lhopital-rule.xml" />
-    </chapter>
-
-    <chapter>
-      <title>Calculus for Trigonometry</title>
-      <xi:include href="./trigonometry-derivative.xml" />
-      <xi:include href="./inverse-trig-derivatives.xml" />
-    </chapter>
-
-    <chapter>
-      <title>Other Stuff</title>
-      <xi:include href="./intro-optimization.xml" />
-      <xi:include href="./optimization.xml" />
-      <xi:include href="./integrals-substitution.xml" />
-      <xi:include href="./limits-with-infinity.xml" />
-      <xi:include href="./continuous-functions.xml" />
-      <xi:include href="./accumulation-applications.xml" />
-      <xi:include href="./rate-functions.xml" />
-    </chapter>
-    <chapter xml:id="chapter-sequences">
-      <title>Sequences as Models</title>
-      <xi:include href="./sequences-intro.xml" />
-      <xi:include href="./sequences-recursive.xml" />
-      <xi:include href="./sequences-computing.xml" />
-      <xi:include href="./sequences-modeling.xml" />
-    </chapter>
-
+    <part>
+      <chapter xml:id="chapter-foundations">
+        <title>Foundational Principles</title>
+        <xi:include href="./learn_math.ptx" />
+        <xi:include href="./numbers_measurements.ptx" />
+        <xi:include href="./graphs-relations.ptx" />
+        <xi:include href="./formulas-models.ptx" />
+        <xi:include href="./algebra-equivalence.ptx" />
+        <xi:include href="./algebra-factoring.ptx" />
+        <xi:include href="./exponents-roots-logarithms.ptx" />
+        <xi:include href="./logarithm-properties.ptx" />
+        <xi:include href="./logarithm-applications.ptx" />
+      </chapter>
+      <chapter xml:id="chapter-functions">
+        <title>Functions to Model Relationships</title>
+        <xi:include href="./functions-introduction.ptx" />
+        <xi:include href="./functions-construction.ptx" />
+        <xi:include href="./functions-composition.ptx" />
+        <xi:include href="./functions-inverses.ptx" />
+        <xi:include href="./functions-transformation.xml" />
+        <xi:include href="./functions-behavior.xml" />
+      </chapter>
+      <chapter xml:id="chapter-accumulation">
+        <title>Accumulation and Rates of Change</title>
+        <xi:include href="./accumulation-rates.xml" />
+        <xi:include href="./accumulate-change.xml" />
+        <xi:include href="./accumulation-functions.xml" />
+      </chapter>
+      <chapter xml:id="chapter-discrete-calculus">
+        <title>Sequences and Accumulation</title>
+        <xi:include href="./sequences-intro.xml" />
+        <xi:include href="./sequences-increments.xml" />
+        <xi:include href="./sequences-accumulation.xml" />
+        <xi:include href="./sequences-summation.xml" />
+        <xi:include href="./sequences-limits.xml" />
+        <xi:include href="./sequences-limit-calculations.xml" />
+      </chapter>
+      <chapter xml:id="chapter-limits-differentiability">
+        <title>Limits and Differentiability</title>
+        <xi:include href="./calculus-overview.xml" />
+        <xi:include href="./functions-and-intervals.xml" />
+        <xi:include href="./functions-limits.xml" />
+        <xi:include href="./functions-continuity.xml" />
+        <xi:include href="./derivative_intro.xml" />
+        <xi:include href="./ftc-one.xml" />
+      </chapter>
+    </part>
+    <part>
+      <chapter xml:id="chapter-definite-integrals">
+        <title>Accumulation and Integrals</title>
+        <xi:include href="./integrals-preview.ptx" />
+        <xi:include href="./integral-properties.ptx" />
+        <xi:include href="./riemann-sums.xml" />
+      </chapter>
+      <chapter xml:id="extras">
+        <title>Other Stuff Not Yet Placed</title>
+      </chapter>
+    </part>
+    <part>
+      <chapter>
+        <title>Modeling Rates of Change</title>
+        <xi:include href="./extreme-values.xml" />
+        <xi:include href="./derivative_function.xml" />
+      </chapter>
+      <chapter>
+        <title>Rules of Differentiation</title>
+        <xi:include href="./differentiation.xml" />
+        <xi:include href="./differentiation-applications.xml" />
+        <xi:include href="./chain-rule.xml" />
+        <xi:include href="./exponential_derivative.xml" />
+        <xi:include href="./implicit-differentiation.xml" />
+        <xi:include href="./logarithmic-differentiation.xml" />
+      </chapter>
+      <chapter>
+        <title>Derivatives and Integrals</title>
+        <xi:include href="./antiderivatives.xml" />
+        <xi:include href="./differentiable-functions.xml" />
+        <xi:include href="./ftc.xml" />
+        <xi:include href="./lhopital-rule.xml" />
+      </chapter>
+      <chapter>
+        <title>Calculus for Trigonometry</title>
+        <xi:include href="./trigonometry-derivative.xml" />
+        <xi:include href="./inverse-trig-derivatives.xml" />
+      </chapter>
+      <chapter>
+        <title>Other Stuff</title>
+        <xi:include href="./intro-optimization.xml" />
+        <xi:include href="./optimization.xml" />
+        <xi:include href="./integrals-substitution.xml" />
+        <xi:include href="./limits-with-infinity.xml" />
+        <xi:include href="./continuous-functions.xml" />
+        <xi:include href="./accumulation-applications.xml" />
+        <xi:include href="./rate-functions.xml" />
+      </chapter>
+      <chapter xml:id="chapter-sequences">
+        <title>Sequences as Models</title>
+        <xi:include href="./discrete-calculus-intro.xml" />
+        <xi:include href="./sequences-recursive.xml" />
+        <xi:include href="./sequences-computing.xml" />
+        <xi:include href="./sequences-modeling.xml" />
+      </chapter>
+    </part>
 
 
     <backmatter>

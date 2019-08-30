@@ -345,6 +345,24 @@
         </ul>
       </p>
     </assemblage>
+    <p>
+      We now have two different interpretations of the definite integral.
+      First, the definite integral is the total accumulated change
+      where the function in the integral is the rate of accumulation <m>f(x)</m>.
+      Second, the definite integral is the sum of the signed areas between the graph of <m>f(x)</m> and the axis.
+      If we can calculate the definite integral, such as by geometric formulas for area,
+      then we can interpret that value as the total accumulated change.
+      This can allow us to compute additional values of the accumulation function:
+      <me>A(b) = A(a) + \int_a^b f(x) \, dx</me>.
+    </p>
+    <p>
+      Notice how this equation for the accumulation function is similar to the point-slope equation of a linear function with slope <m>m</m>,
+      <me>f(x) = f(a) + m(x-a)</me>.
+      There is an initial value.
+      To that initial value, we add the increment of change.
+      For a linear function, the rate of accumulation is constant and the increment is <m>m(x-a)</m>
+      For non-constant rates of accumulation, the increment of change is given by an integral.
+    </p>
     <example>
       <statement>
         <p>
@@ -481,6 +499,86 @@
         </p>
       </solution>
     </example>
+    <example>
+      <statement>
+        <p>
+          A large tank of water initially contains 400 liters of water.
+          For ten minutes, water is added at a constant rate of <quantity><mag>10</mag><unit base="liter"/><per base="minute"/></quantity>.
+          The rate of water flow then steadily declines for the next five minutes
+          from <quantity><mag>10</mag><unit base="liter"/><per base="minute"/></quantity> to <quantity><mag>0</mag><unit base="liter"/><per base="minute"/></quantity>.
+          At this point, a pump starts draining the tank, ramping its progress over five minutes so that the rate of draining
+          goes from <quantity><mag>0</mag><unit base="liter"/><per base="minute"/></quantity> to <quantity><mag>25</mag><unit base="liter"/><per base="minute"/></quantity>.
+          The pump then drains water at this steady rate of <quantity><mag>25</mag><unit base="liter"/><per base="minute"/></quantity> for another five minutes.
+          How much water is in the tank at the end of this procedure?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by describing the state variables.
+          Let <m>V</m> represent the volume of water in the tank, measured in liters.
+          Let <m>R</m> represent the rate of accumulation of water, which will be positive when water is flowing into the tank and negative when it is pumped out, measured in liters per minute.
+          Let <m>t</m> represent the time since the situation begins, measured in minutes.
+          As we read the description of the problem, we should note that most of the information is describing the rate of accumulation <m>R=V'</m> for the volume of water in the tank.
+          We can sketch a graph of <m>R</m> from the description,
+          and we make the assumption that the description implies that this graph should be formed with line segments.
+        </p>
+        <image width="60%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-1, xmax=26, ymin=-40, ymax=25,
+                axis lines=center, xlabel={$t$}, ylabel={$R$},
+                grid = both, minor x tick num=1, minor y tick num=3,
+              ]
+              \addplot [thick, blue, no marks] coordinates
+              { (0,10) (10,10) (15,0) (20,-25) (25,-25) };
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          Now that we have a graph of the rate of accumulation <m>R(t)=V'(t)</m>,
+          we can use geometric methods to calculate the area of regions to compute the total increment of change in the volume.
+          <me>V(25) = V(0) + \int_0^{25} R(t) \, dt</me>.
+          We consider the shaded regions in the graph below.
+        </p>
+        <image width="60%">
+          <latex-image>
+            \begin{tikzpicture}
+              \begin{axis}
+              [
+                xmin=-1, xmax=26, ymin=-40, ymax=25,
+                axis lines=center, xlabel={$t$}, ylabel={$R$},
+                grid = both, minor x tick num=1, minor y tick num=3,
+              ]
+              \addplot [thick, blue, no marks] coordinates
+              { (0,10) (10,10) (15,0) (20,-25) (25,-25) };
+              \draw [fill=violet!25, opacity=0.4]
+                (axis cs:0,0) -- (axis cs:0,10) --
+                (axis cs:10,10) -- (axis cs:15,0) -- cycle;
+              \draw [fill=violet!25, opacity=0.4]
+                (axis cs:15,0) -- (axis cs:20,-25) --
+                (axis cs:25,-25) -- (axis cs:25,0) -- cycle;
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+        <p>
+          We could interpret the regions as either two trapezoids or as rectangles and triangles.
+          The signed area of the trapezoid above the axis corresponding to times <m>t=0</m> to <m>t=15</m> is
+          <me>\text{area}_1 = {\textstyle \frac12}(10+15)(10) = 125</me>,
+          meaning that there were 125 liters added to the tank during the first 15 minutes.
+          The signed area of the trapezoid below the axis corresponding to times <m>t=15</m> to <m>t=25</m> is
+          <me>\text{area}_2 = {\textstyle \frac12}(10+5)(-25) = {\textstyle -\frac{375}{2}} = -187.5</me>.
+          This means that there were 187.5 liters drained from the tank during the last 10 minutes.
+          Combining the results gives us the definite integral and overall increment of change in the volume of the tank.
+          Starting with our initial tank level, we have
+          <me>V(25) = V(0) + \int_0^{25} R(t) \, dt = 400 + (125 - 187.5) = 337.5</me>.
+          The tank ends with 337.5 liters.
+        </p>
+      </solution>
+    </example>
   </subsection>
   <subsection>
     <title>Summary</title>
@@ -512,7 +610,7 @@
       </li>
       <li>
         <p>
-          The geometric interpretation of the definite integral is the sum of the increments of signed area 
+          The geometric interpretation of the definite integral is the sum of the increments of signed area
           of regions bounded by the graph of the rate of accumlation <m>f(x)</m> and the <m>x</m>-axis.
         </p>
       </li>
