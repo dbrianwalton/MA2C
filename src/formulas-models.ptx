@@ -379,7 +379,7 @@
         <p>
           The graphical method of solution used in the previous example results in approximate values.
           To find exact values, we need to perform an algebraic solution.
-          A computational tool with expect us to provide it with our equations
+          A computational tool will expect us to provide it with our equations
           as well as the variables for which we are solving.
           In this text, we will work with the SageMath system, an open source computer algebra system.
           A blank interactive SageMath cell can be opened at
