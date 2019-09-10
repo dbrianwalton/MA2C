@@ -277,7 +277,7 @@
       <statement>
         <p>
           For an integer <m>n \gt 1</m>, the <m>n</m>th root <m>y=\sqrt[n]{x}</m> is the value such that <m>y^n=x</m>.
-          If <m>n</m>is even, we require <m>x \ge 0</m> and <m>y \ge 0</m>.
+          If <m>n</m> is even, we require <m>x \ge 0</m> and <m>y \ge 0</m>.
           If <m>n</m> is odd, there is no restriction.
         </p>
       </statement>
@@ -348,7 +348,7 @@
               axis lines = center, xlabel={$x$}, ylabel={$y$}, legend pos=north west,
             ]
             \addplot [blue, thick, domain=-4:4, samples=100] {2^x};
-            \legend{{$y=b^x$}, $b \gt 1$};
+            \legend{{$y=b^x$, $b \gt 1$}};
             \end{axis}
           \end{tikzpicture}
         </latex-image>
@@ -361,10 +361,10 @@
               xmin=-4, xmax=4, ymin=-5, ymax=15,
               ytick={0.25, 0.5, 1, 2, 4, 8},
               yticklabels={$b^2$, $b$, 1, $b^{-1}$, $b^{-2}$, $b^{-3}$},
-              axis lines = center, xlabel={$x$}, ylabel={$y$}, legend pos=north west,
+              axis lines = center, xlabel={$x$}, ylabel={$y$}, legend pos=north east,
             ]
             \addplot [blue, thick, domain=-4:4, samples=100] {1/2^x};
-            \legend{{$y=b^x$}, $0 \lt b \lt 1$};
+            \legend{{$y=b^x$, $0 \lt b \lt 1$}};
             \end{axis}
           \end{tikzpicture}
         </latex-image>
