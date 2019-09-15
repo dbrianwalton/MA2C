@@ -68,6 +68,7 @@
         <title>Accumulation and Integrals</title>
         <xi:include href="./integrals-preview.ptx" />
         <xi:include href="./integral-properties.ptx" />
+        <xi:include href="./integral-accumulations.ptx" />
         <xi:include href="./riemann-sums.xml" />
       </chapter>
       <chapter xml:id="extras">

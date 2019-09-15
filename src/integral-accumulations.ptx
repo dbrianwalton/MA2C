@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of the book                -->
+<!--                                              -->
+<!--      A Modeling Approach to Calculus         -->
+<!--                                              -->
+<!-- Copyright (C) 2015-2019  D. Brian Walton     -->
+<!-- See the file COPYING for copying conditions. -->
+
+<section xml:id="integral-accumulations">
+  <title>Calculating Integrals Using Accumulations</title>
+  <introduction>
+    <title>Overview</title>
+    <p>
+      We may be accustomed from past experience to expect that every mathematics problem is meant to have a nice simple formula.
+      Definite integrals are an example of a mathematical calculation that is the opposite.
+      If someone were to write down a randomly created definite integral,
+      there would typically be no formula using elementary functions that calculate its value.
+      However, there are some rules that we can use in particular situations.
+    </p>
+    <p>
+      This section focuses on some elementary formulas that are known for definite integrals.
+      These formulas are called accumulation formulas.
+      In light of the Fundamental Theorem of Calculus,
+      the formulas also correspond to what is known as antiderivative.
+      The most basic accumulation rule is for simple power functions.
+    </p>
+    <p>
+      Definite integrals satisfy a sum rule and constant multiple rule.
+      These rules allow us to compute definite integrals whose rates of accumulation
+      are formed from simpler rates through summation or through multiplication by a constant.
+      Together with the elementary accumulation formulas that we learn,
+      these rules allow us to compute a useful collection of definite integrals.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Accumulation of Power Functions</title>
+    <p>
+      The elementary power functions <m>\mathrm{pow}_p(x) = x^p</m> have a relatively simple associated accumulation function.
+      One way to learn about the accumulation formula is to try the simplest examples and look to see if a pattern arises.
+      This process is called forming a conjecture.
+      Observed patterns are not always true patterns, so we will eventually need a more rigorous approach.
+    </p>
+    <p>
+      An accumulation function for a given integrable rate function <m>f(x)</m>
+      can be constructed by calculating the definite integral from a particular constant starting point to the value of the independent variable.
+      We write
+      <me>A(x) = \int_a^x f(z) \, dz</me>,
+      where we use a variable of integration that is different from the <m>x</m> used as the independent variable.
+    </p>
+    <p>
+      The simplest rate function is a constant function, corresponding to a power <m>p=0</m>, <m>f(x)=1</m>.
+      An elementary accumulation function would be the integral from <m>0</m> to <m>x</m>,
+      corresponding to the signed area of a rectangle.
+      Because the rectangle has a width height of <m>f(x)=1</m> and a width
+      <me>A(x) = \int_0^x 1 \, dz = x</me>.
+      We know that
+      <me>\int_a^b 1 \, dx = A(b) - A(a) = b-a</me>.
+    </p>
+    <p>
+      We can also easily find the definite integral of the identity function <m>f(x)=x</m>,
+      which corresponds to a power <m>p=1</m>.
+      Because the graph of <m>y=f(z)=z</m> is linear,
+      the definite integral <m>\displaystyle \int_0^x z \, dz</m> corresponds to the signed area of a triangle.
+      Since the triangle has a base <m>x</m> and a height <m>f(x)=x</m>,
+      the definite integral that depends on end point <m>x</m> has a value
+      <me>A(x) = \int_0^x z \, dz = \frac{1}{2}x^2</me>.
+      The definite integral from <m>x=a</m> to <m>x=b</m> can be computed as the change in accumulation,
+      <me>\int_a^b z \, dz = A(b)- A(a) = \frac{1}{2}b^2 - \frac{1}{2}a^2</me>.
+    </p>
+    <p>
+      Higher powers become more complicated and required increasingly complicated results.
+      For the quadratic power function <m>f(x)=x^2</m> with <m>p=2</m>,
+      the graph takes the form of a parabola.
+      The Greek philosopher and mathematician Archimedes used a method of exhaustion
+      to determine the area enclosed by a parabola.
+      In the context of an accumulation function, we have
+      <me>A(x) = \int_0^x z^2 \, dz = \frac{1}{3}x^3 </me>.
+      For a cubic power function <m>f(x) = x^3</m> (<m>p=3</m>),
+      an 11th century Arab mathematician Ibn al-Haytham during the Islamic Golden Age
+      found a result that shows
+      <me>A(x) = \int_0^x z^3 \, dz = \frac{1}{4}x^4 </me>.
+      We can recreate Archimedes's and Ibn al-Haytham's results using limits of Riemann sums.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Show that <m>\displaystyle \int_0^x z^2 \, dz = \frac{1}{3}x^3</m>
+          and <m>\displaystyle \int_0^x z^3 \, dz = \frac{1}{4}x^4</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For both integrals, the interval of integration goes from <m>a=0</m> to <m>b=x</m>.
+          When we make a partition with <m>n</m> uniform subintervals,
+          the width of each subinterval will be
+          <me>\Delta x = \frac{x-0}{n} = \frac{x}{n}</me>.
+          In addition, the points in the partition will be defined by
+          <me>x_k = \frac{kx}{n}, \quad k=0, 1, \ldots, n</me>.
+        </p>
+        <p>
+          The integral for <m>f(z) = z^2</m> uses values <m>f(x_k) = \frac{k^2 x^2}{n^2}</m>
+          to give a Riemann sum
+          <md>
+            <mrow> \int_0^x z^2 \, dz \amp \approx \sum_{k=1}^{n} f(x_k) \Delta x </mrow>
+            <mrow> \amp = \sum_{k=1}^{n} \frac{k^2 x^2}{n^2} \cdot \frac{x}{n} </mrow>
+            <mrow> \amp = \sum_{k=1}^{n} \frac{k^2 x^3}{n^3} </mrow>
+            <mrow> \amp = \frac{x^3}{n^3} \cdot \sum_{k=1}^{n} k^2 </mrow>.
+          </md>
+          When we use the closed formula for the sum of squares and take a limit, we find
+          <md>
+            <mrow> \int_0^x z^2 \, dz \amp= \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k) \Delta x</mrow>
+            <mrow> \amp= \lim_{n \to \infty} \frac{x^3}{n^3} \sum_{k=1}^{n} k^2</mrow>
+            <mrow> \amp= \lim_{n \to \infty} \frac{x^3}{n^3} \cdot \frac{n(n+1)(2n+1)}{6} </mrow>
+            <mrow> \amp= \lim_{n \to \infty} \frac{x^3}{6} \cdot \frac{2n^3+3n^2+n}{n^3} </mrow>
+            <mrow> \amp= \lim_{n \to \infty} \frac{x^3}{6} \cdot (2 + \frac{3}{n} + \frac{1}{n^2}) </mrow>
+            <mrow> \amp= \frac{x^3}{6} \cdot (2 + 0 + 0) </mrow>
+            <mrow> \amp= \frac{x^3}{3}</mrow>.
+          </md>
+        </p>
+        <p>
+          The integral for <m>f(z)=z^3</m> is similar but with <m>f(x_k) = \frac{k^3 x^3}{n^3}</m>
+          to give a Riemann sum
+          <md>
+            <mrow> \int_0^x z^3 \, dz \amp \approx \sum_{k=1}^{n} f(x_k) \Delta x </mrow>
+            <mrow> \amp = \sum_{k=1}^{n} \frac{k^3 x^3}{n^3} \cdot \frac{x}{n} </mrow>
+            <mrow> \amp = \sum_{k=1}^{n} \frac{k^3 x^4}{n^4} </mrow>
+            <mrow> \amp = \frac{x^4}{n^4} \cdot \sum_{k=1}^{n} k^3 </mrow>.
+          </md>
+          Applying the formula for the sum of cubes and a limit, we find
+          <md>
+            <mrow> \int_0^x z^3 \, dz \amp= \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k) \Delta x</mrow>
+            <mrow> \amp= \lim_{n \to \infty} \frac{x^4}{n^4} \sum_{k=1}^{n} k^3</mrow>
+            <mrow> \amp= \lim_{n \to \infty} \frac{x^4}{n^4} \cdot \frac{n^2(n+1)^2}{4} </mrow>
+            <mrow> \amp= \lim_{n \to \infty} \frac{x^4}{4} \cdot \frac{n^4+2n^3+n^2}{n^4} </mrow>
+            <mrow> \amp= \lim_{n \to \infty} \frac{x^4}{4} \cdot (1 + \frac{2}{n} + \frac{1}{n^2}) </mrow>
+            <mrow> \amp= \frac{x^4}{4} \cdot (1 + 0 + 0) </mrow>
+            <mrow> \amp= \frac{x^4}{4}</mrow>.
+          </md>
+        </p>
+      </solution>
+    </exercise>
+    <p>
+      We start to look for possible patterns that might generalize these results.
+      If we write the results side-by-side, we observe that each accumulation is also a power
+      and with a pattern in the coefficient.
+      <md>
+        <mrow> \int_0^x z^0 \, dz \amp= x^1 </mrow>
+        <mrow> \int_0^x z^1 \, dz \amp= \frac{1}{2}x^2 </mrow>
+        <mrow> \int_0^x z^2 \, dz \amp= \frac{1}{3}x^3 </mrow>
+        <mrow> \int_0^x z^3 \, dz \amp= \frac{1}{4}x^4 </mrow>
+      </md>
+      The power of the accumulation is always one value higher than the power of the rate function.
+      The coefficient multiplying the accumulation is then the reciprocal of that higher power.
+      We summarize our conjecture as a power rule for integration.
+    </p>
+    <conjecture xml:id="conj-power-law-integral">
+      <statement>
+        <p>
+          For any power <m>p \gt 0</m>, we will have
+          <me> \int_0^x z^p \, dz = \frac{1}{p+1} x^{p+1} </me>.
+        </p>
+      </statement>
+    </conjecture>
+    <p>
+      Our conjecture will ultimately be shown to be correct.
+      However, we will need some additional tools before we know how to prove that it is true.
+      Riemann sums will not help because we would need a summation formula for each possible case.
+      We will need a more general concept of accumulation called an antiderivative.
+      The power rule will, in fact, give us an antiderivative for power functions of any power <m>p \ne -1</m>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Accumulation Rules of Combination</title>
+    <p>
+      Having found accumulation formulas for elementary power functions,
+      we would like to find the definite integrals for more complicated functions.
+      There are two basic rules of combination for definite integrals<mdash/>the constant multiple and the sum rules.
+    </p>
+    <theorem xml:id="thm-definite-integral-constant-multiple-rule">
+      <statement>
+        <p>
+          If <m>f(x)</m> is integrable on an interval containing <m>a,b</m> and <m>k</m> is a constant,
+          then
+          <me>\int_a^b k \, f(x) \,dx = k \cdot \int_a^b f(x) \, dx</me>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Because <m>f(x)</m> is integrable, we know
+          <me>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k) \Delta x = \int_a^b f(x) \, dx</me>.
+          If we then compute the Riemann sum for a rate <m>k f(x)</m>, each term is multiplied by <m>k</m>.
+          Both the summation operator and the limit operator have a constant multiple rule,
+          allowing the constant <m>k</m> to factor its way out.
+          <md>
+            <mrow> \int_a^b k \, f(x) \, dx \amp = \lim_{n \to \infty} \sum_{k=1}^{n} k f(x_k) \Delta x </mrow>
+            <mrow> \amp= \lim_{n \to \infty} k \sum_{k=1}^{n} f(x_k) \Delta x </mrow>
+            <mrow> \amp= k \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k) \Delta x </mrow>
+            <mrow> \amp= k \int_a^b f(x) \, dx</mrow>
+          </md>
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      Geometrically, the constant multiple rule is about rescaling the graph of <m>f(x)</m> by a factor <m>k</m>.
+      Because the width of the region is the same but every point has been stretched vertically by <m>k</m>,
+      the signed area must be multiplied by <m>k</m>.
+      The proof of the rule results because both limits and summation formulas have a constant multiple rule.
+    </p>
+    <theorem xml:id="thm-definite-integral-sum-rule">
+      <statement>
+        <p>
+          If <m>f(x)</m> and <m>g(x)</m> are each integrable on an interval containing <m>a,b</m>,
+          then
+          <me>\int_a^b f(x) + g(x) \,dx = \int_a^b f(x) \, dx + \int_a^b g(x) \, dx</me>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Because <m>f(x)</m> and <m>g(x)</m> are integrable, we know
+          <me>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k) \Delta x = \int_a^b f(x) \, dx</me>
+          and
+          <me>\displaystyle \lim_{n \to \infty} \sum_{k=1}^{n} g(x_k) \Delta x = \int_a^b g(x) \, dx</me>
+          If we then compute the Riemann sum for rate formed by the sum <m>f(x) + g(x)</m>,
+          then the sum rules for the summation operator and for the limit operator allow us to add the integrals.
+          <md>
+            <mrow> \int_a^b f(x) + g(x) \, dx \amp = \lim_{n \to \infty} \sum_{k=1}^{n} \left(f(x_k) + g(x_k)\right) \Delta x </mrow>
+            <mrow> \amp = \lim_{n \to \infty} \left(\sum_{k=1}^{n} f(x_k)\Delta x  + \sum_{k=1}^{n} g(x_k) \Delta x \right) </mrow>
+            <mrow> \amp = \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k)\Delta x  + \lim_{n \to \infty} \sum_{k=1}^{n} g(x_k) \Delta x </mrow>
+            <mrow> \amp= \int_a^b f(x) \, dx + \int_a^b g(x) \, dx.</mrow>
+          </md>
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      Geometrically, the sum rule is thinking of the Riemann sum rectangles with rate <m>f(x) + g(x)</m> and width <m>\Delta x</m>
+      as being formed by two rectangles of width <m>\Delta x</m>.
+      One rectangle has height <m>f(x)</m> and the other has height <m>g(x)</m>.
+      The total area is the sum <m>f(x) \Delta x + g(x) \Delta x</m>.
+      When we add all of the increments, we can group all of the parts from <m>f(x) \Delta x</m>
+      to give a sum matching the integral <m>\displaystyle \int_a^b f(x) \,dx</m>.
+      The sum of the other terms give <m>\displaystyle \int_a^b g(x) \,dx</m>.
+    </p>
+    <p>
+      With our two rules of arithmetic and the power rule for accumulations,
+      we can compute the definite integrals of polynomials.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find <m>\displaystyle \int_2^4 3x^2 - 4 \, dx</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start by looking at the integrand.
+          The rate function <m>f(x) = 3x^2-4</m> is a linear combination of the elementary powers <m>x^2</m> and <m>x^0 = 1</m>,
+          <m>f(x) = 3 \cdot x^2 + -4 \cdot 1</m>.
+          The power rule gives us accumulation formulas for the powers, so we know
+          <md>
+            <mrow> \int_2^4 x^2 \, dx \amp= \frac{1}{3}(4^3) - \frac{1}{3}(2^3)</mrow>
+            <mrow> \amp= \frac{64}{3}-\frac{8}{3} = \frac{56}{3} </mrow>,
+            <mrow> \int_2^4 1 \, dx \amp= 4-2 = 2 </mrow>.
+          </md>
+          Using the sum and constant multiple rules, we find
+          <md>
+            <mrow> \int_2^4 3x^2 - 4 \, dx \amp= 3 \int_2^4 x^2 \, dx + -4 \int_2^4 1 \, dx</mrow>
+            <mrow> \amp= 3 \cdot \frac{56}{3} + -4 \cdot 2 </mrow>
+            <mrow> \amp= 56-8 = 48 </mrow>.
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>
+      In the previous example, we used the constant multiple and sum rule to break a definite integral of a linear combination
+      into a corresponding linear combination of the values of the component definite integrals.
+      However, it is usually more convenient to create an accumulation function that is a linear combination of the corresponding accumulations of the component rates.
+      That is, a rate function <m>f(x) = 3x^2 - 4</m> must have a corresponding accumulation function
+      <me>A(x) = 3 \cdot \frac{1}{3} x^3 + -4 \cdot x = x^3 - 4x,</me>
+      based on the accumulation functions for the rates <m>x^2</m> and <m>1</m>.
+      The definite integral is then just the change in this new accumulation function.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find <m>\displaystyle \int_{-2}^{2} 2x^2 - 3x + 4 \, dx</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The rate function in then integrand is <m>f(x) = 2x^2 - 3x + 4</m>.
+          The accumulations for elementary powers are <m>\frac{1}{3}x^3</m> for <m>x^2</m>,
+          <m>\frac{1}{2}x^2</m> for <m>x</m>, and <m>x</m> for <m>1</m>.
+          Consequently, the accumulation for <m>f(x)</m> is
+          <me>A(x) = 2 \cdot \frac{1}{3}x^3 + -3 \cdot \frac{1}{2} x^2 + 4 \cdot x</me>.
+          The definite integral of the rate will equal the change in the accumulation,
+          <md>
+            <mrow> \int_{-2}^{2} 2x^2 - 3x + 4 \, dx \amp= A(2) - A(-2) </mrow>
+            <mrow> \amp= \left(\frac{2}{3}(2)^3 - \frac{3}{2} (2)^2 + 4(2) \right) - \left(\frac{2}{3}(-2)^3 - \frac{3}{2} (-2)^2 + 4(-2) \right)</mrow>
+            <mrow> \amp= \left(\frac{16}{3} - 6 + 8 \right) - \left(\frac{-16}{3} - 6 - 8 \right)</mrow>
+            <mrow> \amp= \frac{32}{3} + 16 = \frac{32+48}{3} = \frac{80}{3}</mrow>.
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Summary</title>
+    <p>
+      <ul>
+        <li>
+          <p></p>
+        </li>
+      </ul>
+    </p>
+  </subsection>
+</section>
