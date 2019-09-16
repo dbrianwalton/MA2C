@@ -41,7 +41,7 @@
         </p>
         <figure xml:id="img-body-brain-size">
           <caption>Plot of body mass (kg) and brain size (g) for 96 species of mammals.</caption>
-          <image width="60%" source="images/Body-Brain-plot.pdf">
+          <image width="60%" source="images/Body-Brain-plot">
             <description>Scatter plot of brain size versus body mass using linear axes</description>
           </image>
         </figure>
@@ -54,7 +54,7 @@
         </p>
         <figure xml:id="img-body-brain-size-loglog">
           <caption>Log-log plot of body mass (kg) and brain size (g) for 96 species of mammals.</caption>
-          <image width="60%" source="images/Body-Brain-loglogplot.pdf">
+          <image width="60%" source="images/Body-Brain-loglogplot">
             <description>Scatter plot of brain size versus body mass using logarithmic axes</description>
           </image>
         </figure>
