@@ -22,11 +22,50 @@
     <title>Logarithmic Transformations</title>
     <p>
       Sometimes we look at data that are at many different scales.
-      On a standard number line, the numbers 1, 10, 100, and 1000 would be spread very far apart
-      while the numbers 0.1, 0.01, 0.001, and 0.0001 would be clustered very close to 0.
-      If we use the common logarithm (<m>b=10</m>), then these numbers would map to equally spaced integer from -4 to 3.
-      The logarithm spaces values apart according to the order of magnitude.
-      Quality plotting tools allow us to scale one or both axes according to the logarithmic scale.
+      On a standard number line, we think of the numbers 1, 10, 100, and 1000 as spread very far apart.
+      However, if we consider looking at a usual number line that will include all of these values,
+      the relative space between 1 and 10 is very small and both seem very close to zero.
+    </p>
+    <figure>
+      <caption>A number line showing the numbers 1, 10, 100, and 1000.</caption>
+      <image xml:id="img-numberline-with-orders-of-magnitude">
+        <description>The number line showing points at 1, 10, 100, and 1000 has the points for 1 and 10 essentially overlapping.</description>
+        <latex-image>
+          \begin{tikzpicture}[x=0.4cm]
+            \draw [<->] (-12,0) -- (15,0);
+            \foreach \x in {-1000,0,1000}
+              \draw ({\x/100},-0.2) -- ({\x/100},0.2) node [pos=0, below] {\x};
+            \foreach \x in {-11,-9,-8,...,-1,1,2,...,9,11,12,...,14,} {
+              \draw ({\x},-0.075) -- ({\x},0.075);
+            }
+            \foreach \x in {1,10,100,1000}
+              \filldraw ({\x/100},0) circle (2pt);
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+    <p>
+      In a similar way, we might normally think of the numbers 0.1, 0.01, 0.001, and 0.0001 as all very close to 0.
+      However, each value is a different order of magnitude exactly like the values 1, 10, 100, and 1000.
+      The common logarithm is the logarithm for base ten (<m>b=10</m>).
+      Consequently, the common logarithm of these numbers would give us equally spaced integers.
+      <md>
+        <mrow> 0.0001 = 10^{-4} \quad \amp\Leftrightarrow \quad \log 0.0001 = -4</mrow>
+        <mrow> 0.001 = 10^{-3} \quad \amp\Leftrightarrow \quad \log 0.001 = -3</mrow>
+        <mrow> 0.01 = 10^{-2} \quad \amp\Leftrightarrow \quad \log 0.01 = -2</mrow>
+        <mrow> 0.1 = 10^{-1} \quad \amp\Leftrightarrow \quad \log 0.1 = -1</mrow>
+        <mrow> 1 = 10^{0} \quad \amp\Leftrightarrow \quad \log 1 = 0</mrow>
+        <mrow> 10 = 10^{1} \quad \amp\Leftrightarrow \quad \log 10 = 1</mrow>
+        <mrow> 100 = 10^{2} \quad \amp\Leftrightarrow \quad \log 100 = 2</mrow>
+        <mrow> 1000 = 10^{3} \quad \amp\Leftrightarrow \quad \log 1000 = 3</mrow>
+      </md>
+    </p>
+    <p>
+      Because the logarithm spaces values apart according to the order of magnitude,
+      we can often use logarithms to visualize data that occur at multiple orders of magnitude.
+      Quality plotting tools allow us to plot the data but use the logarithm for their position in the graph.
+      This is called using a logarithmic scale.
+      We can choose to use a logarithmic scale for one or both axes.
     </p>
     <example>
       <statement>
@@ -134,8 +173,8 @@
       </statement>
       <solution>
         <p>
-          Power law data is linear under a log-log transformation, <m>u=log(x)</m> and <m>v=log(y)</m>
-          The transformed points are <m>(u,v)=(\log(2), \log(5))</m> and  <m>(u,v)=(\log(4), \log(8))</m>
+          Power law data is linear under a log-log transformation, <m>u=\log(x)</m> and <m>v=\log(y)</m>.
+          The transformed points are <m>(u,v)=(\log x, \log y) = (\log(2), \log(5))</m> and  <m>(u,v)=(\log x, \log y) = (\log(4), \log(8))</m>
           The slope is calculated and simplified using properties of logarithms,
           <md>
             <mrow> m \amp= \frac{\Delta v}{\Delta u} = \frac{\log(8) - \log(5)}{\log(4) - \log(2)} </mrow>
@@ -149,28 +188,317 @@
           </md>
         </p>
         <p>
-          Now we substitute back the original variables with <m>u=\log(x)</m> and <m>v=\log(y)</m>
-          and simplify using the properties of logarithms.
+          Now we substitute back the original variables with <m>u=\log(x)</m> and <m>v=\log(y)</m>.
+          Alternatively, we could have done the work above using <m>\log x</m> and <m>\log y</m> in place of <m>u</m> and <m>v</m>.
+          Our final equation then would be written
+          <me> \log(y) - \log(5) = \frac{\log(8/5)}{\log(2)} (\log(x) - \log(2))</me>.
+          We now proceed to apply the rules for logarithms to simplify our expression.
+        </p>
+        <p>
+          Our goal is to have a logarithm on the left equaling a logarithm on the right.
+          The first step is to use the quotient rule of logarithms:
+          <me> \log(y/5) = \frac{\log(8/5)}{\log(2)} \log(x/2) </me>.
+          On the right, we have a product of values.
+          A linear log-log plot corresponds to a power law,
+          and we ultimately want our equation to have <m>x</m> raised to a power.
+          Because <m>x</m> currently appears within the logarithm,
+          we will use the power rule for logarithms.
+          The logarithm with <m>x</m>, <m>\log(x/2)</m>, is multiplied by an expression.
+          That expression, which originally served as our slope, will become the power.
+          For simplicity in writing, we introduce a new symbol, <m>p=\displaystyle \frac{\log(8/5)}{\log(2)}</m>.
           <md>
-            <mrow> \log(y) - \log(5) \amp= \frac{\log(8/5)}{\log(2)} (\log(x) - \log(2))</mrow>
-            <mrow> \log(y/5) \amp= \frac{\log(8/5)}{\log(2)} \log(x/2) </mrow>
-          </md>
-          The value that we used as a slope becomes the power, <m>p=\displaystyle \frac{\log(8/5)}{\log(2)} = \log_2(8/5)</m>,
-          <md>
+            <mrow> \log(y/5) \amp= p \cdot \log \left( \frac{x}{2} \right) </mrow>
             <mrow> \log(y/5) \amp= \log \left( \frac{x}{2} \right)^p </mrow>
+          </md>
+        </p>
+        <p>
+          Now that we have the logarithm of an expression on the left and on the right,
+          the expressions within the logarithms must be equal.
+          <md
             <mrow> \frac{y}{5} \amp= \left( \frac{x}{2} \right)^p </mrow>
             <mrow> y \amp=  5 \cdot \left( \frac{x}{2} \right)^p </mrow>
+          </md>
+          This equation is our model for the power law relation.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We now illustrate the similar process for a semi-log transformation.
+      Exponentially related data will appear linear on a semi-log plot.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find the exponential law for <m>(x,y)</m> that includes data <m>(x,y)=(2,4)</m> and <m>(5,10)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Exponential law data is linear under a semi-log transformation, <m>u=x</m> and <m>v=\log(y)</m>
+          The transformed points are <m>(u,v)=(x, \log y) =(2, \log(4))</m> and  <m>(u,v)=(x,\log y)=(5, \log(10))</m>.
+          The slope is calculated and simplified using properties of logarithms,
+          <md>
+            <mrow> m \amp= \frac{\Delta v}{\Delta u} = \frac{\log(10) - \log(4)}{5-2} </mrow>
+            <mrow> \amp= \frac{\log(10/4)}{3} </mrow>
+            <mrow> \amp= \frac{\log(5/2)}{3} </mrow>
+          </md>
+          Using the point-slope form of a line, we can create our equation relating our variables.
+          <md>
+            <mrow> v-\log(4) \amp= m (u-2) </mrow>
+            <mrow> \log y - \log 4 \amp= \frac{\log(5/2)}{3} (x - 2) </mrow>.
+          </md>
+        </p>
+        <p>
+          We now seek to find an equivalent equation where a logarithm of an expression appears alone on each side of the equation.
+          We first apply the quotient rule for logarithms on the left.
+          <md>
+            <mrow> \log y - \log 4 \amp= \frac{\log(5/2)}{3} (x-2)</mrow>
+            <mrow> \log(y/4) \amp= \frac{\log(5/2)}{3} (x-2) </mrow>
+          </md>
+          Because data that are linear in a semi-log plot have an exponential relation,
+          we want to see how to get <m>x</m> into the exponent.
+          On the right-hand side, we have a logarithm, <m>\log(5/2)</m>, that is multiplied by <m>(x-2)</m> and divided by <m>3</m>.
+          We can group those together as a single multiplication and then apply the power rule for logarithms.
+          <md>
+            <mrow> \log(y/4) \amp= \frac{x-2}{3} \cdot \log(5/2) </mrow>
+            <mrow> \log(y/4) \amp= \log \left( (5/2)^{(x-2)/3} \right) </mrow>
+          </md>
+          We can now eliminate the logarithm from both sides of the equation.
+          <md>
+            <mrow> \frac{y}{4} \amp= (5/2)^{(x-2)/3} </mrow>
+            <mrow> y \amp=  4 \cdot (5/2)^{(x-2)/3} </mrow>
           </md>
         </p>
       </solution>
     </example>
+    <p>
+      We end with an example of how this might relate to actual data.
+    </p>
+    <example>
+      <statement>
+        <p>
+        In 1967, Lasiewski and Dawson published an article in <em>The Condor</em> relating
+        the body mass <m>M</m> (in kg) and resting metabolic rate <m>R</m> (in kcal/day) for birds.
+        They tabulated the recorded body mass and metabolic rate for individual birds based on published studies.
+        The following table includes twelve of these birds.
+        Graph the data and determine if the data appear linear in a log-log plot.
+        Then use a linear regression of transformed data to estimate the model
+        </p>
+        <table>
+          <caption>Selected body mass and resting metabolic rate of birds, as tabulated in Lasiewski and Dawson (1967).</caption>
+          <tabular top="medium">
+          <row bottom="medium">
+            <cell>Bird</cell>
+            <cell><m>M</m> (kg)</cell>
+            <cell><m>R</m> (kcal/day)</cell>
+          </row>
+          <row>
+            <cell>Rufous hummingbird</cell>
+             <cell>0.0038</cell>
+             <cell>1.5</cell>
+          </row>
+          <row>
+            <cell>Common nighthawk</cell>
+             <cell>0.075</cell>
+             <cell>9.5</cell>
+          </row>
+          <row>
+            <cell>Common wood pigeon</cell>
+             <cell>0.150</cell>
+             <cell>17.0</cell>
+          </row>
+          <row>
+            <cell>Northern bobwhite</cell>
+             <cell>0.194</cell>
+             <cell>23.0</cell>
+          </row>
+          <row>
+            <cell>Wood duck</cell>
+             <cell>0.485</cell>
+             <cell>65</cell>
+          </row>
+          <row>
+            <cell>Pacific gull</cell>
+             <cell>1.21</cell>
+             <cell>127</cell>
+          </row>
+          <row>
+            <cell>Great horned owl</cell>
+             <cell>1.450</cell>
+             <cell>108</cell>
+          </row>
+          <row>
+            <cell>Wood stork</cell>
+             <cell>2.5</cell>
+             <cell>201</cell>
+          </row>
+          <row>
+            <cell>Brown pelican</cell>
+             <cell>3.51</cell>
+             <cell>264</cell>
+          </row>
+          <row>
+            <cell>Sandhill crane</cell>
+             <cell>3.89</cell>
+             <cell>168</cell>
+          </row>
+          <row>
+            <cell>Trumpeter swan</cell>
+             <cell>8.88</cell>
+             <cell>418</cell>
+          </row>
+          <row>
+            <cell>Andean condor</cell>
+             <cell>10.32</cell>
+             <cell>351</cell>
+          </row>
+          </tabular>
+        </table>
+      </statement>
+      <solution>
+        <p>
+        After entering the data into a spreadsheet or other graphing utility,
+        we generate a scatterplot of the points <m>(M,R)</m>, as shown below on the left.
+        You should see that the relationship of the data is increasing and concave down.
+        If we modify both axes to use a logarithmic scale, as shown below on the right,
+        we see that the transformed relationship looks reasonably linear.
+        This suggests using a linear relation on the transformed coordinates.
+        </p>
+        <sidebyside widths="40% 40%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xlabel={$M$}, ylabel={$R$},
+              width=6cm,
+            ]
+            \addplot [only marks,blue] table [x=M, y=R] {data/bird-mass-rate.dat};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{loglogaxis}
+            [
+              xlabel={$M$}, ylabel={$R$},
+              width=6cm,
+            ]
+            \addplot [only marks,blue] table [x={M}, y={R}] {data/bird-mass-rate.dat};
+            \end{loglogaxis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+        To form the linear model, we need to generate actual transformed values
+        and not just a graph using logarithm scales.
+        In the spreadsheet, we will create two new columns for <m>\ln(M)</m> and for <m>\ln(R)</m>.
+        For example, suppose the mass <m>M</m> of Selasphorus rufus appears in the spreadsheet in cell <c>B2</c>
+        and we want to generate the transformed variable <m>\ln(M)</m> in cell <c>D2</c>.
+        In cell <c>D2</c>, we would type the formula <c>=ln(B2)</c>.
+        Copying this formula and pasting it into other cells will preserve the relative location.
+        If you paste it into cell <c>D3</c>, you will discover it automatically changed the formula to <c>=ln(B3)</c>.
+        </p>
+        <p>
+        Once we have new columns <m>\ln(M)</m> and <m>\ln(R)</m>,
+        we can create a new scatterplot of data <m>(\ln(M), \ln(R))</m> using <em>linear</em> scales.
+        This new graph will have the same appearance as the original data using <em>logarithmic</em> scales,
+        except that the axes show the logarithm of the data rather than the original data using logarithmic scales.
+        With this new graph, we can find the linear trend line.
+        The graph below shows the graph of the transformed data,
+        along with a trend line using the formula <me>y=0.7356x+4.4192</me>.
+        We change the variables to those plotted to give a transformed model <me>\ln(R) = 0.7356 \ln(M)+4.4192.</me>
+        </p>
+        <sidebyside width="40%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xlabel={$\ln(M)$}, ylabel={$\ln(R)$},
+              width=6cm,
+            ]
+            \addplot [only marks,blue] table [x={logM}, y={logR}] {data/bird-mass-rate.dat};
+            \addplot [domain=-6:3,samples=2,red] {0.7356*x+4.4192};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+        <p>
+        We find the model of the relation for the original variables <m>M \mapsto R</m> by solving for <m>R</m> and simplifying.
+        To eliminate the logarithm, we apply the inverse operation of the natural exponential.
+        Because our data are approximate, we can use decimal approximations for our formulas.
+        <md>
+          <mrow> \ln(R) &amp;= 0.7356 \ln(M) + 4.4192 </mrow>
+          <mrow> e^{\ln(R)} &amp;= e^{0.7356 \ln(M) + 4.4192} </mrow>
+          <mrow> R &amp;= e^{0.7356 \ln(M)} \cdot e^{4.4192} </mrow>
+          <mrow> &amp;= e^{\ln(M^{0.7356})} \cdot 83.030 </mrow>
+          <mrow> &amp;= 83.030 \cdot M^{0.7356} </mrow>
+        </md>
+        We see that the model is a power function, <m>R = 83.030 M^{0.7356}</m>.
+        The figure below shows the original data using linear axes along with this approximating model.
+        </p>
+        <sidebyside width="40%" margins="auto">
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xlabel={$M$}, ylabel={$R$},
+              width=6cm,
+            ]
+            \addplot [only marks,blue] table [x={M}, y={R}] {data/bird-mass-rate.dat};
+            \addplot [domain=0:12,samples=101,red] {83.03*exp(0.7356*ln(x))};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
+        </sidebyside>
+      </solution>
+    </example>
+    <p>
+      In practice, spreadsheets have built-in tools to accomplish the transformed calculations.
+      When a spreadsheet application allows you to add a trend-line to a given plot,
+      it often allows you to select a variety of different models.
+      When it allows you to use an exponential model,
+      the spreadsheet is internally using a semi-log transform, finding the linear trend-line, and then reporting back the resulting exponential model.
+      Similarly, when a spreadsheet allows you to choose a power law model,
+      the spreadsheet is internally finding the linear equation for a log-log transform and then reporting back the resulting power law model.
+    </p>
   </subsection>
   <subsection>
-    <title>Log-Likelihood</title>
+    <title>Enrichment: Log-Likelihood</title>
+    <note>
+      <p>
+        This section is included as an example of how logarithms play a more fundamental role in a more advanced sense than just transforming data.
+        The content is optional.
+        Subsequent sections do not rely on students having learned this material.
+      </p>
+    </note>
     <p>
-      Suppose that we are performing an experiment that has a random outcome from two possibilities.
+      Suppose that we are performing an experiment that has a random outcome with two possibilities.
       We do not know in advance the probabilities associated with the two outcomes.
-      We would like to repeat the experiment in order to determine these probabilities.
+      For example, flipping a coin results in heads or tails.
+      A fair coin has equal probabilities.
+      A biased coin has unequal probabilities.
+      If we suspected a coin was biased, we might want to determine the coin's true odds for heads versus tails.
+      We would like to use repetition of an experiment in order to determine these probabilities.
     </p>
     <p>
       In statistics, there is a method commonly used to estimate unknown parameters called the maximum likelihood principle.
@@ -179,12 +507,13 @@
       The maximum likelihood method adopts the parameter values that makes the likelihood as large as possible.
     </p>
     <p>
-      For our experiment, where there are two different outcomes,
+      For our experiment with two different outcomes,
       the probability distribution is characterized by one parameter, <m>p</m>,
       which gives the probability of the first outcome (often called a success).
       The probability of the second outcome (often called a failure) will be <m>1-p</m> since probabilities must add to 1.
       Suppose that we repeated the experiment ten times and counted six successes and four failures.
-      Then the likelihood will have a product of six factors with <m>p</m> and four factors with <m>1-p</m>.
+      The likelihood is the product of the probabilities for these outcomes, using the expressions involving the parameter.
+      The likelihood will be the product of six factors with <m>p</m> and four factors with <m>1-p</m>.
       Writing these with powers, the likelihood is a function of <m>p</m>,
       <me>L = p^6 (1-p)^4</me>.
     </p>
@@ -212,7 +541,8 @@
       Because the parameter <m>p</m> is supposed to be a probability,
       we require <m>0 \lt p \lt 1</m>.
       But the graph doesn't seem to show a maximum there.
-      If we redo the graph so that the domain only include <m>[0,1]</m>, we can get a better picture.
+      This is because values of <m>p</m> outside the meaningful domain dominate the figure.
+      If we redo the graph so that the domain only include <m>[0,1]</m>, we get a better picture.
     </p>
     <image width="50%">
       <latex-image>
@@ -230,10 +560,11 @@
     <p>
       This graph has a maximum value at <m>p=0.6</m>.
       We can also see why the earlier graph didn't show the maximum.
-      The scale on the axis for <m>L</m> on the restricted interval has a magnitude of order <m>10^{-3}</m>.
-      If we had even more data than ten observations, this magnitude would be even smaller.
-      In practice, because of this effect of the likelihood shrinking in magnitude with more data,
-      the value can even drop below the smallest number a computer can represent.
+      The scale on the vertical axis for <m>L</m> for the restricted interval has an order of magnitude of <m>10^{-3}</m>.
+      If we had even more data than ten observations<mdash/>and to estimate probabilities we need many more<mdash/>this magnitude would be even smaller.
+      Because of this effect that the likelihood shrinks in magnitude with more data,
+      the likelihood value often drops below the smallest number a computer can represent.
+      It would then be impossible to find the maximum likelihood parameter value.
     </p>
     <p>
       To avoid this issue, data scientists typically record the log-likelihood rather than the likelihood.
