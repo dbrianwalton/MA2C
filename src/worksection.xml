@@ -15,8 +15,7 @@
         <title>A Modeling Approach to Calculus</title>
 
 		<chapter>
-            <xi:include href="./integrals-preview.ptx" />
-            <xi:include href="./integral-properties.ptx" />
+            <xi:include href="./functions-transformation.ptx" />
 		</chapter>
 
     </book>
