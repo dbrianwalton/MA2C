@@ -35,7 +35,7 @@
         <xi:include href="./functions-construction.ptx" />
         <xi:include href="./functions-composition.ptx" />
         <xi:include href="./functions-inverses.ptx" />
-        <xi:include href="./functions-transformation.xml" />
+        <xi:include href="./functions-transformation.ptx" />
       </chapter>
       <chapter xml:id="chapter-accumulation">
         <title>Accumulation and Rates of Change</title>
