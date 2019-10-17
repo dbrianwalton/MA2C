@@ -87,5 +87,5 @@ $(LATEX_base).pdf: images $(LATEX_base).tex
 $(LATEX_base)-1page.pdf: images $(LATEX_base)-1page.tex
 	cp -a $(MA2Croot)/img/ images/
 	cp -a $(MA2Croot)/src/data/ data/
-	pdflatex $(LATEX_base).tex
-	pdflatex $(LATEX_base).tex
+	pdflatex $(LATEX_base)-1page.tex
+	pdflatex $(LATEX_base)-1page.tex
