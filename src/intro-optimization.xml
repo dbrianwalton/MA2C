@@ -102,21 +102,19 @@
           with a cost <m>C</m> close to <m>100p</m>.
           We need to use calculus to find the exact value.
         </p>
-        <sidebyside width="60%">
-          <image>
-            <latex-image>
-              \begin{tikzpicture}
-              \begin{axis}
-              [
-                xmin=0, xmax=40, ymin=0, ymax=300,
-                xlabel={$h$}, ylabel={$C$},
-              ]
-              \addplot [domain=3:40, samples=40, thick, blue] {3*x+1000/x};
-              \end{axis}
-              \end{tikzpicture}
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="60%">
+          <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=0, xmax=40, ymin=0, ymax=300,
+              xlabel={$h$}, ylabel={$C$},
+            ]
+            \addplot [domain=3:40, samples=40, thick, blue] {3*x+1000/x};
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
       </solution>
     </example>
     <example>
@@ -310,24 +308,22 @@
           </md>
           The results of our sign analysis are summarized on the following number line.
         </p>
-        <sidebyside width="80%">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=1cm,y=1cm]
-            \draw[-] (0,0) -- (5,0) node[above right] {$A'(h)$} node[below right] {$h$};
+        <image width="80%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=1cm,y=1cm]
+          \draw[-] (0,0) -- (5,0) node[above right] {$A'(h)$} node[below right] {$h$};
 
-            \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$};
-            \draw (5, -0.1) -- (5, 0.1) node[pos=0, below] {$5$};
-            \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$\frac{5}{2}$} node[pos=1,above] {$0$};
-            \node [above] at (1.25,0) {$+$};
-            \node [above] at (3.75,0) {$-$};
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+          \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$};
+          \draw (5, -0.1) -- (5, 0.1) node[pos=0, below] {$5$};
+          \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$\frac{5}{2}$} node[pos=1,above] {$0$};
+          \node [above] at (1.25,0) {$+$};
+          \node [above] at (3.75,0) {$-$};
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           Our sign analysis of <m>A'(h)</m> implies that <m>A</m> has a maximum value at <m>h=\frac{5}{2}</m>.
           Because <m>A</m> is increasing on <m>[0,\frac{5}{2}]</m> and decreasing on <m>[]\frac{5}{2},5]</m>,
@@ -361,24 +357,22 @@
           </md>
           The results of our sign analysis are summarized on the following number line.
         </p>
-        <sidebyside width="80%">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=1cm,y=1cm]
-            \draw[-] (0,0) -- (5,0) node[above right] {$F'(f)$} node[below right] {$f$};
+        <image width="80%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=1cm,y=1cm]
+          \draw[-] (0,0) -- (5,0) node[above right] {$F'(f)$} node[below right] {$f$};
 
-            \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$};
-            \draw (5, -0.1) -- (5, 0.1) node[pos=0, below] {$200$};
-            \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$100$} node[pos=1,above] {$0$};
-            \node [above] at (1.25,0) {$+$};
-            \node [above] at (3.75,0) {$-$};
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+          \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$};
+          \draw (5, -0.1) -- (5, 0.1) node[pos=0, below] {$200$};
+          \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$100$} node[pos=1,above] {$0$};
+          \node [above] at (1.25,0) {$+$};
+          \node [above] at (3.75,0) {$-$};
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           The <xref text="title" ref="thm-first-derivative-test"/> allows us
           to conclude that <m>F</m> has a local maximum value at <m>f=100</m>.
@@ -440,23 +434,21 @@
             <mrow>C'(20) = 3p - \frac{1000p}{20^2} = 3p - \frac{5p}{2} = \frac{p}{2} \gt 0</mrow>
           </md>
         </p>
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[x=1cm,y=1cm]
-                \draw[->] (0,0) -- (4,0) node[above right] {$C'(h)$} node[below right] {$h$};
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=1cm,y=1cm]
+            \draw[->] (0,0) -- (4,0) node[above right] {$C'(h)$} node[below right] {$h$};
 
-                \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {VA};
-                \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$\sqrt{\frac{1000}{3}}$} node[pos=1,above] {$0$};
-                \node [above] at (1.2,0) {$-$};
-                \node [above] at (3.2,0) {$+$};
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
+            \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {VA};
+            \draw (2.5, -0.1) -- (2.5, 0.1) node[pos=0, below] {$\sqrt{\frac{1000}{3}}$} node[pos=1,above] {$0$};
+            \node [above] at (1.2,0) {$-$};
+            \node [above] at (3.2,0) {$+$};
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
         <p>
           The <xref text="title" ref="thm-first-derivative-test"/> shows
           that <m>C</m> has a local minimum at <m>h=\sqrt{\frac{1000}{3}}</m>.
@@ -509,10 +501,10 @@
     <exercise>
       <statement>
         <p>
-          A rectangular frame will be made with horizontal edges that cost <dollar/>0.50 per inch
-          and vertical edges that cost <dollar/>0.40 per inch.
+          A rectangular frame will be made with horizontal edges that cost $0.50 per inch
+          and vertical edges that cost $0.40 per inch.
           What are the dimensions of a rectangle that will maximize the enclosed area
-          for a total cost of <dollar/>20.00?
+          for a total cost of $20.00?
         </p>
       </statement>
     </exercise>
@@ -543,8 +535,8 @@
         <p>
           A company sells bowling balls.
           The higher the price the company charges, the fewer balls are sold.
-          When the price is <dollar/>50, the company can sell 500 balls per week.
-          When the price is <dollar/>60, the company can sell 400 balls per week.
+          When the price is $50, the company can sell 500 balls per week.
+          When the price is $60, the company can sell 400 balls per week.
           Assuming a linear relation between the price and the number of balls sold per week,
           find the price for which the company earns the most revenue per week.
           (Weekly revenue equals the price per ball times the number of balls sold per week.)
@@ -555,9 +547,9 @@
       <statement>
         <p>
           A rectangular container with a square base (top/bottom) is to be manufactured.
-          The top and bottom (squares) are made from a material that costs <dollar/>1.50 per square meter
-          while the other four sides (rectangles) are made from a material that costs <dollar/>1.00 per square meter.
-          What should be the dimensions of the container that would maximize the volume and cost <dollar/>20 in materials?
+          The top and bottom (squares) are made from a material that costs $1.50 per square meter
+          while the other four sides (rectangles) are made from a material that costs $1.00 per square meter.
+          What should be the dimensions of the container that would maximize the volume and cost $20 in materials?
         </p>
       </statement>
     </exercise>
@@ -565,9 +557,9 @@
       <statement>
         <p>
           A rectangular container with a square profile (front/back) is to be manufactured.
-          The top and bottom (rectangles) are made from a material that costs <dollar/>1.50 per square meter
-          while the other four sides (two squares and two rectangles) are made from a material that costs <dollar/>1.00 per square meter.
-          What should be the dimensions of the container that would maximize the volume and cost <dollar/>20 in materials?
+          The top and bottom (rectangles) are made from a material that costs $1.50 per square meter
+          while the other four sides (two squares and two rectangles) are made from a material that costs $1.00 per square meter.
+          What should be the dimensions of the container that would maximize the volume and cost $20 in materials?
         </p>
       </statement>
     </exercise>
@@ -575,9 +567,9 @@
       <statement>
         <p>
           A beverage can is being designed in the shape of a circular cylinder (volume=<m>\pi r^2 h</m>).
-          The top and bottom (circles, area=<m>\pi r^2</m>) are made from metal that costs <dollar/>0.01 per square centimeter
-          while the curved wall of the can (curved rectangle, area=<m>2\pi r h</m>) is made from metal that costs <dollar/>0.004 per square centimeter.
-          What should be the radius and height of the can that would maximize the volume in the container for a can that costs <dollar/>0.25 in materials?
+          The top and bottom (circles, area=<m>\pi r^2</m>) are made from metal that costs $0.01 per square centimeter
+          while the curved wall of the can (curved rectangle, area=<m>2\pi r h</m>) is made from metal that costs $0.004 per square centimeter.
+          What should be the radius and height of the can that would maximize the volume in the container for a can that costs $0.25 in materials?
         </p>
       </statement>
     </exercise>
@@ -595,8 +587,8 @@
       <statement>
         <p>
           A beverage can is being designed in the shape of a circular cylinder to hold 360 cubic centimeters (volume=<m>\pi r^2 h</m>).
-          The top and bottom (circles, area=<m>\pi r^2</m>) are made from metal that costs <dollar/>0.01 per square centimeter
-          while the curved wall of the can (curved rectangle, area=<m>2\pi r h</m>) is made from metal that costs <dollar/>0.004 per square centimeter.
+          The top and bottom (circles, area=<m>\pi r^2</m>) are made from metal that costs $0.01 per square centimeter
+          while the curved wall of the can (curved rectangle, area=<m>2\pi r h</m>) is made from metal that costs $0.004 per square centimeter.
           What should be the radius and height of the can that would minimize the materials cost?
         </p>
       </statement>

@@ -299,7 +299,7 @@
             However, we do know the following values at specific times, as shown in a table.
             Find <m>\frac{dy}{dt}\Big|_{2}</m> and <m>\frac{dz}{dt}\Big|_{4}</m>.
           </p>
-          <table>
+          <figure>
             <caption>Values of the functions <m>f</m> and <m>g</m> and their derivatives at specified points.</caption>
             <tabular>
               <row>
@@ -348,7 +348,7 @@
                 <cell><m>-2</m></cell>
               </row>
             </tabular>
-          </table>
+          </figure>
         </statement>
         <solution>
           <p>
@@ -360,15 +360,15 @@
           </p>
           <p>
             The last operation used to form <m>y</m> is addition (i.e. subtraction) of <m>t^2 f(t)</m> and <m>-3g(t)</m>.
-            The <xref ref='deriv-sum'>sum rule of derivatives</xref> then allows us to write
+            The <xref ref='deriv-sum' text='custom'>sum rule of derivatives</xref> then allows us to write
             <me>\frac{d}{dt}[y] = \frac{d}{dt}[t^2 f(t)] + \frac{d}{dt}[-3g(t)].</me>
             The expression <m>t^2 f(t)</m> is a product of <m>t^2</m> and <m>f(t)</m>,
-            so the <xref ref='deriv-product'>product rule</xref> tells us
+            so the <xref ref='deriv-product' text='custom'>product rule</xref> tells us
             <md>
               <mrow>\frac{d}{dt}[t^2 f(t)] &amp;= \frac{d}{dt}[t^2] \cdot f(t) + t^2 \cdot \frac{d}{dt}[f(t)] </mrow>
               <mrow> &amp;= 2t f(t) + t^2 f'(t).</mrow>
             </md>
-            Meanwhile, <m>-3g(t)</m> is a <xref ref='deriv-constant-multiple'>constant multiple</xref> of <m>g(t)</m> so that
+            Meanwhile, <m>-3g(t)</m> is a <xref ref='deriv-constant-multiple' text='custom'>constant multiple</xref> of <m>g(t)</m> so that
             <me>\frac{d}{dt}[-3g(t)] = -3 \frac{d}{dt}[g(t)] = -3 g'(t).</me>
             Putting all of these together in a single statement, we obtain
             <me>\frac{dy}{dt} = 2t f(t) + t^2 f'(t) - 3g'(t).</me>
@@ -384,7 +384,7 @@
           </p>
           <p>
             In a similar way, we know <m>\displaystyle z = \frac{2f(t)}{g(t)+1}</m> is a quotient.
-            The <xref ref='deriv-quotient' text='title'>quotient rule</xref> tells us
+            The <xref ref='deriv-quotient' text='custom'>quotient rule</xref> tells us
             <md>
               <mrow> \frac{dz}{dt} &amp;= \frac{(g(t)+1) \frac{d}{dt}[2f(t)] - (2f(t)) \frac{d}{dt}[g(t)+1]}{(g(t)+1)^2} </mrow>
               <mrow> &amp;= \frac{2 (g(t)+1)f'(t) - 2f(t) g'(t)}{(g(t)+1)^2}. </mrow>
@@ -409,7 +409,7 @@
     <subsubsection>
       <title>A Physical Example of the Sum Rule</title>
       <p>
-        The <xref ref="deriv-sum" text="title">sum rule for derivatives</xref> tells us
+        The <xref ref="deriv-sum" text="custom">sum rule for derivatives</xref> tells us
         that the derivative of a sum of two functions equals the sum of the individual derivatives.
         In the context of rates of change, this means that when a dependent variable is equal to the sum of two other dependent variables,
         then the rate of change of the new variable must equal the sum of the rates of change of the dependent variables being added.
@@ -483,23 +483,21 @@
             Consequently, the average rate of change of area is
             <me>\frac{\Delta A}{\Delta t} \Big|_{0,10} = \frac{25}{10} = 2.5\: \hbox{mi}^2/\hbox{yr}</me>.
           </p>
-          <sidebyside>
-            <image>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \draw[fill,red!25] (0,0) rectangle (4,2.5);
-              \draw[fill,blue!25] (0,0) rectangle (2.5,1.5);
-              \draw[<->] (0,-0.15) -- (2.5,-0.15) node [pos=0.5,below] {$W(0)=5$};
-              \draw[<->] (0,-0.75) -- (4,-0.75) node [pos=0.5,below] {$W(10)=8$};
-              \draw[<->] (-0.15,0) -- (-0.15,1.5) node [pos=0.5, left] {$H(0)=3$};
-              \draw[<->] (4.15,0) -- (4.15,2.5) node [pos=0.5, right] {$H(10)=5$};
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw[fill,red!25] (0,0) rectangle (4,2.5);
+            \draw[fill,blue!25] (0,0) rectangle (2.5,1.5);
+            \draw[<->] (0,-0.15) -- (2.5,-0.15) node [pos=0.5,below] {$W(0)=5$};
+            \draw[<->] (0,-0.75) -- (4,-0.75) node [pos=0.5,below] {$W(10)=8$};
+            \draw[<->] (-0.15,0) -- (-0.15,1.5) node [pos=0.5, left] {$H(0)=3$};
+            \draw[<->] (4.15,0) -- (4.15,2.5) node [pos=0.5, right] {$H(10)=5$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
           <p>
             To connect our intuition with functions and to prepare for the
             next calculations, let us introduce variables in addition to time <m>t</m> and total area <m>A</m>.
@@ -554,26 +552,24 @@
             while the small rectangle leads to a term that has a limit of zero in the calculation
             of the derivative.
           </p>
-          <sidebyside>
-            <image>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \draw[fill,red!25] (0,0) rectangle (5.15,3.1);
-              \draw[black, thick] (0,0) rectangle (5.15,3.1);
-              \draw[fill,blue!25] (0,0) rectangle (5,3);
-              \draw[black, thick] (0,0) rectangle (5,3);
-              \draw (5,3.1) -- (5,3) -- (5.15,3);
-              \draw[<->] (0,-0.15) -- (5,-0.15) node [pos=0.5,below] {$W(0)=5$};
-              \draw[<->] (-0.15,0) -- (-0.15,3) node [pos=0.5, left] {$H(0)=3$};
-              \draw[<-] (-0.05, 3.05) -- (-0.5, 3) node[left] {$\Delta H$};
-              \draw[<-] (5.075, -0.05) -- (5.15,-0.5) node[below] {$\Delta W$};
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \draw[fill,red!25] (0,0) rectangle (5.15,3.1);
+            \draw[black, thick] (0,0) rectangle (5.15,3.1);
+            \draw[fill,blue!25] (0,0) rectangle (5,3);
+            \draw[black, thick] (0,0) rectangle (5,3);
+            \draw (5,3.1) -- (5,3) -- (5.15,3);
+            \draw[<->] (0,-0.15) -- (5,-0.15) node [pos=0.5,below] {$W(0)=5$};
+            \draw[<->] (-0.15,0) -- (-0.15,3) node [pos=0.5, left] {$H(0)=3$};
+            \draw[<-] (-0.05, 3.05) -- (-0.5, 3) node[left] {$\Delta H$};
+            \draw[<-] (5.075, -0.05) -- (5.15,-0.5) node[below] {$\Delta W$};
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
         </solution>
       </example>
     </subsubsection>
@@ -657,45 +653,43 @@
           Use the values of <m>f(x)</m> and <m>g(x)</m> and their derivatives
           from the following table to calculate the indicated derivative.
         </p>
-        <sidebyside>
-          <tabular>
-            <row>
-              <cell><m>x</m></cell>
-              <cell>0</cell>
-              <cell>1</cell>
-              <cell>2</cell>
-              <cell>3</cell>
-            </row>
-            <row>
-              <cell><m>f(x)</m></cell>
-              <cell>2</cell>
-              <cell>5</cell>
-              <cell>-3</cell>
-              <cell>4</cell>
-            </row>
-            <row>
-              <cell><m>g(x)</m></cell>
-              <cell>-2</cell>
-              <cell>1</cell>
-              <cell>6</cell>
-              <cell>5</cell>
-            </row>
-            <row>
-              <cell><m>f'(x)</m></cell>
-              <cell>3</cell>
-              <cell>1</cell>
-              <cell>2</cell>
-              <cell>-4</cell>
-            </row>
-            <row>
-              <cell><m>g'(x)</m></cell>
-              <cell>4</cell>
-              <cell>7</cell>
-              <cell>-1</cell>
-              <cell>2</cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row>
+            <cell><m>x</m></cell>
+            <cell>0</cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+          </row>
+          <row>
+            <cell><m>f(x)</m></cell>
+            <cell>2</cell>
+            <cell>5</cell>
+            <cell>-3</cell>
+            <cell>4</cell>
+          </row>
+          <row>
+            <cell><m>g(x)</m></cell>
+            <cell>-2</cell>
+            <cell>1</cell>
+            <cell>6</cell>
+            <cell>5</cell>
+          </row>
+          <row>
+            <cell><m>f'(x)</m></cell>
+            <cell>3</cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>-4</cell>
+          </row>
+          <row>
+            <cell><m>g'(x)</m></cell>
+            <cell>4</cell>
+            <cell>7</cell>
+            <cell>-1</cell>
+            <cell>2</cell>
+          </row>
+        </tabular>
       </introduction>
       <exercise>
         <statement>
@@ -751,7 +745,7 @@
         <statement>
           <p>
             A movie company's income is based on two money streams: direct online rental and DVD sales.
-            Suppose that the company receives <dollar/>2.50 for each online rental and <dollar/>6.00 for each sold DVD.
+            Suppose that the company receives $2.50 for each online rental and $6.00 for each sold DVD.
             If the company rents movies at a rate of 2000 movies per month and sells DVDs at a rate of 1500 DVDs per month,
             what is the rate of income?
           </p>
@@ -793,9 +787,9 @@
       <exercise>
         <statement>
           <p>
-            A city has a population of 40,000 and a total debt of <dollar/>54 million.
+            A city has a population of 40,000 and a total debt of $54 million.
             If the city's population is growing at a rate of 1,000 per year
-            and is borrowing additional money at a rate of <dollar/>2 million per year,
+            and is borrowing additional money at a rate of $2 million per year,
             what is the rate of change of the per capita debt (total debt divided by population)?
           </p>
         </statement>
@@ -803,9 +797,9 @@
       <exercise>
         <statement>
           <p>
-            A company has 300 employees that earn an average annual salary of <dollar/>40,000 per employee.
+            A company has 300 employees that earn an average annual salary of $40,000 per employee.
             If the company's workforce is growing at a rate of 20 employees per year
-            and the average annual salary is increases at a rate of <dollar/>500 per employee per year.
+            and the average annual salary is increases at a rate of $500 per employee per year.
             What is the rate of change of total salary costs for the company?
           </p>
         </statement>
@@ -828,9 +822,9 @@
       <exercise>
         <statement>
           <p>
-            A city has a population of 40,000 and a total debt of <dollar/>54 million.
+            A city has a population of 40,000 and a total debt of $54 million.
             If the city's population is growing at a rate of 1,000 per year
-            and is borrowing additional money at a rate of <dollar/>2 million per year,
+            and is borrowing additional money at a rate of $2 million per year,
             what is the rate of change of the per capita debt (total debt divided by population)?
           </p>
         </statement>

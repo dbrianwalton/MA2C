@@ -61,7 +61,7 @@
       </md>
       The power on the multiple 3 is always the index value minus 2,
       <me> x_n = 3^{(n-2)} \cdot 4, </me>
-      which is precisely what we would get using the <xref text="title" ref="theorem-geometric-explicit-sequence">explicit formula for geometric sequences</xref>
+      which is precisely what we would get using the <xref ref="theorem-geometric-explicit-sequence" text="custom">explicit formula for geometric sequences</xref>
     </p>
     <p>
       The basic properties of powers are all motivated by the idea that an integer power corresponds to repeated multiplication.
@@ -243,85 +243,79 @@
           Imagine a theater that has a promotional wheel so that the price of a ticket is based on which number you spin.
           The prices are listed in the table below.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell>Spin</cell><cell>Price</cell>
-            </row>
-            <row>
-              <cell>1</cell><cell><dollar/>2</cell>
-            </row>
-            <row>
-              <cell>2</cell><cell><dollar/>5</cell>
-            </row>
-            <row>
-              <cell>3</cell><cell><dollar/>8</cell>
-            </row>
-            <row>
-              <cell>4</cell><cell><dollar/>10</cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell>Spin</cell><cell>Price</cell>
+          </row>
+          <row>
+            <cell>1</cell><cell>$2</cell>
+          </row>
+          <row>
+            <cell>2</cell><cell>$5</cell>
+          </row>
+          <row>
+            <cell>3</cell><cell>$8</cell>
+          </row>
+          <row>
+            <cell>4</cell><cell>$10</cell>
+          </row>
+        </tabular>
         <p>
           We introduce variables for the system.
           Let <m>S</m> represent the result of the spin and let <m>P</m> represent the price of a ticket.
           The map <m>f : S \mapsto P</m> can be visualized using number lines.
         </p>
-        <sidebyside width="70%">
-          <image>
-            <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}[x=0.5cm]
-              \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
-              \foreach \x in {1, 2, 3, 4} {
-                  \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
-                  \fill ({2*\x-3},0) circle [radius=2pt];
-              }
-              \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
-              \foreach \x in {2, 5, 8, 10} {
-                  \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
-                  \fill (\x,-2) circle [radius=2pt];
-              }
-              \draw [->] (-1,-0.8) -- (2, -1.8);
-              \draw [->] (1,-0.8) -- (5, -1.8);
-              \draw [->] (3,-0.8) -- (8, -1.8);
-              \draw [->] (5,-0.8) -- (10, -1.8);
-              \draw [->] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f$};
-              \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%">
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm]
+            \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
+            \foreach \x in {1, 2, 3, 4} {
+                \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
+                \fill ({2*\x-3},0) circle [radius=2pt];
+            }
+            \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
+            \foreach \x in {2, 5, 8, 10} {
+                \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                \fill (\x,-2) circle [radius=2pt];
+            }
+            \draw [->] (-1,-0.8) -- (2, -1.8);
+            \draw [->] (1,-0.8) -- (5, -1.8);
+            \draw [->] (3,-0.8) -- (8, -1.8);
+            \draw [->] (5,-0.8) -- (10, -1.8);
+            \draw [->] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f$};
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           The inverse map <m>f^{-1} : P \mapsto S</m> reverses the direction of the arrows.
         </p>
-        <sidebyside width="70%">
-          <image>
-            <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}[x=0.5cm]
-              \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
-              \foreach \x in {1, 2, 3, 4} {
-                  \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
-                  \fill ({2*\x-3},0) circle [radius=2pt];
-              }
-              \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
-              \foreach \x in {2, 5, 8, 10} {
-                  \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
-                  \fill (\x,-2) circle [radius=2pt];
-              }
-              \draw [<-] (-1,-0.8) -- (2, -1.8);
-              \draw [<-] (1,-0.8) -- (5, -1.8);
-              \draw [<-] (3,-0.8) -- (8, -1.8);
-              \draw [<-] (5,-0.8) -- (10, -1.8);
-              \draw [<-] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f^{-1}$};
-              \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%">
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm]
+            \draw[<->] (-3,0) -- (12,0) node[pos=0, left] {$S$};
+            \foreach \x in {1, 2, 3, 4} {
+                \draw ({2*\x-3},0.1) -- ({2*\x-3},-0.1) node[below] {\x};
+                \fill ({2*\x-3},0) circle [radius=2pt];
+            }
+            \draw[<-> ](-3,-2) -- (12,-2) node[pos=0,left] {$P$};
+            \foreach \x in {2, 5, 8, 10} {
+                \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                \fill (\x,-2) circle [radius=2pt];
+            }
+            \draw [<-] (-1,-0.8) -- (2, -1.8);
+            \draw [<-] (1,-0.8) -- (5, -1.8);
+            \draw [<-] (3,-0.8) -- (8, -1.8);
+            \draw [<-] (5,-0.8) -- (10, -1.8);
+            \draw [<-] (-3.5,-0.5) -- (-3.5, -1.5) node[pos=0.5, left] {$f^{-1}$};
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           Based on this system, we see that <m>f(1)=2</m> because when <m>S=1</m> we have <m>P=2</m>.
           The equivalent inverse equation is <m>f^{-1}(2)=1</m> because a price <m>P=2</m> comes from <m>S=1</m>.
@@ -541,7 +535,7 @@
       The logarithm for <m>b=e</m> is called the natural logarithm
       and appears on a calculator as <c>ln</c>.
       We will later prove that every logarithm can be found using one of these
-      by the <xref text="title" ref="logarithm-change-base">change of base formula</xref>
+      by the <xref ref="logarithm-change-base" text="custom">change of base formula</xref>
       <me> \log_b(x) = \frac{\log(x)}{\log(b)} = \frac{\ln(x)}{\ln(b)}</me>.
     </p>
   </subsection>
@@ -749,83 +743,77 @@
       </introduction>
       <exercise>
         <statement>
-          <sidebyside>
-            <tabular>
-              <row bottom="major">
-                <cell><m>A</m></cell><cell><m>C</m></cell>
-              </row>
-              <row>
-                <cell>0</cell><cell>5</cell>
-              </row>
-              <row>
-                <cell>1</cell><cell>8</cell>
-              </row>
-              <row>
-                <cell>2</cell><cell>9</cell>
-              </row>
-              <row>
-                <cell>3</cell><cell>8</cell>
-              </row>
-              <row>
-                <cell>4</cell><cell>11</cell>
-              </row>
-            </tabular>
-          </sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell><m>A</m></cell><cell><m>C</m></cell>
+            </row>
+            <row>
+              <cell>0</cell><cell>5</cell>
+            </row>
+            <row>
+              <cell>1</cell><cell>8</cell>
+            </row>
+            <row>
+              <cell>2</cell><cell>9</cell>
+            </row>
+            <row>
+              <cell>3</cell><cell>8</cell>
+            </row>
+            <row>
+              <cell>4</cell><cell>11</cell>
+            </row>
+          </tabular>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <sidebyside>
-            <tabular>
-              <row bottom="major">
-                <cell><m>x</m></cell><cell><m>E</m></cell>
-              </row>
-              <row>
-                <cell>0</cell><cell>1</cell>
-              </row>
-              <row>
-                <cell>1</cell><cell>2</cell>
-              </row>
-              <row>
-                <cell>2</cell><cell>4</cell>
-              </row>
-              <row>
-                <cell>3</cell><cell>8</cell>
-              </row>
-              <row>
-                <cell>4</cell><cell>16</cell>
-              </row>
-            </tabular>
-          </sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell><m>x</m></cell><cell><m>E</m></cell>
+            </row>
+            <row>
+              <cell>0</cell><cell>1</cell>
+            </row>
+            <row>
+              <cell>1</cell><cell>2</cell>
+            </row>
+            <row>
+              <cell>2</cell><cell>4</cell>
+            </row>
+            <row>
+              <cell>3</cell><cell>8</cell>
+            </row>
+            <row>
+              <cell>4</cell><cell>16</cell>
+            </row>
+          </tabular>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <sidebyside>
-            <tabular>
-              <row bottom="major">
-                <cell><m>t</m></cell><cell><m>Q</m></cell>
-              </row>
-              <row>
-                <cell>0</cell><cell>8</cell>
-              </row>
-              <row>
-                <cell>1</cell><cell>5</cell>
-              </row>
-              <row>
-                <cell>2</cell><cell>2</cell>
-              </row>
-              <row>
-                <cell>0</cell><cell>-1</cell>
-              </row>
-              <row>
-                <cell>1</cell><cell>-4</cell>
-              </row>
-              <row>
-                <cell>2</cell><cell>-7</cell>
-              </row>
-            </tabular>
-          </sidebyside>
+          <tabular>
+            <row bottom="major">
+              <cell><m>t</m></cell><cell><m>Q</m></cell>
+            </row>
+            <row>
+              <cell>0</cell><cell>8</cell>
+            </row>
+            <row>
+              <cell>1</cell><cell>5</cell>
+            </row>
+            <row>
+              <cell>2</cell><cell>2</cell>
+            </row>
+            <row>
+              <cell>0</cell><cell>-1</cell>
+            </row>
+            <row>
+              <cell>1</cell><cell>-4</cell>
+            </row>
+            <row>
+              <cell>2</cell><cell>-7</cell>
+            </row>
+          </tabular>
         </statement>
       </exercise>
     </exercisegroup>

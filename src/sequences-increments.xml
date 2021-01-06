@@ -88,35 +88,33 @@
           consider the actual values of the sequence, <me>x = (5, 8, 11, 14, 17, \ldots)</me>.
           Now, consider the table created using the explicit formulas above.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell><m>n</m></cell>
-              <cell><m>x_n</m></cell>
-              <cell><m>x_{n-1}</m></cell>
-            </row>
-            <row>
-              <cell>0</cell>
-              <cell><m>3(0)+5 = 5</m></cell>
-              <cell>undefined</cell>
-            </row>
-            <row>
-              <cell>1</cell>
-              <cell><m>3(1)+5 = 8</m></cell>
-              <cell><m>3(1)+2=  5</m></cell>
-            </row>
-            <row>
-              <cell>2</cell>
-              <cell><m>3(2)+5 = 11</m></cell>
-              <cell><m>3(2)+2=  8</m></cell>
-            </row>
-            <row>
-              <cell>3</cell>
-              <cell><m>3(3)+5 = 14</m></cell>
-              <cell><m>3(3)+2=  11</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>n</m></cell>
+            <cell><m>x_n</m></cell>
+            <cell><m>x_{n-1}</m></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell><m>3(0)+5 = 5</m></cell>
+            <cell>undefined</cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell><m>3(1)+5 = 8</m></cell>
+            <cell><m>3(1)+2=  5</m></cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell><m>3(2)+5 = 11</m></cell>
+            <cell><m>3(2)+2=  8</m></cell>
+          </row>
+          <row>
+            <cell>3</cell>
+            <cell><m>3(3)+5 = 14</m></cell>
+            <cell><m>3(3)+2=  11</m></cell>
+          </row>
+        </tabular>
         <p>
           You should notice how the formula for <m>x_{n-1}</m> uses the <em>current</em> value of <m>n</m> to find the value of the <em>previous</em> value of the sequence.
         </p>
@@ -161,40 +159,38 @@
           Notice that the formula <m>u_{n-1}</m> calculate the previous value using the current index,
           and the formula for <m>\nabla u_n</m> calculates the increment of the sequence using the index.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell><m>n</m></cell>
-              <cell><m>u_n</m></cell>
-              <cell><m>u_{n-1}</m></cell>
-              <cell><m>\nabla u_n</m></cell>
-            </row>
-            <row>
-              <cell>0</cell>
-              <cell><m>(0)^2+2(0) = 0</m></cell>
-              <cell>undefined</cell>
-              <cell>undefined</cell>
-            </row>
-            <row>
-              <cell>1</cell>
-              <cell><m>(1)^2+2(1) = 3</m></cell>
-              <cell><m>(1)^2-1= 0</m></cell>
-              <cell><m>2(1)+1= 3</m></cell>
-            </row>
-            <row>
-              <cell>2</cell>
-              <cell><m>(2)^2+2(2) = 8</m></cell>
-              <cell><m>(2)^2-1= 3</m></cell>
-              <cell><m>2(2)+1= 5</m></cell>
-            </row>
-            <row>
-              <cell>3</cell>
-              <cell><m>(3)^2+2(3) = 15</m></cell>
-              <cell><m>(3)^2-1= 8</m></cell>
-              <cell><m>2(3)+1= 7</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>n</m></cell>
+            <cell><m>u_n</m></cell>
+            <cell><m>u_{n-1}</m></cell>
+            <cell><m>\nabla u_n</m></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell><m>(0)^2+2(0) = 0</m></cell>
+            <cell>undefined</cell>
+            <cell>undefined</cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell><m>(1)^2+2(1) = 3</m></cell>
+            <cell><m>(1)^2-1= 0</m></cell>
+            <cell><m>2(1)+1= 3</m></cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell><m>(2)^2+2(2) = 8</m></cell>
+            <cell><m>(2)^2-1= 3</m></cell>
+            <cell><m>2(2)+1= 5</m></cell>
+          </row>
+          <row>
+            <cell>3</cell>
+            <cell><m>(3)^2+2(3) = 15</m></cell>
+            <cell><m>(3)^2-1= 8</m></cell>
+            <cell><m>2(3)+1= 7</m></cell>
+          </row>
+        </tabular>
       </solution>
     </example>
   </subsection>
@@ -237,35 +233,33 @@
           Suppose the initial value is <m>x_0 = 20</m>.
           We can compute both <m>x_n</m> and <m>\nabla x_n</m> in terms of the previously computed value <m>x_{n-1}</m>.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell><m>n</m></cell>
-              <cell><m>x_n</m></cell>
-              <cell><m>\nabla x_n</m></cell>
-            </row>
-            <row>
-              <cell>0</cell>
-              <cell>20</cell>
-              <cell>undefined</cell>
-            </row>
-            <row>
-              <cell>1</cell>
-              <cell><m>1.25(20)-10 = 15</m></cell>
-              <cell><m>0.25(20)-10 = -5</m></cell>
-            </row>
-            <row>
-              <cell>2</cell>
-              <cell><m>1.25(15)-10 = 8.75</m></cell>
-              <cell><m>0.25(15)-10 = -6.25</m></cell>
-            </row>
-            <row>
-              <cell>3</cell>
-              <cell><m>1.25(8.75)-10 = 0.9375</m></cell>
-              <cell><m>0.25(8.75)-10 = -7.8125</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>n</m></cell>
+            <cell><m>x_n</m></cell>
+            <cell><m>\nabla x_n</m></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell>20</cell>
+            <cell>undefined</cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell><m>1.25(20)-10 = 15</m></cell>
+            <cell><m>0.25(20)-10 = -5</m></cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell><m>1.25(15)-10 = 8.75</m></cell>
+            <cell><m>0.25(15)-10 = -6.25</m></cell>
+          </row>
+          <row>
+            <cell>3</cell>
+            <cell><m>1.25(8.75)-10 = 0.9375</m></cell>
+            <cell><m>0.25(8.75)-10 = -7.8125</m></cell>
+          </row>
+        </tabular>
         <p>
           Suppose we had only used the recursive formula to find the sequence.
           We would have found <me>x = (x_n)_{n=0}^\infty = (20,15,8.75,0.9375\ldots)</me>.
@@ -346,34 +340,32 @@
           We can verify that our work looks correct by starting a table and
           checking whether the explicit formulas match what the terms should be.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell><m>n</m></cell>
-              <cell><m>x_n</m></cell>
-              <cell><m>x_{n-1}</m></cell>
-              <cell><m>\nabla x_n</m></cell>
-            </row>
-            <row>
-              <cell>0</cell>
-              <cell><m>40(0)-0^2 = 0</m></cell>
-              <cell>undefined</cell>
-              <cell>undefined</cell>
-            </row>
-            <row>
-              <cell>1</cell>
-              <cell><m>40(1)-1^2 = 39</m></cell>
-              <cell><m>42(1)-1^2 - 41 = 0</m></cell>
-              <cell><m>-2(1)+41 = 39</m></cell>
-            </row>
-            <row>
-              <cell>2</cell>
-              <cell><m>40(2)-2^2 = 76</m></cell>
-              <cell><m>42(2)-2^2 - 41 = 39</m></cell>
-              <cell><m>-2(2)+41 = 37</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>n</m></cell>
+            <cell><m>x_n</m></cell>
+            <cell><m>x_{n-1}</m></cell>
+            <cell><m>\nabla x_n</m></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell><m>40(0)-0^2 = 0</m></cell>
+            <cell>undefined</cell>
+            <cell>undefined</cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell><m>40(1)-1^2 = 39</m></cell>
+            <cell><m>42(1)-1^2 - 41 = 0</m></cell>
+            <cell><m>-2(1)+41 = 39</m></cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell><m>40(2)-2^2 = 76</m></cell>
+            <cell><m>42(2)-2^2 - 41 = 39</m></cell>
+            <cell><m>-2(2)+41 = 37</m></cell>
+          </row>
+        </tabular>
         <p>
           Checking thes few values in the table gives us confidence that we did the algebra correctly.
           The formula for the previous sequence value is matching what we expect,
@@ -420,22 +412,20 @@
           Both methods of solving the inequalities give the same intervals,
           which allow us to analyze the monotonicity of the sequence as shown in the table below.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell>Sign of <m>\nabla x_n</m></cell>
-              <cell>Monotonicity of <m>x_n</m></cell>
-            </row>
-            <row>
-              <cell>Positive on <m>\{1,\ldots,20\}</m></cell>
-              <cell>Increasing on <m>\{0,\ldots,20\}</m></cell>
-            </row>
-            <row>
-              <cell>Negative on <m>\{21,\ldots,\infty\}</m></cell>
-              <cell>Decreasing on <m>\{20,\ldots,\infty\}</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell>Sign of <m>\nabla x_n</m></cell>
+            <cell>Monotonicity of <m>x_n</m></cell>
+          </row>
+          <row>
+            <cell>Positive on <m>\{1,\ldots,20\}</m></cell>
+            <cell>Increasing on <m>\{0,\ldots,20\}</m></cell>
+          </row>
+          <row>
+            <cell>Negative on <m>\{21,\ldots,\infty\}</m></cell>
+            <cell>Decreasing on <m>\{20,\ldots,\infty\}</m></cell>
+          </row>
+        </tabular>
         <p>
           Because <m>x</m> is increasing on <m>\{0,\ldots,20\}</m>
           and then decreasing on <m>\{20,\ldots,\infty\}</m>,
@@ -1032,8 +1022,8 @@
       <exercise>
         <statement>
           <p>
-            You are about to receive some money (inheritance, lottery, etc.) and plan to invest it in an account that earns 5<percent/> annually, compounded quarterly.
-            Your plan is to withdraw <dollar/>9000 each quarter (<dollar/>3000 per month).
+            You are about to receive some money (inheritance, lottery, etc.) and plan to invest it in an account that earns 5% annually, compounded quarterly.
+            Your plan is to withdraw $9000 each quarter ($3000 per month).
             You want to analyze what will happen to your investment.
             <ul>
               <li>

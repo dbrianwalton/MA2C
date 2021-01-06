@@ -123,37 +123,35 @@
           <me>h(t) = 5+64t-16t^2</me>,
           then what is the average velocity over the interval <m>[1,4]</m>?
         </p>
-        <sidebyside width="60%">
-          <image>
-            <description>
-            Graph of y=x^2.
-            </description>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            /pgfplots/table/row sep=crcr
-            }
-            \begin{tikzpicture}
-            \begin{axis}[
-                xmin=0,xmax=4.5,
-                ymin=0,ymax=70,
-                xlabel={$t$},
-                ylabel={$h$},
-            ]
-            \addplot[blue, thick, samples=100]
-                ({x}, {5+64*x-16*x^2});
-            \addplot[red, samples=10]
-                ({x}, {53-16*(x-1)});
-            \addplot[only marks, blue] table {
-              1 53\\
-              4 5\\
-            };
-            \addplot[mark=none, black] {0};
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="60%">
+          <description>
+          Graph of y=x^2.
+          </description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          /pgfplots/table/row sep=crcr
+          }
+          \begin{tikzpicture}
+          \begin{axis}[
+              xmin=0,xmax=4.5,
+              ymin=0,ymax=70,
+              xlabel={$t$},
+              ylabel={$h$},
+          ]
+          \addplot[blue, thick, samples=100]
+              ({x}, {5+64*x-16*x^2});
+          \addplot[red, samples=10]
+              ({x}, {53-16*(x-1)});
+          \addplot[only marks, blue] table {
+            1 53\\
+            4 5\\
+          };
+          \addplot[mark=none, black] {0};
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </statement>
       <solution>
         <p>
@@ -267,7 +265,7 @@
       </statement>
       <solution>
         <p>
-          In the <xref ref="ex-ave-rate-cubic" text="title">earlier example</xref>,
+          In the <xref ref="ex-ave-rate-cubic" text="custom">earlier example</xref>,
           we found the average rate of change of <m>f</m> on the interval <m>[1,2]</m>:
           <me> \left. \frac{\Delta f}{\Delta x}\right|_{[1,2]} = 3.</me>
           The width of this interval was <m>h = \Delta x = 2-1 = 1</m>.
@@ -285,7 +283,7 @@
           <me> \left. \frac{\Delta f}{\Delta x} \right|_{[1, x_n]} = \frac{f(x_n)--3}{h}</me>
           where <m>h=b_k-1</m>.
         </p>
-        <table xml:id="table-instant-rate-ex-1">
+        <figure xml:id="table-instant-rate-ex-1">
           <caption>Illustration of using shrinking intervals to estimate the
           instantaneous rate of change.</caption>
           <tabular top="major" halign="center">
@@ -330,9 +328,9 @@
               <cell><m>-0.996999</m></cell>
             </row>
           </tabular>
-        </table>
+        </figure>
         <p>
-          From this table, we can see that the spacing between the points <m>h</m> is approaching zero
+          From this figure's table, we can see that the spacing between the points <m>h</m> is approaching zero
           as the second point in the interval is approaching the point in question.
           As this happens, the sequence of values representing the average rate of change on these intervals
           appears to be approaching the value of -1.
@@ -355,7 +353,7 @@
       </statement>
       <solution>
         <p>We will create two sequences of decreasing width intervals, one on the left and the other on the right of 1. This will allow us to more easily recognize the decimal representation of the limiting value. In addition, we will use a variable <m>h</m> to represent the offset from 1 to the other endpoint of the interval. One sequence will involve negative values of <m>h</m> (on the left) and the other will involve positive values of <m>h</m> (on the right). Notice how in these tables, we require more decimal places for the value of <m>f(1+h)</m> in order to obtain the average rate of change to the same number of significant digits.</p>
-        <table xml:id="table-instant-rate-ex-2a">
+        <figure xml:id="table-instant-rate-ex-2a">
           <caption>
             Illustration of using shrinking intervals on the left to estimate the instantaneous rate of change.
           </caption>
@@ -389,8 +387,8 @@
               <cell>3.2940</cell>
             </row>
           </tabular>
-        </table>
-        <table xml:id="table-instant-rate-ex-2b">
+        </figure>
+        <figure xml:id="table-instant-rate-ex-2b">
           <caption>
             Illustration of using shrinking intervals on the right to estimate the instantaneous rate of change.
           </caption>
@@ -424,7 +422,7 @@
               <cell>3.2976</cell>
             </row>
           </tabular>
-        </table>
+        </figure>
         <p>
           Looking at the columns for the average rate of change in these two tables,
           we notice that the values are rising when <m>h \lt 0</m> as the size of the interval shrinks
@@ -689,7 +687,7 @@
           Our table will show a final value with 6 digits of accuracy so that we can visualize the limit converging.
         </p>
         <sidebyside widths="40% 40%">
-          <table xml:id="table-population-rate-ex-1a">
+          <figure xml:id="table-population-rate-ex-1a">
             <caption>
               Table of <m>\frac{\Delta P}{\Delta t}</m> for <m>h \lt 0</m>.
             </caption>
@@ -711,8 +709,8 @@
                 <cell><m>\displaystyle \frac{400 \cdot 1.1^{1.999} - 400 \cdot 1.1^2}{-0.001} \approx 46.1279</m></cell>
               </row>
             </tabular>
-          </table>
-          <table xml:id="table-population-rate-ex-1b">
+          </figure>
+          <figure xml:id="table-population-rate-ex-1b">
             <caption>
               Table of <m>\frac{\Delta P}{\Delta t}</m> for <m>h\gt 0</m>.
             </caption>
@@ -734,7 +732,7 @@
                 <cell><m>\displaystyle \frac{400 \cdot 1.1^{2.001} - 400 \cdot 1.1^2}{0.001} \approx 46.1323</m></cell>
               </row>
             </tabular>
-          </table>
+          </figure>
         </sidebyside>
         <p>
           Comparing the tables using values on the left (<m>h \lt 0</m>) and values on the right (<m>h \gt 0</m>),
@@ -767,7 +765,7 @@
           <me>p \mapsto R = \frac{12000p}{p+3}</me>.
           We can find the monthly revenue using <m>p=5</m> to obtain
           <me>p=5 \: \mapsto \: R=\frac{12000(5)}{5+3} = 7500</me>.
-          The monthly revenue will be <dollar/>7500 when the item price is <m>p=5</m>.
+          The monthly revenue will be $7500 when the item price is <m>p=5</m>.
         </p>
         <p>
           To find the rate of change of <m>R</m> with respect to <m>p</m>,
@@ -795,7 +793,7 @@
         </p>
         <p>
           This rate of change tells us that starting at a unit price of <m>p=5</m>,
-          the monthly revenue is increasing at a rate of <dollar/>562.50 for every <dollar/>1.00 increase in price.
+          the monthly revenue is increasing at a rate of $562.50 for every $1.00 increase in price.
           Because the derivative is an instantaneous rate of change, it will not match the average rate of change.
           For example, if we set the unit price at <m>p=6</m>, we get a monthly revenue of <m>R=8000</m>.
           The average rate of change for the monthly revenue with respect to price would be

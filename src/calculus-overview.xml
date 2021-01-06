@@ -12,7 +12,7 @@
 
   <introduction>
     <p>
-      The <xref ref="chapter-sequences">previous chapter</xref> studied sequences.
+      The <xref ref="chapter-sequences" text="custom">previous chapter</xref> studied sequences.
       There are three major concepts in calculus that we can use sequences to motivate.
       These are limits, derivatives, and integrals.
     </p>

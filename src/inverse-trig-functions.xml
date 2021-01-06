@@ -251,84 +251,80 @@
 
     <p>The secant, cosecant, and cotangent functions also have restricted domains and corresponding inverse functions. The table below summarizes the restricted domains and ranges for each of the trigonometric functions.</p>
 
-    <sidebyside>
-        <tabular>
-            <row bottom="major">
-                <cell>Restricted Function</cell>
-                <cell>Domain</cell>
-                <cell>Range</cell>
-            </row>
-            <row>
-                <cell><m>\sin(x)</m></cell>
-                <cell><m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m></cell>
-                <cell><m>[-1,1]</m></cell>
-            </row>
-            <row>
-                <cell><m>\cos(x)</m></cell>
-                <cell><m>[0,\pi]</m></cell>
-                <cell><m>[-1,1]</m></cell>
-            </row>
-            <row>
-                <cell><m>\tan(x)</m></cell>
-                <cell><m>(-\frac{\pi}{2}, \frac{\pi}{2})</m></cell>
-                <cell><m>(-\infty,\infty)</m></cell>
-            </row>
-            <row>
-                <cell><m>\cot(x)</m></cell>
-                <cell><m>(0,\pi)</m></cell>
-                <cell><m>(-\infty,\infty)</m></cell>
-            </row>
-            <row>
-                <cell><m>\sec(x)</m></cell>
-                <cell><m>[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]</m></cell>
-                <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
-            </row>
-            <row>
-                <cell><m>\csc(x)</m></cell>
-                <cell><m>[-\frac{\pi}{2},0) \cup (0,\frac{\pi}{2}]</m></cell>
-                <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
-            </row>
-        </tabular>
-    </sidebyside>
+    <tabular>
+        <row bottom="major">
+            <cell>Restricted Function</cell>
+            <cell>Domain</cell>
+            <cell>Range</cell>
+        </row>
+        <row>
+            <cell><m>\sin(x)</m></cell>
+            <cell><m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m></cell>
+            <cell><m>[-1,1]</m></cell>
+        </row>
+        <row>
+            <cell><m>\cos(x)</m></cell>
+            <cell><m>[0,\pi]</m></cell>
+            <cell><m>[-1,1]</m></cell>
+        </row>
+        <row>
+            <cell><m>\tan(x)</m></cell>
+            <cell><m>(-\frac{\pi}{2}, \frac{\pi}{2})</m></cell>
+            <cell><m>(-\infty,\infty)</m></cell>
+        </row>
+        <row>
+            <cell><m>\cot(x)</m></cell>
+            <cell><m>(0,\pi)</m></cell>
+            <cell><m>(-\infty,\infty)</m></cell>
+        </row>
+        <row>
+            <cell><m>\sec(x)</m></cell>
+            <cell><m>[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]</m></cell>
+            <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
+        </row>
+        <row>
+            <cell><m>\csc(x)</m></cell>
+            <cell><m>[-\frac{\pi}{2},0) \cup (0,\frac{\pi}{2}]</m></cell>
+            <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
+        </row>
+    </tabular>
     <p>The domain and range for the inverse functions are exactly the reverse of the restricted trigonometric functions. The inverse trigonometric functions have multiple representations. For example, the arcsine is sometimes written <m>\sin^{-1}</m> but is also written either <m>\arcsin</m> or <m>\mathrm{asin}</m>. The table summarizes the information about the inverse trigonometric functions.</p>
-    <sidebyside>
-        <tabular>
-            <row bottom="major">
-                <cell>Inverse Functions</cell>
-                <cell>Domain</cell>
-                <cell>Range</cell>
-            </row>
-            <row>
-                <cell><m>\sin^{-1}(x)=\arcsin(x)</m></cell>
-                <cell><m>[-1,1]</m></cell>
-                <cell><m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m></cell>
-            </row>
-            <row>
-                <cell><m>\cos^{-1}(x)=\arccos(x)</m></cell>
-                <cell><m>[-1,1]</m></cell>
-                <cell><m>[0,\pi]</m></cell>
-            </row>
-            <row>
-                <cell><m>\tan^{-1}(x)=\arctan(x)</m></cell>
-                <cell><m>(-\infty,\infty)</m></cell>
-                <cell><m>(-\frac{\pi}{2}, \frac{\pi}{2})</m></cell>
-            </row>
-            <row>
-                <cell><m>\cot^{-1}(x)=\mathrm{arccot}(x)</m></cell>
-                <cell><m>(-\infty,\infty)</m></cell>
-                <cell><m>(0,\pi)</m></cell>
-            </row>
-            <row>
-                <cell><m>\sec^{-1}(x)=\mathrm{arcsec}(x)</m></cell>
-                <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
-                <cell><m>[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]</m></cell>
-            </row>
-            <row>
-                <cell><m>\csc^{-1}(x)=\mathrm{arccsc}(x)</m></cell>
-                <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
-                <cell><m>[-\frac{\pi}{2},0) \cup (0,\frac{\pi}{2}]</m></cell>
-            </row>
-        </tabular>
-    </sidebyside>
+    <tabular>
+        <row bottom="major">
+            <cell>Inverse Functions</cell>
+            <cell>Domain</cell>
+            <cell>Range</cell>
+        </row>
+        <row>
+            <cell><m>\sin^{-1}(x)=\arcsin(x)</m></cell>
+            <cell><m>[-1,1]</m></cell>
+            <cell><m>[-\frac{\pi}{2}, \frac{\pi}{2}]</m></cell>
+        </row>
+        <row>
+            <cell><m>\cos^{-1}(x)=\arccos(x)</m></cell>
+            <cell><m>[-1,1]</m></cell>
+            <cell><m>[0,\pi]</m></cell>
+        </row>
+        <row>
+            <cell><m>\tan^{-1}(x)=\arctan(x)</m></cell>
+            <cell><m>(-\infty,\infty)</m></cell>
+            <cell><m>(-\frac{\pi}{2}, \frac{\pi}{2})</m></cell>
+        </row>
+        <row>
+            <cell><m>\cot^{-1}(x)=\mathrm{arccot}(x)</m></cell>
+            <cell><m>(-\infty,\infty)</m></cell>
+            <cell><m>(0,\pi)</m></cell>
+        </row>
+        <row>
+            <cell><m>\sec^{-1}(x)=\mathrm{arcsec}(x)</m></cell>
+            <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
+            <cell><m>[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]</m></cell>
+        </row>
+        <row>
+            <cell><m>\csc^{-1}(x)=\mathrm{arccsc}(x)</m></cell>
+            <cell><m>(-\infty,-1] \cup [1,\infty)</m></cell>
+            <cell><m>[-\frac{\pi}{2},0) \cup (0,\frac{\pi}{2}]</m></cell>
+        </row>
+    </tabular>
 
 </section>

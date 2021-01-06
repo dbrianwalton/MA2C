@@ -339,7 +339,7 @@
     <subsubsection>
       <title>Exponentials, Powers, and Logarithms</title>
       <p>
-        While studying sequences, we learned about the operations of <xref ref="definition-exponential-function">exponentials</xref> and <xref ref="definition-power-function">powers</xref>.
+        While studying sequences, we learned about the operations of <xref ref="definition-exponential-function" text="custom">exponentials</xref> and <xref ref="definition-power-function" text="custom">powers</xref>.
         In effect, these two operations add powers involving constants to our collection of elementary operations.
         We also include the inverse operations.
       </p>
@@ -829,30 +829,29 @@
         <p>
           Common parametrized families of functions are linear, exponential, and power functions.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell>Parametric Formula</cell>
-              <cell>Description</cell>
-            </row>
-            <row>
-              <cell><m>f(x)=mx+b</m></cell>
-              <cell>linear, slope-intercept</cell>
-            </row>
-            <row>
-              <cell><m>f(x)=A \, x^p</m></cell>
-              <cell>power</cell>
-            </row>
-            <row>
-              <cell><m>f(x)=A \, b^x</m></cell>
-              <cell>exponential, general base <m>b</m></cell>
-            </row>
-            <row>
-              <cell><m>f(x)=A \, e^{kx}</m></cell>
-              <cell>exponential, natural base <m>e</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+
+        <tabular>
+          <row bottom="major">
+            <cell>Parametric Formula</cell>
+            <cell>Description</cell>
+          </row>
+          <row>
+            <cell><m>f(x)=mx+b</m></cell>
+            <cell>linear, slope-intercept</cell>
+          </row>
+          <row>
+            <cell><m>f(x)=A \, x^p</m></cell>
+            <cell>power</cell>
+          </row>
+          <row>
+            <cell><m>f(x)=A \, b^x</m></cell>
+            <cell>exponential, general base <m>b</m></cell>
+          </row>
+          <row>
+            <cell><m>f(x)=A \, e^{kx}</m></cell>
+            <cell>exponential, natural base <m>e</m></cell>
+          </row>
+        </tabular>
       </li>
       <li>
         A polynomial is a linear combination of simple powers <m>(1,x,x^2,\ldots,x^n)</m>,

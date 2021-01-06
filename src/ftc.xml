@@ -11,7 +11,7 @@
   <title>Definite Integrals and Antiderivatives</title>
   <introduction>
     <p>
-      An <xref ref='defn-accumulation-function' text='title'>accumulation function</xref>
+      An <xref ref='defn-accumulation-function' text='custom'>accumulation function</xref>
       with rate <m>f(x)</m> is a function <m>A</m> defined as the definite integral of <m>f(x)</m>
       from a fixed lower limit <m>c</m> to the independent variable as the upper limit,
       <me>A(x) = \int_c^x f(z)\, dz.</me>
@@ -21,7 +21,7 @@
       <me>\int_a^b f(x) \, dx = A(b) - A(a).</me>
     </p>
     <p>
-      The <xref ref="ftc-part-one" text="title">Fundamental Theorem of Calculus</xref> showed
+      The <xref ref="ftc-part-one" text="custom">Fundamental Theorem of Calculus</xref> showed
       that if <m>f(x)</m> is continuous, then <m>A(x)</m> is differentiable and <m>A'(x)=f(x)</m>.
       That is, <m>A(x)</m> is an antiderivative of <m>f(x)</m>.
       This motivates another method for computing definite integrals.

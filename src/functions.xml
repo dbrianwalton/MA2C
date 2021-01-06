@@ -6,22 +6,22 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="functions">
     <title>Functions</title>
 
     <subsection>
         <title>Overview</title>
-        
+
         <p>A <term>function</term> is a relationship between two variables such that knowing one variable (the <term>independent variable</term>) allows us to predict the exact value of the other variable (the <term>dependent variable</term>). Conveniently, an equation in two variables defines a relationship between those variables. If we can solve such an equation so that one variable is equal to an expression involving only the other variable, then we have written that variable as an explicit function of the other.</p>
-        
+
         <definition xml:id="define-explicit-function">
             <title>Explicit Function</title>
             <statement>
                 <p>Given an independent variable <m>x</m> and a dependent variable <m>y</m>, we say that <m>y</m> is an <term>explicit function</term> of <m>x</m> if we have an equation where <m>y</m> equals an expression involving <m>x</m> but not <m>y</m>.</p>
             </statement>
         </definition>
-        
+
         <example>
             <p>The following are examples of a dependent variable written as an explicit function of an independent variable.</p>
             <ul>
@@ -36,13 +36,13 @@
                 </li>
             </ul>
         </example>
-        
+
         <p>When an equation is given where the dependent variable is not written as an explicit function of the independent variable, we try to solve the equation for the dependent variable, usually by trying to isolate the dependent variable. This really means that we are finding an equivalent equation where the desired variable is isolated. We find equivalent equations by applying the same operation on both sides, so long as the operations are invertible.</p>
-        
+
         <p>Think of an expression as a package. The mathematical operations represent layers of wrapping or packaging. However, instead of unwrapping the package by tearing layers off, imagine that each type of packaging material has an inverse material that when layered next to one another dissolve both (like anti-matter). To unwrap the package, we choose the appropriate inverse materials and wrap it with inverses until all the desired layers have been dissolved. The mathematical challenge is being able to look at an expression, identify which operation is the last step (the outermost packaging) and select the appropriate inverse operation to remove that step (the inverse material).</p>
-        
+
         <p>The order of operations determines the order in which operations are applied in a mathematical expression. This is often summarized using an acronym PEMDAS. The letters represent the words <q>parentheses</q>, <q>exponents</q>, <q>multiplication</q>, <q>division</q>, <q>addition</q> and <q>subtraction</q>. Multiplication and division are inverse operations and actually have the same priority as one another. Similarly, the operations of addition and subtraction are inverses with equal priority. Even better, you should view these as a single operation involving inverse elements. That is, division is multiplication by an inverse (reciprocal) and subtraction is addition by an inverse (negative). The operation of exponents in algebra really should be generalized to any function (like square roots, logarithms, trigonometric functions, etc.).</p>
-        
+
         <example>
         <p>Identify the last operation for each of the following expressions.</p>
         <ul>
@@ -52,7 +52,7 @@
 
             <li>
                 <p><m>3xy</m>: The last operation is multiplication. In particular, since parentheses are not used to indicate a different order, the last operation is the last multiplication so that the expression is a product of the terms <m>3x</m> and <m>y</m>. (The properties of commutativity and associativity means that the order of different multiplications doesn't matter, so we could also think of <m>3y</m> and <m>x</m> as being multiplied.)</p></li>
-            
+
             <li>
                 <p><m>5e^{2x}</m>: The last operation is multiplication. The expression is a product of the number <m>5</m> and the expression <m>e^{2x}</m>.</p>
             </li>
@@ -62,14 +62,14 @@
             </li>
         </ul>
         </example>
-        
+
         <p>Once the last operation of an expression is identified, apply the inverse operation to both sides of the equation to remove that operation from the expression of interest.</p>
-        
+
         <example>
             <statement>
                 <p>Solve the equation for <m>y</m> as a function of <m>x</m>. <me>3xy+4 = 5y+x</me></p>
             </statement>
-            
+
             <solution>
             <p>The first step in solving for a variable that appears more than once in an equation is to move all terms with that variable to the same side of the equation and all terms without the variable to the other side. The expression on the left, <m>3xy+4</m>, is a sum, and we move the 4 to the other side by adding the opposite -4 to both sides. Similarly, the expression on the right, <m>5y+x</m>, is also a sum, and we move the  <m>5y</m> by adding the opposite <m>-5y</m> to both sides. Consequently, the following equations are equivalent: <md>
                 <mrow>3xy+4 = 5y+x, </mrow>
@@ -81,14 +81,14 @@
             </md> This final equation has <m>y</m> written as an explicit function of <m>x</m>.</p>
             </solution>
         </example>
-        
+
         <p>Sometimes, an equation can be solved for either variable. For example, there is nothing fundamentally special about <m>x</m> that says it should always be the independent variable. If we can solve for <m>x</m> as an explicit function of <m>y</m>, then <m>y</m>  would be the independent variable.</p>
 
         <example>
             <statement>
                 <p>Solve the equation, <me>3xy+4 = 5y+x,</me> for <m>x</m> as a function of <m>y</m>.</p>
             </statement>
-            
+
             <solution>
             <p>Because we are solving for <m>x</m> instead of for <m>y</m>, we need to group the <m>x</m>-terms on the same side of the equation. Consequently, we will add <m>-4</m> and <m>-x</m> to both sides to find equivalent equations: <md>
                 <mrow>3xy+4 = 5y+x, </mrow>
@@ -99,88 +99,88 @@
             </md></p>
             </solution>
         </example>
-        
+
         <p>When an equation can be solved for each of the variables as an explicit function of the other variable, then the equation defines a <term>one-to-one</term> relationship. In this case, we call the two resulting functions <term>inverse functions</term>. We will discuss inverse functions in more depth in a few sections to motivate the ideas of roots and logarithms. Later, we will connect inverse functions to the idea of function composition.</p>
     </subsection>
-    
+
     <subsection>
-        <title>Function Notation</title>        
-        
+        <title>Function Notation</title>
+
         <p>When we solve an equation to write <m>y</m> as an explicit function of <m>x</m>, we might want to actually make a prediction for the value of <m>y</m> for particular values of <m>x</m>. For example, if <m>y=x^2+1</m>, we might want to know the predicted value of <m>y</m> when <m>x=2</m>. From the equation, we know <m>y=x^2+1=2^2+1=5</m>. That is, we used the number 2 in place of the variable <m>x</m> in the expression defining <m>y</m>. Instead of always saying <dq>the value of <m>y</m> when <m>x=2</m></dq>, mathematics provides <term>function notation</term>.</p>
-        
+
         <p>The function, in the simplest case defined by an expression involving the independent variable, is represented by a name or a symbol, often a single letter like <m>f</m> or <m>g</m>. To show that the symbol is a function and not a variable, parentheses are placed after (to the right of) the symbol and an input value or expression to be used as the independent variable is written inside of the parentheses. The combined symbol of the function name with the input in parentheses is interpreted as a single expression giving the corresponding value of the output. For example, <m>f(3)</m> is interpreted as <q>the value of the function <m>f</m> when the independent variable has a value 3,</q> and is usually read more simply <q><m>f</m> of 3.</q></p>
-        
+
         <p>It is essential to note that the parentheses do not refer to multiplication. It is unfortunate that mathematics does not have distinct notation for the parentheses used for grouping and multiplication and the parentheses  used for functions. It is simpler to write with only one type of parentheses, but requires more interpretation on the part of the reader.</p>
-        
+
         <example>
             <p>Interpret the expressions involving a function, where <m>f(x)=\sqrt{x+1}</m>.</p>
             <ul>
                 <li>
                     <p><m>f(3)</m>: This expression is simply the output value of the function <m>f</m> when the input is 3, which we would more simply say, <q><m>f</m> of 3.</q> Because 3 is a specific number or a constant, this expression is also a constant. Specifically, <m>f(3) = \sqrt{3+1}=\sqrt{4}=2</m>.</p>
                 </li>
-                
+
                 <li>
                     <p><m>f(t)</m>: This expression is simply the output value of the function <m>f</m> when the input is the variable <m>t</m>, or <q><m>f</m> of <m>t</m>.</q> Because the input <m>t</m> is a variable, the expression <m>f(t)</m> is also a variable, more specifically a dependent variable, <m>f(t)=\sqrt{t+1}</m>.</p>
                 </li>
-                
+
                 <li>
                     <p><m>x \cdot f(2x+1)</m>: This expression is a product of the variable <m>x</m> and the output of a function <m>f</m> with an input using the expression <m>2x+1</m>. More simply, we would say, <q><m>x</m> times the value of <m>f</m> of <m>2x+1</m>.</q> The value of this expression would be <me>f(2x+1) = \sqrt{(2x+1)+1} = \sqrt{2x+2},</me> which has no further simplification.</p>
                 </li>
-                
+
                 <li>
                     <p><m>\displaystyle \frac{f(a)}{f(b)}</m>: This expression is a quotient involving the output of a function <m>f</m> with an input <m>a</m> divided by the output of the same function <m>f</m> with an input <m>b</m>. Using the formula, we have <me>\frac{f(a)}{f(b)} = \frac{\sqrt{a+1}}{\sqrt{b+1}}.</me></p>
                 </li>
-                
-                <li> 
+
+                <li>
                     <p><m>\displaystyle f(\frac{a}{b})</m>: This expression is the value of a function <m>f</m> for an input computed by dividing <m>a</m> by <m>b</m>. This is fundamentally different than the previous expression, <me> f(\frac{a}{b}) = \sqrt{\frac{a}{b}+1}.</me></p>
                 </li>
             </ul>
         </example>
-        
+
         <p>As emphasized in the second and third expressions of the above example, functions do not apply separately to the terms making up the input expression. For example, the expression <m>f(2x+1)</m> is often mistakenly rewritten as <m>f(2x)+f(1)</m>. Most likely, this mistake is a consequence of seeing the parentheses as multiplication, which it is not. In a similar way, some students might rewrite <m>(x+y)^2</m> as <m>x^2+y^2</m>, which is incorrect. There is no such thing as distributing a function, which includes powers, to the terms inside.</p>
-        
-        <p>In addition to a name, a function requires defining the set of all possible inputs. This set is called the <term>domain</term> of the function. For example, the equation <m>y=\sqrt{x}</m> defines <m>y</m> as an explicit function of <m>x</m>. However, this equation only makes sense when <m>x \ge 0</m>. If we defined the function <m>\mathrm{sqrt}(x) = \sqrt{x}</m>, then the domain of <m>\mathrm{sqrt}</m> is defined as <me>\mathrm{dom}(\mathrm{sqrt}) = \{x : x \ge 0\} = [0,\infty). </me> Similarly, the equation <m>\displaystyle w=\frac{3}{z-2}</m> defines <m>w</m> as an explicit function of <m>z</m>. If we defined a function <m>f</m> to match this equation, <me>f(z) = \frac{3}{z-2},</me> then the output will be defined for every value of <m>z</m> except <m>z=2</m>, which we write as <me>\mathrm{dom}(f) = \{ z : z \ne 2 \} = (-\infty,2) \cup (2,\infty).</me> For a review of sets and interval notation, see the <xref ref="appendix-sets-intervals">Appendix</xref>.</p>
+
+        <p>In addition to a name, a function requires defining the set of all possible inputs. This set is called the <term>domain</term> of the function. For example, the equation <m>y=\sqrt{x}</m> defines <m>y</m> as an explicit function of <m>x</m>. However, this equation only makes sense when <m>x \ge 0</m>. If we defined the function <m>\mathrm{sqrt}(x) = \sqrt{x}</m>, then the domain of <m>\mathrm{sqrt}</m> is defined as <me>\mathrm{dom}(\mathrm{sqrt}) = \{x : x \ge 0\} = [0,\infty). </me> Similarly, the equation <m>\displaystyle w=\frac{3}{z-2}</m> defines <m>w</m> as an explicit function of <m>z</m>. If we defined a function <m>f</m> to match this equation, <me>f(z) = \frac{3}{z-2},</me> then the output will be defined for every value of <m>z</m> except <m>z=2</m>, which we write as <me>\mathrm{dom}(f) = \{ z : z \ne 2 \} = (-\infty,2) \cup (2,\infty).</me> For a review of sets and interval notation, see the <xref ref="appendix-sets-intervals" text="global">Appendix</xref>.</p>
 
         <p>Similarly, a function should specify a set from which the output values are selected, and this set is called the <term>target</term> or <term>co-domain</term>. The set of all actual output values is called the <term>range</term> of the function. Usually, the target is chosen as a set that describes the type of value for the dependent variable. The simplest choice for the target would just be the set of real numbers. If we knew that the predicted variable was guaranteed to be non-negative, then we might instead choose a target to be the interval <m>[0,\infty)</m>. If the predicted variable was measuring a probability, then the target might be chosen as <m>[0,1]</m>.</p>
-        
+
         <p>To state that a function has a given domain and target, we introduce <term>mapping notation</term>. Suppose <m>D</m> is the domain and <m>T</m> is the target for a function <m>f</m>. We would write <me>f : D \to T.</me> If we also have an explicit formula for a given input value <m>x</m>, then we can add this information as well using <me>f : D \to T; x \mapsto f(x),</me> where <m>f(x)</m> is replaced by the appropriate explicit formula. When a function is defining a relation between state variables, we can also use mapping notation to indicate the independent and dependent variables.</p>
-        
+
         <example>
             <p>The square-root function <m>\mathrm{sqrt}(x) = \sqrt{x}</m> introduced earlier can be written more precisely using mapping notation as <me> \mathrm{sqrt} : [0,\infty) \to [0,\infty); x \mapsto \sqrt{x}. </me> </p>
         </example>
-        
+
         <example>
             <p>Consider a population of plants growing in a plot of land. Let <m>P</m> be the number of plants. Each plant will either grow to maturity and seed or will die prematurely. We can consider <m>\phi</m> (Greek letter <foreign>phi</foreign>) to be the variable that measures the fraction of plants that reach maturity. We expect that there should be a relation between the population <m>P</m> and the fraction that seed <m>\phi</m>. We consider <m>P</m> to be our independent variable and <m>\phi</m> to be our dependent variable, because we want to use our population size to predict the fraction that seed.</p>
-        
+
             <p>In this setting, the domain would be a set <m>D_0</m> of integers, <me> D_0 = \{0, 1, 2, 3, \ldots, P_{\hbox{max}}\}, </me> where <m>P_{\hbox{max}}</m> is the greatest possible number of plants that can be grown on the plot. This is called a discrete domain. In calculus, we usually work with continuous functions which requires a domain made from intervals rather than just integers. So for our mathematical model, we might adjust the domain to be the interval of real numbers <me>D = [0,P_{\hbox{max}}].</me> (Note: When <m>P=0</m>, the fraction of plants that survive is not physically defined. But in a model, we can still be interested in that case as a limiting value.)</p>
-            
+
             <p>The target for our model needs to be a set that describes what type of number the dependent variable <m>\phi</m> will be. Because <m>\phi</m> is a measurement, it must be a real number. So we might choose our target set as the set of all possible real numbers <m>\mathbb{R}</m>. We know that the fraction must be non-negative, so <m>[0,\infty)</m> would also be acceptable. However, the best choice would probably be a target of <me> T=[0,1]</me> because <m>\phi</m> measures the fraction of plants that seed which can never exceed 1.</p>
-            
+
             <p>If we named our function <m>f</m>, we would write <me>f : [0,P_{\hbox{max}}] \to [0,1]; P \mapsto \phi.</me> Note that although we do not know an explicit formula for our function, we used the dependent variable from the state of our system. That is, we use the mapping notation to indicate which variable is the  input and which is the output. A mathematical model might try to find a formula that approximates this relationship.</p>
         </example>
 
         <example>
             <p>Consider the same population of plants as in the previous example. Let <m>P</m> be the number of plants in the plot. Of those plants that successfully seed, the number of seeds will almost certainly vary from plant to plant. But we might expect the average number of seeds on plants that survive to reproduce could be predicted based on knowing <m>P</m>. Let <m>\sigma</m> (Greek letter <foreign>sigma</foreign>) be the variable representing this average number of seeds. We could define the function <m>g</m> by writing: <me> g : [0,P_{\hbox{max}}] \to [0,\infty); P \mapsto \sigma. </me></p>
-        
+
             <p>This mathematical statement defining <m>g</m> captures all of the basic information for our function. It tells us that the input value, or independent variable, is the state variable <m>P</m>. The domain of possible values for <m>P</m> is the interval <m>[0,P_{\hbox{max}}]</m>. The output value, or dependent variable, will be <m>\sigma</m>, the average number of seeds on surviving plants, which could be any non-negative number.</p>
         </example>
-        
+
         <p>Note that in these last two examples, the emphasis was not in finding an explicit formula for the functions but in characterizing the role of the function. This consisted in clearly describing the independent and dependent variables (input and output) with their corresponding domain and target sets. To use these functions in a practical sense, we would want to associate a particular rule, model or formula to determine actual values. Nevertheless, describing a function more abstractly allows us flexibility to describe general relationships that depend on the role of a function rather than the explicit formula that it might use.</p>
     </subsection>
-    
+
     <subsection>
         <title>Abstract Functions</title>
 
         <p>In mathematics, we want to describe functions, even when we do not have a formula. The mathematical definition of a function captures the concept of a predictive relationship between two variables.</p>
-        
+
         <definition xml:id="define-function">
             <title>Function</title>
             <statement>
                 <p>Given a set <m>D</m> (domain) and a set <m>T</m> (target), a relationship <m>f</m> is a <term>function</term> <m>f : D \to T</m> if for every value <m>x \in D</m>, the rule for the relationship defines a unique value <m>y \in T</m>, and we write <m>y=f(x)</m>.</p>
             </statement>
         </definition>
-        
+
         <p>Recall that an equation in two variables, say <m>x</m> and <m>y</m>, can define a curve in the plane. If we choose a particular value on the <m>x</m>-axis and drew a vertical line, the graph might intersect the line at one or more points. If there is only one intersection point, we can use the <m>y</m>-value of the point to predict the value of <m>y</m> for that value of <m>x</m>. However, if there are multiple points of intersection, then knowing the value of <m>x</m> is not enough to predict <m>y</m>. (Does this remind you of something called the vertical line test?) The mathematical idea of a <term>function</term> is designed specifically to capture the idea of using one variable to predict another.</p>
     </subsection>
-    
+
 </section>

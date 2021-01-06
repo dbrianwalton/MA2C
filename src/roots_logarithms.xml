@@ -6,66 +6,62 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="roots_logarithms">
     <title>Inverses: Roots and Logarithms</title>
 
     <subsection>
         <title>Overview</title>
-    
+
         <p>The elementary operations of arithmetic have inverse operations <mdash/> subtraction for addition and division for multiplication. When we were setting up parametrized models, exponential and power functions often result in equations where the unknown variable is in an expression involving powers. In order to isolate the variable, we need inverse operations relating to powers. These inverse operations are roots and logarithms.</p>
-        
+
     </subsection>
-    
+
     <!-- Functions -->
     <subsection>
         <title>Inverse Functions</title>
-        
+
         <p>We introduce the idea of inverse functions using the idea of mapping between two variables. When we first discussed the idea of functions as equations, we saw that some equations allowed us to solve for each variable in terms of the other variable and stated that those two functions were inverses. It is our goal to understand this idea more carefully.</p>
-        
+
         <p>Suppose that we have two related variables <m>S</m> and <m>V</m>, related through a function <m>f : S \mapsto V</m>. This means that for any valid state of the system, <m>(S,V)</m>, our function forms a relation <m>f(S)=V</m> (<m>S</m> is the input, <m>V</m> is the output). Such a function exists so long as the graph of all points <m>(S,V)</m> from the state of the system satisfies the vertical line test.</p>
-        
+
         <p>Alternately, we can think of the function as mapping values of <m>S</m> to corresponding values of <m>V</m>, which we graphically represent as a mapping between two number lines.</p>
 
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[x=0.5cm,y=2cm]
-                \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$S$};
-                \foreach \x in {3}
-                    \draw (\x,0.1) -- (\x,-0.1);
-                \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$V$};
-                \foreach \x in {6}
-                    \draw (\x,-0.9) -- (\x,-1.1);
-                \draw [very thick, black, ->] (3,0) -- (6,-1) node[pos=0.5, right] {$f$};
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm,y=2cm]
+            \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$S$};
+            \foreach \x in {3}
+                \draw (\x,0.1) -- (\x,-0.1);
+            \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$V$};
+            \foreach \x in {6}
+                \draw (\x,-0.9) -- (\x,-1.1);
+            \draw [very thick, black, ->] (3,0) -- (6,-1) node[pos=0.5, right] {$f$};
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
+
         <p>An inverse function inverts the relationship. Suppose there is another function <m>g : V \mapsto S</m>. This would be the inverse function, and we would write <m>g = f^{-1}</m>. Writing <m>f^{-1}</m> is not about powers but is a notation to say <q>the inverse of <m>f</m></q>. Inverse function pairs reverse the role of input and output. Since <m>f(S)=V</m>, we must have as the inverse equation <m>f^{-1}(V)=S</m>. The inverse functions use opposite variables to predict one another. One way we can get inverse functions is when we can solve an equation with two variables for either variable as an explicit function of the other.</p>
-        
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[x=0.5cm,y=2cm]
-                \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$V$};
-                \foreach \x in {6}
-                    \draw (\x,0.1) -- (\x,-0.1);
-                \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$S$};
-                \foreach \x in {3}
-                    \draw (\x,-0.9) -- (\x,-1.1);
-                \draw [very thick, black, ->] (6,0) -- (3,-1) node[pos=0.5, right] {$g=f^{-1}$};
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
+
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm,y=2cm]
+            \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$V$};
+            \foreach \x in {6}
+                \draw (\x,0.1) -- (\x,-0.1);
+            \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$S$};
+            \foreach \x in {3}
+                \draw (\x,-0.9) -- (\x,-1.1);
+            \draw [very thick, black, ->] (6,0) -- (3,-1) node[pos=0.5, right] {$g=f^{-1}$};
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
 
         <example>
         <statement>
@@ -74,164 +70,155 @@
         <solution>
             <p>We are looking for a function that maps the Fahrenheit temperatures <m>F=32</m> and <m>F=212</m> to the Celsius temperatures <m>C=0</m> and <m>C=100</m>, respectively. This is illustrated by the mapping diagram below.</p>
 
-            <sidebyside>
-                <image>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[x=0.5cm,y=2cm]
-                    \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$F$};
-                    \foreach \x in {-50, 0, 50, 100, 150, 200}
-                        \draw (\x/20,0.1) -- (\x/20,-0.1) node[below] {\x};
-                    \foreach \x in {32, 212}
-                        \draw (\x/20,0.1) -- (\x/20,-0.1) node[pos=0,above right] {\x};
-                    \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$C$};
-                    \foreach \x in {-50, 0, 50, 100, 150, 200}
-                        \draw (\x/20,-0.9) -- (\x/20,-1.1) node[below] {\x};
-                    \draw [very thick, black, ->] (1.6,-0.1) -- (0,-0.9) node[pos=0.5, right] {$f$};
-                    \draw [very thick, black, ->] (10.6,-0.1) -- (5,-0.9) node[pos=0.5, right] {$f$};
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
-
-            <p>Start by finding the equation of the line. The function <m>f</m> has input <m>F</m> and output <m>C</m>, so we will consider points <m>(F,C)=(32,0)</m> and <m>(F,C)=(212,100)</m>. The slope is computed (rise over run, or change in output over change in input): <me> \frac{\Delta C}{\Delta F} = \frac{100-0}{212-32} = \frac{100}{180} = \frac{5}{9}. </me> Using the point<ndash/>slope form with the point <m>(F,C)=(32,0)</m>, we get our equation, <me> C-0 = \frac{5}{9}(F-32) \quad \Leftrightarrow \quad C = \frac{5}{9}(F-32). </me> This gives our function <m>f : F \mapsto C</m>, where <me> f(x) = \frac{5}{9}(x-32). </me></p>
-            
-            <p>The inverse function <m>g = f^{-1} : C \mapsto F</m> has input <m>C</m> and output <m>F</m>. The corresponding mapping diagram is given below.</p>
-
-            <sidebyside>
-                <image>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[x=0.5cm,y=2cm]
-                    \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$C$};
-                    \foreach \x in {-50, 0, 50, 100, 150, 200}
-                        \draw (\x/20,0.1) -- (\x/20,-0.1) node[below] {\x};
-
-                    \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$F$};
-                    \foreach \x in {-50, 0, 50, 100, 150, 200}
-                        \draw (\x/20,-0.9) -- (\x/20,-1.1) node[below] {\x};
-                    \foreach \x in {32, 212}
-                        \draw (\x/20,-0.9) -- (\x/20,-1.1) node[pos=0,above right] {\x};
-                    \draw [very thick, black, ->] (0,-0.1) -- (1.6,-0.9) node[pos=0.5, right] {$g$};
-                    \draw [very thick, black, ->] (5,-0.1) -- (10.6,-0.9) node[pos=0.5, right] {$g$};
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
-            
-            <p>We could repeat the process above using the inverted points <m>(C,F)=(0,32)</m> and <m>(C,F)=(100,212)</m>. Or we could take our equation from the earlier work, <m>C= \frac{5}{9}(F-32)</m>, and solve for <m>F</m> as an explicit function of <m>C</m>. Notice that the last operation is multiplication of <m>F-32</m> and the number <m>\frac{5}{9}</m>. The inverse operation is to multiply both sides by the reciprocal <m>\frac{9}{5}</m> to give <me> \frac{9}{5}C = F-32. </me> We finish solving for <m>F</m> by adding 32 to both sides: <me> F = \frac{9}{5}C + 32. </me> This gives our inverse function <m>g = f^{-1}: C \mapsto F</m> defined by <me> f(x) = \frac{9}{5}x + 32. </me></p>
-        </solution>
-        </example>
-        
-        <p>As illustrated in the previous example, one of the purposes of inverse functions are to find equivalent equations where opposite variables are the dependent variable. This is summarized by the following theorem.</p>
-        
-        <theorem xml:id="theorem-inverse-equivalent-equations">
-            <title>Equivalent Equations from Inverse Functions</title>
-            <statement>
-                <p>Given inverse functions <m>f : x \mapsto y</m> and <m>f^{-1} : y \mapsto x</m>, the following equations are equivalent: <me>y=f(x) \qquad \Leftrightarrow \qquad x = f^{-1}(y).</me></p>
-            </statement>
-        </theorem>
-        
-        <p>Not every function has an inverse function. Recall that a function must make a unique prediction for the output variable given each value of the input variable. Suppose the function <m>f</m> has two different values for <m>x</m> that each predict the same value for <m>y=f(x)</m>. Then if we knew that value of <m>y</m>, we would not be able to predict uniquely which value of <m>x</m> it corresponded with. That is, the inverse would not be a function. In order for a function to have an inverse it must be one-to-one, where each value in the range can only come from one value in the domain.</p>
-        
-        <p>From the perspective of mapping, failure to be one-to-one corresponds to two different values in the domain, say <m>a_1</m> and <m>a_2</m> that map to the same value <m>b</m> in the range, <m>f(a_1)=b</m> and <m>f(a_2)=b</m> (see below). The inverse fails to exist because if we try to reverse the mapping, we are unsure which point in the original domain that value in the original range came from. We can not have both <m>f^{-1}(b)=a_1</m> and <m>f^{-1}(b)=a_2</m> and be a function.</p>
-        
-        <sidebyside>
             <image>
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
                 \begin{tikzpicture}[x=0.5cm,y=2cm]
-                \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$x$};
-                \draw (1,-0.1) -- (1,0.1) node[above] {$a_1$};
-                \draw (4,-0.1) -- (4,0.1) node[above] {$a_2$};
-
-                \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$y$};
-                \draw (3,-0.9) -- (3, -1.1) node[below] {$b$};
-
-                \draw [very thick, black, ->] (1,-0.1) -- (2.9,-0.9) node[pos=0.5, right] {$f$};
-                \draw [very thick, black, ->] (4,-0.1) -- (3.1,-0.9) node[pos=0.5, right] {$f$};
+                \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$F$};
+                \foreach \x in {-50, 0, 50, 100, 150, 200}
+                    \draw (\x/20,0.1) -- (\x/20,-0.1) node[below] {\x};
+                \foreach \x in {32, 212}
+                    \draw (\x/20,0.1) -- (\x/20,-0.1) node[pos=0,above right] {\x};
+                \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$C$};
+                \foreach \x in {-50, 0, 50, 100, 150, 200}
+                    \draw (\x/20,-0.9) -- (\x/20,-1.1) node[below] {\x};
+                \draw [very thick, black, ->] (1.6,-0.1) -- (0,-0.9) node[pos=0.5, right] {$f$};
+                \draw [very thick, black, ->] (10.6,-0.1) -- (5,-0.9) node[pos=0.5, right] {$f$};
                 \end{tikzpicture}]]>
                 </latex-image>
             </image>
-        </sidebyside>
-            
-        <definition>
-            <statement>
-            <p>A function <m>f</m> is <term>one-to-one</term> if for any two values <m>x_1 \ne x_2</m>, we can guarantee that <m>f(x_1) \ne f(x_2)</m>. This is equivalent to saying that if we know <m>f(x_1)=f(x_2)</m> then it must be true that <m>x_1=x_2</m>.</p>
-            </statement>
-        </definition>
-        
-        <p>Because the graph of an inverse function exactly reverses the role of the input and output, a point <m>(a,b)</m> on the graph of <m>f</m>, corresponding to the function equation <me> f(a) = b, </me> is represented by the inverted point <m>(b,a)</m> on the graph of <m>f^{-1}</m>, corresponding to the equivalent inverse equation <me> f^{-1}(b) = a. </me> This corresponds graphically to a reflection of every point on the graph <m>y=f(x)</m> across the line <m>y=x</m>.</p>
 
-        <p>Consequently, a function has an inverse if it passes the <term>horizontal line test</term>. This means that every horizontal line (corresponding to a <m>y</m>-value) can only intersect the graph at a single point (corresponding to the unique <m>x</m>-value). If there is a horizontal line that intersects at two or more different points, those would correspond to different <m>x</m>-values that have the same <m>y</m>-value as an output in the function. Otherwise, when the inverse graph is formed (by reflection across <m>y=x</m>), it would fail the vertical line test and thus not be a function at all.</p>
-    </subsection>
-    
-    <subsection>
-        <title>Roots as Inverses</title>        
-        
-        <p>To square a number means to multiply the number times itself, which defines a function <m>\mathrm{square} : x \mapsto x^2</m>. To cube a number is to find the product of three copies of the number, defining another function <m>\mathrm{cube} : x \mapsto x^3</m>. Rather than define different names for all possible powers, let us define a family of functions with a power parameter <m>n</m> by <me> \mathrm{pow}_n : x \mapsto x^n. </me> Each of these operations has a corresponding inverse operation corresponding to roots.</p>
-        
-        <p> A square root is the function that takes a square and finds the original number, <me> \mathrm{sqrt} : x^2 \mapsto x. </me> In words, it says that given a number as input, the output is a number which when squared will give the input. Since <m>\mathrm{square}(2) = 4</m>, the square root of 4 should be 2. We write square root using a <term>radical</term> symbol, <m>\sqrt{4}=2</m>.</p>
-        <p>Similarly, a cube root is the inverse of the cube, and we again use a radical but with the inverse power shown, as in <m>\sqrt[3]{8}=2</m> because <m>2^3=8</m>. For the general case, where <m>n</m> is a natural number, <me> \mathrm{pow}_n^{-1} : x^n \mapsto x. </me> We call such a function the <m>n</m>th root, and use the radical symbol, <me>\mathrm{pow}_n^{-1}(a) = \sqrt[n]{a}.</me></p>
-        
-        <p>Unfortunately, things aren't quite as simple as described above. When <m>n</m> is an even power, <m>y=\mathrm{pow}_n(x) = x^n</m>, the graph is symmetric across the <m>y</m>-axis (an even function) since <m>(-1)^n=1</m> when <m>n</m> is even. The function is not <term>one-to-one</term> and it fails the horizontal line test (and the inverse relation fails the vertical line test). There are actually two square roots for every positive number. To get around this issue, the inverse function defined by an even root is chosen, as a mathematical standard, to give the positive root. Odd powers do not have this problem.</p>
-        
-        <sidebyside>
+            <p>Start by finding the equation of the line. The function <m>f</m> has input <m>F</m> and output <m>C</m>, so we will consider points <m>(F,C)=(32,0)</m> and <m>(F,C)=(212,100)</m>. The slope is computed (rise over run, or change in output over change in input): <me> \frac{\Delta C}{\Delta F} = \frac{100-0}{212-32} = \frac{100}{180} = \frac{5}{9}. </me> Using the point<ndash/>slope form with the point <m>(F,C)=(32,0)</m>, we get our equation, <me> C-0 = \frac{5}{9}(F-32) \quad \Leftrightarrow \quad C = \frac{5}{9}(F-32). </me> This gives our function <m>f : F \mapsto C</m>, where <me> f(x) = \frac{5}{9}(x-32). </me></p>
+
+            <p>The inverse function <m>g = f^{-1} : C \mapsto F</m> has input <m>C</m> and output <m>F</m>. The corresponding mapping diagram is given below.</p>
+
             <image>
                 <latex-image>
                 <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                 <![CDATA[\tikzset{%
                 }
-                \begin{tikzpicture}
-                \begin{axis}[
-                    width=2.5in,
-                    height=2.5in,
-                    xmin=-5,xmax=5,
-                    ymin=-5,ymax=5,
-                    xlabel={$x$},
-                    ylabel={$y$},
-                    legend style={at={(0,0)}, anchor=south west}
-                ]
+                \begin{tikzpicture}[x=0.5cm,y=2cm]
+                \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$C$};
+                \foreach \x in {-50, 0, 50, 100, 150, 200}
+                    \draw (\x/20,0.1) -- (\x/20,-0.1) node[below] {\x};
 
-                \addplot[blue, thick, samples=30, domain=-3:3]
-                    ({x}, {x^2});
-                \addplot[red, thick, samples=30, domain=0:3]
-                    ({x^2}, {x});
-                \addplot[red, thin, dashed, samples=30, domain=0:3]
-                    ({x^2}, {-x});
-                \legend {$y=x^2$,$y=\sqrt{x}$,$y=-\sqrt{x}$}
-                \end{axis}
-                \end{tikzpicture}
-                \begin{tikzpicture}
-                \begin{axis}[
-                    width=2.5in,
-                    height=2.5in,
-                    xmin=-5,xmax=5,
-                    ymin=-5,ymax=5,
-                    xlabel={$x$},
-                    ylabel={$y$},
-                    legend style={at={(1,0)}, anchor=south east}
-                ]
-
-                \addplot[blue, thick, samples=30, domain=-3:3]
-                    ({x}, {x^3});
-                \addplot[red, thick, samples=30, domain=-3:3]
-                    ({x^3}, {x});
-                \legend {$y=x^3$,$y=\sqrt[3]{x}$}
-                \end{axis}
+                \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$F$};
+                \foreach \x in {-50, 0, 50, 100, 150, 200}
+                    \draw (\x/20,-0.9) -- (\x/20,-1.1) node[below] {\x};
+                \foreach \x in {32, 212}
+                    \draw (\x/20,-0.9) -- (\x/20,-1.1) node[pos=0,above right] {\x};
+                \draw [very thick, black, ->] (0,-0.1) -- (1.6,-0.9) node[pos=0.5, right] {$g$};
+                \draw [very thick, black, ->] (5,-0.1) -- (10.6,-0.9) node[pos=0.5, right] {$g$};
                 \end{tikzpicture}]]>
                 </latex-image>
             </image>
-        </sidebyside>
-        
+
+            <p>We could repeat the process above using the inverted points <m>(C,F)=(0,32)</m> and <m>(C,F)=(100,212)</m>. Or we could take our equation from the earlier work, <m>C= \frac{5}{9}(F-32)</m>, and solve for <m>F</m> as an explicit function of <m>C</m>. Notice that the last operation is multiplication of <m>F-32</m> and the number <m>\frac{5}{9}</m>. The inverse operation is to multiply both sides by the reciprocal <m>\frac{9}{5}</m> to give <me> \frac{9}{5}C = F-32. </me> We finish solving for <m>F</m> by adding 32 to both sides: <me> F = \frac{9}{5}C + 32. </me> This gives our inverse function <m>g = f^{-1}: C \mapsto F</m> defined by <me> f(x) = \frac{9}{5}x + 32. </me></p>
+        </solution>
+        </example>
+
+        <p>As illustrated in the previous example, one of the purposes of inverse functions are to find equivalent equations where opposite variables are the dependent variable. This is summarized by the following theorem.</p>
+
+        <theorem xml:id="theorem-inverse-equivalent-equations">
+            <title>Equivalent Equations from Inverse Functions</title>
+            <statement>
+                <p>Given inverse functions <m>f : x \mapsto y</m> and <m>f^{-1} : y \mapsto x</m>, the following equations are equivalent: <me>y=f(x) \qquad \Leftrightarrow \qquad x = f^{-1}(y).</me></p>
+            </statement>
+        </theorem>
+
+        <p>Not every function has an inverse function. Recall that a function must make a unique prediction for the output variable given each value of the input variable. Suppose the function <m>f</m> has two different values for <m>x</m> that each predict the same value for <m>y=f(x)</m>. Then if we knew that value of <m>y</m>, we would not be able to predict uniquely which value of <m>x</m> it corresponded with. That is, the inverse would not be a function. In order for a function to have an inverse it must be one-to-one, where each value in the range can only come from one value in the domain.</p>
+
+        <p>From the perspective of mapping, failure to be one-to-one corresponds to two different values in the domain, say <m>a_1</m> and <m>a_2</m> that map to the same value <m>b</m> in the range, <m>f(a_1)=b</m> and <m>f(a_2)=b</m> (see below). The inverse fails to exist because if we try to reverse the mapping, we are unsure which point in the original domain that value in the original range came from. We can not have both <m>f^{-1}(b)=a_1</m> and <m>f^{-1}(b)=a_2</m> and be a function.</p>
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm,y=2cm]
+            \draw[<->] (-4.5,0) -- (12.5,0) node[right] {$x$};
+            \draw (1,-0.1) -- (1,0.1) node[above] {$a_1$};
+            \draw (4,-0.1) -- (4,0.1) node[above] {$a_2$};
+
+            \draw[<->] (-4.5,-1) -- (12.5,-1) node[right] {$y$};
+            \draw (3,-0.9) -- (3, -1.1) node[below] {$b$};
+
+            \draw [very thick, black, ->] (1,-0.1) -- (2.9,-0.9) node[pos=0.5, right] {$f$};
+            \draw [very thick, black, ->] (4,-0.1) -- (3.1,-0.9) node[pos=0.5, right] {$f$};
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
+
+        <definition>
+            <statement>
+            <p>A function <m>f</m> is <term>one-to-one</term> if for any two values <m>x_1 \ne x_2</m>, we can guarantee that <m>f(x_1) \ne f(x_2)</m>. This is equivalent to saying that if we know <m>f(x_1)=f(x_2)</m> then it must be true that <m>x_1=x_2</m>.</p>
+            </statement>
+        </definition>
+
+        <p>Because the graph of an inverse function exactly reverses the role of the input and output, a point <m>(a,b)</m> on the graph of <m>f</m>, corresponding to the function equation <me> f(a) = b, </me> is represented by the inverted point <m>(b,a)</m> on the graph of <m>f^{-1}</m>, corresponding to the equivalent inverse equation <me> f^{-1}(b) = a. </me> This corresponds graphically to a reflection of every point on the graph <m>y=f(x)</m> across the line <m>y=x</m>.</p>
+
+        <p>Consequently, a function has an inverse if it passes the <term>horizontal line test</term>. This means that every horizontal line (corresponding to a <m>y</m>-value) can only intersect the graph at a single point (corresponding to the unique <m>x</m>-value). If there is a horizontal line that intersects at two or more different points, those would correspond to different <m>x</m>-values that have the same <m>y</m>-value as an output in the function. Otherwise, when the inverse graph is formed (by reflection across <m>y=x</m>), it would fail the vertical line test and thus not be a function at all.</p>
+    </subsection>
+
+    <subsection>
+        <title>Roots as Inverses</title>
+
+        <p>To square a number means to multiply the number times itself, which defines a function <m>\mathrm{square} : x \mapsto x^2</m>. To cube a number is to find the product of three copies of the number, defining another function <m>\mathrm{cube} : x \mapsto x^3</m>. Rather than define different names for all possible powers, let us define a family of functions with a power parameter <m>n</m> by <me> \mathrm{pow}_n : x \mapsto x^n. </me> Each of these operations has a corresponding inverse operation corresponding to roots.</p>
+
+        <p> A square root is the function that takes a square and finds the original number, <me> \mathrm{sqrt} : x^2 \mapsto x. </me> In words, it says that given a number as input, the output is a number which when squared will give the input. Since <m>\mathrm{square}(2) = 4</m>, the square root of 4 should be 2. We write square root using a <term>radical</term> symbol, <m>\sqrt{4}=2</m>.</p>
+        <p>Similarly, a cube root is the inverse of the cube, and we again use a radical but with the inverse power shown, as in <m>\sqrt[3]{8}=2</m> because <m>2^3=8</m>. For the general case, where <m>n</m> is a natural number, <me> \mathrm{pow}_n^{-1} : x^n \mapsto x. </me> We call such a function the <m>n</m>th root, and use the radical symbol, <me>\mathrm{pow}_n^{-1}(a) = \sqrt[n]{a}.</me></p>
+
+        <p>Unfortunately, things aren't quite as simple as described above. When <m>n</m> is an even power, <m>y=\mathrm{pow}_n(x) = x^n</m>, the graph is symmetric across the <m>y</m>-axis (an even function) since <m>(-1)^n=1</m> when <m>n</m> is even. The function is not <term>one-to-one</term> and it fails the horizontal line test (and the inverse relation fails the vertical line test). There are actually two square roots for every positive number. To get around this issue, the inverse function defined by an even root is chosen, as a mathematical standard, to give the positive root. Odd powers do not have this problem.</p>
+
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=2.5in,
+                height=2.5in,
+                xmin=-5,xmax=5,
+                ymin=-5,ymax=5,
+                xlabel={$x$},
+                ylabel={$y$},
+                legend style={at={(0,0)}, anchor=south west}
+            ]
+
+            \addplot[blue, thick, samples=30, domain=-3:3]
+                ({x}, {x^2});
+            \addplot[red, thick, samples=30, domain=0:3]
+                ({x^2}, {x});
+            \addplot[red, thin, dashed, samples=30, domain=0:3]
+                ({x^2}, {-x});
+            \legend {$y=x^2$,$y=\sqrt{x}$,$y=-\sqrt{x}$}
+            \end{axis}
+            \end{tikzpicture}
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=2.5in,
+                height=2.5in,
+                xmin=-5,xmax=5,
+                ymin=-5,ymax=5,
+                xlabel={$x$},
+                ylabel={$y$},
+                legend style={at={(1,0)}, anchor=south east}
+            ]
+
+            \addplot[blue, thick, samples=30, domain=-3:3]
+                ({x}, {x^3});
+            \addplot[red, thick, samples=30, domain=-3:3]
+                ({x^3}, {x});
+            \legend {$y=x^3$,$y=\sqrt[3]{x}$}
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
+
         <p>The rules of exponents give us another representation for roots as being fractional powers. Recall the basic rules for powers, stated below as a theorem.</p>
-        
+
         <theorem>
             <title>Essential Properties of Powers</title>
             <statement>
@@ -245,90 +232,86 @@
             </md>
             </statement>
         </theorem>
-        
+
         <p>Because <m>\frac{1}{n} \cdot n = 1</m>, if <m>x^{1/n}</m> is defined then it must be true that <m>(x^{1/n})^n = x^1 = x</m>. That is, <m>x^{1/n}</m> is a number so that when it is raised to power <m>n</m>, you get the number <m>x</m>. In other words, <me> \sqrt[n]{x} = x^{1/n}, </me> which is defined for all values <m>x</m> when <m>n</m> is odd but only for <m>x \ge 0</m> when <m>n</m> is even. This also gives us an interpretation of <m>x^{k/n}</m> when <m>k</m> and <m>n</m> are both integers: <me> x^{k/n} = (\sqrt[n]{x})^k. </me> A curious consequence of this is that a non-reduced fraction power might have a different domain than the reduced fraction.</p>
-        
+
         <example>
             <p>The formula <m>x^{2/6}</m> is defined as <m>(\sqrt[6]{x})^2</m>, which has domain <m>\{x : x \ge 0\} = [0,\infty)</m> since the root is an even root. However, the formula <m>x^{1/3}</m> is defined as <m>\sqrt[3]{x}</m>, which has domain <m>(-\infty,\infty)</m> since the root is odd. Where the domains overlap, on <m>[0,\infty)</m>, the functions are identical.</p>
         </example>
-        
+
         <p>When a power is a rational number, we can define the value using integer powers and roots. No such definition exists if the power is irrational. A proper definition of this requires logarithms, introduced next.</p>
     </subsection>
-    
+
     <subsection>
         <title>Logarithms as Inverses</title>
-        
-        <p>Where roots are the inverses of powers, logarithms are the inverses of exponentials. An <term>elementary exponential</term> involves a single parameter for the base of a power where the variable is in the exponent. If <m>b</m> is a positive number (<m>b \gt 0</m>) with <m>b \ne 1</m>, then the elementary exponential function with base <m>b</m> is given by <me> \exp_b : x \mapsto b^x \quad \Leftrightarrow \quad \exp_b(x) = b^x. </me> The logarithm with base <m>b</m> is the inverse function, <me> \log_b : b^x \mapsto x. </me> Because this inverse operation can be hard to visualize, the following discussion is meant to help.</p>
-    
-        <p>Start by considering a table showing simple powers of the base <m>b=2</m>. We let <m>P</m> be the variable represent the power that will be used and let <m>V</m> be the variable that represents the value of the exponential. The exponential function maps <m>\exp_2 : P \mapsto V=2^p</m>. The logarithm will be the inverse function <m>\log_2 : V \mapsto P</m>. A graph of the two functions further emphasizes the point.</p>
-        
-        <table>
-            <tabular top="major" halign="center">
-                <row bottom="minor">
-                    <cell><m>P</m></cell>
-                    <cell><m>V=2^P</m></cell>
-                </row>
-                <row> <cell>0</cell><cell><m>2^0=1</m></cell></row>
-                <row> <cell>1</cell><cell><m>2^1=2</m></cell></row>
-                <row> <cell>2</cell><cell><m>2^2=4</m></cell></row>
-                <row> <cell>3</cell><cell><m>2^3=8</m></cell></row>
-                <row> <cell>-1</cell><cell><m>2^{-1}=\frac{1}{2}</m></cell></row>
-                <row bottom="medium"> <cell>-2</cell><cell><m>2^{-2}=\frac{1}{4}</m></cell>
-                </row>
-            </tabular>
-        </table>
-        
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}[
-                    width=3.5in,
-                    height=3.5in,
-                    xmin=-5,xmax=5,
-                    ymin=-5,ymax=5,
-                    xlabel={$x$},
-                    ylabel={$y$},
-                    legend style={at={(0,1)}, anchor=north west}
-                ]
 
-                \addplot[blue, thick, samples=30, domain=-5:3]
-                    ({x}, {2^x});
-                \addplot[red, thick, samples=30, domain=-5:3]
-                    ({2^x}, {x});
-                \legend {$y=\exp_2(x)$,$y=\log_2(x)$}
-                
-                \addplot[
-                    only marks,
-                    color=blue
-                ] table {
-                    -2 0.25
-                    -1 0.5
-                    0 1
-                    1 2
-                    2 4
-                };
-                \addplot[
-                    only marks,
-                    color=red
-                ] table {
-                    0.25 -2
-                    0.5 -1
-                    1 0
-                    2 1
-                    4 2
-                };
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        
+        <p>Where roots are the inverses of powers, logarithms are the inverses of exponentials. An <term>elementary exponential</term> involves a single parameter for the base of a power where the variable is in the exponent. If <m>b</m> is a positive number (<m>b \gt 0</m>) with <m>b \ne 1</m>, then the elementary exponential function with base <m>b</m> is given by <me> \exp_b : x \mapsto b^x \quad \Leftrightarrow \quad \exp_b(x) = b^x. </me> The logarithm with base <m>b</m> is the inverse function, <me> \log_b : b^x \mapsto x. </me> Because this inverse operation can be hard to visualize, the following discussion is meant to help.</p>
+
+        <p>Start by considering a table showing simple powers of the base <m>b=2</m>. We let <m>P</m> be the variable represent the power that will be used and let <m>V</m> be the variable that represents the value of the exponential. The exponential function maps <m>\exp_2 : P \mapsto V=2^p</m>. The logarithm will be the inverse function <m>\log_2 : V \mapsto P</m>. A graph of the two functions further emphasizes the point.</p>
+
+        <tabular top="major" halign="center">
+            <row bottom="minor">
+                <cell><m>P</m></cell>
+                <cell><m>V=2^P</m></cell>
+            </row>
+            <row> <cell>0</cell><cell><m>2^0=1</m></cell></row>
+            <row> <cell>1</cell><cell><m>2^1=2</m></cell></row>
+            <row> <cell>2</cell><cell><m>2^2=4</m></cell></row>
+            <row> <cell>3</cell><cell><m>2^3=8</m></cell></row>
+            <row> <cell>-1</cell><cell><m>2^{-1}=\frac{1}{2}</m></cell></row>
+            <row bottom="medium"> <cell>-2</cell><cell><m>2^{-2}=\frac{1}{4}</m></cell>
+            </row>
+        </tabular>
+
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=3.5in,
+                height=3.5in,
+                xmin=-5,xmax=5,
+                ymin=-5,ymax=5,
+                xlabel={$x$},
+                ylabel={$y$},
+                legend style={at={(0,1)}, anchor=north west}
+            ]
+
+            \addplot[blue, thick, samples=30, domain=-5:3]
+                ({x}, {2^x});
+            \addplot[red, thick, samples=30, domain=-5:3]
+                ({2^x}, {x});
+            \legend {$y=\exp_2(x)$,$y=\log_2(x)$}
+
+            \addplot[
+                only marks,
+                color=blue
+            ] table {
+                -2 0.25
+                -1 0.5
+                0 1
+                1 2
+                2 4
+            };
+            \addplot[
+                only marks,
+                color=red
+            ] table {
+                0.25 -2
+                0.5 -1
+                1 0
+                2 1
+                4 2
+            };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
+
         <p>From our table, we discover <m>\exp_2(3)=8</m> since <m>\exp_2 : P=3 \mapsto V=8</m>. The equivalent inverse equation shows <m>\log_2(8)=3</m> since <m>\log_2 : V=8 \mapsto P=3</m>. Similarly, knowing <m>\exp_2(-2) = \frac{1}{4}</m> is equivalent to knowing <m>\log_2(\frac{1}{4}) = -2</m>. Finding equivalent inverse equations relating logarithms with exponentials is a key to solving problem.</p>
-        
+
         <example>
         <statement>
             <p>Use equivalent inverse equations to find exact values of the following logarithms.</p>
@@ -353,7 +336,7 @@
             </ul>
         </solution>
         </example>
-        
+
         <p>There are two special logarithms that have particular importance and are included on most scientific calculators. Those are the common logarithm (<m>b=10</m>) and the natural logarithm (<m>b=e</m>, to be introduced later). These logarithms have special notation where <m>\log(x) = \log_{10}(x)</m> is the common logarithm (no base is listed) and <m>\ln(x) = \log_e(x)</m> is the natural logarithm. It happens that all logarithms are proportional to one another similar to proportionality used in unit conversions. So being able to find the natural logarithm or common logarithm allows us to find the logarithm for any base <m>b</m>.</p>
 
         <theorem>
@@ -366,9 +349,9 @@
                 <p>The formula using the common logarithm is a consequence of writing <m>b=10^{k}</m> so that <m>k=\log_{10}(b) = \log(b)</m> and following the same process using the base <m>10</m> in place of <m>e</m>. The general case with base <m>a</m> results from writing <m>b=a^k</m>.</p>
             </proof>
         </theorem>
-        
+
         <p>Using logarithms allows us to solve for equations where the unknown is only in the exponent. The idea to these problems is to isolate the exponential that involves the unknown and then use the inverse equations using logarithms to eliminate the exponential step itself.</p>
-        
+
         <example>
             <statement>
                 <p> Solve the equation <me> 5 \cdot 3^{2x} = 4. </me></p>
@@ -379,7 +362,7 @@
         </example>
 
         <p>This strategy is exactly what is needed to find the power <m>p</m> in a power function when we have two data points.</p>
-        
+
         <example>
             <statement>
                 <p> Find the equation of a power function <m>f : x \mapsto y</m> that is consistent with points <m>(x,y) = (2,2)</m> and <m>(x,y)=(6,10)</m>.</p>
@@ -394,5 +377,5 @@
             </solution>
         </example>
     </subsection>
-    
+
 </section>

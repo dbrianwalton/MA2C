@@ -6,67 +6,65 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="trigonometry-derivative">
     <title>The Derivatives of Trigonometric Functions</title>
-    
+
     <subsection>
     <title>Essential Trigonometric Identities</title>
 
     <p>When we found the derivative of elementary exponential functions, we found that we needed to use a rule to rewrite <m>b^{x+h}=b^x \cdot b^h</m>. This type of rule is called an identity. Identities provide rules to rewrite a formula in another form without changing the value of the formula. Trigonometric functions are all defined in terms of the elementary sine and cosine functions. Consequently, we need the basic identities of sine and cosine.</p>
-    
+
     <p>We start with the sum identities.</p>
-    
+
     <theorem xml:id='thm-trig-sum-identity'>
         <title>Sum Identities of Sine and Cosine</title>
         <statement>
             <p>Given any <m>\alpha, \beta \in \mathbb{R}</m>, <md>
                 <mrow>\sin(\alpha+\beta) = \sin(\alpha) \cos(\beta) + \cos(\alpha) \sin(\beta),</mrow>
                 <mrow>\cos(\alpha+\beta) = \cos(\alpha) \cos(\beta) - \sin(\alpha) \sin(\beta).</mrow>
-            </md></p> 
+            </md></p>
         </statement>
         <proof>
             <p>The following geometric proof is valid for acute angles, <m>0 \lt \alpha,\beta \lt \frac{\pi}{2}</m>. Consider the location of the angle <m>\alpha</m> and <m>\alpha+\beta</m> on the unit circle, illustrated as points <m>A</m> and <m>B</m>, respectively. The origin at <m>(0,0)</m> will be the point <m>O</m> and the point <m>(1,0)</m> will be the point <m>P</m>. Construct a line segment from <m>B</m> to intersect <m>\overline{OA}</m> at a right angle; call the point of intersection <m>C</m>. Draw a vertical line from <m>C</m> which intersects <m>OP</m> at a point <m>Q</m>. Finally draw a horizontal line through <m>C</m> and a vertical line through <m>B</m>, which intersect at a point <m>D</m>.</p>
-            
-            <sidebyside>
-              <image xml:id="img-angle-sum">
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[auto, thick]
-                \pgfmathsetmacro{\rad}{2.5}
-                \pgfmathsetmacro{\angleA}{30}
-                \pgfmathsetmacro{\angleB}{45}
-                \pgfmathsetmacro{\angleAB}{75}
-            
-                \coordinate (c1) at (0,0) node[left] {$O$};
-                \draw [dotted] (c1) circle (\rad);
-                \draw (c1) -- ($ (c1) + (\rad, 0) $) 
-                    node [pos=1, right] {$P$};
-                \draw ($ (c1) + (\rad,0) $)
-                        arc (0:\angleA:\rad) 
-                        node [above] {$A$}
-                        -- (c1);
-                \draw ($ (c1) + (\rad,0) $)
-                        arc (0:\angleAB:\rad) 
-                        node [above] {$B$}
-                        -- (c1);
-                \fill ($ (c1) + (\angleA:\rad) $) circle [radius=2pt];
-                \fill ($ (c1) + (\angleAB:\rad) $) circle [radius=2pt];
-                \draw ($ (c1) + (0:0.2*\rad) $) arc (0:\angleA:0.2*\rad)
-                    node [pos=0.85, right] {$\alpha$};
-                \draw ($ (c1) + (\angleA:0.2*\rad) $) arc (\angleA:\angleAB:0.2*\rad)
-                    node [pos=0.5, above right] {$\beta$};
 
-                \coordinate (c2) at (\angleA:\rad);
-                \coordinate (c2c) at (-\angleA:\rad);
-                \coordinate (c3) at ($ (c2)!0.5!(c2c) $);
-                \end{tikzpicture}]]>
-                </latex-image>
-              </image>
-            </sidebyside>
-                        
+            <image xml:id="img-angle-sum">
+              <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}[auto, thick]
+              \pgfmathsetmacro{\rad}{2.5}
+              \pgfmathsetmacro{\angleA}{30}
+              \pgfmathsetmacro{\angleB}{45}
+              \pgfmathsetmacro{\angleAB}{75}
+
+              \coordinate (c1) at (0,0) node[left] {$O$};
+              \draw [dotted] (c1) circle (\rad);
+              \draw (c1) -- ($ (c1) + (\rad, 0) $)
+                  node [pos=1, right] {$P$};
+              \draw ($ (c1) + (\rad,0) $)
+                      arc (0:\angleA:\rad)
+                      node [above] {$A$}
+                      -- (c1);
+              \draw ($ (c1) + (\rad,0) $)
+                      arc (0:\angleAB:\rad)
+                      node [above] {$B$}
+                      -- (c1);
+              \fill ($ (c1) + (\angleA:\rad) $) circle [radius=2pt];
+              \fill ($ (c1) + (\angleAB:\rad) $) circle [radius=2pt];
+              \draw ($ (c1) + (0:0.2*\rad) $) arc (0:\angleA:0.2*\rad)
+                  node [pos=0.85, right] {$\alpha$};
+              \draw ($ (c1) + (\angleA:0.2*\rad) $) arc (\angleA:\angleAB:0.2*\rad)
+                  node [pos=0.5, above right] {$\beta$};
+
+              \coordinate (c2) at (\angleA:\rad);
+              \coordinate (c2c) at (-\angleA:\rad);
+              \coordinate (c3) at ($ (c2)!0.5!(c2c) $);
+              \end{tikzpicture}]]>
+              </latex-image>
+            </image>
+
             <p>By construction, we know <m>m \angle POA = \alpha</m> and <m>m \angle AOB = \beta</m>. Because <m>OB=1</m>, we know that <m>OC=\cos(\beta)</m> and <m>BC=\sin(\beta)</m>. By geometry, we can prove that triangle <m>BDC</m> is a right triangle with <m>m \angle DBC = \alpha</m>. Consequently, <md>
                 <mrow>BD = BC \cos(\alpha) = \cos(\alpha) \sin(\beta),</mrow>
                 <mrow>DC = BC \sin(\alpha) = \sin(\alpha) \sin(\beta).</mrow>
@@ -74,28 +72,28 @@
                 <mrow>OQ = OC \cos(\alpha) = \cos(\alpha) \cos(\beta),</mrow>
                 <mrow>CQ = OC \sin(\alpha) = \sin(\alpha) \cos(\beta).</mrow>
             </md></p>
-            
+
             <p>The <m>x</m>-coordinate of <m>B</m> is <m>\cos(\alpha+\beta)</m> so that <me>\cos(\alpha+\beta) = OQ - CD = \cos(\alpha) \cos(\beta) - \sin(\alpha) \sin(\beta).</me> The <m>y</m>-coordinate of <m>B</m> is <m>\sin(\alpha+\beta)</m> so that <me>\sin(\alpha+\beta) = CQ + DB = \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta).</me></p>
         </proof>
     </theorem>
-    
+
     <p>Next, we state the symmetries of sine and cosine.</p>
-    
+
     <theorem xml:id='thm-trig-even-odd'>
         <title>Sum Identities of Sine and Cosine</title>
         <statement>
             <p>Sine is an odd function. Cosine is an even function. That is, for any <m>\alpha \in \mathbb{R}</m>, <md>
                 <mrow>\sin(-\alpha) = - \sin(\alpha),</mrow>
                 <mrow>\cos(-\alpha) = \cos(\alpha).</mrow>
-            </md></p> 
+            </md></p>
         </statement>
         <proof>
             <p>An angle <m>-\alpha</m> goes in the opposite direction as the angle <m>\alpha</m>. Consequently, the points on the unit circle have the same horizontal coordinate, <me>\cos(-\alpha) = \cos(\alpha),</me> and opposite vertical coordinates, <me>\sin(-\alpha) = - \sin(\alpha).</me></p>
         </proof>
     </theorem>
-    
+
     <p>Finally, because the sine and cosine are defined on a unit circle (with radius 1), we have a Pythagorean identity regarding the sum of the squared values.</p>
-    
+
     <theorem xml:id='thm-pythagorean-identity'>
         <title>The Pythagorean Identity</title>
         <statement>
@@ -110,12 +108,12 @@
         </proof>
     </theorem>
     </subsection>
-    
+
     <subsection>
         <title>Differentiation of Sine and Cosine</title>
-        
+
         <p>We start by computing the derivatives for sine and cosine at the origin, <m>\sin'(0)</m> and <m>\cos'(0)</m>. Once we know those values, we will be able to find the derivatives as functions.</p>
-        
+
         <theorem xml:id='thm-sine-deriv-zero'>
             <statement>
                 <p><me>\sin'(0) = \lim_{x \to 0} \frac{\sin(x)}{x} = 1</me></p>
@@ -123,50 +121,48 @@
             <proof>
                 <p>By definition, <me>\displaystyle \sin'(0) = \lim_{h \to 0} \frac{\sin(0+h) - \sin(0)}{h}.</me> Since <m>\sin(0) = 0</m>, we can rewrite <me>\lim_{h \to 0} \frac{\sin(h)}{h} = \lim_{x \to 0}\frac{\sin(x)}{x},</me> since the variable name does not affect the value of the limit.</p>
                 <p>Consider the figure below with angle <m>x \gt 0</m>. The point <m>A</m> is on the unit circle and has coordinates <m>(\cos(x),\sin(x))</m>. Consequently, triangle <m>OBA</m> has area <m>\frac{1}{2} \sin(x) \cos(x)</m>. The point <m>Q</m> has coordinates <m>(1, \tan(x))</m>, so triangle <m>OPQ</m> has area <m>\frac{1}{2} \tan(x)</m>. If we consider the sector of the circle <m>OAP</m>, it has an area that is the corresponding fraction  <m>\frac{x}{2\pi}</m> of the area of the unit circle, <m>\pi</m>, which has the value <m>\frac{x}{2}</m>.</p>
-                <sidebyside>
-                    <image xml:id="img-angle-area-compare">
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[auto, thick]
-                        \pgfmathsetmacro{\rad}{2}
-                        \pgfmathsetmacro{\angleA}{30}
-                        \coordinate (c1) at (0,0) node[left] {$O$};
-                        \coordinate (c2) at ($ (c1) + (\angleA:\rad) $);
-                        \coordinate (c3) at ($ (c1) + (\angleA:{\rad/cos(\angleA)}) $);
-                        \draw ($ (c1) + (0:0.2*\rad) $) arc (0:\angleA:0.2*\rad)
-                            node[pos=0.6, right] {$x$};
-                        \draw [dotted] (c1) circle (\rad);
-                        \draw (c1) -- ($ (c1) + (\rad, 0) $);
-                        \draw ($ (c1) + (\rad,0) $)
-                                arc (0:\angleA:\rad);
-                        \draw (c1) -- (c3) node[right] {$Q$} -- (\rad,0) node[below right] {$P$} -- (c1);
-                        \draw (c2) node[above] {$A$} -- ({\rad*cos(\angleA)},0) node[below] {$B$};
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image xml:id="img-angle-area-compare">
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[auto, thick]
+                    \pgfmathsetmacro{\rad}{2}
+                    \pgfmathsetmacro{\angleA}{30}
+                    \coordinate (c1) at (0,0) node[left] {$O$};
+                    \coordinate (c2) at ($ (c1) + (\angleA:\rad) $);
+                    \coordinate (c3) at ($ (c1) + (\angleA:{\rad/cos(\angleA)}) $);
+                    \draw ($ (c1) + (0:0.2*\rad) $) arc (0:\angleA:0.2*\rad)
+                        node[pos=0.6, right] {$x$};
+                    \draw [dotted] (c1) circle (\rad);
+                    \draw (c1) -- ($ (c1) + (\rad, 0) $);
+                    \draw ($ (c1) + (\rad,0) $)
+                            arc (0:\angleA:\rad);
+                    \draw (c1) -- (c3) node[right] {$Q$} -- (\rad,0) node[below right] {$P$} -- (c1);
+                    \draw (c2) node[above] {$A$} -- ({\rad*cos(\angleA)},0) node[below] {$B$};
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
                 <p>Comparing the areas leads to the inequality, <me>\frac{1}{2} \sin(x) \cos(x) \lt \frac{1}{2} x \lt \frac{1}{2} \tan(x).</me> Multiplying by 2 and dividing by <m>\sin(x)</m>, we have another inequality <me> \cos(x) \lt \frac{x}{\sin(x)} \lt \frac{1}{\cos(x)}.</me> Since <m>\cos(x)</m> is continuous at <m>x=0</m>, we know <md>
                     <mrow>\lim_{x \to 0} \cos(x) = \cos(0) = 1,</mrow>
                     <mrow>\lim_{x \to 0} \frac{1}{\cos(x)} = 1.</mrow>
-                </md> Using the <xref ref='thm-limit-squeeze' text='title'>Limit Squeeze Theorem</xref> and the <xref ref='LC-Reciprocal' text='title'>Limit of a Reciprocal</xref>, we then know <me>\lim_{x \to 0} \frac{x}{\sin(x)} = 1 \qquad \Rightarrow \qquad \sin'(0) = \lim_{x \to 0}\frac{\sin(x)}{x} = 1.</me></p>
+                </md> Using the <xref ref='thm-limit-squeeze' text='custom'>Limit Squeeze Theorem</xref> and the <xref ref='LC-Reciprocal' text='custom'>Limit of a Reciprocal</xref>, we then know <me>\lim_{x \to 0} \frac{x}{\sin(x)} = 1 \qquad \Rightarrow \qquad \sin'(0) = \lim_{x \to 0}\frac{\sin(x)}{x} = 1.</me></p>
             </proof>
         </theorem>
-        
+
         <p>It is important to note that getting the value for this limit to be the value 1 was a consequence of measuring angles in radians. For any other way that we might measure angles, the fraction of the circles area would be a ratio of the value <m>x</m> to the measurement of the angle to complete a full circle. For example, if we measured angles in degrees, we would have instead found <m>\sin_{\mathrm{deg}}'(0) = \frac{2\pi}{360}</m>. Mathematically, one justification for measuring angles in radians is simply in order to guarantee that this <m>\sin'(0)=1</m>.</p>
-        
+
         <theorem xml:id='thm-cosine-deriv-zero'>
             <statement>
                 <p><me>\cos'(0) = \lim_{x \to 0} \frac{\cos(x)-1}{x} = 0</me></p>
             </statement>
             <proof>
-                <p>By definition, <me>\displaystyle \cos'(0) = \lim_{h \to 0} \frac{\cos(0+h) - \cos(0)}{h}.</me> Since <m>\cos(0) = 1</m>, we can rewrite <me>\cos'(0)=\lim_{h \to 0} \frac{\cos(h)-1}{h} = \lim_{x \to 0}\frac{\cos(x)-1}{x}.</me> Multiplying the numerator and denominator by <m>\cos(x)+1</m>, we find <me>\cos'(0) = \lim_{x \to 0}\frac{(\cos(x)-1)(\cos(x)+1)}{x(\cos(x)+1)} = \lim_{x \to 0} \frac{\cos^2(x)-1}{x(\cos(x)+1)}.</me> By the <xref ref='thm-pythagorean-identity' text='title'>Pythagorean identity</xref>, we know <m>\cos^2(x)-1=-\sin^2(x)</m> so that we can rewrite <me>\cos'(0) = \lim_{x \to 0}\frac{\sin(x)}{x}\frac{-\sin(x)}{\cos(x)+1}.</me> Since <m>\displaystyle \lim_{x \to 0}\frac{\sin(x)}{x} = \sin'(0) = 1</m> and <me>\displaystyle \lim_{x \to 0}\frac{-\sin(x)}{\cos(x)+1} = \frac{-\sin(0)}{\cos(0)+1} = \frac{0}{2} = 0,</me> the limit rule for a product guarantees <m>\cos'(0) = 0</m>.</p>
+                <p>By definition, <me>\displaystyle \cos'(0) = \lim_{h \to 0} \frac{\cos(0+h) - \cos(0)}{h}.</me> Since <m>\cos(0) = 1</m>, we can rewrite <me>\cos'(0)=\lim_{h \to 0} \frac{\cos(h)-1}{h} = \lim_{x \to 0}\frac{\cos(x)-1}{x}.</me> Multiplying the numerator and denominator by <m>\cos(x)+1</m>, we find <me>\cos'(0) = \lim_{x \to 0}\frac{(\cos(x)-1)(\cos(x)+1)}{x(\cos(x)+1)} = \lim_{x \to 0} \frac{\cos^2(x)-1}{x(\cos(x)+1)}.</me> By the <xref ref='thm-pythagorean-identity' text='custom'>Pythagorean identity</xref>, we know <m>\cos^2(x)-1=-\sin^2(x)</m> so that we can rewrite <me>\cos'(0) = \lim_{x \to 0}\frac{\sin(x)}{x}\frac{-\sin(x)}{\cos(x)+1}.</me> Since <m>\displaystyle \lim_{x \to 0}\frac{\sin(x)}{x} = \sin'(0) = 1</m> and <me>\displaystyle \lim_{x \to 0}\frac{-\sin(x)}{\cos(x)+1} = \frac{-\sin(0)}{\cos(0)+1} = \frac{0}{2} = 0,</me> the limit rule for a product guarantees <m>\cos'(0) = 0</m>.</p>
             </proof>
         </theorem>
-        
+
         <p>Knowing the instantaneous rates of change of sine and cosine at <m>x=0</m> allows us to compute the derivative at any input value. The proofs for these differentiation rules rely on the sum identities for trigonometric functions.</p>
-        
+
         <theorem xml:id='thm-sine-derivative'>
             <statement>
                 <p><me>\frac{d}{dx}[\sin(x)] = \sin'(x) = \cos(x)</me></p>
@@ -179,7 +175,7 @@
                 </md> Because <m>\sin(x)</m> and <m>\cos(x)</m> do not depend on <m>h</m>, they play the role of a constant multiple. By the rules for a limit of a sum and the limit of a constant multiple, we can write <me>\sin'(x) = \sin(x) \cos'(0) + \cos(x) \sin'(0) = 0 \cdot \sin(x) + 1 \cdot \cos(x) = \cos(x).</me></p>
             </proof>
         </theorem>
-        
+
         <theorem xml:id='thm-cosine-derivative'>
             <statement>
                 <p><me>\frac{d}{dx}[\cos(x)] = \cos'(x) = -\sin(x)</me></p>
@@ -193,11 +189,11 @@
             </proof>
         </theorem>
     </subsection>
-    
+
     <subsection>
         <title>Derivatives of Other Trigonometric Functions</title>
         <p>All other trigonometric functions are defined in terms of the sine and cosine functions. Knowing the derivatives of sine and cosine allow us to compute the derivative rules for each of the other trigonometric functions.</p>
-        
+
         <theorem xml:id='thm-other-trig-derivatives'>
             <statement>
                 <p><md>
@@ -227,12 +223,12 @@
             </proof>
         </theorem>
     </subsection>
-    
+
     <subsection>
         <title>Practice with Derivatives</title>
-        
+
         <p>When we take into account the chain rule, we have the following general derivative rules for trigonometric functions. Notice that cosine, cotangent, and cosecant all have a negative sign. Also note the similarity in formulas between the derivatives for sine and cosine, for tangent and cotangent, and for secant and cosecant. There are really only three differentiation rules, each with a complementary rule for the complementary functions.</p>
-        
+
         <assemblage xml:id='assemblage-trig-derivatives-chain'>
             <title>General Derivative Rules for Trigonometric Functions</title>
 
@@ -245,9 +241,9 @@
                 <mrow> \frac{d}{dx}[\csc(u)] &amp;= -\csc(u) \cot(u) \frac{du}{dx} </mrow>
             </md></p>
         </assemblage>
-        
+
         <p>The following examples illustrate how these rules can be used with other rules of differentiation.</p>
-        
+
         <example>
             <statement>
                 <p>Find <m>\displaystyle \frac{d}{dx}[3\sin(x^2)]</m>.</p>
@@ -262,7 +258,7 @@
                 </md></p>
             </solution>
         </example>
-        
+
         <example>
             <statement>
                 <p>Find <m>\displaystyle \frac{d}{dx}[\sec(e^{3x})]</m>.</p>
@@ -276,7 +272,7 @@
                 </md></p>
             </solution>
         </example>
-        
+
         <example>
             <statement>
                 <p>Find <m>\displaystyle \frac{d}{dx}[e^{-3x}\sin(5x)]</m>.</p>
@@ -295,7 +291,7 @@
             </solution>
         </example>
     </subsection>
-    
+
     <subsection>
         <title>The Squeeze Theorem for Limits</title>
         <theorem xml:id='thm-limit-squeeze'>

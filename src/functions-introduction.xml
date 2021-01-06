@@ -83,30 +83,26 @@
         If so, give an equation of the line.
         <ol>
           <li>
-            <sidebyside margins="0% 100%">
-              <tabular>
-                <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
-                <row bottom="major">
-                  <cell><m>x</m></cell> <cell>1</cell> <cell>4</cell> <cell>10</cell>
-                </row>
-                <row>
-                  <cell><m>y</m></cell> <cell>5</cell> <cell>3</cell> <cell>-1</cell>
-                </row>
-              </tabular>
-            </sidebyside>
+            <tabular margins="0% 100%">
+              <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
+              <row bottom="major">
+                <cell><m>x</m></cell> <cell>1</cell> <cell>4</cell> <cell>10</cell>
+              </row>
+              <row>
+                <cell><m>y</m></cell> <cell>5</cell> <cell>3</cell> <cell>-1</cell>
+              </row>
+            </tabular>
           </li>
           <li>
-            <sidebyside margins="0% 100%">
-              <tabular>
-                <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
-                <row bottom="major">
-                  <cell><m>x</m></cell> <cell>2</cell> <cell>6</cell> <cell>12</cell>
-                </row>
-                <row>
-                  <cell><m>y</m></cell> <cell>11</cell> <cell>19</cell> <cell>27</cell>
-                </row>
-              </tabular>
-            </sidebyside>
+            <tabular margins="0% 100%">
+              <col right="major"/> <col right="minor"/> <col right="minor"/> <col/>
+              <row bottom="major">
+                <cell><m>x</m></cell> <cell>2</cell> <cell>6</cell> <cell>12</cell>
+              </row>
+              <row>
+                <cell><m>y</m></cell> <cell>11</cell> <cell>19</cell> <cell>27</cell>
+              </row>
+            </tabular>
           </li>
         </ol>
         </p>
@@ -133,34 +129,32 @@
             which is equivalent to an equation <m>2x+3y=17</m>.
             The graph of this line along with the data are shown below.
             </p>
-            <sidebyside width="50%" margins="auto">
-              <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}[
-                  xlabel={$x$},
-                  ylabel={$y$},
-                  axis lines=center,
-                ]
-                \addplot[
-                  only marks,
-                  color=blue
-                ] coordinates {
-                  (1,5) (4,3) (10,-1)
-                %table {
-                %    1 5
-                %    4 3
-                %    10 -1
-                };
-                \addplot [domain=-4:12,samples=2] {(-2*x+17)/3};
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-              </image>
-            </sidebyside>
+            <image width="50%">
+              <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \begin{axis}[
+                xlabel={$x$},
+                ylabel={$y$},
+                axis lines=center,
+              ]
+              \addplot[
+                only marks,
+                color=blue
+              ] coordinates {
+                (1,5) (4,3) (10,-1)
+              %table {
+              %    1 5
+              %    4 3
+              %    10 -1
+              };
+              \addplot [domain=-4:12,samples=2] {(-2*x+17)/3};
+              \end{axis}
+              \end{tikzpicture}]]>
+              </latex-image>
+            </image>
           </li>
           <li>
             <p>
@@ -174,40 +168,38 @@
             The figure below illustrates the data along with the line passing through the first two states.
             The third data point is not on the line.
             </p>
-            <sidebyside width="50%" margins="auto">
-              <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}[
-                  xlabel={$x$},
-                  ylabel={$y$},
-                  axis lines=center,
-                ]
-                \addplot[
-                  only marks,
-                  color=blue
-                ] coordinates {
-                  (2,11) (6,19) (12,27)
-                };
-                \addplot [domain=-4:18,samples=2] {2*(x-2)+11};
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-              </image>
-            </sidebyside>
+            <image width="50%">
+              <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}
+              \begin{axis}[
+                xlabel={$x$},
+                ylabel={$y$},
+                axis lines=center,
+              ]
+              \addplot[
+                only marks,
+                color=blue
+              ] coordinates {
+                (2,11) (6,19) (12,27)
+              };
+              \addplot [domain=-4:18,samples=2] {2*(x-2)+11};
+              \end{axis}
+              \end{tikzpicture}]]>
+              </latex-image>
+            </image>
           </li>
         </ol></p>
       </solution>
     </example>
     <p>
       In the context of functions, the equation of a line solved for <m>y</m> defines a function <m>x \mapsto y</m>.
-      Most algebra courses introduce the <xref ref="slope-intercept-line">slope-intercept form</xref> of a line,
+      Most algebra courses introduce the <xref ref="slope-intercept-line" text="custom">slope-intercept form</xref> of a line,
       <me>y=mx+b</me>,
       where <m>m</m> is the slope and <m>b</m> is the <m>y</m>-value of the <m>y</m>-intercept.
-      However, the <xref text="title" ref="point-slope-line">point-slope form</xref> of a line is actually more useful to remember,
+      However, the <xref ref="point-slope-line" text="custom">point-slope form</xref> of a line is actually more useful to remember,
       <me>y=m(x-h) + k</me>,
       where <m>m</m> is still the slope but <m>(h,k)</m> is <em>any</em> point included on the line.
       Rewriting this slightly, the equation is equivalent to
@@ -240,29 +232,27 @@
           and the constant rate of change to give
           <me>P = 30707 + 910.35(y - 1990)</me>.
         </p>
-        <sidebyside width="60%">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \begin{axis}[
-              xlabel={$y$},
-              ylabel={$P$},
-              axis lines=center,
-              xmin=1985, xmax=2015,
-              ymin=25000, ymax=60000,
-            ]
-            \addplot [domain=1985:2015,samples=2] {30707+910.35*(x-1990)};
-            \addplot [only marks, black] coordinates { (1990, 30707) (2010,48914) }
-              node [pos=0,below right] {(1990,30707)}
-              node [pos=1, above left] {(2010,48914)};
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="60%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={$y$},
+            ylabel={$P$},
+            axis lines=center,
+            xmin=1985, xmax=2015,
+            ymin=25000, ymax=60000,
+          ]
+          \addplot [domain=1985:2015,samples=2] {30707+910.35*(x-1990)};
+          \addplot [only marks, black] coordinates { (1990, 30707) (2010,48914) }
+            node [pos=0,below right] {(1990,30707)}
+            node [pos=1, above left] {(2010,48914)};
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </solution>
     </example>
   </subsection>
@@ -423,24 +413,22 @@
       Together, this creates a map <m>A \mapsto C</m> which is the composition of the individual maps.
       Using substitution, we have <m>C= g\big(f(A)\big)</m>, the output of <m>f</m> becoming the input to <m>g</m>.
     </p>
-    <sidebyside width="70%">
-      <image>
-        <latex-image>
-        <![CDATA[\tikzset{%
-        }
-        \begin{tikzpicture}
-        \draw[<->] (0,0) -- (8,0) node[pos=0, left] {$A$};
-        \draw (2,0.1) -- (2,-0.1) node[pos=0, above] {$a$};
-        \draw[<->] (0,-1.25) -- (8,-1.25) node[pos=0, left] {$B$};
-        \draw (4,-1.15) -- (4,-1.35) node[pos=0, above] {$b$};
-        \draw [->] (2,-0.15) -- (4,-1) node [pos=0.5, right] {$f$};
-        \draw[<->] (0,-2.5) -- (8,-2.5) node[pos=0, left] {$C$};
-        \draw (5,-2.4) -- (5,-2.6) node[pos=0, above] {$c$};
-        \draw [->] (4,-1.4) -- (5,-2.25) node [pos=0.5, right] {$g$};
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
+    <image width="70%">
+      <latex-image>
+      <![CDATA[\tikzset{%
+      }
+      \begin{tikzpicture}
+      \draw[<->] (0,0) -- (8,0) node[pos=0, left] {$A$};
+      \draw (2,0.1) -- (2,-0.1) node[pos=0, above] {$a$};
+      \draw[<->] (0,-1.25) -- (8,-1.25) node[pos=0, left] {$B$};
+      \draw (4,-1.15) -- (4,-1.35) node[pos=0, above] {$b$};
+      \draw [->] (2,-0.15) -- (4,-1) node [pos=0.5, right] {$f$};
+      \draw[<->] (0,-2.5) -- (8,-2.5) node[pos=0, left] {$C$};
+      \draw (5,-2.4) -- (5,-2.6) node[pos=0, above] {$c$};
+      \draw [->] (4,-1.4) -- (5,-2.25) node [pos=0.5, right] {$g$};
+      \end{tikzpicture}]]>
+      </latex-image>
+    </image>
     <example>
       <statement>
         <p>
@@ -1074,7 +1062,6 @@
           and let <m>L</m> be the corresponding location (centimeters).
           The following table is used for calibration.
           </p>
-          <sidebyside margins="auto">
           <tabular>
             <col right="major"/> <col right="minor"/> <col/>
             <row bottom="major">
@@ -1088,7 +1075,6 @@
               <cell>42.5</cell>
             </row>
           </tabular>
-          </sidebyside>
           <p>
           <ol>
             <li>
@@ -1135,7 +1121,7 @@
         <statement>
           <p>
           The cost <m>C</m> of materials for a project depends on the required area <m>A</m> of materials needed.
-          The unit price is <dollar/>3.50 per <quantity><unit base="meter" exp="2"/></quantity>.
+          The unit price is $3.50 per <quantity><unit base="meter" exp="2"/></quantity>.
           The project involves making two squares, each of them having sides with length <m>s</m> (meters).
           <ol>
             <li>Find <m>A \overset{f}{\mapsto} C</m>.</li>

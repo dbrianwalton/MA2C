@@ -276,7 +276,7 @@
           <mrow> &amp;= \lim_{x \to \infty} \frac{t \cdot \frac{1}{1+rx^{-1}} \cdot (-rx^{-2})}{-x^{-2}} </mrow>
           <mrow> &amp;= \lim_{x \to \infty} t \cdot \frac{1}{1+rx^{-1}} \cdot (r) \to t \cdot \frac{1}{1+0} \cdot r = rt</mrow>
         </md>
-        Using the <xref ref='LC-Continuous-Composition' text='title'>Limit of a Continuous Composition</xref>, we conclude
+        Using the <xref ref='LC-Continuous-Composition' text='custom'>Limit of a Continuous Composition</xref>, we conclude
         <md>
           <mrow> \lim_{x \to \infty} \exp\big(xt \ln(1+rx^{-1})\big) &amp;= \exp\big( \lim_{x \to \infty} xt \ln(1+rx^{-1})\big) </mrow>
           <mrow> &amp;= \exp(rt) = e^{rt}.</mrow>

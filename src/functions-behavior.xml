@@ -6,21 +6,21 @@
 <!--                                              -->
 <!-- Copyright (C) 2017  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="functions-behavior">
   <title>Describing the Behavior of Functions</title>
 
   <introduction>
     <title>Overview</title>
-    
+
     <p>
       We have been learning about how functions are constructed and how they are defined.
-      In many instances, before we construct a formula for a function, 
+      In many instances, before we construct a formula for a function,
       we need to identify what behavior we are attempting to model.
       At other times, we have a formula and we need to know what behavior that predicts.
       We need specific language that we can use to describe behavior.
     </p>
-    
+
     <p>
       In this section, we will focus on three types of behavior: monotonicity, concavity, and end behavior.
       Monotonicity will describe where a function is increasing or decreasing.
@@ -28,18 +28,18 @@
       In a graph, concavity describes whether the curve is bending up or bending down.
       We also discuss simple end behavior including unbounded growth (tending to infinity) and horizontal asymptotes.
     </p>
-    
+
     <p>
       Our emphasis is in learning the language of behavior, describing graphs using this language,
       and creating graphs based on a description of a function.
-      As our study of calculus develops, we will learn mathematical tools that will allow us 
+      As our study of calculus develops, we will learn mathematical tools that will allow us
       to determine function behavior more precisely.
     </p>
   </introduction>
-  
+
   <subsection>
     <title>Functions Have Shapes</title>
-    
+
     <introduction>
     <p>
       We often describe functions according to the shape of their graphs.
@@ -47,7 +47,7 @@
       We will focus on two aspects of a graph: monotonicity and concavity.
     </p>
     </introduction>
-    
+
     <subsubsection>
       <title>Monotonicity</title>
       <p>
@@ -55,7 +55,7 @@
         We start with the mathematical definitions of increasing and decreasing functions.
         We will explore the ideas graphically in terms of maps and then graphs.
       </p>
-      
+
       <definition xml:id="increasing-decreasing">
         <title>Monotonicity</title>
         <statement>
@@ -71,10 +71,10 @@
           </p>
         </statement>
       </definition>
-      
+
       <p>
         One way to think of monotonicity is that the function retains an ordering of the sets.
-        An increasing function preserves the order, so that if two inputs are in a particular order, 
+        An increasing function preserves the order, so that if two inputs are in a particular order,
         <m>x_1 \lt x_2</m>, then the resulting outputs have the same order, <m>f(x_1) \lt f(x_2)</m>.
         A decreasing function reverses the order, so that if inputs have an order, <m>x_1 \lt x_2</m>,
         then the outputs must have the opposite order <m>f(x_1) \gt f(x_2)</m>.
@@ -83,7 +83,7 @@
         Sometimes the outputs might have the same order as the inputs,
         and sometimes the outputs might have the opposite order.
       </p>
-      
+
       <example>
         <statement>
           <p>
@@ -105,8 +105,8 @@
             <jsxgraph xml:id="jsx-fcn-behavior-increase-ex1" width="75%" aspect="4:1">
               <input>
               <![CDATA[
-              var jcf1 = { 
-                f : function(x) 
+              var jcf1 = {
+                f : function(x)
                   {
                     var y=2*x+1;
                     return y;
@@ -130,8 +130,8 @@
             <jsxgraph xml:id="jsx-fcn-behavior-increase-ex1b" width="75%">
               <input>
               <![CDATA[
-              var jcf1b = { 
-                f : function(x) 
+              var jcf1b = {
+                f : function(x)
                   {
                     var y=2*x+1;
                     return y;
@@ -146,7 +146,7 @@
           </figure>
         </statement>
       </example>
-      
+
       <example>
         <statement>
           <p>
@@ -167,8 +167,8 @@
             <jsxgraph xml:id="jsx-fcn-behavior-decrease-ex2" width="75%" aspect="4:1">
               <input>
               <![CDATA[
-              var jcf2 = { 
-                f : function(x) 
+              var jcf2 = {
+                f : function(x)
                   {
                     var y=-2*x+3;
                     return y;
@@ -192,8 +192,8 @@
             <jsxgraph xml:id="jsx-fcn-behavior-decrease-ex2b" width="75%">
               <input>
               <![CDATA[
-              var jcf2b = { 
-                f : function(x) 
+              var jcf2b = {
+                f : function(x)
                   {
                     var y=-2*x+3;
                     return y;
@@ -208,20 +208,20 @@
           </figure>
         </statement>
       </example>
-      
+
       <p>
         Some functions are not monotone because the map does not retain the ordering of the sets.
         Dynamically, this is because the output will sometimes increase and sometimes decrease
         as the input is increased.
       </p>
-      
+
       <example>
         <statement>
           <p>
             The function <m>f(x)=x^2</m> is not a linear function and is not monotone.
             We can show this by illustrating that the function is inconsistent
-            in ordering the output values relative to the input values. 
-            Consider <m>x_0=-2</m> and <m>x_1=-1</m>. 
+            in ordering the output values relative to the input values.
+            Consider <m>x_0=-2</m> and <m>x_1=-1</m>.
             We have <m>f(x_0)=4 \gt f(x_1)=1</m>, so for these inputs the order is reversed.
             However, for <m>x_0=1</m> and <m>x_1=2</m>, we have <m>f(x_0)=1 \gt f(x_1)=4</m>
             and the order is preserved.
@@ -232,8 +232,8 @@
             <jsxgraph xml:id="jsx-fcn-behavior-monotone-ex3" width="75%" aspect="4:1">
               <input>
               <![CDATA[
-              var jcf3 = { 
-                f : function(x) 
+              var jcf3 = {
+                f : function(x)
                   {
                     var y=x*x;
                     return y;
@@ -258,8 +258,8 @@
             <jsxgraph xml:id="jsx-fcn-behavior-monotone-ex3b" width="75%">
               <input>
               <![CDATA[
-              var jcf3b = { 
-                f : function(x) 
+              var jcf3b = {
+                f : function(x)
                   {
                     var y=x*x;
                     return y;
@@ -274,7 +274,7 @@
           </figure>
         </statement>
       </example>
-      
+
       <p>
         One of our goals in calculus will be to develop a method to determine the intervals
         on which a function is increasing or decreasing.
@@ -284,22 +284,22 @@
         Calculus will develop a more general sense of the slope of a function using the derivative
         such that we will describe monotonicity based on the signs of the derivative.
       </p>
-      
+
       <note>
         <p>
         When listing intervals on which a function is increasing or decreasing,
         it is important <em>not</em> to use a union of the intervals.
-        The reason is that we are saying that 
+        The reason is that we are saying that
         the function is increasing on <em>each</em> of the intervals individually
         and not on the set formed by the union.
         If listing multiple intervals, simply form a comma-separated list.
         </p>
       </note>
     </subsubsection>
-    
+
     <subsubsection>
       <title>Concavity</title>
-      
+
       <p>
         Concavity describes how the graph of a function in the <m>(x,y)</m> plane bends.
         If the graph bends upward, we say the function is <term>concave up</term>.
@@ -360,7 +360,7 @@
           </p>
         </statement>
       </definition>
-      
+
       <p>
         This definition is not very easy to use directly.
         When we learn more about derivatives to describe the slope at individual points,
@@ -377,7 +377,7 @@
           <p>
             Consider the graph <m>y=f(x)=x^2</m> and the particular values
             <m>x_1=-4</m>, <m>x_2=-2</m>, and <m>x_3=-1</m>.
-            We will calculate the slope or rate of change 
+            We will calculate the slope or rate of change
             between <m>(x_1,y_1)=(-4,16)</m> and <m>(x_2,y_2)=(-2,4)</m>
             and between <m>(x_2,y_2)</m> and <m>(x_3,y_3)=(-1,1)</m>.
             <md>
@@ -387,33 +387,31 @@
             We can see that the slope or rate of change is increasing, <m>m_{12} \lt m_{23}</m>.
             These slopes are illustrated in the following figure.
           </p>
-          <sidebyside width="50%">
-            <image>
-              <latex-image>
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis}
-              [
-                xmin=-5, xmax=5,
-                ymin=-4, ymax=20,
-              ]
-              \addplot [domain=-5:5, samples=51, thick, blue] { x^2 };
-              \addplot [only marks, thick] coordinates {
-                (-4,16) (-2,4) (-1,1)
-              }
-              node [pos=0, right] {$(x_1,y_1)$}
-              node [pos=0.5, left] {$(x_2,y_2)$}
-              node [pos=1, left] {$(x_3,y_3)$};
-              \addplot [dashed] coordinates { (-4,16) (-2,4) }
-                node [pos=0.5, right] {$m_{12}=-6$};
-              \addplot [dashed] coordinates { (-2,4) (-1,1) }
-                node [pos=0.5, right] {$m_{23}=-3$};
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%">
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-5, xmax=5,
+              ymin=-4, ymax=20,
+            ]
+            \addplot [domain=-5:5, samples=51, thick, blue] { x^2 };
+            \addplot [only marks, thick] coordinates {
+              (-4,16) (-2,4) (-1,1)
+            }
+            node [pos=0, right] {$(x_1,y_1)$}
+            node [pos=0.5, left] {$(x_2,y_2)$}
+            node [pos=1, left] {$(x_3,y_3)$};
+            \addplot [dashed] coordinates { (-4,16) (-2,4) }
+              node [pos=0.5, right] {$m_{12}=-6$};
+            \addplot [dashed] coordinates { (-2,4) (-1,1) }
+              node [pos=0.5, right] {$m_{23}=-3$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
           <p>
             This is not a proof of concavity because we only illustrated the order for three specific points.
             Use the following dynamic figure to convince yourself that
@@ -429,7 +427,7 @@
                 input: { name:"x", min:-5.5, max:5.5 },
                 output: { name:"y", min:-2, max:20 },
               };
-              jcf4.b = JXG.JSXGraph.initBoard(idName, 
+              jcf4.b = JXG.JSXGraph.initBoard(idName,
                 {
                   boundingbox:[
                       jcf4.input.min,
@@ -443,7 +441,7 @@
                   showNavigation:false,
                 }
               );
-              jcf4.plot = jcf4.b.create("functiongraph", 
+              jcf4.plot = jcf4.b.create("functiongraph",
                 function(x) { return x*x; }
               );
               jcf4.x1 = jcf4.b.create("glider",
@@ -508,7 +506,7 @@
           </p>
         </statement>
       </example>
-      
+
       <example>
         <statement>
           <p>
@@ -529,7 +527,7 @@
                 input: { name:"x", min:-3.25, max:3.25 },
                 output: { name:"y", min:-5, max:5 },
               };
-              jcf5.b = JXG.JSXGraph.initBoard(idName, 
+              jcf5.b = JXG.JSXGraph.initBoard(idName,
                 {
                   boundingbox:[
                       jcf5.input.min,
@@ -543,7 +541,7 @@
                   showNavigation:false,
                 }
               );
-              jcf5.plot = jcf5.b.create("functiongraph", 
+              jcf5.plot = jcf5.b.create("functiongraph",
                 function(x) { return x*(x*x-3); }
               );
               jcf5.x1 = jcf5.b.create("glider",
@@ -603,10 +601,10 @@
         </statement>
       </example>
     </subsubsection>
-    
+
     <subsubsection>
       <title>Combining Monotonicity and Concavity</title>
-      
+
       <p>
         The shape of a graph of a function is often defined in terms of the monotonicity and concavity combined.
         There are four basic shapes that correspond to the four quadrants of a circle,
@@ -670,11 +668,11 @@
         </sidebyside>
       </figure>
       <p>
-        We can describe the shape of a graph by stating intervals 
-        on which the function satisfies each of the possible behaviors. 
-        The intervals are separated by points where the graph reaches 
-        either a maximum or minimum value (changes in monotonicity) 
-        or where the slope of the graph reaches an extreme and begins 
+        We can describe the shape of a graph by stating intervals
+        on which the function satisfies each of the possible behaviors.
+        The intervals are separated by points where the graph reaches
+        either a maximum or minimum value (changes in monotonicity)
+        or where the slope of the graph reaches an extreme and begins
         to bend the other direction (changes in concavity or points of inflection).
       </p>
       <example>
@@ -684,50 +682,48 @@
             with labeled extreme points and inflection points.
             Describe the shape of the graph by giving intervals of monotonicity and concavity.
           </p>
-          <sidebyside width="75%">
-            <image>
-              <latex-image>
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis}
-              [
-                xmin=-6, xmax=6,
-                ymin=-4, ymax=15,
-              ]
-              \addplot [domain=-6:-1,samples=100, thick, blue]
-                { (x+3)^2-3 };
-              \addplot [domain=-1:0,samples=100, thick, blue]
-                { -(x-1)^2+5 };
-              \addplot [domain=0:1,samples=100, thick, blue]
-                { (x+1)^2+3 };
-              \addplot [domain=1:6,samples=100, thick, blue]
-                { -(x-3)^2+11 };
-              \addplot [only marks, thick] coordinates {
-                (-3,-3) (-1,1) (0,4) (1,7) (3,11)
-              }
-              node [pos=0, above] {$(-3,3)$}
-              node [pos=0.25, left] {$(-1,1)$}
-              node [pos=0.5, left] {$(0,4)$}
-              node [pos=0.75, left] {$(1,7)$}
-              node [pos=1, above] {$(3,11)$};
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="75%">
+            <latex-image>
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-6, xmax=6,
+              ymin=-4, ymax=15,
+            ]
+            \addplot [domain=-6:-1,samples=100, thick, blue]
+              { (x+3)^2-3 };
+            \addplot [domain=-1:0,samples=100, thick, blue]
+              { -(x-1)^2+5 };
+            \addplot [domain=0:1,samples=100, thick, blue]
+              { (x+1)^2+3 };
+            \addplot [domain=1:6,samples=100, thick, blue]
+              { -(x-3)^2+11 };
+            \addplot [only marks, thick] coordinates {
+              (-3,-3) (-1,1) (0,4) (1,7) (3,11)
+            }
+            node [pos=0, above] {$(-3,3)$}
+            node [pos=0.25, left] {$(-1,1)$}
+            node [pos=0.5, left] {$(0,4)$}
+            node [pos=0.75, left] {$(1,7)$}
+            node [pos=1, above] {$(3,11)$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
         </statement>
         <solution>
           <p>
-            Intervals for monotonicity are based on the function increasing or decreasing. 
-            The end-points of these intervals are the extreme points for the function. 
-            When the graph extends beyond the frame of the figure, 
+            Intervals for monotonicity are based on the function increasing or decreasing.
+            The end-points of these intervals are the extreme points for the function.
+            When the graph extends beyond the frame of the figure,
             we assume the function behavior continues as shown. Intervals always are read from left to right. The end-point of an interval is included (closed) if the behavior extends up to and including that point.
           </p>
           <p>
-            The function <m>f</m> is decreasing on <m>(-\infty,-3]</m>, 
+            The function <m>f</m> is decreasing on <m>(-\infty,-3]</m>,
             increasing on <m>[-3,3]</m>, and decreasing on <m>[3,\infty)</m>.
-            Notice that the extremes at <m>x=-3</m> and <m>x=3</m> are included in two intervals. 
+            Notice that the extremes at <m>x=-3</m> and <m>x=3</m> are included in two intervals.
             The continuous function is decreasing on <m>(-\infty,-3)</m> as an open interval.
             Because <m>f</m> decreases up to and including <m>x=-3</m>, we include the end-point.
           </p>
@@ -744,32 +740,32 @@
           </p>
         </solution>
       </example>
-      
+
     </subsubsection>
   </subsection>
-    
+
   <subsection xml:id="functions-behavior-end-limits">
     <title>End Behavior</title>
-    
+
     <p>
       End-behavior of a function describes what happens to a function as the size of the input grows.
       Consider the possibilities of a linear function, <m>y=f(x)=mx+b</m>.
-      So long as the slope is non-zero, the function is <em>unbounded</em>, 
+      So long as the slope is non-zero, the function is <em>unbounded</em>,
       meaning that the graph eventually goes above every level and eventually goes below every level
       (on opposite sides of the graph).
     </p>
     <p>
       If the slope is positive, <m>m \gt 0</m>, then the function is increasing.
-      We say <m>f(x) \to +\infty</m> as <m>x \to +\infty</m>, which we read as 
+      We say <m>f(x) \to +\infty</m> as <m>x \to +\infty</m>, which we read as
       <q>the value of <m>f(x)</m> tends to positive infinity as the value of <m>x</m> goes to positive infinity</q>.
-      This is because the <m>y</m>-values will eventually rise <em>above</em> any level 
+      This is because the <m>y</m>-values will eventually rise <em>above</em> any level
       on the right side of the graph (for sufficiently large positive values <m>x</m>).
       We also say <m>f(x) \to -\infty</m> as <m>x \to -\infty</m>
-      because the <m>y</m>-values are <em>below</em> any specified value 
+      because the <m>y</m>-values are <em>below</em> any specified value
       on the left side of the graph (for sufficiently large negative values <m>x</m>).
       When the slope is negative, <m>m \lt 0</m>, the unbounded behavior is reversed.
     </p>
-    
+
     <figure>
       <caption>Unbounded behavior of linear functions with positive and negative slopes.</caption>
       <sidebyside widths="40% 40%">
@@ -803,7 +799,7 @@
         </figure>
       </sidebyside>
     </figure>
-    
+
     <p>
       For consistency in notation to describe the tendency of a function (as opposed to the value of a function),
       we use limits to describe unbounded behavior.
@@ -817,17 +813,17 @@
     <p>
       When the graph of a function <m>f</m> behaves more and more like a constant function (horizontal line)
       for larger and larger values of the independent variable, we say <m>f</m> has a <term>horizontal asymptote</term>.
-      A horizontal asymptote <m>y=L</m> on the right side (large, positive values for <m>x</m>) uses the limit statement 
+      A horizontal asymptote <m>y=L</m> on the right side (large, positive values for <m>x</m>) uses the limit statement
       <me>\lim_{x \to \infty} f(x) = L</me>,
       which means that the value of <m>f(x)</m> approaches the constant value <m>L</m> as <m>x \to +\infty</m>.
-      When <m>f</m> has a horizontal asymptote <m>y=L</m> on the left side (large, negative values of <m>x</m>), 
+      When <m>f</m> has a horizontal asymptote <m>y=L</m> on the left side (large, negative values of <m>x</m>),
       we use the limit statement
       <me>\lim_{x \to -\infty} f(x) = L</me>.
     </p>
     <example>
       <statement>
         <p>
-          The graph of a function <m>y=f(x)</m> is shown below. 
+          The graph of a function <m>y=f(x)</m> is shown below.
           This function has two horizontal asymptotes: <m>y=-2</m> as <m>x \to -\infty</m>
           and <m>y=1</m> as <m>x \to +\infty</m>. We write
           <md>
@@ -835,32 +831,30 @@
             <mrow>\lim_{x \to +\infty} f(x) = 1.</mrow>
           </md>
         </p>
-        <sidebyside width="70%">
-          <image>
-            <latex-image>
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \begin{axis}
-            [
-              xmin=-6, xmax=6,
-              ymin=-5, ymax=5,
-              axis lines=center,
-            ]
-            \addplot [domain=-6:6, samples=101, thick, blue]
-              { (exp(2*x-4)-2*exp(-x+2)+8)/(exp(2*x-4)+exp(-x+2)) };
-            \addplot [domain=0:6, dashed, samples=2, blue]
-              { 1 } node [pos=0.8, above] {$y=1$};
-            \addplot [domain=-6:0, dashed, samples=2, blue]
-              { -2 } node [pos=0.2,below] {$y=-2$};
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%">
+          <latex-image>
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=-6, xmax=6,
+            ymin=-5, ymax=5,
+            axis lines=center,
+          ]
+          \addplot [domain=-6:6, samples=101, thick, blue]
+            { (exp(2*x-4)-2*exp(-x+2)+8)/(exp(2*x-4)+exp(-x+2)) };
+          \addplot [domain=0:6, dashed, samples=2, blue]
+            { 1 } node [pos=0.8, above] {$y=1$};
+          \addplot [domain=-6:0, dashed, samples=2, blue]
+            { -2 } node [pos=0.2,below] {$y=-2$};
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </statement>
     </example>
-    
+
     <p>
     A function can also have unbounded behavior near a particular input value, say at <m>x=a</m>.
     Using limit notation, this means that at least one of the following must be true.
@@ -883,32 +877,30 @@
             <mrow>\lim_{x \to 0^+} f(x) &amp;= +\infty,</mrow>
           </md>
           The vertical asymptote at <m>x=2</m> only corresponds to the right-limit
-          <me>\lim_{x \to 2^+} f(x) = +\infty.</me> 
+          <me>\lim_{x \to 2^+} f(x) = +\infty.</me>
         </p>
-        <sidebyside width="70%">
-          <image>
-            <latex-image>
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \begin{axis}
-            [
-              xmin=-6, xmax=6,
-              ymin=-5, ymax=5,
-              axis lines=center,
-            ]
-            \addplot [domain=-6:-0.1, samples=101, thick, blue]
-              { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
-            \addplot [domain=0.1:2, samples=101, thick, blue]
-              { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
-            \addplot [domain=2.1:6, samples=101, thick, blue]
-              { 1/(x-2) };
-            \addplot [no marks,dashed,blue] coordinates { (2,-5) (2,5) };
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%">
+          <latex-image>
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=-6, xmax=6,
+            ymin=-5, ymax=5,
+            axis lines=center,
+          ]
+          \addplot [domain=-6:-0.1, samples=101, thick, blue]
+            { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
+          \addplot [domain=0.1:2, samples=101, thick, blue]
+            { -(x-1)*(x+2)*(x+1)/(x*(x^2+1))-1 };
+          \addplot [domain=2.1:6, samples=101, thick, blue]
+            { 1/(x-2) };
+          \addplot [no marks,dashed,blue] coordinates { (2,-5) (2,5) };
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
         It is hard to tell from a graph alone where a vertical asymptote occurs.
         Using only the limited graph window, it is not obvious that the vertical asymptote is at exactly <m>x=0</m>
@@ -916,17 +908,17 @@
         </p>
       </statement>
     </example>
-    
+
     <note>
       <p>
-        A common false impression about horizontal asymptotes is that 
+        A common false impression about horizontal asymptotes is that
         the graph of a function can not cross the asymptote.
         A function can not cross a vertical asymptote,
         but that is only because a function can not intersect a vertical line at more than one point.
         An asymptote only requires that the graph behaves more and more like the line.
       </p>
     </note>
-    
+
     <p>
       When a function physically relates two variables, <m>x \mapsto y</m>,
       a horizontal asymptote indicates that
@@ -940,7 +932,7 @@
       the response is no longer able to change very much at all.
       That is, the response has saturated.
     </p>
-    
+
     <example>
       <statement>
         <p>
@@ -986,7 +978,7 @@
         </figure>
       </statement>
     </example>
-    
+
     <example>
       <statement>
         <p>
@@ -1044,7 +1036,7 @@
           </image>
         </figure>
         <p>
-          Note: The asterisk and dagger are decorations 
+          Note: The asterisk and dagger are decorations
           so that the symbols <m>S^*</m> and <m>S^\dagger</m> represent general constants.
           We don't know actual values for the maximum and inflection point, so we can't use numbers.
           The symbols are place-holders for values that would be determined experimentally.
@@ -1054,15 +1046,15 @@
       </solution>
     </example>
   </subsection>
-    
+
   <subsection>
     <title>Summary</title>
-    
+
     <p>
     <ul>
       <li>
         <p>
-        Describing the <term>monotonicity</term> of a function is determining intervals 
+        Describing the <term>monotonicity</term> of a function is determining intervals
         on which the function is increasing or decreasing.
         </p>
       </li>
@@ -1074,7 +1066,7 @@
         This corresponds to a graph that is rising left to right (positive slopes).
         </p>
         <p>
-        A function <m>f</m> is <term>decreasing</term> on a set <m>S</m> if the function is order reversing: 
+        A function <m>f</m> is <term>decreasing</term> on a set <m>S</m> if the function is order reversing:
         For all <m>x_1,x_2 \in S</m>, we must have
         <me> x_1 \lt x_2 \quad \Rightarrow \quad f(x_1) \gt f(x_2)</me>.
         This corresponds to a graph that is falling left to right (negative slopes).
@@ -1082,7 +1074,7 @@
       </li>
       <li>
         <p>
-        Describing the concavity of a function is determining intervals 
+        Describing the concavity of a function is determining intervals
         on which the function is concave up or concave down.
         </p>
       </li>
@@ -1119,13 +1111,13 @@
     </ul>
     </p>
   </subsection>
-  
+
   <exercises>
     <exercisegroup>
       <introduction>
         <p>
         Each of the following problems asks you to prove that
-        the given function is either increasing or decreasing 
+        the given function is either increasing or decreasing
         on a particular interval.
         </p>
       </introduction>
@@ -1160,7 +1152,7 @@
         <statement>
           <p>
           Prove that <m>f(x)=x^2</m> is a decreasing function on <m>(-\infty,0]</m>
-          by showing that whenever <m>x_1 \lt x_2 \lt 0</m>, 
+          by showing that whenever <m>x_1 \lt x_2 \lt 0</m>,
           we have <m>f(x_1) \gt f(x_2)</m> or <m>f(x_2)-f(x_1) \lt 0</m>.
           </p>
           <p>
@@ -1178,102 +1170,96 @@
       </introduction>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 50%">
-            <image>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis} [
-                xmin=-5, xmax=5,
-                ymin=-5, ymax=3,
-                grid=both, minor tick num={1},
-                axis lines=center,
-                xlabel={$x$}, ylabel={$y=f(x)$},
-              ]
-              \addplot [blue, no marks, thick] coordinates {
-                  (-5,1) (-3,-3) (-2,-4)
-                  (-1,-3) (1,1) (2,2)
-                  (3,1) (5,-3)
-                };
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%" margins="0% 50%">
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis} [
+              xmin=-5, xmax=5,
+              ymin=-5, ymax=3,
+              grid=both, minor tick num={1},
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y=f(x)$},
+            ]
+            \addplot [blue, no marks, thick] coordinates {
+                (-5,1) (-3,-3) (-2,-4)
+                (-1,-3) (1,1) (2,2)
+                (3,1) (5,-3)
+              };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 50%">
-            <image>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis} [
-                xmin=-5, xmax=5,
-                ymin=-10, ymax=10,
-                grid=both, minor x tick num={1},
-                axis lines=center,
-                xlabel={$x$}, ylabel={$y=f(x)$},
-              ]
-              \addplot [blue, thick, domain=-5:-1, samples=51] 
-                { -(x+2)^2 };
-              \addplot [blue, thick, domain=-1:2, samples=51] 
-                { 2*x^2 };
-              \addplot [blue, thick, domain=2:5] 
-                { 8 };
-              \addplot [blue, only marks] coordinates { (-1,-1) };
-              \addplot [blue, only marks, mark=o] coordinates { (-1,2) };
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%" margins="0% 50%">
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis} [
+              xmin=-5, xmax=5,
+              ymin=-10, ymax=10,
+              grid=both, minor x tick num={1},
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y=f(x)$},
+            ]
+            \addplot [blue, thick, domain=-5:-1, samples=51]
+              { -(x+2)^2 };
+            \addplot [blue, thick, domain=-1:2, samples=51]
+              { 2*x^2 };
+            \addplot [blue, thick, domain=2:5]
+              { 8 };
+            \addplot [blue, only marks] coordinates { (-1,-1) };
+            \addplot [blue, only marks, mark=o] coordinates { (-1,2) };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 50%">
-            <image>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis} [
-                xmin=-5, xmax=5,
-                ymin=-10, ymax=10,
-                grid=both, minor x tick num={1},
-                axis lines=center,
-                xlabel={$x$}, ylabel={$y=f(x)$},
-              ]
-              \addplot [blue, thick, domain=-5:-1, samples=51] 
-                { 4*((x+3)^3-3*(x+3)) };
-              \addplot [blue, thick, domain=-1:5, samples=81] 
-                { 4*(3*(x-1)-(x-1)^3) };
-              \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%" margins="0% 50%">
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis} [
+              xmin=-5, xmax=5,
+              ymin=-10, ymax=10,
+              grid=both, minor x tick num={1},
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y=f(x)$},
+            ]
+            \addplot [blue, thick, domain=-5:-1, samples=51]
+              { 4*((x+3)^3-3*(x+3)) };
+            \addplot [blue, thick, domain=-1:5, samples=81]
+              { 4*(3*(x-1)-(x-1)^3) };
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
         </statement>
       </exercise>
     </exercisegroup>
     <exercisegroup>
       <introduction>
         <p>
-        Each of the following problems asks you to illustrate 
+        Each of the following problems asks you to illustrate
         the concavity of the given function.
         </p>
       </introduction>
       <exercise>
         <statement>
           <p>
-          Illustrate that <m>\displaystyle f(x) = \frac{1}{x}</m> is concave up 
+          Illustrate that <m>\displaystyle f(x) = \frac{1}{x}</m> is concave up
           on <m>(0,\infty)</m> by showing that the slope is increasing
           for the sequential points <m>x_1=\frac{1}{2}</m>, <m>x_2=1</m>, and <m>x_3=2</m>.
           </p>
@@ -1282,7 +1268,7 @@
       <exercise>
         <statement>
           <p>
-          Illustrate that <m>\displaystyle f(x) = \frac{1}{x}</m> is concave down 
+          Illustrate that <m>\displaystyle f(x) = \frac{1}{x}</m> is concave down
           on <m>(-\infty,0)</m> by showing that the slope is decreasing
           for the sequential points <m>x_1=-2</m>, <m>x_2=-1</m>, and <m>x_3=-\frac{1}{2}</m>.
           </p>
@@ -1291,7 +1277,7 @@
       <exercise>
         <statement>
           <p>
-          Illustrate that <m>\displaystyle f(x) = 2^x</m> is concave up 
+          Illustrate that <m>\displaystyle f(x) = 2^x</m> is concave up
           on <m>(-\infty,\infty)</m> by showing that the slope is increasing
           for the sequential points <m>x_1=-1</m>, <m>x_2=0</m>, and <m>x_3=1</m>.
           </p>
@@ -1300,7 +1286,7 @@
       <exercise>
         <statement>
           <p>
-          Illustrate that <m>\displaystyle f(x) = 2^{-x}</m> is concave up 
+          Illustrate that <m>\displaystyle f(x) = 2^{-x}</m> is concave up
           on <m>(-\infty,\infty)</m> by showing that the slope is increasing
           for the sequential points <m>x_1=-1</m>, <m>x_2=0</m>, and <m>x_3=1</m>.
           </p>
@@ -1310,93 +1296,87 @@
     <exercisegroup>
       <introduction>
         <p>
-        Consider each of the following graphs of functions, 
+        Consider each of the following graphs of functions,
         which includes turning points and inflection points.
-        Use the graph to determine the intervals of monotonicity 
+        Use the graph to determine the intervals of monotonicity
         and concavity for that function.
         </p>
       </introduction>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 50%">
-            <image>
-              <latex-image>
-              \begin{tikzpicture}
-              \begin{axis}
-              [
-                xmin=-10, xmax=10,
-                ymin=-8, ymax=8,
-                axis lines=center,
-                xlabel={$x$}, ylabel={$y=f(x)$},
-              ]
-              \addplot [domain=-10:10, blue, thick, samples=101] {(x^3-75*x)/60};
-              \addplot [only marks, blue, samples at={-5,0,5}] {(x^3-75*x)/60}
-                node [pos=0,above] {$x=-5$}
-                node [pos=1,below] {$x=5$};
-              \end{axis};
-              \end{tikzpicture}
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%" margins="0% 50%">
+            <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-10, xmax=10,
+              ymin=-8, ymax=8,
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y=f(x)$},
+            ]
+            \addplot [domain=-10:10, blue, thick, samples=101] {(x^3-75*x)/60};
+            \addplot [only marks, blue, samples at={-5,0,5}] {(x^3-75*x)/60}
+              node [pos=0,above] {$x=-5$}
+              node [pos=1,below] {$x=5$};
+            \end{axis};
+            \end{tikzpicture}
+            </latex-image>
+          </image>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 50%">
-            <image>
-              <latex-image>
-              \begin{tikzpicture}
-              \begin{axis}
-              [
-                xmin=-10, xmax=10,
-                ymin=-10, ymax=10,
-                axis lines=center,
-                xlabel={$x$}, ylabel={$y=f(x)$},
-              ]
-              \addplot [domain=-10:10, blue, thick, samples=101] {(72*x^2-x^4)/240};
-              \addplot [only marks, blue, samples at={-6,-3.464,0,3.464,6}] {(72*x^2-x^4)/240}
-                node [pos=0,above] {$x=-6$}
-                node [pos=0.25,below] {$x=-2\sqrt{3}$}
-                node [pos=0.75,below] {$x=2\sqrt{3}$}
-                node [pos=1,above] {$x=6$};
-              \end{axis};
-              \end{tikzpicture}
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%" margins="0% 50%">
+            <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-10, xmax=10,
+              ymin=-10, ymax=10,
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y=f(x)$},
+            ]
+            \addplot [domain=-10:10, blue, thick, samples=101] {(72*x^2-x^4)/240};
+            \addplot [only marks, blue, samples at={-6,-3.464,0,3.464,6}] {(72*x^2-x^4)/240}
+              node [pos=0,above] {$x=-6$}
+              node [pos=0.25,below] {$x=-2\sqrt{3}$}
+              node [pos=0.75,below] {$x=2\sqrt{3}$}
+              node [pos=1,above] {$x=6$};
+            \end{axis};
+            \end{tikzpicture}
+            </latex-image>
+          </image>
         </statement>
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 50%">
-            <image>
-              <latex-image>
-              \begin{tikzpicture}
-              \begin{axis}
-              [
-                xmin=-10, xmax=10,
-                ymin=-10, ymax=10,
-                axis lines=center,
-                xlabel={$x$}, ylabel={$y=f(x)$},
-              ]
-              \addplot [domain=-10:-4, blue, thick, samples=51] {(x+6)^2-5};
-              \addplot [domain=-4:0, blue, thick, samples=51] {3-(x+2)^2};
-              \addplot [domain=0:4, blue, thick, samples=51] {3-(x-2)^2};
-              \addplot [domain=4:10, blue, thick, samples=51] {(x-6)^2-5};
-              \addplot [only marks, blue] coordinates {
-                (-6,-5) (-4,-1) (-2,3) (0,-1) (2,3) (4,-1) (6,-5)
-              }
-                node [pos=0,below] {$x=-6$}
-                node [pos=0.167,below] {$x=-4$}
-                node [pos=0.333,above] {$x=-2$}
-                node [pos=0.667,above] {$x=2$}
-                node [pos=0.833,below] {$x=4$}
-                node [pos=1,below] {$x=6$};
-              \end{axis};
-              \end{tikzpicture}
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%" margins="0% 50%">
+            <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-10, xmax=10,
+              ymin=-10, ymax=10,
+              axis lines=center,
+              xlabel={$x$}, ylabel={$y=f(x)$},
+            ]
+            \addplot [domain=-10:-4, blue, thick, samples=51] {(x+6)^2-5};
+            \addplot [domain=-4:0, blue, thick, samples=51] {3-(x+2)^2};
+            \addplot [domain=0:4, blue, thick, samples=51] {3-(x-2)^2};
+            \addplot [domain=4:10, blue, thick, samples=51] {(x-6)^2-5};
+            \addplot [only marks, blue] coordinates {
+              (-6,-5) (-4,-1) (-2,3) (0,-1) (2,3) (4,-1) (6,-5)
+            }
+              node [pos=0,below] {$x=-6$}
+              node [pos=0.167,below] {$x=-4$}
+              node [pos=0.333,above] {$x=-2$}
+              node [pos=0.667,above] {$x=2$}
+              node [pos=0.833,below] {$x=4$}
+              node [pos=1,below] {$x=6$};
+            \end{axis};
+            \end{tikzpicture}
+            </latex-image>
+          </image>
         </statement>
       </exercise>
     </exercisegroup>
@@ -1410,22 +1390,20 @@
       </introduction>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 50%">
-            <image>
-              <latex-image>
-              \begin{tikzpicture}
-              \begin{axis}
-              [
-                xmin=-5, xmax=5,
-                ymin=-10,ymax=10,
-              ]
-              \addplot [domain=-5:5, samples=101, blue, thick]
-                { x*(x^2-9)*(x^2-16)/40 };
-              \end{axis}
-              \end{tikzpicture}
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%" margins="0% 50%">
+            <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-5, xmax=5,
+              ymin=-10,ymax=10,
+            ]
+            \addplot [domain=-5:5, samples=101, blue, thick]
+              { x*(x^2-9)*(x^2-16)/40 };
+            \end{axis}
+            \end{tikzpicture}
+            </latex-image>
+          </image>
           <ol>
             <li><m>\displaystyle \lim_{x \to -\infty} f(x)</m></li>
             <li><m>\displaystyle \lim_{x \to +\infty} f(x)</m></li>
@@ -1434,27 +1412,25 @@
       </exercise>
       <exercise>
         <statement>
-          <sidebyside width="50%" margins="0% 50%">
-            <image>
-              <latex-image>
-              \begin{tikzpicture}
-              \begin{axis}
-              [
-                xmin=-5, xmax=5,
-                ymin=-10,ymax=10,
-                minor y tick num=4, minor x tick num=1,
-              ]
-              \addplot [domain=-5:-3.01, samples=101, blue, thick]
-                { 2^x/(x+3)-2 };
-              \addplot [domain=-2.99:5, samples=101, blue, thick]
-                { 2^x/(x+3)-2 };
-              \addplot [dashed, black, no marks] coordinates { (-3,-10) (-3,10) };
-              \addplot [dashed, black, no marks] coordinates { (-5,-2) (5,-2) };
-              \end{axis}
-              \end{tikzpicture}
-              </latex-image>
-            </image>
-          </sidebyside>
+          <image width="50%" margins="0% 50%">
+            <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [
+              xmin=-5, xmax=5,
+              ymin=-10,ymax=10,
+              minor y tick num=4, minor x tick num=1,
+            ]
+            \addplot [domain=-5:-3.01, samples=101, blue, thick]
+              { 2^x/(x+3)-2 };
+            \addplot [domain=-2.99:5, samples=101, blue, thick]
+              { 2^x/(x+3)-2 };
+            \addplot [dashed, black, no marks] coordinates { (-3,-10) (-3,10) };
+            \addplot [dashed, black, no marks] coordinates { (-5,-2) (5,-2) };
+            \end{axis}
+            \end{tikzpicture}
+            </latex-image>
+          </image>
           <ol>
             <li><m>\displaystyle \lim_{x \to 3^-} f(x)</m></li>
             <li><m>\displaystyle \lim_{x \to 3^+} f(x)</m></li>

@@ -6,108 +6,108 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2017  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="sequences-modeling">
   <title>Dynamic Models Using Sequences</title>
 
   <introduction>
     <title>Overview</title>
-    
+
     <p>
       A dynamic model considers how quantities change in time.
       Sequences are often useful for such models.
       Many populations, including some plants and animals, reproduce on an annual cycle.
-      It thus makes sense to census these populations on an annual basis 
+      It thus makes sense to census these populations on an annual basis
       so that the population is measured as a sequence.
       Financial models, such as paying off a loan or receiving amortized payments on a contract, involve interest accrual and periodic payments.
-      In these cases, the balance of the loan or fund is a sequence 
+      In these cases, the balance of the loan or fund is a sequence
       relative to the number of periods.
       Even for quantities that do not change at such regular periods,
       we might take measurements at equal spacings for our own convenience.
       This also will result in a naturally observed sequence.
     </p>
-    
+
     <p>
       This section focuses on the formulation and interpretation of models using sequences.
       We often develop models by considering gain terms and loss terms.
-      For example, in population growth, gains include births and immigration; 
+      For example, in population growth, gains include births and immigration;
       losses include deaths and emigration.
-      The development of a model involves creating formulas that compute 
+      The development of a model involves creating formulas that compute
       or approximate the size of these terms based on the state of the system.
     </p>
-    
+
     <p>
       We will consider simple models that represent various rates of change.
       For a population model, we might consider the rate of births or the rate of deaths.
       For a financial model, we might consider the rate of interest or the rate of payment.
-      Finding simple but meaningful models for different rates allows us 
+      Finding simple but meaningful models for different rates allows us
       to predict overall changes of the system.
       We will analyze the overall rate of change to understand the behavior of the model.
     </p>
   </introduction>
-  
+
   <subsection xml:id="section-sequences-model-population">
     <title>Population Models</title>
-    
+
     <p>
       Populations are frequently modeled using sequences.
-      Many population are adapted to reproduce on an annual cycle, 
-      so it makes sense that such populations might be censused on an annual basis. 
-      Even for populations that reproduce throughout the year, 
-      it might still make sense to measure the population at the same time 
-      to measure year-over-year growth or decline. 
-      Fast growing populations like bacteria or some species of insects might be measured 
-      on even shorter time scales, such as hourly (bacteria) or weekly (insects). 
+      Many population are adapted to reproduce on an annual cycle,
+      so it makes sense that such populations might be censused on an annual basis.
+      Even for populations that reproduce throughout the year,
+      it might still make sense to measure the population at the same time
+      to measure year-over-year growth or decline.
+      Fast growing populations like bacteria or some species of insects might be measured
+      on even shorter time scales, such as hourly (bacteria) or weekly (insects).
       Sequences are appropriate in these circumstances because we are interested in the population size
       at specific times rather than at all possible times.
     </p>
     <p>
-      There are many variables that determine how a population changes. 
-      Some of these are unpredictable. 
+      There are many variables that determine how a population changes.
+      Some of these are unpredictable.
       Unpredictability or randomness is called <term>stochasticity</term>.
       Populations are subject to environmental stochasticity and demographic stochasticity.
-      Environmental effects might include temperature fluctuations or variation in rainfall. 
-      Demographic stochasticity includes the randomness in number of offspring (e.g., seeds or eggs) 
+      Environmental effects might include temperature fluctuations or variation in rainfall.
+      Demographic stochasticity includes the randomness in number of offspring (e.g., seeds or eggs)
       or randomness in mortality or the timing of development.
     </p>
     <p>
-      In spite of these random effects, it is often the case that 
-      the size of the population can be approximately predicted 
-      knowing the population of the previous year. 
+      In spite of these random effects, it is often the case that
+      the size of the population can be approximately predicted
+      knowing the population of the previous year.
       Recursive equations using projection functions provide the mathematical framework for modeling these sequences.
       We will use <m>P</m> as our population sequence
-      and will develop the projection function <m>f</m> 
+      and will develop the projection function <m>f</m>
       that relates consecutive values of the population as
       <me>P_{n} = f(P_{n-1}).</me>
     </p>
     <p>
-      Population sizes change because individuals are entering and leaving the population. 
+      Population sizes change because individuals are entering and leaving the population.
       Growth in the population includes births as well as immigration.
       Decline in the population includes deaths as well as emigration.
       The quantities measuring the number of births, deaths, and migration events per year are rates of change.
       For the state of our system, we include a variable representing the size of the population
       as well as a variable for each of the rates of change.
-      In a more complex model, we might have variables for the number of individuals 
+      In a more complex model, we might have variables for the number of individuals
       at different ages or stages of development.
       In principle, each state variable corresponds to its own sequence.
     </p>
-    
+
     <p>
-      For example, consider a population that only changes from births and deaths. 
-      Let <m>P</m> be the size of the population, 
-      let <m>B</m> be the annual birth rate, 
+      For example, consider a population that only changes from births and deaths.
+      Let <m>P</m> be the size of the population,
+      let <m>B</m> be the annual birth rate,
       and let <m>D</m> be the annual death rate.
       These variables are each measured annually and can be considered as sequences.
       Our index variable <m>t</m> will measure the time in years.
-      The population sequence will satisfy a recurrence relation 
-      <me>P_{t+1} - P_t = B_t - D_t.</me> 
+      The population sequence will satisfy a recurrence relation
+      <me>P_{t+1} - P_t = B_t - D_t.</me>
       This equation simply states that the net change in the population,
       called the <term>forward difference</term> <m>\Delta P_{t} = P_{t+1}-P_t</m>,
       is equal to the number of births (a gain) minus the number of deaths (a loss).
-      We usually consider a reference time at <m>t=0</m> so that 
+      We usually consider a reference time at <m>t=0</m> so that
       the first value in the sequence would be <m>P_0</m>.
     </p>
-    
+
     <p>
       We will explore a variety of models based on different assumptions
       for how the rate of births and deaths relate to the size of the population.
@@ -117,14 +117,14 @@
       <p>
       The simplest model would be that the numbers of births and deaths are constant values every year.
       For such a model, the forward difference is also constant, <m>\Delta P_t = \Delta P = B-D</m>.
-      The resulting recursive equation becomes <me>P_{t+1}= P_t + \Delta P</me>, 
+      The resulting recursive equation becomes <me>P_{t+1}= P_t + \Delta P</me>,
       which we recognize as an arithmetic sequence with an increment <m>\Delta P</m>.
-      Using <xref ref="theorem-arithmetic-explicit-sequence"/>, 
+      Using <xref ref="theorem-arithmetic-explicit-sequence"/>,
       we know the explicit formula for this sequence is given by <me>P_t = P_0 + \Delta P \cdot t.</me>
       Such a population either increases linearly (if <m>B \gt D</m>), decreases linearly (if <m>B \lt D</m>),
       or is constant (if <m>B = D</m>).
       </p>
-    
+
       <example>
         <statement>
           <p>
@@ -140,7 +140,7 @@
               <input>
               <![CDATA[
               var jcbd = {};
-              jcbd.b = JXG.JSXGraph.initBoard("sequence-model-constant-birth-death", 
+              jcbd.b = JXG.JSXGraph.initBoard("sequence-model-constant-birth-death",
               {
               boundingbox:[-2.5, 2000, 15.5, -50],
               axis: true,
@@ -150,23 +150,23 @@
               }
               );
               jcbd.b.create('text', [1,1800,"B"]);
-              jcbd.birthSlider = jcbd.b.create('slider', 
+              jcbd.birthSlider = jcbd.b.create('slider',
               [[2,1800], [10,1800], [0,20,100]],
               { snapWidth:1 }
               );
               jcbd.b.create('text', [1,1700,"D"]);
-              jcbd.deathSlider = jcbd.b.create('slider', 
+              jcbd.deathSlider = jcbd.b.create('slider',
               [[2,1700], [10,1700], [0,15,100]],
               { snapWidth:1 }
               );
               jcbd.yax = jcbd.b.create('segment', [[0,0], [0,2000]]);
-              jcbd.P0 = jcbd.b.create('glider', 
-              [0, 200, jcbd.yax], 
+              jcbd.P0 = jcbd.b.create('glider',
+              [0, 200, jcbd.yax],
               { color:"red", name:"P_0", label:{offset:[-20,0]} }
               );
               jcbd.P = [jcbd.P0];
               for (var i=1; i<16; i++) {
-              jcbd.P[i] = jcbd.b.create('point', 
+              jcbd.P[i] = jcbd.b.create('point',
               [
               i,
               function() {
@@ -189,34 +189,34 @@
     <paragraphs>
       <title>Constant Per Capita Rates</title>
       <p>
-        Of course, it is not realistic to think that a population has the same number of births, 
-        regardless of how large the population is. 
-        Rather, we would expect that the population will see more births 
+        Of course, it is not realistic to think that a population has the same number of births,
+        regardless of how large the population is.
+        Rather, we would expect that the population will see more births
         when the size of the population itself is larger.
         The simplest model for this would be that the number of births is proportional to the size of the population.
         That is, we expect that there is a parameter <m>b</m> so that <m>B = b \cdot P</m>.
         This parameter is the proportionality constant and is called the <term>per capita birth rate</term>.
         The phrase <q>per capita</q> literally means per head.
-        If we rewrote the equation relating <m>B</m> and <m>P</m> as <me>b = \frac{B}{P},</me> 
-        we see that the model is really saying that 
-        the total number of births in a year divided by the population that year is always the same constant. 
-        In a similar way, we might expect the number of deaths to be proportional to the population size, 
+        If we rewrote the equation relating <m>B</m> and <m>P</m> as <me>b = \frac{B}{P},</me>
+        we see that the model is really saying that
+        the total number of births in a year divided by the population that year is always the same constant.
+        In a similar way, we might expect the number of deaths to be proportional to the population size,
         <me>D = d \cdot P,</me> where <m>d</m> is the <term>per capita death rate</term>.
       </p>
-    
+
       <p>
         Using constant per capita birth and death rates leads to a new model for the population.
         The recurrence relation is defined by
         <me>\Delta P_{t} = b \cdot P_t - d \cdot P_t = (b-d) P_t</me>.
-        The recursive equation becomes 
+        The recursive equation becomes
         <me>P_{t+1} = P_t + (b-d) P_t = (1+b-d) P_t</me>.
-        We recognize this as the equation of a geometric sequence with the ratio <m>\rho = 1+b-d</m>. 
-        Using <xref ref="theorem-geometric-explicit-sequence"/>, 
-        we know the explicit formula for this sequence is given by 
-        <me>P_t = P_0 \cdot (1+b-d)^{t}.</me> 
+        We recognize this as the equation of a geometric sequence with the ratio <m>\rho = 1+b-d</m>.
+        Using <xref ref="theorem-geometric-explicit-sequence"/>,
+        we know the explicit formula for this sequence is given by
+        <me>P_t = P_0 \cdot (1+b-d)^{t}.</me>
         This form of growth for the sequence is often called <term>Malthusian growth</term>.
       </p>
-    
+
       <example>
         <statement>
           <p>
@@ -232,7 +232,7 @@
               <input>
               <![CDATA[
               var jpbd = {};
-              jpbd.b = JXG.JSXGraph.initBoard("sequence-model-proportional-birth-death", 
+              jpbd.b = JXG.JSXGraph.initBoard("sequence-model-proportional-birth-death",
               {
               boundingbox:[-2.5, 2000, 15.5, -50],
               axis: true,
@@ -242,23 +242,23 @@
               }
               );
               jpbd.b.create('text', [1,1800,"b"]);
-              jpbd.birthSlider = jpbd.b.create('slider', 
+              jpbd.birthSlider = jpbd.b.create('slider',
               [[2,1800], [10,1800], [0,0.2,4]],
               { snapWidth:0.02 }
               );
               jpbd.b.create('text', [1,1700,"d"]);
-              jpbd.deathSlider = jpbd.b.create('slider', 
+              jpbd.deathSlider = jpbd.b.create('slider',
               [[2,1700], [10,1700], [0,0.15,4]],
               { snapWidth:0.02 }
               );
               jpbd.yax = jpbd.b.create('segment', [[0,0], [0,2000]]);
-              jpbd.P0 = jpbd.b.create('glider', 
-              [0, 200, jpbd.yax], 
+              jpbd.P0 = jpbd.b.create('glider',
+              [0, 200, jpbd.yax],
               { color:"red", name:"P_0", label:{offset:[-20,0]} }
               );
               jpbd.P = [jpbd.P0];
               for (var i=1; i<16; i++) {
-              jpbd.P[i] = jpbd.b.create('point', 
+              jpbd.P[i] = jpbd.b.create('point',
               [
               i,
               function() {
@@ -282,244 +282,238 @@
           </figure>
         </statement>
       </example>
-    
+
       <p>
-      In many circumstances, we may not be as interested in the individual values 
-      of the per capita birth and death rates <m>b</m> and <m>d</m> as we are in their difference <m>b-d</m>. 
-      This quantity is called the <term>net per capita growth rate</term> 
-      and is frequently denoted by the symbol <m>r=b-d</m>. 
-      In that case, the explicit formula for the Malthusian growth model can be rewritten 
-      in the same form as compounded interest, <me>P_t = P_0 \cdot (1+r)^{t}.</me> 
-      That is, we can interpret <m>r</m> as the decimal value 
+      In many circumstances, we may not be as interested in the individual values
+      of the per capita birth and death rates <m>b</m> and <m>d</m> as we are in their difference <m>b-d</m>.
+      This quantity is called the <term>net per capita growth rate</term>
+      and is frequently denoted by the symbol <m>r=b-d</m>.
+      In that case, the explicit formula for the Malthusian growth model can be rewritten
+      in the same form as compounded interest, <me>P_t = P_0 \cdot (1+r)^{t}.</me>
+      That is, we can interpret <m>r</m> as the decimal value
       corresponding to percent change in the population year-over-year.
       </p>
     </paragraphs>
-    
+
     <example>
       <statement>
         <p>
-        Suppose a population of 2500 has 400 births and 250 deaths in the year. 
-        Compare the model for constant births and death rates with the model 
+        Suppose a population of 2500 has 400 births and 250 deaths in the year.
+        Compare the model for constant births and death rates with the model
         for constant per capita birth and death rates over the next five years.
         </p>
       </statement>
       <solution>
         <p>
-          The model for constant birth and death rates assumes that <m>B=400</m> and <m>D=250</m> are constants. 
-          The recursive equation for the population is then given by 
-          <me>P_{t+1} = P_t + 400 - 250 = P_t + 150.</me> 
-          In this model, the population increases by a net number of 150 individuals per year 
+          The model for constant birth and death rates assumes that <m>B=400</m> and <m>D=250</m> are constants.
+          The recursive equation for the population is then given by
+          <me>P_{t+1} = P_t + 400 - 250 = P_t + 150.</me>
+          In this model, the population increases by a net number of 150 individuals per year
           with an explicit formula given by <me>P_t = 2500 + 150 t.</me>
         </p>
         <p>
-          The model for constant per capita birth and death rates assumes the ratios 
-          <m>b = \frac{B}{P} = \frac{400}{2500} = 0.16</m> and <m>d = \frac{D}{P} = \frac{250}{2500} = 0.1</m> 
-          are constants. 
-          The recursive equation for this model becomes <me>P_{t+1} = P_t + 0.16 P_t - 0.1 P_t = 1.06 P_t,</me> 
+          The model for constant per capita birth and death rates assumes the ratios
+          <m>b = \frac{B}{P} = \frac{400}{2500} = 0.16</m> and <m>d = \frac{D}{P} = \frac{250}{2500} = 0.1</m>
+          are constants.
+          The recursive equation for this model becomes <me>P_{t+1} = P_t + 0.16 P_t - 0.1 P_t = 1.06 P_t,</me>
           with a corresponding explicit formula given by <me>P_t = 2500 \cdot 1.06^{t}.</me>
         </p>
         <p>
-          The table and figure below illustrate the growth of these two models. 
-          In the table for the Malthusian model (geometric growth), 
-          the model predicts non-integer values which I have shown to two decimal places. 
-          Of course, a population itself must be integer-valued. 
+          The table and figure below illustrate the growth of these two models.
+          In the table for the Malthusian model (geometric growth),
+          the model predicts non-integer values which I have shown to two decimal places.
+          Of course, a population itself must be integer-valued.
           When working with mathematical models, we will leave the values exact until we are ready to interpret.
-        </p> 
-        <sidebyside margins="auto">
-          <tabular>
-            <row>
-              <cell>Year</cell>
-              <cell>Linear</cell>
-              <cell>Geometric</cell>
-            </row>
-            <row bottom="major">
-              <cell><m>t</m></cell>
-              <cell><m>P_t = 2500+150t</m></cell>
-              <cell><m>P_t = 2500 \cdot 1.06^t</m></cell>
-            </row>
-            <row>
-              <cell>0</cell> <cell>2500</cell> <cell>2500</cell>
-            </row>
-            <row>
-              <cell>1</cell> <cell>2650</cell> <cell>2650</cell>
-            </row>
-            <row>
-              <cell>2</cell> <cell>2800</cell> <cell>2809</cell>
-            </row>
-            <row>
-              <cell>3</cell> <cell>2950</cell> <cell>2977.54</cell>
-            </row>
-            <row>
-              <cell>4</cell> <cell>3100</cell> <cell>3156.19</cell>
-            </row>
-            <row>
-              <cell>5</cell> <cell>3250</cell> <cell>3345.56</cell>
-            </row>
-          </tabular>
-        </sidebyside>
-    
-        <sidebyside width="75%" margins="auto">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            /pgfplots/table/row sep=crcr
-            }
-            \begin{tikzpicture}
-            \begin{axis}[
-            %width=2.5in, height=2.5in,
-            xmin=-1,xmax=6,
-            ymin=2000,ymax=4000,
-            xtick={0,1,...,5},
-            xlabel={$t$}, ylabel={$P_t$},
-            grid=both,
-            legend pos=north west,
-            every axis legend/.append style={nodes={right}}
-            ]
-            \addplot[red, only marks] table {
-            0 2500\\
-            1 2650\\
-            2 2800\\
-            3 2950\\
-            4 3100\\
-            5 3250\\
-            };
-            \addplot[blue, only marks, mark=square, fill=blue] table {
-            0 2500\\
-            1 2650\\
-            2 2809\\
-            3 2977.54\\
-            4 3156.19\\
-            5 3345.56\\
-            };
-            \legend {linear,geometric}
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
-        <p>
-        The arithmetic and geometric models agree at the initial value and after the first year. 
-        But from that point, the geometric model steadily grows faster than the arithmetic model. 
-        The geometric model grows each year by the same percentage. 
-        Since the population itself is getting larger, the increment of growth is going to be larger each year. 
-        The two models diverge from one another even more dramatically as time progresses. 
         </p>
-        <sidebyside width="75%">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            /pgfplots/table/row sep=crcr
-            }
-            \begin{tikzpicture}
-            \begin{axis}[
-            %width=2.5in, height=2.5in,
-            xmin=-1,xmax=21,
-            ymin=2000,ymax=9000,
-            xtick={0,2,...,20},
-            xlabel={$t$}, ylabel={$P_t$},
-            ymajorgrids,
-            legend pos=north west,
-            every axis legend/.append style={nodes={right}}
-            ]
-            \addplot[red, only marks] table {
-            0 2500\\
-            1 2650\\
-            2 2800\\
-            3 2950\\
-            4 3100\\
-            5 3250\\
-            6 3400\\
-            7 3550\\
-            8 3700\\
-            9 3850\\
-            10 4000\\
-            11 4150\\
-            12 4300\\
-            13 4450\\
-            14 4600\\
-            15 4750\\
-            16 4900\\
-            17 5050\\
-            18 5200\\
-            19 5350\\
-            20 5500\\
-            };
-            \addplot[blue, only marks, mark=square, fill=blue] table {
-            0 2500\\
-            1 2650\\
-            2 2809\\
-            3 2977.54\\
-            4 3156.192\\
-            5 3345.564\\
-            6 3546.298\\
-            7 3759.076\\
-            8 3984.62\\
-            9 4223.697\\
-            10 4477.119\\
-            11 4745.746\\
-            12 5030.491\\
-            13 5332.321\\
-            14 5652.26\\
-            15 5991.395\\
-            16 6350.879\\
-            17 6731.932\\
-            18 7135.848\\
-            19 7563.999\\
-            20 8017.839\\
-            };
-            \legend {linear,geometric}
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <tabular>
+          <row>
+            <cell>Year</cell>
+            <cell>Linear</cell>
+            <cell>Geometric</cell>
+          </row>
+          <row bottom="major">
+            <cell><m>t</m></cell>
+            <cell><m>P_t = 2500+150t</m></cell>
+            <cell><m>P_t = 2500 \cdot 1.06^t</m></cell>
+          </row>
+          <row>
+            <cell>0</cell> <cell>2500</cell> <cell>2500</cell>
+          </row>
+          <row>
+            <cell>1</cell> <cell>2650</cell> <cell>2650</cell>
+          </row>
+          <row>
+            <cell>2</cell> <cell>2800</cell> <cell>2809</cell>
+          </row>
+          <row>
+            <cell>3</cell> <cell>2950</cell> <cell>2977.54</cell>
+          </row>
+          <row>
+            <cell>4</cell> <cell>3100</cell> <cell>3156.19</cell>
+          </row>
+          <row>
+            <cell>5</cell> <cell>3250</cell> <cell>3345.56</cell>
+          </row>
+        </tabular>
+
+        <image width="75%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          /pgfplots/table/row sep=crcr
+          }
+          \begin{tikzpicture}
+          \begin{axis}[
+          %width=2.5in, height=2.5in,
+          xmin=-1,xmax=6,
+          ymin=2000,ymax=4000,
+          xtick={0,1,...,5},
+          xlabel={$t$}, ylabel={$P_t$},
+          grid=both,
+          legend pos=north west,
+          every axis legend/.append style={nodes={right}}
+          ]
+          \addplot[red, only marks] table {
+          0 2500\\
+          1 2650\\
+          2 2800\\
+          3 2950\\
+          4 3100\\
+          5 3250\\
+          };
+          \addplot[blue, only marks, mark=square, fill=blue] table {
+          0 2500\\
+          1 2650\\
+          2 2809\\
+          3 2977.54\\
+          4 3156.19\\
+          5 3345.56\\
+          };
+          \legend {linear,geometric}
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+        <p>
+        The arithmetic and geometric models agree at the initial value and after the first year.
+        But from that point, the geometric model steadily grows faster than the arithmetic model.
+        The geometric model grows each year by the same percentage.
+        Since the population itself is getting larger, the increment of growth is going to be larger each year.
+        The two models diverge from one another even more dramatically as time progresses.
+        </p>
+        <image width="75%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          /pgfplots/table/row sep=crcr
+          }
+          \begin{tikzpicture}
+          \begin{axis}[
+          %width=2.5in, height=2.5in,
+          xmin=-1,xmax=21,
+          ymin=2000,ymax=9000,
+          xtick={0,2,...,20},
+          xlabel={$t$}, ylabel={$P_t$},
+          ymajorgrids,
+          legend pos=north west,
+          every axis legend/.append style={nodes={right}}
+          ]
+          \addplot[red, only marks] table {
+          0 2500\\
+          1 2650\\
+          2 2800\\
+          3 2950\\
+          4 3100\\
+          5 3250\\
+          6 3400\\
+          7 3550\\
+          8 3700\\
+          9 3850\\
+          10 4000\\
+          11 4150\\
+          12 4300\\
+          13 4450\\
+          14 4600\\
+          15 4750\\
+          16 4900\\
+          17 5050\\
+          18 5200\\
+          19 5350\\
+          20 5500\\
+          };
+          \addplot[blue, only marks, mark=square, fill=blue] table {
+          0 2500\\
+          1 2650\\
+          2 2809\\
+          3 2977.54\\
+          4 3156.192\\
+          5 3345.564\\
+          6 3546.298\\
+          7 3759.076\\
+          8 3984.62\\
+          9 4223.697\\
+          10 4477.119\\
+          11 4745.746\\
+          12 5030.491\\
+          13 5332.321\\
+          14 5652.26\\
+          15 5991.395\\
+          16 6350.879\\
+          17 6731.932\\
+          18 7135.848\\
+          19 7563.999\\
+          20 8017.839\\
+          };
+          \legend {linear,geometric}
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </solution>
     </example>
   </subsection>
-   
+
   <subsection xml:id="section-sequence-model-other">
     <title>Other Models Using Sequences</title>
-    
+
     <p>
-      The mathematical models introduced for sequences of populations can be applied and adapted to other situations. 
-      The ideas of per capita growth rates are mathematically the same as those for percentage growth or decay, 
-      such as appear in compounded interest investment problems. 
-      Any situation where a quantity increases or decreases by a fixed amount 
+      The mathematical models introduced for sequences of populations can be applied and adapted to other situations.
+      The ideas of per capita growth rates are mathematically the same as those for percentage growth or decay,
+      such as appear in compounded interest investment problems.
+      Any situation where a quantity increases or decreases by a fixed amount
       or by a fixed proportion or percentage will be modeled using a sequence defined in a similar way.
     </p>
-    
+
     <example>
       <title>Car Loan</title>
       <statement>
         <p>
-          Suppose you want to buy a car and obtain a loan for <dollar/>10000 
-          that includes an annual interest rate of 3<percent/>. 
+          Suppose you want to buy a car and obtain a loan for $10000
+          that includes an annual interest rate of 3%.
           A bank charges interest in a way that the annual percentage rate is divided equally into the months.
-          The monthly rate of <m>\frac{3}{12}</m><percent/> applies to the remaining balance of your loan. 
-          If you make a monthly payment of <dollar/>250, find a model for your remaining loan balance.
+          The monthly rate of <m>\frac{3}{12}</m>% applies to the remaining balance of your loan.
+          If you make a monthly payment of $250, find a model for your remaining loan balance.
           Use your model to determine when you pay off the loan and the total cost of the loan.
         </p>
       </statement>
       <solution>
         <p>
-          Start by identifying the relevant variables. 
-          Our main concern is the outstanding balance on the loan. 
-          Let us use the variable <m>B</m> to represent our sequence. 
+          Start by identifying the relevant variables.
+          Our main concern is the outstanding balance on the loan.
+          Let us use the variable <m>B</m> to represent our sequence.
           The initial balance on the loan is <m>B_0 = 10000</m>.
         </p>
         <p>
-          Next, we identify all sources to changes in the balance. 
+          Next, we identify all sources to changes in the balance.
           A payment <m>P</m> on the loan reduces the loan balance.
           Interest <m>I</m> on the loan causes the loan balance to increase.
-          If <m>t</m> represents the number of months since the loan began, 
+          If <m>t</m> represents the number of months since the loan began,
           then we have a recurrence relation describing how the loan changes,
           <me>\Delta B_{t} = B_{t+1}-B_t = -P_t + I_t</me>.
-          Solving for the new balance gives the recursive equation for the loan balance 
+          Solving for the new balance gives the recursive equation for the loan balance
           <me>B_{t+1} = B_t - P_t + I_t.</me>
-          For the car loan, the monthly payment is a constant, <m>P_t = P = 250</m>. 
-          The interest accrued each month is proportional to and depends on the current balance, 
+          For the car loan, the monthly payment is a constant, <m>P_t = P = 250</m>.
+          The interest accrued each month is proportional to and depends on the current balance,
           <m>I_t = 0.0025 B_t</m>.
         </p>
         <p>
@@ -527,13 +521,13 @@
           <md>
             <mrow> B_{t+1} = B_t - 250 + 0.0025 B_t, </mrow>
             <mrow> B_0 = 10000. </mrow>
-          </md> 
-          Our model is not arithmetic or geometric but a combination of the two. 
-          The projection function, <m>f : B_t \mapsto B_{t+1}</m>, is the linear function defined by 
-          <me>f(x) = x - 250 + 0.0025x = 1.0025x - 250.</me> 
+          </md>
+          Our model is not arithmetic or geometric but a combination of the two.
+          The projection function, <m>f : B_t \mapsto B_{t+1}</m>, is the linear function defined by
+          <me>f(x) = x - 250 + 0.0025x = 1.0025x - 250.</me>
           The values for the loan balance are plotted below, along with a table of values showing when the loan would be paid off.
         </p>
-    
+
         <sidebyside widths="30% 60%" margins="auto">
           <tabular>
             <row bottom="major">
@@ -620,17 +614,17 @@
           </image>
         </sidebyside>
         <p>
-          The computer calculations show that the last month in which there is a positive balance is month 42. 
-          That month, the remaining balance is <dollar/>49.14, which we will pay off completely in month 43.
+          The computer calculations show that the last month in which there is a positive balance is month 42.
+          That month, the remaining balance is $49.14, which we will pay off completely in month 43.
           The model continues to use the same rule even after the loan is paid.
           This explains why the model predicts a negative balance.
         </p>
         <p>
           We can compute the total amount paid for this loan.
-          For 42 months, we paid <dollar/>250.00, followed by a final payment of <dollar/>49.14.
+          For 42 months, we paid $250.00, followed by a final payment of $49.14.
           The total cost of the loan is <me>42(250)+49.14 = 10549.14</me>.
-          Because the original cost of the car was <dollar/>10000, 
-          we paid <dollar/>549.14 in interest.
+          Because the original cost of the car was $10000,
+          we paid $549.14 in interest.
         </p>
       </solution>
     </example>
@@ -641,38 +635,38 @@
       <title>Mixing Solutions</title>
       <statement>
         <p>
-          Suppose that you have 2 liters of salt water that initially has 200 grams salt. 
-          You pour out 0.5 liters from your bottle, replace it with a solution of pure water, and then shake well. 
-          This is repeated, making your bottle less and less salty. 
+          Suppose that you have 2 liters of salt water that initially has 200 grams salt.
+          You pour out 0.5 liters from your bottle, replace it with a solution of pure water, and then shake well.
+          This is repeated, making your bottle less and less salty.
           Use a sequence to describe the saltiness of the solution as a function of the number of dilutions.
         </p>
       </statement>
         <solution>
         <p>
-          Start by identifying the variables. 
-          We are interested in the amount of salt in the water. 
-          Use <m>S</m> as the variable representing the sequence of total salt (grams) in the water. 
-          The concentration <m>C</m> would be <m>S/2</m> (grams per liter). 
-          The initial value is <m>S_0 = 200</m>. 
+          Start by identifying the variables.
+          We are interested in the amount of salt in the water.
+          Use <m>S</m> as the variable representing the sequence of total salt (grams) in the water.
+          The concentration <m>C</m> would be <m>S/2</m> (grams per liter).
+          The initial value is <m>S_0 = 200</m>.
           Let <m>n</m> be the variable representing the number of dilutions performed,
           which we will use as our index for the sequence.
         </p>
         <p>
-          Next, identify what causes the change in the solution. 
-          Every dilution, a fraction of the solution is removed, <m>\frac{0.5}{2}</m>, 
-          along with all salt in that volume. 
-          Since the bottle is well-mixed, we have a fourth of the salt remaining taken out of the bottle. 
+          Next, identify what causes the change in the solution.
+          Every dilution, a fraction of the solution is removed, <m>\frac{0.5}{2}</m>,
+          along with all salt in that volume.
+          Since the bottle is well-mixed, we have a fourth of the salt remaining taken out of the bottle.
           The replacement water is pure, so no new salt is added back in.
         </p>
         <p>
-          Based on our discussion, the recursive model for the salt includes only a single loss term: 
+          Based on our discussion, the recursive model for the salt includes only a single loss term:
           <md>
             <mrow>S_{n} = S_{n-1} - 0.25 S_{n-1} = 0.75 S_{n-1},</mrow>
             <mrow>S_0 = 200.</mrow>
-          </md> 
-          Thus our model is a simple geometric sequence. 
-          We have an explicit solution using <xref ref="theorem-geometric-explicit-sequence"/>: 
-          <me>S_n = 200 \cdot 0.75^n.</me> 
+          </md>
+          Thus our model is a simple geometric sequence.
+          We have an explicit solution using <xref ref="theorem-geometric-explicit-sequence"/>:
+          <me>S_n = 200 \cdot 0.75^n.</me>
         </p>
         </solution>
     </example>
@@ -680,58 +674,58 @@
   <subsection xml:id="section-sequence-nonlinear-projection">
     <title>Nonlinear Projection Functions</title>
     <p>
-      Much more interesting (and surprising) dynamics occur 
-      when a sequence is defined by a nonlinear projection function. 
-      To motivate one example where this might occur, 
+      Much more interesting (and surprising) dynamics occur
+      when a sequence is defined by a nonlinear projection function.
+      To motivate one example where this might occur,
       we return to the ideas of per capita growth for a population.
     </p>
     <p>
-      Recall that our earlier discussion used the idea 
-      that the net per capita growth rate was a constant and did not depend on the population size. 
-      That is, the number of births and deaths were simply proportional to the total population size. 
-      However, this is ultimately not physically possible. 
-      When a population gets too large, resources are limited 
-      and the population will eventually be unable to sustain such rapid growth. 
-      Either the per capita birth rate will decrease or the per capita death rate will increase (or both). 
+      Recall that our earlier discussion used the idea
+      that the net per capita growth rate was a constant and did not depend on the population size.
+      That is, the number of births and deaths were simply proportional to the total population size.
+      However, this is ultimately not physically possible.
+      When a population gets too large, resources are limited
+      and the population will eventually be unable to sustain such rapid growth.
+      Either the per capita birth rate will decrease or the per capita death rate will increase (or both).
       Either way, the net per capita growth rate <m>r=b-d</m> will need to decrease as a function of population size.
-      Once we say that one variable decreases with respect to another variable, 
-      we can use a mathematical model to capture that idea. 
+      Once we say that one variable decreases with respect to another variable,
+      we can use a mathematical model to capture that idea.
     </p>
     <p>
-      In this case, we want <m>r</m> to be a decreasing function of the population <m>P</m>, 
-      <m>P \mapsto r</m>. 
-      The simplest such model would be a linear function with a negative slope. 
-      If we had enough data, we could plot points <m>(P, r)</m> 
-      and find a line of best fit. 
-      For now, we will use a parametrized model, <me>r(P) = r_0 - \alpha P,</me> 
-      where the parameter <m>r_0</m> is called the <term>intrinsic net per capita growth rate</term> 
-      (because that is the growth rate for a very small population before resources are limited) 
+      In this case, we want <m>r</m> to be a decreasing function of the population <m>P</m>,
+      <m>P \mapsto r</m>.
+      The simplest such model would be a linear function with a negative slope.
+      If we had enough data, we could plot points <m>(P, r)</m>
+      and find a line of best fit.
+      For now, we will use a parametrized model, <me>r(P) = r_0 - \alpha P,</me>
+      where the parameter <m>r_0</m> is called the <term>intrinsic net per capita growth rate</term>
+      (because that is the growth rate for a very small population before resources are limited)
       and <m>\alpha \gt 0</m> is the magnitude of the negative slope.
     </p>
     <p>
-      A better parametrization uses the formula for a line given both the intercepts, 
-      <m>(P,r) = (0,r_0)</m> and <m>(P,r)=(K,0)</m>, 
-      so that <me>r(P) = r_0\big(1-\frac{P}{K}\big).</me> 
-      The value <m>K</m> is called the <term>carrying capacity</term> 
-      because for <m>P \gt K</m>, the growth rate will be negative (net decrease in population). 
-      That is, for any population greater than <m>K</m>, 
+      A better parametrization uses the formula for a line given both the intercepts,
+      <m>(P,r) = (0,r_0)</m> and <m>(P,r)=(K,0)</m>,
+      so that <me>r(P) = r_0\big(1-\frac{P}{K}\big).</me>
+      The value <m>K</m> is called the <term>carrying capacity</term>
+      because for <m>P \gt K</m>, the growth rate will be negative (net decrease in population).
+      That is, for any population greater than <m>K</m>,
       the available resources are inadequate to support such a population.
     </p>
     <p>
-      The final population growth model is based on the model we just found. 
-      Recall that a population grows with a recursive model 
-      <me>P_{t+1} = P_t + r P_t,</me> where <m>r</m> is the net per capita growth rate. 
-      Using the model given above for <m>r=r_0(1-\frac{P}{K})</m>, 
-      we construct a nonlinear model for the population sequence, 
-      <me>P_{t+1} = P_t + r_0\big(1-\frac{P_t}{K}\big) P_t = (1+r_0) P_t - \frac{r_0}{K} P_t^2.</me> 
+      The final population growth model is based on the model we just found.
+      Recall that a population grows with a recursive model
+      <me>P_{t+1} = P_t + r P_t,</me> where <m>r</m> is the net per capita growth rate.
+      Using the model given above for <m>r=r_0(1-\frac{P}{K})</m>,
+      we construct a nonlinear model for the population sequence,
+      <me>P_{t+1} = P_t + r_0\big(1-\frac{P_t}{K}\big) P_t = (1+r_0) P_t - \frac{r_0}{K} P_t^2.</me>
       This model is called the <term>discrete logistic model</term>.
       The model only makes sense when the parameter <m>r_0</m> is in the interval <m>r_0 \in (0,3)</m>.
     </p>
     <p>
-      Different behaviors for the population arise, depending on the values of the parameter <m>r_0</m>. 
+      Different behaviors for the population arise, depending on the values of the parameter <m>r_0</m>.
       A Sage script is provided below that will generate plots of the population sequence
       for values of the parameters that you specify.
-      The following graphs were generated by Sage using an initial value <m>P_0=5</m> 
+      The following graphs were generated by Sage using an initial value <m>P_0=5</m>
       and parameter values <m>K=100</m> (all plots) and <m>r_0 = 0.2</m>, <m>r_0=1.8</m>, <m>r_0=2.2</m> and <m>r_0=2.6</m>.
       In addition, a dynamic graph is given where you can adjust the parameters using sliders.
     </p>
@@ -741,7 +735,7 @@
       # Set the parameter values
       r0 = 0.2   # Change this number for different behavior
       K = 100    # Change this number for carrying capacity
-    
+
       # Set the initial value
       P = 5
       # Create what is initially an empty list
@@ -756,7 +750,7 @@
       list_plot(data, frame=True, axes_labels=['time','population'])
       </input>
     </sage>
-  
+
     <figure>
       <caption>Logistic growth with <m>K=100</m> with <m>P_0=5</m> and varying values of <m>r</m>.</caption>
       <sbsgroup>
@@ -782,14 +776,14 @@
       </sidebyside>
       </sbsgroup>
     </figure>
-  
+
     <figure>
       <caption>Dynamic graph of the discrete logistic model with variable <m>r</m> and <m>P_0</m>.</caption>
       <jsxgraph xml:id="sequence-model-discrete-logistic" width="80%">
       <input>
       <![CDATA[
       var jdlm = {};
-      jdlm.b = JXG.JSXGraph.initBoard("sequence-model-discrete-logistic", 
+      jdlm.b = JXG.JSXGraph.initBoard("sequence-model-discrete-logistic",
       {
       boundingbox:[-2.5, 200, 50.5, -10],
       axis: true,
@@ -799,17 +793,17 @@
       }
       );
       jdlm.b.create('text', [1,180,"r"]);
-      jdlm.rSlider = jdlm.b.create('slider', 
+      jdlm.rSlider = jdlm.b.create('slider',
       [[2,180], [30,180], [0,0.2,3]],
       );
       jdlm.yax = jdlm.b.create('segment', [[0,0], [0,200]]);
-      jdlm.P0 = jdlm.b.create('glider', 
-      [0, 5, jdlm.yax], 
+      jdlm.P0 = jdlm.b.create('glider',
+      [0, 5, jdlm.yax],
       { color:"red", name:"P_0", label:{offset:[-20,0]} }
       );
       jdlm.P = [jdlm.P0];
       for (var i=1; i<=50; i++) {
-      jdlm.P[i] = jdlm.b.create('point', 
+      jdlm.P[i] = jdlm.b.create('point',
       [
       i,
       function() {
@@ -845,7 +839,7 @@
       </li>
       <li>
         <p>
-        For a population, common gain rates include births and immigration; 
+        For a population, common gain rates include births and immigration;
         common loss rates include deaths and emigration.
         </p>
       </li>
@@ -892,7 +886,7 @@
       <statement>
         <p>
           A population has constant per capita birth and death rates.
-          When the population is <m>P=1000</m>, there are <m>B=200</m> births per year 
+          When the population is <m>P=1000</m>, there are <m>B=200</m> births per year
           and <m>D=250</m> deaths per year.
           In addition, this population has a constant immigration rate of <m>I=300</m> individuals per year.
           <ol>
@@ -908,10 +902,10 @@
     <exercise>
       <statement>
         <p>
-          You put <dollar/>500 in a bank which pays 1<percent/> interest, compounded annually.
+          You put $500 in a bank which pays 1% interest, compounded annually.
           <ol>
             <li>
-              Find a recurrence equation for the balance <m>B</m> of your account. 
+              Find a recurrence equation for the balance <m>B</m> of your account.
               What is the initial value, <m>B_0</m>?
             </li>
             <li>Compute <m>B_1</m> and <m>B_2</m> by hand.</li>
@@ -923,10 +917,10 @@
     <exercise>
       <statement>
         <p>
-          You inherit <dollar/>50,000, which you immediately invest.
-          Your investment fund guarantees an annual interest payment of 2<percent/>,
+          You inherit $50,000, which you immediately invest.
+          Your investment fund guarantees an annual interest payment of 2%,
           compounded annually.
-          You withdraw <dollar/>2,000 each year to spend.
+          You withdraw $2,000 each year to spend.
           <ol>
             <li>
               Find a recurrence equation for the balance of your fund <m>F</m>.
@@ -946,9 +940,9 @@
     <exercise>
       <statement>
         <p>
-          You purchase a house with a home loan of <dollar/>350,000
-          with an annual interest rate of 4<percent/>, which accrues monthly.
-          You choose to make a monthly payment of <dollar/>1,500.
+          You purchase a house with a home loan of $350,000
+          with an annual interest rate of 4%, which accrues monthly.
+          You choose to make a monthly payment of $1,500.
           <ol>
             <li>
               Find a recurrence equation for the balance of your loan <m>L</m>.
@@ -965,7 +959,7 @@
               How much interest will you have paid?
             </li>
             <li>
-              If you increase the monthly payments to <dollar/>1,600,
+              If you increase the monthly payments to $1,600,
               when will you pay off the loan?
               How much interest will you have paid?
             </li>

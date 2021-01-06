@@ -135,7 +135,7 @@
                         </latex-image>
                     </image>
                 </figure>
-                <p>The graph of the volume therefore needs to be concave down, increasing for <m>t \lt 40</m> and decreasing for <m>t \gt 40</m>. We do not know the starting volume (it wasn't given), so we might measure the change of volume from the initial value. That is, <m>V=0</m> on the graph will mean the volume is the same as the initial volume, rather than meaning there is no water. Using our knowledge of <xref ref="thm-elementary-definite-integrals" text="title">definite integrals of elementary algebraic formulas</xref> and the <xref ref="thm-definite-integral-linearity" text="title">linearity of definite integrals</xref>, we can find an explicit formula for our volume: <md>
+                <p>The graph of the volume therefore needs to be concave down, increasing for <m>t \lt 40</m> and decreasing for <m>t \gt 40</m>. We do not know the starting volume (it wasn't given), so we might measure the change of volume from the initial value. That is, <m>V=0</m> on the graph will mean the volume is the same as the initial volume, rather than meaning there is no water. Using our knowledge of <xref ref="thm-elementary-definite-integrals" text="custom">definite integrals of elementary algebraic formulas</xref> and the <xref ref="thm-definite-integral-linearity" text="custom">linearity of definite integrals</xref>, we can find an explicit formula for our volume: <md>
                     <mrow>V(t) &amp;= \int_0^t R(z) \, dz = \int_0^t 10-0.25z \, dz</mrow>
                     <mrow> &amp;= \int_0^t 10 \, dz - 0.25 \int_0^t z \, dz  = 10t - 0.25 \frac{t^2}{2}.</mrow>
                 </md> The graph of this functions is shown below.</p>
@@ -207,129 +207,121 @@
         <example>
             <statement>
                 <p>Consider an autonomous differential equation <me>\frac{dy}{dx} = f(y)</me> where the rate function <m>f(y)</m> is illustrated below. Create a phase line and use it to sketch expected shapes for solutions representing initial values in the different regions identified in the phase line.</p>
-                <sidebyside width="60%">
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[thick,domain=-3.6:3.6, samples=100,x=1cm,y=0.2cm]
-                        \draw[<->] (-5,0) -- (5,0) node[above] {$y$};
-                        \draw[<->] (0,-15) -- (0,15) node[right] {$\displaystyle \frac{dy}{dx}=f(y)$};
-                        \draw[color=blue, thick] plot (\x,{9*\x-\x^3});
+                <image width="60%">
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[thick,domain=-3.6:3.6, samples=100,x=1cm,y=0.2cm]
+                    \draw[<->] (-5,0) -- (5,0) node[above] {$y$};
+                    \draw[<->] (0,-15) -- (0,15) node[right] {$\displaystyle \frac{dy}{dx}=f(y)$};
+                    \draw[color=blue, thick] plot (\x,{9*\x-\x^3});
 
-                        \draw (-3, -1) -- (-3, 1) node[above] {$-3$};
-                        \draw (-1.732, -1) -- (-1.732, 1) node[above] {$-\sqrt{3}$};
-                        \draw (1.732, -1) -- (1.732, 1) node[above] {$\sqrt{3}$};
-                        \draw (3, -1) -- (3, 1) node[above] {$3$};
+                    \draw (-3, -1) -- (-3, 1) node[above] {$-3$};
+                    \draw (-1.732, -1) -- (-1.732, 1) node[above] {$-\sqrt{3}$};
+                    \draw (1.732, -1) -- (1.732, 1) node[above] {$\sqrt{3}$};
+                    \draw (3, -1) -- (3, 1) node[above] {$3$};
 
-                        \draw[fill] (-3, 0) circle (2pt);
-                        \draw[fill] (0, 0) circle (2pt);
-                        \draw[fill] (3, 0) circle (2pt);
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                    \draw[fill] (-3, 0) circle (2pt);
+                    \draw[fill] (0, 0) circle (2pt);
+                    \draw[fill] (3, 0) circle (2pt);
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </statement>
             <solution>
                 <p>The graph of <m>\frac{dy}{dx}=f(y)</m> has zeros at <m>y=0</m> and <m>y=\pm 3</m>. These correspond to equilibrium solutions of the differential equation. That is, <m>y(x)=3</m> (constant function) is one of the possible solutions. If the initial value is <m>y(0)=3</m>, then <m>y(x)=3</m> for all other values of <m>x</m> as well. Similarly for <m>y(0)=0</m> or <m>y(0)=-3</m>. These will be the points shown on the phase line.</p>
                 <p>The three equilibrium points divide the phase line into four intervals: <m>(-\infty, -3)</m>, <m>(-3,0)</m>, <m>(0,3)</m> and <m>(3,\infty)</m>. The graph of <m>\frac{dy}{dx}=f(y)</m> allows us to look at the sign of <m>\frac{dy}{dx}</m> for each of those regions. We see that <m>\frac{dy}{dx} \gt 0</m> for <m>y \in (-\infty,-3)</m>, so <m>y(x)</m> will be an increasing function if the initial value starts in this interval. We summarize the behavior in each interval with the following table.</p>
-                <sidebyside>
-                    <tabular>
-                        <row>
-                            <cell>Interval</cell>
-                            <cell><m>(-\infty,-3)</m></cell>
-                            <cell><m>(-3,0)</m></cell>
-                            <cell><m>(0,3)</m></cell>
-                            <cell><m>(3,\infty)</m></cell>
-                        </row>
-                        <row>
-                            <cell>Sign of <m>\frac{dy}{dx}=f(y)</m></cell>
-                            <cell><m>+</m> (pos)</cell>
-                            <cell><m>-</m> (neg)</cell>
-                            <cell><m>+</m> (pos)</cell>
-                            <cell><m>-</m> (neg)</cell>
-                        </row>
-                        <row>
-                            <cell>Behavior of <m>y</m></cell>
-                            <cell>increasing</cell>
-                            <cell>decreasing</cell>
-                            <cell>increasing</cell>
-                            <cell>decreasing</cell>
-                        </row>
-                    </tabular>
-                </sidebyside>
+                <tabular>
+                    <row>
+                        <cell>Interval</cell>
+                        <cell><m>(-\infty,-3)</m></cell>
+                        <cell><m>(-3,0)</m></cell>
+                        <cell><m>(0,3)</m></cell>
+                        <cell><m>(3,\infty)</m></cell>
+                    </row>
+                    <row>
+                        <cell>Sign of <m>\frac{dy}{dx}=f(y)</m></cell>
+                        <cell><m>+</m> (pos)</cell>
+                        <cell><m>-</m> (neg)</cell>
+                        <cell><m>+</m> (pos)</cell>
+                        <cell><m>-</m> (neg)</cell>
+                    </row>
+                    <row>
+                        <cell>Behavior of <m>y</m></cell>
+                        <cell>increasing</cell>
+                        <cell>decreasing</cell>
+                        <cell>increasing</cell>
+                        <cell>decreasing</cell>
+                    </row>
+                </tabular>
                 <p>The phase line is a graphical summary of the table. Marked points on the line represent the equilibrium solutions. Arrows above the line represent the behavior as direction of motion. We will also include the locations of extreme rates, namely <m>y=\pm \sqrt{3}</m>, on the phase line as tick marks (not points) to indicate the locations of inflection points.</p>
 
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[x=1cm,y=1cm]
-                        \draw[<->] (-5,0) -- (5,0) node[right] {$y$};
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[x=1cm,y=1cm]
+                    \draw[<->] (-5,0) -- (5,0) node[right] {$y$};
 
-                        \draw (-3, -0.1) -- (-3, 0.1) node[pos=0, below] {$-3$};
-                        \draw (-1.732, -0.1) -- (-1.732, 0.1) node[pos=0, below] {$-\sqrt{3}$};
-                        \draw (1.732, -0.1) -- (1.732, 0.1) node[pos=0, below] {$\sqrt{3}$};
-                        \draw (3, -0.1) -- (3, 0.1) node[pos=0, below] {$3$};
+                    \draw (-3, -0.1) -- (-3, 0.1) node[pos=0, below] {$-3$};
+                    \draw (-1.732, -0.1) -- (-1.732, 0.1) node[pos=0, below] {$-\sqrt{3}$};
+                    \draw (1.732, -0.1) -- (1.732, 0.1) node[pos=0, below] {$\sqrt{3}$};
+                    \draw (3, -0.1) -- (3, 0.1) node[pos=0, below] {$3$};
 
-                        \draw[fill] (-3, 0) circle (2pt);
-                        \draw[fill] (0, 0) circle (2pt);
-                        \draw[fill] (3, 0) circle (2pt);
+                    \draw[fill] (-3, 0) circle (2pt);
+                    \draw[fill] (0, 0) circle (2pt);
+                    \draw[fill] (3, 0) circle (2pt);
 
-                        \draw[->, thick] (-4.5,0.25) -- (-3.5,0.25);
-                        \draw[<-, thick] (-2,0.25) -- (-1,0.25);
-                        \draw[->, thick] (1,0.25) -- (2,0.25);
-                        \draw[<-, thick] (3.5,0.25) -- (4.5,0.25);
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                    \draw[->, thick] (-4.5,0.25) -- (-3.5,0.25);
+                    \draw[<-, thick] (-2,0.25) -- (-1,0.25);
+                    \draw[->, thick] (1,0.25) -- (2,0.25);
+                    \draw[<-, thick] (3.5,0.25) -- (4.5,0.25);
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
 
                 <p>When we translate the information in the phase line to a sketch of the graph of solutions, we think of the phase line as the <m>y</m>-axis. The information about whether the function is increasing or decreasing is translated into the graph. Equilibrium solutions are also horizontal asymptotes for the solutions in the adjacent intervals. So we need to level off whenever the solution gets close to an equilibrium.</p>
 
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}
-                        [
-                            xmin=-0.25, xmax = 1.25,
-                            ymin=-5, ymax = 5,
-                            xtick = {0, 1},
-                            ytick = {-3, -1.732, 0, 1.732, 3},
-                            yticklabels = {-3, $-\sqrt{3}$, 0, $\sqrt{3}$, 3},
-                            xlabel = {$x$}, ylabel={$y$},
-                        ]
-                        \addplot[-, blue] coordinates {
-                            (-0.25,0) (1.5,0)
-                        };
-                        \addplot[-, blue] coordinates {
-                            (-0.25,3) (1.5,3)
-                        };
-                        \addplot[-, blue] coordinates {
-                            (-0.25,-3) (1.5,-3)
-                        };
-                        \addplot[dashed] coordinates {
-                            (-0.25,1.732) (1.5,1.732)
-                        };
-                        \addplot[dashed] coordinates {
-                            (-0.25,-1.732) (1.5,-1.732)
-                        };
-                        \addplot[red] table[x=t, y=x1] {data/ode-example-trajectories.txt};
-                        \addplot[red] table[x=t, y=x2] {data/ode-example-trajectories.txt};
-                        \addplot[red] table[x=t, y=x3] {data/ode-example-trajectories.txt};
-                        \addplot[red] table[x=t, y=x4] {data/ode-example-trajectories.txt};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [
+                        xmin=-0.25, xmax = 1.25,
+                        ymin=-5, ymax = 5,
+                        xtick = {0, 1},
+                        ytick = {-3, -1.732, 0, 1.732, 3},
+                        yticklabels = {-3, $-\sqrt{3}$, 0, $\sqrt{3}$, 3},
+                        xlabel = {$x$}, ylabel={$y$},
+                    ]
+                    \addplot[-, blue] coordinates {
+                        (-0.25,0) (1.5,0)
+                    };
+                    \addplot[-, blue] coordinates {
+                        (-0.25,3) (1.5,3)
+                    };
+                    \addplot[-, blue] coordinates {
+                        (-0.25,-3) (1.5,-3)
+                    };
+                    \addplot[dashed] coordinates {
+                        (-0.25,1.732) (1.5,1.732)
+                    };
+                    \addplot[dashed] coordinates {
+                        (-0.25,-1.732) (1.5,-1.732)
+                    };
+                    \addplot[red] table[x=t, y=x1] {data/ode-example-trajectories.txt};
+                    \addplot[red] table[x=t, y=x2] {data/ode-example-trajectories.txt};
+                    \addplot[red] table[x=t, y=x3] {data/ode-example-trajectories.txt};
+                    \addplot[red] table[x=t, y=x4] {data/ode-example-trajectories.txt};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </solution>
         </example>
     </subsection>

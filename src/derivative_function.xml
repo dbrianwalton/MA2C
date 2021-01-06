@@ -67,43 +67,41 @@
         <mrow> y &amp;= 9(x-2)+2. </mrow>
       </md>
     </p>
-    <sidebyside width="60%">
-      <image>
-        <description>Graph of a function with tangent lines and their corresponding slopes shown at several points.</description>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        /pgfplots/table/row sep=crcr
-        }
-        \begin{tikzpicture}
-        \begin{axis}[
-            xmin=-3,xmax=3,
-            ymin=-5,ymax=5,
-            xlabel={$x$},
-            ylabel={$y$},
-        ]
+    <image width="60%">
+      <description>Graph of a function with tangent lines and their corresponding slopes shown at several points.</description>
+      <latex-image>
+      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+      <![CDATA[\tikzset{%
+      /pgfplots/table/row sep=crcr
+      }
+      \begin{tikzpicture}
+      \begin{axis}[
+          xmin=-3,xmax=3,
+          ymin=-5,ymax=5,
+          xlabel={$x$},
+          ylabel={$y$},
+      ]
 
-        \addplot[blue, thick, samples=100]
-            ({x}, {x^3-3*x});
-        \addplot[only marks, blue] table {
-            -2 -2\\
-            -1 2\\
-            0 0\\
-            1 -2\\
-            2 2\\
-        };
-        \addplot[dashed, thick, red, domain=-1.5:-0.5]
-            ({x}, {2});
-        \addplot[dashed, thick, red, domain=-0.5:0.5]
-            ({x}, {-3*x});
-        \addplot[dashed, thick, red, domain=1.5:2.5]
-            ({x}, {2+9*(x-2)});
-        \addplot[mark=none, black] {0};
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
+      \addplot[blue, thick, samples=100]
+          ({x}, {x^3-3*x});
+      \addplot[only marks, blue] table {
+          -2 -2\\
+          -1 2\\
+          0 0\\
+          1 -2\\
+          2 2\\
+      };
+      \addplot[dashed, thick, red, domain=-1.5:-0.5]
+          ({x}, {2});
+      \addplot[dashed, thick, red, domain=-0.5:0.5]
+          ({x}, {-3*x});
+      \addplot[dashed, thick, red, domain=1.5:2.5]
+          ({x}, {2+9*(x-2)});
+      \addplot[mark=none, black] {0};
+      \end{axis}
+      \end{tikzpicture}]]>
+      </latex-image>
+    </image>
     <definition xml:id='defn-derivative'>
       <title>The Derivative</title>
       <statement>
@@ -425,14 +423,14 @@
           This means that <m>f'(a)</m> is a value defined by
           <me> \lim_{x \to a}\frac{f(x)-f(a)}{x-a} = f'(a).</me>
           We also know that <me> \lim_{x \to a}[x-a] = a-a = 0.</me>
-          Using the product rule for limits (<xref ref='LC-Product' text='title'>LC:Product</xref>),
+          Using the product rule for limits (<xref ref='LC-Product' text='custom'>LC:Product</xref>),
           this implies
           <me>\lim_{x \to a} [f(x)-f(a)] = \lim_{x \to a} \frac{f(x)-f(a)}{x-a} \cdot (x-a) = f'(a) \cdot 0 = 0.</me>
-          Because <m>\displaystyle \lim_{x \to a} f(a) = f(a)</m> (<xref ref='LE-Constant' text='title'>LE:Constant</xref>),
+          Because <m>\displaystyle \lim_{x \to a} f(a) = f(a)</m> (<xref ref='LE-Constant' text='custom'>LE:Constant</xref>),
           we know that
           <me>\lim_{x \to a} f(x) = \lim_{x \to a} [f(x)-f(a) + f(a)] = 0 + f(a) = f(a)</me>
-          using the sum rule (<xref ref='LC-Sum' text='title'>LC:Sum</xref>).
-          Therefore, <m>f</m> is <xref ref='defn-continuity-simplified' text='title'>continuous</xref> at <m>a</m>.
+          using the sum rule (<xref ref='LC-Sum' text='custom'>LC:Sum</xref>).
+          Therefore, <m>f</m> is <xref ref='defn-continuity-simplified' text='custom'>continuous</xref> at <m>a</m>.
         </p>
       </proof>
     </theorem>
@@ -542,22 +540,20 @@
           The figure below illustrates the graph of this function,
           showing that there is a corner at <m>x=1</m>.
         </p>
-        <sidebyside>
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \begin{axis}
-            [ xmin=-2, xmax=3, ymin=-1, ymax=3 ]
-            \addplot[domain=-4:1, samples=51] (x, x^2);
-            \addplot[domain=1:4, samples=51] (x, x);
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+          \begin{axis}
+          [ xmin=-2, xmax=3, ymin=-1, ymax=3 ]
+          \addplot[domain=-4:1, samples=51] (x, x^2);
+          \addplot[domain=1:4, samples=51] (x, x);
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </solution>
     </example>
     <example>
@@ -614,22 +610,20 @@
           When the left and right derivatives agree,
           the function transitions smoothly with no corner at <m>x=2</m>.
         </p>
-        <sidebyside>
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \begin{axis}
-            [ xmin=-1, xmax=5, ymin=2, ymax=9 ]
-            \addplot[domain=-1:2, samples=51] (x, x^2-3*x+8);
-            \addplot[domain=2:5, samples=51] (x, 5*x-x^2);
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+          \begin{axis}
+          [ xmin=-1, xmax=5, ymin=2, ymax=9 ]
+          \addplot[domain=-1:2, samples=51] (x, x^2-3*x+8);
+          \addplot[domain=2:5, samples=51] (x, 5*x-x^2);
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </solution>
     </example>
   </subsection>

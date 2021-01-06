@@ -6,58 +6,76 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="inverse-trig-derivatives">
     <title>Derivatives of Inverse Trigonometric Functions</title>
 
     <p>In the previous section, we used implicit differentiation to show that the derivative of an inverse function at a point is the reciprocal of the derivative of the original function at the equivalent inverse point. That is, if <m>f^{-1}</m> (an inverse function) has a point <m>(x,y)</m> on its graph, <m>y=f^{-1}(x)</m>, then <m>f</m> has a corresponding point <m>(y,x)</m>, <m>x=f(y)</m>. The rate of change (derivative) of <m>f^{-1}</m> at <m>(x,y)</m> is the reciprocal of the rate of change of <m>f</m> at <m>(y,x)</m> defined by <m>f'(y)</m>: <me>\frac{d}{dx}[f^{-1}(x)] = \frac{1}{f'(y)} = \frac{1}{f'(f^{-1}(x))}.</me></p>
-    
+
     <p>We will use this result repeatedly in this section to find the derivative of the inverse trigonometric functions. The interesting thing about these derivatives is that they will all be algebraic. This is a consequence of the Pythagorean identities that relate trigonometric functions with their derivatives.</p>
-    
+
     <theorem xml:id='thm-arcsine-derivative'>
         <title>Derivative of Arcsine</title>
         <statement>
             <p><me>\arcsin'(x) = \frac{d}{dx}[\sin^{-1}(x)] = \frac{1}{\sqrt{1-x^2}}</me></p>
         </statement>
         <proof>
-            <p>Starting with the relation <m>y=\arcsin(x)=\sin^{-1}(x)</m>, we have the inverse relation <m>x = \sin(y)</m>. Because <m>\sin'(x)=\cos(x)</m>, the derivative of the inverse is given by <me>\arcsin'(x) = \frac{1}{\sin'(y)} = \frac{1}{\cos(y)}.</me> The <xref ref='thm-pythagorean-identity' text='title'>Pythagorean identity</xref> relates <m>\sin(y)</m> and <m>\cos(y)</m> by <me>\sin^2(y) + \cos^2(y) = 1</me> so that <m>\cos^2(y) = 1 - \sin^2(y) = 1-x^2</m>. Because the <xref ref='fig-restrict-domain-sine' text='title'>domain for the restricted sine</xref> is in quadrants 1 and 4, <m>\cos(y) \ge 0</m> and <me>\arcsin'(x) = \frac{1}{\sqrt{1-x^2}}.</me></p>
+            <p>
+              Starting with the relation <m>y=\arcsin(x)=\sin^{-1}(x)</m>,
+              we have the inverse relation <m>x = \sin(y)</m>.
+              Because <m>\sin'(x)=\cos(x)</m>, the derivative of the inverse is given by
+              <me>\arcsin'(x) = \frac{1}{\sin'(y)} = \frac{1}{\cos(y)}.</me>
+              The <xref ref='thm-pythagorean-identity' text='custom'>Pythagorean identity</xref> relates <m>\sin(y)</m> and <m>\cos(y)</m> by
+              <me>\sin^2(y) + \cos^2(y) = 1</me>
+              so that <m>\cos^2(y) = 1 - \sin^2(y) = 1-x^2</m>.
+              Because the <xref ref='fig-restrict-domain-sine' text='custom'>domain for the restricted sine</xref> is in quadrants 1 and 4,
+              <m>\cos(y) \ge 0</m> and <me>\arcsin'(x) = \frac{1}{\sqrt{1-x^2}}.</me>
+            </p>
         </proof>
     </theorem>
-    
+
     <theorem xml:id='thm-arccosine-derivative'>
         <title>Derivative of Arccosine</title>
         <statement>
             <p><me>\arccos'(x) = \frac{d}{dx}[\cos^{-1}(x)] = \frac{-1}{\sqrt{1-x^2}}</me></p>
         </statement>
         <proof>
-            <p>Starting with the relation <m>y=\arccos(x)=\cos^{-1}(x)</m>, we have the inverse relation <m>x = \cos(y)</m>. Because <m>\cos'(x)=-\sin(x)</m>, the derivative of the inverse is given by <me>\arccos'(x) = \frac{1}{\cos'(y)} = \frac{-1}{\sin(y)}.</me> The <xref ref='thm-pythagorean-identity' text='title'>Pythagorean identity</xref> and the <xref ref='fig-restrict-domain-cosine' text='title'>domain of the restricted cosine</xref> (quadrants 1 and 2) implies <m>\sin(y)=\sqrt{1-x^2}</m> such that <me>\arccos'(x) = \frac{-1}{\sqrt{1-x^2}}.</me></p>
+            <p>Starting with the relation <m>y=\arccos(x)=\cos^{-1}(x)</m>,
+            we have the inverse relation <m>x = \cos(y)</m>.
+            Because <m>\cos'(x)=-\sin(x)</m>, the derivative of the inverse is given by
+            <me>\arccos'(x) = \frac{1}{\cos'(y)} = \frac{-1}{\sin(y)}.</me>
+            The <xref ref='thm-pythagorean-identity' text='custom'>Pythagorean identity</xref>
+            and the <xref ref='fig-restrict-domain-cosine' text='custom'>domain of the restricted cosine</xref> (quadrants 1 and 2) implies
+            <m>\sin(y)=\sqrt{1-x^2}</m> such that
+            <me>\arccos'(x) = \frac{-1}{\sqrt{1-x^2}}.</me>
+          </p>
         </proof>
     </theorem>
-    
-    <p>Notice that the derivatives of the arcsine and arccosine only differ by the change in sign. The arcsine has positive derivative, consistent with <xref ref='fig-arcsine' text='title'>its graph</xref> being increasing. In contrast, the <xref ref='fig-arccosine' text='title'>arccosine</xref> is decreasing and has negative derivative.</p>
-    
+
+    <p>Notice that the derivatives of the arcsine and arccosine only differ by the change in sign. The arcsine has positive derivative, consistent with <xref ref='fig-arcsine' text='custom'>its graph</xref> being increasing. In contrast, the <xref ref='fig-arccosine' text='custom'>arccosine</xref> is decreasing and has negative derivative.</p>
+
     <p>However, it is more than just one function is positive and the other is negative. The formulas are identical other than sign because the graphs themselves are the same, except for a reflection and a shift. We know that <m>\cos(x)=\sin(\frac{\pi}{2}-x)</m> which implies that <me>\arccos(x)=\frac{\pi}{2}-\arcsin(x).</me> Differentiation of this equation shows <me>\arccos'(x) = -\arcsin'(x).</me></p>
-    
+
     <p>A similar argument applies to a relationship between the derivatives of the arctangent and arccotangent and of the arcsecant and arccosecant. Consequently, we only need to find the derivatives of the arctangent and arcsecant.</p>
-    
+
     <theorem xml:id='thm-arctangent-derivative'>
         <title>Derivative of Arctangent</title>
         <statement>
             <p><me>\arctan'(x) = \frac{d}{dx}[\tan^{-1}(x)] = \frac{1}{x^2+1}</me></p>
         </statement>
         <proof>
-            <p>Starting with the relation <m>y=\arctan(x)=\tan^{-1}(x)</m>, we have the inverse relation <m>x = \tan(y)</m>. Because <m>\tan'(x)=\sec^2(x)</m>, the derivative of the inverse is given by <me>\arctan'(x) = \frac{1}{\tan'(y)} = \frac{1}{\sec^2(y)}.</me> The <xref ref='thm-pythagorean-identity' text='title'>Pythagorean identity</xref> relates <m>\tan(y)</m> and <m>\sec(y)</m> by <me>\tan^2(y) + 1 = \sec^2(y)</me> so that <m>\sec^2(y) = x^2+1</m>. Consequently <me>\arctan'(x) = \frac{1}{x^2+1}.</me></p>
+            <p>Starting with the relation <m>y=\arctan(x)=\tan^{-1}(x)</m>, we have the inverse relation <m>x = \tan(y)</m>. Because <m>\tan'(x)=\sec^2(x)</m>, the derivative of the inverse is given by <me>\arctan'(x) = \frac{1}{\tan'(y)} = \frac{1}{\sec^2(y)}.</me> The <xref ref='thm-pythagorean-identity' text='custom'>Pythagorean identity</xref> relates <m>\tan(y)</m> and <m>\sec(y)</m> by <me>\tan^2(y) + 1 = \sec^2(y)</me> so that <m>\sec^2(y) = x^2+1</m>. Consequently <me>\arctan'(x) = \frac{1}{x^2+1}.</me></p>
         </proof>
     </theorem>
-    
+
     <theorem xml:id='thm-arcsecant-derivative'>
         <title>Derivative of Arcsecant</title>
         <statement>
             <p><me>\mathrm{arcsec}'(x) = \frac{d}{dx}[\sec^{-1}(x)] = \frac{1}{|x|\sqrt{x^2-1}}</me></p>
         </statement>
         <proof>
-            <p>Starting with the relation <m>y=\mathrm{arcsec}(x)=\sec^{-1}(x)</m>, we have the inverse relation <m>x = \sec(y)</m>. Because <m>\sec'(x)=\sec(x)\tan(x)</m>, the derivative of the inverse is given by <me>\mathrm{arcsec}'(x) = \frac{1}{\sec'(y)} = \frac{1}{\sec(y)\tan(y)}.</me> The <xref ref='thm-pythagorean-identities' text='title'>Pythagorean identity</xref> relates <m>\tan(y)</m> and <m>\sec(y)</m> by <me>\tan^2(y) + 1 = \sec^2(y)</me> so that <m>\tan^2(y) = \sec^2(y)-1 = x^2-1</m>. In the restricted domain of the secant, the tangent and secant have the same sign so that the product will always be positive. Consequently <me>\mathrm{arcsec}'(x) = \frac{1}{|x|\sqrt{x^2-1}}.</me></p>
+            <p>Starting with the relation <m>y=\mathrm{arcsec}(x)=\sec^{-1}(x)</m>, we have the inverse relation <m>x = \sec(y)</m>. Because <m>\sec'(x)=\sec(x)\tan(x)</m>, the derivative of the inverse is given by <me>\mathrm{arcsec}'(x) = \frac{1}{\sec'(y)} = \frac{1}{\sec(y)\tan(y)}.</me> The <xref ref='thm-pythagorean-identities' text='custom'>Pythagorean identity</xref> relates <m>\tan(y)</m> and <m>\sec(y)</m> by <me>\tan^2(y) + 1 = \sec^2(y)</me> so that <m>\tan^2(y) = \sec^2(y)-1 = x^2-1</m>. In the restricted domain of the secant, the tangent and secant have the same sign so that the product will always be positive. Consequently <me>\mathrm{arcsec}'(x) = \frac{1}{|x|\sqrt{x^2-1}}.</me></p>
         </proof>
     </theorem>
-    
+
 </section>

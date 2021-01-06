@@ -11,7 +11,7 @@
     <title>Consequences of the Mean Value Theorem</title>
 
     <introduction>
-    <p>Just as the Mean Value Theorem for Integrals was used to describe the <xref ref='thm-monotonicity-from-rate-repeat' text='title'>monotonicity of accumulation functions</xref> in terms of the sign of the rate function, the Mean Value Theorem allows us to find the monotonicity of any differentiable function in terms of the sign of its derivative.</p>
+    <p>Just as the Mean Value Theorem for Integrals was used to describe the <xref ref='thm-monotonicity-from-rate-repeat' text='custom'>monotonicity of accumulation functions</xref> in terms of the sign of the rate function, the Mean Value Theorem allows us to find the monotonicity of any differentiable function in terms of the sign of its derivative.</p>
 
     <theorem xml:id='thm-monotonicity-from-derivative'>
         <title>Monotonicity of Differentiable Functions</title>
@@ -26,7 +26,7 @@
             <p>If the interval <m>I</m> is open but <m>f</m> is continuous up to and including the end-points, then the conclusion can be extended to include the end-points as well.</p>
         </statement>
         <proof>
-            <p>Consider any two points <m>a,b \in I</m> with <m>a \lt b</m>. Because <m>f</m> is differentiable on <m>I</m>, we know that <m>f</m> is <xref ref='thm-differentiable-implies-continuous' text='title'>continuous</xref> and differentiable on the subinterval <m>[a,b]</m>. The <xref ref='mean-value-theorem' text='title'>Mean Value Theorem</xref> guarantees the existence of a point <m>c \in (a,b)</m> such that <me>f(b)-f(a) = f'(c)\cdot(b-a).</me></p>
+            <p>Consider any two points <m>a,b \in I</m> with <m>a \lt b</m>. Because <m>f</m> is differentiable on <m>I</m>, we know that <m>f</m> is <xref ref='thm-differentiable-implies-continuous' text='custom'>continuous</xref> and differentiable on the subinterval <m>[a,b]</m>. The <xref ref='mean-value-theorem' text='custom'>Mean Value Theorem</xref> guarantees the existence of a point <m>c \in (a,b)</m> such that <me>f(b)-f(a) = f'(c)\cdot(b-a).</me></p>
             <p>Now assume that <m>f'(x) \gt 0</m> for all <m>x \in I</m>. Then <m>f'(c) \gt 0</m> and <m>b-a \gt 0</m>, guaranteeing that <m>f(b)-f(a) \gt 0</m>. That is, <m>f(b) \gt f(a)</m>. This is what is needed to show that <m>f</m> is increasing on <m>I</m>.</p>
             <p>Next assume that <m>f'(x) \lt 0</m> for all <m>x \in I</m>. Then <m>f'(c) \lt 0</m> while <m>b-a \gt 0</m>, guaranteeing that <m>f(b)-f(a) \lt 0</m>. That is, <m>f(b) \lt f(a)</m>, which shows that <m>f</m> is decreasing on <m>I</m>.</p>
             <p>Finally assume that <m>f'(x) = 0</m> for all <m>x \in I</m>. Then <m>f'(c) = 0</m>, implying that <m>f(b)-f(a) = 0</m>. That is, <m>f(b) = f(a)</m>, which shows that <m>f</m> is constant on <m>I</m>.</p>
@@ -65,21 +65,19 @@
                 </li>
                 <li>
                     <p><m>f'(x)</m> exists for every value <m>x</m>, so we use these two roots to break the number line into intervals: <m>(-\infty, -\frac{2}{3})</m>, <m>(-\frac{2}{3},2)</m> and <m>(2,\infty)</m>. It can be convenient to use a graphical number line to identify the intervals, as shown below. We put <m>x</m>-values below the line and the corresponding values of <m>f'(x)</m> above the line. </p>
-                    <sidebyside>
-                        <image>
-                            <latex-image>
-                            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}[x=1cm,y=1cm]
-                            \draw[<->] (-3,0) -- (4,0) node[above right] {$f'(x)$} node[below right] {$x$};
+                    <image>
+                        <latex-image>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[<->] (-3,0) -- (4,0) node[above right] {$f'(x)$} node[below right] {$x$};
 
-                            \draw (-0.667, -0.1) -- (-0.667, 0.1) node[pos=0, below] {$-\frac{2}{3}$} node[pos=1,above] {$0$};
-                            \draw (2, -0.1) -- (2, 0.1) node[pos=0, below] {$2$} node[pos=1,above] {$0$};
-                            \end{tikzpicture}]]>
-                            </latex-image>
-                        </image>
-                    </sidebyside>
+                        \draw (-0.667, -0.1) -- (-0.667, 0.1) node[pos=0, below] {$-\frac{2}{3}$} node[pos=1,above] {$0$};
+                        \draw (2, -0.1) -- (2, 0.1) node[pos=0, below] {$2$} node[pos=1,above] {$0$};
+                        \end{tikzpicture}]]>
+                        </latex-image>
+                    </image>
                 </li>
                 <li>
                     <p>We test the sign of <m>f'(x)</m> at a point in each of the intervals. Because we factored <m>f'(x) = (3x+2)(x-2)</m>, we can quickly determine the sign by looking at the signs of the factors. We do not need the actual value, so I will summarize the sign of the factor with <m>+</m> or <m>-</m>. We need to choose one point from each interval.<md>
@@ -87,24 +85,22 @@
                         <mrow>f'(0) &amp;= (3(0)+2)(0-2) = (+)(-) = -</mrow>
                         <mrow>f'(3) &amp;= (3(3)+2)(3-2) = (+)(+) = +</mrow>
                     </md> We can summarize these results on our number line by marking the sign of <m>f'(x)</m> above each interval.</p>
-                    <sidebyside>
-                        <image>
-                            <latex-image>
-                            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}[x=1cm,y=1cm]
-                            \draw[<->] (-3,0) -- (4,0) node[above right] {$f'(x)$} node[below right] {$x$};
+                    <image>
+                        <latex-image>
+                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                        <![CDATA[\tikzset{%
+                        }
+                        \begin{tikzpicture}[x=1cm,y=1cm]
+                        \draw[<->] (-3,0) -- (4,0) node[above right] {$f'(x)$} node[below right] {$x$};
 
-                            \draw (-0.667, -0.1) -- (-0.667, 0.1) node[pos=0, below] {$-\frac{2}{3}$} node[pos=1,above] {$0$};
-                            \draw (2, -0.1) -- (2, 0.1) node[pos=0, below] {$2$} node[pos=1,above] {$0$};
-                            \node [above] at (-2,0) {$+$};
-                            \node [above] at (0.5,0) {$-$};
-                            \node [above] at (3,0) {$+$};
-                            \end{tikzpicture}]]>
-                            </latex-image>
-                        </image>
-                    </sidebyside>
+                        \draw (-0.667, -0.1) -- (-0.667, 0.1) node[pos=0, below] {$-\frac{2}{3}$} node[pos=1,above] {$0$};
+                        \draw (2, -0.1) -- (2, 0.1) node[pos=0, below] {$2$} node[pos=1,above] {$0$};
+                        \node [above] at (-2,0) {$+$};
+                        \node [above] at (0.5,0) {$-$};
+                        \node [above] at (3,0) {$+$};
+                        \end{tikzpicture}]]>
+                        </latex-image>
+                    </image>
                 </li>
                 <li>
                     <p>We finish by interpreting the results. Because <m>f(x)</m> is a polynomial, it is continuous. We can extend all of our monotonicity conclusions to include the end-points.</p>
@@ -115,27 +111,25 @@
                 </li>
                 </ul>
               </p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \begin{axis}
-                            [ xmin=-3, xmax=4 ]
-                            \addplot[blue,domain=-3:4,samples=101] {x^3-2*x^2-4*x};
-                            \addplot[only marks, blue] coordinates {
-                                (-0.666, 1.482)
-                                (2,-8)
-                            }
-                                node[pos=0, above] {$x=-\frac{2}{3}$}
-                                node[pos=1, below] {$x=2$};
-                            \end{axis}
-                            \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+              <image>
+                  <latex-image>
+                      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                      <![CDATA[\tikzset{%
+                      }
+                      \begin{tikzpicture}
+                      \begin{axis}
+                      [ xmin=-3, xmax=4 ]
+                      \addplot[blue,domain=-3:4,samples=101] {x^3-2*x^2-4*x};
+                      \addplot[only marks, blue] coordinates {
+                          (-0.666, 1.482)
+                          (2,-8)
+                      }
+                          node[pos=0, above] {$x=-\frac{2}{3}$}
+                          node[pos=1, below] {$x=2$};
+                      \end{axis}
+                      \end{tikzpicture}]]>
+                  </latex-image>
+              </image>
             </solution>
         </example>
 
@@ -164,44 +158,40 @@
                     </li>
                     <li>
                         <p>Since <m>f'(x)</m> is defined for all <m>x</m>, we use the roots to identify intervals.</p>
-                        <sidebyside>
-                            <image>
-                                <latex-image>
-                                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                                <![CDATA[\tikzset{%
-                                }
-                                \begin{tikzpicture}[x=1.5cm,y=1cm]
-                                \draw[<->] (-2,0) -- (2,0) node[above right] {$f'(x)$} node[below right] {$x$};
+                        <image>
+                            <latex-image>
+                            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                            <![CDATA[\tikzset{%
+                            }
+                            \begin{tikzpicture}[x=1.5cm,y=1cm]
+                            \draw[<->] (-2,0) -- (2,0) node[above right] {$f'(x)$} node[below right] {$x$};
 
-                                \draw (-0.390, -0.1) -- (-0.390, 0.1) node[pos=0, below] {$\frac{1-\sqrt{17}}{8}$} node[pos=1,above] {$0$};
-                                \draw (0.640, -0.1) -- (0.640, 0.1) node[pos=0, below] {$\frac{1+\sqrt{17}}{8}$} node[pos=1,above] {$0$};
-                                \end{tikzpicture}]]>
-                                </latex-image>
-                            </image>
-                        </sidebyside>
+                            \draw (-0.390, -0.1) -- (-0.390, 0.1) node[pos=0, below] {$\frac{1-\sqrt{17}}{8}$} node[pos=1,above] {$0$};
+                            \draw (0.640, -0.1) -- (0.640, 0.1) node[pos=0, below] {$\frac{1+\sqrt{17}}{8}$} node[pos=1,above] {$0$};
+                            \end{tikzpicture}]]>
+                            </latex-image>
+                        </image>
                         <p>Testing points in each of the intervals, at <m>x \in \{-1,0,1\}</m>, we can find the sign of <m>f'(x)=e^{x-2x^2}(-4x^2+x+1)</m>.</p>
                         <p><m>f'(-1) = e^{-1-2} (-4(-1)^2-1+1) = (+)(-) = - </m></p>
                         <p><m>f'(0) = e^{0} (-4(0)^2+0+1) = (+)(+) = +</m></p>
                         <p><m>f'(1) = e^{1-2} (-4(1)^2+1+1) = (+)(-) = -</m></p>
                         <p>Updating the number line with this information gives us the following figure.</p>
-                        <sidebyside>
-                            <image>
-                                <latex-image>
-                                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                                <![CDATA[\tikzset{%
-                                }
-                                \begin{tikzpicture}[x=1.5cm,y=1cm]
-                                \draw[<->] (-2,0) -- (2,0) node[above right] {$f'(x)$} node[below right] {$x$};
+                        <image>
+                            <latex-image>
+                            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                            <![CDATA[\tikzset{%
+                            }
+                            \begin{tikzpicture}[x=1.5cm,y=1cm]
+                            \draw[<->] (-2,0) -- (2,0) node[above right] {$f'(x)$} node[below right] {$x$};
 
-                                \draw (-0.390, -0.1) -- (-0.390, 0.1) node[pos=0, below] {$\frac{1-\sqrt{17}}{8}$} node[pos=1,above] {$0$};
-                                \draw (0.640, -0.1) -- (0.640, 0.1) node[pos=0, below] {$\frac{1+\sqrt{17}}{8}$} node[pos=1,above] {$0$};
-                                \node [above] at (-1.2,0) {$-$};
-                                \node [above] at (0.125,0) {$+$};
-                                \node [above] at (1.2,0) {$-$};
-                                \end{tikzpicture}]]>
-                                </latex-image>
-                            </image>
-                        </sidebyside>
+                            \draw (-0.390, -0.1) -- (-0.390, 0.1) node[pos=0, below] {$\frac{1-\sqrt{17}}{8}$} node[pos=1,above] {$0$};
+                            \draw (0.640, -0.1) -- (0.640, 0.1) node[pos=0, below] {$\frac{1+\sqrt{17}}{8}$} node[pos=1,above] {$0$};
+                            \node [above] at (-1.2,0) {$-$};
+                            \node [above] at (0.125,0) {$+$};
+                            \node [above] at (1.2,0) {$-$};
+                            \end{tikzpicture}]]>
+                            </latex-image>
+                        </image>
                     </li>
                     <li>
                         <p>We interpret our results about each interval.</p>
@@ -212,27 +202,25 @@
                 </li>
                 </ul>
               </p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \begin{axis}
-                            [ xmin=-3, xmax=4, ymin=-1, ymax=1 ]
-                            \addplot[blue,domain=-3:4,samples=101] {x*exp(x-2*x^2)};
-                            \addplot[only marks, blue] coordinates {
-                                (-0.390, -0.195)
-                                (0.640, 0.535)
-                            }
-                                node[pos=0, below] {$x=\frac{1-\sqrt{17}}{8}$}
-                                node[pos=1, above] {$x=\frac{1+\sqrt{17}}{8}$};
-                            \end{axis}
-                            \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+              <image>
+                  <latex-image>
+                      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                      <![CDATA[\tikzset{%
+                      }
+                      \begin{tikzpicture}
+                      \begin{axis}
+                      [ xmin=-3, xmax=4, ymin=-1, ymax=1 ]
+                      \addplot[blue,domain=-3:4,samples=101] {x*exp(x-2*x^2)};
+                      \addplot[only marks, blue] coordinates {
+                          (-0.390, -0.195)
+                          (0.640, 0.535)
+                      }
+                          node[pos=0, below] {$x=\frac{1-\sqrt{17}}{8}$}
+                          node[pos=1, above] {$x=\frac{1+\sqrt{17}}{8}$};
+                      \end{axis}
+                      \end{tikzpicture}]]>
+                  </latex-image>
+              </image>
             </solution>
         </example>
     </subsection>
@@ -240,7 +228,7 @@
     <subsection>
         <title>Describing Extreme Values Using Derivatives</title>
 
-        <p><xref ref='fermats-theorem' text='title'>Fermat's theorem</xref> states that a function <m>f</m> can have an extreme value only at points where either <m>f'(x)=0</m> or <m>f'(x)</m> does not exist. This motivates the definition of <term>critical points</term>.</p>
+        <p><xref ref='fermats-theorem' text='custom'>Fermat's theorem</xref> states that a function <m>f</m> can have an extreme value only at points where either <m>f'(x)=0</m> or <m>f'(x)</m> does not exist. This motivates the definition of <term>critical points</term>.</p>
 
         <definition xml:id='defn-critical-points'>
             <title>Critical Points</title>
@@ -270,55 +258,51 @@
             <solution>
                 <p>Start by finding the critical points, which requires knowing the derivative. <me>f(x)=x^5-4x^3 \qquad \Rightarrow \qquad f'(x) = 5x^4-12x^2 = x^2(5x^2-12)</me> Now solve <m>f'(x)=0</m>, which gives either <m>x^2=0</m> or <m>5x^2-12=0</m>. There are three solutions: <m>x=0</m> and <m>x=\pm \sqrt{\frac{12}{5}}</m>. Because <m>f'(x)</m> is defined for all values of <m>x</m>, these three are the only critical points.</p>
                 <p>We test if the critical points are local extremes by seeing if the direction of monotonicity changes at these points. This is summarized using a number line. Testing the value of <m>f'(x)</m> at points, such as the set <m>\{-2, -1, 1, 2\}</m>, gives us the following signs for the rate of change.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[x=1cm,y=1cm]
+                    \draw[<->] (-3,0) -- (3,0) node[above right] {$f'(x)$} node[below right] {$x$};
+
+                    \draw (-1, -0.1) -- (-1, 0.1) node[pos=0, below] {$-\sqrt{\frac{12}{5}}$} node[pos=1,above] {$0$};
+                    \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
+                    \draw (1, -0.1) -- (1, 0.1) node[pos=0, below] {$\sqrt{\frac{12}{5}}$} node[pos=1,above] {$0$};
+                    \node [above] at (-2,0) {$+$};
+                    \node [above] at (-0.5,0) {$-$};
+                    \node [above] at (0.5,0) {$-$};
+                    \node [above] at (2,0) {$+$};
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
+                <p>We interpret our results by applying the First Derivative Test. The critical points at <m>x=\pm\sqrt{\frac{12}{5}}</m> are turning points. But <m>x=0</m> is not a turning point even though <m>f'(0)=0</m>. Instead, it is a point of inflection. (We would need to show that <m>f''(x)</m> changes sign at <m>x=0</m>.) The point <m>x=-\sqrt{\frac{12}{5}}</m> is a local maximum because it is a turning point going from increasing to decreasing. The point <m>x=+\sqrt{\frac{12}{5}}</m> is a local minimum because it is a turning point going from decreasing to increasing. A graph of <m>y=f(x)</m> is shown below.</p>
+                <image>
+                    <latex-image>
                         <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
                         <![CDATA[\tikzset{%
                         }
-                        \begin{tikzpicture}[x=1cm,y=1cm]
-                        \draw[<->] (-3,0) -- (3,0) node[above right] {$f'(x)$} node[below right] {$x$};
-
-                        \draw (-1, -0.1) -- (-1, 0.1) node[pos=0, below] {$-\sqrt{\frac{12}{5}}$} node[pos=1,above] {$0$};
-                        \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
-                        \draw (1, -0.1) -- (1, 0.1) node[pos=0, below] {$\sqrt{\frac{12}{5}}$} node[pos=1,above] {$0$};
-                        \node [above] at (-2,0) {$+$};
-                        \node [above] at (-0.5,0) {$-$};
-                        \node [above] at (0.5,0) {$-$};
-                        \node [above] at (2,0) {$+$};
+                        \begin{tikzpicture}
+                        \begin{axis}
+                        [ xmin=-3, xmax=3, ymin=-8, ymax=8 ]
+                        \addplot[blue,domain=-3:3,samples=101] {x^3*(x^2-4)};
+                        \addplot[only marks, blue] coordinates {
+                            (-1.55, 5.95)
+                            (1.55, -5.95)
+                        }
+                            node[pos=0, below] {$x=-\sqrt{\frac{12}{5}}$}
+                            node[pos=1, above] {$x=\sqrt{\frac{12}{5}}$};
+                        \end{axis}
                         \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
-                <p>We interpret our results by applying the First Derivative Test. The critical points at <m>x=\pm\sqrt{\frac{12}{5}}</m> are turning points. But <m>x=0</m> is not a turning point even though <m>f'(0)=0</m>. Instead, it is a point of inflection. (We would need to show that <m>f''(x)</m> changes sign at <m>x=0</m>.) The point <m>x=-\sqrt{\frac{12}{5}}</m> is a local maximum because it is a turning point going from increasing to decreasing. The point <m>x=+\sqrt{\frac{12}{5}}</m> is a local minimum because it is a turning point going from decreasing to increasing. A graph of <m>y=f(x)</m> is shown below.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                            <![CDATA[\tikzset{%
-                            }
-                            \begin{tikzpicture}
-                            \begin{axis}
-                            [ xmin=-3, xmax=3, ymin=-8, ymax=8 ]
-                            \addplot[blue,domain=-3:3,samples=101] {x^3*(x^2-4)};
-                            \addplot[only marks, blue] coordinates {
-                                (-1.55, 5.95)
-                                (1.55, -5.95)
-                            }
-                                node[pos=0, below] {$x=-\sqrt{\frac{12}{5}}$}
-                                node[pos=1, above] {$x=\sqrt{\frac{12}{5}}$};
-                            \end{axis}
-                            \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                    </latex-image>
+                </image>
             </solution>
         </example>
     </subsection>
     <subsection>
         <title>Describing Concavity Using Derivatives</title>
 
-        <p>Concavity describes changing slope or rate of change. On a graph, this corresponds to how the curve described by a function is bending. We restate the <xref ref='defn-function-concavity-informal' text='title'>definition of concavity</xref> in terms of the rate of change defined by a derivative.</p>
+        <p>Concavity describes changing slope or rate of change. On a graph, this corresponds to how the curve described by a function is bending. We restate the <xref ref='defn-function-concavity-informal' text='custom'>definition of concavity</xref> in terms of the rate of change defined by a derivative.</p>
 
         <definition xml:id='defn-function-concavity'>
             <title>Concavity</title>
@@ -327,31 +311,29 @@
             </statement>
         </definition>
 
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[auto, thick, x=1cm, y=1cm]
-                \pgfmathsetmacro{\rad}{2.5}
-                \coordinate (c1) at (0,0);
-                \draw ($ (c1) + (10:\rad) $)
-                        arc (10:80:\rad)
-                        node [pos=0.5,below left] {(I)};
-                \draw ($ (c1) + (100:\rad) $)
-                        arc (100:170:\rad)
-                        node [pos=0.5,below right] {(II)};
-                \draw ($ (c1) + (190:\rad) $)
-                        arc (190:260:\rad)
-                        node [pos=0.5,above right] {(III)};
-                \draw ($ (c1) + (280:\rad) $)
-                        arc (280:350:\rad)
-                        node [pos=0.5,above left] {(IV)};
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[auto, thick, x=1cm, y=1cm]
+            \pgfmathsetmacro{\rad}{2.5}
+            \coordinate (c1) at (0,0);
+            \draw ($ (c1) + (10:\rad) $)
+                    arc (10:80:\rad)
+                    node [pos=0.5,below left] {(I)};
+            \draw ($ (c1) + (100:\rad) $)
+                    arc (100:170:\rad)
+                    node [pos=0.5,below right] {(II)};
+            \draw ($ (c1) + (190:\rad) $)
+                    arc (190:260:\rad)
+                    node [pos=0.5,above right] {(III)};
+            \draw ($ (c1) + (280:\rad) $)
+                    arc (280:350:\rad)
+                    node [pos=0.5,above left] {(IV)};
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
         <p>The four quadrants of a circle illustrate the four possible combinations of monotonicity and concavity. <dl>
             <li>
                 <title>increasing, concave down (II)</title>
@@ -399,43 +381,39 @@
                     <mrow> f''(0) = -6 </mrow>
                     <mrow> f''(2) = 6 </mrow>
                 </md> The signs of <m>f''(x)</m> are summarized with a number line.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[x=1cm,y=1cm]
-                        \draw[<->] (-2,0) -- (4,0) node[above right] {$f''(x)$} node[below right] {$x$};
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[x=1cm,y=1cm]
+                    \draw[<->] (-2,0) -- (4,0) node[above right] {$f''(x)$} node[below right] {$x$};
 
-                        \draw (1, -0.1) -- (1, 0.1) node[pos=0, below] {$1$} node[pos=1,above] {$0$};
-                        \node [above] at (-1,0) {$-$};
-                        \node [above] at (3,0) {$+$};
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                    \draw (1, -0.1) -- (1, 0.1) node[pos=0, below] {$1$} node[pos=1,above] {$0$};
+                    \node [above] at (-1,0) {$-$};
+                    \node [above] at (3,0) {$+$};
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
                 <p>We interpret our results using Theorem <xref ref='thm-concavity-from-derivative'/>. Because <m>f''(x) \lt 0</m> on <m>(-\infty,1)</m>, we know <m>f'</m> is decreasing on the interval. Since <m>f'(x)</m> is continuous, we can extend the interval to include the end-point and conclude that <m>f</m> is concave down on <m>(-\infty,1]</m>. Similarly, since <m>f''(x) \gt 0</m> on <m>(1,\infty)</m> and <m>f'</m> is continuous at <m>1</m>, we know <m>f</m> is concave up on <m>[1,\infty)</m>. Because concavity changes at <m>x=1</m>, <m>f</m> has an inflection point at <m>x=1</m>.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}
-                        [
-                            xmin=-2, xmax=4,
-                        ]
-                        \addplot [samples=101, domain=-2:4] (x, x^3-3*x^2-4*x+5);
-                        \addplot [only marks] coordinates {
-                            (1,-1)
-                        } node [above right] {$x=1$};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}
+                    [
+                        xmin=-2, xmax=4,
+                    ]
+                    \addplot [samples=101, domain=-2:4] (x, x^3-3*x^2-4*x+5);
+                    \addplot [only marks] coordinates {
+                        (1,-1)
+                    } node [above right] {$x=1$};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </solution>
         </example>
 
@@ -447,7 +425,7 @@
                 <p>Suppose that <m>f(x)</m> is a function satisfying <m>f'(a)=0</m> (horizontal tangent) such that <m>f''(a)</m> exists. If <m>f''(a) \gt 0</m> (concave up), then <m>f(x)</m> has a local minimum at <m>x=a</m>. If <m>f''(a) \lt 0</m> (concave down), then <m>f(x)</m> has a local maximum at <m>x=a</m>.</p>
             </statement>
         </theorem>
-        <p>Notice that the Second Derivative Test is inconclusive when <m>f''(a)=0</m>. In such a case, we are forced to go back and use the <xref ref='first-derivative-test' text='title'>First Derivative Test</xref> to see if monotonicity changes.</p>
+        <p>Notice that the Second Derivative Test is inconclusive when <m>f''(a)=0</m>. In such a case, we are forced to go back and use the <xref ref='first-derivative-test' text='custom'>First Derivative Test</xref> to see if monotonicity changes.</p>
         <example>
             <statement>
                 <p>Find and classify the local extremes of <m>f(x) = x^3(x^2-4)</m> using the Second Derivative Test.</p>

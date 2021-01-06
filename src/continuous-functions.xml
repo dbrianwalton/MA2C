@@ -13,7 +13,7 @@
     <subsection>
     <title>Continuity</title>
 
-    <p>Recall our <xref ref='defn-continuity-at-point' text='title'>definition of continuity</xref> for a function at a single point.</p>
+    <p>Recall our <xref ref='defn-continuity-at-point' text='custom'>definition of continuity</xref> for a function at a single point.</p>
 
     <definition xml:id='defn-continuity-simplified'>
         <title>Continuity at a Point</title>
@@ -38,7 +38,7 @@
     <subsection xml:id='section-integral-mvt'>
         <title>Definite Integrals and Average Value</title>
 
-        <p>When we studied the definite integral, we learned that <xref ref='thm-continuous-integrable' text='title'>continuity implies integrability</xref>. However, a discontinuous function might still be integrable. For example, the definite integral of a piecewise continuous function with a finite number of jump discontinuities can be computed using <xref ref='thm-definite-integral-splitting' text='title'>the splitting property</xref>. The total definite integral would be equal to the sum of the definite integrals on each of the subintervals.</p>
+        <p>When we studied the definite integral, we learned that <xref ref='thm-continuous-integrable' text='custom'>continuity implies integrability</xref>. However, a discontinuous function might still be integrable. For example, the definite integral of a piecewise continuous function with a finite number of jump discontinuities can be computed using <xref ref='thm-definite-integral-splitting' text='custom'>the splitting property</xref>. The total definite integral would be equal to the sum of the definite integrals on each of the subintervals.</p>
 
         <p>Continuity does guarantee something stronger than integrability. It guarantees that the function attains its average value over an interval. To make this precise, we first need to define the average value.</p>
 
@@ -57,55 +57,51 @@
                 5, &amp; 1 \le x \lt 3, \\
                 -1, &amp; 3 \le x \le 5.
             \end{cases}</me></p>
-            <sidebyside>
-                <image>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}
-                    \begin{axis}
-                    [ xmin=-1, xmax=6, ymin=-3, ymax=7 ]
-                    \addplot[-] coordinates { (0,3) (1,3) };
-                    \addplot[-] coordinates { (1,5) (3,5) };
-                    \addplot[-] coordinates { (3,-1) (5,-1) };
-                    \addplot[only marks] coordinates { (0,3) (1,5) (3,-1) (5,-1) };
-                    \addplot[only marks, mark=o] coordinates { (1,3) (3,5)};
-                    \end{axis}
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+            <image>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-1, xmax=6, ymin=-3, ymax=7 ]
+                \addplot[-] coordinates { (0,3) (1,3) };
+                \addplot[-] coordinates { (1,5) (3,5) };
+                \addplot[-] coordinates { (3,-1) (5,-1) };
+                \addplot[only marks] coordinates { (0,3) (1,5) (3,-1) (5,-1) };
+                \addplot[only marks, mark=o] coordinates { (1,3) (3,5)};
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
             <p>The definite integral equals the sum of the signed areas, <me>\int_0^5 f(x) \, dx = 3 \cdot 1 + 5 \cdot 2 + -1 \cdot 2 = 11.</me> The average value is equal to this definite integral divided by the width of the interval, <me>\langle f \rangle_{[0,5]} = \frac{1}{5} \int_{0}^5 f(x)\,dx = \frac{11}{5}.</me></p>
-            <sidebyside>
-                <image>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}
-                    \begin{axis}
-                    [ xmin=-1, xmax=6, ymin=-3, ymax=7 ]
-                    \addplot[-] coordinates { (0,3) (1,3) };
-                    \fill [opacity=0.25, red] (axis cs:0,0) -- (axis cs:0,3)
-                        -- (axis cs: 1,3) -- (axis cs: 1,0) -- cycle;
-                    \addplot[-] coordinates { (1,5) (3,5) };
-                    \fill [opacity=0.25, red] (axis cs:1,0) -- (axis cs: 1,5)
-                        -- (axis cs: 3,5) -- (axis cs: 3,0) -- cycle;
-                    \addplot[-] coordinates { (3,-1) (5,-1) };
-                    \fill [opacity=0.25, red] (axis cs:3,0) -- (axis cs:3,-1)
-                        -- (axis cs: 5,-1) -- (axis cs: 5,0) -- cycle;
-                    \addplot[only marks] coordinates { (0,3) (1,5) (3,-1) (5,-1) };
-                    \addplot[only marks, mark=o] coordinates { (1,3) (3,5)};
+            <image>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-1, xmax=6, ymin=-3, ymax=7 ]
+                \addplot[-] coordinates { (0,3) (1,3) };
+                \fill [opacity=0.25, red] (axis cs:0,0) -- (axis cs:0,3)
+                    -- (axis cs: 1,3) -- (axis cs: 1,0) -- cycle;
+                \addplot[-] coordinates { (1,5) (3,5) };
+                \fill [opacity=0.25, red] (axis cs:1,0) -- (axis cs: 1,5)
+                    -- (axis cs: 3,5) -- (axis cs: 3,0) -- cycle;
+                \addplot[-] coordinates { (3,-1) (5,-1) };
+                \fill [opacity=0.25, red] (axis cs:3,0) -- (axis cs:3,-1)
+                    -- (axis cs: 5,-1) -- (axis cs: 5,0) -- cycle;
+                \addplot[only marks] coordinates { (0,3) (1,5) (3,-1) (5,-1) };
+                \addplot[only marks, mark=o] coordinates { (1,3) (3,5)};
 
-                    \addplot[-,blue] coordinates {(0,2.2) (5,2.2)};
-                    \fill [opacity=0.25, blue] (axis cs:0,0) -- (axis cs:0,2.2)
-                        -- (axis cs: 5,2.2) -- (axis cs: 5,0) -- cycle;
-                    \end{axis}
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+                \addplot[-,blue] coordinates {(0,2.2) (5,2.2)};
+                \fill [opacity=0.25, blue] (axis cs:0,0) -- (axis cs:0,2.2)
+                    -- (axis cs: 5,2.2) -- (axis cs: 5,0) -- cycle;
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
         </example>
 
         <theorem xml:id='mean-value-theorem-integral'>
@@ -114,49 +110,47 @@
                 <p>Given a function <m>f</m> that is continuous on <m>[a,b]</m>, there must exist a value <m>c \in (a,b)</m> such that <me>f(c) = \langle f \rangle_{[a,b]} = \frac{1}{b-a} \int_{a}^{b} f(x)\, dx,</me> or equivalently, <m>\displaystyle \int_{a}^{b} f(x)\, dx = f(c) \cdot (b-a)</m>.</p>
             </statement>
             <proof>
-                <p>Because <m>f</m> is continuous on <m>[a,b]</m>, the <xref ref='extreme-value-theorem' text='title'>Extreme Value Theorem</xref> guarantees that <m>f</m> attains a minimum value <m>f(x_{\min})</m> and a maximum value <m>f(x_{\max})</m> so that <m>f(x_{\min}) \le f(x) \le f(x_{\max})</m> for all <m>x \in [a,b]</m>.</p>
-                <p>The average value <m>\langle f \rangle_{[a,b]}</m> must be between the minimum and maximum values. The <xref ref='thm-integral-inequality' text='title'>Integral Bounds theorem</xref> guarantees <me>f(x_{\min}) (b-a) \le \int_{a}^{b} f(x) \, dx \le f(x_{\max}) (b-a) </me> which then implies <me> f(x_{\min}) \le \langle f \rangle_{[a,b]} \le f(x_{\max}).</me></p>
-                <p>By the <xref ref='intermediate-value-theorem' text='title'>Intermediate Value Theorem</xref> with the interval with end points <m>x_{\min}</m> and <m>x_{\max}</m> (we don't know which is on the left/right), there must be some value <m>c</m> between these points, and so <m>c \in (a,b)</m>, for which <me>f(c) = \langle f \rangle_{[a,b]}.</me></p>
+                <p>Because <m>f</m> is continuous on <m>[a,b]</m>, the <xref ref='extreme-value-theorem' text='custom'>Extreme Value Theorem</xref> guarantees that <m>f</m> attains a minimum value <m>f(x_{\min})</m> and a maximum value <m>f(x_{\max})</m> so that <m>f(x_{\min}) \le f(x) \le f(x_{\max})</m> for all <m>x \in [a,b]</m>.</p>
+                <p>The average value <m>\langle f \rangle_{[a,b]}</m> must be between the minimum and maximum values. The <xref ref='thm-integral-inequality' text='custom'>Integral Bounds theorem</xref> guarantees <me>f(x_{\min}) (b-a) \le \int_{a}^{b} f(x) \, dx \le f(x_{\max}) (b-a) </me> which then implies <me> f(x_{\min}) \le \langle f \rangle_{[a,b]} \le f(x_{\max}).</me></p>
+                <p>By the <xref ref='intermediate-value-theorem' text='custom'>Intermediate Value Theorem</xref> with the interval with end points <m>x_{\min}</m> and <m>x_{\max}</m> (we don't know which is on the left/right), there must be some value <m>c</m> between these points, and so <m>c \in (a,b)</m>, for which <me>f(c) = \langle f \rangle_{[a,b]}.</me></p>
             </proof>
         </theorem>
 
         <p>In the previous example, <m>f</m> was not continuous and we can see that the graph <m>y=f(x)</m> did not intersect the constant value <m>\langle f \rangle_{[0,5]}</m>. The Mean Value Theorem for Integrals guarantees that when the function is continuous, the constant function using the average value must intersect the graph <m>y=f(x)</m>.</p>
 
         <example>
-            <p>The function <m>f(x)=x^2</m> is continuous everywhere. The average value on the interval <m>[-1,2]</m> can be found using the <xref ref='thm-elementary-definite-integrals' text='title'>elementary accumulation formula</xref> for a quadratic rate and the splitting property. <md>
+            <p>The function <m>f(x)=x^2</m> is continuous everywhere. The average value on the interval <m>[-1,2]</m> can be found using the <xref ref='thm-elementary-definite-integrals' text='custom'>elementary accumulation formula</xref> for a quadratic rate and the splitting property. <md>
                 <mrow> \langle f \rangle_{[-1,2]} &amp;= \frac{1}{2--1} \int_{-1}^{2} x^2 \, dx </mrow>
                 <mrow> &amp;= \frac{1}{3} \Big( \int_0^2 x^2 \, dx - \int_0^{-1} x^2 \, dx \Big) </mrow>
                 <mrow> &amp;= \frac{1}{3} \Big( \frac{1}{3}(2^3) - \frac{1}{3}(-1)^3 \Big) = \frac{1}{3}\Big(\frac{8}{3} + \frac{1}{3}\Big) = 1</mrow>
             </md> A figure showing the graphs <m>y=f(x)=x^2</m> and <m>y=\langle f \rangle_{[-1,2]} = 1</m> is shown below. The Mean Value Theorem predicted the existence of a point <m>c \in (-1,2)</m> where <m>f(c)=\langle f \rangle_{[-1,2]}=1</m>, which we can see occurs at <m>c=1</m>.</p>
-            <sidebyside>
-                <image>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}
-                    \begin{axis}
-                    [ xmin=-2, xmax=3, ymin=-2, ymax=6 ]
-                    \addplot[-, name path=axis] coordinates { (-2,0) (3,0) };
-                    \addplot[name path=theFcn,blue,domain=-2:3,samples=100]
-                        {x^2};
-                    \addplot[blue,opacity=0.25] fill between[
-                        of=axis and theFcn,
-                        soft clip={domain=-1:2},
-                    ];
-                    \addplot[-, name path=aveValue, red] coordinates { (-1,1) (2,1)};
-                    \addplot[red,opacity=0.25] fill between[
-                        of=axis and aveValue,
-                        soft clip={domain=-1:2},
-                    ];
-                    \end{axis}
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+            <image>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}
+                [ xmin=-2, xmax=3, ymin=-2, ymax=6 ]
+                \addplot[-, name path=axis] coordinates { (-2,0) (3,0) };
+                \addplot[name path=theFcn,blue,domain=-2:3,samples=100]
+                    {x^2};
+                \addplot[blue,opacity=0.25] fill between[
+                    of=axis and theFcn,
+                    soft clip={domain=-1:2},
+                ];
+                \addplot[-, name path=aveValue, red] coordinates { (-1,1) (2,1)};
+                \addplot[red,opacity=0.25] fill between[
+                    of=axis and aveValue,
+                    soft clip={domain=-1:2},
+                ];
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
         </example>
 
-        <p>The Mean Value Theorem for Integrals also provides the justification for the <xref ref='thm-monotonicity-from-rate' text='title'>Monotonicity Test for Accumulation Functions</xref>.</p>
+        <p>The Mean Value Theorem for Integrals also provides the justification for the <xref ref='thm-monotonicity-from-rate' text='custom'>Monotonicity Test for Accumulation Functions</xref>.</p>
 
         <theorem xml:id="thm-monotonicity-from-rate-repeat">
             <title>Monotonicity Test for Accumulation Functions</title>

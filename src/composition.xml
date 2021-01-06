@@ -6,177 +6,173 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="composition-inverses">
     <title>Composition of Functions</title>
 
     <subsection>
         <title>Overview</title>
-        
+
         <p>Composition of functions occurs when the output of one function is the input to another function. In the context of variables, this means that the system has a state with three or more variables. Each function defines a relation between two of the variables. Suppose <m>f : x \mapsto y</m> and <m>g : y \mapsto z</m>. This means that <m>x</m> and <m>z</m> are also related. The function that relates them is called the composition, <m>g \circ f : x \mapsto z</m>.</p>
-        
+
         <p>This section introduces the terminology of chains to describe  relationships between more than two variables and the ideas of composition of functions. We use composition whenever we use an expression for the input of a function instead of a simple variable. That is, composition is really a generalization of substitution. Learning how to identify composition will also be important in calculus in relation to the chain rule of differentiation.</p>
     </subsection>
-    
+
     <subsection>
         <title>Functions as Operations</title>
-        
+
         <p>Before proceeding to the actual discussion of composition, I first want to be sure that you have seen the idea that a function can be thought of as a single operation even if it might internally be defined as a many operations brought together.</p>
-        
+
         <example>
             <p>Consider the function <m>f : x \mapsto y = f(x)=2x-5</m>. The function itself contains two operations: multiply by 2 and subtract 5. However, we think of the function <m>f</m> as a single operation that takes a number <m>x</m> (whatever its value) and returns a new number which has the related value <m>2x-5</m>. Even though our usual steps of computation to arrive at <m>2x-5</m> requires two operations, the function accomplishes this in a single step. It is like a specialized mathematics machine whose sole task is to accomplish this operation.</p>
 
-            <sidebyside>
-                <image>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[x=0.5cm,y=2cm]
-                    \draw[<->] (-6.5,0) -- (10.5,0) node[right] {$x$};
-                    \foreach \x in {0, 1, 2, 3}
-                        \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
-                    \draw[<->] (-6.5,-1) -- (10.5,-1) node[right] {$y=2x-5$};
-                    \foreach \x in {-5, -3, -1, 1}
-                        \draw (\x,-0.9) -- (\x,-1.1) node[below] {\x};
-                    \foreach \x in {0, 1, 2, 3}
-                        \draw [thick, black, ->] (\x,-0.15) -- (2*\x-5,-0.85)  node[pos=0.5, right] {$f$};
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+            <image>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[x=0.5cm,y=2cm]
+                \draw[<->] (-6.5,0) -- (10.5,0) node[right] {$x$};
+                \foreach \x in {0, 1, 2, 3}
+                    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+                \draw[<->] (-6.5,-1) -- (10.5,-1) node[right] {$y=2x-5$};
+                \foreach \x in {-5, -3, -1, 1}
+                    \draw (\x,-0.9) -- (\x,-1.1) node[below] {\x};
+                \foreach \x in {0, 1, 2, 3}
+                    \draw [thick, black, ->] (\x,-0.15) -- (2*\x-5,-0.85)  node[pos=0.5, right] {$f$};
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
         </example>
-        
+
         <p>The idea of composition of functions is to take the operations associated with two functions and combine them in sequence to form a new function. This new function, called the composition, has as its operation the consecutive application of the more elementary functions.</p>
-        
+
         <example>
             <p>Returning to our example <m>f(x)=2x-5</m>, we might think of our formula as a composition. Introduce <m>u</m> as the intermediate value <m>u=2x</m> and define the following functions: <md>
                 <mrow>\mathrm{mult}_2 : x \mapsto u = 2x,</mrow>
                 <mrow>\mathrm{subt}_5 : u \mapsto y = u-5.</mrow>
             </md> The first function <m>\mathrm{mult}_2</m> has an operation that doubles the value of its input. The second function <m>\mathrm{subt}_5</m> has an operation that subtracts 5 from its input. The function <m>f</m> is the composition of these two more elementary functions, illustrated by the map diagram below.</p>
 
-            <sidebyside>
-                <image>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[x=0.5cm,y=1.5cm]
-                    \draw[<->] (-6.5,0) -- (10.5,0) node[right] {$x$};
-                    \foreach \x in {0, 1, 2, 3}
-                        \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
-                    \draw[<->] (-6.5,-1) -- (10.5,-1) node[right] {$u=2x$};
-                    \foreach \x in {0, 2, 4, 6}
-                        \draw (\x,-0.9) -- (\x,-1.1) node[below] {\x};
-                    \draw[<->] (-6.5,-2) -- (10.5,-2) node[right] {$y=2x-5$};
-                    \foreach \x in {-5, -3, -1, 1}
-                        \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
-                    \foreach \x in {0, 1, 2}
-                        \draw [thick, black, ->] (\x,-0.15) -- (2*\x,-0.85);
-                    \draw [thick, black, ->] (3,-0.15) -- (6,-0.85) node[pos=0.5, right] {$\mathrm{mult}_2$};
-                    \foreach \x in {0, 1, 2}
-                        \draw [thick, black, ->] (2*\x,-1.15) -- (2*\x-5,-1.85);
-                    \draw [thick, black, ->] (6,-1.15) -- (1,-1.85) node[pos=0.5, right] {$\mathrm{subt}_5$};
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+            <image>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[x=0.5cm,y=1.5cm]
+                \draw[<->] (-6.5,0) -- (10.5,0) node[right] {$x$};
+                \foreach \x in {0, 1, 2, 3}
+                    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+                \draw[<->] (-6.5,-1) -- (10.5,-1) node[right] {$u=2x$};
+                \foreach \x in {0, 2, 4, 6}
+                    \draw (\x,-0.9) -- (\x,-1.1) node[below] {\x};
+                \draw[<->] (-6.5,-2) -- (10.5,-2) node[right] {$y=2x-5$};
+                \foreach \x in {-5, -3, -1, 1}
+                    \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+                \foreach \x in {0, 1, 2}
+                    \draw [thick, black, ->] (\x,-0.15) -- (2*\x,-0.85);
+                \draw [thick, black, ->] (3,-0.15) -- (6,-0.85) node[pos=0.5, right] {$\mathrm{mult}_2$};
+                \foreach \x in {0, 1, 2}
+                    \draw [thick, black, ->] (2*\x,-1.15) -- (2*\x-5,-1.85);
+                \draw [thick, black, ->] (6,-1.15) -- (1,-1.85) node[pos=0.5, right] {$\mathrm{subt}_5$};
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
         </example>
-        
+
     </subsection>
-    
+
     <!-- Variable Chains and Composition -->
     <subsection>
         <title>Chains of Variables</title>
-        
+
         <p>It is often the case that more than two variables are related in a predictive way. Consider, for example, a balloon filling with air. To keep the model simple, assume the balloon is always a sphere but with a changing radius. The radius <m>r</m> and volume <m>V</m> of the balloon are related through the equation for volume of a sphere, <me>V = \frac{4}{3} \pi r^3.</me> Notice that this equation is written with the dependent variable <m>V</m> as an explicit function of the independent variable <m>r</m>. By solving for <m>r</m>, we can also write <m>r</m> as an explicit function of <m>V</m>. <md>
             <mrow> V &amp;= \frac{4}{3} \pi r^3\qquad \hbox{(Multiply by 3)} </mrow>
             <mrow> 3V &amp;= 4 \pi r^3 \qquad \hbox{(Divide by $4 \pi$)} </mrow>
             <mrow> r^3 &amp;= \frac{3V}{4 \pi} \qquad \hbox{(Inverse equation: cube root)} </mrow>
             <mrow> r &amp;= \sqrt[3]{\frac{3V}{4 \pi}} </mrow>
         </md> In this new equation, we have the dependent variable <m>r</m> as a function of the independent variable <m>V</m>.</p>
-        
+
         <p>Now, suppose that we knew how the volume changed as a function of time (based on how much air has been added). Knowing the time <m>t</m>, we can predict the volume <m>V</m>; and knowing the volume <m>V</m>, we can predict the radius <m>r</m>. We will call this idea a chain of dependent variables, <me>t \mapsto V \mapsto r.</me> Consequently, we can think of the final variable <m>r</m> as a function of the first <m>t</m> by this chain. This is a composition.</p>
-        
+
         <example>
             <statement>
             <p>A drop of water sitting on a flat surface forms the shape of half a sphere. Suppose the radius of the drop, which starts at 3 mm, is decreasing through evaporation at a rate of 0.2 mm/min. Find the volume of the water as a function of time.</p>
             </statement>
-            
+
             <solution>
             <p>We will create a variable chain involving time <m>t</m> (in minutes), radius <m>r</m> (in millimeters), and volume <m>V</m> (in cubic millimeters): <me> t \mapsto r \mapsto V. </me></p>
-            
+
             <p>In the first step, we need the function <m>t \mapsto r</m> which is modeled by a linear function because of the constant rate of change. That is, we know the slope (negative because decreasing) and an initial point: <me> \frac{\Delta r}{\Delta t} = -0.2, \quad (t,r)=(0,3).</me> This point plays the role of <m>y</m>-intercept (except that the variable is <m>r</m>), so we have <m>r=-0.2t+3</m>. This is the first step of the chain, <me> t \mapsto r=-0.2t+3. </me></p>
-            
+
             <p>The second step of the chain is based on the relation between radius and volume. Because the drop of water forms just half a sphere, the volume formula is given by <me> V = \frac{1}{2} \cdot \frac{4}{3}\pi r^3 = \frac{2}{3} \pi r^3. </me> This is already in the form of a function, so we have the second step of the chain, <me> r \mapsto V = \frac{2}{3} \pi r^3. </me></p>
-            
+
             <p>Now that we have the chain, we finish the problem using substitution up the chain. We know that the radius is a function of time <m>r=r(t) = -0.2t+3</m>. So the volume which is a function of the radius is calculated as <me> V = V(r) = V(-0.2t+3) = \frac{2}{3} \pi (-0.2t+3)^3 </me> by substituting the formula <m>-0.2t+3</m> in place of <m>r</m> in the formula for <m>V</m>. It is as though we collapsed the chain to think of volume as a direct function of time, <me> t \mapsto V = \frac{2}{3} \pi (-0.2t+3)^3. </me></p>
             </solution>
         </example>
-        
+
         <example>
             <statement>
             <p>Planting trees is recognized as a method to reduce the amount of carbon dioxide in the atmosphere, with an estimate of about 410 kg of <m>\mathrm{CO}_2</m> sequestered per tree planted. Suppose that an environmental society begins a campaign to plant 200 trees per year. Express the amount of sequestered <m>\mathrm{CO}_2</m> as a result of this campaign as a function of time.</p>
             </statement>
-            
+
             <solution>
             <p>Let <m>t</m> measure time in years since the campaign began, let <m>T</m> count the number of trees planted, and let <m>C</m> measure the amount of <m>\mathrm{CO}_2</m> (in kg) sequestered as a result of the campaign. Based on the information, we should be able to produce a chain of these variables <me> t \mapsto T \mapsto C. </me></p>
-            
+
             <p>The total number of trees planted is proportional to the time the campaign has been active, since they plant 200 trees per year (constant rate) and began with no trees. The first step of the chain is therefore <me> t \mapsto T = 200 t. </me> The amount of carbon dioxide stored is proportional to the number of trees, giving us the second step of the chain, <me> T \mapsto C = 410 T. </me> Collapsing the chain by substitution allows us to express the carbon dioxide stored as a function of time, <me> t \mapsto C = 410 T(t) = 410 (200t) = 82000t. </me></p>
-            
+
             <p>Notice that in calculation of that last formula the <m>t</m> in <m>T(t)</m> is not being multiplied, but is there to emphasize that <m>T</m> is actually a function of <m>t</m>. The symbol <m>T(t)</m> (yes, that is one symbol involving two letters to mean a function) is replaced by the formula from our chain <m>T(t)=200t</m>.</p>
             </solution>
         </example>
     </subsection>
-    
+
     <subsection>
         <title>Function Composition</title>
-        
+
         <p>Function composition is where the output to one function is used as the input to the other function.</p>
-        
+
         <definition>
             <statement>
             <p>Let <m>f</m> and <m>g</m> be two functions. We define the <term>composition</term> <m>g \circ f</m> to be a new function <me> x \mapsto g \circ f(x) = g(f(x)). </me> The domain of <m>g \circ f</m> is the subset of <m>\mathrm{dom}(f)</m> for which <m>f(x)</m> is in the domain of <m>g</m>, <me> \mathrm{dom}(g \circ f) = \{ x : x \in \mathrm{dom}(f), f(x) \in \mathrm{dom}(g) \}.</me> The range of <m>g \circ f</m> is a subset of the range of <m>g</m>.</p>
             </statement>
         </definition>
-        
+
         <p>Notice that the order of the functions in the composition matters because functions are evaluated from the inside out. In the notation <m>g \circ f</m>, the right-most function is the inner-function and the left-most function is the outer-function. To see the connection between function composition and a chain of variables, we think of each function as one step in the chain, with the inner function as the first step and the outer function as the last step.</p>
-        
+
         <example>
             <statement>
             <p>Suppose <m>\displaystyle f(x)=\frac{x}{x+1}</m> and <m>\displaystyle g(x) = 5e^{-x}.</m> Find the compositions <m>f \circ g(x)</m> and <m>g \circ f(x)</m>.</p>
             </statement>
-            
+
             <solution>
             <p>First, consider the composition <m>f \circ g(x)</m>. The direct interpretation of this composition is to compute <me> f \circ g(x) = f(g(x)). </me> Since <m>g</m> is the inner function, we would use its formula as the input to the outer function <m>f</m>: <me> f \circ g(x) = f(5e^{-x}) = \frac{(5e^{-x})}{(5e^{-x})+1}. </me> The parentheses were not necessary but were just used to emphasize that the <m>x</m> was just a placeholder in the equation <m>\displaystyle f(x) = \frac{x}{x+1}</m>.</p>
-            
+
             <p>I find that thinking of a composition as a chain can be helpful, so let us see how that relates. Each function will be one step in the chain, so we have two dependent variables, which we'll name <m>u</m> and <m>y</m>. In the composition <m>f \circ g</m>, we work through the function from right to left, so our chain could be represented as <md>
                 <mrow>x \mapsto u=g(x)=5e^{-x},</mrow>
                 <mrow>u \mapsto y=f(u)=\frac{u}{u+1}.</mrow>
             </md> This might be summarized as the following diagram <me> x \overset{g}{\mapsto} u \overset{f}{\mapsto} y. </me> Then function composition corresponds to collapsing the chain by substitution <me> x \mapsto y=f \circ g(x) = \frac{5e^{-x}}{5e^{-x}+1}. </me></p>
-            
+
             <p>The second composition <m>g \circ f</m> will be different since we are using the opposite functions for input and output. To emphasize the difference, we should probably use different dependent variables in our chain, say <m>w</m> and <m>z</m>, given by <me> x \overset{f}{\mapsto} w \overset{g}{\mapsto} z, </me> where <md>
                 <mrow> w= f(x) = \frac{x}{x+1},</mrow>
                 <mrow> z=g(w) = 5e^{-w}.</mrow>
             </md> The chain and composition both collapse to <me>z = g \circ f(x) = g(f(x)) = g(w) = 5e^{-\left(\frac{x}{x+1}\right)}.</me></p>
             </solution>
         </example>
-        
+
         <p>The previous example illustrated that the order of the composition was important. Doing the composition in the wrong order will not give the same result. In modeling situations, composition almost always arises in the context of a chain of variables where changing the order doesn't even make physical sense.</p>
-        
+
         <p>It is also important to be able to recognize a complex function as a composition of more basic mathematical functions. I recommend looking for a possible chain of calculations as a method for finding the composition.</p>
-        
+
         <example>
             <statement>
             <p>Express <m>f(x)=(x^2-3)^4</m> as a composition.</p>
             </statement>
-            
+
             <solution>
             <p>What are the steps in this calculation? Square <m>x</m> and subtract 3. Then take that quantity and raise it to the 4th power. Because we took an intermediate quantity and did something to it, that is an implicit chain of calculations. <md>
                 <mrow>x \mapsto u=x^2-3</mrow>
                 <mrow>u \mapsto y=u^4</mrow>
             </md></p>
-            
+
             <p>Once we identify a chain of calculations, the composition is performed on the functions used in each step. In this example, the first function is <m>g(x)=x^2-3</m>. (We can't use <m>f</m> since that is the name of the original function in this problem.) The output of that function is then put in the next function <m>h(u)=u^4</m>, or equivalently, <m>h(x)=x^4</m> since the variable is just a placeholder. In summary, we have: <md>
                 <mrow>f(x) = (x^2-3)^4 = h \circ g(x)</mrow>
                 <mrow>g(x) = x^2-3</mrow>
@@ -184,7 +180,7 @@
             </md></p>
             </solution>
         </example>
-        
+
 
         <example>
             <statement>
@@ -195,17 +191,17 @@
                 <li> <m>\displaystyle f(x)=x e^{-x^2}</m> </li>
             </ol>
             </statement>
-            
+
             <solution>
             <ol>
-                <li> 
+                <li>
                 <p><m>\displaystyle f(x)=\frac{1}{x^2}</m></p>
                 <p>The variable <m>y=f(x)</m> can be attained through the following chain: <md>
                     <mrow> x \overset{g}{\mapsto} u=x^2, </mrow>
                     <mrow> u \overset{h}{\mapsto} y=\frac{1}{u}. </mrow>
                 </md> So one possible composition would be <m>f(x) =h \circ g(x)</m> with <m>g(x)=x^2</m> and <m>\displaystyle h(u) = \frac{1}{u}</m>.</p>
                 </li>
-                
+
                 <li>
                 <p><m>\displaystyle f(x)=3 \sin^2(\pi x)</m></p>
                 <p>This might be a little harder to see. Consider the steps of calculation: multiply <m>x</m> by <m>\pi</m>, find the sine of that quantity, square the result and multiply by 3. Knowing what was squared allows us to determine the chain and corresponding composition. <md>
@@ -213,8 +209,8 @@
                     <mrow> u \overset{s}{\mapsto} y=3u^2. </mrow>
                 </md> The corresponding composition for this chain is <m>f(x) = s \circ q(x)</m> with <m>q(x)=\sin(\pi x)</m> and <m>s(u) = 3u^2</m>.</p>
                 </li>
-                
-                <li> 
+
+                <li>
                 <p><m>\displaystyle f(x)=x e^{-x^2}</m> </p>
                 <p>This looks a lot like a composition, but is not. We do start with <m>x^2</m> and then change its sign and put it in an exponential with base <m>e</m>. This would give us <m>e^{-u}</m> with <m>u=x^2</m>. So far that looks like a good chain. However, the next step takes the variable <m>x</m> instead of our chain variable <m>u</m> and multiplies. Because only some of the references to <m>x</m> involve the chain variable <m>u=x^2</m>, we can not use that as a valid chain.</p>
                 </li>
@@ -222,5 +218,5 @@
             </solution>
         </example>
     </subsection>
-    
+
 </section>

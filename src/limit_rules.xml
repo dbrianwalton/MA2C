@@ -6,54 +6,54 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="limit-rules">
     <title>Limit Rules</title>
 
     <introduction>
     <p>
-    So far, we have been taking advantage of the fact that 
+    So far, we have been taking advantage of the fact that
     simple algebraic formulas are continuous.
-    When taking limits so far, all we have done is 
+    When taking limits so far, all we have done is
     use the value of the formula at the point in question.
     However, this is not always the case.
     </p>
-    
+
     <p>
     In <xref ref="calculus-overview"/>, we introduced an alternative
-    <xref ref="definition-limit-by-sequences">definition of function limits</xref>.
+    <xref ref="definition-limit-by-sequences" text="custom">definition of function limits</xref>.
     That definition stated that the value of <m>\displaystyle \lim_{x \to a} f(x)</m>
     equals that value <m>L</m> to which a dependent sequence <m>f(x_n)</m> would converge
     <em>for every</em> independent sequence <m>x=(x_n)</m> with <m>x_n \ne a</m> and <m>x_n \to a</m>.
     To understand the limits of functions better,
     we first need to recognize the rules of limits of sequences .
-    Limit rules are a powerful collection of theorems 
+    Limit rules are a powerful collection of theorems
     that allow us to find limits using elementary rules.
     </p>
-    
+
     <p>
-    Mathematics uses deductive reasoning (built on axioms and logical implications) 
-    to establish rules for what must be true based on our fundamental assumptions of how things work. 
-    These proven consequences are called theorems. 
+    Mathematics uses deductive reasoning (built on axioms and logical implications)
+    to establish rules for what must be true based on our fundamental assumptions of how things work.
+    These proven consequences are called theorems.
     Every theorem has two parts—a hypothesis and a conclusion.
-    A hypothesis is a  collection of conditions that must be checked 
-    to see if the theorem's conclusion can be applied. 
-    A conclusion is a statement that is guaranteed to be true 
+    A hypothesis is a  collection of conditions that must be checked
+    to see if the theorem's conclusion can be applied.
+    A conclusion is a statement that is guaranteed to be true
     so long as the hypothesis has been satisfied.
     </p>
-    
+
     <p>
-    When we wish to apply a theorem, it is our duty to first check 
-    that all of the conditions in the hypothesis have been satisfied. 
-    Once this is complete, then you interpret the conclusion for the context of your problem 
+    When we wish to apply a theorem, it is our duty to first check
+    that all of the conditions in the hypothesis have been satisfied.
+    Once this is complete, then you interpret the conclusion for the context of your problem
     and cite the relevant theorem as the justification.
     </p>
     </introduction>
-    
+
     <subsection>
 
     <title>Limit Rules for Combining Sequences</title>
-    
+
     <p>
     We start by formalizing some rules about how limits of sequence
     relate to arithmetic of sequences.
@@ -62,9 +62,9 @@
     We then define a new sequence using arithmetic involving those sequences.
     The conclusion of each theorem describes the limit of the new sequence.
     </p>
-    
+
     <p>
-    For a converging sequence <m>x=(x_n)</m> with <m>x_n \to L</m>, 
+    For a converging sequence <m>x=(x_n)</m> with <m>x_n \to L</m>,
     we can think of the sequence values as <em>approximating</em> <m>L</m>.
     The absolute error of approximation <m>|x_n - L|</m> must vanish as <m>n \to \infty</m>.
     In other words, for any margin of error <m>\epsilon \gt 0</m>,
@@ -74,11 +74,11 @@
     can be related to the errors of approximations of the given sequences to their limits
     in a way to show that the approximation will eventually vanish.
     </p>
-    
+
     <p>
     The first three rules involve operations on only a single sequence.
     </p>
-    
+
     <theorem xml:id="SLC-Constant-Sum">
       <title>Sequence Limit of a Constant Sum (SL:CS)</title>
       <statement>
@@ -90,7 +90,7 @@
       </statement>
       <proof>
         <p>
-        The error of approximation for <m>w_n</m> from its proposed limit <m>L+k</m> 
+        The error of approximation for <m>w_n</m> from its proposed limit <m>L+k</m>
         can be rewritten
         <me>|w_n - (L+k)| = |u_n + k - L - k| = |u_n - L|</me>.
         This is the same as the error of approximation for <m>u_n</m> from its limit <m>L</m>.
@@ -100,7 +100,7 @@
         </p>
       </proof>
     </theorem>
-    
+
     <theorem xml:id="SLC-Constant-Multiple">
       <title>Sequence Limit of a Constant Sum (SL:CM)</title>
       <statement>
@@ -112,7 +112,7 @@
       </statement>
       <proof>
         <p>
-        The error of approximation for <m>w_n</m> from its proposed limit <m>kL</m> 
+        The error of approximation for <m>w_n</m> from its proposed limit <m>kL</m>
         can be rewritten
         <me>|w_n - kL| = |ku_n - kL| = |k(u_n - L)| = |k|\cdot |u_n - L|</me>.
         If <m>k=0</m>, then <m>w_n = 0</m> for all <m>n</m> and <m>w_n \to 0</m> must be true.
@@ -124,7 +124,7 @@
         </p>
       </proof>
     </theorem>
-    
+
     <theorem xml:id="SLC-MultInverse">
       <title>Sequence Limit of a Reciprocal (SL:MInv)</title>
       <statement>
@@ -144,13 +144,13 @@
         (Before this point, we might have had <m>u_n=0</m> so that <m>w_n</m> is not defined.
         </p>
         <p>
-        The error of approximation for <m>w_n</m> from its proposed limit <m>\frac{1}{L}</m> 
+        The error of approximation for <m>w_n</m> from its proposed limit <m>\frac{1}{L}</m>
         can be rewritten using a common denominator
         <me>|w_n - \frac{1}{L}| = |\frac{1}{u_n} - \frac{1}{L}| = |\frac{L-u_n}{u_n L}| = |u_n - L| \cdot \frac{1}{|u_n||L|}</me>.
         Because <m>|u_n| \gt \frac{1}{2}|L|</m>, we know that <m>\displaystyle \frac{1}{|u_n|} \lt \frac{2}{|L|}</m>.
         Thus,
         <me>|w_n - \frac{1}{L}| \lt |u_n - L| \cdot \frac{2}{|L|^2}</me>.
-        The error of approximation for <m>w_n</m> is always smaller than 
+        The error of approximation for <m>w_n</m> is always smaller than
         <m>\frac{2}{|L|^2}</m> times the error of approximation for <m>u_n</m> from its limit.
         Because <m>|u_n - L| \to 0</m>, this proves
         <me> \lim_{n \to \infty} \frac{1}{u_n} = \frac{1}{L}.</me>
@@ -209,7 +209,7 @@
 
     <subsection>
     <title>Elementary Limit Rules</title>
-    
+
     <p>
       The first collection of limit rules are some basic limits.
       We can think of them as our building blocks for more complicated limits.
@@ -233,7 +233,7 @@
             <p>Conclusion: <m>\displaystyle \lim_{x \to a} x = a</m>.</p>
         </statement>
     </theorem>
-    
+
     <p>
       Note: The name of the previous theorem is based on the function <m>f(x)=x</m> being called the identity function because the output is exactly the input.
     </p>
@@ -246,16 +246,16 @@
         </statement>
         </theorem>
     </subsection>
-    
+
     <subsection>
     <title>Limit Rules of Combination</title>
-    
+
     <p>
       The second collection of limit rules tell us how we can take limits that we already know (starting with building blocks)
       and use them to compute more complicated limits.
       The first three rules take a single limit that is known to be valid and use arithmetic with a constant to find a new limit.
     </p>
-    
+
     <theorem xml:id='LC-Constant-Sum'>
         <title>Limit of a Constant Sum (LC:CS)</title>
         <statement>
@@ -319,13 +319,13 @@
         <p>Conclusion: <m>\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}</m>.</p>
       </statement>
     </theorem>
-    
+
     <p>
       In addition to the arithmetic of functions, composition of functions plays an important role in algebra and calculus.
       So we need a limit rule associated with composition.
       Recall that for composition, the output of one function becomes the input to another function.
     </p>
-    
+
     <theorem xml:id='LC-Continuous-Composition'>
       <title>Limit of a Continuous Composition (LC:Comp)</title>
       <statement>
@@ -333,7 +333,7 @@
         <p>Conclusion: <m>\displaystyle \lim_{x \to a} g \circ f(x) = \lim_{x \to a} g(f(x)) = g(L)</m>.</p>
       </statement>
     </theorem>
-    
+
     <p>If <m>f</m> is continuous at <m>a</m> so that <m>\displaystyle \lim_{x \to a} f(x) = f(a)</m> then we have <m>\displaystyle \lim_{x \to a} g \circ f(x) = g \circ f(a)</m>. In other words, the composition of continuous functions is a continuous function.</p>
 
     <p>Each of these limit rules is proved using a more precise definition of what a limit means. For now, we will consider these rules as a starting point for evaluating limits.</p>
@@ -341,13 +341,13 @@
 
     <subsection>
     <title>Justifying Limit Calculations</title>
-    
+
     <p>There are two ways in which limit rules are applied. One way is to provide formal justification of limit calculations, or in other words, to write a proof of limit statements. The other way limit rules are used is to break a computation down into recognizable and manageable parts. This section focuses on the process of formal justification.</p>
-    
+
     <p>A mathematical proof is essentially a sequence of statements, each of which is demonstrably true based only on previously stated knowledge and logical arguments. This means that when writing a proof or any careful justification, we must be careful that when we write something down we have previously established all of the necessary conditions at a previous step. In order to avoid circular reasoning, we should avoid referring to something as true before we actually show it is true.</p>
-    
+
     <p>For justification of limit statements, this means that we start from the small building blocks that create our formula and put them together one step at a time until we can justify the limit statement we are trying to prove.</p>
-    
+
     <example>
     <statement>
         <p>Compute and justify <m>\displaystyle \lim_{x \to 2} 3x^2(2x-5)</m>.</p>
@@ -406,5 +406,5 @@
     </solution>
     </example>
     </subsection>
-    
+
 </section>

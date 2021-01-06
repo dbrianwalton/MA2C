@@ -36,12 +36,12 @@
     <title>Differentiability of Functions</title>
     <p>
       Recall that continuity and differentiability are properties of functions.
-      To say that a function is <xref ref="defn-continuity-at-point" text="title">continuous at a point</xref>
+      To say that a function is <xref ref="defn-continuity-at-point" text="custom">continuous at a point</xref>
       means that the function itself has a value at that point
       and that the limits of the function from both the left and the right converge to the same value.
       The property of continuity essentially characterizes the idea
       that the graph of the function is connected at the given point.
-      In a similar way, <xref ref="defn-differentiable" text="title">differentiability</xref>
+      In a similar way, <xref ref="defn-differentiable" text="custom">differentiability</xref>
       is a property that the limit defining the derivative at a point is defined.
       Differentiability guarantees that a function has a linear tangent line approximation.
     </p>
@@ -104,7 +104,7 @@
     <p>
       When we first introduced the concept of differentiability,
       we used piecewise functions to provide
-      <xref ref="example-differentiability-piecewise" text="title">examples of nondifferentiable functions</xref>.
+      <xref ref="example-differentiability-piecewise" text="custom">examples of nondifferentiable functions</xref>.
       In those examples, we used the definition of the derivative.
       With the rules of differentiation, we can determine differentiability more directly.
     </p>
@@ -262,7 +262,7 @@
       </statement>
     </definition>
     <p>
-      The second theorem combines the <xref ref='extreme-value-theorem' text='title'>Extreme Value Theorem</xref> with Fermat's Theorem.
+      The second theorem combines the <xref ref='extreme-value-theorem' text='custom'>Extreme Value Theorem</xref> with Fermat's Theorem.
       If a function is continuous on a closed interval <m>[a,b]</m>,
       then it must achieve both a maximum and a minimum value.
       If that function has <m>f(a)=f(b)</m>,
@@ -317,7 +317,7 @@
       It is most often referenced in the context of proving more useful theorems.
       The third theorem about differentiability applies Rolle's theorem
       to create the Mean Value Theorem for derivatives in relation to the average rate of change.
-      Recall that the <xref ref='defn-average-rate-of-change' text='title'>average rate of change</xref>,
+      Recall that the <xref ref='defn-average-rate-of-change' text='custom'>average rate of change</xref>,
       <me>\left.\frac{\Delta f}{\Delta x}\right|_{[a,b]} = \frac{f(b)-f(a)}{b-a},</me>
       is the slope of the line, called a <term>secant line</term>,
       that joins the points <m>(a,f(a))</m> and <m>(b,f(b))</m>.
@@ -421,9 +421,9 @@
         <p>
           Consider any two points <m>a,b \in I</m> with <m>a \lt b</m>.
           Because <m>f</m> is differentiable on <m>I</m>,
-          we know that <m>f</m> is <xref ref='thm-differentiable-implies-continuous' text='title'>continuous</xref>
+          we know that <m>f</m> is <xref ref='thm-differentiable-implies-continuous' text='custom'>continuous</xref>
           and differentiable on the subinterval <m>[a,b]</m>.
-          The <xref ref='mean-value-theorem' text='title'>Mean Value Theorem</xref>
+          The <xref ref='mean-value-theorem' text='custom'>Mean Value Theorem</xref>
           guarantees the existence of a point <m>c \in (a,b)</m> such that
           <me>f(b)-f(a) = f'(c)\cdot(b-a).</me>
         </p>
@@ -522,48 +522,44 @@
           The only point where <m>f'(x)=0</m> is where <m>1-2x=0</m> or <m>x=\frac{1}{2}</m>.
           The resulting sign analysis summary for <m>f'(x)</m> is shown below.
         </p>
-        <sidebyside width="80%" margins="auto">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=1cm,y=1cm]
-            \draw[<->] (-2,0) -- (4,0)
-              node[pos=1, above right] {$f'(x)=(1-2x)e^{-2x}$}
-              node[pos=1, below right] {$x$};
-            \draw (0.5, -0.1) -- (0.5,0.1)
-              node[pos=0, below] {$\frac{1}{2}$}
-              node[pos=1, above] {$0$};
-            \node [above] at (-.5,0.1) {$+$};
-            \node [above] at (1.5,0.1) {$-$};
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="80%" margins="auto">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=1cm,y=1cm]
+          \draw[<->] (-2,0) -- (4,0)
+            node[pos=1, above right] {$f'(x)=(1-2x)e^{-2x}$}
+            node[pos=1, below right] {$x$};
+          \draw (0.5, -0.1) -- (0.5,0.1)
+            node[pos=0, below] {$\frac{1}{2}$}
+            node[pos=1, above] {$0$};
+          \node [above] at (-.5,0.1) {$+$};
+          \node [above] at (1.5,0.1) {$-$};
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           The only point where <m>f''(x)=0</m> is where <m>-4+4x=0</m> or <m>x=1</m>.
           The resulting sign analysis summary for <m>f''(x)</m> is shown below.
         </p>
-        <sidebyside width="80%" margins="auto">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=1cm,y=1cm]
-            \draw[<->] (-2,0) -- (4,0)
-              node[pos=1, above right] {$f''(x)=(-4+4x)e^{-2x}$}
-              node[pos=1, below right] {$x$};
-            \draw (1, -0.1) -- (1,0.1)
-              node[pos=0, below] {$1$}
-              node[pos=1, above] {$0$};
-            \node [above] at (-.5,0.1) {$-$};
-            \node [above] at (2,0.1) {$+$};
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="80%" margins="auto">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=1cm,y=1cm]
+          \draw[<->] (-2,0) -- (4,0)
+            node[pos=1, above right] {$f''(x)=(-4+4x)e^{-2x}$}
+            node[pos=1, below right] {$x$};
+          \draw (1, -0.1) -- (1,0.1)
+            node[pos=0, below] {$1$}
+            node[pos=1, above] {$0$};
+          \node [above] at (-.5,0.1) {$-$};
+          \node [above] at (2,0.1) {$+$};
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           We now interpret our results.
           Because <m>f</m> is continuous, we can extend open intervals to include end-points.
@@ -575,19 +571,17 @@
           with the local maximum at <m>x=\frac{1}{2}</m>
           and the point of inflection at <m>x=1</m>.
         </p>
-        <sidebyside width="70%">
-          <image>
-            <latex-image>
-              \begin{tikzpicture}
-              \begin{axis}
-              [ xmin=-1, xmax=3, ymin=-.25, ymax=.25 ]
-              \addplot [domain=-1:3, samples=80, thick, blue] {x*exp(-2*x)};
-              \addplot [only marks, blue, samples at={.5, 1}] {x*exp(-2*x)};
-              \end{axis}
-              \end{tikzpicture}
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%">
+          <latex-image>
+            \begin{tikzpicture}
+            \begin{axis}
+            [ xmin=-1, xmax=3, ymin=-.25, ymax=.25 ]
+            \addplot [domain=-1:3, samples=80, thick, blue] {x*exp(-2*x)};
+            \addplot [only marks, blue, samples at={.5, 1}] {x*exp(-2*x)};
+            \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
       </solution>
     </example>
   </subsection>

@@ -6,13 +6,13 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2017  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="accumulation-of-densities">
   <title>Applications Involving Densities</title>
 
   <subsection>
     <title>Overview</title>
-    
+
     <p>
     Having developed the theory of definite integrals
     and functions defined as the accumulation on increments,
@@ -22,18 +22,18 @@
     Physically, this is closely related to the calculation of total mass and center of mass.
     The same calculations are used in statistics to calculate probabilities and averages.
     </p>
-    
+
     <p>
     The general setup for many applications involving definite integrals
     is to think of the total quantity as a sum of the parts.
-    If a region is cut into separate pieces, for example, 
+    If a region is cut into separate pieces, for example,
     then the area of the total region should be the sum of the areas of each region measured separately.
     Quantities that have this property are called <term>extensive</term>.
     A definite integral can be used to compute extensive quantities
     if we can consider the total as a sum of small increments
     over a partition of an independent variable.
     </p>
-    
+
     <theorem xml:id="algorithm-integral-extensive-increments">
       <title>Using Definite Integrals to Compute Extensive Quantities</title>
       <statement>
@@ -49,17 +49,17 @@
         </p>
       </statement>
     </theorem>
-    
+
     <p>
-    In this context, the rate of accumulation function <m>f</m> 
+    In this context, the rate of accumulation function <m>f</m>
     used to compute the quantity <m>Q</m> as an integral
     is often called the <term>density</term> of <m>Q</m> with respect to <m>x</m>.
     </p>
-    
+
     <p>
     This section will explore the application of definite integrals
     to compute various extensive quantities.
-    This will require imagining a partition, 
+    This will require imagining a partition,
     identifying the independent variable and its corresponding interval for integration,
     determining the appropriate function used as the density,
     and setting up the definite integral.
@@ -67,51 +67,49 @@
     we will use technology to compute the the resulting value.
     </p>
   </subsection>
-   
+
   <subsection>
     <title>Area of Regions in the Plane</title>
-    
+
     <p>
-    When we developed the definite integral of a function <m>f</m> on an interval <m>[a,b]</m>, 
+    When we developed the definite integral of a function <m>f</m> on an interval <m>[a,b]</m>,
     we noted that the integral represented the total signed area over the interval.
-    It was signed because the accumulation of negative values 
+    It was signed because the accumulation of negative values
     when the function was below the axis was subtracting area.
-    Because area is an extensive quantity, it is an ideal example of 
+    Because area is an extensive quantity, it is an ideal example of
     a quantity that can be computed using integration.
     </p>
-    
+
     <example>
       <statement>
         <p>
         Find the area of the region bounded between <m>y=x^2-2x</m> and <m>y=x</m>.
         </p>
-        <sidebyside width="50%" margins="auto">
-          <image>
-            <latex-image>
-            \begin{tikzpicture}
-            \begin{axis}
-            [
-              xmin=-2, xmax=5,
-              ymin=-2, ymax=5,
-              axis lines=center,
-              xlabel={$x$}, ylabel={$y$},
-            ]
-            \addplot [black, thick] { x };
-            \addplot [black, thick, samples=81] { x^2-2*x };
-            \addplot [name path=A, draw=none, domain=0:3] {x};
-            \addplot [name path=B, draw=none, domain=0:3] {x^2-2*x};
-            \addplot [blue, fill opacity=0.25] fill between [of=A and B];
-            \end{axis};
-            \end{tikzpicture}
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="50%" margins="auto">
+          <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=-2, xmax=5,
+            ymin=-2, ymax=5,
+            axis lines=center,
+            xlabel={$x$}, ylabel={$y$},
+          ]
+          \addplot [black, thick] { x };
+          \addplot [black, thick, samples=81] { x^2-2*x };
+          \addplot [name path=A, draw=none, domain=0:3] {x};
+          \addplot [name path=B, draw=none, domain=0:3] {x^2-2*x};
+          \addplot [blue, fill opacity=0.25] fill between [of=A and B];
+          \end{axis};
+          \end{tikzpicture}
+          </latex-image>
+        </image>
       </statement>
       <solution>
         <p>
         Start by identifying a convenient variable to partition.
         The region is determined by where the graphs <m>y=x^2-2x</m> and <m>y=x</m> intersect.
-        Using substitution and solving, the intersection occurs at the solution to <m>x^2-2x=x</m>. 
+        Using substitution and solving, the intersection occurs at the solution to <m>x^2-2x=x</m>.
         <md>
           <mrow>x^2-2x=x</mrow>
           <mrow>x^2-3x=0</mrow>
@@ -122,40 +120,38 @@
         Now, imagine a partition of the interval and consider the increments of area
         over each subinterval.
         </p>
-        <sidebyside width="50%" margins="auto">
-          <image>
-            <latex-image>
-            \begin{tikzpicture}
-            \begin{axis}
-            [
-              xmin=-2, xmax=5,
-              ymin=-2, ymax=5,
-              axis lines=center,
-              xlabel={$x$}, ylabel={$y$},
-            ]
-            \addplot [black, thick] { x };
-            \addplot [black, thick, samples=81] { x^2-2*x };
-            \addplot [name path=A, draw=none, domain=0:3] {x};
-            \addplot [name path=B, draw=none, domain=0:3] {x^2-2*x};
-            \addplot [blue, fill opacity=0.25] fill between [of=A and B];
-            \foreach \c in {0,0.2,...,3}{
-              \addplot [blue,dashed] coordinates {
-                (\c,\c) (\c,{\c^2-2*\c})
-              };
-            }
-            \end{axis};
-            \end{tikzpicture}
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="50%" margins="auto">
+          <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=-2, xmax=5,
+            ymin=-2, ymax=5,
+            axis lines=center,
+            xlabel={$x$}, ylabel={$y$},
+          ]
+          \addplot [black, thick] { x };
+          \addplot [black, thick, samples=81] { x^2-2*x };
+          \addplot [name path=A, draw=none, domain=0:3] {x};
+          \addplot [name path=B, draw=none, domain=0:3] {x^2-2*x};
+          \addplot [blue, fill opacity=0.25] fill between [of=A and B];
+          \foreach \c in {0,0.2,...,3}{
+            \addplot [blue,dashed] coordinates {
+              (\c,\c) (\c,{\c^2-2*\c})
+            };
+          }
+          \end{axis};
+          \end{tikzpicture}
+          </latex-image>
+        </image>
         <p>
-        As the increments <m>\Delta x</m> are smaller and smaller, 
+        As the increments <m>\Delta x</m> are smaller and smaller,
         the increment of area <m>\Delta A</m> will be closely approximated
-        by the width <m>\Delta x</m> times the vertical distance 
+        by the width <m>\Delta x</m> times the vertical distance
         between <m>y=x</m> and <m>y=x^2-2x</m>,
         <me>\Delta A \approx \big(x - (x^2-2x)\big) \Delta x</me>.
         The total area is the sum of the increments, so we can use a definite integral.
-        The height <m>h(x) = x-(x^2-2x) = 3x-x^2</m> between the curves 
+        The height <m>h(x) = x-(x^2-2x) = 3x-x^2</m> between the curves
         acts as the density of area,
         <me>A = \int_0^3 \big(x - (x^2-2x)\big) \, dx = \int_0^3 3x-x^2 \, dx.</me>
         </p>
@@ -169,7 +165,7 @@
           <mrow> &amp;=\frac{9}{2}</mrow>
         </md>
         Except for such simple problems, we can use technology to compute
-        or approximate the value of the integrals. 
+        or approximate the value of the integrals.
         The SageMath engine attempts to compute integrals exactly
         using the <c>integrate</c> command, which uses the following syntax.
         </p>
@@ -183,7 +179,7 @@
         </sage>
         <p>
         When SageMath is unable to do the exact calculation,
-        we can still do a numerical approximation 
+        we can still do a numerical approximation
         using the <c>numerical_integral</c> command.
         </p>
         <sage>
@@ -200,63 +196,59 @@
         </p>
       </solution>
     </example>
-    
+
     <example>
       <statement>
         <p>
         Express the area of a circle with center <m>(0,0)</m> and radius <m>r=2</m>
         as a definite integral.
         </p>
-        <sidebyside width="50%" margins="auto">
-          <image>
-            <latex-image>
-            \begin{tikzpicture}
-            \begin{axis}
-            [
-              xmin=-3,xmax=3,ymin=-3,ymax=3,
-              axis lines=center,
-              xlabel={$x$}, ylabel={$y$},
-            ]
-            \addplot [name path=Up, domain=0:180, samples=50, fill opacity=0.5] ({2*cos(x)},{2*sin(x)});
-            \addplot [name path=Down, domain=0:180, samples=50, fill opacity=0.5] ({2*cos(x)},{-2*sin(x)});
-            \addplot [blue, fill opacity=0.25] fill between [of=Up and Down];
-            \end{axis};
-            \end{tikzpicture}
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="50%" margins="auto">
+          <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=-3,xmax=3,ymin=-3,ymax=3,
+            axis lines=center,
+            xlabel={$x$}, ylabel={$y$},
+          ]
+          \addplot [name path=Up, domain=0:180, samples=50, fill opacity=0.5] ({2*cos(x)},{2*sin(x)});
+          \addplot [name path=Down, domain=0:180, samples=50, fill opacity=0.5] ({2*cos(x)},{-2*sin(x)});
+          \addplot [blue, fill opacity=0.25] fill between [of=Up and Down];
+          \end{axis};
+          \end{tikzpicture}
+          </latex-image>
+        </image>
       </statement>
       <solution>
         <p>
-        The circle is clearly between the lines <m>x=-2</m> and <m>x=2</m> 
+        The circle is clearly between the lines <m>x=-2</m> and <m>x=2</m>
         so that we can imagine a partition with variable <m>x</m> on the interval <m>[-2,2]</m>.
         The increments of area <m>\Delta A</m> correspond to thin vertical strips
         with width <m>\Delta x</m> (from the partition) and a height computed as
         the distance from the top of the circle to the bottom of the circle.
         </p>
-        <sidebyside width="50%" margins="auto">
-          <image>
-            <latex-image>
-            \begin{tikzpicture}
-            \begin{axis}
-            [
-              xmin=-3,xmax=3,ymin=-3,ymax=3,
-              axis lines=center,
-              xlabel={$x$}, ylabel={$y$},
-            ]
-            \addplot [name path=Up, domain=0:180, samples=50, fill opacity=0.5] ({2*cos(x)},{2*sin(x)});
-            \addplot [name path=Down, domain=0:180, samples=50, fill opacity=0.5] ({2*cos(x)},{-2*sin(x)});
-            \addplot [blue, fill opacity=0.25] fill between [of=Up and Down];
-            \foreach \c in {-1.8,-1.6,...,1.8}{
-              \addplot [blue,dashed] coordinates {
-                (\c,{-sqrt(4-(\c)^2)}) (\c,{sqrt(4-(\c)^2)})
-              };
-            }
-            \end{axis};
-            \end{tikzpicture}
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="50%" margins="auto">
+          <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=-3,xmax=3,ymin=-3,ymax=3,
+            axis lines=center,
+            xlabel={$x$}, ylabel={$y$},
+          ]
+          \addplot [name path=Up, domain=0:180, samples=50, fill opacity=0.5] ({2*cos(x)},{2*sin(x)});
+          \addplot [name path=Down, domain=0:180, samples=50, fill opacity=0.5] ({2*cos(x)},{-2*sin(x)});
+          \addplot [blue, fill opacity=0.25] fill between [of=Up and Down];
+          \foreach \c in {-1.8,-1.6,...,1.8}{
+            \addplot [blue,dashed] coordinates {
+              (\c,{-sqrt(4-(\c)^2)}) (\c,{sqrt(4-(\c)^2)})
+            };
+          }
+          \end{axis};
+          \end{tikzpicture}
+          </latex-image>
+        </image>
         <p>
         The equation of the circle is
         <me>x^2+y^2=4.</me>
@@ -267,7 +259,7 @@
         <me>h(x) = (\sqrt{4-x^2}) - (-\sqrt{4-x^2}) = 2\sqrt{4-x^2}</me>.
         Consequently, the area of the circle is defined by the integral
         <me>A = \int_{-2}^{2} h(x) \, dx = \int_{-2}^2 2 \sqrt{4-x^2}.</me>
-        Computational tools can compute this value, 
+        Computational tools can compute this value,
         which is consistent with the known formula
         <me>A=\pi r^2 = \pi(2)^2 = 4\pi</me>.
         </p>
@@ -281,36 +273,34 @@
         </sage>
       </solution>
     </example>
-    
+
     <p>
     When curves cross multiple times, we may need to compute the area of individual regions.
     </p>
-    
+
     <example>
       <statement>
         <p>
         Find the area bounded by the graphs <m>y=x</m> and <m>y=x^3-4x</m>.
         </p>
-        <sidebyside width="50%" margins="auto">
-          <image>
-            <latex-image>
-            \begin{tikzpicture}
-            \begin{axis}
-            [
-              xmin=-4,xmax=4,ymin=-4,ymax=4,
-              axis lines=center,
-              xlabel={$x$}, ylabel={$y$},
-            ]
-            \addplot [domain=-4:4] { x };
-            \addplot [domain=-4:4, samples=101] { x^3-4*x };
-            \addplot [name path=A, domain=-2.24:2.24, draw=none] { x };
-            \addplot [name path=B, domain=-2.24:2.24, samples=50, draw=none] { x^3-4*x };
-            \addplot [blue, fill opacity=0.25] fill between [of=A and B];
-            \end{axis};
-            \end{tikzpicture}
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="50%" margins="auto">
+          <latex-image>
+          \begin{tikzpicture}
+          \begin{axis}
+          [
+            xmin=-4,xmax=4,ymin=-4,ymax=4,
+            axis lines=center,
+            xlabel={$x$}, ylabel={$y$},
+          ]
+          \addplot [domain=-4:4] { x };
+          \addplot [domain=-4:4, samples=101] { x^3-4*x };
+          \addplot [name path=A, domain=-2.24:2.24, draw=none] { x };
+          \addplot [name path=B, domain=-2.24:2.24, samples=50, draw=none] { x^3-4*x };
+          \addplot [blue, fill opacity=0.25] fill between [of=A and B];
+          \end{axis};
+          \end{tikzpicture}
+          </latex-image>
+        </image>
       </statement>
       <solution>
         <p>
@@ -360,11 +350,11 @@
         As we should expect from symmetry, the two areas are equal <m>A_1=A_2</m>.
         </p>
         <p>
-        The total area of the region is 
+        The total area of the region is
         <me>A = A_1 + A_2 = \frac{25}{4} + \frac{25}{4} = \frac{25}{2}</me>.
-        If we were to think of the distance between the two curves 
+        If we were to think of the distance between the two curves
         in terms of the absolute value, the integral could be computed over a single interval,
-        <me>A = \int_{-\sqrt{5}}^{\sqrt{5}} \left| x  - (x^3-4x)\right| \, dx 
+        <me>A = \int_{-\sqrt{5}}^{\sqrt{5}} \left| x  - (x^3-4x)\right| \, dx
         = \int_{-\sqrt{5}}^{\sqrt{5}} \left| 5x  - x^3\right| \, dx</me>.
         Using SageMath, the absolute value prevents an exact integral.
         </p>
@@ -401,14 +391,14 @@
       </solution>
     </example>
   </subsection>
-  
+
   <subsection>
     <title>Density and Mass</title>
-    
+
     <p>
     </p>
   </subsection>
-  
+
   <subsection>
     <title>Summary</title>
     <p>

@@ -7,7 +7,7 @@
 -->
 <!DOCTYPE doc>
 
-<mathbook xmlns:xi="http://www.w3.org/2001/XInclude">
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <xi:include href="./bookinfo.xml" /> <!-- ISBN, website, other metadata -->
 
@@ -127,4 +127,4 @@
 
   </book>
 
-</mathbook>
+</pretext>

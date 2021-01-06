@@ -297,49 +297,45 @@
       (We'd actually have a hard time knowing exactly where those lengths are because of measurement error;
       we should probably flip a coin if we can't decide which side is closer.)
     </p>
-    <sidebyside width="50%" margins="auto">
-      <image>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \begin{tikzpicture}[x=1cm,y=1cm]
-        \draw[-] (12.2,0) -- (17.8,0);
-        \draw[(-), thick, red] (14.5,0) -- (15.5,0);
-        \draw[->, black] (15,0.5) -- (15,0.2)
-          node [pos=0, above] {$\widehat{L}=15$};
-        \foreach \x in {13,14,...,17} {
-          \draw[-, black] (\x,-0.1) -- (\x,0) node [pos=0, below] {\x};
-        }
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
+    <image width="50%">
+      <latex-image>
+      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+      <![CDATA[\tikzset{%
+      }
+      \begin{tikzpicture}[x=1cm,y=1cm]
+      \draw[-] (12.2,0) -- (17.8,0);
+      \draw[(-), thick, red] (14.5,0) -- (15.5,0);
+      \draw[->, black] (15,0.5) -- (15,0.2)
+        node [pos=0, above] {$\widehat{L}=15$};
+      \foreach \x in {13,14,...,17} {
+        \draw[-, black] (\x,-0.1) -- (\x,0) node [pos=0, below] {\x};
+      }
+      \end{tikzpicture}]]>
+      </latex-image>
+    </image>
     <p>
       Similarly, if the ruler showed millimeters, all lengths between 15.25 and 15.35 centimeters would be represented by the measurement of 15.3 centimeters.
       A measurement of 15.3 cm then corresponds to the interval <m>[15.25,15.35)</m> (centimeters).
     </p>
-    <sidebyside width="50%" margins="auto">
-      <image>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \begin{tikzpicture}[x=4cm,y=1cm]
-        \draw[-] (14.73,0) -- (16.07,0);
-        \draw[(-), thick, red] (15.25,0) -- (15.35,0);
-        \draw[->, black] (15.3,0.5) -- (15.3,0.2)
-          node [pos=0, above] {$\widehat{L}=15.3$};
-        \foreach \x in {15,16} {
-          \draw[-, black] (\x,-0.15) -- (\x,0) node [pos=0, below] {\x};
-        }
-        \foreach \x in {14.8,14.9,...,16.0} {
-          \draw[-, black] (\x,-0.05) -- (\x,0);
-        }
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
+    <image width="50%">
+      <latex-image>
+      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+      <![CDATA[\tikzset{%
+      }
+      \begin{tikzpicture}[x=4cm,y=1cm]
+      \draw[-] (14.73,0) -- (16.07,0);
+      \draw[(-), thick, red] (15.25,0) -- (15.35,0);
+      \draw[->, black] (15.3,0.5) -- (15.3,0.2)
+        node [pos=0, above] {$\widehat{L}=15.3$};
+      \foreach \x in {15,16} {
+        \draw[-, black] (\x,-0.15) -- (\x,0) node [pos=0, below] {\x};
+      }
+      \foreach \x in {14.8,14.9,...,16.0} {
+        \draw[-, black] (\x,-0.05) -- (\x,0);
+      }
+      \end{tikzpicture}]]>
+      </latex-image>
+    </image>
 
     <p>
       Significant digits with zeros have some trickier rules.
@@ -407,32 +403,30 @@
           Different ways of describing the measurement with a margin of error
           give different information about the length.
         </p>
-        <sidebyside width="60%" margins="auto">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=3cm,y=1cm]
-            \draw[-] (5.97,0) -- (8.53,0);
-            \draw[->, thick, red] (7.2111,0.35) -- (7.2111,0.025)
-              node[pos=0,above]{$H$};
-            \foreach \x in {6.1,6.2,...,8.4} {
-              \draw[-, black] (\x,-0.1) -- (\x,0);
-            }
-            \draw[-, thick, black] (6.0,-0.25) -- (6.0,0)
-              node[pos=0, below] {6};
-            \draw[-, thick, black] (7.0,-0.25) -- (7.0,0)
-              node[pos=0, below] {7};
-            \draw[-, thick, black] (8.0,-0.25) -- (8.0,0)
-              node[pos=0, below] {8};
-            \draw[-, black] (6.5,-0.15) -- (6.5,0);
-            \draw[-, black] (7.5,-0.15) -- (7.5,0);
-            \draw[-, black] (8.5,-0.15) -- (8.5,0);
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="60%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=3cm,y=1cm]
+          \draw[-] (5.97,0) -- (8.53,0);
+          \draw[->, thick, red] (7.2111,0.35) -- (7.2111,0.025)
+            node[pos=0,above]{$H$};
+          \foreach \x in {6.1,6.2,...,8.4} {
+            \draw[-, black] (\x,-0.1) -- (\x,0);
+          }
+          \draw[-, thick, black] (6.0,-0.25) -- (6.0,0)
+            node[pos=0, below] {6};
+          \draw[-, thick, black] (7.0,-0.25) -- (7.0,0)
+            node[pos=0, below] {7};
+          \draw[-, thick, black] (8.0,-0.25) -- (8.0,0)
+            node[pos=0, below] {8};
+          \draw[-, black] (6.5,-0.15) -- (6.5,0);
+          \draw[-, black] (7.5,-0.15) -- (7.5,0);
+          \draw[-, black] (8.5,-0.15) -- (8.5,0);
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
         <ul>
           <li>
@@ -456,29 +450,27 @@
           The measurement <m>\widehat{H} = 7.2</m> <quantity><unit prefix="centi" base="meter"/></quantity>
           will be the <em>nearest</em> value for any actual length satisfying <m>7.15 \lt H \lt 7.25</m>.
         </p>
-        <sidebyside width="60%" margins="auto">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=12cm,y=1cm]
-            \draw[-] (6.97,0) -- (7.53,0);
-            \draw[->, thick, red] (7.2111,0.35) -- (7.2111,0.025)
-              node [pos=0,above] {$H$};
-            \draw[(-), thick, red] (7.15,0) -- (7.25,0);
-            \draw[->, black] (7.2,-0.5) -- (7.2,-0.2)
-              node [pos=0, below] {$\widehat{H}=7.2$};
-            \foreach \x in {7.1,7.2,...,7.4} {
-              \draw[-, black] (\x,-0.1) -- (\x,0);
-            }
-            \draw[-, thick, black] (7.0,-0.25) -- (7.0,0)
-              node[pos=0, below] {7};
-            \draw[-, black] (7.5,-0.15) -- (7.5,0);
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="60%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=12cm,y=1cm]
+          \draw[-] (6.97,0) -- (7.53,0);
+          \draw[->, thick, red] (7.2111,0.35) -- (7.2111,0.025)
+            node [pos=0,above] {$H$};
+          \draw[(-), thick, red] (7.15,0) -- (7.25,0);
+          \draw[->, black] (7.2,-0.5) -- (7.2,-0.2)
+            node [pos=0, below] {$\widehat{H}=7.2$};
+          \foreach \x in {7.1,7.2,...,7.4} {
+            \draw[-, black] (\x,-0.1) -- (\x,0);
+          }
+          \draw[-, thick, black] (7.0,-0.25) -- (7.0,0)
+            node[pos=0, below] {7};
+          \draw[-, black] (7.5,-0.15) -- (7.5,0);
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           The spacing from <m>\widehat{H}</m> and the edge of this interval is
           <me>\epsilon = |7.25-7.2| = |7.15-7.2| = 0.05.</me>
@@ -491,29 +483,27 @@
           We find the mid-point of this interval as our recorded measurement
           <me> \widehat{H} = \frac{7.2+7.3}{2} = 7.25.</me>
         </p>
-        <sidebyside width="60%" margins="auto">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=12cm,y=1cm]
-            \draw[-] (6.97,0) -- (7.53,0);
-            \draw[->, thick, red] (7.2111,0.35) -- (7.2111,0.025)
-              node [pos=0,above] {$H$};
-            \draw[(-), thick, red] (7.2,0) -- (7.3,0);
-            \draw[->, black] (7.25,-0.5) -- (7.25,-0.2)
-              node [pos=0, below] {$\widehat{H}=7.25$};
-            \foreach \x in {7.1,7.2,...,7.4} {
-              \draw[-, black] (\x,-0.1) -- (\x,0);
-            }
-            \draw[-, thick, black] (7.0,-0.25) -- (7.0,0)
-              node[pos=0, below] {7};
-            \draw[-, black] (7.5,-0.15) -- (7.5,0);
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="60%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=12cm,y=1cm]
+          \draw[-] (6.97,0) -- (7.53,0);
+          \draw[->, thick, red] (7.2111,0.35) -- (7.2111,0.025)
+            node [pos=0,above] {$H$};
+          \draw[(-), thick, red] (7.2,0) -- (7.3,0);
+          \draw[->, black] (7.25,-0.5) -- (7.25,-0.2)
+            node [pos=0, below] {$\widehat{H}=7.25$};
+          \foreach \x in {7.1,7.2,...,7.4} {
+            \draw[-, black] (\x,-0.1) -- (\x,0);
+          }
+          \draw[-, thick, black] (7.0,-0.25) -- (7.0,0)
+            node[pos=0, below] {7};
+          \draw[-, black] (7.5,-0.15) -- (7.5,0);
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           Then we measure the distance from the center to the edge,
           <me>\epsilon = |7.3-7.25| = |7.2-7.25| = 0.05</me>
@@ -528,29 +518,27 @@
           The mid-point gives
           <me> \widehat{H} = \frac{7.2+7.25}{2} = 7.225.</me>
         </p>
-        <sidebyside width="60%" margins="auto">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=12cm,y=1cm]
-            \draw[-] (6.97,0) -- (7.53,0);
-            \draw[->, thick, red] (7.2111,0.35) -- (7.2111,0.025)
-              node [pos=0,above] {$H$};
-            \draw[(-), thick, red] (7.2,0) -- (7.25,0);
-            \draw[->, black] (7.225,-0.5) -- (7.225,-0.2)
-              node [pos=0, below] {$\widehat{H}=7.225$};
-            \foreach \x in {7.1,7.2,...,7.4} {
-              \draw[-, black] (\x,-0.1) -- (\x,0);
-            }
-            \draw[-, thick, black] (7.0,-0.25) -- (7.0,0)
-              node[pos=0, below] {7};
-            \draw[-, black] (7.5,-0.15) -- (7.5,0);
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="60%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=12cm,y=1cm]
+          \draw[-] (6.97,0) -- (7.53,0);
+          \draw[->, thick, red] (7.2111,0.35) -- (7.2111,0.025)
+            node [pos=0,above] {$H$};
+          \draw[(-), thick, red] (7.2,0) -- (7.25,0);
+          \draw[->, black] (7.225,-0.5) -- (7.225,-0.2)
+            node [pos=0, below] {$\widehat{H}=7.225$};
+          \foreach \x in {7.1,7.2,...,7.4} {
+            \draw[-, black] (\x,-0.1) -- (\x,0);
+          }
+          \draw[-, thick, black] (7.0,-0.25) -- (7.0,0)
+            node[pos=0, below] {7};
+          \draw[-, black] (7.5,-0.15) -- (7.5,0);
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           The margin of error is 0.025 so that
           our new approximate measurement with a margin of error is written

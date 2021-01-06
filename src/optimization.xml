@@ -20,7 +20,7 @@
         <title>Global Extreme Values</title>
 
         <p>
-          The <xref ref='extreme-value-theorem' text='title'>Extreme Value Theorem</xref> guarantees
+          The <xref ref='extreme-value-theorem' text='custom'>Extreme Value Theorem</xref> guarantees
           that a continuous function restricted to a closed interval will always have global maximum minimum values.
           Those extremes can only occur at either the end points of the interval or at critical points
           (points with horizontal or undefined tangents).
@@ -31,7 +31,7 @@
             <li><p>Classify the points, including the end points for comparison.</p></li>
           </ol>
         </p>
-        
+
         <example>
             <statement>
                 <p>Find the maximum and minimum values of <m>\displaystyle f(x)=\frac{x-1}{x^2+1}</m> on the interval <m>[-2,2]</m>.</p>
@@ -46,54 +46,50 @@
                 </md></p>
                 <p>Next, we find critical points. Again, the denominator is nonzero, so <m>f'(x)</m> will be defined and continuous for every value <m>x</m>. We only need to find solutions to <m>f'(x)=0</m>, which are solutions to <m>-x^2+2x+1=0</m>. The quadratic formula gives <me> x = \frac{-2 \pm \sqrt{4-4(-1)(1)}}{2(-1)} = \frac{-2 \pm 2 \sqrt{2}}{-2}. </me> The critical values are <m>x=1-\sqrt{2}\approx 0.414</m> and <m>1+\sqrt{2} \approx 2.414</m>.</p>
                 <p>If we were to test these critical values as turning points, we would look at the signs of <m>f'(x)</m> on the intervals formed by the critical points. The sign analysis is summarized with the number line below, showing that <m>x=1-\sqrt{2}</m> is a local minimum and <m>x=1+\sqrt{2}</m> is a local maximum.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[x=1cm,y=1cm]
-                        \draw[<->] (-2,0) -- (4,0) node[above right] {$f'(x)$} node[below right] {$x$};
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[x=1cm,y=1cm]
+                    \draw[<->] (-2,0) -- (4,0) node[above right] {$f'(x)$} node[below right] {$x$};
 
-                        \draw (-0.414, -0.1) -- (-0.414, 0.1) node[pos=0, below] {$1-\sqrt{2}$} node[pos=1,above] {$0$};
-                        \draw (2.414, -0.1) -- (2.414, 0.1) node[pos=0, below] {$1+\sqrt{2}$} node[pos=1,above] {$0$};
-                        \node [above] at (-1.2,0) {$-$};
-                        \node [above] at (1,0) {$+$};
-                        \node [above] at (3,0) {$-$};
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                    \draw (-0.414, -0.1) -- (-0.414, 0.1) node[pos=0, below] {$1-\sqrt{2}$} node[pos=1,above] {$0$};
+                    \draw (2.414, -0.1) -- (2.414, 0.1) node[pos=0, below] {$1+\sqrt{2}$} node[pos=1,above] {$0$};
+                    \node [above] at (-1.2,0) {$-$};
+                    \node [above] at (1,0) {$+$};
+                    \node [above] at (3,0) {$-$};
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
                 <p>To find the extreme values on the interval, we really just need to compare the values of <m>f(x)</m> at the end points of the interval with the critical points that are inside the interval. Because <m>x=1+\sqrt{2}</m> is outside <m>[-2,2]</m>, we do not include that point. <md>
                     <mrow> &amp;f(-2) = \frac{-2-1}{(-2)^2+1} = \frac{-3}{5} = -0.6 </mrow>
                     <mrow> &amp;f(2) = \frac{2-1}{(-2)^2+1} = \frac{1}{5} = 0.2 </mrow>
                     <mrow> &amp;f(1-\sqrt{2}) = \frac{(1-\sqrt{2})-1}{(1-\sqrt{2})^2+1} = \frac{-\sqrt{2}}{4-2\sqrt{2}} \approx -1.207</mrow>
                 </md></p>
                 <p>We finish by interpreting our results. The maximum value of <m>f</m>  on the interval <m>[-2,2]</m> is <m>\frac{1}{5}</m>, occurring at <m>x=2</m>. The minimum value of <m>f</m> on the interval is <m>\frac{\sqrt{2}}{4-2\sqrt{2}} \approx -1.207</m>, occurring at <m>x=1-\sqrt{2} \approx 0.414</m>. A graph of the function showing these extremes is given below.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            xmin=-4, xmax=4,
-                            ymin=-2, ymax=1,
-                        ]
-                        \addplot [dashed, samples=101] {(x-1)/(x^2+1)};
-                        \addplot [-, samples=101, domain=-2:2, thick, blue] {(x-1)/(x^2+1)};
-                        \addplot [only marks, blue] coordinates {
-                            (-2,-0.6) (2,0.2) (-0.414, -1.207)
-                        }
-                        node [pos=0, above] {$x=-2$}
-                        node [pos=0.5, above] {$x=2$}
-                        node [pos=1, below] {$x=1-\sqrt{2}$};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-4, xmax=4,
+                        ymin=-2, ymax=1,
+                    ]
+                    \addplot [dashed, samples=101] {(x-1)/(x^2+1)};
+                    \addplot [-, samples=101, domain=-2:2, thick, blue] {(x-1)/(x^2+1)};
+                    \addplot [only marks, blue] coordinates {
+                        (-2,-0.6) (2,0.2) (-0.414, -1.207)
+                    }
+                    node [pos=0, above] {$x=-2$}
+                    node [pos=0.5, above] {$x=2$}
+                    node [pos=1, below] {$x=1-\sqrt{2}$};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </solution>
         </example>
 
@@ -122,35 +118,33 @@
                     <mrow> &amp; f(-2) = 2 </mrow>
                     <mrow> &amp; f(2) = 10 </mrow>
                 </md> The minimum value for <m>f</m> on the interval <m>[-2,2]</m> is approximately 1.369 at <m>x=\frac{-1+\sqrt{7}}{3}</m>; the maximum value is 10 at <m>x=2</m>. However, when working with the open interval <m>(-2,2)</m>, the maximum value is a limit value that is not achieved. So <m>f</m> does not have a maximum value on <m>(-2,2)</m>, though it does have the same minimum value.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            xmin=-3, xmax=3,
-                            ymin=-2, ymax=12,
-                        ]
-                        \addplot [dashed, samples=101] {x^3+x^2-2*x+2};
-                        \addplot [-, samples=101, domain=-2:2, thick, blue] {x^3+x^2-2*x+2};
-                        \addplot [only marks, mark=o, blue] coordinates {
-                            (-2,2) (2,10)
-                        }
-                        node [pos=0, right] {$x=-2$}
-                        node [pos=1, left] {$x=2$};
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-3, xmax=3,
+                        ymin=-2, ymax=12,
+                    ]
+                    \addplot [dashed, samples=101] {x^3+x^2-2*x+2};
+                    \addplot [-, samples=101, domain=-2:2, thick, blue] {x^3+x^2-2*x+2};
+                    \addplot [only marks, mark=o, blue] coordinates {
+                        (-2,2) (2,10)
+                    }
+                    node [pos=0, right] {$x=-2$}
+                    node [pos=1, left] {$x=2$};
 
-                        \addplot [only marks, blue] coordinates {
-                            (0.549,1.369) (-1.215,4.113)
-                        }
-                        node [pos=0, below] {$x=\frac{-1+\sqrt{7}}{3}$}
-                        node [pos=1, above] {$x=\frac{-1-\sqrt{7}}{3}$};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                    \addplot [only marks, blue] coordinates {
+                        (0.549,1.369) (-1.215,4.113)
+                    }
+                    node [pos=0, below] {$x=\frac{-1+\sqrt{7}}{3}$}
+                    node [pos=1, above] {$x=\frac{-1-\sqrt{7}}{3}$};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </solution>
         </example>
 
@@ -166,52 +160,48 @@
                     <mrow> &amp;= \frac{10x^2-20x^2+30x}{x^4} </mrow>
                     <mrow> &amp;= \frac{x(-10x+30)}{x^4} = \frac{-10x+30}{x^3} </mrow>
                 </md> The critical value is the solution to <m>-10x+30=0</m>, or <m>x=3</m>. When doing sign analysis, we also need to use the discontinuity <m>x=0</m> to create the intervals that are tested.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[x=1cm,y=1cm]
-                        \draw[<->] (-2,0) -- (5,0) node[above right] {$f'(x)$} node[below right] {$x$};
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[x=1cm,y=1cm]
+                    \draw[<->] (-2,0) -- (5,0) node[above right] {$f'(x)$} node[below right] {$x$};
 
-                        \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {dne};
-                        \draw (3, -0.1) -- (3, 0.1) node[pos=0, below] {$3$} node[pos=1,above] {$0$};
-                        \node [above] at (-1,0) {$-$};
-                        \node [above] at (1.5,0) {$+$};
-                        \node [above] at (3,0) {$-$};
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                    \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {dne};
+                    \draw (3, -0.1) -- (3, 0.1) node[pos=0, below] {$3$} node[pos=1,above] {$0$};
+                    \node [above] at (-1,0) {$-$};
+                    \node [above] at (1.5,0) {$+$};
+                    \node [above] at (3,0) {$-$};
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
                 <p>The sign analysis on <m>f'(x)</m> informs us about the vertical asymptote. The function decreases immediately to the left of <m>x=0</m>, letting us know <me>\lim_{x \to 0^-} f(x) = -\infty.</me> Similarly, the function is increasing immediately to the right of <m>x=0</m>, showing that <me> \lim_{x \to 0^+} f(x) = -\infty.</me> This is enough to guarantee that <m>f(x)</m> does not have a minimum value because it is unbounded in the negative direction.</p>
                 <p>The critical point <m>x=3</m> is a turning point corresponding to a local maximum. The value of the function is <m>f(3)=\frac{15}{9}=\frac{5}{3}</m>. To see if this is a global maximum, we need to compare it with the ends of the intervals, as <m>x \to \pm \infty</m>. These limits are both zero. <md>
                     <mrow> \lim_{x \to -\infty} f(x) &amp;= \lim_{x \to -\infty} \frac{10x-15}{x^2} = \lim_{x \to -\infty} \frac{10}{x} - \frac{15}{x^2} \to \frac{10}{-\infty} - \frac{15}{\infty} = 0 </mrow>
                     <mrow> \lim_{x \to \infty} f(x) &amp;= \lim_{x \to -\infty} \frac{10x-15}{x^2} = \lim_{x \to -\infty} \frac{10}{x} - \frac{15}{x^2} \to \frac{10}{\infty} - \frac{15}{\infty} = 0 </mrow>
                 </md> These limits show that <m>y=0</m> is a horizontal asymptote for <m>f(x)</m> as <m>x \to \pm \infty</m>.</p>
                 <p>Interpreting our results, we see that <m>f(x)</m> has a maximum value of <m>\frac{5}{3}</m> at <m>x=3</m> and no minimum value due to the infinite limit at <m>x=0</m>.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            xmin=-10, xmax=10,
-                            ymin=-20, ymax=5,
-                        ]
-                        \addplot [-, blue, domain=-10:-0.5,samples=51] {(10*x-15)/(x^2)};
-                        \addplot [-, blue, domain=0.5:10,samples=51] {(10*x-15)/(x^2)};
-                        \addplot [only marks, blue] coordinates {
-                            (3,1.667)
-                        }
-                        node [above] {$x=3$};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=-10, xmax=10,
+                        ymin=-20, ymax=5,
+                    ]
+                    \addplot [-, blue, domain=-10:-0.5,samples=51] {(10*x-15)/(x^2)};
+                    \addplot [-, blue, domain=0.5:10,samples=51] {(10*x-15)/(x^2)};
+                    \addplot [only marks, blue] coordinates {
+                        (3,1.667)
+                    }
+                    node [above] {$x=3$};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </solution>
         </example>
     </subsection>
@@ -234,46 +224,42 @@
                     <mrow> &amp;= -\frac{ \omega(\omega^2-\omega_0^2+2\alpha^2)}{ \big( (\omega^2-\omega_0^2)^2 + 4 \alpha^2 \omega^2\big)^{3/2} } </mrow>
                 </md> Critical values are solutions to the equation <m>2 \omega (\omega^2-\omega_0^2+2\alpha^2) = 0</m>. Solutions occur when <m>\omega=0</m> and <m>\omega^2 = \omega_0^2-2\alpha^2</m>, which only occurs when <m>\omega_0^2 \gt 2 \alpha^2</m>.</p>
                 <p>When <m>\omega_0^2 \gt 2 \alpha^2</m>, the sign of <m>A'(\omega)</m> changes sign at the critical value at <me>\omega = \omega^* \equiv \sqrt{\omega_0^2 - 2\alpha^2}</me> since the factor <m>\omega^2 - (\omega_0^2-2\alpha^2)</m> changes sign. The denominator will always be positive. This allows us to determine the sign analysis of <m>A'(\omega)</m>.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[x=1cm,y=1cm]
-                        \draw[->] (0,0) -- (4,0) node[above right] {$A'(\omega)$} node[below right] {$\omega$};
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[x=1cm,y=1cm]
+                    \draw[->] (0,0) -- (4,0) node[above right] {$A'(\omega)$} node[below right] {$\omega$};
 
-                        \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
-                        \draw (1.5, -0.1) -- (1.5, 0.1) node[pos=0, below] {$\omega^*$} node[pos=1,above] {$0$};
-                        \node [above] at (0.75,0) {$+$};
-                        \node [above] at (2.5,0) {$-$};
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
-                <p>The sign analysis of <m>A'(\omega)</m> shows that <m>A(\omega)</m> is increasing for <m>\omega</m> in the interval <m>[0,\omega^*]</m> and decreasing for <m>\omega</m> in the interval <m>[\omega^*,\infty)</m>. Consequently, <m>A</m> achieves a maximum value when <m>\omega = \omega^*</m>. That maximum value is <me> A(\omega^*) = \frac{1}{\sqrt{4\alpha^2(\omega_0^2-\alpha^2)}}.</me> A typical resonance response curve is shown below for this case (<m>\omega_0=1</m> and <m>\alpha=0.25</m>).</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            xmin=0, xmax=5,
-                            ymin=0, ymax=3,
-                            xlabel={$\omega$}, ylabel={$A(\omega)$},
-                        ]
-                        \addplot [-, blue,samples=101] {1/sqrt((x^2-1)^2+0.25*x^2)};
-                        \addplot [only marks, blue] coordinates {
-                            (0.935,2.066)
-                        }
-                        node [above right] {$\omega=\omega^* = \sqrt{\omega_0^2-2\alpha^2}$};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                    \draw (0, -0.1) -- (0, 0.1) node[pos=0, below] {$0$} node[pos=1,above] {$0$};
+                    \draw (1.5, -0.1) -- (1.5, 0.1) node[pos=0, below] {$\omega^*$} node[pos=1,above] {$0$};
+                    \node [above] at (0.75,0) {$+$};
+                    \node [above] at (2.5,0) {$-$};
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
+=                <p>The sign analysis of <m>A'(\omega)</m> shows that <m>A(\omega)</m> is increasing for <m>\omega</m> in the interval <m>[0,\omega^*]</m> and decreasing for <m>\omega</m> in the interval <m>[\omega^*,\infty)</m>. Consequently, <m>A</m> achieves a maximum value when <m>\omega = \omega^*</m>. That maximum value is <me> A(\omega^*) = \frac{1}{\sqrt{4\alpha^2(\omega_0^2-\alpha^2)}}.</me> A typical resonance response curve is shown below for this case (<m>\omega_0=1</m> and <m>\alpha=0.25</m>).</p>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=0, xmax=5,
+                        ymin=0, ymax=3,
+                        xlabel={$\omega$}, ylabel={$A(\omega)$},
+                    ]
+                    \addplot [-, blue,samples=101] {1/sqrt((x^2-1)^2+0.25*x^2)};
+                    \addplot [only marks, blue] coordinates {
+                        (0.935,2.066)
+                    }
+                    node [above right] {$\omega=\omega^* = \sqrt{\omega_0^2-2\alpha^2}$};
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
                 <p>In the case that <m>\omega_0^2 \lt 2 \alpha^2</m> and the only critical value is <m>\omega=0</m>, the factor in the numerator of <m>A'(\omega)</m> given by <m>\omega^2 - \omega_0^2 + 2\alpha^2</m> will always be positive. This implies that <m>A'(\omega) \lt 0</m> for all <m>\omega \gt 0</m>, meaning that <m>A(\omega)</m> is a decreasing function whose maximum must be at the end-point <m>\omega=0</m>.</p>
             </solution>
         </example>
@@ -283,7 +269,6 @@
         <example>
             <statement>
                 <p>The number of births in a population during a given time period is equal to the per capita birth rate times the population size. Suppose that the per capita birth rate was found to also depend on the population size. Average per capita birth rates for certain controlled population sizes were experimentally obtained and shown in the table below. Find a model for the per capita birth rate as a function of population size and use that model to predict the maximum population birth rate.</p>
-                <sidebyside>
                 <tabular>
                     <row>
                         <cell>Population</cell> <cell>Per Capita Birth Rate</cell>
@@ -304,35 +289,32 @@
                         <cell>500</cell> <cell>0.0120</cell>
                     </row>
                 </tabular>
-                </sidebyside>
             </statement>
             <solution>
                 <p>We start by looking at the graph of the data. Let <m>P</m> be the population size and let <m>b</m> be the per capita birth rate. We are interested in the function <m>P \mapsto b</m>, so the graph plots points <m>(P, b)</m>.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        /pgfplots/table/row sep=crcr
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            xmin=0, xmax=700,
-                            ymin=0, ymax=.025,
-                            xlabel={$P$ (population size)}, ylabel={$b$ (per capita birth rate)},
-                        ]
-                        \addplot [only marks, blue] table {
-                            100 0.01905\\
-                            200 0.01575\\
-                            300 0.01455\\
-                            400 0.0133875\\
-                            500 0.01202\\
-                        };
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    /pgfplots/table/row sep=crcr
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=0, xmax=700,
+                        ymin=0, ymax=.025,
+                        xlabel={$P$ (population size)}, ylabel={$b$ (per capita birth rate)},
+                    ]
+                    \addplot [only marks, blue] table {
+                        100 0.01905\\
+                        200 0.01575\\
+                        300 0.01455\\
+                        400 0.0133875\\
+                        500 0.01202\\
+                    };
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
                 <p>The relationship between these points is decreasing. A linear model looks like it could be appropriate. Using linear regression on our data, we find a model <me>b(P) = -1.6423 \times 10^{-5} P + 0.019878.</me> The total birth rate is defined as <m>B(P) = b(P) \cdot P</m>, which according to our model is given by <me> B = 0.019878 P - 1.6423 \times 10^{-5} P^2.</me> This is our objective function, the quantity we want as large as possible.</p>
                 <p>To find the maximum value of <m>B</m>, we compute <m>B' = 0.019878 - 3.2846 \times 10^{-5} P</m> and solve <m>B'=0</m> to find the critical point. <md>
                     <mrow> 0.019878 - 3.2846 \times 10^{-5} P = 0 </mrow>
@@ -340,58 +322,54 @@
                     <mrow> P = \frac{0.019878}{3.2846 \times 10^{-5}} = 605.2 </mrow>
                 </md> Because <m>B'' = -3.2846 \times 10^{-5}</m> is negative, we know that <m>B</m> is a concave down function and the critical value corresponds to a maximum value. The maximum total birth rate is <me>B(605.2) = 6.015,</me> occurring for <m>P=605.2</m>. A population should be an integer value, so we would expect the maximum birth rate to occur when <m>P=605</m>.</p>
                 <p>However, our prediction is dependent on the model that we chose. What if we used a different equation for our original per capita birth rate? The original data points have the appearance of being concave up. So maybe we should use an exponential regression curve. This gives <me>b(P) = 0.02069 e^{-0.001125P}.</me> The graph below shows the two models for per capita birth rate with the data.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        /pgfplots/table/row sep=crcr
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            xmin=0, xmax=700,
-                            ymin=0, ymax=.025,
-                            xlabel={$P$ (population size)}, ylabel={$b$ (per capita birth rate)},
-                            legend style={at={(1,1)}, anchor=north east}
-                        ]
-                        \addplot [only marks, blue] table {
-                            100 0.01905\\
-                            200 0.01575\\
-                            300 0.01455\\
-                            400 0.0133875\\
-                            500 0.01202\\
-                        };
-                        \addplot [-, dashed, blue, domain=0:700, samples=51] { -0.000016423*x+0.019878 };
-                        \addplot [-, red, domain=0:700, samples=51] { 0.020688*exp(-0.0011254*x) };
-                        \legend {data,linear fit,exponential fit}
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    /pgfplots/table/row sep=crcr
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=0, xmax=700,
+                        ymin=0, ymax=.025,
+                        xlabel={$P$ (population size)}, ylabel={$b$ (per capita birth rate)},
+                        legend style={at={(1,1)}, anchor=north east}
+                    ]
+                    \addplot [only marks, blue] table {
+                        100 0.01905\\
+                        200 0.01575\\
+                        300 0.01455\\
+                        400 0.0133875\\
+                        500 0.01202\\
+                    };
+                    \addplot [-, dashed, blue, domain=0:700, samples=51] { -0.000016423*x+0.019878 };
+                    \addplot [-, red, domain=0:700, samples=51] { 0.020688*exp(-0.0011254*x) };
+                    \legend {data,linear fit,exponential fit}
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
                 <p>Using the exponential model for the per capita birth rate, we obtain a modified objective function <me> B(P) = 0.02069Pe^{-0.001125P}.</me> The derivative is <me>B'(P) = 0.02069e^{-0.001125P} + 0.02069P(-0.001125 e^{-0.001125P}) = 0.02069e^{-0.001125P}(1-0.001125P). </me> The critical value must solve <m>1-0.001125P</m> since the exponential factor is always positive. This gives <m>P = \frac{1}{0.001125} \approx 888.9</m>. Sign analysis of <m>B'(P)</m> shows that this critical value corresponds to a maximum value, <m>B(888.9)=6.763</m>.</p>
                 <p>Notice how two different models can yield significantly different predictions. The two models are illustrated together in the figure below. Notice that the original, quadratic model has the non-physical predication of a negative number of births for sufficiently large population sizes.</p>
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            xmin=0, xmax=2000,
-                            ymin=-2, ymax=10,
-                            xlabel={$P$ (population size)}, ylabel={$B$ (total birth rate)},
-                            legend style={at={(1,1)}, anchor=north east}
-                        ]
-                        \addplot [-, dashed, blue, domain=0:1400, samples=51] { -0.000016423*x^2+0.019878*x };
-                        \addplot [-, red, domain=0:2000, samples=51] { 0.020688*x*exp(-0.0011254*x) };
-                        \legend {linear fit,exponential fit}
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}
+                    \begin{axis}[
+                        xmin=0, xmax=2000,
+                        ymin=-2, ymax=10,
+                        xlabel={$P$ (population size)}, ylabel={$B$ (total birth rate)},
+                        legend style={at={(1,1)}, anchor=north east}
+                    ]
+                    \addplot [-, dashed, blue, domain=0:1400, samples=51] { -0.000016423*x^2+0.019878*x };
+                    \addplot [-, red, domain=0:2000, samples=51] { 0.020688*x*exp(-0.0011254*x) };
+                    \legend {linear fit,exponential fit}
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </solution>
         </example>
     </subsection>

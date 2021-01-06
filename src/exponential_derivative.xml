@@ -52,52 +52,50 @@
         Unfortunately, this is not a limit that we know as of yet.
         The following table illustrates some approximations for the value of this limit for a variety of bases.
       </p>
-      <sidebyside>
-        <tabular>
-          <row>
-            <cell> <m>h</m> </cell>
-            <cell> <m>\displaystyle \frac{2^h-1}{h}</m> </cell>
-            <cell> <m>\displaystyle \frac{3^h-1}{h}</m> </cell>
-            <cell> <m>\displaystyle \frac{5^h-1}{h}</m> </cell>
-            <cell> <m>\displaystyle \frac{10^h-1}{h}</m> </cell>
-          </row>
-          <row>
-            <cell> <m>h=0.1</m> </cell>
-            <cell> 0.71773 </cell>
-            <cell> 1.16123</cell>
-            <cell> 1.74619</cell>
-            <cell> 2.58925</cell>
-          </row>
-          <row>
-            <cell> <m>h=0.01</m> </cell>
-            <cell> 0.69555 </cell>
-            <cell> 1.10467</cell>
-            <cell> 1.62246</cell>
-            <cell> 2.32930</cell>
-          </row>
-          <row>
-            <cell> <m>h=0.001</m> </cell>
-            <cell> 0.69339 </cell>
-            <cell> 1.09922</cell>
-            <cell> 1.61073</cell>
-            <cell> 2.30524</cell>
-          </row>
-          <row>
-            <cell> <m>h=0.0001</m> </cell>
-            <cell> 0.69317 </cell>
-            <cell> 1.09867</cell>
-            <cell> 1.60957</cell>
-            <cell> 2.30285</cell>
-          </row>
-          <row>
-            <cell> <m>h \to 0</m> </cell>
-            <cell> 0.69315 </cell>
-            <cell> 1.09861 </cell>
-            <cell> 1.60944 </cell>
-            <cell> 2.30259 </cell>
-          </row>
-        </tabular>
-      </sidebyside>
+      <tabular>
+        <row>
+          <cell> <m>h</m> </cell>
+          <cell> <m>\displaystyle \frac{2^h-1}{h}</m> </cell>
+          <cell> <m>\displaystyle \frac{3^h-1}{h}</m> </cell>
+          <cell> <m>\displaystyle \frac{5^h-1}{h}</m> </cell>
+          <cell> <m>\displaystyle \frac{10^h-1}{h}</m> </cell>
+        </row>
+        <row>
+          <cell> <m>h=0.1</m> </cell>
+          <cell> 0.71773 </cell>
+          <cell> 1.16123</cell>
+          <cell> 1.74619</cell>
+          <cell> 2.58925</cell>
+        </row>
+        <row>
+          <cell> <m>h=0.01</m> </cell>
+          <cell> 0.69555 </cell>
+          <cell> 1.10467</cell>
+          <cell> 1.62246</cell>
+          <cell> 2.32930</cell>
+        </row>
+        <row>
+          <cell> <m>h=0.001</m> </cell>
+          <cell> 0.69339 </cell>
+          <cell> 1.09922</cell>
+          <cell> 1.61073</cell>
+          <cell> 2.30524</cell>
+        </row>
+        <row>
+          <cell> <m>h=0.0001</m> </cell>
+          <cell> 0.69317 </cell>
+          <cell> 1.09867</cell>
+          <cell> 1.60957</cell>
+          <cell> 2.30285</cell>
+        </row>
+        <row>
+          <cell> <m>h \to 0</m> </cell>
+          <cell> 0.69315 </cell>
+          <cell> 1.09861 </cell>
+          <cell> 1.60944 </cell>
+          <cell> 2.30259 </cell>
+        </row>
+      </tabular>
     <p>
       Every positive real number <m>b</m> has such a limit, <m>L(b)</m>.
       This limit corresponds to the slope of the elementary exponential function <m>y=b^x</m>
@@ -159,7 +157,7 @@
     <p>
       Because the exponential function <m>\exp(x) = e^x</m> is defined with the natural base,
       <m>\exp'(x) = e^x</m> is the same as the original function, <m>\exp'=\exp</m>.
-      Combining this with the <xref ref="thm-chain-rule" text="title">chain rule</xref>,
+      Combining this with the <xref ref="thm-chain-rule" text="custom">chain rule</xref>,
       we get a generalized derivative of compositions with exponentials,
       <me xml:id="exponential-chain-rule"> \frac{d}{dx}[e^{u(x)}] = e^{u(x)} \cdot u'(x) = e^{u} \cdot \frac{du}{dx}. </me>
     </p>
@@ -378,7 +376,7 @@
         <mrow> y_{k+1} &amp;= y_k (1 + \Delta x),</mrow>
       </md>
       which we identify as a geometric sequence
-      with  <xref ref="theorem-geometric-explicit-sequence" text="title">explicit formula</xref>
+      with  <xref ref="theorem-geometric-explicit-sequence" text="custom">explicit formula</xref>
       <me> y_k = (1 + \Delta x)^{k}. </me>
     </p>
     <p>

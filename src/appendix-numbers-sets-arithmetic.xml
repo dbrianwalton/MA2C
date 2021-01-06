@@ -137,7 +137,7 @@
 
         <p>One of the guiding principles in interpreting arithmetic in different representations is that we expect the fundamental properties of arithmetic to be satisfied. These include the commutative and associative properties of addition and multiplication and the distributive properties of multiplication over addition. That is, for every system of numbers, we expect the following properties to hold for any numbers <m>a,b,c</m>.</p>
 
-        <table xml:id="basic-arithmetic-properties">
+        <figure xml:id="basic-arithmetic-properties">
           <caption>Properties of arithmetic of real numbers.</caption>
           <tabular>
             <col right="minor"/> <col/>
@@ -195,7 +195,7 @@
                 <cell>Right Distributive Property</cell>
             </row>
         </tabular>
-      </table>
+      </figure>
 
         <p>These basic rules establish the basic properties of arithmetic (and algebra) over the real numbers. (Advanced mathematics considers other structures that have some but not all of the same properties in a subject called abstract algebra.) Other consequences of these properties are often used in algebra. We list some of these below for reference.</p>
 

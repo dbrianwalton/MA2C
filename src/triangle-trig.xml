@@ -218,34 +218,32 @@
         require less mental effort to recall.
         </p>
 
-        <sidebyside>
-            <tabular top="major" halign="center">
-                <row bottom="minor">
-                    <cell><m>\theta</m></cell>
-                    <cell><m>30^{\circ}</m></cell>
-                    <cell><m>45^{\circ}</m></cell>
-                    <cell><m>60^{\circ}</m></cell>
-                </row>
-                <row>
-                    <cell><m>\sin \theta = \frac{\hbox{opp}}{\hbox{hyp}}</m></cell>
-                    <cell><m>\sin 30^{\circ} = \frac{1}{2}</m></cell>
-                    <cell><m>\sin 45^{\circ} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}</m></cell>
-                    <cell><m>\sin 60^{\circ} = \frac{\sqrt{3}}{2}</m></cell>
-                </row>
-                <row>
-                    <cell><m>\cos \theta = \frac{\hbox{adj}}{\hbox{hyp}}</m></cell>
-                    <cell><m>\cos 30^{\circ} = \frac{\sqrt{3}}{2}</m></cell>
-                    <cell><m>\cos 45^{\circ} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}</m></cell>
-                    <cell><m>\cos 60^{\circ} = \frac{1}{2}</m></cell>
-                </row>
-                <row>
-                    <cell><m>\tan \theta = \frac{\hbox{opp}}{\hbox{adj}}</m></cell>
-                    <cell><m>\tan 30^{\circ} = \frac{\frac{1}{2}}{\frac{\sqrt{3}}{2}} = \frac{1}{\sqrt{3}}</m></cell>
-                    <cell><m>\tan 45^{\circ} = 1</m></cell>
-                    <cell><m>\tan 60^{\circ} = \frac{\frac{\sqrt{3}}{2}}{\frac{1}{2}} = \sqrt{3}</m></cell>
-                </row>
-            </tabular>
-        </sidebyside>
+        <tabular top="major" halign="center">
+            <row bottom="minor">
+                <cell><m>\theta</m></cell>
+                <cell><m>30^{\circ}</m></cell>
+                <cell><m>45^{\circ}</m></cell>
+                <cell><m>60^{\circ}</m></cell>
+            </row>
+            <row>
+                <cell><m>\sin \theta = \frac{\hbox{opp}}{\hbox{hyp}}</m></cell>
+                <cell><m>\sin 30^{\circ} = \frac{1}{2}</m></cell>
+                <cell><m>\sin 45^{\circ} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}</m></cell>
+                <cell><m>\sin 60^{\circ} = \frac{\sqrt{3}}{2}</m></cell>
+            </row>
+            <row>
+                <cell><m>\cos \theta = \frac{\hbox{adj}}{\hbox{hyp}}</m></cell>
+                <cell><m>\cos 30^{\circ} = \frac{\sqrt{3}}{2}</m></cell>
+                <cell><m>\cos 45^{\circ} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}</m></cell>
+                <cell><m>\cos 60^{\circ} = \frac{1}{2}</m></cell>
+            </row>
+            <row>
+                <cell><m>\tan \theta = \frac{\hbox{opp}}{\hbox{adj}}</m></cell>
+                <cell><m>\tan 30^{\circ} = \frac{\frac{1}{2}}{\frac{\sqrt{3}}{2}} = \frac{1}{\sqrt{3}}</m></cell>
+                <cell><m>\tan 45^{\circ} = 1</m></cell>
+                <cell><m>\tan 60^{\circ} = \frac{\frac{\sqrt{3}}{2}}{\frac{1}{2}} = \sqrt{3}</m></cell>
+            </row>
+        </tabular>
 	</subsection>
 
 	<subsection>
@@ -270,29 +268,27 @@
 	        a variable, say <m>c</m>.
 	        </p>
 
-            <sidebyside>
-                <image xml:id="img-triangle-unknowns">
-                    <description>
-                    Figure showing a right triangle with legs 3 and 5 and a hypotenuse
-                    with unknown length labeled c.
-                    </description>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[auto, thick]
-                    \coordinate (A) at (0,0);
-                    \coordinate (B) at ($ (A) + 0.6*(3,5) $);
-                    \coordinate (C) at ($ (A) + 0.6*(3,0) $);
-                    \draw (A) -- (B) node[pos=0.5] {$c$}
-                        -- (C) node[pos=0.5] {5}
-                        -- (A) node[pos=0.5] {3} ;
-                    \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
-                    \node at ($ (A) + 0.5*(40:1) $) {$\theta$};
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+          <image xml:id="img-triangle-unknowns">
+              <description>
+              Figure showing a right triangle with legs 3 and 5 and a hypotenuse
+              with unknown length labeled c.
+              </description>
+              <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}[auto, thick]
+              \coordinate (A) at (0,0);
+              \coordinate (B) at ($ (A) + 0.6*(3,5) $);
+              \coordinate (C) at ($ (A) + 0.6*(3,0) $);
+              \draw (A) -- (B) node[pos=0.5] {$c$}
+                  -- (C) node[pos=0.5] {5}
+                  -- (A) node[pos=0.5] {3} ;
+              \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
+              \node at ($ (A) + 0.5*(40:1) $) {$\theta$};
+              \end{tikzpicture}]]>
+              </latex-image>
+          </image>
 
             <p>
             Using the Pythagorean theorem, we can find the length of the hypotenuse.
@@ -341,30 +337,28 @@
 	        the vertical velocity <m>v_y</m>.
 	        </p>
 
-            <sidebyside>
-                <image xml:id="img-velocity-decomposition">
-                    <description>
-                    Figure showing a right triangle representing a velocity of 80 ft/s
-                    and unknown horizontal and vertical velocity components.
-                    </description>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[auto, thick]
-                    \coordinate (A) at (0,0);
-                    \coordinate (B) at ($ (A) + 3*(40:1) $);
-                    \coordinate (Bc) at ($ (A) + 3*(-40:1) $);
-                    \coordinate (C) at ($ (B)!0.5!(Bc) $);
-                    \draw (A) -- (B) node[pos=0.5] {80}
-                        -- (C) node[pos=0.5] {$v_y$}
-                        -- (A) node[pos=0.5] {$v_x$} ;
-                    \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
-                    \node at ($ (A) + 0.75*(20:1) $) {$40^{\circ}$};
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+          <image xml:id="img-velocity-decomposition">
+              <description>
+              Figure showing a right triangle representing a velocity of 80 ft/s
+              and unknown horizontal and vertical velocity components.
+              </description>
+              <latex-image>
+              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+              <![CDATA[\tikzset{%
+              }
+              \begin{tikzpicture}[auto, thick]
+              \coordinate (A) at (0,0);
+              \coordinate (B) at ($ (A) + 3*(40:1) $);
+              \coordinate (Bc) at ($ (A) + 3*(-40:1) $);
+              \coordinate (C) at ($ (B)!0.5!(Bc) $);
+              \draw (A) -- (B) node[pos=0.5] {80}
+                  -- (C) node[pos=0.5] {$v_y$}
+                  -- (A) node[pos=0.5] {$v_x$} ;
+              \draw (C) rectangle ($ (C) + (-0.25, 0.25) $);
+              \node at ($ (A) + 0.75*(20:1) $) {$40^{\circ}$};
+              \end{tikzpicture}]]>
+              </latex-image>
+          </image>
 
             <p>
             The trigonometric values for <m>\theta=40^{\circ}</m> can be easily found

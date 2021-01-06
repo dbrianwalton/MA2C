@@ -6,7 +6,7 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="discrete-calculus-intro">
   <title>Introduction to Discrete Calculus</title>
 
@@ -208,13 +208,13 @@
       <statement>
         <p>
           For a sequence <m>x</m> with index <m>k</m>, we say that <m>x</m> is <term>increasing</term>
-          on the interval <m>\{m,\ldots,n\}</m> if for every two values in the interval, 
+          on the interval <m>\{m,\ldots,n\}</m> if for every two values in the interval,
           <m>i,j \in \{m,\ldots,n\}</m> with <m>i \lt j</m>, we have <m>x_j \gt x_i</m>.
           That is, values later in the sequence are always greater than values earlier in the sequence.
         </p>
         <p>
           We say that <m>x</m> is <term>decreasing</term>
-          on the interval <m>\{m,\ldots,n\}</m> if for every two values in the interval, 
+          on the interval <m>\{m,\ldots,n\}</m> if for every two values in the interval,
           <m>i,j \in \{m,\ldots,n\}</m> with <m>i \lt j</m>, we have <m>x_j \lt x_i</m>.
           That is, values later in the sequence are always less than values earlier in the sequence.
         </p>
@@ -248,32 +248,30 @@
           We look at whether the sequence values are moving to the left or to the right on the number line.
           You could probably just visualize it in your mind, but a number line showing the values is illustrated below.
         </p>
-        <sidebyside width="90%">
-          <image>
-            <latex-image>
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[x=0.5cm,y=0.5cm]
-            \draw [<->] (-10,0) -- (10,0);
-            \foreach \x in {-9,-8,...,9}
-              \draw (\x,-0.2) -- (\x,0.2) node [pos=0,below] {\x};
-            \foreach \x in {-9,-8,-5,0,1,2,4,7}
-              \fill (\x,0) circle (2pt);
-            \node at (-5,0.9) [above] {$x_0$};
-            \node at (-8,0.9) [above] {$x_1$};
-            \node at (-9,0.5) [above] {$x_2$};
-            \node at (-8,0.1) [above] {$x_3$};
-            \node at (-5,0.1) [above] {$x_4$};
-            \node at (0,0.5) [above] {$x_5$};
-            \node at (7,0.5) [above] {$x_6$};
-            \node at (4,0.1) [above] {$x_7$};
-            \node at (2,0.1) [above] {$x_8$};
-            \node at (1,0.1) [above] {$x_9$};
-            \end{tikzpicture}
-            ]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="90%">
+          <latex-image>
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[x=0.5cm,y=0.5cm]
+          \draw [<->] (-10,0) -- (10,0);
+          \foreach \x in {-9,-8,...,9}
+            \draw (\x,-0.2) -- (\x,0.2) node [pos=0,below] {\x};
+          \foreach \x in {-9,-8,-5,0,1,2,4,7}
+            \fill (\x,0) circle (2pt);
+          \node at (-5,0.9) [above] {$x_0$};
+          \node at (-8,0.9) [above] {$x_1$};
+          \node at (-9,0.5) [above] {$x_2$};
+          \node at (-8,0.1) [above] {$x_3$};
+          \node at (-5,0.1) [above] {$x_4$};
+          \node at (0,0.5) [above] {$x_5$};
+          \node at (7,0.5) [above] {$x_6$};
+          \node at (4,0.1) [above] {$x_7$};
+          \node at (2,0.1) [above] {$x_8$};
+          \node at (1,0.1) [above] {$x_9$};
+          \end{tikzpicture}
+          ]]>
+          </latex-image>
+        </image>
         <p>
           We can see that <m>x</m> is decreasing on the index interval <m>\{0, 1, 2\}</m>
           because the values of the sequence move left on the number line:
@@ -289,39 +287,37 @@
           When the sequence is decreasing, the graph shows points of lowering heights.
           When the sequence is increasing, the graph shows points of rising heights.
         </p>
-        <sidebyside width="70%">
-          <image>
-            <latex-image>
-            <![CDATA[\tikzset{%
-            /pgfplots/table/row sep=crcr
-            }
-            \pgfplotsset{ width=8cm }
-            \begin{tikzpicture}
-            \begin{axis}[
-              xlabel={$n$},
-              ylabel={$x_n$},
-            ]
-            \addplot[
-              only marks,
-              color=blue
-            ] table {
-              0 -5\\
-              1 -8\\
-              2 -9\\
-              3 -8\\
-              4 -5\\
-              5 0\\
-              6 7\\
-              7 4\\
-              8 2\\
-              9 1\\
-            };
-            \end{axis}
-            \end{tikzpicture}
-            ]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%">
+          <latex-image>
+          <![CDATA[\tikzset{%
+          /pgfplots/table/row sep=crcr
+          }
+          \pgfplotsset{ width=8cm }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={$n$},
+            ylabel={$x_n$},
+          ]
+          \addplot[
+            only marks,
+            color=blue
+          ] table {
+            0 -5\\
+            1 -8\\
+            2 -9\\
+            3 -8\\
+            4 -5\\
+            5 0\\
+            6 7\\
+            7 4\\
+            8 2\\
+            9 1\\
+          };
+          \end{axis}
+          \end{tikzpicture}
+          ]]>
+          </latex-image>
+        </image>
       </solution>
     </example>
     <p>
@@ -351,7 +347,7 @@
       </statement>
     </definition>
     <p>
-      When computing the increments, we had to make a choice whether to do the backward difference or the forward difference, 
+      When computing the increments, we had to make a choice whether to do the backward difference or the forward difference,
       <me>\Delta x_k = x_{k+1} - x_k</me>.
       The values of the backward differences and the forward differences are exactly the same.
       They differ only in terms of index values.
@@ -369,34 +365,32 @@
           We can find the values by writing the sequence as a row of values.
           Then below the gaps between the values, we can write the differences.
         </p>
-        <sidebyside width="70%">
-          <image>
-            <latex-image>
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[y=0.5cm]
-            \node at (0,0) {$x_n$};
-            \node at (1,0) {1};
-            \node at (2,0) {2};
-            \node at (3,0) {4};
-            \node at (4,0) {7};
-            \node at (5,0) {11};
-            \node at (6,0) {16};
-            \node at (7,0) {22};
-            \node at (8,0) {29};
-            \node at (0,-1) {$\nabla x_n$};
-            \node at (1.5,-1) {1};
-            \node at (2.5,-1) {2};
-            \node at (3.5,-1) {3};
-            \node at (4.5,-1) {4};
-            \node at (5.5,-1) {5};
-            \node at (6.5,-1) {6};
-            \node at (7.5,-1) {7};
-            \end{tikzpicture}
-            ]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%">
+          <latex-image>
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[y=0.5cm]
+          \node at (0,0) {$x_n$};
+          \node at (1,0) {1};
+          \node at (2,0) {2};
+          \node at (3,0) {4};
+          \node at (4,0) {7};
+          \node at (5,0) {11};
+          \node at (6,0) {16};
+          \node at (7,0) {22};
+          \node at (8,0) {29};
+          \node at (0,-1) {$\nabla x_n$};
+          \node at (1.5,-1) {1};
+          \node at (2.5,-1) {2};
+          \node at (3.5,-1) {3};
+          \node at (4.5,-1) {4};
+          \node at (5.5,-1) {5};
+          \node at (6.5,-1) {6};
+          \node at (7.5,-1) {7};
+          \end{tikzpicture}
+          ]]>
+          </latex-image>
+        </image>
         <p>
           When the increments are defined by the backward difference,
           the index starts one value later than the original sequence.
@@ -447,14 +441,14 @@
       If an increment is negative, then the next increment needs to be a smaller magnitude negative value or a positive value.
       Either way, we need the increments to increase:
       <me>\nabla x_n \gt \nabla x_{n-1}</me>.
-      Similarly, for a sequence to be concave down, the increments need to decrease: 
+      Similarly, for a sequence to be concave down, the increments need to decrease:
       <me>\nabla x_n \lt \nabla x_{n-1}</me>.
     </p>
     <definition xml:id="definition-sequence-concavity">
       <title>Concavity of a Sequence</title>
       <statement>
         <p>
-        Suppose <m>x</m> is a sequence with increments <m>\nabla x_k</m> 
+        Suppose <m>x</m> is a sequence with increments <m>\nabla x_k</m>
         and <m>m</m> and <m>n</m> are index values with <m>m \lt n</m>.
         <ul>
           <li>
@@ -519,7 +513,7 @@
     <example>
       <statement>
         <p>
-          The values for the subsequence shown in <xref ref="figure-sequence-all-behaviors" /> 
+          The values for the subsequence shown in <xref ref="figure-sequence-all-behaviors" />
           are shown in the table below, rounded to the nearest ten-thousandth.
           Determine the intervals of monotonicity and concavity.
         </p>
@@ -776,71 +770,67 @@
           We begin by looking at the signs of the increments based on the first backward difference.
           Again, it is more compact to use a table to summarize our results.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell>Sign of <m>\nabla u_n</m></cell>
-              <cell>Interval</cell>
-              <cell>Behavior of <m>u_n</m></cell>
-              <cell>Interval</cell>
-            </row>
-            <row>
-              <cell>negative</cell>
-              <cell><m>\{1,2,3\}</m></cell>
-              <cell>decreasing</cell>
-              <cell><m>\{0,\ldots,3\}</m></cell>
-            </row>
-            <row>
-              <cell>positive</cell>
-              <cell><m>\{4,\ldots,10\}</m></cell>
-              <cell>increasing</cell>
-              <cell><m>\{3,\ldots,10\}</m></cell>
-            </row>
-            <row>
-              <cell>negative</cell>
-              <cell><m>\{11,\ldots,17\}</m></cell>
-              <cell>decreasing</cell>
-              <cell><m>\{10,\ldots,17\}</m></cell>
-            </row>
-            <row>
-              <cell>positive</cell>
-              <cell><m>\{18,19,20\}</m></cell>
-              <cell>increasing</cell>
-              <cell><m>\{17,\ldots,20\}</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell>Sign of <m>\nabla u_n</m></cell>
+            <cell>Interval</cell>
+            <cell>Behavior of <m>u_n</m></cell>
+            <cell>Interval</cell>
+          </row>
+          <row>
+            <cell>negative</cell>
+            <cell><m>\{1,2,3\}</m></cell>
+            <cell>decreasing</cell>
+            <cell><m>\{0,\ldots,3\}</m></cell>
+          </row>
+          <row>
+            <cell>positive</cell>
+            <cell><m>\{4,\ldots,10\}</m></cell>
+            <cell>increasing</cell>
+            <cell><m>\{3,\ldots,10\}</m></cell>
+          </row>
+          <row>
+            <cell>negative</cell>
+            <cell><m>\{11,\ldots,17\}</m></cell>
+            <cell>decreasing</cell>
+            <cell><m>\{10,\ldots,17\}</m></cell>
+          </row>
+          <row>
+            <cell>positive</cell>
+            <cell><m>\{18,19,20\}</m></cell>
+            <cell>increasing</cell>
+            <cell><m>\{17,\ldots,20\}</m></cell>
+          </row>
+        </tabular>
         <p>
           We perform a similar analysis on the second backward differences to describe the concavity of the sequence.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell>Sign of <m>\nabla^2 u_n</m></cell>
-              <cell>Interval</cell>
-              <cell>Behavior of <m>u_n</m></cell>
-              <cell>Interval</cell>
-            </row>
-            <row>
-              <cell>positive</cell>
-              <cell><m>\{2,\ldots,6\}</m></cell>
-              <cell>concave up</cell>
-              <cell><m>\{0,\ldots,6\}</m></cell>
-            </row>
-            <row>
-              <cell>negative</cell>
-              <cell><m>\{7,\ldots,15\}</m></cell>
-              <cell>concave down</cell>
-              <cell><m>\{5,\ldots,15\}</m></cell>
-            </row>
-            <row>
-              <cell>positive</cell>
-              <cell><m>\{16,\ldots,20\}</m></cell>
-              <cell>concave up</cell>
-              <cell><m>\{14,\ldots,20\}</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell>Sign of <m>\nabla^2 u_n</m></cell>
+            <cell>Interval</cell>
+            <cell>Behavior of <m>u_n</m></cell>
+            <cell>Interval</cell>
+          </row>
+          <row>
+            <cell>positive</cell>
+            <cell><m>\{2,\ldots,6\}</m></cell>
+            <cell>concave up</cell>
+            <cell><m>\{0,\ldots,6\}</m></cell>
+          </row>
+          <row>
+            <cell>negative</cell>
+            <cell><m>\{7,\ldots,15\}</m></cell>
+            <cell>concave down</cell>
+            <cell><m>\{5,\ldots,15\}</m></cell>
+          </row>
+          <row>
+            <cell>positive</cell>
+            <cell><m>\{16,\ldots,20\}</m></cell>
+            <cell>concave up</cell>
+            <cell><m>\{14,\ldots,20\}</m></cell>
+          </row>
+        </tabular>
       </solution>
     </example>
     <p>
@@ -893,7 +883,7 @@
       because they would be where the sequence transitioned from decreasing to increasing.
     </p>
     <p>
-      A <term>global extreme value</term> describes a value in the sequence 
+      A <term>global extreme value</term> describes a value in the sequence
       that is either the largest value of all (the <term>global maximum</term>)
       or the lowest value of all (the <term>global minimum</term>).
       To describe the global extreme values, we would compare all of the local extremes
@@ -928,47 +918,45 @@
           This sequence is not arithmetic, nor is it geometric.
           To look for a pattern, we proceed to generate the backward differences.
         </p>
-        <sidebyside width="70%">
-          <image>
-            <latex-image>
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[y=0.5cm]
-            \node at (0,0) {$w_n$};
-            \node at (1,0) {0};
-            \node at (2,0) {-23};
-            \node at (3,0) {-40};
-            \node at (4,0) {-45};
-            \node at (5,0) {-32};
-            \node at (6,0) {5};
-            \node at (7,0) {72};
-            \node at (8,0) {175};
-            \node at (0,-1) {$\nabla w_n$};
-            \node at (1.5,-1) {-23};
-            \node at (2.5,-1) {-17};
-            \node at (3.5,-1) {-5};
-            \node at (4.5,-1) {13};
-            \node at (5.5,-1) {37};
-            \node at (6.5,-1) {67};
-            \node at (7.5,-1) {103};
-            \node at (0,-2) {$\nabla^2 w_n$};
-            \node at (2,-2) {6};
-            \node at (3,-2) {12};
-            \node at (4,-2) {18};
-            \node at (5,-2) {24};
-            \node at (6,-2) {30};
-            \node at (7,-2) {36};
-            \node at (0,-3) {$\nabla^3 w_n$};
-            \node at (2.5,-3) {6};
-            \node at (3.5,-3) {6};
-            \node at (4.5,-3) {6};
-            \node at (5.5,-3) {6};
-            \node at (6.5,-3) {6};
-            \end{tikzpicture}
-            ]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%">
+          <latex-image>
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[y=0.5cm]
+          \node at (0,0) {$w_n$};
+          \node at (1,0) {0};
+          \node at (2,0) {-23};
+          \node at (3,0) {-40};
+          \node at (4,0) {-45};
+          \node at (5,0) {-32};
+          \node at (6,0) {5};
+          \node at (7,0) {72};
+          \node at (8,0) {175};
+          \node at (0,-1) {$\nabla w_n$};
+          \node at (1.5,-1) {-23};
+          \node at (2.5,-1) {-17};
+          \node at (3.5,-1) {-5};
+          \node at (4.5,-1) {13};
+          \node at (5.5,-1) {37};
+          \node at (6.5,-1) {67};
+          \node at (7.5,-1) {103};
+          \node at (0,-2) {$\nabla^2 w_n$};
+          \node at (2,-2) {6};
+          \node at (3,-2) {12};
+          \node at (4,-2) {18};
+          \node at (5,-2) {24};
+          \node at (6,-2) {30};
+          \node at (7,-2) {36};
+          \node at (0,-3) {$\nabla^3 w_n$};
+          \node at (2.5,-3) {6};
+          \node at (3.5,-3) {6};
+          \node at (4.5,-3) {6};
+          \node at (5.5,-3) {6};
+          \node at (6.5,-3) {6};
+          \end{tikzpicture}
+          ]]>
+          </latex-image>
+        </image>
         <p>
           The pattern of backward differences shows that the third-order backward difference is a constant value, <m>\nabla^3 w_n = 6</m>.
           We can use this pattern to find the next few values of the sequence.
@@ -980,55 +968,53 @@
           Repeating the process allows us to find <m>w_{10} = 513</m>,
           as illustrated in the extended table below.
         </p>
-        <sidebyside width="90%">
-          <image>
-            <latex-image>
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}[y=0.5cm]
-            \node at (0,0) {$w_n$};
-            \node at (1,0) {0};
-            \node at (2,0) {-23};
-            \node at (3,0) {-40};
-            \node at (4,0) {-45};
-            \node at (5,0) {-32};
-            \node at (6,0) {5};
-            \node at (7,0) {72};
-            \node at (8,0) {175};
-            \node at (9,0) {320};
-            \node at (10,0) {513};
-            \node at (0,-1) {$\nabla w_n$};
-            \node at (1.5,-1) {-23};
-            \node at (2.5,-1) {-17};
-            \node at (3.5,-1) {-5};
-            \node at (4.5,-1) {13};
-            \node at (5.5,-1) {37};
-            \node at (6.5,-1) {67};
-            \node at (7.5,-1) {103};
-            \node at (8.5,-1) {145};
-            \node at (9.5,-1) {193};
-            \node at (0,-2) {$\nabla^2 w_n$};
-            \node at (2,-2) {6};
-            \node at (3,-2) {12};
-            \node at (4,-2) {18};
-            \node at (5,-2) {24};
-            \node at (6,-2) {30};
-            \node at (7,-2) {36};
-            \node at (8,-2) {42};
-            \node at (9,-2) {48};
-            \node at (0,-3) {$\nabla^3 w_n$};
-            \node at (2.5,-3) {6};
-            \node at (3.5,-3) {6};
-            \node at (4.5,-3) {6};
-            \node at (5.5,-3) {6};
-            \node at (6.5,-3) {6};
-            \node at (7.5,-3) {6};
-            \node at (8.5,-3) {6};
-            \end{tikzpicture}
-            ]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="90%">
+          <latex-image>
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}[y=0.5cm]
+          \node at (0,0) {$w_n$};
+          \node at (1,0) {0};
+          \node at (2,0) {-23};
+          \node at (3,0) {-40};
+          \node at (4,0) {-45};
+          \node at (5,0) {-32};
+          \node at (6,0) {5};
+          \node at (7,0) {72};
+          \node at (8,0) {175};
+          \node at (9,0) {320};
+          \node at (10,0) {513};
+          \node at (0,-1) {$\nabla w_n$};
+          \node at (1.5,-1) {-23};
+          \node at (2.5,-1) {-17};
+          \node at (3.5,-1) {-5};
+          \node at (4.5,-1) {13};
+          \node at (5.5,-1) {37};
+          \node at (6.5,-1) {67};
+          \node at (7.5,-1) {103};
+          \node at (8.5,-1) {145};
+          \node at (9.5,-1) {193};
+          \node at (0,-2) {$\nabla^2 w_n$};
+          \node at (2,-2) {6};
+          \node at (3,-2) {12};
+          \node at (4,-2) {18};
+          \node at (5,-2) {24};
+          \node at (6,-2) {30};
+          \node at (7,-2) {36};
+          \node at (8,-2) {42};
+          \node at (9,-2) {48};
+          \node at (0,-3) {$\nabla^3 w_n$};
+          \node at (2.5,-3) {6};
+          \node at (3.5,-3) {6};
+          \node at (4.5,-3) {6};
+          \node at (5.5,-3) {6};
+          \node at (6.5,-3) {6};
+          \node at (7.5,-3) {6};
+          \node at (8.5,-3) {6};
+          \end{tikzpicture}
+          ]]>
+          </latex-image>
+        </image>
       </solution>
     </example>
   </subsection>
@@ -1084,11 +1070,11 @@
           <me>\nabla x_k = x_k - x_{k-1}</me>.
           <ul>
             <li>
-            If the increments are positive, <m>\nabla x_k \gt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>, 
+            If the increments are positive, <m>\nabla x_k \gt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>,
             then the values of the sequence <m>x_k</m> are <em>increasing</em> on the interval <m>\{m-1,\ldots,n\}</m>.
             </li>
             <li>
-            If the increments are negative, <m>\nabla x_k \lt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>, 
+            If the increments are negative, <m>\nabla x_k \lt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>,
             then the values of the sequence <m>x_k</m> are <em>decreasing</em> on the interval <m>\{m-1,\ldots,n\}</m>.
             </li>
           </ul>
@@ -1107,11 +1093,11 @@
           <me>\nabla^2 x_k = \nabla x_k - \nabla x_{k-1}</me>.
           <ul>
             <li>
-            If the second increments are positive, <m>\nabla^2 x_k \gt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>, 
+            If the second increments are positive, <m>\nabla^2 x_k \gt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>,
             then the values of the sequence <m>x_k</m> are <em>concave up</em> on the interval <m>\{m-2,\ldots,n\}</m>.
             </li>
             <li>
-            If the second increments are negative, <m>\nabla^2 x_k \lt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>, 
+            If the second increments are negative, <m>\nabla^2 x_k \lt 0</m> for all <m>k</m> on an interval <m>\{m,\ldots,n\}</m>,
             then the values of the sequence <m>x_k</m> are <em>concave down</em> on the interval <m>\{m-2,\ldots,n\}</m>.
             </li>
           </ul>

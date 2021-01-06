@@ -73,36 +73,34 @@
       The differences are the values <m>\Delta x = x-a</m> and <m>\Delta u = g(x)-g(a)</m>.
       In composition, the outputs <m>g(a)</m> and <m>g(x)</m> act as inputs to <m>f</m>.
     </p>
-    <sidebyside width="60%">
-      <image>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \begin{tikzpicture}
-        \draw[<->] (-2,4) -- (4,4) node[right] {$x$};
-        \draw (0,4.1) -- (0,3.9) node[below] {$a$};
-        \draw (0.4,4.1) -- (0.4,3.9) node[below] {$x$};
-        \draw (0.2,4) node[above] {$\Delta x$};
-        \draw[->] (0,3.4) -- (2,2.2) node[left,pos=0.5] {$g$};
-        \draw[->] (0.4,3.4) -- (2.7,2.2) node[right,pos=0.5] {$g$};
-        \draw[<->] (-2,2) -- (4,2) node[right] {$u$};
-        \draw (2,2.1) -- (2,1.9) node[below] {$g(a)$};
-        \draw (2.35,2) node[above] {$\Delta u$};
-        \draw (2.7,2.1) -- (2.7,1.9) node[below] {$g(x)$};
-        \draw[->] (2,1.4) -- (1,0.2) node[left,pos=0.5] {$f$};
-        \draw[->] (2.7,1.4) -- (2,0.2) node[right,pos=0.5] {$f$};
-        \draw[<->] (-2,0) -- (4,0) node[right] {$y$};
-        \draw (1,0.1) -- (1,-0.1) node[below left] {$f(g(a))$};
-        \draw (2,0.1) -- (2,-0.1) node[below] {$f(g(x))$};
-        \draw (1.5,0) node[above] {$\Delta y$};
+    <image width="60%">
+      <latex-image>
+      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+      <![CDATA[\tikzset{%
+      }
+      \begin{tikzpicture}
+      \draw[<->] (-2,4) -- (4,4) node[right] {$x$};
+      \draw (0,4.1) -- (0,3.9) node[below] {$a$};
+      \draw (0.4,4.1) -- (0.4,3.9) node[below] {$x$};
+      \draw (0.2,4) node[above] {$\Delta x$};
+      \draw[->] (0,3.4) -- (2,2.2) node[left,pos=0.5] {$g$};
+      \draw[->] (0.4,3.4) -- (2.7,2.2) node[right,pos=0.5] {$g$};
+      \draw[<->] (-2,2) -- (4,2) node[right] {$u$};
+      \draw (2,2.1) -- (2,1.9) node[below] {$g(a)$};
+      \draw (2.35,2) node[above] {$\Delta u$};
+      \draw (2.7,2.1) -- (2.7,1.9) node[below] {$g(x)$};
+      \draw[->] (2,1.4) -- (1,0.2) node[left,pos=0.5] {$f$};
+      \draw[->] (2.7,1.4) -- (2,0.2) node[right,pos=0.5] {$f$};
+      \draw[<->] (-2,0) -- (4,0) node[right] {$y$};
+      \draw (1,0.1) -- (1,-0.1) node[below left] {$f(g(a))$};
+      \draw (2,0.1) -- (2,-0.1) node[below] {$f(g(x))$};
+      \draw (1.5,0) node[above] {$\Delta y$};
 
-        \draw (3.5,3) node[right] {$\displaystyle \Delta u \approx g'(a) \cdot \Delta x$};
-        \draw (3.5,1) node[right] {$\displaystyle \Delta y \approx f'(g(a)) \cdot \Delta u$};
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
+      \draw (3.5,3) node[right] {$\displaystyle \Delta u \approx g'(a) \cdot \Delta x$};
+      \draw (3.5,1) node[right] {$\displaystyle \Delta y \approx f'(g(a)) \cdot \Delta u$};
+      \end{tikzpicture}]]>
+      </latex-image>
+    </image>
     <p>
       The derivative provides an approximate ratio in the changes of output values to the changes of input values.
       The smaller the input, the closer the approximation.
@@ -690,55 +688,53 @@
           Use the values of <m>f(x)</m> and <m>g(x)</m> and their derivatives
           from the following table to calculate the indicated values.
         </p>
-        <sidebyside>
-          <tabular>
-            <row>
-              <cell><m>x</m></cell>
-              <cell>0</cell>
-              <cell>1</cell>
-              <cell>2</cell>
-              <cell>3</cell>
-              <cell>4</cell>
-              <cell>5</cell>
-            </row>
-            <row>
-              <cell><m>f(x)</m></cell>
-              <cell>5</cell>
-              <cell>3</cell>
-              <cell>1</cell>
-              <cell>0</cell>
-              <cell>2</cell>
-              <cell>4</cell>
-            </row>
-            <row>
-              <cell><m>g(x)</m></cell>
-              <cell>1</cell>
-              <cell>4</cell>
-              <cell>5</cell>
-              <cell>3</cell>
-              <cell>2</cell>
-              <cell>0</cell>
-            </row>
-            <row>
-              <cell><m>f'(x)</m></cell>
-              <cell>-3</cell>
-              <cell>-2</cell>
-              <cell>-1</cell>
-              <cell>0</cell>
-              <cell>3</cell>
-              <cell>5</cell>
-            </row>
-            <row>
-              <cell><m>g'(x)</m></cell>
-              <cell>4</cell>
-              <cell>2</cell>
-              <cell>-1</cell>
-              <cell>-2</cell>
-              <cell>-4</cell>
-              <cell>-3</cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row>
+            <cell><m>x</m></cell>
+            <cell>0</cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+            <cell>4</cell>
+            <cell>5</cell>
+          </row>
+          <row>
+            <cell><m>f(x)</m></cell>
+            <cell>5</cell>
+            <cell>3</cell>
+            <cell>1</cell>
+            <cell>0</cell>
+            <cell>2</cell>
+            <cell>4</cell>
+          </row>
+          <row>
+            <cell><m>g(x)</m></cell>
+            <cell>1</cell>
+            <cell>4</cell>
+            <cell>5</cell>
+            <cell>3</cell>
+            <cell>2</cell>
+            <cell>0</cell>
+          </row>
+          <row>
+            <cell><m>f'(x)</m></cell>
+            <cell>-3</cell>
+            <cell>-2</cell>
+            <cell>-1</cell>
+            <cell>0</cell>
+            <cell>3</cell>
+            <cell>5</cell>
+          </row>
+          <row>
+            <cell><m>g'(x)</m></cell>
+            <cell>4</cell>
+            <cell>2</cell>
+            <cell>-1</cell>
+            <cell>-2</cell>
+            <cell>-4</cell>
+            <cell>-3</cell>
+          </row>
+        </tabular>
       </introduction>
       <exercise>
         <statement>

@@ -6,23 +6,23 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="integrals-substitution">
     <title>Integrals and the Method of Substitution</title>
-    
+
     <introduction>
     <p>Every rule for differentiation has a corresponding rule for integrals or antidifferentiation. This section focuses on the integration rule that corresponds to the chain rule.</p>
-    
-    <p>Recall that the <xref ref='thm-chain-rule' text='title'>chain rule</xref> states that if <m>F(x)</m> is a function with a derivative <m>F'(x)</m> and <m>u</m> is any expression (or function), then <me>\frac{d}{dx}[F(u)] = F'(u) \frac{du}{dx}.</me> The corresponding antidifferentiation rule says that if we have a function <m>f(x)</m> with an antiderivative <m>F(x)</m> (<m>F'(x)=f(x)</m>), then <me>\int f(u) \frac{du}{dx} dx = F(u) + C.</me></p>
-    
+
+    <p>Recall that the <xref ref='thm-chain-rule' text='custom'>chain rule</xref> states that if <m>F(x)</m> is a function with a derivative <m>F'(x)</m> and <m>u</m> is any expression (or function), then <me>\frac{d}{dx}[F(u)] = F'(u) \frac{du}{dx}.</me> The corresponding antidifferentiation rule says that if we have a function <m>f(x)</m> with an antiderivative <m>F(x)</m> (<m>F'(x)=f(x)</m>), then <me>\int f(u) \frac{du}{dx} dx = F(u) + C.</me></p>
+
     <p>Usually, the integrand does not appear so obviously in the form of the chain rule. The method of substitution provides a formalized method to guide the process. The method relies on transforming the integral from an integrand in terms of the independent variable, say <m>x</m>, as a new integral with an integrand in terms of the chain variable <m>u</m>. For the transformation to be valid, we must account for the chain rule factor <m>\frac{du}{dx} = u'</m>. We use the substitution rule for differentials <me>du = u' \cdot dx \qquad \Leftrightarrow \qquad dx = \frac{du}{u'}.</me></p>
     </introduction>
-    
+
     <subsection>
     <title>Substitution and Antiderivatives</title>
-    
+
     <p>To apply the method of substitution, we start with an integral whose integrand is a function the independent variable (<m>x</m>) which appears to involve a composition (suggesting a chain rule). Define <m>u</m> to be the formula in the composition and compute <m>u'</m>. We then substitute <m>\displaystyle dx = \frac{du}{u'}</m> in the integral and attempt to rewrite the entire integrand in terms of only <m>u</m>. We then find antiderivatives in terms of <m>u</m> and express the result in terms of the orignal variable.</p>
-    
+
     <example>
         <statement>
             <p>Use the method of substitution to find <m>\displaystyle \int e^{3x} \, dx</m>.</p>
@@ -37,7 +37,7 @@
             </md></p>
         </solution>
     </example>
-    
+
     <example>
         <statement>
             <p>Use the method of substitution to find <m>\displaystyle \int \sqrt{3x+5} \, dx</m>.</p>
@@ -52,7 +52,7 @@
             </md></p>
         </solution>
     </example>
-    
+
     <example>
         <statement>
             <p>Use the method of substitution to find <m>\displaystyle \int x\sin(x^2) \, dx</m>.</p>
@@ -68,7 +68,7 @@
             </md> This problem relied on the factor <m>x</m> and the formula for <m>u'=2x</m> having <m>x</m> cancel so that the transformed integral involves only the substitution variable <m>u</m>.</p>
         </solution>
     </example>
-    
+
     <example>
         <statement>
             <p>Use the method of substitution to find <m>\displaystyle \int \tan(x) \, dx</m>.</p>
@@ -83,9 +83,9 @@
             </md></p>
         </solution>
     </example>
-    
+
     <p>Sometimes, after substitution, the integrand still involves the original variable. If the formula can be rewritten using only the substitution variable, then we may still be able to find an antiderivative.</p>
-    
+
     <example>
         <statement>
             <p>Use the method of substitution to find <m>\displaystyle \int x \sqrt{1-x} \, dx</m>.</p>
@@ -105,9 +105,9 @@
             </md></p>
         </solution>
     </example>
-    
+
     <p>The method of substitution does not work (or at least does not help) if the transformed integral is no closer to finding an antiderivative than the original.</p>
-    
+
     <example>
         <statement>
             <p>Use the method of substitution to rewrite <m>\displaystyle \int e^{-x^2}\, dx</m>.</p>
@@ -124,14 +124,14 @@
 
     <subsection>
     <title>Substitution and Definite Integrals</title>
-    
+
     <p>When using definite integrals, the Fundamental Theorem of Calculus allows us to compute a definite integral as the change in an antiderivative. If the method of substitution is used, our antiderivative will be a function of the substitution variable <m>u</m> which is a function of the independent variable. Rather than rewrite the antiderivative in terms of the original variable and then compute the change of the antiderivative, we can compute the change in the antiderivative in terms of the variable <m>u</m>.</p>
-    
+
     <p>Suppose that <m>F(x)</m> is an antiderivative of <m>f(x)</m>. Now, suppose that <m>u</m> is a function of <m>x</m> so that <m>u(a)=c</m> and <m>u(b)=d</m>. If we have an integral involving composition and the chain rule, we find <md>
         <mrow> \int_a^b f(u(x)) u'(x) dx &amp;\overset{\mathrm{FTC}}{=} [F(u(x))]_a^b </mrow>
         <mrow> &amp;= F(u(b)) - F(u(a)) = F(d)-F(c).</mrow>
     </md> This is identical to the integral we would get for the related definite integral <me>\int_c^d f(u) \, du \overset{\mathrm{FTC}}{=} \Big[F(u)\Big]_c^d = F(d) - F(c).</me> Consequently, using the method of substitution on a definite integral can be performed by changing the limits of integration to the values of the substitution variable.</p>
-    
+
     <example>
         <statement>
             <p>Compute <m>\displaystyle \int_1^3 (2x+1)^4 \, dx</m>.</p>
@@ -147,9 +147,9 @@
             </md></p>
         </solution>
     </example>
-    
+
     <p>Sometimes the substitution variable is a decreasing function of the independent variable. This will cause the apparent order of the limits to reverse. Be careful that the limits of integration remain in the same starting and ending position as the original.</p>
-    
+
     <example>
         <statement>
             <p>Compute <m>\displaystyle \int_3^4 \frac{x\,dx}{25-x^2}</m>.</p>
@@ -166,5 +166,5 @@
         </solution>
     </example>
     </subsection>
-    
+
 </section>

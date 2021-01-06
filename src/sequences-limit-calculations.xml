@@ -371,7 +371,7 @@
         <p>
           A sequence that has a linear projection function,
           involving both multiplication by a ratio and the addition of an increment,
-          has a shifted geometric sequence as its <xref text="title" ref="thm-linear-projection-explicit">explicit formula</xref>.
+          has a shifted geometric sequence as its <xref ref="thm-linear-projection-explicit" text="custom">explicit formula</xref>.
           The equilibrium value is found by solving the fixed point equation.
           <md>
             <mrow>0.8x + 20 = x</mrow>
@@ -451,7 +451,7 @@
         <p>
         Suppose a patient begins taking <quantity><mag>500</mag><unit prefix="milli" base="gram"/></quantity>
         of a drug every four hours.
-        However, the body metabolizes 60<percent/> of the drug in the body every four hours.
+        However, the body metabolizes 60% of the drug in the body every four hours.
         Find a formula for the amount of drug in the body immediately after each dose
         and then determine the limiting value.
         </p>
@@ -461,7 +461,7 @@
         The patient's body starts with no drug.
         Immediately after the first dose,
         there are <quantity><mag>500</mag><unit prefix="milli" base="gram"/></quantity>.
-        Four hours later, 60<percent/> has been removed and then another dose is added in.
+        Four hours later, 60% has been removed and then another dose is added in.
         If we let <m>D_n</m> be the sequence of drug mass in the body
         as a function of the number of doses <m>n</m>,
         then this is modeled recursively by the equation
@@ -729,7 +729,7 @@
           <quantity><mag>250</mag><unit prefix="milli" base="gram"/></quantity>
           every six hours.
           Then, during the six hours between doses,
-          the body metabolizes 20<percent/> of whatever drug is in the body.
+          the body metabolizes 20% of whatever drug is in the body.
           </p>
           <p>
           Find a recursive formula using a linear projection function for the sequence of drug levels

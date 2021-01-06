@@ -14,7 +14,7 @@ This file a customization file to work with MathBook XML.
     extension-element-prefixes="exsl date"
 >
 
-<xsl:import href="/Users/waltondb/mathbook/xsl/mathbook-html.xsl" />
+<xsl:import href="/Users/waltondb/mathbook/xsl/pretext-html.xsl" />
 
 <xsl:param name="html.knowl.example" select="'no'" />
 <xsl:param name="html.knowl.exercise" select="'no'" />

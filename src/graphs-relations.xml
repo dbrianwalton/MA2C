@@ -6,7 +6,7 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="graphs-relations">
   <title>Graphs and Relations between Variables</title>
 
@@ -27,7 +27,7 @@
       We consider the role of solving equations in the context of these relations.
     </p>
   </subsection>
-  
+
   <subsection>
     <title>Systems, States and Variables</title>
     <p>
@@ -48,136 +48,134 @@
         To conserve space, the data are given using scientific notation expressed in the standard machine form
         where the power of 10 follows the letter E, so that <m>2.521 \times 10^8</m> would be written 2.521E8.
       </p>
-      <sidebyside margins="auto">
-        <tabular top="major" halign="center">
-          <col/> <col/> <col/> <col right="minor"/> <col right="minor"/>
-          <col/> <col/> <col/><col/>
-          <row bottom="minor">
-            <cell>Year</cell>
-            <cell>Population</cell>
-            <cell>Births</cell>
-            <cell>Deaths</cell>
-            <cell></cell>
-            <cell>Year</cell>
-            <cell>Population</cell>
-            <cell>Births</cell>
-            <cell>Deaths</cell>
-          </row>
-          <row>
-            <cell>1991</cell>
-            <cell>2.521E8</cell>
-            <cell>4.111E6</cell>
-            <cell>2.170E6</cell>
-            <cell></cell>
-            <cell>2001</cell>
-            <cell>2.850E8</cell>
-            <cell>4.026E6</cell>
-            <cell>2.416E6</cell>
-          </row>
-          <row>
-            <cell>1992</cell>
-            <cell>2.550E8</cell>
-            <cell>4.065E6</cell>
-            <cell>2.176E6</cell>
-            <cell></cell>
-            <cell>2002</cell>
-            <cell>2.876E8</cell>
-            <cell>4.022E6</cell>
-            <cell>2.443E6</cell>
-          </row>
-          <row>
-            <cell>1993</cell>
-            <cell>2.577E8</cell>
-            <cell>4.000E6</cell>
-            <cell>2.269E6</cell>
-            <cell></cell>
-            <cell>2003</cell>
-            <cell>2.901E8</cell>
-            <cell>4.090E6</cell>
-            <cell>2.448E6</cell>
-          </row>
-          <row>
-            <cell>1994</cell>
-            <cell>2.602E8</cell>
-            <cell>3.953E6</cell>
-            <cell>2.279E6</cell>
-            <cell></cell>
-            <cell>2004</cell>
-            <cell>2.928E8</cell>
-            <cell>4.112E6</cell>
-            <cell>2.397E6</cell>
-          </row>
-          <row>
-            <cell>1995</cell>
-            <cell>2.628E8</cell>
-            <cell>3.900E6</cell>
-            <cell>2.312E6</cell>
-            <cell></cell>
-            <cell>2005</cell>
-            <cell>2.955E8</cell>
-            <cell>4.138E6</cell>
-            <cell>2.448E6</cell>
-          </row>
-          <row>
-            <cell>1996</cell>
-            <cell>2.652E8</cell>
-            <cell>3.891E6</cell>
-            <cell>2.315E6</cell>
-            <cell></cell>
-            <cell>2006</cell>
-            <cell>2.984E8</cell>
-            <cell>4.266E6</cell>
-            <cell>2.426E6</cell>
-          </row>
-          <row>
-            <cell>1997</cell>
-            <cell>2.677E8</cell>
-            <cell>3.881E6</cell>
-            <cell>2.314E6</cell>
-            <cell></cell>
-            <cell>2007</cell>
-            <cell>3.012E8</cell>
-            <cell>4.316E6</cell>
-            <cell>2.424E6</cell>
-          </row>
-          <row>
-            <cell>1998</cell>
-            <cell>2.703E8</cell>
-            <cell>3.942E6</cell>
-            <cell>2.337E6</cell>
-            <cell></cell>
-            <cell>2008</cell>
-            <cell>3.041E8</cell>
-            <cell>4.248E6</cell>
-            <cell>2.472E6</cell>
-          </row>
-          <row>
-            <cell>1999</cell>
-            <cell>2.727E8</cell>
-            <cell>3.959E6</cell>
-            <cell>2.391E6</cell>
-            <cell></cell>
-            <cell>2009</cell>
-            <cell>3.068E8</cell>
-            <cell>4.131E6</cell>
-            <cell>2.437E6</cell>
-          </row>
-          <row bottom="medium">
-            <cell>2000</cell>
-            <cell>2.822E8</cell>
-            <cell>4.059E6</cell>
-            <cell>2.403E6</cell>
-            <cell></cell>
-            <cell>2010</cell>
-            <cell>3.094E8</cell>
-            <cell>3.999E6</cell>
-            <cell>2.468E6</cell>
-          </row>
-        </tabular>
-      </sidebyside>
+      <tabular top="major" halign="center">
+        <col/> <col/> <col/> <col right="minor"/> <col right="minor"/>
+        <col/> <col/> <col/><col/>
+        <row bottom="minor">
+          <cell>Year</cell>
+          <cell>Population</cell>
+          <cell>Births</cell>
+          <cell>Deaths</cell>
+          <cell></cell>
+          <cell>Year</cell>
+          <cell>Population</cell>
+          <cell>Births</cell>
+          <cell>Deaths</cell>
+        </row>
+        <row>
+          <cell>1991</cell>
+          <cell>2.521E8</cell>
+          <cell>4.111E6</cell>
+          <cell>2.170E6</cell>
+          <cell></cell>
+          <cell>2001</cell>
+          <cell>2.850E8</cell>
+          <cell>4.026E6</cell>
+          <cell>2.416E6</cell>
+        </row>
+        <row>
+          <cell>1992</cell>
+          <cell>2.550E8</cell>
+          <cell>4.065E6</cell>
+          <cell>2.176E6</cell>
+          <cell></cell>
+          <cell>2002</cell>
+          <cell>2.876E8</cell>
+          <cell>4.022E6</cell>
+          <cell>2.443E6</cell>
+        </row>
+        <row>
+          <cell>1993</cell>
+          <cell>2.577E8</cell>
+          <cell>4.000E6</cell>
+          <cell>2.269E6</cell>
+          <cell></cell>
+          <cell>2003</cell>
+          <cell>2.901E8</cell>
+          <cell>4.090E6</cell>
+          <cell>2.448E6</cell>
+        </row>
+        <row>
+          <cell>1994</cell>
+          <cell>2.602E8</cell>
+          <cell>3.953E6</cell>
+          <cell>2.279E6</cell>
+          <cell></cell>
+          <cell>2004</cell>
+          <cell>2.928E8</cell>
+          <cell>4.112E6</cell>
+          <cell>2.397E6</cell>
+        </row>
+        <row>
+          <cell>1995</cell>
+          <cell>2.628E8</cell>
+          <cell>3.900E6</cell>
+          <cell>2.312E6</cell>
+          <cell></cell>
+          <cell>2005</cell>
+          <cell>2.955E8</cell>
+          <cell>4.138E6</cell>
+          <cell>2.448E6</cell>
+        </row>
+        <row>
+          <cell>1996</cell>
+          <cell>2.652E8</cell>
+          <cell>3.891E6</cell>
+          <cell>2.315E6</cell>
+          <cell></cell>
+          <cell>2006</cell>
+          <cell>2.984E8</cell>
+          <cell>4.266E6</cell>
+          <cell>2.426E6</cell>
+        </row>
+        <row>
+          <cell>1997</cell>
+          <cell>2.677E8</cell>
+          <cell>3.881E6</cell>
+          <cell>2.314E6</cell>
+          <cell></cell>
+          <cell>2007</cell>
+          <cell>3.012E8</cell>
+          <cell>4.316E6</cell>
+          <cell>2.424E6</cell>
+        </row>
+        <row>
+          <cell>1998</cell>
+          <cell>2.703E8</cell>
+          <cell>3.942E6</cell>
+          <cell>2.337E6</cell>
+          <cell></cell>
+          <cell>2008</cell>
+          <cell>3.041E8</cell>
+          <cell>4.248E6</cell>
+          <cell>2.472E6</cell>
+        </row>
+        <row>
+          <cell>1999</cell>
+          <cell>2.727E8</cell>
+          <cell>3.959E6</cell>
+          <cell>2.391E6</cell>
+          <cell></cell>
+          <cell>2009</cell>
+          <cell>3.068E8</cell>
+          <cell>4.131E6</cell>
+          <cell>2.437E6</cell>
+        </row>
+        <row bottom="medium">
+          <cell>2000</cell>
+          <cell>2.822E8</cell>
+          <cell>4.059E6</cell>
+          <cell>2.403E6</cell>
+          <cell></cell>
+          <cell>2010</cell>
+          <cell>3.094E8</cell>
+          <cell>3.999E6</cell>
+          <cell>2.468E6</cell>
+        </row>
+      </tabular>
       <p>
         Each row (corresponding to the population in a given year) represents a distinct state of the system.
-        The observed values in the state are the <term>variables</term>: 
+        The observed values in the state are the <term>variables</term>:
         the year, the total population at the beginning of the year, the total number of births in the year, and the total number of deaths in the year.
         The year is included as one of the variables<mdash/>an independent variable<mdash/>in order to distinguish the different states with respect to time.
       </p>
@@ -223,63 +221,59 @@
         Let <m>L</m> represent the length of the segment (in nucleotides) and let <m>D</m> represent the distance traveled (in pixels), measured from the center of the starting well to the center of the corresponding band in the image.
         Each row represents a single state <m>(L,D)</m> of the system.
       </p>
-      <sidebyside margins="auto">
-        <image width="50%" source="images/ladder-gel.png" />
-      </sidebyside>
-      <sidebyside margins="auto">
-        <tabular top="major" halign="center">
-          <row bottom="minor">
-            <cell><m>L</m> (nts)</cell>
-            <cell><m>D</m> (px)</cell>
-          </row>
-          <row>
-            <cell>100</cell>
-            <cell>342</cell>
-          </row>
-          <row>
-            <cell>200</cell>
-            <cell>327</cell>
-          </row>
-          <row>
-            <cell>300</cell>
-            <cell>312</cell>
-          </row>
-          <row>
-            <cell>400</cell>
-            <cell>299</cell>
-          </row>
-          <row>
-            <cell>500</cell>
-            <cell>288</cell>
-          </row>
-          <row>
-            <cell>600</cell>
-            <cell>278</cell>
-          </row>
-          <row>
-            <cell>700</cell>
-            <cell>270</cell>
-          </row>
-          <row>
-            <cell>800</cell>
-            <cell>263</cell>
-          </row>
-          <row>
-            <cell>900</cell>
-            <cell>256</cell>
-          </row>
-          <row bottom="medium">
-            <cell>1000</cell>
-            <cell>249</cell>
-          </row>
-        </tabular>
-      </sidebyside>
+      <image width="50%" source="images/ladder-gel.png" />
+      <tabular top="major" halign="center">
+        <row bottom="minor">
+          <cell><m>L</m> (nts)</cell>
+          <cell><m>D</m> (px)</cell>
+        </row>
+        <row>
+          <cell>100</cell>
+          <cell>342</cell>
+        </row>
+        <row>
+          <cell>200</cell>
+          <cell>327</cell>
+        </row>
+        <row>
+          <cell>300</cell>
+          <cell>312</cell>
+        </row>
+        <row>
+          <cell>400</cell>
+          <cell>299</cell>
+        </row>
+        <row>
+          <cell>500</cell>
+          <cell>288</cell>
+        </row>
+        <row>
+          <cell>600</cell>
+          <cell>278</cell>
+        </row>
+        <row>
+          <cell>700</cell>
+          <cell>270</cell>
+        </row>
+        <row>
+          <cell>800</cell>
+          <cell>263</cell>
+        </row>
+        <row>
+          <cell>900</cell>
+          <cell>256</cell>
+        </row>
+        <row bottom="medium">
+          <cell>1000</cell>
+          <cell>249</cell>
+        </row>
+      </tabular>
     </example>
   </subsection>
-  
+
   <subsection>
     <title>Scatter Plots and Relationships Between Variables</title>
-  
+
     <p>
       The primary motivation for collecting data regarding different variables in the state of a system is to determine relationships between those variables.
       One of the ways that we look for relationships is using a <term>scatter plot</term>.
@@ -303,7 +297,7 @@
       These graphs contains the same information but viewed from a reverse perspective.
       When we switch the order of the variables, we call the relationships <term>inverse relations</term>.
     </p>
-  
+
     <figure>
       <caption>Scatter plot of electrophoresis data, displacement vs size and the inverse relation size vs displacement.</caption>
       <image width="80%">
@@ -370,100 +364,96 @@
       Because the births and deaths are on the same scale, we can combine the plots as one.
       We could also plot the inverse relations <m>(P,Y)</m>, <m>(B,Y)</m> and <m>(D,Y)</m>, but these really contain the same information from a different view.
     </p>
-    <sidebyside width="80%" margins="auto">
-      <image>
-        <description>
-        Scatter plot of population, births and deaths with respect to time.
-        </description>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \pgfplotsset{ width=6cm }
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Year},
-          ylabel={Population},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=Y, y=P] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Year},
-          ylabel={Number},
-          ymin=0,
-          legend style={at={(0.95,0.05)},
-          anchor=south east,
-          legend entries={Births,Deaths}},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=Y, y=B] {data/pop-birth-death-demo.dat};
-        \addplot[
-          only marks,
-          color=red
-        ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
-  
+    <image width="80%">
+      <description>
+      Scatter plot of population, births and deaths with respect to time.
+      </description>
+      <latex-image>
+      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+      <![CDATA[\tikzset{%
+      }
+      \pgfplotsset{ width=6cm }
+      \begin{tikzpicture}
+      \begin{axis}[
+        xlabel={Year},
+        ylabel={Population},
+      ]
+      \addplot[
+        only marks,
+        color=blue
+      ] table [x=Y, y=P] {data/pop-birth-death-demo.dat};
+      \end{axis}
+      \end{tikzpicture}
+      \begin{tikzpicture}
+      \begin{axis}[
+        xlabel={Year},
+        ylabel={Number},
+        ymin=0,
+        legend style={at={(0.95,0.05)},
+        anchor=south east,
+        legend entries={Births,Deaths}},
+      ]
+      \addplot[
+        only marks,
+        color=blue
+      ] table [x=Y, y=B] {data/pop-birth-death-demo.dat};
+      \addplot[
+        only marks,
+        color=red
+      ] table [x=Y, y=D] {data/pop-birth-death-demo.dat};
+      \end{axis}
+      \end{tikzpicture}]]>
+      </latex-image>
+    </image>
+
     <p>
       We can also look at relationships between other pairs of variables.
       For example, we can look at how the number of births or deaths relate to the population, plotting <m>(P,B)</m> and <m>(P,D)</m>, or how the number of births relate to the number of deaths with <m>(B,D)</m>.
       The graph showing the relation between births and deaths to time (above) is very similar to the graph showing the relation between births and deaths to population (below).
       However, the relation between the births and deaths illustrates that sometimes variables do not show a clear relation.
     </p>
-  
-    <sidebyside width="80%">
-      <image>
-        <description>
-        Scatter plot of population, births and deaths with respect to each other.
-        </description>
-        <latex-image>
-        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-        <![CDATA[\tikzset{%
-        }
-        \pgfplotsset{ width=6cm }
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Population},
-          ylabel={Number},
-          ymin=0,
-          legend style={at={(0.95,0.05)},
-          anchor=south east,
-          legend entries={Births,Deaths}},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=P, y=B] {data/pop-birth-death-demo.dat};
-        \addplot[
-          only marks,
-          color=red
-        ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}
-        \begin{tikzpicture}
-        \begin{axis}[
-          xlabel={Births},
-          ylabel={Deaths},
-        ]
-        \addplot[
-          only marks,
-          color=blue
-        ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
-        \end{axis}
-        \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
+
+    <image width="80%">
+      <description>
+      Scatter plot of population, births and deaths with respect to each other.
+      </description>
+      <latex-image>
+      <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+      <![CDATA[\tikzset{%
+      }
+      \pgfplotsset{ width=6cm }
+      \begin{tikzpicture}
+      \begin{axis}[
+        xlabel={Population},
+        ylabel={Number},
+        ymin=0,
+        legend style={at={(0.95,0.05)},
+        anchor=south east,
+        legend entries={Births,Deaths}},
+      ]
+      \addplot[
+        only marks,
+        color=blue
+      ] table [x=P, y=B] {data/pop-birth-death-demo.dat};
+      \addplot[
+        only marks,
+        color=red
+      ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
+      \end{axis}
+      \end{tikzpicture}
+      \begin{tikzpicture}
+      \begin{axis}[
+        xlabel={Births},
+        ylabel={Deaths},
+      ]
+      \addplot[
+        only marks,
+        color=blue
+      ] table [x=B, y=D] {data/pop-birth-death-demo.dat};
+      \end{axis}
+      \end{tikzpicture}]]>
+      </latex-image>
+    </image>
   </subsection>
   <subsection>
     <title>Graphs of Equations</title>
@@ -485,44 +475,42 @@
         The line corresponding to this equation represents the set of all such solutions.
         The points <m>(3,2)</m>, <m>(6,0)</m> and <m>(0,4)</m> are on the line, while <m>(4,1)</m> is not.
       </p>
-      <sidebyside width="50%" margins="auto">
-        <image>
-          <description>
-          Graph of solutions to 2x+3y=12.
-          </description>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          /pgfplots/table/row sep=crcr
-          }
-          \pgfplotsset{ width=6cm }
-          \begin{tikzpicture}
-          \begin{axis}[
-            xmin=-2, xmax=8,
-            xlabel={$x$},
-            ylabel={$y$},
-          ]
-          \addplot[
-            only marks,
-            color=blue
-          ] table {
-            0 4\\
-            3 2\\
-            6 0\\
-          };
-          \addplot[
-            only marks,
-            color=red
-          ] table {
-            4 1 \\
-          };
-          \addplot[blue, samples=100, domain=-3:9]
-            ({x}, {(12-2*x)/3});
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
+      <image width="50%">
+        <description>
+        Graph of solutions to 2x+3y=12.
+        </description>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xmin=-2, xmax=8,
+          xlabel={$x$},
+          ylabel={$y$},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table {
+          0 4\\
+          3 2\\
+          6 0\\
+        };
+        \addplot[
+          only marks,
+          color=red
+        ] table {
+          4 1 \\
+        };
+        \addplot[blue, samples=100, domain=-3:9]
+          ({x}, {(12-2*x)/3});
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
     </example>
     <example>
       <p>
@@ -538,40 +526,38 @@
         Other points on this circle include such points as <m>(-2,0)</m> and <m>(6,-4)</m>.
         You should verify that these are also solutions, at least for one or two points to reinforce the idea that a solution makes the statement of the equation true.
       </p>
-      <sidebyside width="50%" margins="auto">
-        <image>
-          <description>
-          Graph of solutions to u^2+v^2=16+6u.
-          </description>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          /pgfplots/table/row sep=crcr
-          }
-          \pgfplotsset{ width=6cm }
-          \begin{tikzpicture}
-          \begin{axis}[
-            xmin=-4, xmax=10,
-            xlabel={$u$},
-            ylabel={$v$},
-          ]
-          \addplot[
-            only marks,
-            color=blue
-          ] table {
-            3 5\\
-            3 -5\\
-            -2 0\\
-            -1 3\\
-            6 -4\\
-          };
-          \addplot[blue, samples=100, domain=0:360]
-            ({3+5*cos(x)}, {5*sin(x)});
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
+      <image width="50%">
+        <description>
+        Graph of solutions to u^2+v^2=16+6u.
+        </description>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xmin=-4, xmax=10,
+          xlabel={$u$},
+          ylabel={$v$},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table {
+          3 5\\
+          3 -5\\
+          -2 0\\
+          -1 3\\
+          6 -4\\
+        };
+        \addplot[blue, samples=100, domain=0:360]
+          ({3+5*cos(x)}, {5*sin(x)});
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
     </example>
     <p>
       It is usually difficult to know how to sketch the graph of an arbitrary equation.
@@ -617,40 +603,38 @@
             <mrow>y = \frac{1}{3}(-2x+12)</mrow>
             <mrow>y = -\frac{2}{3} x + 4 </mrow>
           </md>
-          The final equation <m>y = -\frac{2}{3}x+4</m> should be recognized as a <xref ref="slope-intercept-line">slope-intercept equation</xref> of a line.
+          The final equation <m>y = -\frac{2}{3}x+4</m> should be recognized as a <xref ref="slope-intercept-line" text="custom">slope-intercept equation</xref> of a line.
           The slope is <m>m=-\frac{2}{3}</m> while the <m>y</m>-intercept value is <m>b=4</m>.
           Having solved for <m>y</m>, we can now use four different values for <m>x</m> to find corresponding values for <m>y</m>.
           We do this in a table.
         </p>
-        <sidebyside margins="auto">
-          <tabular top="major" halign="center">
-            <row bottom="minor">
-              <cell><m>x</m></cell>
-              <cell><m>y=-\frac{2}{3}x+4</m></cell>
-              <cell><m>(x,y)</m></cell>
-            </row>
-            <row>
-              <cell>0</cell>
-              <cell><m>-\frac{2}{3}(0)+4 = 4</m></cell>
-              <cell><m>(0,4)</m></cell>
-            </row>
-            <row>
-              <cell>1</cell>
-              <cell><m>-\frac{2}{3}(1)+4 = \frac{10}{3}</m></cell>
-              <cell><m>(1,\frac{10}{3})</m></cell>
-            </row>
-            <row>
-              <cell>2</cell>
-              <cell><m>-\frac{2}{3}(2)+4 = \frac{8}{3}</m></cell>
-              <cell><m>(2,\frac{8}{3})</m></cell>
-            </row>
-            <row bottom="medium">
-              <cell>3</cell>
-              <cell><m>-\frac{2}{3}(3)+4 = 2</m></cell>
-              <cell><m>(3,2)</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular top="major" halign="center">
+          <row bottom="minor">
+            <cell><m>x</m></cell>
+            <cell><m>y=-\frac{2}{3}x+4</m></cell>
+            <cell><m>(x,y)</m></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell><m>-\frac{2}{3}(0)+4 = 4</m></cell>
+            <cell><m>(0,4)</m></cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell><m>-\frac{2}{3}(1)+4 = \frac{10}{3}</m></cell>
+            <cell><m>(1,\frac{10}{3})</m></cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell><m>-\frac{2}{3}(2)+4 = \frac{8}{3}</m></cell>
+            <cell><m>(2,\frac{8}{3})</m></cell>
+          </row>
+          <row bottom="medium">
+            <cell>3</cell>
+            <cell><m>-\frac{2}{3}(3)+4 = 2</m></cell>
+            <cell><m>(3,2)</m></cell>
+          </row>
+        </tabular>
       </solution>
     </example>
     <p>
@@ -673,33 +657,31 @@
           and the second dependent variable <m>y_2</m> corresponds to a line.
           Points where the graphs cross correspond to solutions.
         </p>
-        <sidebyside width="50%" margins="auto">
-          <image>
-            <description>Graphs of 2x^2 and 3x+5 showing them intersect at (-1,2) and (5/2,25/2).</description>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \pgfplotsset{ width=6cm }
-            \begin{tikzpicture}
-            \begin{axis}[
-              xlabel={$x$},
-              ylabel={$y$},
-              xmin=-3, xmax=5,
-              ymin=-5, ymax=15,
-            ]
-            \addplot[blue, samples=100, domain=-3:5]
-              ({x}, {2*x^2});
-            \addplot[red, samples=100, domain=-3:5]
-              ({x}, {3*x+5});
-            \addplot [black, only marks] coordinates { (-1,2) (2.5,12.5) }
-              node [pos=0, below] {$(-1,2)$}
-              node [pos=1, below right] {$(\frac{5}{2},\frac{25}{2})$};
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="50%">
+          <description>Graphs of 2x^2 and 3x+5 showing them intersect at (-1,2) and (5/2,25/2).</description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \pgfplotsset{ width=6cm }
+          \begin{tikzpicture}
+          \begin{axis}[
+            xlabel={$x$},
+            ylabel={$y$},
+            xmin=-3, xmax=5,
+            ymin=-5, ymax=15,
+          ]
+          \addplot[blue, samples=100, domain=-3:5]
+            ({x}, {2*x^2});
+          \addplot[red, samples=100, domain=-3:5]
+            ({x}, {3*x+5});
+          \addplot [black, only marks] coordinates { (-1,2) (2.5,12.5) }
+            node [pos=0, below] {$(-1,2)$}
+            node [pos=1, below right] {$(\frac{5}{2},\frac{25}{2})$};
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           The original equation only involved the independent variable <m>x</m>.
           Consequently, the solution set corresponds to the set of the <m>x</m>-coordinates of the points of intersection.
@@ -708,7 +690,7 @@
       </statement>
     </example>
     <p>
-      When we find an equivalent equation using balanced operations, 
+      When we find an equivalent equation using balanced operations,
       the new equation involves different expressions.
       Consequently, the graphs that would be involved will be different.
       However, the locations where the graphs intersect will be at the same <m>x</m>-values.
@@ -853,7 +835,7 @@
     </p>
     <example>
       <p>
-        Consider the population example with the scatter plot of the number of deaths plotted with respect to the total population size, 
+        Consider the population example with the scatter plot of the number of deaths plotted with respect to the total population size,
         and predict the number of deaths in a year if the population were 300 million.
       </p>
       <p>
@@ -865,36 +847,34 @@
         By changing the settings for the equation of the trend line, we get a more precise model <me> D = 4.86666 \times 10^{-3} P + 9.92711 \times 10^5. </me>
         Depending on the values of the data, the greater accuracy might make a significant difference.
       </p>
-      <sidebyside width="50%" margins="auto">
-        <image>
-          <description>
-          Scatter plot of population, births and deaths
-          with respect to each other.
-          </description>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \pgfplotsset{ width=6cm }
-          \begin{tikzpicture}
-          \begin{axis}[
-            xlabel={Population},
-            ylabel={Deaths},
-            legend style={at={(0.95,0.05)},
-            anchor=south east,
-            legend entries={Deaths,Trend}},
-          ]
-          \addplot[
-            only marks,
-            color=blue
-          ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
-          \addplot[black, samples=100, domain=2.5e8:3.2e8]
-            ({x}, {0.004867*x+992711});
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
+      <image width="50%">
+        <description>
+        Scatter plot of population, births and deaths
+        with respect to each other.
+        </description>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={Population},
+          ylabel={Deaths},
+          legend style={at={(0.95,0.05)},
+          anchor=south east,
+          legend entries={Deaths,Trend}},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table [x=P, y=D] {data/pop-birth-death-demo.dat};
+        \addplot[black, samples=100, domain=2.5e8:3.2e8]
+          ({x}, {0.004867*x+992711});
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
       <p>
         Let us compare the two models with a population of 300 million, <m>P=300\times 10^6</m>.
         The first model, which only has two significant digits in the first coefficient, gives <me>D = 0.0049(3\times 10^8) + 992711 = 2462711.</me>
@@ -923,44 +903,42 @@
         this equation should be rewritten as <me> L = 0.0573D^2-43.381D+8241.6.</me>
         The graph of the data with the trend curve is shown below.
       </p>
-      <sidebyside width="50%">
-        <image>
-          <description>
-          Scatter plot of electrophoresis data, size vs displacement, with trend.
-          </description>
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          /pgfplots/table/row sep=crcr
-          }
-          \pgfplotsset{ width=6cm }
-          \begin{tikzpicture}
-          \begin{axis}[
-            xlabel={$D$},
-            ylabel={$L$},
-          ]
-          \addplot[
-            only marks,
-            color=blue
-          ] table {
-            342 100\\
-            327 200\\
-            312 300\\
-            299 400\\
-            288 500\\
-            278 600\\
-            270 700\\
-            263 800\\
-            256 900\\
-            249 1000\\
-          };
-          \addplot[black, samples=100, domain=240:350]
-            ({x}, {0.0573*x^2-43.381*x+8241.6});
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
+      <image width="50%">
+        <description>
+        Scatter plot of electrophoresis data, size vs displacement, with trend.
+        </description>
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \pgfplotsset{ width=6cm }
+        \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={$D$},
+          ylabel={$L$},
+        ]
+        \addplot[
+          only marks,
+          color=blue
+        ] table {
+          342 100\\
+          327 200\\
+          312 300\\
+          299 400\\
+          288 500\\
+          278 600\\
+          270 700\\
+          263 800\\
+          256 900\\
+          249 1000\\
+        };
+        \addplot[black, samples=100, domain=240:350]
+          ({x}, {0.0573*x^2-43.381*x+8241.6});
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
       <p>
         Suppose we had another DNA sample of unknown length that traveled a distance of <m>D=282</m> pixels.
         Using our value for <m>D</m>, we can find the value of <m>L</m> using the model, <me>L = 0.0573(282)^2 - 43.381(282)+8241.6 = 564.8832.</me>
@@ -975,10 +953,10 @@
       However, analysis of this uncertainty is a topic for statistics and is outside the scope of this text.
     </p>
   </subsection>
-  
+
   <subsection>
     <title>Summary</title>
-    
+
     <p>
       <ul>
         <li>
@@ -1011,7 +989,7 @@
       </ul>
     </p>
   </subsection>
-  
+
   <exercises>
     <exercisegroup>
       <introduction>
@@ -1189,41 +1167,39 @@
           the resistance and current were measured with values recorded in the table below.
           The following group of problems are based on these data.
         </p>
-        <sidebyside margins="auto">
-          <tabular top="major" halign="center">
-            <col right="minor"/> <col right="minor"/> <col/>
-            <row bottom="minor">
-              <cell><m>V</m> (<quantity><unit base="volt"/></quantity>)</cell>
-              <cell><m>R</m> (<quantity><unit prefix="kilo" base="ohm"/></quantity>)</cell>
-              <cell><m>I</m> (<quantity><unit base="ampere"/></quantity>)</cell>
-            </row>
-            <row>
-              <cell>9.0</cell>
-              <cell>0.84</cell>
-              <cell>0.0107</cell>
-            </row>
-            <row>
-              <cell>9.0</cell>
-              <cell>1.2</cell>
-              <cell>0.0073</cell>
-            </row>
-            <row>
-              <cell>9.0</cell>
-              <cell>1.8</cell>
-              <cell>0.0050</cell>
-            </row>
-            <row>
-              <cell>9.0</cell>
-              <cell>2.7</cell>
-              <cell>0.0033</cell>
-            </row>
-            <row>
-              <cell>9.0</cell>
-              <cell>3.4</cell>
-              <cell>0.0026</cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular top="major" halign="center">
+          <col right="minor"/> <col right="minor"/> <col/>
+          <row bottom="minor">
+            <cell><m>V</m> (<quantity><unit base="volt"/></quantity>)</cell>
+            <cell><m>R</m> (<quantity><unit prefix="kilo" base="ohm"/></quantity>)</cell>
+            <cell><m>I</m> (<quantity><unit base="ampere"/></quantity>)</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>0.84</cell>
+            <cell>0.0107</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>1.2</cell>
+            <cell>0.0073</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>1.8</cell>
+            <cell>0.0050</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>2.7</cell>
+            <cell>0.0033</cell>
+          </row>
+          <row>
+            <cell>9.0</cell>
+            <cell>3.4</cell>
+            <cell>0.0026</cell>
+          </row>
+        </tabular>
       </introduction>
       <exercise>
         <statement>
@@ -1254,7 +1230,7 @@
         </statement>
       </exercise>
     </exercisegroup>
-    
+
     <exercisegroup>
       <title>Population-Growth Relationships</title>
       <introduction>
@@ -1264,93 +1240,91 @@
           The data include the population <m>P</m> and the total number of births <m>B</m> and deaths <m>D</m> for the year recorded for each city.
           The following group of exercises are based on these data.
         </p>
-        <sidebyside>
-          <tabular top="major" halign="center">
-            <col right="minor"/> <col right="minor"/> <col right="minor"/> <col/>
-            <row bottom="minor">
-              <cell>City</cell>
-              <cell><m>P</m></cell>
-              <cell><m>B</m></cell>
-              <cell><m>D</m></cell>
-            </row>
-            <row>
-              <cell>Virginia Beach</cell>
-              <cell>447021</cell>
-              <cell>6270</cell>
-              <cell>2828</cell>
-            </row>
-            <row>
-              <cell>Norfolk</cell>
-              <cell>245782</cell>
-              <cell>3773</cell>
-              <cell>1827</cell>
-            </row>
-            <row>
-              <cell>Chesapeake</cell>
-              <cell>228417</cell>
-              <cell>2805</cell>
-              <cell>1582</cell>
-            </row>
-            <row>
-              <cell>Richmond</cell>
-              <cell>210309</cell>
-              <cell>2939</cell>
-              <cell>1849</cell>
-            </row>
-            <row>
-              <cell>Newport News</cell>
-              <cell>180726</cell>
-              <cell>2905</cell>
-              <cell>1438</cell>
-            </row>
-            <row>
-              <cell>Alexandria</cell>
-              <cell>146294</cell>
-              <cell>2763</cell>
-              <cell>686</cell>
-            </row>
-            <!--
-            <row>
-              <cell>Hampton</cell>
-              <cell>136836</cell>
-              <cell>1825</cell>
-              <cell>1139</cell>
-            </row>
-            -->
-            <row>
-              <cell>Roanoke</cell>
-              <cell>97469</cell>
-              <cell>1492</cell>
-              <cell>1172</cell>
-            </row>
-            <row>
-              <cell>Portsmouth</cell>
-              <cell>96470</cell>
-              <cell>1534</cell>
-              <cell>980</cell>
-            </row>
-            <row>
-              <cell>Suffolk</cell>
-              <cell>85181</cell>
-              <cell>1087</cell>
-              <cell>726</cell>
-            </row>
-            <row>
-              <cell>Lynchburg</cell>
-              <cell>77113</cell>
-              <cell>1062</cell>
-              <cell>779</cell>
-            </row>
-            <!--
-            <row>
-              <cell>Harrisonburg</cell>
-              <cell>50981</cell>
-              <cell>579</cell>
-              <cell>253</cell>
-            </row>
-            -->
-          </tabular>
-        </sidebyside>
+        <tabular top="major" halign="center">
+          <col right="minor"/> <col right="minor"/> <col right="minor"/> <col/>
+          <row bottom="minor">
+            <cell>City</cell>
+            <cell><m>P</m></cell>
+            <cell><m>B</m></cell>
+            <cell><m>D</m></cell>
+          </row>
+          <row>
+            <cell>Virginia Beach</cell>
+            <cell>447021</cell>
+            <cell>6270</cell>
+            <cell>2828</cell>
+          </row>
+          <row>
+            <cell>Norfolk</cell>
+            <cell>245782</cell>
+            <cell>3773</cell>
+            <cell>1827</cell>
+          </row>
+          <row>
+            <cell>Chesapeake</cell>
+            <cell>228417</cell>
+            <cell>2805</cell>
+            <cell>1582</cell>
+          </row>
+          <row>
+            <cell>Richmond</cell>
+            <cell>210309</cell>
+            <cell>2939</cell>
+            <cell>1849</cell>
+          </row>
+          <row>
+            <cell>Newport News</cell>
+            <cell>180726</cell>
+            <cell>2905</cell>
+            <cell>1438</cell>
+          </row>
+          <row>
+            <cell>Alexandria</cell>
+            <cell>146294</cell>
+            <cell>2763</cell>
+            <cell>686</cell>
+          </row>
+          <!--
+          <row>
+            <cell>Hampton</cell>
+            <cell>136836</cell>
+            <cell>1825</cell>
+            <cell>1139</cell>
+          </row>
+          -->
+          <row>
+            <cell>Roanoke</cell>
+            <cell>97469</cell>
+            <cell>1492</cell>
+            <cell>1172</cell>
+          </row>
+          <row>
+            <cell>Portsmouth</cell>
+            <cell>96470</cell>
+            <cell>1534</cell>
+            <cell>980</cell>
+          </row>
+          <row>
+            <cell>Suffolk</cell>
+            <cell>85181</cell>
+            <cell>1087</cell>
+            <cell>726</cell>
+          </row>
+          <row>
+            <cell>Lynchburg</cell>
+            <cell>77113</cell>
+            <cell>1062</cell>
+            <cell>779</cell>
+          </row>
+          <!--
+          <row>
+            <cell>Harrisonburg</cell>
+            <cell>50981</cell>
+            <cell>579</cell>
+            <cell>253</cell>
+          </row>
+          -->
+        </tabular>
       </introduction>
       <exercise>
         <statement>

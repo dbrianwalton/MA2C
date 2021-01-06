@@ -93,7 +93,7 @@
             <mrow> &amp;= 0.</mrow>
           </md>
           The last step in this sequence of equations is a consequence
-          of the <xref ref="LE-Constant" text="title">Limit Rule for a Constant</xref>.
+          of the <xref ref="LE-Constant" text="custom">Limit Rule for a Constant</xref>.
         </p>
       </proof>
     </theorem>
@@ -115,7 +115,7 @@
             <mrow> &amp;= \lim_{h \to 0} 1</mrow>
             <mrow> &amp;= 1.</mrow>
           </md>
-          Again, the limit calculation at the last step uses the <xref ref="LE-Constant" text="title">Limit Rule for a Constant</xref>.
+          Again, the limit calculation at the last step uses the <xref ref="LE-Constant" text="custom">Limit Rule for a Constant</xref>.
         </p>
       </proof>
     </theorem>
@@ -167,7 +167,7 @@
           <m>\frac{d}{dx}[g(x)] = g'(x)</m>.
           Further, <m>k</m> is assumed to be a constant.
         </p>
-        <table xml:id="table-derivative-rules">
+        <figure xml:id="table-derivative-rules">
           <caption>Summary of the Differentiation Rules</caption>
           <tabular top="major" halign="left">
           <row>
@@ -213,7 +213,7 @@
             <cell>Chain Rule</cell>
           </row>
           </tabular>
-        </table>
+        </figure>
       </statement>
     </theorem>
     <p>
@@ -278,7 +278,7 @@
           Now notice that the formula is a product of the constant <m>k</m> and
           the average rate of change of <m>f</m>.
           The rules for limits act with the ordinary rules of arithmetic.
-          In particular, the <xref ref="LC-Constant-Multiple" text="title">constant multiple rule for limits</xref>
+          In particular, the <xref ref="LC-Constant-Multiple" text="custom">constant multiple rule for limits</xref>
           states that the limit of a constant times a function equals that constant times the limit of the function.
           Consequently, we have
           <md>
@@ -325,12 +325,12 @@
             <mrow> &amp;= \lim_{h \to 0} \frac{-1}{g(x)g(x+h)}\cdot \frac{\Delta g}{h} </mrow>
           </md>
           Since the limit involves <m>h \to 0</m>, <m>g(x)</m> is a constant relative to the limit.
-          In addition, because <xref ref="thm-differentiable-implies-continuous" text="title">a differentiable function is continuous</xref>,
+          In addition, because <xref ref="thm-differentiable-implies-continuous" text="custom">a differentiable function is continuous</xref>,
           we have <m>g(x+h) \to g(x)</m> as <m>x \to h</m>.
-          Consequently, the limit rules for <xref ref="LC-Reciprocal" text="title">reciprocals</xref>
-          and <xref ref="LC-Constant-Multiple" text="title">constant multiples</xref> imply
+          Consequently, the limit rules for <xref ref="LC-Reciprocal" text="custom">reciprocals</xref>
+          and <xref ref="LC-Constant-Multiple" text="custom">constant multiples</xref> imply
           <me> \lim_{h \to 0} \frac{-1}{g(x)g(x+h)} = \frac{-1}{(g(x))^2}. </me>
-          Using the <xref ref="LC-Product" text="title">limit rule for a product</xref>, we have
+          Using the <xref ref="LC-Product" text="custom">limit rule for a product</xref>, we have
           <md>
             <mrow> \frac{d}{dx}[\frac{1}{g(x)}]
             &amp;= \lim_{h \to 0} \frac{-1}{g(x)g(x+h)}\cdot \frac{g(x+h)-g(x)}{h} </mrow>
@@ -405,7 +405,7 @@
             <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}+\frac{\Delta g}{h}\right]. </mrow>
           </md>
           Again, because limit rules satisfy the ordinary rules of arithmetic,
-          the <xref ref="LC-Sum" text="title">limit rule for sums</xref> implies
+          the <xref ref="LC-Sum" text="custom">limit rule for sums</xref> implies
           <md>
             <mrow> \frac{d}{dx}[f(x)+g(x)] &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}+\frac{\Delta g}{h}\right] </mrow>
             <mrow> &amp;= \lim_{h \to 0} \left[\frac{\Delta f}{h}\right]+ \lim_{h \to 0} \left[\frac{\Delta g}{h}\right] </mrow>
@@ -423,7 +423,7 @@
       We can see that this is incorrect if we rewrote <m>f(x)</m> after expanding the product,
       <me>f(x) = 2x^3+x^2-6x-3</me>.
       Once written as a simple polynomial, our experience with accumulation functions
-      and the <xref ref="theorem-ftc-part-one" text="title">Fundamental Theorem of Calculus</xref>
+      and the <xref ref="theorem-ftc-part-one" text="custom">Fundamental Theorem of Calculus</xref>
       allows us to recognize
       <me>f'(x)=6x^2+2x-6</me>.
     </p>
@@ -472,8 +472,8 @@
             <mrow> &amp;= f'(x) \cdot g(x) + f(x) \cdot g'(x) + 0 \cdot g'(x) </mrow>
             <mrow> &amp;= f'(x) \cdot g(x) + f(x) \cdot g'(x), </mrow>
           </md>
-          using the <xref ref="LC-Sum" text="title">Limit Rule of a Sum</xref>
-          and the <xref ref="LC-Product" text="title">Limit Rule of a Product</xref>.
+          using the <xref ref="LC-Sum" text="custom">Limit Rule of a Sum</xref>
+          and the <xref ref="LC-Product" text="custom">Limit Rule of a Product</xref>.
         </p>
       </proof>
     </theorem>
@@ -552,7 +552,7 @@
         <p>
           Once we recognize that our function is a product,
           we use the product rule with <m>f(x)=x</m> and <m>g(x)=x</m>.
-          The <xref ref="deriv-product" text="title">product rule</xref> says
+          The <xref ref="deriv-product" text="custom">product rule</xref> says
           <me> \frac{d}{dx}[f(x) g(x)] = f'(x) g(x) + f(x) g'(x)</me>,
           for which we use <m>f'(x)=1</m> and <m>g'(x)=1</m>.
           Consequently,
@@ -717,7 +717,7 @@
         <mrow>\frac{d}{dx}[x^{-3}] = -3x^{-4}. </mrow>
       </md>
       When learning about the definition of the derivative,
-      we found the <xref ref="example-deriv-squareroot" text="title">derivative of the square root function</xref>,
+      we found the <xref ref="example-deriv-squareroot" text="custom">derivative of the square root function</xref>,
       <me>\frac{d}{dx}[\sqrt{x}] = \frac{1}{2\sqrt{x}}</me>.
       By rewriting the square root as a fractional power,
       we discover that even this rule is following the same pattern.
@@ -760,7 +760,7 @@
           Suppose that we know for <m>p=n</m>,
           <me>\frac{d}{dx}[x^n] = n x^{n-1}</me>.
           Next consider the power <m>p=n+1</m>, and rewrite it <m>x^{n+1} = x \cdot x^{n}</m>.
-          The <xref ref="deriv-product" text="title">product rule</xref> guarantees
+          The <xref ref="deriv-product" text="custom">product rule</xref> guarantees
           <md>
             <mrow>\frac{d}{dx}[x^{n+1}] &amp;= \frac{d}{dx}[x \cdot x^n]</mrow>
             <mrow> &amp;= \frac{d}{dx}[x] \cdot x^n + x \cdot \frac{d}{dx}[x^n]</mrow>
@@ -776,7 +776,7 @@
           the same argument shows that the rule is true for all <m>p \in (\frac{1}{2}, \frac{3}{2}, \frac{5}{2}, \ldots)</m>.
         </p>
         <p>
-          The <xref ref="deriv-reciprocal" text="title">reciprocal rule for derivatives</xref>
+          The <xref ref="deriv-reciprocal" text="custom">reciprocal rule for derivatives</xref>
           allows us to use the rule for positive integers to show the pattern holds for negative integers.
           For a positive integer <m>n</m>, consider the corresponding negative power <m>p=-n</m> as a reciprocal.
           <md>

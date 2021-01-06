@@ -178,7 +178,7 @@ Brian Walton          -->
       and whether the parabola opens up or down,
       the graph can cross the <m>x</m>-axis twice, once or never.
       The location of these points are called <m>x</m>-intercepts, <term>roots</term> or <term>zeros</term> of the function.
-      The values of the roots can always be found using the <xref ref="thm-quadratic-formula" text="title">quadratic formula</xref>.
+      The values of the roots can always be found using the <xref ref="thm-quadratic-formula" text="custom">quadratic formula</xref>.
     </p>
 
     <p>
@@ -607,18 +607,16 @@ Brian Walton          -->
         A quick test of each of those values (below) shows that <m>p(x)</m> has no integer roots.
         (Without the theorem, we wouldn't know how many points we had to check.)
       </p>
-      <sidebyside>
-        <tabular>
-          <row bottom="major">
-            <cell><m>x</m></cell>
-            <cell><m>p(x)</m></cell>
-          </row>
-          <row> <cell>1</cell> <cell>-3</cell> </row>
-          <row> <cell>-1</cell> <cell>-5</cell> </row>
-          <row> <cell>2</cell> <cell>-2</cell> </row>
-          <row> <cell>-2</cell> <cell>6</cell> </row>
-        </tabular>
-      </sidebyside>
+      <tabular>
+        <row bottom="major">
+          <cell><m>x</m></cell>
+          <cell><m>p(x)</m></cell>
+        </row>
+        <row> <cell>1</cell> <cell>-3</cell> </row>
+        <row> <cell>-1</cell> <cell>-5</cell> </row>
+        <row> <cell>2</cell> <cell>-2</cell> </row>
+        <row> <cell>-2</cell> <cell>6</cell> </row>
+      </tabular>
     </example>
 
     <theorem xml:id="rational-root-theorem">
@@ -787,36 +785,34 @@ Brian Walton          -->
       so that instead of measuring the distance of <m>x</m> from 0 it measure the distance of <m>x</m> from 2.
     </p>
 
-    <sidebyside>
-      <image>
-        <description>graph of y=abs(x-2)</description>
-        <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}[auto, thick]
-          \begin{axis}[
-            xmin=-2.5,xmax=4.5,
-            xtick={-2, -1, 0, 1, 2, 3, 4},
-            xlabel={$x$},
-            ylabel={$y$},
-            grid=both,
-          ]
-          \addplot[no marks, black] coordinates {
-            (-3,0)
-            (5,0)
-          };
-          \addplot[no marks, black] coordinates {
-            (0,-2)
-            (0,4)
-          };
-          \addplot[blue, thick, samples=100]
-            ({x}, {abs(x-2)});
-          \end{axis}
-          \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
+    <image>
+      <description>graph of y=abs(x-2)</description>
+      <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \begin{tikzpicture}[auto, thick]
+        \begin{axis}[
+          xmin=-2.5,xmax=4.5,
+          xtick={-2, -1, 0, 1, 2, 3, 4},
+          xlabel={$x$},
+          ylabel={$y$},
+          grid=both,
+        ]
+        \addplot[no marks, black] coordinates {
+          (-3,0)
+          (5,0)
+        };
+        \addplot[no marks, black] coordinates {
+          (0,-2)
+          (0,4)
+        };
+        \addplot[blue, thick, samples=100]
+          ({x}, {abs(x-2)});
+        \end{axis}
+        \end{tikzpicture}]]>
+      </latex-image>
+    </image>
 
     <theorem xml:id="thm-absolute-value-distance">
       <statement>

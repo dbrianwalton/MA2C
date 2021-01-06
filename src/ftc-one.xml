@@ -13,14 +13,14 @@
     <title>Overview</title>
     <p>
       When we introduced the definite integral, we also learned about accumulation functions.
-      An <xref ref='defn-accumulation-function' text='title'>accumulation function</xref> is a function <m>A</m>
+      An <xref ref='defn-accumulation-function' text='custom'>accumulation function</xref> is a function <m>A</m>
       defined as a definite integral from a fixed lower limit <m>a</m> to a variable upper limit
       where the integrand is a given function <m>f</m>,
       <me>A(x) = A(a) + \int_a^x f(z)\, dz</me>.
       The function <m>f</m> was called the rate of accumulation for the function <m>A</m>,
       and we wrote <m>A'(x) = f(x)</m>.
       Then we defined another rate of change, the instantaneous rate of change,
-      with a corresponding function called <xref ref="defn-derivative" text="title">the derivative</xref>.
+      with a corresponding function called <xref ref="defn-derivative" text="custom">the derivative</xref>.
       For a function <m>F(x)</m>, the derivative was defined by a limit,
       <me>\frac{dF}{dx}(x) = \lim_{h \to 0} \frac{F(x+h)-F(x)}{h}</me>.
     </p>
@@ -43,7 +43,7 @@
       <me>f(x) = x^3 - 3x + 5</me>.
       Using our rules of accumulation, we know that <m>f(x)</m> can be written as an accumulation,
       <me>f(x) = 5 + \int_0^x 3z^2-3 \, dz</me>.
-      What happens if we compute the <xref ref="defn-derivative" text="title">derivative using the definition</xref>?
+      What happens if we compute the <xref ref="defn-derivative" text="custom">derivative using the definition</xref>?
     </p>
     <p>
       We start with some preparatory algebra based on <m>f(x) = x^3-3x+5</m>.

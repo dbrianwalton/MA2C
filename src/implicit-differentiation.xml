@@ -186,34 +186,32 @@
             The equation <m>x^2+5y^2 = 15-3xy</m> defines an ellipse, shown below.
             What is the slope of the curve at the point <m>(2,1)</m>?
           </p>
-          <sidebyside>
-            <image>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-                  \begin{axis}[
-                      xmin=-6,xmax=6,
-                      ymin=-4,ymax=4,
-                      xlabel={$x$},
-                      ylabel={$y$},
-                  ]
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xmin=-6,xmax=6,
+                    ymin=-4,ymax=4,
+                    xlabel={$x$},
+                    ylabel={$y$},
+                ]
 
-                  \addplot[blue, domain=-6:6, thick, samples=100]
-                      ({x}, {(-3*x+sqrt(300-11*x^2))/10});
-                  \addplot[blue, domain=-6:6, thick, samples=100]
-                      ({x}, {(-3*x-sqrt(300-11*x^2))/10});
-                  \addplot[blue, domain=-6:6, thick, samples=100]
-                      ({(-3*x+sqrt(60-11*x^2))/2}, {x});
-                  \addplot[blue, domain=-6:6, thick, samples=100]
-                      ({(-3*x-sqrt(60-11*x^2))/2}, {x});
-                  \addplot[mark=*, blue] coordinates {(2,1)};
-                  \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+                \addplot[blue, domain=-6:6, thick, samples=100]
+                    ({x}, {(-3*x+sqrt(300-11*x^2))/10});
+                \addplot[blue, domain=-6:6, thick, samples=100]
+                    ({x}, {(-3*x-sqrt(300-11*x^2))/10});
+                \addplot[blue, domain=-6:6, thick, samples=100]
+                    ({(-3*x+sqrt(60-11*x^2))/2}, {x});
+                \addplot[blue, domain=-6:6, thick, samples=100]
+                    ({(-3*x-sqrt(60-11*x^2))/2}, {x});
+                \addplot[mark=*, blue] coordinates {(2,1)};
+                \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
         </statement>
         <solution>
           <p>
@@ -240,36 +238,34 @@
             We could also find the equation of the tangent line knowing this information,
             <me> y = \frac{-7}{16}(x-2) + 1. </me>
           </p>
-          <sidebyside>
-            <image>
-              <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-                  \begin{axis}[
-                      xmin=-6,xmax=6,
-                      ymin=-4,ymax=4,
-                      xlabel={$x$},
-                      ylabel={$y$},
-                  ]
+          <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xmin=-6,xmax=6,
+                    ymin=-4,ymax=4,
+                    xlabel={$x$},
+                    ylabel={$y$},
+                ]
 
-                  \addplot[blue, domain=-6:6, thick, samples=100]
-                      ({x}, {(-3*x+sqrt(300-11*x^2))/10});
-                  \addplot[blue, domain=-6:6, thick, samples=100]
-                      ({x}, {(-3*x-sqrt(300-11*x^2))/10});
-                  \addplot[blue, domain=-6:6, thick, samples=100]
-                      ({(-3*x+sqrt(60-11*x^2))/2}, {x});
-                  \addplot[blue, domain=-6:6, thick, samples=100]
-                      ({(-3*x-sqrt(60-11*x^2))/2}, {x});
-                  \addplot[red, domain=0:4, thick, samples=100]
-                      ({x}, {1-7*(x-2)/16});
-                  \addplot[mark=*, blue] coordinates {(2,1)};
-                  \end{axis}
-              \end{tikzpicture}]]>
-              </latex-image>
-            </image>
-          </sidebyside>
+                \addplot[blue, domain=-6:6, thick, samples=100]
+                    ({x}, {(-3*x+sqrt(300-11*x^2))/10});
+                \addplot[blue, domain=-6:6, thick, samples=100]
+                    ({x}, {(-3*x-sqrt(300-11*x^2))/10});
+                \addplot[blue, domain=-6:6, thick, samples=100]
+                    ({(-3*x+sqrt(60-11*x^2))/2}, {x});
+                \addplot[blue, domain=-6:6, thick, samples=100]
+                    ({(-3*x-sqrt(60-11*x^2))/2}, {x});
+                \addplot[red, domain=0:4, thick, samples=100]
+                    ({x}, {1-7*(x-2)/16});
+                \addplot[mark=*, blue] coordinates {(2,1)};
+                \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+          </image>
         </solution>
       </example>
     </subsection>
@@ -341,7 +337,7 @@
           </p>
           <p>
             Formally, the theorem for
-            <xref ref='thm-inverse-function-derivative' text='title'>derivatives of inverse functions</xref>
+            <xref ref='thm-inverse-function-derivative' text='custom'>derivatives of inverse functions</xref>
             states that for <m>y=f^{-1}(x)</m>,
             <me> \left. \frac{dy}{dx} \right|_{x=4} = \frac{1}{f'(f^{-1}(4))}. </me>
             Because <m>f^{-1}(4)=1</m> and <m>f'(1) = 6</m>, we know,

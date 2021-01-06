@@ -6,13 +6,13 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="periodic-models">
     <title>Periodic Models</title>
 
     <subsection>
         <title>Overview</title>
-        
+
         <p>
         This section discusses periodic functions, specifically using
         the trigonometric functions of sine and cosine as models for periodic
@@ -24,28 +24,28 @@
         The spiking patterns of a neuron can be modeled with periodic functions.
         Cyclic patterns in populations can even be modeled with periodic functions.
         </p>
-        
+
         <p>
         Periodic functions are characterized by basic features.
         One of the most fundamental features is called the period, which is
         how much the input of the function needs to increase before the function
         exactly repeats its output.
-        When a wave is observered spatially, the period of the function 
+        When a wave is observered spatially, the period of the function
         corresponds to the wavelength.
         When a wave is observed temporally (in time), the period of the function
         corresponds to the physical period, or the time between repeating cycles.
         </p>
-        
+
         <p>
-        
+
         </p>
-        
+
     </subsection>
-    
+
     <!-- Quick Overview of Sinusoidal Graphs -->
     <subsection>
         <title>A Barebones Review of Sine and Cosine</title>
-        
+
         <p>
         The appendix has a much more detailed discussion of trigonometric functions.
         For our purposes, all that I really want to review is the oscillatory
@@ -53,7 +53,7 @@
         functions. One dynamical perspective of the graphs results from
         considering a point that moves around a unit circle at a steady speed.
         </p>
-        
+
         <p>
         The point starts at the position <m>(1,0)</m>. We consider counter-clockwise
         rotation as positive motion and clockwise rotation as negative motion, and
@@ -70,79 +70,75 @@
         between a minimum at -1 and a maximum at +1,
         <me>-1 \le \sin(x) \le 1 \qquad -1 \le \cos(x) \le 1. </me>
         </p>
-        
-        <sidebyside>
-            <image>
-                <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[thick,x=2.25cm,y=2.25cm]
-                    \draw[->] (-1.2,0) -- (1.2,0);
-                    \draw[->] (0,-1.2) -- (0,1.2);
-                    
-                    \draw (-1,-0.1) -- (-1,0.1);
-                    \draw (1,-0.1) -- (1,0.1);
-                    \draw ({cos(50)},-0.1) -- ({cos(50)},0.1)
-                        node[pos=0,below] {$\cos(x)$};
 
-                    \draw (-0.1,-1) -- (0.1,-1);
-                    \draw (-0.1,1) -- (0.1,1);
-                    \draw (-0.1,{sin(50)}) -- (0.1,{sin(50)})
-                        node[pos=0,left] {$\sin(x)$};
+        <image>
+            <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[thick,x=2.25cm,y=2.25cm]
+                \draw[->] (-1.2,0) -- (1.2,0);
+                \draw[->] (0,-1.2) -- (0,1.2);
 
-                    \draw[thin] (0,0) circle (1);
-                    \draw[very thick, color=blue] (1.01,0) arc (0:50:1.01);
-                    \draw[thin, color=blue, ->] (1.05,0) arc (0:50:1.05)
-                        node [pos=0.5, right] {$x$};
-                    
-                    \draw[fill] (50:1) circle (2pt);
+                \draw (-1,-0.1) -- (-1,0.1);
+                \draw (1,-0.1) -- (1,0.1);
+                \draw ({cos(50)},-0.1) -- ({cos(50)},0.1)
+                    node[pos=0,below] {$\cos(x)$};
 
-                    \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        
+                \draw (-0.1,-1) -- (0.1,-1);
+                \draw (-0.1,1) -- (0.1,1);
+                \draw (-0.1,{sin(50)}) -- (0.1,{sin(50)})
+                    node[pos=0,left] {$\sin(x)$};
+
+                \draw[thin] (0,0) circle (1);
+                \draw[very thick, color=blue] (1.01,0) arc (0:50:1.01);
+                \draw[thin, color=blue, ->] (1.05,0) arc (0:50:1.05)
+                    node [pos=0.5, right] {$x$};
+
+                \draw[fill] (50:1) circle (2pt);
+
+                \end{tikzpicture}]]>
+            </latex-image>
+        </image>
+
         <p>
         As soon as the point travels a distance of <m>2\pi</m>, it has completed a full
         revolution of the circle and it is as though it is revisiting the same points.
         This is why the sine and cosine functions are periodic with a period <m>2 \pi</m>.
         </p>
-        
-        <sidebyside>
-            <image>
-                <description>The graphs of cosine and sine functions.
-                </description>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[thick,domain=-2.2:8.2, samples=100, x=.7cm]
-                \draw[->] (-2.2,0) -- (8.2,0) node[right] {$x$};
-                \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
-                \draw[color=blue] plot (\x,{cos(pi/2*\x r)});
-                \draw[color=red] plot (\x,{sin(pi/2*\x r)});
-                \draw (-0.1,1) -- (0.1,1) node[right] {1};
-                \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
 
-                \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
-                \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
-                \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
-                \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
-                \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
-                \draw (4, -0.1) -- (4, 0.1) node[above] {$2 \pi$};
-                \draw (5, -0.1) -- (5, 0.1) node[above] {$\frac{5\pi}{2}$};
-                \draw (6, -0.1) -- (6, 0.1) node[above] {$3 \pi$};
-                \draw (7, -0.1) -- (7, 0.1) node[above] {$\frac{7\pi}{2}$};
-                \draw (8, -0.1) -- (8, 0.1) node[above] {$4 \pi$};
-                
-                \draw [color=blue] (8.5,1) -- (9,1) node [right] {$y=\cos(x)$};
-                \draw [color=red] (8.5,0.6) -- (9,0.6) node [right] {$y=\sin(x)$};
-                
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
+        <image>
+            <description>The graphs of cosine and sine functions.
+            </description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[thick,domain=-2.2:8.2, samples=100, x=.7cm]
+            \draw[->] (-2.2,0) -- (8.2,0) node[right] {$x$};
+            \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
+            \draw[color=blue] plot (\x,{cos(pi/2*\x r)});
+            \draw[color=red] plot (\x,{sin(pi/2*\x r)});
+            \draw (-0.1,1) -- (0.1,1) node[right] {1};
+            \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
+
+            \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
+            \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
+            \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
+            \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
+            \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
+            \draw (4, -0.1) -- (4, 0.1) node[above] {$2 \pi$};
+            \draw (5, -0.1) -- (5, 0.1) node[above] {$\frac{5\pi}{2}$};
+            \draw (6, -0.1) -- (6, 0.1) node[above] {$3 \pi$};
+            \draw (7, -0.1) -- (7, 0.1) node[above] {$\frac{7\pi}{2}$};
+            \draw (8, -0.1) -- (8, 0.1) node[above] {$4 \pi$};
+
+            \draw [color=blue] (8.5,1) -- (9,1) node [right] {$y=\cos(x)$};
+            \draw [color=red] (8.5,0.6) -- (9,0.6) node [right] {$y=\sin(x)$};
+
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
 
         <p>
         As a consequence of their unit circle definitions,
@@ -152,42 +148,40 @@
         the graph is unchanged. This graphical view is expressed in an equation as
         <me> \cos(-x) = \cos(x). </me>
         That is, if the graph <m>y=\cos(x)</m> includes some point <m>(x,y)=(a,b)</m>,
-        then the opposite point <m>(x,y)=(-a,b)</m> 
+        then the opposite point <m>(x,y)=(-a,b)</m>
         (changing only the <m>x</m>-coordinate) is also in the graph.
         </p>
-        
-        <sidebyside>
-            <image>
-                <description>The cosine function is even (horizontal reflection symmetry).
-                </description>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[thick,domain=-4.2:4.2, samples=100, x=1cm, y=1.25cm]
-                \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
-                \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
-                \draw[color=blue] plot (\x,{cos(pi/2*\x r)});
-                \draw (-0.1,1) -- (0.1,1) node[right] {1};
-                \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
 
-                \draw (-4, -0.1) -- (-4, 0.1) node[above] {$-2\pi$};
-                \draw (-3, -0.1) -- (-3, 0.1) node[above] {$-\frac{3\pi}{2}$};
-                \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
-                \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
-                \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
-                \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
-                \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
-                \draw (4, -0.1) -- (4, 0.1) node[above] {$2\pi$};
-                
-                \draw [color=blue] (4.5,1) -- (5,1) node [right] {$y=\cos(x)$};
-                \draw[fill] (2.5, {cos(2.5*90)}) circle (2pt) node [right] {$(a,\cos(a))$};
-                \draw[fill] (-2.5, {cos(-2.5*90)}) circle (2pt) node [left] {$(-a,\cos(-a))$};
-                
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
+        <image>
+            <description>The cosine function is even (horizontal reflection symmetry).
+            </description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[thick,domain=-4.2:4.2, samples=100, x=1cm, y=1.25cm]
+            \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
+            \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
+            \draw[color=blue] plot (\x,{cos(pi/2*\x r)});
+            \draw (-0.1,1) -- (0.1,1) node[right] {1};
+            \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
+
+            \draw (-4, -0.1) -- (-4, 0.1) node[above] {$-2\pi$};
+            \draw (-3, -0.1) -- (-3, 0.1) node[above] {$-\frac{3\pi}{2}$};
+            \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
+            \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
+            \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
+            \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
+            \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
+            \draw (4, -0.1) -- (4, 0.1) node[above] {$2\pi$};
+
+            \draw [color=blue] (4.5,1) -- (5,1) node [right] {$y=\cos(x)$};
+            \draw[fill] (2.5, {cos(2.5*90)}) circle (2pt) node [right] {$(a,\cos(a))$};
+            \draw[fill] (-2.5, {cos(-2.5*90)}) circle (2pt) node [left] {$(-a,\cos(-a))$};
+
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
 
         <p>
         How do you read or interpret that equation? On the left, we see the expression
@@ -202,7 +196,7 @@
         is a convenience and not necessary. You should practice to where this extra
         step becomes unnecessary.
         </p>
-        
+
         <p>
         While the cosine function is even, the sine function is an <term>odd function</term>.
         This means that if you do a horizontal reflection, instead of getting the original
@@ -217,39 +211,37 @@
         opposite point <m>(x,y)=(-a,-b)</m> (both change because going across the origin)
         is also on the graph.
         </p>
-        
-        <sidebyside>
-            <image>
-                <description>The sine function is odd (symmetry across the origin).
-                </description>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[thick,domain=-4.2:4.2, samples=100, x=1cm, y=1.25cm]
-                \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
-                \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
-                \draw[color=red] plot (\x,{sin(pi/2*\x r)});
-                \draw (-0.1,1) -- (0.1,1) node[right] {1};
-                \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
 
-                \draw (-4, -0.1) -- (-4, 0.1) node[above] {$-2\pi$};
-                \draw (-3, -0.1) -- (-3, 0.1) node[above] {$-\frac{3\pi}{2}$};
-                \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
-                \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
-                \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
-                \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
-                \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
-                \draw (4, -0.1) -- (4, 0.1) node[above] {$2\pi$};
-                
-                \draw [color=red] (4.5,1) -- (5,1) node [right] {$y=\sin(x)$};
-                \draw[fill] (2.5, {sin(2.5*90)}) circle (2pt) node [left] {$(a,\sin(a))$};
-                \draw[fill] (-2.5, {sin(-2.5*90)}) circle (2pt) node [right] {$(-a,\sin(-a))$};
-                
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
+        <image>
+            <description>The sine function is odd (symmetry across the origin).
+            </description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[thick,domain=-4.2:4.2, samples=100, x=1cm, y=1.25cm]
+            \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
+            \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
+            \draw[color=red] plot (\x,{sin(pi/2*\x r)});
+            \draw (-0.1,1) -- (0.1,1) node[right] {1};
+            \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
+
+            \draw (-4, -0.1) -- (-4, 0.1) node[above] {$-2\pi$};
+            \draw (-3, -0.1) -- (-3, 0.1) node[above] {$-\frac{3\pi}{2}$};
+            \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
+            \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
+            \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
+            \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
+            \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
+            \draw (4, -0.1) -- (4, 0.1) node[above] {$2\pi$};
+
+            \draw [color=red] (4.5,1) -- (5,1) node [right] {$y=\sin(x)$};
+            \draw[fill] (2.5, {sin(2.5*90)}) circle (2pt) node [left] {$(a,\sin(a))$};
+            \draw[fill] (-2.5, {sin(-2.5*90)}) circle (2pt) node [right] {$(-a,\sin(-a))$};
+
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
 
         <p>
         Because a circle is rotationally symmetric,
@@ -263,11 +255,11 @@
             <mrow>\sin(x+\frac{\pi}{2}) = \cos(x)</mrow>
         </md>
         </p>
-        
+
     </subsection>
     <subsection>
         <title>Periodic Functions</title>
-        
+
         <definition>
             <title>Periodic Function</title>
 
@@ -279,7 +271,7 @@
                 </p>
             </statement>
         </definition>
-        
+
         <p>
         Waves are a good physical example of periodic behavior.
         (I'm thinking about steady rolling waves or ripples, not breaking waves that do
@@ -291,24 +283,24 @@
         physically to the wavelength, which is the distance at which the shape starts
         to repeat (usually imagined as distance from peak-to-peak).
         </p>
-        
+
         <p>
         On the other hand, if we had a bobber at a single location and measured its
         height as it bobbed up and down, then we again have a periodic function
         with an independent variable of time. The period now corresponds to a time
-        interval over which the pattern of height begins to repeat, which equals the 
+        interval over which the pattern of height begins to repeat, which equals the
         time between the bobber reaching its highest point.
         </p>
-        
+
         <p>
         In reality, physical waves exist in both space and time and should be
         considered as functions of both independent variables. In such a case,
         the physical period is called the wavelength and the temporal (time) period
         is called simply the period. For the purposes of our discussion, we will
-        only consider a single independent variable and use the idea of period 
+        only consider a single independent variable and use the idea of period
         and wavelength interchangeably.
         </p>
-        
+
         <p>
         The 1963 Nobel prize in Physiology or Medicine was awarded to the
         scientists Alan Hodgkin and Andrew Huxley for their development in 1952 of
@@ -320,7 +312,7 @@
         The period can be estimated by measuring the interval (spacing) between
         any repeating point on the graph.
         </p>
-        
+
         <figure xml:id="fig-neuron-spiking">
             <caption>
             Neuron spiking given by the Hodgkin--Huxley model of ion channels.
@@ -362,7 +354,7 @@
         moment when the pattern begins again is when it crosses going up at
         <m>t=16.45</m> ms. So our best estimate of the period is <m>p=16.45-1.81=14.64</m> ms.
         </p>
-        
+
         <p>
         For symmetric waves like the sine and cosine functions, the <term>amplitude</term>
         of the wave describes the height of the wave away from the center, which would
@@ -373,10 +365,10 @@
         so that there is an asymmetry between the distance to maximum and distance to minimum.
         </p>
     </subsection>
-    
+
     <subsection>
         <title>Transformations and Periodic Functions</title>
-        
+
         <p>
         Suppose we are given data representing some periodic behavior and we want
         to establish a model for those data using a known periodic function.
@@ -386,58 +378,58 @@
         do a better job of representing our data.
         We will use the sine and cosine functions as examples of how this is done.
         </p>
-        
+
         <p>
         One way to do this is to imagine enclosing exactly one cycle of the
         elementary function in a rectangle and then enclose exactly one cycle
         of the data as the transformed function. The width of each rectangle
-        corresponds to the period. The top of the rectangle corresponds to the 
+        corresponds to the period. The top of the rectangle corresponds to the
         maximum value (peak) and the bottom corresponds to the minimum value (valley).
         Then use the method of function transformation to find the new function.
         </p>
-        
+
         <example>
             <statement>
-            Find the formula for the sinusoidal function shown in the following graph.
-            
-            <sidebyside>
-                <image>
-                    <description>
-                    A sinusoidal graph with a centerline at y=10, a minimum at y=7 
-                    and maximum at y=13, a period of 8 and maximum at x=1.
-                    </description>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}
-                    \begin{axis}[
-                        xmin=-5,xmax=20,ymin=-3,ymax=18,
-                        ytick={0,5,10,15},
-                        xlabel={$x$},
-                        ylabel={$y$},
-                    ]
-                    \addplot[blue, samples=100, domain=-1:3]
-                        ({1+8*x}, {10+3*cos(deg(2*pi*x))});
-                    \addplot[
-                        only marks,
-                        color=blue
-                    ] table {
-                        1 13
-                        3 10
-                        5  7
-                        9 13
-                    }
-                    node [pos=0, above] {$(1,13)$}
-                    node [pos=0.33, above right] {$(3,10)$}
-                    node [pos=0.66, below] {$(5,7)$}
-                    node [pos=1, above] {$(9,13)$}
-                    ;
-                    \end{axis}
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+             <p>
+               Find the formula for the sinusoidal function shown in the following graph.
+             </p>
+
+              <image>
+                  <description>
+                  A sinusoidal graph with a centerline at y=10, a minimum at y=7
+                  and maximum at y=13, a period of 8 and maximum at x=1.
+                  </description>
+                  <latex-image>
+                  <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                  <![CDATA[\tikzset{%
+                  }
+                  \begin{tikzpicture}
+                  \begin{axis}[
+                      xmin=-5,xmax=20,ymin=-3,ymax=18,
+                      ytick={0,5,10,15},
+                      xlabel={$x$},
+                      ylabel={$y$},
+                  ]
+                  \addplot[blue, samples=100, domain=-1:3]
+                      ({1+8*x}, {10+3*cos(deg(2*pi*x))});
+                  \addplot[
+                      only marks,
+                      color=blue
+                  ] table {
+                      1 13
+                      3 10
+                      5  7
+                      9 13
+                  }
+                  node [pos=0, above] {$(1,13)$}
+                  node [pos=0.33, above right] {$(3,10)$}
+                  node [pos=0.66, below] {$(5,7)$}
+                  node [pos=1, above] {$(9,13)$}
+                  ;
+                  \end{axis}
+                  \end{tikzpicture}]]>
+                  </latex-image>
+              </image>
             </statement>
             <solution>
             <p>
@@ -449,80 +441,78 @@
             is shown in the figure below, along with a single corresponding cycle
             for our transformed data.
             </p>
-            <sidebyside>
-                <image>
-                    <description>
-                    Single cycles of the cosine and of the example
-                    sinusoidal graph with a centerline at y=10, a minimum at y=7 
-                    and maximum at y=13, a period of 8 and maximum at x=1.
-                    </description>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}
-                    \begin{axis}[
-                        xmin=-5,xmax=20,ymin=-3,ymax=18,
-                        ytick={0,5,10,15},
-                        xlabel={$x$},
-                        ylabel={$y$},
-                    ]
+            <image>
+                <description>
+                Single cycles of the cosine and of the example
+                sinusoidal graph with a centerline at y=10, a minimum at y=7
+                and maximum at y=13, a period of 8 and maximum at x=1.
+                </description>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}[
+                    xmin=-5,xmax=20,ymin=-3,ymax=18,
+                    ytick={0,5,10,15},
+                    xlabel={$x$},
+                    ylabel={$y$},
+                ]
 
-                    \addplot[black, samples=100, domain=-5:20]
-                        ({x}, {cos(deg(x))});
-                    \addplot[
-                        only marks,
-                        color=black
-                    ] table {
-                        0 1
-                        1.57 0
-                        3.14  -1
-                        6.28 1
-                    }
-                    node [pos=0, above left] {$(0,1)$}
-                    node [pos=0.33, above right] {$(\frac{\pi}{2},0)$}
-                    node [pos=0.66, below] {$(\pi,-1)$}
-                    node [pos=1, above right] {$(2\pi,1)$}
-                    ;
-                    \addplot[black,dashed] table {
-                        0 1
-                        6.28 1
-                        6.28 -1
-                        0 -1
-                        0 1
-                    };
+                \addplot[black, samples=100, domain=-5:20]
+                    ({x}, {cos(deg(x))});
+                \addplot[
+                    only marks,
+                    color=black
+                ] table {
+                    0 1
+                    1.57 0
+                    3.14  -1
+                    6.28 1
+                }
+                node [pos=0, above left] {$(0,1)$}
+                node [pos=0.33, above right] {$(\frac{\pi}{2},0)$}
+                node [pos=0.66, below] {$(\pi,-1)$}
+                node [pos=1, above right] {$(2\pi,1)$}
+                ;
+                \addplot[black,dashed] table {
+                    0 1
+                    6.28 1
+                    6.28 -1
+                    0 -1
+                    0 1
+                };
 
-                    \addplot[blue, samples=100, domain=-1:3]
-                        ({1+8*x}, {10+3*cos(deg(2*pi*x))});
-                    \addplot[
-                        only marks,
-                        color=blue
-                    ] table {
-                        1 13
-                        3 10
-                        5  7
-                        9 13
-                    }
-                    node [pos=0, above] {$(1,13)$}
-                    node [pos=0.33, above right] {$(3,10)$}
-                    node [pos=0.66, below] {$(5,7)$}
-                    node [pos=1, above] {$(9,13)$}
-                    ;
-                    \addplot[blue,dashed] table {
-                        1 13
-                        9 13
-                        9 7
-                        1 7
-                        1 13
-                    };
-                    \end{axis}
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
-            
+                \addplot[blue, samples=100, domain=-1:3]
+                    ({1+8*x}, {10+3*cos(deg(2*pi*x))});
+                \addplot[
+                    only marks,
+                    color=blue
+                ] table {
+                    1 13
+                    3 10
+                    5  7
+                    9 13
+                }
+                node [pos=0, above] {$(1,13)$}
+                node [pos=0.33, above right] {$(3,10)$}
+                node [pos=0.66, below] {$(5,7)$}
+                node [pos=1, above] {$(9,13)$}
+                ;
+                \addplot[blue,dashed] table {
+                    1 13
+                    9 13
+                    9 7
+                    1 7
+                    1 13
+                };
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
+
             <p>
-            If we think of <m>(x,y)</m> based on <m>y=\cos(x)</m> as the 
+            If we think of <m>(x,y)</m> based on <m>y=\cos(x)</m> as the
             original elementary function and our transformed relation using <m>(u,v)</m>,
             then we need transformations that accomplish the following mappings:
             <md>
@@ -541,7 +531,7 @@
 
             <p>
             Given these observations, we find the actual transformations.
-            The horizontal transformation has a slope 
+            The horizontal transformation has a slope
             <m>\frac{\Delta u}{\Delta x} = \frac{8}{2\pi}</m>,
             which is exactly the period of the data divided by the natural period
             of the cosine.
@@ -570,17 +560,17 @@
             </p>
             </solution>
         </example>
-        
+
         <p>
         The previous example demonstrated how knowing basic information about a
         periodic function allows us to model that function using an elementary
         trigonometric function. In the example, we discovered that the fundamental
         attributes that we needed were the centerline and amplitude (to determine
         the vertical transformation) and the period and a starting point (to
-        determine the horizontal transformation). Once these features are 
+        determine the horizontal transformation). Once these features are
         known, it is straightforward to develop the model.
         </p>
-        
+
         <theorem>
             <statement>
             Suppose a sinusoidal function has a centerline at <m>y=k</m>
@@ -592,14 +582,14 @@
             <me> y = k + A \sin\left( \frac{2 \pi}{p}(x-h) \right).</me>
             </statement>
         </theorem>
-        
+
         <p>
         The reverse process also works. If we start with a formula of a sinusoidal
         function, we can interpret the parameters of the formula to determine
-        the period, the amplitude, the center line (vertical shift), 
+        the period, the amplitude, the center line (vertical shift),
         and the phase shift (horizontal shift).
         </p>
-        
+
         <example>
             <statement>
             Interpret the formula <m>y=3 \sin(6x+\pi) - 3</m> and use this to sketch
@@ -633,61 +623,59 @@
             where we used <m>(u,v)</m> only to obtain our interpretation.
             The centerline <m>y=-3</m> and amplitude <m>A=3</m> gives us that
             the graph goes from <m>y=-6</m> (minimum) through <m>y=0</m> (maximum).
-            The phase shift <m>-\frac{\pi}{6}</m> gives the left edge of the 
-            initial cycle and the period <m>p=\frac{\pi}{3}</m> gives the width 
+            The phase shift <m>-\frac{\pi}{6}</m> gives the left edge of the
+            initial cycle and the period <m>p=\frac{\pi}{3}</m> gives the width
             of the cycle.
             </p>
-            
+
             <p>
             Once we have our rectangle, we fill in the sinusoidal graph shape
-            to fit in the rectangle. Then we repeat the pattern taking care 
+            to fit in the rectangle. Then we repeat the pattern taking care
             that our period does not change as we draw.
             </p>
-            
-            <sidebyside>
-                <image>
-                    <description>
-                    Graph of y=3sin(6x+pi)-3.
-                    </description>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}
-                    \begin{axis}[
-                        xmin=-2,xmax=3.5,ymin=-8.2,ymax=2.2,
-                        xtick={
-                            -1.5708, -1.0472, -0.5236, 0, 0.5236, 1.0472, 1.571,
-                            2.0944, 2.6180, 3.1416
-                            },
-                        xticklabels={
-                            $-\frac{\pi}{2}$, $-\frac{\pi}{3}$, $-\frac{\pi}{6}$, 0,
-                            $\frac{\pi}{6}$, $\frac{\pi}{3}$, $\frac{\pi}{2}$,
-                            $\frac{2\pi}{3}$, $\frac{5\pi}{6}$, $\pi$
-                            },
-                        ytick={-8,-6,...,2},
-                        xlabel={$x$},
-                        ylabel={$y$},
-                    ]
 
-                    \addplot[black, samples=100, domain=-2:3.5]
-                        ({x}, {3*sin(deg(6*x+pi))-3});
-                    \addplot[red, thick, samples=30, domain=-0.5236:0.5236]
-                        ({x}, {3*sin(deg(6*x+pi))-3});
-                    \addplot[red,dashed] table {
-                        -0.5236 0
-                        0.5236 0
-                        0.5236 -6
-                        -0.5236 -6
-                        -0.5236 0
-                    };
-                    \end{axis}
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+            <image>
+                <description>
+                Graph of y=3sin(6x+pi)-3.
+                </description>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}[
+                    xmin=-2,xmax=3.5,ymin=-8.2,ymax=2.2,
+                    xtick={
+                        -1.5708, -1.0472, -0.5236, 0, 0.5236, 1.0472, 1.571,
+                        2.0944, 2.6180, 3.1416
+                        },
+                    xticklabels={
+                        $-\frac{\pi}{2}$, $-\frac{\pi}{3}$, $-\frac{\pi}{6}$, 0,
+                        $\frac{\pi}{6}$, $\frac{\pi}{3}$, $\frac{\pi}{2}$,
+                        $\frac{2\pi}{3}$, $\frac{5\pi}{6}$, $\pi$
+                        },
+                    ytick={-8,-6,...,2},
+                    xlabel={$x$},
+                    ylabel={$y$},
+                ]
+
+                \addplot[black, samples=100, domain=-2:3.5]
+                    ({x}, {3*sin(deg(6*x+pi))-3});
+                \addplot[red, thick, samples=30, domain=-0.5236:0.5236]
+                    ({x}, {3*sin(deg(6*x+pi))-3});
+                \addplot[red,dashed] table {
+                    -0.5236 0
+                    0.5236 0
+                    0.5236 -6
+                    -0.5236 -6
+                    -0.5236 0
+                };
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
             </solution>
         </example>
     </subsection>
-    
+
 </section>

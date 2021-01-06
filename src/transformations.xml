@@ -6,15 +6,15 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="transformations">
     <title>Transformations</title>
 
     <subsection>
         <title>Overview</title>
-        
+
         <p>In many applications, the relationship between two variables will have a graph that is simply a transformation of a more simple relationship. Transformations might include translations (shifting the graph left or right or up or down), scaling (stretching or compressing the graph) and reflections. This section looks at the rules associated with transformations in the context of composition of functions.</p>
-        
+
         <p>Algebra and pre-calculus courses often teach basic rules for how to  transform a function according to the basic available transformations of translation, reflection and scaling.</p>
 
         <theorem>
@@ -34,17 +34,17 @@
         </theorem>
 
         <p>You should notice that the horizontal transformations of translation (shift) and scaling (stretch) use inverse operations. That is, to shift the graph of <m>y=f(x)</m> to the right 2 units, you graph <m>y=f(x-2)</m>. Similarly, to stretch a graph horizontally by a factor of 3 (making it three times wider), you would need to graph <m>y=f(\frac{x}{3})</m>. Vertical transformations, by contrast, follow a more natural reasoning, using the same operations that we would expect.</p>
-        
+
         <p>Composition of functions provides a unifying approach to understand transformations. We will think of <m>y=f(x)</m> as providing a reference relationship <m>x \overset{f}{\mapsto} y</m>. We will think of the actual data (the transformed graph) as having its own variables for which we need a relation <m>\widetilde{x} \mapsto \widetilde{y}</m>. The transformation of the graph will correspond to finding linear functions that describe a relation between <m>\widetilde{x} \mapsto x</m> and <m>y \mapsto \widetilde{y}</m> so that the overall transformation is the composition <me>\widetilde{x} \mapsto x \overset{f}{\mapsto} y \mapsto \widetilde{y}.</me></p>
 
     </subsection>
-    
+
     <!-- Transformations -->
     <subsection>
         <title>Transformations as Composition</title>
-        
+
         <p>Consider the absolute value function <m>\mathrm{abs}(x)=|x|</m> as a relation between <m>x</m> and <m>y</m>, <m>\mathrm{abs} : x \mapsto y</m>. The following table illustrates some data from this relation.</p>
-        
+
         <table>
             <tabular>
             <row below="major"><cell>label</cell> <cell><m>x</m></cell> <cell><m>y</m></cell></row>
@@ -55,61 +55,59 @@
             <row> <cell>e</cell> <cell>2</cell> <cell>2</cell> </row>
             </tabular>
         </table>
-        
+
         <p>Now consider a new equation, <m>y=2|x-1|</m>. In order to use the ideas of composition and a chain of variables, we have already reserved the variables <m>x</m> and <m>y</m> for the simpler relation <m>y=|x|</m>. So we introduce some decorations (a squiggle or tilde) for our new variables and instead consider <me>\tilde{y} = 2 |\tilde{x}-1|.</me> The key step is recognizing that this equation is equivalent to the following chain: <md>
             <mrow> x &amp;= \tilde{x}-1, </mrow>
             <mrow> y &amp;= |x|, </mrow>
             <mrow> \tilde{y} &amp;= 2y. </mrow>
-        </md> That is, the relation is a composition of three operations: subtracting 1, taking an absolute value, and multiplying by 2. The following diagram illustrates this composition as mappings.</p> 
+        </md> That is, the relation is a composition of three operations: subtracting 1, taking an absolute value, and multiplying by 2. The following diagram illustrates this composition as mappings.</p>
 
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[x=0.5cm,y=1.5cm]
+            \draw[<->] (-8.5,1) -- (8.5,1) node[right] {$\tilde{x}$};
+            \draw[<->] (-8.5,0) -- (8.5,0) node[right] {$x = \tilde{x}-1$};
+            \draw[<->] (-8.5,-1) -- (8.5,-1) node[right] {$y=|x|$};
+            \draw[<->] (-8.5,-2) -- (8.5,-2) node[right] {$\tilde{y}=2y$};
+
+            \node[above left] at (-2,0.1) {a};
+            \node[above left] at (-1,0.1) {b};
+            \node[above left] at (0,0.1) {c};
+            \node[above left] at (1,0.1) {d};
+            \node[above left] at (2,0.1) {e};
+
+            \foreach \x in {-3, -2, 4, 5}
+                {
+                    \draw (\x,1.1) -- (\x,0.9) node[below] {\x};
+                    \draw [dashed, ->] (\x,0.9) -- (\x-1,0.1);
                 }
-                \begin{tikzpicture}[x=0.5cm,y=1.5cm]
-                \draw[<->] (-8.5,1) -- (8.5,1) node[right] {$\tilde{x}$};
-                \draw[<->] (-8.5,0) -- (8.5,0) node[right] {$x = \tilde{x}-1$};
-                \draw[<->] (-8.5,-1) -- (8.5,-1) node[right] {$y=|x|$};
-                \draw[<->] (-8.5,-2) -- (8.5,-2) node[right] {$\tilde{y}=2y$};
+            \foreach \x in {-1, 0, ..., 3}
+                {
+                    \draw (\x,1.1) -- (\x,0.9) node[below] {\x};
+                    \draw [red, ->] (\x,0.9) -- (\x-1,0.1);
+                }
 
-                \node[above left] at (-2,0.1) {a};
-                \node[above left] at (-1,0.1) {b};
-                \node[above left] at (0,0.1) {c};
-                \node[above left] at (1,0.1) {d};
-                \node[above left] at (2,0.1) {e};
+            \foreach \x in {-2, -1}
+                {
+                    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+                    \draw [->] (\x,-0.1) -- (-\x,-0.9);
+                }
+            \foreach \x in {0, 1, 2}
+                {
+                    \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+                    \draw [->] (\x,-0.1) -- (\x,-0.9);
+                    \draw (\x,-0.9) -- (\x,-1.1) node[below] {\x};
+                    \draw [->] (\x, -1.1) -- (2*\x, -1.9);
+                }
+            \foreach \x in {0, 2, 4}
+                \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
 
-                \foreach \x in {-3, -2, 4, 5}
-                    {
-                        \draw (\x,1.1) -- (\x,0.9) node[below] {\x};
-                        \draw [dashed, ->] (\x,0.9) -- (\x-1,0.1);
-                    }
-                \foreach \x in {-1, 0, ..., 3}
-                    {
-                        \draw (\x,1.1) -- (\x,0.9) node[below] {\x};
-                        \draw [red, ->] (\x,0.9) -- (\x-1,0.1);
-                    }
-
-                \foreach \x in {-2, -1}
-                    {
-                        \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
-                        \draw [->] (\x,-0.1) -- (-\x,-0.9);
-                    }
-                \foreach \x in {0, 1, 2}
-                    {
-                        \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
-                        \draw [->] (\x,-0.1) -- (\x,-0.9);
-                        \draw (\x,-0.9) -- (\x,-1.1) node[below] {\x};
-                        \draw [->] (\x, -1.1) -- (2*\x, -1.9);
-                    }
-                \foreach \x in {0, 2, 4}
-                    \draw (\x,-1.9) -- (\x,-2.1) node[below] {\x};
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        
         <p>The data that were shown in the table were highlighted. If we extended the table for the same five labeled states to include <m>\tilde{x}</m> and <m>\tilde{y}</m>, we can see the relationship begin to appear. The ordering of the columns was chosen to match the mapping <m>\tilde{x} \mapsto x \mapsto y \mapsto \tilde{y}</m>.</p>
 
         <table>
@@ -127,7 +125,7 @@
                 <cell>a</cell>
                 <cell><m>-1</m></cell>
                 <cell><m>-2</m></cell>
-                <cell><m>2</m></cell> 
+                <cell><m>2</m></cell>
                 <cell><m>4</m></cell>
                 <cell><m>(-2,2)</m></cell>
                 <cell><m>(-1,4)</m></cell>
@@ -136,7 +134,7 @@
                 <cell>b</cell>
                 <cell><m>0</m></cell>
                 <cell><m>-1</m></cell>
-                <cell><m>1</m></cell> 
+                <cell><m>1</m></cell>
                 <cell><m>2</m></cell>
                 <cell><m>(-1,1)</m></cell>
                 <cell><m>(0,2)</m></cell>
@@ -145,7 +143,7 @@
                 <cell>c</cell>
                 <cell><m>1</m></cell>
                 <cell><m>0</m></cell>
-                <cell><m>0</m></cell> 
+                <cell><m>0</m></cell>
                 <cell><m>0</m></cell>
                 <cell><m>(0,0)</m></cell>
                 <cell><m>(1,0)</m></cell>
@@ -154,7 +152,7 @@
                 <cell>d</cell>
                 <cell><m>2</m></cell>
                 <cell><m>1</m></cell>
-                <cell><m>1</m></cell> 
+                <cell><m>1</m></cell>
                 <cell><m>2</m></cell>
                 <cell><m>(1,1)</m></cell>
                 <cell><m>(2,2)</m></cell>
@@ -163,97 +161,95 @@
                 <cell>e</cell>
                 <cell><m>3</m></cell>
                 <cell><m>2</m></cell>
-                <cell><m>2</m></cell> 
+                <cell><m>2</m></cell>
                 <cell><m>4</m></cell>
                 <cell><m>(2,2)</m></cell>
                 <cell><m>(3,4)</m></cell>
             </row>
             </tabular>
         </table>
-        
+
         <p>If we were to graph the relationship for <m>(\tilde{x},\tilde{y})</m> as shown below, we can see the transformation consists of shifting the graph to the right 1 unit (adding 1 to all <m>x</m> values) and stretching the graph vertically by a factor of 2 (multiplying all <m>y</m> values by 2). These are precisely the relationships <m>\tilde{x} = x+1</m> (the inverse of <m>x = \tilde{x}-1</m>) and <m>\tilde{y} = 2y</m>.</p>
-        
-        <sidebyside>
-            <image>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}[
-                    width=2.5in,
-                    height=2.5in,
-                    xmin=-3,xmax=3,
-                    ymin=-2,ymax=5,
-                    xlabel={$x$},
-                    ylabel={$y$},
-                    grid=both, minor tick num={1},
-                    legend style={at={(0,0)}, anchor=south west}
-                ]
 
-                \addplot[blue, thick, no marks] coordinates {
-                    (-3,3)
-                    (0,0)
-                    (3,3)
-                };
+        <image>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=2.5in,
+                height=2.5in,
+                xmin=-3,xmax=3,
+                ymin=-2,ymax=5,
+                xlabel={$x$},
+                ylabel={$y$},
+                grid=both, minor tick num={1},
+                legend style={at={(0,0)}, anchor=south west}
+            ]
 
-                \addplot[blue, thick, only marks] coordinates {
-                    (-2,2)
-                    (-1,1)
-                    (0,0)
-                    (1,1)
-                    (2,2)
-                }
-                node[pos=0.0,left] {a}
-                node[pos=0.25,left] {b}
-                node[pos=0.5,left] {c}
-                node[pos=0.75,left] {d}
-                node[pos=1.0,left] {e};
+            \addplot[blue, thick, no marks] coordinates {
+                (-3,3)
+                (0,0)
+                (3,3)
+            };
 
-                \legend {$y=|x|$}
-                \end{axis}
-                \end{tikzpicture}
-                \quad
-                \begin{tikzpicture}
-                \begin{axis}[
-                    width=2.5in,
-                    height=2.5in,
-                    xmin=-3,xmax=3,
-                    ymin=-2,ymax=5,
-                    xlabel={$\tilde{x}$},
-                    ylabel={$\tilde{y}$},
-                    grid=both, minor tick num={1},
-                    legend style={at={(0,0)}, anchor=south west}
-                ]
+            \addplot[blue, thick, only marks] coordinates {
+                (-2,2)
+                (-1,1)
+                (0,0)
+                (1,1)
+                (2,2)
+            }
+            node[pos=0.0,left] {a}
+            node[pos=0.25,left] {b}
+            node[pos=0.5,left] {c}
+            node[pos=0.75,left] {d}
+            node[pos=1.0,left] {e};
 
-                \addplot[blue, thick, no marks] coordinates {
-                    (-2,6)
-                    (1,0)
-                    (4,6)
-                };
+            \legend {$y=|x|$}
+            \end{axis}
+            \end{tikzpicture}
+            \quad
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=2.5in,
+                height=2.5in,
+                xmin=-3,xmax=3,
+                ymin=-2,ymax=5,
+                xlabel={$\tilde{x}$},
+                ylabel={$\tilde{y}$},
+                grid=both, minor tick num={1},
+                legend style={at={(0,0)}, anchor=south west}
+            ]
 
-                \addplot[blue, thick, only marks] coordinates {
-                    (-1,4)
-                    (0,2)
-                    (1,0)
-                    (2,2)
-                    (3,4)
-                }
-                node[pos=0.0,left] {a}
-                node[pos=0.25,left] {b}
-                node[pos=0.5,left] {c}
-                node[pos=0.75,left] {d}
-                node[pos=1.0,left] {e};
+            \addplot[blue, thick, no marks] coordinates {
+                (-2,6)
+                (1,0)
+                (4,6)
+            };
 
-                \legend {$\tilde{y}=2|\tilde{x}-1|$}
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
+            \addplot[blue, thick, only marks] coordinates {
+                (-1,4)
+                (0,2)
+                (1,0)
+                (2,2)
+                (3,4)
+            }
+            node[pos=0.0,left] {a}
+            node[pos=0.25,left] {b}
+            node[pos=0.5,left] {c}
+            node[pos=0.75,left] {d}
+            node[pos=1.0,left] {e};
+
+            \legend {$\tilde{y}=2|\tilde{x}-1|$}
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
 
         <p>By identifying the composition in an equation involving a known function, we can describe the transformation of the graph. The inverse of the composition involved on the input of the function corresponds to the horizontal transformations (<m>x</m>-axis); the composition involved on the output of the function corresponds to the vertical transformations (<m>y</m>-axis).</p>
-        
+
         <example>
             <statement>
                 <p>Describe the graph <m>y=-3(x+2)^2+4</m> as a transformation of <m>y=x^2</m>.</p>
@@ -295,113 +291,9 @@
                         </row>
                     </tabular>
                 </table>
-                
+
                 <p>The graph of the function <m>y=x^2</m> and the transformation <m>\tilde{y} = -3(\tilde{x}+2)^2+4</m> are shown below.</p>
 
-                <sidebyside>
-                    <image>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            width=2.5in,
-                            height=2.5in,
-                            xmin=-5,xmax=5,
-                            ymin=-5,ymax=5,
-                            xlabel={$x$},
-                            ylabel={$y$},
-                            grid=both, minor tick num={1},
-                            legend style={at={(0,0)}, anchor=south west}
-                        ]
-
-                        \addplot[blue, thick, samples=35] (\x, \x^2);
-
-                        \addplot[blue, thick, only marks] coordinates {
-                            (0,0)
-                            (1,1)
-                            (-1,1)
-                            (2,4)
-                        }
-                        node[pos=0.0,left] {a}
-                        node[pos=0.33,left] {b}
-                        node[pos=0.66,left] {c}
-                        node[pos=1.0,left] {d};
-
-                        \legend {$y=x^2$};
-                        \end{axis}
-                        \end{tikzpicture}
-                        \quad
-                        \begin{tikzpicture}
-                        \begin{axis}[
-                            width=2.5in,
-                            height=2.5in,
-                            xmin=-5,xmax=5,
-                            ymin=-5,ymax=5,
-                            xlabel={$\tilde x$},
-                            ylabel={$\tilde y$},
-                            grid=both, minor tick num={1},
-                            legend style={at={(0,0)}, anchor=south west}
-                        ]
-
-                        \addplot[blue, thick, samples=35] (\x, -3*\x^2-12*\x-8);
-
-                        \addplot[blue, thick, only marks] coordinates {
-                            (-2,4)
-                            (-1,1)
-                            (-3,1)
-                        }
-                        node[pos=0.0,left] {a}
-                        node[pos=0.5,left] {b}
-                        node[pos=1.0,left] {c};
-
-                        \legend {$\tilde y=-3(\tilde x+2)^2+4$};
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
-            </solution>
-        </example>
-        
-    </subsection>
-    
-    <subsection>
-        <title>Finding Transformations</title>
-        
-        <p>Elementary transformations correspond to mappings that are linear functions. A translation or shift corresponds to adding a constant to the original value. A rescaling or stretching or compressing corresponds to multiplying the original value by the scale factor. Reflection corresponds to multiplying by -1. Applying these operations to a variable can always be represented as a linear function on the variable.</p>
-        
-        <p>In order to find the transformation, we need to determine the linear functions that map the independent and dependent variables. When the functions are not obvious, we can find them by determining the equation of a line.</p>
-        
-        <example>
-            <statement>
-                <p>Find the equation of a parabola as a transformation of <m>y=x^2</m> that has a vertex at <m>(3,-1)</m> and transforms the point <m>(1,1)</m> to the point <m>(5,-4)</m>.</p>
-            </statement>
-            <solution>
-            <p>The vertex of the simple parabola <m>y=x^2</m> is at <m>(0,0)</m>. If we name the vertex with a label <q>a</q> and the point at <m>(1,1)</m> with a label <q>b</q>, then the corresponding points on the transformed parabola using variables <m>(\tilde{x}, \tilde{y})</m> are shown in the table below.</p>
-            
-            <table>
-                <tabular>
-                    <row>
-                        <cell>label</cell>
-                        <cell><m>(x,y)</m></cell>
-                        <cell><m>(\tilde{x},\tilde{y})</m></cell>
-                    </row>
-                    <row>
-                        <cell>a</cell>
-                        <cell><m>(0,0)</m></cell>
-                        <cell><m>(3,-1)</m></cell>
-                    </row>
-                    <row>
-                        <cell>b</cell>
-                        <cell><m>(1,1)</m></cell>
-                        <cell><m>(5,-4)</m></cell>
-                    </row>
-                </tabular>
-            </table>
-            
-            <sidebyside>
                 <image>
                     <latex-image>
                     <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -424,10 +316,14 @@
                     \addplot[blue, thick, only marks] coordinates {
                         (0,0)
                         (1,1)
+                        (-1,1)
+                        (2,4)
                     }
                     node[pos=0.0,left] {a}
-                    node[pos=1.0,left] {b};
-                    
+                    node[pos=0.33,left] {b}
+                    node[pos=0.66,left] {c}
+                    node[pos=1.0,left] {d};
+
                     \legend {$y=x^2$};
                     \end{axis}
                     \end{tikzpicture}
@@ -436,31 +332,127 @@
                     \begin{axis}[
                         width=2.5in,
                         height=2.5in,
-                        xmin=-3,xmax=7,
-                        ymin=-7,ymax=3,
+                        xmin=-5,xmax=5,
+                        ymin=-5,ymax=5,
                         xlabel={$\tilde x$},
                         ylabel={$\tilde y$},
                         grid=both, minor tick num={1},
                         legend style={at={(0,0)}, anchor=south west}
                     ]
 
-                    \addplot[blue, thick, samples=35] (2*\x+3, -3*\x^2-1);
+                    \addplot[blue, thick, samples=35] (\x, -3*\x^2-12*\x-8);
 
                     \addplot[blue, thick, only marks] coordinates {
-                        (3,-1)
-                        (5,-4)
+                        (-2,4)
+                        (-1,1)
+                        (-3,1)
                     }
                     node[pos=0.0,left] {a}
-                    node[pos=1.0,left] {b};
-                    
+                    node[pos=0.5,left] {b}
+                    node[pos=1.0,left] {c};
+
+                    \legend {$\tilde y=-3(\tilde x+2)^2+4$};
                     \end{axis}
                     \end{tikzpicture}]]>
                     </latex-image>
                 </image>
-            </sidebyside>
-            
+            </solution>
+        </example>
+
+    </subsection>
+
+    <subsection>
+        <title>Finding Transformations</title>
+
+        <p>Elementary transformations correspond to mappings that are linear functions. A translation or shift corresponds to adding a constant to the original value. A rescaling or stretching or compressing corresponds to multiplying the original value by the scale factor. Reflection corresponds to multiplying by -1. Applying these operations to a variable can always be represented as a linear function on the variable.</p>
+
+        <p>In order to find the transformation, we need to determine the linear functions that map the independent and dependent variables. When the functions are not obvious, we can find them by determining the equation of a line.</p>
+
+        <example>
+            <statement>
+                <p>Find the equation of a parabola as a transformation of <m>y=x^2</m> that has a vertex at <m>(3,-1)</m> and transforms the point <m>(1,1)</m> to the point <m>(5,-4)</m>.</p>
+            </statement>
+            <solution>
+            <p>The vertex of the simple parabola <m>y=x^2</m> is at <m>(0,0)</m>. If we name the vertex with a label <q>a</q> and the point at <m>(1,1)</m> with a label <q>b</q>, then the corresponding points on the transformed parabola using variables <m>(\tilde{x}, \tilde{y})</m> are shown in the table below.</p>
+
+            <table>
+                <tabular>
+                    <row>
+                        <cell>label</cell>
+                        <cell><m>(x,y)</m></cell>
+                        <cell><m>(\tilde{x},\tilde{y})</m></cell>
+                    </row>
+                    <row>
+                        <cell>a</cell>
+                        <cell><m>(0,0)</m></cell>
+                        <cell><m>(3,-1)</m></cell>
+                    </row>
+                    <row>
+                        <cell>b</cell>
+                        <cell><m>(1,1)</m></cell>
+                        <cell><m>(5,-4)</m></cell>
+                    </row>
+                </tabular>
+            </table>
+
+            <image>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}[
+                    width=2.5in,
+                    height=2.5in,
+                    xmin=-5,xmax=5,
+                    ymin=-5,ymax=5,
+                    xlabel={$x$},
+                    ylabel={$y$},
+                    grid=both, minor tick num={1},
+                    legend style={at={(0,0)}, anchor=south west}
+                ]
+
+                \addplot[blue, thick, samples=35] (\x, \x^2);
+
+                \addplot[blue, thick, only marks] coordinates {
+                    (0,0)
+                    (1,1)
+                }
+                node[pos=0.0,left] {a}
+                node[pos=1.0,left] {b};
+
+                \legend {$y=x^2$};
+                \end{axis}
+                \end{tikzpicture}
+                \quad
+                \begin{tikzpicture}
+                \begin{axis}[
+                    width=2.5in,
+                    height=2.5in,
+                    xmin=-3,xmax=7,
+                    ymin=-7,ymax=3,
+                    xlabel={$\tilde x$},
+                    ylabel={$\tilde y$},
+                    grid=both, minor tick num={1},
+                    legend style={at={(0,0)}, anchor=south west}
+                ]
+
+                \addplot[blue, thick, samples=35] (2*\x+3, -3*\x^2-1);
+
+                \addplot[blue, thick, only marks] coordinates {
+                    (3,-1)
+                    (5,-4)
+                }
+                node[pos=0.0,left] {a}
+                node[pos=1.0,left] {b};
+
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
+
             <p>Transformations correspond to a composition <me>\tilde{x} \mapsto x \overset{y=x^2}{\mapsto} y \mapsto \tilde{y}.</me> We only need to find the linear functions that relate <m>\tilde{x} \mapsto x</m> and <m>y \mapsto \tilde{y}</m>. Rewriting the table of points in terms of the variables, we can see the input and output values of these functions.</p>
-            
+
             <table>
                 <tabular>
                     <row>
@@ -486,22 +478,22 @@
                     </row>
                 </tabular>
             </table>
-            
+
             <p>Using the first two columns corresponding to variables <m>\tilde x</m> and <m>x</m>, we find the linear relation <m>\tilde x \mapsto x</m>, which gives the horizontal transformation. First we find the slope, using the change in output (<m>x</m>) over the change in input (<m>\tilde x</m>), <me> \frac{\Delta x}{\Delta \tilde x} = \frac{1-0}{5-3} = \frac{1}{2}.</me> Using this slope and the point <m>(\tilde x, x) = (3,0)</m>, we find the equation of the line, <me>x-0 = \frac{1}{2}(\tilde x - 3) \qquad \Leftrightarrow \qquad x = \frac{\tilde x - 3}{2}.</me></p>
-            
+
             <p>Using the last two columns corresponding to variables <m>y</m> and <m>\tilde y</m>, we find the linear relation <m>y \mapsto \tilde y</m>, which gives the vertical transformation. Again, we start with the slope of the relation, <me>\frac{\Delta \tilde y}{\Delta y} = \frac{-4--1}{1-0} = -3.</me> Using this slope and the point <m>(y,\tilde y)=(0,-1)</m>, we find the equation of the relation <me> \tilde y - -1 = -3(y-0) \quad \Leftrightarrow \quad \tilde y = -3y-1.</me></p>
-            
+
             <p>Once we know the relations, we can write down the composition: <md>
                 <mrow> \tilde x &amp;\mapsto x = \frac{\tilde x - 3}{2}, </mrow>
                 <mrow> x &amp; \mapsto y = x^2, </mrow>
                 <mrow> y &amp; \mapsto \tilde y = -3y-1.</mrow>
             </md> Using substitution with this composition gives the transformed equation, <me> \tilde y = -3\left(\frac{\tilde x - 3}{2}\right)^2. </me></p>
-            
+
             </solution>
         </example>
-        
+
         <p>Finding the transformation of a graph <m>y=f(x)</m> always corresponds to a composition <me>\tilde x \mapsto x \overset{f}{\mapsto} y \mapsto \tilde y</me> where <m>(\tilde x, \tilde y)</m> are the coordinates of the transformed graph. Normally, we think of a transformation in terms of how it moves the original coordinates <m>(x,y)</m> to the new coordinates <m>(\tilde x, \tilde y)</m>. That the mapping <m>\tilde x \mapsto x</m> is the inverse of <m>x \mapsto \tilde x</m> explains why the formula used on the input behaves opposite to the transformation itself.</p>
-        
+
         <example>
             <statement>
                 <p>Describe the transformation of the graph <m>y=f(x)</m> on the graph <m>y=-f(2x+1)-3</m>.</p>
@@ -516,84 +508,80 @@
             </solution>
         </example>
     </subsection>
-    
+
     <subsection>
         <title>Families of Transformed Functions</title>
 
         <p>Understanding the relationship between a transformation and the mappings between coordinates also allows us to interpret certain equations as transformations of a more basic graph. You should try to become comfortable thinking about before and after the transformation so that you can look at the form of the equation and recognize the transformation without requiring the introduction of new variables.</p>
-                
+
         <theorem>
         <statement>
             <p>The function <me>y = A(x-h)^2+k</me> is a transformation of the standard parabola <m>y=x^2</m> so that the vertex is moved to <m>(h,k)</m> and stretched so that the point 1 unit away is at <m>(h+1, k+A)</m>. We call <m>A</m> the amplitude of the parabola.</p>
-            <sidebyside>
-                <image>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}[thick,domain=-4:4, samples=60, x=.75cm,y=.75cm]
-                        \draw[clip,draw=none] (-4.5,-2.5) rectangle (6,6.75);
-                        \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
-                        \draw[->] (0,-2.2) -- (0,6.2) node[above] {$y$};
+            <image>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}[thick,domain=-4:4, samples=60, x=.75cm,y=.75cm]
+                    \draw[clip,draw=none] (-4.5,-2.5) rectangle (6,6.75);
+                    \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
+                    \draw[->] (0,-2.2) -- (0,6.2) node[above] {$y$};
 
-                        \draw (1, 0.1) -- (1, -0.1) node [below] {$h$};
-                        \draw (-0.1,1.5) -- (0.1,1.5) node [right] {$k$};
+                    \draw (1, 0.1) -- (1, -0.1) node [below] {$h$};
+                    \draw (-0.1,1.5) -- (0.1,1.5) node [right] {$k$};
 
-                        \draw[color=blue] plot (\x,{2*(\x-1)^2+1.5});
-                        \draw[fill,color=blue] (1,1.5) circle (2pt) node[right] {$(h,k)$};
-                        \draw[fill,color=blue] (2,3) circle (2pt) node[right] {$(h+1,k+A)$};
-                        \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+                    \draw[color=blue] plot (\x,{2*(\x-1)^2+1.5});
+                    \draw[fill,color=blue] (1,1.5) circle (2pt) node[right] {$(h,k)$};
+                    \draw[fill,color=blue] (2,3) circle (2pt) node[right] {$(h+1,k+A)$};
+                    \end{tikzpicture}]]>
+                </latex-image>
+            </image>
         </statement>
         </theorem>
-        
+
         <example>
             <statement>
                 <p>Describe the graph of <m>y=-2(x+1)^2+5</m>.</p>
             </statement>
             <solution>
                 <p>The graph of <m>y=-2(x+1)^2+5</m> can be sketched if we rewrite <m>x+1</m> as subtraction, <m>x+1 = x--1</m> to get <me>y=-2(x--1)^2+5.</me> This is a parabola with vertex at <m>(-1,5)</m> and which has been reflected down and stretched by a factor 2.</p>
-            
-                <sidebyside>
-                    <image xml:id="img-quadratic-transform">
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[thick,domain=-4:4, samples=60, x=.75cm,y=.75cm]
-                        \draw[clip,draw=none] (-4.5,-2.5) rectangle (6,6.75);
-                        \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
-                        \draw[->] (0,-2.2) -- (0,6.2) node[above] {$y$};
-                        \foreach \xval in {1,...,4} {
-                            \draw (\xval, 0.1) -- (\xval, -0.1) node [below] {\xval};
-                            \draw (-\xval, 0.1) -- (-\xval, -0.1) node [below] {-\xval};
-                        }
-                        \foreach \val in {-2,-1,1,2,3,4,5,6} {
-                            \draw (-0.1,\val) -- (0.1, \val) node [right] {\val};
-                        }
-                        \draw[color=red, dashed] plot (\x,{\x*\x});
-                        \draw[fill,color=red] (0,0) circle (2pt);
-                        \draw[fill,color=red] (1,1) circle (2pt);
-                    
-                        \draw[color=blue] plot (\x,{-2*(\x+1)^2+5});
-                        \draw[fill,color=blue] (-1,5) circle (2pt);
-                        \draw[fill,color=blue] (0,3) circle (2pt);
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+
+                <image xml:id="img-quadratic-transform">
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[thick,domain=-4:4, samples=60, x=.75cm,y=.75cm]
+                    \draw[clip,draw=none] (-4.5,-2.5) rectangle (6,6.75);
+                    \draw[->] (-4.2,0) -- (4.2,0) node[right] {$x$};
+                    \draw[->] (0,-2.2) -- (0,6.2) node[above] {$y$};
+                    \foreach \xval in {1,...,4} {
+                        \draw (\xval, 0.1) -- (\xval, -0.1) node [below] {\xval};
+                        \draw (-\xval, 0.1) -- (-\xval, -0.1) node [below] {-\xval};
+                    }
+                    \foreach \val in {-2,-1,1,2,3,4,5,6} {
+                        \draw (-0.1,\val) -- (0.1, \val) node [right] {\val};
+                    }
+                    \draw[color=red, dashed] plot (\x,{\x*\x});
+                    \draw[fill,color=red] (0,0) circle (2pt);
+                    \draw[fill,color=red] (1,1) circle (2pt);
+
+                    \draw[color=blue] plot (\x,{-2*(\x+1)^2+5});
+                    \draw[fill,color=blue] (-1,5) circle (2pt);
+                    \draw[fill,color=blue] (0,3) circle (2pt);
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </solution>
         </example>
-        
+
         <p>This technique actually applies to any equation involving <m>(x,y)</m> where we can clearly identify linear relations between the old and new coordinates. We can use the technique to find an easy representation for exponential functions as described in the next theorem.</p>
-        
+
         <theorem xml:id="thm-exponential-transformation">
             <statement>
                 <p>The function <me>y=A \cdot b^{(x-h)/k}</me> is a transformation of <m>y=b^x</m> so that it passes through the point <m>(h,A)</m> and grows by a factor of <m>b</m> when <m>x</m> changes by a value <m>k</m>. That is, the graph also passes through the points <me>\ldots, (h-k, Ab^{-1}), (h,A), (h+k, Ab), \ldots.</me></p>
             </statement>
-            
+
             <proof>
                 <p>The function <m>y=b^x</m> passes through <m>(0,1)</m> and <m>(1,b)</m>. The composition represented by the transformation is given by <md>
                     <mrow>\tilde x \mapsto x = \frac{\tilde x - h}{k}, </mrow>
@@ -602,66 +590,64 @@
                 </md> Inverting the <m>\tilde x \mapsto x</m> to <m>x \mapsto \tilde x</m> gives the horizontal transformation <me> \tilde x = k x + h. </me> Based on these transformations, we have <m>(x,y)=(0,1)</m> transformed to <m>(\tilde x, \tilde y) = (h,A)</m> and the point <m>(x,y)=(1,b)</m> transformed to <m>(\tilde x, \tilde y) = (h+k,Ab)</m>.</p>
             </proof>
         </theorem>
-        
-        <sidebyside>
-            <image xml:id="img-exponential-transform">
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}
-                \begin{axis}[
-                    width=2.5in,
-                    height=2in,
-                    xmin=-5,xmax=5,
-                    ymin=-2,ymax=6,
-                    xlabel={$x$},
-                    ylabel={$y$},
-                    grid=none, ticks=none,
-                    legend style={at={(0,0)}, anchor=south west}
-                ]
 
-                \addplot[blue, thick, samples=35] (\x, 2.5^\x);
+        <image xml:id="img-exponential-transform">
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=2.5in,
+                height=2in,
+                xmin=-5,xmax=5,
+                ymin=-2,ymax=6,
+                xlabel={$x$},
+                ylabel={$y$},
+                grid=none, ticks=none,
+                legend style={at={(0,0)}, anchor=south west}
+            ]
 
-                \addplot[blue, thick, only marks] coordinates {
-                    (0,1)
-                    (1,2.5)
-                }
-                node[pos=0.0, left] {$(0,1)$}
-                node[pos=1.0, left] {$(1,b)$};
-            
-                \legend {$y=b^x$};
-                \end{axis}
-                \end{tikzpicture}
-                \quad
-                \begin{tikzpicture}
-                \begin{axis}[
-                    width=2.5in,
-                    height=2in,
-                    xmin=-5,xmax=5,
-                    ymin=-2,ymax=6,
-                    xlabel={$\tilde x$},
-                    ylabel={$\tilde y$},
-                    grid=none, ticks=none,
-                    legend style={at={(0,0)}, anchor=south west}
-                ]
+            \addplot[blue, thick, samples=35] (\x, 2.5^\x);
 
-                \addplot[blue, thick, samples=35] (\x, {1.5*2.5^((\x-1)/2)});
+            \addplot[blue, thick, only marks] coordinates {
+                (0,1)
+                (1,2.5)
+            }
+            node[pos=0.0, left] {$(0,1)$}
+            node[pos=1.0, left] {$(1,b)$};
 
-                \addplot[blue, thick, only marks] coordinates {
-                    (1,1.5)
-                    (3,3.75)
-                }
-                node[pos=0.0,left] {$(h,A)$}
-                node[pos=1.0,left] {$(h+k,Ab)$};
-            
-                \legend {$y=A b^{(x-h)/k}$};
-                \end{axis}
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        
+            \legend {$y=b^x$};
+            \end{axis}
+            \end{tikzpicture}
+            \quad
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=2.5in,
+                height=2in,
+                xmin=-5,xmax=5,
+                ymin=-2,ymax=6,
+                xlabel={$\tilde x$},
+                ylabel={$\tilde y$},
+                grid=none, ticks=none,
+                legend style={at={(0,0)}, anchor=south west}
+            ]
+
+            \addplot[blue, thick, samples=35] (\x, {1.5*2.5^((\x-1)/2)});
+
+            \addplot[blue, thick, only marks] coordinates {
+                (1,1.5)
+                (3,3.75)
+            }
+            node[pos=0.0,left] {$(h,A)$}
+            node[pos=1.0,left] {$(h+k,Ab)$};
+
+            \legend {$y=A b^{(x-h)/k}$};
+            \end{axis}
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
+
         <example>
             <statement>
                 <p>A cell culture grows exponentially. After 5 hours, the culture is observed to have a mass of 3 <quantity><unit prefix="milli" base="gram"/></quantity> and doubles after another 40 minutes. Find a model for the mass of the cell culture and use your model to determine the size at the beginning of the experiment.</p>
@@ -672,27 +658,27 @@
                 <p>Once we have our model, we can use the model to find <m>M</m> when <m>t=0</m>. This gives <me>M(0) = 3 \cdot 2^{\frac{3}{2}(0-5)} = 3 \cdot 2^{-\frac{15}{2}} \approx 0.01657.</me> That is, the initial mass of the cell culture is being estimated as <m>M = 0.01657</m> <quantity><unit prefix="milli" base="gram"/></quantity>.</p>
             </solution>
         </example>
-        
+
     </subsection>
-    
+
     <subsection>
         <title>Applications of Transformations</title>
 
         <example>
             <p>
-            One of the most important functions used to model the rate of 
+            One of the most important functions used to model the rate of
             resource consumption begins with the relatively simple function
             <me> f:[0,\infty) \to [0,\infty); f(x) = \frac{x}{1+x}. </me>
             This function captures the idea of saturation, as the graph <m>y=f(x)</m>
             has a horizontal asymptote of <m>y=1</m>. That is, <m>x</m>, which plays
             the role of resource availability, is related to a rate of resource
-            consumption <m>y</m>. The more the resource is available, the greater the 
+            consumption <m>y</m>. The more the resource is available, the greater the
             rate the resource is consumed. However, saturation means that there
             is some maximum consumption rate and further increase in resource
             availability makes no difference. There is a half-saturation point
             when <m>x=1</m> since <m>f(1)=\frac{1}{2}</m>.
             </p>
-            
+
             <figure xml:id="fig-simple-rate-saturation">
                 <caption>Graph of <m>y=f(x)=\dfrac{x}{1+x}</m> for <m>x \in [0,\infty)</m>.</caption>
                 <image xml:id="img-simple-rate-saturation">
@@ -712,22 +698,22 @@
                     \draw (1, -0.1) -- (1, 0.1) node[pos=0,below] {1};
                     \draw[fill,color=blue] (0,0) circle (0.05);
                     \draw[fill,color=blue] (1,1) circle (0.05);
-                
+
                     \end{tikzpicture}]]>
                     </latex-image>
                 </image>
             </figure>
-            
+
             <p>
             We can use the idea of transformation to model the rate of
             resource consumption where the limiting rate has a value of 50
             (units of resource per unit time) and a half-saturation
             when the resource is available at 200 units.
-            We introduce variables, using <m>V</m> for the rate of resource consumption 
-            (think v for velocity) and <m>C</m> for the resource availability 
+            We introduce variables, using <m>V</m> for the rate of resource consumption
+            (think v for velocity) and <m>C</m> for the resource availability
             (measured in a concentration).
             </p>
-            
+
             <p>
             To find our transformation, we could relate points that are on the graph.
             In reality, what we really need are the mappings <m>x \mapsto C</m>
@@ -757,7 +743,7 @@
             That is, our final equation is
             <me> V = \frac{50C}{200+C}. </me>
             </p>
-            
+
             <figure xml:id="fig-simple-rate-saturation-b">
                 <caption>
                 Graph of relation for <m>(C,V)</m>.
@@ -779,12 +765,12 @@
                     \draw (1, -0.1) -- (1, 0.1) node[pos=0,below] {200};
                     \draw[fill,color=blue] (0,0) circle (0.05);
                     \draw[fill,color=blue] (1,1) circle (0.05);
-                
+
                     \end{tikzpicture}]]>
                     </latex-image>
                 </image>
             </figure>
-            
+
             <p>
             In general, this function is called a Michaelis<ndash/>Menten curve
             and arises in enzyme kinetics (chemistry) as well as resource consumption (biology).
@@ -796,12 +782,12 @@
             </p>
         </example>
     </subsection>
-    
+
     <subsection xml:id="section-sinusoidal">
         <title>Sinusoidal Models</title>
-        
+
         <p>Periodic functions are used to model patterns that repeat with cyclic regularity. The most important periodic functions are the trigonometric functions called the sine and cosine functions. These functions are based on rotating around a circle, measuring angles through radians. (See <xref ref="unit-circle-trig-b">Appendix</xref> for more details.) The functions are periodic because there are infinitely many values for the angle of rotation that lead to the same position on the circle, and the difference between two such angles is always a multiple of <m>2 \pi</m> (the circumference of a circle with radius 1).</p>
-        
+
         <definition xml:id="defn-periodic-functions">
             <title>Periodic Function</title>
 
@@ -809,119 +795,113 @@
                 <p>A function <m>f</m> is <term>periodic</term> if there is a number <m>p</m> so that <m>f(x+p)=f(x)</m> for all <m>x</m>. The smallest such number <m>p</m> is called the <term>period</term> of the function.</p>
             </statement>
         </definition>
-        
+
         <p>When we are given periodic data that we wish to model with sine or cosine, we can use basic information about that data which include the period, the amplitude, the center line (or mid-line) and the phase shift. Sine and cosine are very symmetric so that the maximum and minimum values are equally distant from the center line. That is, the <term>center line</term> is the midpoint of the maximum and minimum values. The <term>amplitude</term> is the distance between the center line and the extremes and is half the distance between the maximum and minimum values. The <term>phase shift</term> is the point that corresponds to an input of zero to the basic trigonometric functions.</p>
-        
+
         <p>Graphs of sine and cosine are shown below. These have a center line <m>y=0</m> and an amplitude <m>A=1</m> (since the maximum is <m>y=1</m> and the minimum is <m>y=-1</m>). The period is <m>p=2\pi</m>. Since the functions are not transformed, the phase shift must be <m>\phi=0</m>. For the sine function, the phase shift corresponds to where the graph is crossing the center line in an upward direction. For the cosine function, the phase shift corresponds to where the graph is at its maximum value.</p>
 
-        <sidebyside>
-            <image xml:id="img-sine-reference">
-                <description>The sine function.
-                </description>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[thick,domain=-2.2:6.2, samples=100, x=1cm, y=1.25cm]
-                \draw[->] (-2.2,0) -- (6.2,0) node[right] {$x$};
-                \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
-                \draw[color=red] plot (\x,{sin(pi/2*\x r)});
-                \draw (-0.1,1) -- (0.1,1) node[right] {1};
-                \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
+        <image xml:id="img-sine-reference">
+            <description>The sine function.
+            </description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[thick,domain=-2.2:6.2, samples=100, x=1cm, y=1.25cm]
+            \draw[->] (-2.2,0) -- (6.2,0) node[right] {$x$};
+            \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
+            \draw[color=red] plot (\x,{sin(pi/2*\x r)});
+            \draw (-0.1,1) -- (0.1,1) node[right] {1};
+            \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
 
-                \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
-                \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
-                \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
-                \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
-                \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
-                \draw (4, -0.1) -- (4, 0.1) node[above] {$2\pi$};
-                \draw (5, -0.1) -- (5, 0.1) node[above] {$\frac{5\pi}{2}$};
-                \draw (6, -0.1) -- (6, 0.1) node[above] {$3\pi$};
-                
-                \draw [color=red] (6.5,1) -- (7,1) node [right] {$y=\sin(x)$};
-                \draw[fill] (0, 0) circle (2pt);
-                \draw[fill] (1, 1) circle (2pt);
-                \draw[fill] (2, 0) circle (2pt);
-                \draw[fill] (3, -1) circle (2pt);
-                \draw[fill] (4, 0) circle (2pt);
-                
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        <sidebyside>
-            <image xml:id="img-cosine-reference">
-                <description>The cosine function.
-                </description>
-                <latex-image>
-                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                <![CDATA[\tikzset{%
-                }
-                \begin{tikzpicture}[thick,domain=-2.2:6.2, samples=100, x=1cm, y=1.25cm]
-                \draw[->] (-2.2,0) -- (6.2,0) node[right] {$x$};
-                \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
-                \draw[color=red] plot (\x,{cos(pi/2*\x r)});
-                \draw (-0.1,1) -- (0.1,1) node[right] {1};
-                \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
+            \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
+            \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
+            \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
+            \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
+            \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
+            \draw (4, -0.1) -- (4, 0.1) node[above] {$2\pi$};
+            \draw (5, -0.1) -- (5, 0.1) node[above] {$\frac{5\pi}{2}$};
+            \draw (6, -0.1) -- (6, 0.1) node[above] {$3\pi$};
 
-                \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
-                \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
-                \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
-                \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
-                \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
-                \draw (4, -0.1) -- (4, 0.1) node[above] {$2\pi$};
-                \draw (5, -0.1) -- (5, 0.1) node[above] {$\frac{5\pi}{2}$};
-                \draw (6, -0.1) -- (6, 0.1) node[above] {$3\pi$};
-                
-                \draw [color=blue] (6.5,1) -- (7,1) node [right] {$y=\cos(x)$};
-                \draw[fill] (0, 1) circle (2pt);
-                \draw[fill] (1, 0) circle (2pt);
-                \draw[fill] (2, -1) circle (2pt);
-                \draw[fill] (3, 0) circle (2pt);
-                \draw[fill] (4, 1) circle (2pt);
-                
-                \end{tikzpicture}]]>
-                </latex-image>
-            </image>
-        </sidebyside>
-        
+            \draw [color=red] (6.5,1) -- (7,1) node [right] {$y=\sin(x)$};
+            \draw[fill] (0, 0) circle (2pt);
+            \draw[fill] (1, 1) circle (2pt);
+            \draw[fill] (2, 0) circle (2pt);
+            \draw[fill] (3, -1) circle (2pt);
+            \draw[fill] (4, 0) circle (2pt);
+
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
+        <image xml:id="img-cosine-reference">
+            <description>The cosine function.
+            </description>
+            <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}[thick,domain=-2.2:6.2, samples=100, x=1cm, y=1.25cm]
+            \draw[->] (-2.2,0) -- (6.2,0) node[right] {$x$};
+            \draw[->] (0,-1.4) -- (0,1.4) node[above] {$y$};
+            \draw[color=red] plot (\x,{cos(pi/2*\x r)});
+            \draw (-0.1,1) -- (0.1,1) node[right] {1};
+            \draw (-0.1,-1) -- (0.1,-1) node[right] {-1};
+
+            \draw (-2, -0.1) -- (-2, 0.1) node[above] {$-\pi$};
+            \draw (-1, -0.1) -- (-1, 0.1) node[above] {$-\frac{\pi}{2}$};
+            \draw (1, -0.1) -- (1, 0.1) node[above] {$\frac{\pi}{2}$};
+            \draw (2, -0.1) -- (2, 0.1) node[above] {$\pi$};
+            \draw (3, -0.1) -- (3, 0.1) node[above] {$\frac{3\pi}{2}$};
+            \draw (4, -0.1) -- (4, 0.1) node[above] {$2\pi$};
+            \draw (5, -0.1) -- (5, 0.1) node[above] {$\frac{5\pi}{2}$};
+            \draw (6, -0.1) -- (6, 0.1) node[above] {$3\pi$};
+
+            \draw [color=blue] (6.5,1) -- (7,1) node [right] {$y=\cos(x)$};
+            \draw[fill] (0, 1) circle (2pt);
+            \draw[fill] (1, 0) circle (2pt);
+            \draw[fill] (2, -1) circle (2pt);
+            \draw[fill] (3, 0) circle (2pt);
+            \draw[fill] (4, 1) circle (2pt);
+
+            \end{tikzpicture}]]>
+            </latex-image>
+        </image>
+
         <p>To apply the idea of transformations to model periodic data with sine and cosine, we need to identify the same key features of the data: center line, amplitude, period and phase shift. Finding maximum and minimum values allow us to determine the center line and amplitude. If it is easy to find the value of the independent variable for the maximum or minimum value, then using cosine is a good choice. If it is easy to find the value where the graph up-crosses the center line, then using sine is a good choice. The transformation can then be determined by finding the map between the center lines and extremes (<m>y</m>-axis) and based on the phase shift and period (<m>x</m>-axis).</p>
-        
+
         <example>
             <statement>
                 <p>You are standing on a boat that is rocking every six seconds such that your height alternates between 5 and 10 feet above sea level. Find a sinusoidal model for your height <m>h</m> (feet) as a function of time <m>t</m> (seconds) and where <m>t=0</m> corresponded to one of the lows, <m>h=5</m>.</p>
-                <sidebyside>
-                    <image xml:id="img-cosine-shiprock">
-                        <description>A sinusoidal model of height on a rocking ship.
-                        </description>
-                        <latex-image>
-                        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                        <![CDATA[\tikzset{%
-                        }
-                        \begin{tikzpicture}[thick, samples=100]
-                        \begin{axis}[
-                            xmin=-1, xmax=17,
-                            ymin=-1, ymax=11,
-                            xlabel={$t$ (s)},
-                            ylabel={$h$ (ft)},
-                        ]
-                            \addplot[blue,domain=-1:17] (\x, {2.5*cos(180/3*(x-3))+7.5});
-                            \addplot[blue,only marks] coordinates {
-                            	(0,5) (6,5) (3,10)
-                            };
-                            \addplot[blue, dashed, thin] coordinates { (-1,5) (17,5) };
-                            \addplot[blue, dashed, thin] coordinates { (-1,10) (17,10) };
-                        \end{axis}
-                        \end{tikzpicture}]]>
-                        </latex-image>
-                    </image>
-                </sidebyside>
+                <image xml:id="img-cosine-shiprock">
+                    <description>A sinusoidal model of height on a rocking ship.
+                    </description>
+                    <latex-image>
+                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                    <![CDATA[\tikzset{%
+                    }
+                    \begin{tikzpicture}[thick, samples=100]
+                    \begin{axis}[
+                        xmin=-1, xmax=17,
+                        ymin=-1, ymax=11,
+                        xlabel={$t$ (s)},
+                        ylabel={$h$ (ft)},
+                    ]
+                        \addplot[blue,domain=-1:17] (\x, {2.5*cos(180/3*(x-3))+7.5});
+                        \addplot[blue,only marks] coordinates {
+                        	(0,5) (6,5) (3,10)
+                        };
+                        \addplot[blue, dashed, thin] coordinates { (-1,5) (17,5) };
+                        \addplot[blue, dashed, thin] coordinates { (-1,10) (17,10) };
+                    \end{axis}
+                    \end{tikzpicture}]]>
+                    </latex-image>
+                </image>
             </statement>
             <solution>
                 <p>When modeling a sinusoidal curve, we need to choose either a sine or cosine. In this example, it is easiest to identify when the model is at an extreme (high or low). So we will model using the cosine function, <m>y=\cos(x)</m>. Our model uses time <m>t</m> as the independent variable and height <m>h</m> as the dependent variable. The transformation will be based on finding linear mappings, <me> t \mapsto x \overset{\cos}{\mapsto} y \mapsto h.</me></p>
                 <p>To find the linear maps, we identify features of cosine and the corresponding features of our model. The minimum and maximum values for cosine are <m>y=-1</m> and <m>y=1</m> while the corresponding values for the model are <m>h=5</m> and <m>h=10</m>. Similarly, the period of cosine is <m>2 \pi</m> with the maximum at <m>x=0</m> and the subsequent minimum at <m>x=\pi</m>. For our model, the period is <m>6</m> (s) with minima at <m>t=0</m> and <m>t=6</m> (a period later). The maximum must occur at <m>t=3</m>. Since the cosine begins at its maximum, this value <m>t=3</m> is the phase shift.</p>
-                <p>We find a linear map <m>y \mapsto h</m>, which involves the slope <me>\frac{\Delta h}{\Delta y} = \frac{10-5}{1--1} = \frac{5}{2}.</me> Consequently, using the <xref ref="point-slope-line" text="title">point<ndash/>slope equation of a line</xref>, we write <me>h-5 = \frac{5}{2}(y--1) \quad \Leftrightarrow \quad h = \frac{5}{2} y + \frac{15}{2} = 2.5 y + 7.5.</me> The value <m>h=7.5</m> is the center line (midpoint between extremes) and <m>A=2.5</m> is the amplitude of oscillation from the center line.</p>
-                <p>We also find a linear map <m>t \mapsto x</m>, which needs to map <m>t=3 \mapsto x=0</m> (cosine maximum) and <m>t=6 \mapsto x=\pi</m> (cosine minimum). The slope for this map is <me>\frac{\Delta x}{\Delta t} = \frac{\pi-0}{6-3} = \frac{\pi}{3}.</me> Again using the <xref ref="point-slope-line" text="title">point<ndash/>slope equation of a line</xref>, we obtain <me>x-0 = \frac{\pi}{3}(t-3) \quad \Leftrightarrow \quad x = \frac{\pi}{3}(t-3).</me></p>
+                <p>We find a linear map <m>y \mapsto h</m>, which involves the slope <me>\frac{\Delta h}{\Delta y} = \frac{10-5}{1--1} = \frac{5}{2}.</me> Consequently, using the <xref ref="point-slope-line" text="custom">point<ndash/>slope equation of a line</xref>, we write <me>h-5 = \frac{5}{2}(y--1) \quad \Leftrightarrow \quad h = \frac{5}{2} y + \frac{15}{2} = 2.5 y + 7.5.</me> The value <m>h=7.5</m> is the center line (midpoint between extremes) and <m>A=2.5</m> is the amplitude of oscillation from the center line.</p>
+                <p>We also find a linear map <m>t \mapsto x</m>, which needs to map <m>t=3 \mapsto x=0</m> (cosine maximum) and <m>t=6 \mapsto x=\pi</m> (cosine minimum). The slope for this map is <me>\frac{\Delta x}{\Delta t} = \frac{\pi-0}{6-3} = \frac{\pi}{3}.</me> Again using the <xref ref="point-slope-line" text="custom">point<ndash/>slope equation of a line</xref>, we obtain <me>x-0 = \frac{\pi}{3}(t-3) \quad \Leftrightarrow \quad x = \frac{\pi}{3}(t-3).</me></p>
                 <p>Using composition of our maps, we arrive at the overall model. The maps are summarized by <md>
                     <mrow>t \mapsto x = \frac{\pi}{3}(t-3),</mrow>
                     <mrow>x \mapsto y = \cos(x),</mrow>
@@ -929,14 +909,13 @@
                 </md> The composition of these maps gives <m>t \mapsto h</m> using the equation <me> h = 2.5 \cos\Big(\frac{\pi}{3}(t-3)\Big) + 7.5. </me></p>
             </solution>
         </example>
-        
+
         <p>This strategy works for general problems, summarized by the following theorem.</p>
-        
+
         <theorem xml:id="thm-sinusoidal-models">
             <title>Equations for Sinusoidal Models</title>
             <statement>
                 <p>A sinusoidal model with center line <m>y=k</m> and amplitude <m>A</m> and with period <m>p</m> and phase shift <m>x=\phi</m> is modeled by <me>y = A \sin\Big(\frac{2 \pi}{p}(x-\phi)\Big) + k</me> when the model is up-crossing the center line at <m>x=\phi</m> or by <me>y=A \cos\Big(\frac{2 \pi}{p}(x-\phi)\Big) + k</me> when the model is at a maximum at <m>x=\phi</m>.</p>
-        <sidebyside>
             <image xml:id="img-sinusoidal-general">
                 <description>The sine function.
                 </description>
@@ -951,14 +930,14 @@
 
                 \draw[color=red] plot (\x,{sin(pi/2*\x r)});
 
-                
+
                 \draw [color=red] (6.5,1) -- (7,1) node [right] {$y=A\sin(\frac{2\pi}{p}(x-\phi))+k$};
                 \draw[fill] (0, 0) circle (2pt) node [above left] {$x=\phi$};
                 \draw[fill] (4, 0) circle (2pt) node [above left] {$x=\phi+p$};
                 \draw[<->] (2,0) -- (2,1) node[pos=0.5, right] {$A$};
-                
+
                 \end{tikzpicture}
-                
+
                 \begin{tikzpicture}[thick,domain=-2.2:6.2, samples=100, x=1cm, y=1.25cm]
                 \draw[dashed] (-2.2,0) -- (6.2,0) node[right] {$y=k$};
                 \draw[dotted] (-2.2,1) -- (6.2,1);
@@ -966,17 +945,16 @@
 
                 \draw[color=red] plot (\x,{cos(pi/2*\x r)});
 
-                
+
                 \draw [color=red] (6.5,1) -- (7,1) node [right] {$y=A\cos(\frac{2\pi}{p}(x-\phi))+k$};
                 \draw[fill] (0, 1) circle (2pt) node [above left] {$x=\phi$};
                 \draw[<->] (2,0) -- (2,1) node[pos=0.5, right] {$A$};
                 \draw[fill] (4, 1) circle (2pt) node [above left] {$x=\phi+p$};
-                
-                
+
+
                 \end{tikzpicture}]]>
                 </latex-image>
             </image>
-        </sidebyside>
             </statement>
             <proof>
                 <p>Using a reference curve <m>\tilde y = \sin(\tilde x)</m> (sine) or <m>\tilde y = \cos(\tilde x)</m> (cosine), our transformation will be found with linear mappings <m>x \mapsto \tilde x</m> and <m>\tilde y \mapsto y</m> such that <m>x=\phi \mapsto \tilde x=0</m> and <m>x=\phi+p \mapsto \tilde x = 2\pi</m>. This corresponds to the mapping <me>\tilde x = \frac{2\pi}{p}(x-\phi).</me> Using the center line and maximum values, we require <m>\tilde y = 0 \mapsto y=k</m> and <m>\tilde y = 1 \mapsto y=k+A</m>. These give the second transformation mapping <me>y = A\tilde y + k.</me> Composition of the maps gives the required formulas.</p>

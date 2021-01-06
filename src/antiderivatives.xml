@@ -127,7 +127,7 @@
       In the case that <m>f(x)</m> is continuous on some interval <m>I</m>,
       we can define an accumulation function starting at any convenient point <m>a \in I</m>,
       <me>A(x) = \int_a^x f(z) \, dz.</me>
-      By the <xref ref='theorem-ftc-part-one' text='title'>Part One of the Fundamental Theorem of Calculus</xref>,
+      By the <xref ref='theorem-ftc-part-one' text='custom'>Part One of the Fundamental Theorem of Calculus</xref>,
       we know that <m>A'(x) = f(x)</m>.
       That is, <m>A(x)</m> is itself an antiderivative of <m>f(x)</m>
       and any other antiderivative could be written <m>F(x) = \int_a^x f(z) \, dz + C</m>.
@@ -234,8 +234,8 @@
     </example>
     <p>
       Most derivative rules do not result in a product of expressions.
-      The <xref ref="deriv-product" text="title">product rule for derivatives</xref> results in the sum of two products.
-      The <xref ref="deriv-quotient" text="title">quotient rule</xref> results in in difference of quotients.
+      The <xref ref="deriv-product" text="custom">product rule for derivatives</xref> results in the sum of two products.
+      The <xref ref="deriv-quotient" text="custom">quotient rule</xref> results in in difference of quotients.
       Only the chain rule creates a derivative by multiplying two expresions together.
       Consequently, if we see an integrand with expressions multiplied together,
       we should consider whether we would benefit from expanding the product as a sum.
@@ -249,7 +249,7 @@
           The function <m>f(x) = x^2(x^2-3)</m> is a product
           that can be expanded to a sum using the distributive property.
           <me>f(x) = x^4 - 3x^2.</me>
-          Our experience with the <xref ref="deriv-power-rule" text="title">power rule</xref>
+          Our experience with the <xref ref="deriv-power-rule" text="custom">power rule</xref>
           suggests that we should be able to integrate this expression.
           We know <me> \frac{d}{dx}[x^5] = 5x^4.</me>
           To eliminate the unwanted constant multiple of 5, we can multiply both sides by <m>\frac{1}{5}</m> to get
@@ -485,7 +485,7 @@
         </li>
         <li>
           <p>
-            The <xref ref='theorem-ftc-part-one' text='title'>Fundamental Theorem of Calculus</xref>
+            The <xref ref='theorem-ftc-part-one' text='custom'>Fundamental Theorem of Calculus</xref>
             guarantees that every continuous function has an antiderivative.
             In particular, if <m>f(x)</m> is continuous on an interval <m>I</m> with <m>a \in I</m>,
             then the accumulation function

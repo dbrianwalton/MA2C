@@ -6,7 +6,7 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2018  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="sequences-computing">
   <title>Computing Sequence Values</title>
 
@@ -35,21 +35,21 @@
   <subsection>
     <title>Sequences in Spreadsheets</title>
     <p>
-      One way to generate a sequence is with a spreadsheet. 
-      Common spreadsheet applications include Microsoft Excel, Apple Numbers, and Google Drive Sheets. 
-      A spreadsheet essentially starts as a giant blank table with rows and columns. 
-      The rows are numbered starting at 1 and the columns are labeled by letters. 
-      (After the first 26 columns, columns are labeled by pairs of letters.) 
-      Every cell in the table is identified by its column and row, called its <term>address</term>. 
+      One way to generate a sequence is with a spreadsheet.
+      Common spreadsheet applications include Microsoft Excel, Apple Numbers, and Google Drive Sheets.
+      A spreadsheet essentially starts as a giant blank table with rows and columns.
+      The rows are numbered starting at 1 and the columns are labeled by letters.
+      (After the first 26 columns, columns are labeled by pairs of letters.)
+      Every cell in the table is identified by its column and row, called its <term>address</term>.
       So cell <c>B4</c> would be the cell in the fourth row of the second column.
     </p>
     <p>
-      Spreadsheets are designed to perform calculations based on the values of other cells. 
-      Suppose that <c>A1</c> contained the number 3 and <c>A2</c> contained the number 5. 
-      If you were to type in cell <c>A3</c> the formula <c>=A1+A2</c> (including the equal sign), 
+      Spreadsheets are designed to perform calculations based on the values of other cells.
+      Suppose that <c>A1</c> contained the number 3 and <c>A2</c> contained the number 5.
+      If you were to type in cell <c>A3</c> the formula <c>=A1+A2</c> (including the equal sign),
       then <c>A3</c> would show the value 8.
       However, it internally remembers the formula.
-      If you were to change the values in either <c>A1</c> or <c>A2</c>, 
+      If you were to change the values in either <c>A1</c> or <c>A2</c>,
       the value in <c>A3</c> would automatically be updated.
       We can take advantage of these calculations to compute the values of sequences.
     </p>
@@ -59,7 +59,7 @@
     <example>
       <statement>
         <p>
-        Use a spreadsheet to generate values for the sequence defined by 
+        Use a spreadsheet to generate values for the sequence defined by
         <me>x_n = \frac{3n}{4n+5}, \quad n=0, 1, 2, \ldots</me>.
         </p>
       </statement>
@@ -127,7 +127,7 @@
     <example>
       <statement>
         <p>
-          Use a spreadsheet to generate values for the sequence defined by 
+          Use a spreadsheet to generate values for the sequence defined by
           <me>x_n = 2.3 x_{n-1}(1 - 0.1 x_{n-1})</me>
           with an initial value <m>x_0 = 1</m>.
         </p>
@@ -148,7 +148,7 @@
           For the rest of the values in the column, we will use the recursive map,
           <me> x_{n-1} \mapsto x_n = 2.3 x_{n-1}(1 - 0.1 x_{n-1})</me>.
           In the table, the previous value <m>x_{n-1}</m> corresponds to that value in the cell directly above the cell in question.
-          Consequently, to compute <m>x_1</m>, we select <c>B3</c> 
+          Consequently, to compute <m>x_1</m>, we select <c>B3</c>
           and type <c>=2.3*B2*(1-0.1*B2)</c>.
           The value of <m>x_1</m> should appear in the cell.
         </p>
@@ -168,7 +168,7 @@
     <example>
       <statement>
         <p>
-          Use a spreadsheet to generate values for an arbitrary arithmetic sequence defined by 
+          Use a spreadsheet to generate values for an arbitrary arithmetic sequence defined by
           <me>x_n = x_{n-1} + \beta</me>
           with an initial value <m>x_0 = a</m>,
           where <m>a</m> and <m>\beta</m> are parameters.
@@ -212,7 +212,7 @@
           and <c>$B$2</c> to represent <m>a</m>.
           This means our spreadsheet entry in <c>E2</c> is
           <c>$B$2+$B$1*D2</c>.
-          If you copy and paste this into <c>E3</c>, you should see that only the cell representing the index is updated to 
+          If you copy and paste this into <c>E3</c>, you should see that only the cell representing the index is updated to
           <c>$B$2+$B$1*D3</c>.
           Selecting one of these cells and filling the rest of the column will finish generating the explicitly calculated values.
         </p>
@@ -244,10 +244,10 @@
       you essentially need to repeat the dragging and filling steps.
     </p>
     <p>
-      Writing computer scripts in a programming language is one of the most efficient approaches. 
-      A free online tool called SageMath uses a scripting language based on the Python programming language. 
-      The online version of this text has interactive cells where you can try the scripts directly. 
-      Otherwise, you can use the following website and type the scripts: 
+      Writing computer scripts in a programming language is one of the most efficient approaches.
+      A free online tool called SageMath uses a scripting language based on the Python programming language.
+      The online version of this text has interactive cells where you can try the scripts directly.
+      Otherwise, you can use the following website and type the scripts:
       <url href="https://sagecell.sagemath.org/">https://sagecell.sagemath.org/</url>.
     </p>
     <p>
@@ -294,14 +294,12 @@
       that is associated with a given list of values.
       The basic scripting pattern in Python and Sagemath to repeat a computation for each value in a list is as follows.
     </p>
-    <sidebyside>
     <program language="python">
         <input>
         for name in list:
             repeated block
         </input>
     </program>
-    </sidebyside>
     <p>
       The <c>name</c> is replaced by whatever variable name you want for the associated memory location.
       The <c>list</c> is replaced by a list of values that will be used for <c>name</c>.
@@ -349,7 +347,7 @@
       The last step is creating a table with two values on the same line.
       We can do this with the <c>print</c> command and value formatting.
       In place of the <c>show</c> commands, we will use <c>print(format % (values))</c>,
-      with <c>format</c> being a format string 
+      with <c>format</c> being a format string
       and <c>values</c> being a comma-separated collection of expressions to be formatted.
       An integer uses format string <c>%d</c> while a decimal value (a floating-point) uses format string <c>%f</c>.
       We can include a tab character using <c>\t</c>.

@@ -12,117 +12,117 @@
 
   <introduction>
     <title>Overview</title>
-    
+
     <p>
-      Many students learn a basic rule relating distance <m>d</m>, 
-      speed <m>r</m> and time <m>t</m>: 
-      <m> d=rt</m> or <q>distance equals rate times time.</q> 
+      Many students learn a basic rule relating distance <m>d</m>,
+      speed <m>r</m> and time <m>t</m>:
+      <m> d=rt</m> or <q>distance equals rate times time.</q>
       This statement is really only true when the rate is unchanging.
-      If the speed is constant at a rate of <m>r_1</m> for a time <m>t_1</m> 
-      and then instantly changes to a new constant speed 
-      at rate <m>r_2</m> for another time <m>t_2</m>, 
-      then the total distance <m>d</m> traveled over the total time is 
+      If the speed is constant at a rate of <m>r_1</m> for a time <m>t_1</m>
+      and then instantly changes to a new constant speed
+      at rate <m>r_2</m> for another time <m>t_2</m>,
+      then the total distance <m>d</m> traveled over the total time is
       <me> d = r_1 t_1 + r_2 t_2.</me>
-      This generalizes to any number of intervals of constant rate, 
-      that the total change in position (displacement) 
+      This generalizes to any number of intervals of constant rate,
+      that the total change in position (displacement)
       equals the sum of the products of the rate times the increment of time at that rate.
     </p>
-    
+
     <p>
-      The <term>definite integral</term> is the mathematical 
+      The <term>definite integral</term> is the mathematical
       generalization of the idea that we just described.
-      Given any rate of change <m>r(x)</m> for a quantity <m>Q</m> 
-      with respect to an independent variable <m>x</m>, 
-      the definite integral's purpose is to compute the increment of change in <m>Q</m> 
-      when the independent variable changes from one value, <m>x=a</m>, 
+      Given any rate of change <m>r(x)</m> for a quantity <m>Q</m>
+      with respect to an independent variable <m>x</m>,
+      the definite integral's purpose is to compute the increment of change in <m>Q</m>
+      when the independent variable changes from one value, <m>x=a</m>,
       to another value, <m>x=b</m>.
-      We write 
+      We write
       <me> Q(b) - Q(a) = \int_{a}^{b} r(x) dx \qquad \Leftrightarrow \qquad Q(b) = Q(a) + \int_{a}^{b} r(x) dx.</me>
     </p>
-    
+
     <p>
-      This section introduces the idea of the definite integral for special functions 
+      This section introduces the idea of the definite integral for special functions
       for which we can compute the increment of change without knowing any additional calculus rules.
       We start with simple functions, which means the functions are constant on intervals.
       These functions motivate the basic properties which we then apply graphically and numerically.
       We will learn the rules later.
     </p>
-    
+
   </introduction>
 
   <subsection>
     <title>Rate of Change</title>
-    
+
     <p>
       Suppose that we have two variables that are related by a function.
-      In mathematics, we often think of the prototypical variables <m>x</m> and <m>y</m> 
+      In mathematics, we often think of the prototypical variables <m>x</m> and <m>y</m>
       with some function <m>f : x \mapsto y</m>.
-      But in physical situations, we are often considering changes in time 
+      But in physical situations, we are often considering changes in time
       so that we use the independent variable <m>t</m> for time.
       The official definition for <term>rate of change</term> is as the <term>derivative</term>.
       In the present context, we will not need to know how to compute derivatives.
-      We only need to consider that there is a function 
+      We only need to consider that there is a function
       that physically measures a rate of change.
     </p>
     <p>
-      For example, a speedometer measures speed which is 
+      For example, a speedometer measures speed which is
       a rate of change of distance with respect to time.
-      As another example, we can physically measure the rate at which water flows through a pipe 
+      As another example, we can physically measure the rate at which water flows through a pipe
       which represents a rate of change of a reservoir (e.g., a tub or a pool) that is being filled or drained.
-      An electrical analog of water flow is electrical current 
+      An electrical analog of water flow is electrical current
       which measures the rate of change of electrical charge along an electrical path.
-      In biology, the rate of change of a population is physically measured 
+      In biology, the rate of change of a population is physically measured
       through birth, death and migration rates.
     </p>
-    
+
     <p>
       When any of these rates are constant over an interval <m>t \in [a,b]</m>,
       the net change in the quantity of interest <m>Q</m> is equals the rate times the increment of time.
       The following definition makes this clear.
     </p>
-    
+
     <definition xml:id="defn-constant-rate-of-change">
       <title>Constant Rate of Change</title>
       <statement>
         <p>
-          Given a quantity <m>Q</m> that is a function of independent variable <m>t</m>, 
-          say <m>t \mapsto Q(t)</m>, we say that <m>Q</m> has a constant rate of change <m>r</m> 
-          on an interval <m>[a,b]</m> if for any <m>t_1,t_2</m> satisfying <m>a \le t_1 \lt t_2 \le b</m>, 
+          Given a quantity <m>Q</m> that is a function of independent variable <m>t</m>,
+          say <m>t \mapsto Q(t)</m>, we say that <m>Q</m> has a constant rate of change <m>r</m>
+          on an interval <m>[a,b]</m> if for any <m>t_1,t_2</m> satisfying <m>a \le t_1 \lt t_2 \le b</m>,
           <me>Q(t_2) - Q(t_1) = r \cdot (t_2-t_1),</me>
           which is often written <m>\Delta Q = r \cdot \Delta t</m>.
         </p>
       </statement>
     </definition>
-    
+
     <p>
-      A quantity that has a constant rate of change satisfies a linear equation 
+      A quantity that has a constant rate of change satisfies a linear equation
       on the given interval and the rate of change corresponds to the slope of that line.
-      In particular, if <m>c</m> is any value for <m>t</m> in the interval, <m>c \in [a,b]</m>, 
-      then the accumulation <m>Q(t)</m> is a linear function of <m>t</m>, 
-      <me> Q(t) = Q(c) + r(t-c),</me> 
+      In particular, if <m>c</m> is any value for <m>t</m> in the interval, <m>c \in [a,b]</m>,
+      then the accumulation <m>Q(t)</m> is a linear function of <m>t</m>,
+      <me> Q(t) = Q(c) + r(t-c),</me>
       using the point<ndash/>slope equation of a line.
-      The value <m>Q(c)</m> represents the initial value 
-      while <m>r(t-c)</m> represents the increment of change in <m>Q</m> 
+      The value <m>Q(c)</m> represents the initial value
+      while <m>r(t-c)</m> represents the increment of change in <m>Q</m>
       when the independent variable goes from <m>c</m> to the value <m>t</m>.
     </p>
-    
+
     <p>
-      In preparation for extending the idea of rate of change, 
-      we need to recall the concept of <xref ref="subsection-piecewise-functions">piecewise functions</xref>.
+      In preparation for extending the idea of rate of change,
+      we need to recall the concept of <xref ref="subsection-piecewise-functions" text="custom">piecewise functions</xref>.
       A piecewise function considers its domain as consisting of a collection of disjoint (non-overlapping) intervals.
       On each such interval, the function has a separate formula or rule of calculation.
     </p>
-    
+
     <example>
       <statement>
         <p>
-          The function <m>f</m> is defined by the equation 
+          The function <m>f</m> is defined by the equation
           <me> f(x) = \begin{cases}
             x^2, &amp; 0 \le x \lt 2, \\
             6-x, &amp; 2 \le x \le 3 \\
             3, &amp; 3 \lt x \le 4
           \end{cases}.</me>
-          The domain of <m>f</m> is the union of disjoint intervals 
+          The domain of <m>f</m> is the union of disjoint intervals
           <m>[0,2)</m>, <m>[2,3]</m> and <m>(3,4]</m> which corresponds to <m>[0,4]</m>.
           The notation states that for input values <m>x</m> between 0 and 2, including 0,
           the function will square the input to give the output.
@@ -131,63 +131,61 @@
           the function has a constant output value of 3.
           The graph is shown below.
         </p>
-        <sidebyside width="70%" margins="auto">
-          <image>
-            <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis}
-              \addplot[blue, samples=100, domain=0:2]
-              { x^2 };
-              \addplot[blue, samples=100, domain=2:3]
-              { 6-x };
-              \addplot[blue, samples=100, domain=3:4]
-              { 3 };
-              \addplot[only marks, blue] coordinates {
-                  (0,0)
-                  (4,3)
-              };
-              \end{axis}
-              \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%" margins="auto">>
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}
+            \addplot[blue, samples=100, domain=0:2]
+            { x^2 };
+            \addplot[blue, samples=100, domain=2:3]
+            { 6-x };
+            \addplot[blue, samples=100, domain=3:4]
+            { 3 };
+            \addplot[only marks, blue] coordinates {
+                (0,0)
+                (4,3)
+            };
+            \end{axis}
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </statement>
     </example>
-    
+
     <p>
       Using piecewise functions, we can define something called a <term>simple function</term>.
-      Such a function is piecewise constant, meaning that the domain is formed 
+      Such a function is piecewise constant, meaning that the domain is formed
       as a union of disjoint intervals
       and the function has a constant value on each interval.
       To define these intervals, we first introduce the idea of a <term>partition</term>
       which will be used to define the end points of these subintervals.
     </p>
-    
+
     <definition>
       <title>Partition</title>
       <statement>
         <p>
-          A <term>partition</term> of size <m>n</m> of an interval <m>[a,b]</m> is 
+          A <term>partition</term> of size <m>n</m> of an interval <m>[a,b]</m> is
           an increasing, finite sequence of numbers <m>P = (x_0, x_1, \ldots, x_n)</m>
           such that <m>x_0 = a</m>, <m>x_n=b</m> and <m>x_{j} \lt x_{j+1}</m>.
           The <term>increments</term> of the partition correspond to the widths of subintervals,
-          with <me>\nabla x_{j} = x_{j} - x_{j-1} </me> 
+          with <me>\nabla x_{j} = x_{j} - x_{j-1} </me>
           being the width of the subinterval <m>[x_{j-1}, x_{j}]</m>
           for <m>j=1,\ldots,n</m>.
         </p>
       </statement>
     </definition>
-    
+
     <definition>
       <title>Simple Function</title>
       <statement>
         <p>
           Given a partition <m>P</m> of size <m>n</m> of an interval <m>[a,b]</m>,
-          a function <m>f</m> is a <term>simple function</term> on the partition <m>P</m> 
-          with values <m>(y_1,\ldots,y_n)</m> if 
+          a function <m>f</m> is a <term>simple function</term> on the partition <m>P</m>
+          with values <m>(y_1,\ldots,y_n)</m> if
           <me> f(x) = \begin{cases}
           y_1, &amp; x_0 \lt x \lt x_1, \\
           y_2, &amp; x_1 \lt x \lt x_2, \\
@@ -197,60 +195,58 @@
         </p>
       </statement>
     </definition>
-    
+
     <p>
       The figure below illustrates a simple function defined with a partition of size <m>n=4</m>.
-      Open circles are used on the edges of the segments because 
-      we did not define the value at the actual partition points, 
+      Open circles are used on the edges of the segments because
+      we did not define the value at the actual partition points,
       only on the intervals between those points.
-      That is because when a rate changes instantaneously between two values, 
+      That is because when a rate changes instantaneously between two values,
       the rate can not be properly defined at the instant itself.
     </p>
 
-    <sidebyside width="70%" margins="auto">
-      <image>
-        <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          /pgfplots/table/row sep=crcr
-          }
-          \begin{tikzpicture}
-          \begin{axis}
-          [
-          xmin=-0.5, xmax=3,
-          xtick={0, 0.5, 1.25, 1.75, 2.5},
-          xticklabels={$x_0$, $x_1$, $x_2$, $x_3$, $x_4$}
-          ]
-          \addplot[black] table { -1 0 \\ 3 0 \\};
-          \addplot[blue, dashed] table { 0 0 \\ 0 2 \\};
-          \addplot[blue, mark=o] table { 0 2 \\ 0.5 2 \\} 
-            node [pos=0.5, above] {$y_1$};
-          \addplot[blue, dashed] table { 0.5 0 \\ 0.5 3 \\};
-          \addplot[blue, mark=o] table { 0.5 3 \\ 1.25 3 \\} 
-            node [pos=0.5, above] {$y_2$};
-          \addplot[blue, dashed] table { 1.25 3 \\ 1.25 -1 \\};
-          \addplot[blue, mark=o] table { 1.25 -1 \\ 1.75 -1 \\} 
-            node [pos=0.5, above] {$y_3$};
-          \addplot[blue, dashed] table { 1.75 -1 \\ 1.75 0.5 \\};
-          \addplot[blue, mark=o] table { 1.75 0.5 \\ 2.5 0.5 \\} 
-            node [pos=0.5, above] {$y_4$};
-          \addplot[blue, dashed] table { 2.5 0 \\ 2.5 0.5 \\};
-          \end{axis}
-          \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
-    
+    <image width="70%" margins="auto">
+      <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        /pgfplots/table/row sep=crcr
+        }
+        \begin{tikzpicture}
+        \begin{axis}
+        [
+        xmin=-0.5, xmax=3,
+        xtick={0, 0.5, 1.25, 1.75, 2.5},
+        xticklabels={$x_0$, $x_1$, $x_2$, $x_3$, $x_4$}
+        ]
+        \addplot[black] table { -1 0 \\ 3 0 \\};
+        \addplot[blue, dashed] table { 0 0 \\ 0 2 \\};
+        \addplot[blue, mark=o] table { 0 2 \\ 0.5 2 \\}
+          node [pos=0.5, above] {$y_1$};
+        \addplot[blue, dashed] table { 0.5 0 \\ 0.5 3 \\};
+        \addplot[blue, mark=o] table { 0.5 3 \\ 1.25 3 \\}
+          node [pos=0.5, above] {$y_2$};
+        \addplot[blue, dashed] table { 1.25 3 \\ 1.25 -1 \\};
+        \addplot[blue, mark=o] table { 1.25 -1 \\ 1.75 -1 \\}
+          node [pos=0.5, above] {$y_3$};
+        \addplot[blue, dashed] table { 1.75 -1 \\ 1.75 0.5 \\};
+        \addplot[blue, mark=o] table { 1.75 0.5 \\ 2.5 0.5 \\}
+          node [pos=0.5, above] {$y_4$};
+        \addplot[blue, dashed] table { 2.5 0 \\ 2.5 0.5 \\};
+        \end{axis}
+        \end{tikzpicture}]]>
+      </latex-image>
+    </image>
+
     <p>
-      We can use a simple function to represent a special case of a varying rate of change, 
-      namely a rate of change that is constant on subintervals 
-      but which changes instantly (not physically possible in most situations) 
+      We can use a simple function to represent a special case of a varying rate of change,
+      namely a rate of change that is constant on subintervals
+      but which changes instantly (not physically possible in most situations)
       at the points of a partition.
-      Given a simple rate function, <m>r(x)</m>, 
-      on a partition <m>P</m> of size <m>n</m> of the interval <m>[a,b]</m> 
-      with values <m>(r_1,r_2,\ldots,r_n)</m>, 
-      we can define an <term>accumulation function</term> 
-      that is piecewise linear on the same partition 
+      Given a simple rate function, <m>r(x)</m>,
+      on a partition <m>P</m> of size <m>n</m> of the interval <m>[a,b]</m>
+      with values <m>(r_1,r_2,\ldots,r_n)</m>,
+      we can define an <term>accumulation function</term>
+      that is piecewise linear on the same partition
       having initial value <m>(a,f(a))</m>:
       <me> f(x) = \begin{cases}
       f(a) + r_1 (x-x_0), &amp; x_0 \le x  \lt x_1, \\
@@ -260,29 +256,29 @@
       \vdots \\
       \displaystyle f(a) + \sum_{k=1}^{n-1} r_k \, \nabla x_k + r_n(x-x_{n-1}), &amp; x_{n-1} \le x \le x_n.
       \end{cases} </me>
-      The purpose of the summation is to represent the accumulation of change 
-      on all previous subintervals of the partition in order 
+      The purpose of the summation is to represent the accumulation of change
+      on all previous subintervals of the partition in order
       to make the accumulation function <m>f(x)</m> continuous on the full interval <m>[a,b]</m>.
     </p>
-    
+
     <definition xml:id="defn-accumulation-simple">
       <title>Definite Integral of Simple Function</title>
       <statement>
       <p>
-        Given a simple rate function, <m>r(x)</m>, 
-        on a partition <m>P</m> of size <m>n</m> of the interval <m>[a,b]</m> 
-        with values <m>(r_1,r_2,\ldots,r_n)</m>, 
-        the total accumulated change associated with this rate is 
+        Given a simple rate function, <m>r(x)</m>,
+        on a partition <m>P</m> of size <m>n</m> of the interval <m>[a,b]</m>
+        with values <m>(r_1,r_2,\ldots,r_n)</m>,
+        the total accumulated change associated with this rate is
         the definite integral represented by
-        is given by 
+        is given by
         <me>\int_a^b r(x) \, dx = \sum_{k=1}^{n} r_k \, \nabla x_k.</me>
       </p>
       </statement>
     </definition>
-    
+
     <p>
       It is common that the increments <m>\nabla x_k</m> be instead written <m>\Delta x_k</m>.
-      However, this is a notational abuse because <m>\Delta x_k</m> 
+      However, this is a notational abuse because <m>\Delta x_k</m>
       technically represents the forward difference <m>\Delta x_k = x_{k+1}-x_k</m>
       with <m>k=0,\ldots,n-1</m>.
       Ignoring this complaint, the total accumulation of change is often written
@@ -290,7 +286,7 @@
       (The complaint can formally be resolved by shifting the index values
       from <m>k=1,\ldots,n</m> to <m>k=0,\ldots,n-1</m>.)
     </p>
-    
+
     <example>
       <statement>
         <p>
@@ -298,18 +294,18 @@
           Over the next 20 minutes, water is added to the reservoir at a rate of 5 gal/min.
           Then water is pumped out at a rate of 12 gal/min for 10 minutes.
           For the next 30 minutes, water is added at a rate of 3 gal/min.
-          Find a piecewise linear function describing the amount of water in the reservoir 
+          Find a piecewise linear function describing the amount of water in the reservoir
           as a function of time (in minutes).
         </p>
       </statement>
       <solution>
         <p>
-          The rate function is a simple function using the partition <m>P</m> 
-          that starts at <m>x_0=0</m> and has increments of 
+          The rate function is a simple function using the partition <m>P</m>
+          that starts at <m>x_0=0</m> and has increments of
           <m>\nabla x_1=20</m>, <m>\nabla x_2 = 10</m> and <m>\nabla x_3 = 30</m>.
           That is, the partition is given by <m>P=\{0, 20, 30, 60\}</m>.
-          The rate of change of water is constant on the subintervals 
-          defined by this partition: 
+          The rate of change of water is constant on the subintervals
+          defined by this partition:
           <me>R(t) = \begin{cases}
             5, &amp; 0 \lt t \lt 20, \\
             -12, &amp; 20 \lt t \lt 30, \\
@@ -317,23 +313,23 @@
           \end{cases}</me>
         </p>
         <p>
-          The amount of water in the reservoir is also a function of time, say <m>W(t)</m>, 
+          The amount of water in the reservoir is also a function of time, say <m>W(t)</m>,
           and is defined as an accumulation using the rate of change <m>R(t)</m> found above.
-          Because the reservoir begins with <m>W(0)=100</m>, our initial value, 
-          we can write <m>W(t)</m> as a piecewise linear function 
+          Because the reservoir begins with <m>W(0)=100</m>, our initial value,
+          we can write <m>W(t)</m> as a piecewise linear function
           that accumulates the change in water over each of the subintervals.
-          Consider first the total accumulation of change in water on each of the subintervals, 
+          Consider first the total accumulation of change in water on each of the subintervals,
           which is equal to the rate of change times the increment of time for that subinterval.
           <md>
             <mrow> W(20)-W(0) &amp;= 5 (20) = 100 </mrow>
             <mrow> W(30)-W(20) &amp;= -12(10) = -120 </mrow>
             <mrow> W(60)-W(30) &amp; = 3(30) = 90 </mrow>
           </md>
-          Notice that the total change in water volume over the entire interval <m>[0,60]</m> 
-          is the sum of these increment, 
+          Notice that the total change in water volume over the entire interval <m>[0,60]</m>
+          is the sum of these increment,
           <me> W(60) -W(0) = 100+-120+90 = 70.</me>
           The accumulation function <m>W(t)</m>, which has an initial value <m>W(0)=100</m>,
-          is therefore defined by 
+          is therefore defined by
           <me> W(t) = \begin{cases}
             100 + 5(t-0) = 100 + 5t, &amp; 0 \le t \lt 20, \\
             100 + 100 - 12(t-20)= 200 - 12(t-20), &amp; 20 \le t \lt 30, \\
@@ -342,9 +338,9 @@
         </p>
         <p>
           The graphs of the rate function <m>R(t)</m> and the water level <m>W(t)</m> are shown below.
-          Notice that although the rate function is not defined at the partition points, 
+          Notice that although the rate function is not defined at the partition points,
           the water level function <m>W(t)</m> is defined and continuous at those points.
-          It is continuous because the accumulations are designed to start on the next interval 
+          It is continuous because the accumulations are designed to start on the next interval
           exactly where it stops from the previous interval with no sudden jumps.
         </p>
         <sidebyside widths="40% 40%" margins="auto">
@@ -429,298 +425,294 @@
         </sidebyside>
       </solution>
     </example>
-    
+
     <p>
       There is an important geometric interpretation of accumulation in terms of area on the graph.
       Recall that the area of a rectangle is defined as the product of the height and the width.
-      Mathematically, this is the same operation as when we calculate an increment 
-      as the product of a rate and the increment of the independent variable, 
+      Mathematically, this is the same operation as when we calculate an increment
+      as the product of a rate and the increment of the independent variable,
       except that a rate can be negative.
       Consequently, we introduce the idea of <term>signed area</term>.
     </p>
-    
+
     <definition>
       <title>Signed Area (Informal)</title>
       <statement>
         <p>
-          Suppose we have the graph of a function <m>y=f(x)</m> 
-          that is continuous on an interval <m>(a,b)</m> 
-          and is either entirely above the axis, <m>f(x) \gt 0</m> for all <m>x \in (a,b)</m>, 
+          Suppose we have the graph of a function <m>y=f(x)</m>
+          that is continuous on an interval <m>(a,b)</m>
+          and is either entirely above the axis, <m>f(x) \gt 0</m> for all <m>x \in (a,b)</m>,
           or entirely below the axis, <m>f(x) \lt 0</m> for all <m>x \in (a,b)</m>.
-          Then we can define the <term>signed area</term> of the graph 
-          by considering the area <m>A</m> (area itself is always positive) 
-          of the region between the curve <m>y=f(x)</m> and the axis <m>y=0</m> 
+          Then we can define the <term>signed area</term> of the graph
+          by considering the area <m>A</m> (area itself is always positive)
+          of the region between the curve <m>y=f(x)</m> and the axis <m>y=0</m>
           and between the vertical lines <m>x=a</m> and <m>x=b</m>.
-          If <m>f(x) \gt 0</m> (above the axis), 
-          then we say that we have <term>positive area</term> <m>A</m>; 
-          if <m>f(x) \lt 0</m> (below the axis), 
+          If <m>f(x) \gt 0</m> (above the axis),
+          then we say that we have <term>positive area</term> <m>A</m>;
+          if <m>f(x) \lt 0</m> (below the axis),
           then we say that we have <term>negative area</term> <m>-A</m>.
         </p>
         <p>
-          If the graph <m>y=f(x)</m> on an interval <m>(a,b)</m> 
-          has a finite number of discontinuities or crosses the axis 
-          so that sometimes the graph is above the axis and sometimes below, 
-          then we can consider a partition of <m>[a,b]</m> 
+          If the graph <m>y=f(x)</m> on an interval <m>(a,b)</m>
+          has a finite number of discontinuities or crosses the axis
+          so that sometimes the graph is above the axis and sometimes below,
+          then we can consider a partition of <m>[a,b]</m>
           using the <m>x</m>-values of the discontinuities and zeros of <m>f</m>.
-          Then on every subinterval from this partition, 
+          Then on every subinterval from this partition,
           the earlier definition applies and we have a signed area for each subinterval.
-          The signed area for the entire graph is the sum of the signed areas of the subintervals, 
+          The signed area for the entire graph is the sum of the signed areas of the subintervals,
           adding areas that are above the axis and subtracting areas that are below the axis.
         </p>
       </statement>
     </definition>
-    
+
     <p>
       Given any simple rate function <m>f(x)</m>,
-      the signed area of the graph <m>y=f(x)</m> on the interval <m>[a,b]</m> 
+      the signed area of the graph <m>y=f(x)</m> on the interval <m>[a,b]</m>
       consists of the sum of signed areas of rectangles.
       This exactly matches the definite integral
       <me>\displaystyle \int_a^b f(x) \, dx = \sum_{k=1}^{n} r_k \, \nabla x_k</me>.
       Therefore, we adopt the definite integral as our formal definition
       of signed area.
     </p>
-    
+
     <definition>
       <title>Signed Area and Accumulated Change (Formal)</title>
       <statement>
         <p>
-          Suppose we have a function <m>y=f(x)</m> that is bounded 
+          Suppose we have a function <m>y=f(x)</m> that is bounded
           and piecewise continuous on an interval <m>(a,b)</m> (<m>a \lt b</m>).
-          The signed area of <m>f</m> on the interval <m>(a,b)</m> 
+          The signed area of <m>f</m> on the interval <m>(a,b)</m>
           is defined as the definite integral <me> \int_{a}^{b} f(x) \, dx.</me>
           If <m>f(x)</m> gives the rate of change of a quantity <m>Q</m>
-          with respect to the independent variable <m>x</m>, 
-          then the definite integral also gives the increment of change in <m>Q</m>: 
+          with respect to the independent variable <m>x</m>,
+          then the definite integral also gives the increment of change in <m>Q</m>:
           <me> Q(b) - Q(a) = \int_{a}^{b} f(x) \, dx.</me>
-          The function <m>f(x)</m> is called the <term>integrand</term> 
+          The function <m>f(x)</m> is called the <term>integrand</term>
           and the variable <m>x</m> is called the <term>variable of integration</term>.
           The values <m>a</m> and <m>b</m> are called the <term>limits of integration</term>.
         </p>
       </statement>
     </definition>
-    
+
     <p>
-      The notation of the definite integral uses an elongated <q>S</q> 
-      called the integral symbol <m>\int</m> 
+      The notation of the definite integral uses an elongated <q>S</q>
+      called the integral symbol <m>\int</m>
       that should remind you of the idea of summing increments of signed area.
-      The limits of integration <m>a</m> (lower) and <m>b</m> (upper) 
+      The limits of integration <m>a</m> (lower) and <m>b</m> (upper)
       represent the starting and ending points of integration, respectively.
-      The increments of signed area are represented 
-      by the formula <m>f(x) \, dx</m> 
-      which represents a strip of signed area with signed height <m>f(x)</m> 
+      The increments of signed area are represented
+      by the formula <m>f(x) \, dx</m>
+      which represents a strip of signed area with signed height <m>f(x)</m>
       (generalizing the constant height of a simple rate function)
       and infinitesimally small width <m>dx</m>
       (generalizing the increments of a partition <m>\nabla x</m>).
     </p>
-    
+
     <p>
-      Although we have presented these ideas as definitions, 
+      Although we have presented these ideas as definitions,
       they are really important consequences of the development of calculus.
-      In particular, the statement that the increment of change <m>Q(b)-Q(a)</m> 
-      is equal to the definite integral of the rate of change of <m>Q</m> 
-      is so most important that this result is called the 
-      <xref ref="fundamental-theorem-calculus">Fundamental Theorem of Calculus</xref>.
-      One of the primary goals of learning calculus 
+      In particular, the statement that the increment of change <m>Q(b)-Q(a)</m>
+      is equal to the definite integral of the rate of change of <m>Q</m>
+      is so most important that this result is called the
+      <xref ref="theorem-ftc-part-one" text="custom">Fundamental Theorem of Calculus</xref>.
+      One of the primary goals of learning calculus
       is to understand what this theorem means and why it is really true.
     </p>
   </subsection>
 
   <subsection>
     <title>Interpretation of Definite Integrals as Signed Areas</title>
-    
+
     <p>
       We will learn integration methods later.
-      For now, we will explore examples, including simple functions, 
-      where knowing the interpretation of a definite integral 
+      For now, we will explore examples, including simple functions,
+      where knowing the interpretation of a definite integral
       allows us to determine results using only the ideas of signed area.
-      When exact area calculations can not be found, 
-      then approximations of signed area can allow us 
+      When exact area calculations can not be found,
+      then approximations of signed area can allow us
       to estimate the value of the definite integral.
       We start by revisiting our earlier examples using the context of definite integrals.
     </p>
-    
+
     <example>
       <title>Integral of Constant Rate</title>
       <statement>
         <p>
-          Consider the case of a constant function <m>R(t) = r</m>, 
-          representing a constant rate of change for some quantity <m>Q</m> 
+          Consider the case of a constant function <m>R(t) = r</m>,
+          representing a constant rate of change for some quantity <m>Q</m>
           with respect to time <m>t</m>.
-          Earlier we noted that for constant rate of change, 
-          the increment of change in <m>Q</m> as <m>t</m> changes 
-          from <m>t=a</m> to <m>t=b</m> is equal to 
+          Earlier we noted that for constant rate of change,
+          the increment of change in <m>Q</m> as <m>t</m> changes
+          from <m>t=a</m> to <m>t=b</m> is equal to
           <me> Q(b) - Q(a) = r(b-a).</me>
-          Using the idea of a definite integral to represent the accumulated increment of change, 
-          we can rewrite this (for constant rate) as 
+          Using the idea of a definite integral to represent the accumulated increment of change,
+          we can rewrite this (for constant rate) as
           <me> Q(b) - Q(a) = \int_{a}^{b} r \, dt.</me>
         </p>
-        
+
         <p>
-          If we rewrite our increment of change in <m>Q</m> 
-          so that it is solved for <m>Q(b)</m>, we find 
+          If we rewrite our increment of change in <m>Q</m>
+          so that it is solved for <m>Q(b)</m>, we find
           <me> Q(b) = Q(a) + \int_{a}^{b} r \, dt = Q(a) + r(b-a).</me>
-          This is read as saying that <m>Q(b)</m> equals the initial value 
-          <m>Q(a)</m> plus the total increment of change in <m>Q</m> 
+          This is read as saying that <m>Q(b)</m> equals the initial value
+          <m>Q(a)</m> plus the total increment of change in <m>Q</m>
           as <m>t</m> goes from <m>a</m> to <m>b</m>.
-          Because this equation is true for any value of <m>b</m>, 
-          we can replace it with a variable and obtain 
+          Because this equation is true for any value of <m>b</m>,
+          we can replace it with a variable and obtain
           <me> Q(x) = Q(a) + \int_{a}^{x} r \, dt = Q(a) + r(x-a).</me>
           That is, we should recognize the point<ndash/>slope equation of a line
           as a special case of an initial value plus an increment of change.
         </p>
       </statement>
     </example>
-    
+
     <p>
       Knowing the area of regions of a graph can allow us to compute some definite integrals.
     </p>
-    
+
     <example>
       <statement>
         <p>
           The graph of <m>y=f(x)</m> is shown below.
           Find <m>\displaystyle \int_{0}^{5} f(x) \,dx</m>.
         </p>
-        <sidebyside width="70%" margins="auto">
-          <image>
-            <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis} [
-              xmin=-1, xmax=6,
-              grid=both, minor tick num={1},
-              ]
-              \addplot[no marks, black] coordinates {
-              (-1,0)
-              (6,0)
-              };
-              \addplot[no marks, blue, thick] coordinates {
-              (-1,4)
-              (1,4)
-              (4,-2)
-              (6, 0)
-              };
-              \end{axis}
-              \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%" margins="auto">
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis} [
+            xmin=-1, xmax=6,
+            grid=both, minor tick num={1},
+            ]
+            \addplot[no marks, black] coordinates {
+            (-1,0)
+            (6,0)
+            };
+            \addplot[no marks, blue, thick] coordinates {
+            (-1,4)
+            (1,4)
+            (4,-2)
+            (6, 0)
+            };
+            \end{axis}
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </statement>
       <solution>
         <p>
-          If we consider vertical lines at <m>x=0</m> and <m>x=5</m> 
-          and then look at the regions between these lines, 
-          the graph and the <m>x</m>-axis, 
+          If we consider vertical lines at <m>x=0</m> and <m>x=5</m>
+          and then look at the regions between these lines,
+          the graph and the <m>x</m>-axis,
           we can identify the areas that need to be calculated.
-          Regions above the axis are shaded in blue and represent positive signed area 
+          Regions above the axis are shaded in blue and represent positive signed area
           while regions below the axis are shaded in red and represent negative signed area.
-          In addition, dashed lines have been included to represent 
+          In addition, dashed lines have been included to represent
           convenient places to split the region into simple geometric shapes.
         </p>
-        <sidebyside width="70%" margins="auto">
-          <image>
-            <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis} [
-              xmin=-1, xmax=6,
-              grid=both, minor tick num={1},
-              ]
-              \addplot[no marks, black] coordinates {
-              (-1,0)
-              (6,0)
-              };
-              \addplot[no marks, blue, thick] coordinates {
-              (-1,4)
-              (1,4)
-              (4,-2)
-              (6, 0)
-              };
-              \draw [thick, black] (axis cs: 0,0) -- (axis cs: 0,4);
-              \draw [thick, dashed, black] (axis cs: 1,0) -- (axis cs: 1,4);
-              \draw [thick, black] (axis cs: 5,0) -- (axis cs: 5,-1);
-              \draw [thick, dashed, black] (axis cs: 4,0) -- (axis cs: 4,-2);
-              \fill [opacity=0.25, blue] (axis cs:0,4) -- (axis cs:1,4) 
-              -- (axis cs:3,0) -- (axis cs:0,0) -- cycle;
-              \fill [opacity=0.25, red] (axis cs:3,0) -- (axis cs:4,-2)
-              -- (axis cs: 5,-1) -- (axis cs: 5,0) -- cycle;
-              \end{axis}
-              \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%" margins="auto">>
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis} [
+            xmin=-1, xmax=6,
+            grid=both, minor tick num={1},
+            ]
+            \addplot[no marks, black] coordinates {
+            (-1,0)
+            (6,0)
+            };
+            \addplot[no marks, blue, thick] coordinates {
+            (-1,4)
+            (1,4)
+            (4,-2)
+            (6, 0)
+            };
+            \draw [thick, black] (axis cs: 0,0) -- (axis cs: 0,4);
+            \draw [thick, dashed, black] (axis cs: 1,0) -- (axis cs: 1,4);
+            \draw [thick, black] (axis cs: 5,0) -- (axis cs: 5,-1);
+            \draw [thick, dashed, black] (axis cs: 4,0) -- (axis cs: 4,-2);
+            \fill [opacity=0.25, blue] (axis cs:0,4) -- (axis cs:1,4)
+            -- (axis cs:3,0) -- (axis cs:0,0) -- cycle;
+            \fill [opacity=0.25, red] (axis cs:3,0) -- (axis cs:4,-2)
+            -- (axis cs: 5,-1) -- (axis cs: 5,0) -- cycle;
+            \end{axis}
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
         <p>
           Consider the geometric regions contained in the figure.
           There is a rectangle on the interval <m>[0,1]</m> with a height <m>f(x)=4</m>.
-          Since the area of the rectangle is 4 and the region is above the axis, 
-          we know <me>\int_0^1 f(x) dx = 4.</me> 
-          Next, we have a triangle on the interval <m>[1,3]</m> 
-          with a horizontal base given by the increment 
+          Since the area of the rectangle is 4 and the region is above the axis,
+          we know <me>\int_0^1 f(x) dx = 4.</me>
+          Next, we have a triangle on the interval <m>[1,3]</m>
+          with a horizontal base given by the increment
           <m>\Delta x = 3-1 = 2</m> and a vertical height of 4.
-          This region is also above the axis so that 
+          This region is also above the axis so that
           <me>\int_1^3 f(x) dx = \frac{1}{2}(2)(4) = 4.</me>
-          Combining these regions, we know 
+          Combining these regions, we know
           <me>\int_0^3 f(x) dx = 4+4 = 8.</me>
         </p>
         <p>
           The area of the region below the axis can be found in several ways.
-          One way is to identify a triangle on interval <m>[3,4]</m> 
+          One way is to identify a triangle on interval <m>[3,4]</m>
           and a trapezoid on <m>[4,5]</m>.
-          The triangle has horizontal width <m>\Delta x = 4-3=1</m> and height 2 
+          The triangle has horizontal width <m>\Delta x = 4-3=1</m> and height 2
           for a total area of <m>\frac{1}{2}(1)(2)= 1</m>.
-          Since the region is below the axis, we have 
+          Since the region is below the axis, we have
           <me> \int_{3}^{4} f(x) dx = -1.</me>
-          A trapezoid is a geometric shape consisting of two parallel sides 
-          and its area is the average length of the parallel sides 
+          A trapezoid is a geometric shape consisting of two parallel sides
+          and its area is the average length of the parallel sides
           times the perpendicular length between those sides.
-          The area of the trapezoid on <m>[4,5]</m> uses parallel lengths of 2 and 1 
-          with a perpendicular distance <m>\Delta x = 5-4 = 1</m> 
+          The area of the trapezoid on <m>[4,5]</m> uses parallel lengths of 2 and 1
+          with a perpendicular distance <m>\Delta x = 5-4 = 1</m>
           for a total area of <m>\frac{1}{2}(2+1)(1) = \frac{3}{2}</m>.
-          As a negative signed area, we have 
+          As a negative signed area, we have
           <me> \int_{4}^{5} f(x) dx = -\frac{3}{2}.</me>
-          Combining these two shapes for total signed area on <m>[3,5]</m>, we have 
+          Combining these two shapes for total signed area on <m>[3,5]</m>, we have
           <me> \int_{3}^{5} f(x) dx = -1 + -\frac{3}{2} = -\frac{5}{2}.</me>
-          Another way to find this area would be to consider a larger triangle 
-          coming from the interval <m>[3,6]</m> 
-          and then subtract the area of the smaller triangle on the interval <m>[5,6]</m> 
-          that should not be included: 
+          Another way to find this area would be to consider a larger triangle
+          coming from the interval <m>[3,6]</m>
+          and then subtract the area of the smaller triangle on the interval <m>[5,6]</m>
+          that should not be included:
           <me>\int_{3}^{5} f(x) dx = -\big( \frac{1}{2}(6-3)(2) - \frac{1}{2}(6-5)(1)\big) = -\frac{5}{2}.</me>
         </p>
-        
+
         <p>
-          Finding the total signed area for the graph, we find the definite integral desired, 
+          Finding the total signed area for the graph, we find the definite integral desired,
           <me> \int_{0}^{5} f(x) dx = \int_{0}^{3} f(x) dx + \int_{3}^{5} f(x) dx = 8 + -\frac{5}{2} = \frac{11}{2}.</me>
         </p>
       </solution>
     </example>
-    
+
   </subsection>
 
   <subsection>
     <title>Finding Definite Integrals with Technology</title>
-    
+
     <p>
       When we do not have easy tricks to compute a definite integral,
       we can get high accuracy estimates using technology.
       There are free websites that can compute integrals
       such as WolframAlpha or SageMath described previously.
-      Most graphing calculators have the ability to compute a definite integral 
+      Most graphing calculators have the ability to compute a definite integral
       and therefore the ability to compute accumulated change or signed areas.
       In general, you will apply the following steps on a calculator.
       <ol>
         <li>
           <p>
-            Identify the integrand function (i.e., the rate of change or the function defining signed area) 
+            Identify the integrand function (i.e., the rate of change or the function defining signed area)
             and the limits of integration.
           </p>
         </li>
         <li>
           <p>
-            Use the graphing feature of your calculator so that the function is graphed 
+            Use the graphing feature of your calculator so that the function is graphed
             and the interval of interest is showing.
             You may need to change the window of you graph.
           </p>
@@ -733,13 +725,13 @@
         </li>
       </ol>
     </p>
-    
+
     <example>
       <statement>
         <p>
           We wish to compute <m>\displaystyle \int_{2}^{5} (2^x-8) \, dx</m>.
           First, steps are given for evaluating this using a TI-83/84 graphing calculator.
-          This is followed by a call to <url href="http://www.wolframalpha.com">WolframAlpha.com</url> 
+          This is followed by a call to <url href="http://www.wolframalpha.com">WolframAlpha.com</url>
           and a SageMath script that compute the same integral.
         </p>
       </statement>
@@ -752,7 +744,7 @@
               <li>
                 <p>
                   Identify the function.
-                  In this example, the formula <m>f(x)=2^x-8</m> represents the integrand 
+                  In this example, the formula <m>f(x)=2^x-8</m> represents the integrand
                   while the interval is based on the limits of integration <m>[2,5]</m>.
                 </p>
               </li>
@@ -791,7 +783,7 @@
             </p>
             <p>
               In the prompt box, just type <q><c>integrate 2^x-8 from 2 to 5</c></q>.
-              An exact and approximate answer is given 
+              An exact and approximate answer is given
               <me> \int_{2}^{5} (2^x-8) dx = \frac{28}{\log(2)} - 24 \approx 16.3955.</me>
               Note that <m>\log</m> on WolframAlpha refers to the natural logarithm <m>\ln</m>.
             </p>
@@ -814,47 +806,45 @@
         </p>
       </solution>
     </example>
-    
+
     <p>
       The graph for the previous example, with the signed areas shaded, is shown below.
       Notice that the graph has two regions, one of which is negative (red) and one of which is positive (blue).
       We can find the point where the sign switches by solving <m>2^x-8=0</m> which is <m>x=3</m>.
-      In the next example, we will find the signed area of each interval separately 
+      In the next example, we will find the signed area of each interval separately
       and relate the values to the overall signed area.
     </p>
-    
-    <sidebyside width="70%" margins="auto">
-      <image>
-        <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}
-          \begin{axis}[%
-          xmin=1, xmax=6,%
-          ]
-          \addplot[name path=axis,black] coordinates {
-          (1,0)
-          (6,0)
-          };
-          \addplot[name path=integrand,blue,domain=1:6,samples=100]
-          {exp(x*ln(2))-8};
-          \addplot[red,opacity=0.25] fill between[
-          of=axis and integrand,
-          split,
-          soft clip={domain=2:3},
-          ];
-          \addplot[blue,opacity=0.25] fill between[
-          of=axis and integrand,
-          split,
-          soft clip={domain=3:5},
-          ];
-          \end{axis}
-          \end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </sidebyside>
-    
+
+    <image width="70%" margins="auto">
+      <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \begin{tikzpicture}
+        \begin{axis}[%
+        xmin=1, xmax=6,%
+        ]
+        \addplot[name path=axis,black] coordinates {
+        (1,0)
+        (6,0)
+        };
+        \addplot[name path=integrand,blue,domain=1:6,samples=100]
+        {exp(x*ln(2))-8};
+        \addplot[red,opacity=0.25] fill between[
+        of=axis and integrand,
+        split,
+        soft clip={domain=2:3},
+        ];
+        \addplot[blue,opacity=0.25] fill between[
+        of=axis and integrand,
+        split,
+        soft clip={domain=3:5},
+        ];
+        \end{axis}
+        \end{tikzpicture}]]>
+      </latex-image>
+    </image>
+
     <example>
       <statement>
         <p>
@@ -863,9 +853,9 @@
       </statement>
       <solution>
         <p>
-          As long as the interval of interest is graphed, 
+          As long as the interval of interest is graphed,
           we can compute the definite integral to get the signed area.
-          Since we already have our integrand <m>f(x)=2^x-8</m> in our calculator, 
+          Since we already have our integrand <m>f(x)=2^x-8</m> in our calculator,
           we can just go to the compute steps.
         <ul>
           <li>
@@ -892,14 +882,14 @@
         </p>
         <p>
           We interpret these results.
-          The first integral was 
-          <me>\int_{2}^{3} (2^x-8) dx \approx -2.22922</me> 
+          The first integral was
+          <me>\int_{2}^{3} (2^x-8) dx \approx -2.22922</me>
           and means that the area of the first region from interval <m>(2,3)</m> is 2.22922.
           Because the graph is below the axis, the integral counts as negative area.
-          The second integral was <me>\int_{3}^{5} (2^x-8) dx \approx 18.624681</me> 
+          The second integral was <me>\int_{3}^{5} (2^x-8) dx \approx 18.624681</me>
           which means that the second region on interval <m>(3,5)</m> has area 18.624681
           and counts as positive area.
-          The total signed area is the sum of these parts, 
+          The total signed area is the sum of these parts,
           <md>
             <mrow>\int_{2}^{5} (2^x-8) dx &amp;= \int_{2}^{3} (2^x-8) dx + \int_{3}^{5} (2^x-8) dx </mrow>
             <mrow> &amp;= -2.22922 + 18.624681 = 16.395461.</mrow>
@@ -910,20 +900,20 @@
         </p>
       </solution>
     </example>
-    
+
     <p>
-      We can solve some applications about change 
+      We can solve some applications about change
       by identifying an appropriate accumulation of a rate of change.
       For example, velocity is a rate of change of position.
-      Consequently, the change in position (displacement) can be computed 
+      Consequently, the change in position (displacement) can be computed
       as an accumulation of change using velocity with a definite integral.
     </p>
-    
+
     <example>
       <statement>
         <p>
           Suppose a hovercraft starts 40 meters away from the shore.
-          If the velocity (meters per second) of the hovercraft is a function of time (seconds) 
+          If the velocity (meters per second) of the hovercraft is a function of time (seconds)
           <m>v(t)=t(t-3)(t-5)</m> (a positive velocity is moving away from shore, increasing the distance).
           What is the position of the hovercraft after 3 seconds and again at 5 seconds?
         </p>
@@ -931,70 +921,68 @@
       <solution>
         <p>
           Let <m>x(t)</m> measure the position of the hovercraft (meters from shore) as a function time (seconds).
-          By the principle of accumulation of change, 
-          the change in position over 3 seconds is equal to the definite integral of the rate of change, 
+          By the principle of accumulation of change,
+          the change in position over 3 seconds is equal to the definite integral of the rate of change,
           <me>x(3) - x(0) = \int_0^3 v(t) dt = \int_0^3 [t(t-3)(t-5)] dt.</me>
-          Using technology, we find the accumulated change, 
-          such as asking WolframAlpha <q>integral of <m>t(t-3)(t-5)</m> from 0 to 3</q>, 
+          Using technology, we find the accumulated change,
+          such as asking WolframAlpha <q>integral of <m>t(t-3)(t-5)</m> from 0 to 3</q>,
           <me>\int_0^3 [t(t-3)(t-5)] dt = \frac{63}{4} = 15.75.</me>
-          Since the hovercraft started 40 meters from shore 
-          and has moved a net amount 15.75 meters (away from shore), 
+          Since the hovercraft started 40 meters from shore
+          and has moved a net amount 15.75 meters (away from shore),
           the hovercraft is at a position 55.75 meters after 3 seconds.
         </p>
         <p>
-          We can compute the change in position over the next two seconds using 
+          We can compute the change in position over the next two seconds using
           <me>x(5) - x(3) = \int_3^5 v(t) dt = \int_3^5 [t(t-3)(t-5)] dt.</me>
-          Using technology, we find the accumulated change, 
-          such as asking WolframAlpha <q>integral of <m>t(t-3)(t-5)</m> from 3 to 5</q>, 
+          Using technology, we find the accumulated change,
+          such as asking WolframAlpha <q>integral of <m>t(t-3)(t-5)</m> from 3 to 5</q>,
           <me> \int_3^5 [t(t-3)(t-5)] dt = \frac{-16}{3} \approx -5.333.</me>
           The hovercraft has moved 5.333 meters back toward the shore during the last two seconds.
-          Since the craft was at 55.75 meters after 3 seconds, 
+          Since the craft was at 55.75 meters after 3 seconds,
           after 5 seconds it is at 50.417 meters away from the shore.
         </p>
         <p>
-          Alternatively, we could do a single integral finding the total change over all 5 seconds, 
+          Alternatively, we could do a single integral finding the total change over all 5 seconds,
           <me>x(5)-x(0) = \int_0^5 v(t) dt = \int_0^5 [t(t-3)(t-5)] dt.</me>
           We find
           <me>\int_0^5 [t(t-3)(t-5)] dt = \frac{125}{12} \approx 10.417,</me>
-          which implies that the hovercraft has moved from <m>x(0)=40</m> meters from shore 
-          to a new position of <m>x(5)=50.417</m> meters from shore, 
+          which implies that the hovercraft has moved from <m>x(0)=40</m> meters from shore
+          to a new position of <m>x(5)=50.417</m> meters from shore,
           in agreement to our earlier calculations.
-          The figure below shows a graph of the velocity function with the areas (unsigned) 
+          The figure below shows a graph of the velocity function with the areas (unsigned)
           that were used to compute the change in position.
         </p>
-        <sidebyside width="70%" margins="auto">
-          <image>
-            <latex-image>
-              <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-              <![CDATA[\tikzset{%
-              }
-              \begin{tikzpicture}
-              \begin{axis}[%
-              xmin=-1, xmax=6,%
-              ]
-              \addplot[name path=axis,black] coordinates {
-              (-1,0)
-              (6,0)
-              };
-              \addplot[name path=integrand,blue,domain=0:5,samples=100]
-              {x*(x-3)*(x-5)};
-              \addplot[blue,opacity=0.25] fill between[
-              of=axis and integrand,
-              split,
-              soft clip={domain=0:3},
-              ];
-              \addplot[red,opacity=0.25] fill between[
-              of=axis and integrand,
-              split,
-              soft clip={domain=3:5},
-              ];
-              \node[coordinate,label={0:15.75}] at (axis cs:0.75,3) {};
-              \node[coordinate,label={0:5.333}] at (axis cs:3.5,-1.25) {};
-              \end{axis}
-              \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="70%" margins="auto">
+          <latex-image>
+            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+            <![CDATA[\tikzset{%
+            }
+            \begin{tikzpicture}
+            \begin{axis}[%
+            xmin=-1, xmax=6,%
+            ]
+            \addplot[name path=axis,black] coordinates {
+            (-1,0)
+            (6,0)
+            };
+            \addplot[name path=integrand,blue,domain=0:5,samples=100]
+            {x*(x-3)*(x-5)};
+            \addplot[blue,opacity=0.25] fill between[
+            of=axis and integrand,
+            split,
+            soft clip={domain=0:3},
+            ];
+            \addplot[red,opacity=0.25] fill between[
+            of=axis and integrand,
+            split,
+            soft clip={domain=3:5},
+            ];
+            \node[coordinate,label={0:15.75}] at (axis cs:0.75,3) {};
+            \node[coordinate,label={0:5.333}] at (axis cs:3.5,-1.25) {};
+            \end{axis}
+            \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </solution>
     </example>
   </subsection>

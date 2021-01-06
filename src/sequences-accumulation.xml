@@ -48,7 +48,7 @@
     <example>
       <statement>
         <p>
-          At the start of the year, you had <dollar/>1500 in an account.
+          At the start of the year, you had $1500 in an account.
           Suppose that the sequence
           <me>W = (W_{m})_{m=1}^{12} = (240, 300, 270, 450, 250, 310, 360, 270, 320, 300, 350, 480)</me>
           represents the total of monthly withdrawals from the account,
@@ -66,58 +66,56 @@
           We wish to define the sequence <m>B= (B_m)_{m=0}^{12}</m>.
         </p>
         <p>
-          After one month, our account has had <dollar/>240 withdrawn and <dollar/>280 deposited.
+          After one month, our account has had $240 withdrawn and $280 deposited.
           The balance after the end of the month is thus given by
           <me>B_1 = B_0 - W_1 + D_1 = 1500 - 240 + 280 = 1540</me>.
           Once we have the balance after one month, we can repeat this process for the other eleven months.
         </p>
-        <sidebyside>
-          <tabular>
-            <row bottom="major">
-              <cell><m>m</m> (month)</cell>
-              <cell><m>B_m</m> (balance in dollars)</cell>
-            </row>
-            <row>
-              <cell>0</cell><cell>1500</cell>
-            </row>
-            <row>
-              <cell>1</cell><cell><m>1500-240+280 = 1540</m></cell>
-            </row>
-            <row>
-              <cell>2</cell><cell><m>1540-300+280 = 1520</m></cell>
-            </row>
-            <row>
-              <cell>3</cell><cell><m>1520-270+280 = 1530</m></cell>
-            </row>
-            <row>
-              <cell>4</cell><cell><m>1530-450+280 = 1360</m></cell>
-            </row>
-            <row>
-              <cell>5</cell><cell><m>1360-250+280 = 1390</m></cell>
-            </row>
-            <row>
-              <cell>6</cell><cell><m>1390-310+280 = 1360</m></cell>
-            </row>
-            <row>
-              <cell>7</cell><cell><m>1360-360+280 = 1280</m></cell>
-            </row>
-            <row>
-              <cell>8</cell><cell><m>1280-270+280 = 1290</m></cell>
-            </row>
-            <row>
-              <cell>9</cell><cell><m>1290-320+280 = 1250</m></cell>
-            </row>
-            <row>
-              <cell>10</cell><cell><m>1250-300+280 = 1230</m></cell>
-            </row>
-            <row>
-              <cell>11</cell><cell><m>1250-350+280 = 1160</m></cell>
-            </row>
-            <row>
-              <cell>12</cell><cell><m>1160-480+280 = 960</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>m</m> (month)</cell>
+            <cell><m>B_m</m> (balance in dollars)</cell>
+          </row>
+          <row>
+            <cell>0</cell><cell>1500</cell>
+          </row>
+          <row>
+            <cell>1</cell><cell><m>1500-240+280 = 1540</m></cell>
+          </row>
+          <row>
+            <cell>2</cell><cell><m>1540-300+280 = 1520</m></cell>
+          </row>
+          <row>
+            <cell>3</cell><cell><m>1520-270+280 = 1530</m></cell>
+          </row>
+          <row>
+            <cell>4</cell><cell><m>1530-450+280 = 1360</m></cell>
+          </row>
+          <row>
+            <cell>5</cell><cell><m>1360-250+280 = 1390</m></cell>
+          </row>
+          <row>
+            <cell>6</cell><cell><m>1390-310+280 = 1360</m></cell>
+          </row>
+          <row>
+            <cell>7</cell><cell><m>1360-360+280 = 1280</m></cell>
+          </row>
+          <row>
+            <cell>8</cell><cell><m>1280-270+280 = 1290</m></cell>
+          </row>
+          <row>
+            <cell>9</cell><cell><m>1290-320+280 = 1250</m></cell>
+          </row>
+          <row>
+            <cell>10</cell><cell><m>1250-300+280 = 1230</m></cell>
+          </row>
+          <row>
+            <cell>11</cell><cell><m>1250-350+280 = 1160</m></cell>
+          </row>
+          <row>
+            <cell>12</cell><cell><m>1160-480+280 = 960</m></cell>
+          </row>
+        </tabular>
       </solution>
     </example>
     <p>

@@ -41,7 +41,7 @@
     </p>
     <p>
       The only limits of interest in sequences were when the index went to infinity.
-      For functions, in order to <xref ref="defn-limit-intuition">understand continuity</xref>,
+      For functions, in order to <xref ref="defn-limit-intuition" text="custom">understand continuity</xref>,
       we have found that we also need to think about limits
       as the independent variable approaches a value from either the left or the right.
       Sequences can give us a way to think about this possibility.
@@ -88,30 +88,28 @@
           The left-sided limit needs to consider an independent sequence <m>x_n \lt 3</m> with <m>x_n \to 3</m>.
           The following partial table illustrates an example with <m>x_n = 3 - 10^{-n}</m>.
         </p>
-        <sidebyside margins="auto">
-          <tabular>
-            <row bottom="major">
-              <cell><m>n</m></cell>
-              <cell><m>x_n</m></cell>
-              <cell><m>f(x_n)</m></cell>
-            </row>
-            <row>
-              <cell><m>1</m></cell>
-              <cell><m>2.9</m></cell>
-              <cell><m>f(2.9)=2.9+2=4.9</m></cell>
-            </row>
-            <row>
-              <cell><m>2</m></cell>
-              <cell><m>2.99</m></cell>
-              <cell><m>f(2.99)=2.99+2=4.99</m></cell>
-            </row>
-            <row>
-              <cell><m>3</m></cell>
-              <cell><m>2.999</m></cell>
-              <cell><m>f(2.999)=2.999+2=4.999</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>n</m></cell>
+            <cell><m>x_n</m></cell>
+            <cell><m>f(x_n)</m></cell>
+          </row>
+          <row>
+            <cell><m>1</m></cell>
+            <cell><m>2.9</m></cell>
+            <cell><m>f(2.9)=2.9+2=4.9</m></cell>
+          </row>
+          <row>
+            <cell><m>2</m></cell>
+            <cell><m>2.99</m></cell>
+            <cell><m>f(2.99)=2.99+2=4.99</m></cell>
+          </row>
+          <row>
+            <cell><m>3</m></cell>
+            <cell><m>2.999</m></cell>
+            <cell><m>f(2.999)=2.999+2=4.999</m></cell>
+          </row>
+        </tabular>
         <p>
           If we compare the values of the dependent sequence <m>f(x_n)</m>
           with the value of the formula <m>x+2</m> evaluated at <m>x=3</m>, which is <m>x+2=5</m>,
@@ -122,30 +120,28 @@
           In a similar way, a right-sided limit requires <m>x_n \gt 3</m> with <m>x_n \to 3</m>,
           such as the sequence <m>x_n = 3 + 10^{-n}</m>.
         </p>
-        <sidebyside margins="auto">
-          <tabular>
-            <row bottom="major">
-              <cell><m>n</m></cell>
-              <cell><m>x_n</m></cell>
-              <cell><m>f(x_n)</m></cell>
-            </row>
-            <row>
-              <cell><m>1</m></cell>
-              <cell><m>3.1</m></cell>
-              <cell><m>f(3.1)=4(3.1)-(3.1)^2=2.79</m></cell>
-            </row>
-            <row>
-              <cell><m>2</m></cell>
-              <cell><m>3.01</m></cell>
-              <cell><m>f(3.01)=4(3.01)-(3.01)^2=2.9799</m></cell>
-            </row>
-            <row>
-              <cell><m>3</m></cell>
-              <cell><m>3.001</m></cell>
-              <cell><m>f(3.001)=4(3.001)-(3.001)^2=2.997999</m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row bottom="major">
+            <cell><m>n</m></cell>
+            <cell><m>x_n</m></cell>
+            <cell><m>f(x_n)</m></cell>
+          </row>
+          <row>
+            <cell><m>1</m></cell>
+            <cell><m>3.1</m></cell>
+            <cell><m>f(3.1)=4(3.1)-(3.1)^2=2.79</m></cell>
+          </row>
+          <row>
+            <cell><m>2</m></cell>
+            <cell><m>3.01</m></cell>
+            <cell><m>f(3.01)=4(3.01)-(3.01)^2=2.9799</m></cell>
+          </row>
+          <row>
+            <cell><m>3</m></cell>
+            <cell><m>3.001</m></cell>
+            <cell><m>f(3.001)=4(3.001)-(3.001)^2=2.997999</m></cell>
+          </row>
+        </tabular>
         <p>
           If we compare the values of the dependent sequence <m>f(x_n)</m>
           with the value of the formula <m>4x-x^2</m> evaluated at <m>x=3</m>, which is <m>4x-x^2=3</m>,
@@ -200,39 +196,37 @@
             </li>
           </ol>
         </p>
-        <sidebyside width="60%">
-          <image>
-            <description>
-            Graph of a function.
-            </description>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-              \begin{axis}[
-                xmin=-5,xmax=5,
-                ymin=-5,ymax=5,
-                xlabel={$x$},
-                ylabel={$y=f(x)$},
-              ]
+        <image width="60%">
+          <description>
+          Graph of a function.
+          </description>
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-5,xmax=5,
+              ymin=-5,ymax=5,
+              xlabel={$x$},
+              ylabel={$y=f(x)$},
+            ]
 
-              \addplot[red, domain=-5:-1, thick, samples=100]
-                ({x}, {-2*(x+2)^3});
-              \addplot[red, domain=-1:2, thick, samples=100]
-                ({x}, {2-x^2});
-              \addplot[red, domain=2:5, thick, samples=100]
-                ({x}, {-4+x});
-              \addplot[mark=*, red, fill=white] coordinates {(-1,-2)};
-              \addplot[mark=*, red, fill] coordinates {(-1,1)};
-              \addplot[mark=*, red, fill=white] coordinates {(4,0)};
-              \addplot[mark=*, red, fill] coordinates {(4,2)};
-              \addplot[mark=*, red, fill=white] coordinates {(2,-2)};
-              \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+            \addplot[red, domain=-5:-1, thick, samples=100]
+              ({x}, {-2*(x+2)^3});
+            \addplot[red, domain=-1:2, thick, samples=100]
+              ({x}, {2-x^2});
+            \addplot[red, domain=2:5, thick, samples=100]
+              ({x}, {-4+x});
+            \addplot[mark=*, red, fill=white] coordinates {(-1,-2)};
+            \addplot[mark=*, red, fill] coordinates {(-1,1)};
+            \addplot[mark=*, red, fill=white] coordinates {(4,0)};
+            \addplot[mark=*, red, fill] coordinates {(4,2)};
+            \addplot[mark=*, red, fill=white] coordinates {(2,-2)};
+            \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </statement>
       <solution>
         <p>
@@ -560,9 +554,9 @@
             Given a sequence <m>x_k</m> with <m>x_k \ne a</m> and <m>x_k \to a</m>,
             define the output sequence <m>y_k = m x_k + b</m>.
             This is a constant sum and constant multiple of <m>x_k</m>.
-            By <xref text="title" ref="SLC-Constant-Multiple">SLC:CM</xref>,
+            By <xref ref="SLC-Constant-Multiple" text="custom">SLC:CM</xref>,
             we know <m>m x_k \to m a</m>.
-            By <xref text="title" ref="SLC-Constant-Sum">SLC:CS</xref>,
+            By <xref ref="SLC-Constant-Sum" text="custom">SLC:CS</xref>,
             we then have <m>y_k = mx_k + b \to ma+b</m>.
           </p>
         </proof>
@@ -946,35 +940,33 @@
           Find the following values, if they exist, based on the graph and
           assuming the coordinates of shown points are integers.
         </p>
-        <sidebyside width="60%">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-              \begin{axis}[
-                xmin=-5,xmax=5,
-                ymin=-5,ymax=5,
-                xlabel={$x$},
-                ylabel={$y=f(x)$},
-              ]
+        <image width="60%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-5,xmax=5,
+              ymin=-5,ymax=5,
+              xlabel={$x$},
+              ylabel={$y=f(x)$},
+            ]
 
-              \addplot[red, domain=-5:-2, thick, samples=2]
-                ({x}, {2});
-              \addplot[red, domain=-2:2, thick, samples=100]
-                ({x}, {-x});
-              \addplot[red, domain=2:5, thick, samples=100]
-                ({x}, {(x-3)^2)});
-              \addplot[mark=*, red, fill=white] coordinates {(-2,2)};
-              \addplot[mark=*, red, fill] coordinates {(-2,3)};
-              \addplot[mark=*, red, fill] coordinates {(2,-2)};
-              \addplot[mark=*, red, fill=white] coordinates {(2,1)};
-              \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+            \addplot[red, domain=-5:-2, thick, samples=2]
+              ({x}, {2});
+            \addplot[red, domain=-2:2, thick, samples=100]
+              ({x}, {-x});
+            \addplot[red, domain=2:5, thick, samples=100]
+              ({x}, {(x-3)^2)});
+            \addplot[mark=*, red, fill=white] coordinates {(-2,2)};
+            \addplot[mark=*, red, fill] coordinates {(-2,3)};
+            \addplot[mark=*, red, fill] coordinates {(2,-2)};
+            \addplot[mark=*, red, fill=white] coordinates {(2,1)};
+            \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </introduction>
       <exercise>
         <statement>
@@ -1020,35 +1012,33 @@
           Find the following values, if they exist, based on the graph and
           assuming the coordinates of shown points are integers.
         </p>
-        <sidebyside width="60%">
-          <image>
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-              \begin{axis}[
-                xmin=-5,xmax=5,
-                ymin=-5,ymax=5,
-                xlabel={$x$},
-                ylabel={$y=f(x)$},
-              ]
+        <image width="60%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-5,xmax=5,
+              ymin=-5,ymax=5,
+              xlabel={$x$},
+              ylabel={$y=f(x)$},
+            ]
 
-              \addplot[red, domain=-5:-2, thick, samples=2]
-                ({x}, {abs(x+4)});
-              \addplot[red, domain=-2:2, thick, samples=100]
-                ({x}, {2-abs(x)});
-              \addplot[red, domain=2:5, thick, samples=100]
-                ({x}, {abs(x-4))});
-              \addplot[mark=*, red, fill=white] coordinates {(-2,2)};
-              \addplot[mark=*, red, fill=white] coordinates {(-2,0)};
-              \addplot[mark=*, red, fill] coordinates {(2,2)};
-              \addplot[mark=*, red, fill=white] coordinates {(2,0)};
-              \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+            \addplot[red, domain=-5:-2, thick, samples=2]
+              ({x}, {abs(x+4)});
+            \addplot[red, domain=-2:2, thick, samples=100]
+              ({x}, {2-abs(x)});
+            \addplot[red, domain=2:5, thick, samples=100]
+              ({x}, {abs(x-4))});
+            \addplot[mark=*, red, fill=white] coordinates {(-2,2)};
+            \addplot[mark=*, red, fill=white] coordinates {(-2,0)};
+            \addplot[mark=*, red, fill] coordinates {(2,2)};
+            \addplot[mark=*, red, fill=white] coordinates {(2,0)};
+            \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </introduction>
       <exercise>
         <statement>

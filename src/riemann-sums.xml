@@ -6,43 +6,43 @@
 <!--                                              -->
 <!-- Copyright (C) 2015-2017  D. Brian Walton     -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="riemann-sums">
   <title>Riemann Sums</title>
 
   <introduction>
     <title>Overview</title>
-    
+
     <p>
     When a rate of change is a simple function (piecewise constant), we can
-    compute the definite integral as a summation of the increments. 
+    compute the definite integral as a summation of the increments.
     Each increment is the product of the rate of change times the width of the subinterval in the partition.
     When a rate of change is not simple (varying), we can approximate the total change
     by using simple functions that are either above or below the true rate.
     If we can make these approximations as good as we desire, then there is a limiting value
     and that value is defined as the definite integral.
     </p>
-    
+
     <p>
     The approximations to the definite integral using simple functions are called <term>Riemann sums</term>.
     In this section, we will learn how to create Riemann sums using a uniform partition.
     The Riemann sum will depend on the number of increments.
     The definite integral will be the limit of this sum as the number of increments goes to infinity.
     </p>
-    
+
   </introduction>
-   
+
   <subsection>
     <title>Uniform Partitions</title>
-    
+
     <p>
     Recall that a partition <m>P</m> of an interval <m>[a,b]</m> is an increasing, finite sequence
     <m>P = (x_0, x_1, \ldots, x_n)</m> with <m>x_0=a</m> and <m>x_n=b</m> and <m>x_{k-1} \lt x_{k}</m>.
-    Adjacent terms in the sequence define subintervals, <m>I_k = [x_{k-1}, x_{k}]</m>, 
+    Adjacent terms in the sequence define subintervals, <m>I_k = [x_{k-1}, x_{k}]</m>,
     which has a width increment of size <m>\nabla x_k = x_{k} - x_{k-1}</m>.
     A uniform partition of an interval <m>[a,b]</m> is a partition in which all increments are the same size.
     </p>
-    
+
     <definition>
       <title>Uniform Partition</title>
       <statement>
@@ -50,7 +50,7 @@
       The <term>uniform partition</term> of an interval <m>[a,b]</m> of size <m>n</m>
       is the partition with equal increments
       <me>\nabla x_k = \Delta x = \frac{b-a}{n}</me>.
-      The partition points are defined by the arithmetic sequence 
+      The partition points are defined by the arithmetic sequence
       <me>x_k = a + k \cdot \Delta x, \quad k=0, 1, \ldots, n. </me>
       The <m>k</m>th subinterval is <m>I_k = [a+(k-1)\Delta x, a+k \Delta x]</m>.
       </p>
@@ -73,7 +73,7 @@
       </li>
     </ul>
     </p>
-    
+
     <example>
       <statement>
       <p>Find the uniform partition of <m>[1,4]</m> of size <m>n=8</m>.</p>
@@ -86,30 +86,28 @@
       <me> x_k = a + k \Delta x = 1 + k \cdot \frac{3}{8} = 1 + \frac{3}{8} k. </me>
       In particular, the partition includes the points shown in the table below.
       </p>
-      <sidebyside margins="auto">
-        <tabular>
-          <row><cell><m>k</m></cell> <cell><m>x_k</m></cell></row>
-          <row><cell> 0 </cell><cell> <m>1</m> </cell></row>
-          <row><cell> 1 </cell><cell> <m>1+\frac{3}{8} = 1 \frac{3}{8}</m> </cell></row>
-          <row><cell> 2 </cell><cell> <m>1+\frac{6}{8} = 1 \frac{6}{8}</m> </cell></row>
-          <row><cell> 3 </cell><cell> <m>1+\frac{9}{8} = 2 \frac{1}{8}</m> </cell></row>
-          <row><cell> 4 </cell><cell> <m>1+\frac{12}{8} = 2 \frac{4}{8}</m> </cell></row>
-          <row><cell> 5 </cell><cell> <m>1+\frac{15}{8} = 2 \frac{7}{8}</m> </cell></row>
-          <row><cell> 6 </cell><cell> <m>1+\frac{18}{8} = 3 \frac{2}{8}</m> </cell></row>
-          <row><cell> 7 </cell><cell> <m>1+\frac{21}{8} = 3 \frac{5}{8}</m> </cell></row>
-          <row><cell> 8 </cell><cell> <m>1+\frac{24}{8} = 4</m> </cell></row>
-        </tabular>
-      </sidebyside>
+      <tabular>
+        <row><cell><m>k</m></cell> <cell><m>x_k</m></cell></row>
+        <row><cell> 0 </cell><cell> <m>1</m> </cell></row>
+        <row><cell> 1 </cell><cell> <m>1+\frac{3}{8} = 1 \frac{3}{8}</m> </cell></row>
+        <row><cell> 2 </cell><cell> <m>1+\frac{6}{8} = 1 \frac{6}{8}</m> </cell></row>
+        <row><cell> 3 </cell><cell> <m>1+\frac{9}{8} = 2 \frac{1}{8}</m> </cell></row>
+        <row><cell> 4 </cell><cell> <m>1+\frac{12}{8} = 2 \frac{4}{8}</m> </cell></row>
+        <row><cell> 5 </cell><cell> <m>1+\frac{15}{8} = 2 \frac{7}{8}</m> </cell></row>
+        <row><cell> 6 </cell><cell> <m>1+\frac{18}{8} = 3 \frac{2}{8}</m> </cell></row>
+        <row><cell> 7 </cell><cell> <m>1+\frac{21}{8} = 3 \frac{5}{8}</m> </cell></row>
+        <row><cell> 8 </cell><cell> <m>1+\frac{24}{8} = 4</m> </cell></row>
+      </tabular>
       </solution>
     </example>
-    
+
     <p>
     One of the tasks required in computing Riemann sums will involve evaluating a function
-    at these partition points. This is yet another example of the importance of 
+    at these partition points. This is yet another example of the importance of
     composition of functions in that we replace the independent variable (input) of the
     function with a formula for the partition point of interest.
     </p>
-    
+
     <example>
       <statement>
       <p>Evaluate <m>f(x_k)</m> where <m>f(x) = x^2</m> and <m>x_k</m> is a point
@@ -137,19 +135,19 @@
       </p>
       </solution>
     </example>
-    
+
     <p>
     From this section, you should be able to write down the formula for the points
     in a uniform partition of an interval whether the size of the partition is given
     as a specific number or as an unspecified value.
-    Using this formula, you should also be able to use that formula to evaluate a 
+    Using this formula, you should also be able to use that formula to evaluate a
     function at the partition points.
     </p>
   </subsection>
-  
+
   <subsection>
     <title>Uniform Riemann Sums</title>
-    
+
     <p>
     Recall that a simple function is a piecewise function that is constant
     on each subinterval defined by the partition.
@@ -161,7 +159,7 @@
     A <term>Riemann sum</term> approximates this definite integral by approximating
     the function <m>f(x)</m> by a simple function defined on a partition of <m>[a,b]</m>.
     </p>
-    
+
     <p>
     A Riemann sum involves two steps: specifying the partition and choosing the simple function
     defined on the partition.
@@ -191,7 +189,7 @@
       </li>
     </dl>
     </p>
-    
+
     <p>
     The left-hand rule and the right-hand rule are the simplest rules to work with algebraically.
     We will focus on practicing using those rules.
@@ -200,14 +198,14 @@
     The lower-sum always underestimates the definite integral; the upper-sum always overestimates the value.
     If we know both the lower-sum and upper-sum, then the true value must be between them.
     </p>
-    
+
     <p>
     To compute a Riemann sum using a particular choice of simple function, we usually
-    do not define the approximating simple function separately. We just compute the 
+    do not define the approximating simple function separately. We just compute the
     approximating definite integral based on that simple function. For clarity, our
     first example will define the function directly.
     </p>
-    
+
     <example>
       <statement>
       <p>Approximate <m>\displaystyle \int_{2}^{5} x^2 dx</m> using the left-hand rule
@@ -234,53 +232,51 @@
       A graph of <m>y=f(x)</m> and the approximating simple function <m>y=\mathcal{L}_f(x)</m> is shown below.
       The shaded region corresponds to the definite integral represented by the Riemann sum.
       </p>
-      <sidebyside margins="auto">
-        <image width="80%">
-          <latex-image>
-          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-          <![CDATA[\tikzset{%
-          }
-          \begin{tikzpicture}
-          \begin{axis} [
-            xmin=0, xmax=5.5,
-            ymin=0, ymax=30,
-            grid=both, minor tick num={1},
-            ]
-            \addplot[no marks, black] coordinates {
-              (-1,0)
-              (6,0)
-            };
-            \addplot[blue, thick, samples=100] { x^2 };
-            \addplot[mark=o, thick, red] coordinates {
-              (2,4)
-              (2.75,4)
-            };
-            \fill [opacity=0.25, red] (axis cs:2,0) -- (axis cs:2,4)
-              -- (axis cs: 2.75,4) -- (axis cs: 2.75,0) -- cycle;
-            \addplot[mark=o, thick, red] coordinates {
-              (2.75,7.5625)
-              (3.5,7.5625)
-            };
-            \fill [opacity=0.25, red] (axis cs:2.75,0) -- (axis cs:2.75,7.5625)
-              -- (axis cs: 3.5, 7.5625) -- (axis cs: 3.5,0) -- cycle;
-            \addplot[mark=o, thick, red] coordinates {
-              (3.5,12.25)
-              (4.25,12.25)
-            };
-            \fill [opacity=0.25, red] (axis cs:3.5,0) -- (axis cs:3.5,12.25)
-              -- (axis cs: 4.25, 12.25) -- (axis cs: 4.25,0) -- cycle;
-            \addplot[mark=o, thick, red] coordinates {
-              (4.25,18.0625)
-              (5,18.0625)
-            };
-            \fill [opacity=0.25, red] (axis cs:4.25,0) -- (axis cs:4.25,18.0625)
-              -- (axis cs: 5, 18.0625) -- (axis cs: 5,0) -- cycle;
-          \end{axis}
-          \end{tikzpicture}]]>
-          </latex-image>
-        </image>
-      </sidebyside>
-      
+      <image width="80%">
+        <latex-image>
+        <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+        <![CDATA[\tikzset{%
+        }
+        \begin{tikzpicture}
+        \begin{axis} [
+          xmin=0, xmax=5.5,
+          ymin=0, ymax=30,
+          grid=both, minor tick num={1},
+          ]
+          \addplot[no marks, black] coordinates {
+            (-1,0)
+            (6,0)
+          };
+          \addplot[blue, thick, samples=100] { x^2 };
+          \addplot[mark=o, thick, red] coordinates {
+            (2,4)
+            (2.75,4)
+          };
+          \fill [opacity=0.25, red] (axis cs:2,0) -- (axis cs:2,4)
+            -- (axis cs: 2.75,4) -- (axis cs: 2.75,0) -- cycle;
+          \addplot[mark=o, thick, red] coordinates {
+            (2.75,7.5625)
+            (3.5,7.5625)
+          };
+          \fill [opacity=0.25, red] (axis cs:2.75,0) -- (axis cs:2.75,7.5625)
+            -- (axis cs: 3.5, 7.5625) -- (axis cs: 3.5,0) -- cycle;
+          \addplot[mark=o, thick, red] coordinates {
+            (3.5,12.25)
+            (4.25,12.25)
+          };
+          \fill [opacity=0.25, red] (axis cs:3.5,0) -- (axis cs:3.5,12.25)
+            -- (axis cs: 4.25, 12.25) -- (axis cs: 4.25,0) -- cycle;
+          \addplot[mark=o, thick, red] coordinates {
+            (4.25,18.0625)
+            (5,18.0625)
+          };
+          \fill [opacity=0.25, red] (axis cs:4.25,0) -- (axis cs:4.25,18.0625)
+            -- (axis cs: 5, 18.0625) -- (axis cs: 5,0) -- cycle;
+        \end{axis}
+        \end{tikzpicture}]]>
+        </latex-image>
+      </image>
+
       <p>
       The Riemann sum is the definite integral of the approximating simple function.
       Notice how the limits of the integral correspond to the interval <m>[2,5]</m>
@@ -294,15 +290,15 @@
       </p>
       </solution>
     </example>
-    
+
     <p>
     In usual practice, the only steps we really need are identifying the partition,
     determining the value of the function on each subinterval, and then computing the Riemann sum,
-    which corresponds to the definite integral of the simple function. Writing down 
+    which corresponds to the definite integral of the simple function. Writing down
     the piecewise formula for the simple function is not actually necessary.
     A table often makes the computation simpler.
     </p>
-    
+
     <example>
       <statement>
         <p>
@@ -320,40 +316,38 @@
         <m>f(x) = \displaystyle \frac{1}{x+1}</m> at the right endpoint of each subinterval.
         The table below summarizes these computations.
         </p>
-        <sidebyside>
-          <tabular>
-            <row>
-              <cell><m>k</m> (index)</cell>
-              <cell><m>[x_{k-1}, x_k]</m> (interval)</cell>
-              <cell><m>f(x_k)</m> (value)</cell>
-            </row>
-            <row>
-              <cell><m>1</m></cell>
-              <cell><m>[0,0.4]</m></cell>
-              <cell><m>f(0.4) = \frac{1}{1.4} \approx 0.7143 </m></cell>
-            </row>
-            <row>
-              <cell><m>2</m></cell>
-              <cell><m>[0.4,0.8]</m></cell>
-              <cell><m>f(0.8) = \frac{1}{1.8} \approx 0.5556 </m></cell>
-            </row>
-            <row>
-              <cell><m>3</m></cell>
-              <cell><m>[0.8,1.2]</m></cell>
-              <cell><m>f(1.2) = \frac{1}{2.2} \approx 0.4546 </m></cell>
-            </row>
-            <row>
-              <cell><m>4</m></cell>
-              <cell><m>[1.2,1.6]</m></cell>
-              <cell><m>f(1.6) = \frac{1}{2.6} \approx 0.3846 </m></cell>
-            </row>
-            <row>
-              <cell><m>5</m></cell>
-              <cell><m>[1.6,2]</m></cell>
-              <cell><m>f(2) = \frac{1}{3} \approx 0.3333 </m></cell>
-            </row>
-          </tabular>
-        </sidebyside>
+        <tabular>
+          <row>
+            <cell><m>k</m> (index)</cell>
+            <cell><m>[x_{k-1}, x_k]</m> (interval)</cell>
+            <cell><m>f(x_k)</m> (value)</cell>
+          </row>
+          <row>
+            <cell><m>1</m></cell>
+            <cell><m>[0,0.4]</m></cell>
+            <cell><m>f(0.4) = \frac{1}{1.4} \approx 0.7143 </m></cell>
+          </row>
+          <row>
+            <cell><m>2</m></cell>
+            <cell><m>[0.4,0.8]</m></cell>
+            <cell><m>f(0.8) = \frac{1}{1.8} \approx 0.5556 </m></cell>
+          </row>
+          <row>
+            <cell><m>3</m></cell>
+            <cell><m>[0.8,1.2]</m></cell>
+            <cell><m>f(1.2) = \frac{1}{2.2} \approx 0.4546 </m></cell>
+          </row>
+          <row>
+            <cell><m>4</m></cell>
+            <cell><m>[1.2,1.6]</m></cell>
+            <cell><m>f(1.6) = \frac{1}{2.6} \approx 0.3846 </m></cell>
+          </row>
+          <row>
+            <cell><m>5</m></cell>
+            <cell><m>[1.6,2]</m></cell>
+            <cell><m>f(2) = \frac{1}{3} \approx 0.3333 </m></cell>
+          </row>
+        </tabular>
         <p>
         Knowing the constant values on each subinterval, if we called the simple function
         using the right endpoint <m>\mathcal{R}_f(x)</m>, then we have the Riemann sum
@@ -365,7 +359,6 @@
         The graph below shows the original function <m>y=f(x)</m> and the simple function
         <m>y=\mathcal{R}_f(x)</m> that was used in the Riemann sum.
         </p>
-      <sidebyside margins="auto">
         <image width="80%">
           <latex-image>
           <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
@@ -378,7 +371,7 @@
             ylabel={$y$},
           ]
           \addplot[black, no marks] coordinates {
-            (-1,0) 
+            (-1,0)
             (3,0)
           };
           \addplot[black, no marks] coordinates {
@@ -428,22 +421,21 @@
           \end{tikzpicture}]]>
           </latex-image>
         </image>
-      </sidebyside>
       </solution>
     </example>
-    
+
     <p>
     The previous two examples illustrated very specific Riemann sums, where
-    the size of the partition was specified as a small number. In order to 
-    compute definite integrals using limits of Riemann sums, we need to 
+    the size of the partition was specified as a small number. In order to
+    compute definite integrals using limits of Riemann sums, we need to
     find an explicit formula for a Riemann sum involving a partition of unspecified size <m>n</m>.
     </p>
-    
+
     <p>
     The basic steps for these problems are as follows.
     <ul>
       <li><p>
-      Create a formula for the partition with increment 
+      Create a formula for the partition with increment
       <me>\Delta x = \frac{b-a}{n}</me>
       and partition points defined by an arithmetic sequence
       <me> x_k = a + k \, \Delta x. </me>
@@ -468,7 +460,7 @@
       </p></li>
     </ul>
     </p>
-    
+
     <example>
       <statement>
         <p>
@@ -518,44 +510,42 @@
         <p>
         Because the graph <m>y=f(x)</m> (shown below) is linear, we can compute the corresponding
         signed area using the area of triangles and compare our calculation.
-        The graph crosses the axis when <m>f(x)=0</m> which occurs at <m>x=2.5</m>. 
+        The graph crosses the axis when <m>f(x)=0</m> which occurs at <m>x=2.5</m>.
         So we split the definite integral into two pieces,
         <me> \int_{-1}^{5} f(x) dx = \int_{-1}^{2.5} f(x) dx + \int_{2.5}^{5} f(x) dx. </me>
         The first region on interval <m>[-1,2.5]</m> is a triangle above the axis with height 7 and width 3.5
         so that the area of the region is <m>\frac{1}{2}(7)(3.5) = 12.25</m>.
         The second region on interval <m>[2.5, 5]</m> is a triangle below the axis with height 5
         (since <m>f(5)=-5</m>) and base width <m>5-2.5=2.5</m>.
-        The area of the second triangle is <m>\frac{1}{2}(5)(2.5) = 6.25</m> but 
+        The area of the second triangle is <m>\frac{1}{2}(5)(2.5) = 6.25</m> but
         corresponds to a signed area of <m>-6.25</m> (because below the axis).
         So
         <me> \int_{-1}^{5} f(x) dx = 12.25 + -6.25 = 6. </me>
         Thus, the limit of the Riemann sum exactly agrees with the geometric calculation of total signed area.
         </p>
-        <sidebyside margins="auto">
-          <image width="80%">
-            <latex-image>
-            <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-            <![CDATA[\tikzset{%
-            }
-            \begin{tikzpicture}
-            \begin{axis} [
-              xmin=-2, xmax=6,
-              grid=both, minor tick num={1},
-              ]
-              \addplot[no marks, black] coordinates {
-                (-2,0)
-                (6,0)
-              };
-              \addplot[blue, thick, domain=-2:6, samples=3] { 5-2*x };
-              \fill [opacity=0.25, blue] (axis cs:-1,7) -- (axis cs:2.5,0)
-                -- (axis cs: -1,0) -- cycle;
-              \fill [opacity=0.25, red] (axis cs:2.5,0) -- (axis cs:5,0)
-                -- (axis cs: 5,-5) -- cycle;
-            \end{axis}
-            \end{tikzpicture}]]>
-            </latex-image>
-          </image>
-        </sidebyside>
+        <image width="80%">
+          <latex-image>
+          <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+          <![CDATA[\tikzset{%
+          }
+          \begin{tikzpicture}
+          \begin{axis} [
+            xmin=-2, xmax=6,
+            grid=both, minor tick num={1},
+            ]
+            \addplot[no marks, black] coordinates {
+              (-2,0)
+              (6,0)
+            };
+            \addplot[blue, thick, domain=-2:6, samples=3] { 5-2*x };
+            \fill [opacity=0.25, blue] (axis cs:-1,7) -- (axis cs:2.5,0)
+              -- (axis cs: -1,0) -- cycle;
+            \fill [opacity=0.25, red] (axis cs:2.5,0) -- (axis cs:5,0)
+              -- (axis cs: 5,-5) -- cycle;
+          \end{axis}
+          \end{tikzpicture}]]>
+          </latex-image>
+        </image>
       </solution>
     </example>
   </subsection>
@@ -566,7 +556,7 @@
       <li>
         <p>
         The definite integral <m>\displaystyle \int_a^b f(x) \, dx</m>
-        of a general function <m>f(x)</m> 
+        of a general function <m>f(x)</m>
         can be approximated by a <term>Riemann sum</term>,
         which is the definite integral of a simple function
         that approximates <m>f(x)</m> as a piecewise constant function.
@@ -575,9 +565,9 @@
       <li>
         <p>
         A <term>partition of an interval</term> of size <m>n</m> is a finite sequence
-        of values <m>P = (x_0, x_1, \ldots, x_n)</m> 
+        of values <m>P = (x_0, x_1, \ldots, x_n)</m>
         which defines <m>n</m> subintervals <m>I_k = [x_{k-1},x_k]</m>.
-        The lengths of the subintervals are the increments 
+        The lengths of the subintervals are the increments
         <m>\nabla x_k = x_{k}-x_{k-1}</m>.
         </p>
         <p>
@@ -602,18 +592,18 @@
           <li>Left-Hand Rule: Choose <m>x_k^* = x_{k-1}</m> (left end-point).</li>
           <li>Right-Hand Rule: Choose <m>x_k^* = x_{k}</m> (right end-point).</li>
           <li>Mid-Point Rule: Choose <m>\displaystyle x_k^* = \frac{x_{k-1}+x_k}{2}</m> (mid-point).</li>
-          <li>Trapezoid Rule: Choose <m>x_k^*</m> so that 
+          <li>Trapezoid Rule: Choose <m>x_k^*</m> so that
           <m>\displaystyle f(x_k^*) = \frac{f(x_{k-1})+f(x_k)}{2}</m> (average height of sides).</li>
-          <li>Lower-Sum Rule: Choose <m>x_k^*</m> so that 
+          <li>Lower-Sum Rule: Choose <m>x_k^*</m> so that
           <m>f(x_k^*) = \min(f(x): x \in [x_{k-1},x_k]</m> (minimum value).</li>
-          <li>Upper-Sum Rule: Choose <m>x_k^*</m> so that 
+          <li>Upper-Sum Rule: Choose <m>x_k^*</m> so that
           <m>f(x_k^*) = \max(f(x): x \in [x_{k-1},x_k]</m> (maximum value).</li>
         </ul>
         </p>
       </li>
       <li>
         <p>
-        The definite integral is the limit of all Riemann sums as the partition size 
+        The definite integral is the limit of all Riemann sums as the partition size
         grows <m>n \to \infty</m> and the increments shrink <m>\Delta x \to 0</m>.
         In particular, for a uniform partition,
         <me>\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k^*) \Delta x.</me>
@@ -621,7 +611,7 @@
       </li>
       <li>
         <p>
-        To approximate a definite integral 
+        To approximate a definite integral
         <m>\displaystyle \int_a^b f(x)\,dx</m>
         for a specific size Riemann sum (i.e., for a specific value of <m>n</m>),
         we apply the following steps.
@@ -630,7 +620,7 @@
           <li>Identify the evaluation points <m>x_k^*</m> according to the rule being used.</li>
           <li>Calculate the specific values of the integrand <m>f(x_k^*)</m>.</li>
           <li>
-          Add the increments of the Riemann sum, 
+          Add the increments of the Riemann sum,
           multiplying each rate value <m>f(x_k^*)</m> by the increment <m>\nabla x_k</m>,
           <me>\sum_{k=1}^{n} f(x_k^*) \, \nabla x_k.</me>
           </li>
@@ -639,7 +629,7 @@
       </li>
       <li>
         <p>
-        To express a definite integral 
+        To express a definite integral
         <m>\displaystyle \int_a^b f(x)\,dx</m>
         as the limit of uniform Riemann sums, we apply the following steps.
         <ol>
@@ -653,7 +643,7 @@
           using function substitution (composition).
           </li>
           <li>
-          Write down the limit of the Riemann sum, 
+          Write down the limit of the Riemann sum,
           remembering to multiply the rate value <m>f(x_k^*)</m> by <m>\Delta x</m>,
           <me>\int_a^b f(x)\, dx = \lim_{n \to \infty} \sum_{k=1}^{n} f(x_k^*) \Delta x.</me>
           </li>

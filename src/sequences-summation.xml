@@ -30,7 +30,7 @@
   <subsection>
     <title>Summation of as Net Accumulated Change</title>
     <p>
-      In the previous section, we learned that every accumulation sequence can be written <xref ref="theorem-accumulation-as-summation" text="title">using summation notation</xref>.
+      In the previous section, we learned that every accumulation sequence can be written <xref ref="theorem-accumulation-as-summation" text="custom">using summation notation</xref>.
       The reverse is true.
       For every summation, we can define a corresponding accumulation sequence.
       Suppose we are interested in a summation
@@ -54,7 +54,7 @@
       <title>Summation Splitting Property</title>
       <statement>
         <p>
-          For any summation <m>\displaystyle \sum_{i=m}^{n} x_i</m> and intermediate index <m>k</m> with <m>m \lt k \lt n</m>, 
+          For any summation <m>\displaystyle \sum_{i=m}^{n} x_i</m> and intermediate index <m>k</m> with <m>m \lt k \lt n</m>,
           we can split the sum at <m>k</m> as
           <me>\sum_{i=m}^{n} x_i = \sum_{i=m}^{k} x_i + \sum_{i=k+1}^{n} x_i.</me>
         </p>
@@ -101,7 +101,7 @@
     <p>
       In this theorem, notice that which accumulation sequence is used does not matter.
       The initial value is irrelevant.
-      In addition, notice that the accumulated change represented by the sum 
+      In addition, notice that the accumulated change represented by the sum
       is equal to the change from <em>one before</em> the lower limit to the upper limit.
       This extra index step corresponds to increments matching backward differences.
       Finally, notice that the difference in accumulations can also be written
@@ -110,7 +110,7 @@
     <example>
       <statement>
         <p>
-          In a <xref text="title" ref="example-accumulation-odd-integers">previous example</xref>, 
+          In a <xref ref="example-accumulation-odd-integers" text="custom">previous example</xref>,
           we showed that the accumulation of odd integers was the sequence of squares.
           Use this to compute the sum of all odd three digit numbers.
         </p>
@@ -120,12 +120,12 @@
           The question is asking us to compute
           <me>101+103+105+\cdots+997+999</me>.
           In order to apply summation properties and accumulation sequences,
-          we need the explicit formula for the sequence of terms 
+          we need the explicit formula for the sequence of terms
           as well as the lower limit and upper limit of the sum.
         </p>
         <p>
           The sequence of odd integers <m>x=(1,3,5,\ldots)</m> has an explicit formula <m>x_k=2k-1</m>, <m>k=1,2,3,\ldots</m>.
-          It was for this sequence that 
+          It was for this sequence that
           <xref ref="example-accumulation-odd-integers">we had</xref> 
           <me> u_n = \sum_{k=1}^{n} 2k-1 = n^2. </me>
           We want to write the sum of odd three digit numbers in terms of the sequence of increments.
@@ -174,9 +174,9 @@
     </p>
     <p>
       Suppose we have a sequence <m>x</m> and a constant <m>\alpha</m>.
-      We can create a new sequence <m>\alpha x</m>, 
+      We can create a new sequence <m>\alpha x</m>,
       called a <term>constant multiple</term>, by multiplying
-      every term of <m>x</m> by the same constant <m>\alpha</m>. 
+      every term of <m>x</m> by the same constant <m>\alpha</m>.
       Using the constant multiple as an increment sequence, every term
       will have a common factor of <m>\alpha</m>.
       This leads to a property of summation called the constant multiple rule<mdash/>constant multiples factor out of summation.
@@ -200,7 +200,7 @@
       number of terms can be regrouped in any convenient way.
       A summation of terms <m>u+w</m> can therefore be grouped in a way that we
       add only the terms from <m>u</m> and then add only the terms from <m>v</m>
-      and then add the results. 
+      and then add the results.
       This leads to a property of summation called the sum rule.
     </p>
     <theorem xml:id="theorem-summation-sum-rule">
@@ -208,7 +208,7 @@
       <statement>
         <p>
           Let <m>u</m> and <m>w</m> be any two sequences defined for the range <m>k=m,\ldots,n</m>.
-          Then 
+          Then
           <me> \sum_{k=m}^{n} [u_k+w_k] = \sum_{k=m}^{n} u_k + \sum_{k=m}^{n} w_k. </me>
         </p>
       </statement>
@@ -236,7 +236,7 @@
     </theorem>
     <p>
       Using <m>\alpha = 1</m> and <m>\beta = -1</m>, the linear combination
-      becomes a difference, <m>\alpha x + \beta y = x - y</m>. 
+      becomes a difference, <m>\alpha x + \beta y = x - y</m>.
       So the difference rule is a special case of linearity.
     </p>
     <theorem xml:id="theorem-summation-difference-rule">
@@ -262,13 +262,13 @@
       <me> \sum_{k=m}^{n} [x_k \cdot y_k] \ne \sum_{k=m}^{n} x_k \cdot \sum_{k=m}^{n} y_k. </me>
     </p>
   </subsection>
-  
+
   <subsection>
     <title>Elementary Summation Formulas</title>
     <p>
       There are some elementary increment sequences for which we can find
       an explicit formula for the accumulation sequence.
-      We will state the results and prove them using the 
+      We will state the results and prove them using the
       <xref ref="theorem-uniqueness-of-accumulation">uniqueness criteria for accumulation sequences</xref>.
       The simplest accumulation sequence, and that used in each of the elementary summation formulas,
       use an initial value <m>s_0 = 0</m>.
@@ -303,7 +303,7 @@
           The proposed explicit sequence is <me>\displaystyle w_n = \frac{n(n+1)}{2}</me>.
           The initial values agree:
           <md>
-            <mrow>u_0 &amp;= 0,</mrow> 
+            <mrow>u_0 &amp;= 0,</mrow>
             <mrow>w_0 &amp;= \frac{0(1)}{2} = 0.</mrow>
           </md>
           The increment for <m>w</m> is given by:
@@ -328,7 +328,7 @@
           The proposed explicit sequence is <me>\displaystyle w_n = \frac{n(n+1)(2n+1)}{6}</me>.
           The initial values agree:
           <md>
-            <mrow>u_0 &amp;= 0,</mrow> 
+            <mrow>u_0 &amp;= 0,</mrow>
             <mrow>w_0 &amp;= \frac{0(1)(1)}{6} = 0.</mrow>
           </md>
           The increment for <m>w</m> is given by:
@@ -356,7 +356,7 @@
           The proposed explicit sequence is <me>\displaystyle w_n = \frac{n^2(n+1)^2}{4}</me>.
           The initial values agree:
           <md>
-            <mrow>u_0 = 0,</mrow> 
+            <mrow>u_0 = 0,</mrow>
             <mrow>w_0 = \frac{0(1)(1)}{6} = 0.</mrow>
           </md>
           The increment for <m>w</m> is given by:
@@ -426,7 +426,7 @@
       </statement>
       <solution>
         <p>
-          This example uses the same basic sequence (the integers) 
+          This example uses the same basic sequence (the integers)
           but instead of starting at <m>k=1</m>, we are summing the sequence
           <m>x = (k : k=1,2,3,\ldots)</m> over an index range <m>100 \le k \le 200</m>,
           <me> 100+101+\cdots+200 = \sum_{k=100}^{200} k. </me>
@@ -448,7 +448,7 @@
     <title>Summations of Linear Combinations</title>
     <p>
       The elementary summation formulas allow us to compute sums involving only the elementary terms.
-      Combining these formulas using the properties of summation, 
+      Combining these formulas using the properties of summation,
       namely using the constant multiple rule and the sum rule,
       we can compute sums of any linear combination of the elementary terms.
     </p>
@@ -463,7 +463,7 @@
           The increments in the sum consist of a constant (<m>500</m>),
           a constant multiple of the index (<m>60k</m>),
           and a constant multiple of the square of the index (<m>-2k^2</m>).
-          The <xref ref="theorem-summation-linearity">linearity property of summation</xref> 
+          The <xref ref="theorem-summation-linearity">linearity property of summation</xref>
           allows us to compute the sum using the elementary formulas.
           Although linearity allows the two steps to be done at once, the following
           illustrates the steps (sum and constant multiple rules) in order:
@@ -478,7 +478,7 @@
             <mrow> \sum_{k=1}^{20} [k] = \frac{20(21)}{2} = 210, </mrow>
             <mrow> \sum_{k=1}^{20} [k^2] = \frac{20(21)(41)}{6} = 2870. </mrow>
           </md>
-          Consequently, 
+          Consequently,
           <me> \sum_{k=1}^{20} [500+60k-2k^2] = 10000 + 60(210) - 2(2870) = 16860. </me>
         </p>
       </solution>
@@ -544,7 +544,7 @@
             <mrow> &amp;= \sum_{k=1}^{n} 2 + \frac{1}{n} \sum_{k=1}^{n}\cdot k - \frac{12}{n^2} \sum_{k=1}^{n} k^2 </mrow>
             <mrow> &amp;= 2n + \frac{1}{n} \cdot \frac{n(n+1)}{2} - \frac{12}{n^2} \frac{n(n+1)(2n+1)}{6} </mrow>
           </md>
-          To simplify the answer, we need to cancel common factors 
+          To simplify the answer, we need to cancel common factors
           and then rewrite the expression with a common denominator.
           <md>
             <mrow> \sum_{k=1}^{n} (2-\frac{3k}{n})(1+\frac{2k}{n}) &amp;= 2n + \frac{n+1}{2} - \frac{2(n+1)(2n+1)}{n} </mrow>

@@ -6,7 +6,7 @@
 <!--                                              -->
 <!-- Copyright (C) 2015  D. Brian Walton          -->
 <!-- See the file COPYING for copying conditions. -->
-   
+
 <section xml:id="linear-models">
 	<title>Linear Models</title>
 
@@ -18,7 +18,7 @@
 		is when the <em>change</em> between the variables, rather than the variables themselves,
 		are proportional.
 		</p>
-		
+
 		<definition>
 			<title>Linear Relation</title>
 
@@ -32,7 +32,7 @@
 				</p>
 			</statement>
 		</definition>
-		
+
 		<p>
 		The form of the equation used in the definition of a linear relation is called the
 		general equation for a line. This equation can describe horizontal, vertical and slanted lines.
@@ -42,18 +42,18 @@
 		as <m>x=a</m> with <m>a=C/A</m>, where <m>a</m> represents the constant value of <m>x</m> over
 		all states of the system.
 		</p>
-		
+
 		<p>
 		With the exception of the case of that <m>x</m> is constant (discussed above), for linear relations
 		we say that <m>y</m> is a linear function of <m>x</m>.
 		</p>
-		
+
 		<definition>
 			<title>Linear Function</title>
 
 			<statement>
 				<p>
-				Given two covarying variables <m>x</m> and <m>y</m>, we say that <m>y</m> 
+				Given two covarying variables <m>x</m> and <m>y</m>, we say that <m>y</m>
 				is a <term>linear function</term> of <m>x</m> if there exist a constant <m>m</m>
 				such that for any two states of the system <m>(x_1,y_1)</m> and <m>(x_2,y_2)</m>,
 				the ratio of the change in <m>y</m>, <m>\Delta y = y_2-y_1</m>,
@@ -67,13 +67,13 @@
 				</p>
 			</statement>
 		</definition>
-		
+
 		<p>
 		Many students finish algebra courses remembering the <term>slope<ndash/>intercept form</term>
-		of the equation of a line, 
+		of the equation of a line,
 		<me> y = mx+b, </me>
 		and have unfortunately used it so much that they think this is a preferred form.
-		This equation's form involves two model parameters, the slope <m>m</m> and 
+		This equation's form involves two model parameters, the slope <m>m</m> and
 		the <m>y</m><ndash />intercept, <m>b</m>. An <term>intercept</term> describes a point
 		where a graph crosses one of the axes in the plane. A <term><m>y</m>-intercept</term>
 		is a point where the graph crosses the <m>y</m>-axis. So this form of the line requires
@@ -85,7 +85,7 @@
 			<usage>y=mx+b</usage>
 			<description>Equation of a line with slope <m>m</m> passing through the <m>y</m>-axis at <m>(x,y)=(0,b)</m>.</description>
 		</notation>
-		
+
 		<p>
 		It would be much better to remember the more general <term>point<ndash/>slope form</term>,
 		<me> y-y_1 = m(x-x_1). </me>
@@ -109,16 +109,16 @@
 		<p>
 		If you remember the point<ndash />slope form of an equation for a line, other uses can
 		be immediately recovered.
-		For example, if you do know the <m>y</m><ndash/>intercept <m>b</m>, 
+		For example, if you do know the <m>y</m><ndash/>intercept <m>b</m>,
 		then you know a point <m>(x,y)=(0,b)</m>.
 		The resulting point<ndash />slope form becomes equivalent to the slope<ndash/>intercept form,
 		<me>y=b+m(x-0) = b+mx.</me>
 		But if you instead know the <m>x</m><ndash/>intercept <m>a</m>, then you know
-		a point on the <m>x</m><ndash/>axis <m>(x,y)=(a,0)</m> and the point<ndash />slope form 
+		a point on the <m>x</m><ndash/>axis <m>(x,y)=(a,0)</m> and the point<ndash />slope form
 		immediately leads to an equation capturing this information,
 		<me>y=m(x-a).</me>
 		</p>
-		
+
 		<example>
 		    <statement>
 		    Write <m>y</m> as a linear function of <m>x</m> if we know that <m>y=24</m>
@@ -126,7 +126,7 @@
 		    </statement>
 		    <solution>
                 <p>
-		        This is an ideal setting to use the point<ndash />slope form 
+		        This is an ideal setting to use the point<ndash />slope form
 		        because we know the slope <m>m=-3</m> and we know a point <m>(x,y)=(5,24)</m>.
 		        One way to do this is to write down the slope equation using <m>(x,y)</m>
 		        and <m>(5,24)</m> to get
@@ -134,7 +134,7 @@
 		        After cross-multiplying and solving for <m>y</m>, we get
 		        <me> y = -3(x-5) + 24. </me>
 		        </p>
-		        
+
 		        <p>
 		        The other way to do this problem is to start with the general formula
 		        <me> y = m(x-a) + b </me>
@@ -145,7 +145,7 @@
                 </p>
 		    </solution>
 		</example>
-		
+
 		<p>
 		If we have two points, we need to calculate the slope before proceeding.
 		One special application of this is the idea of <term>linear interpolation</term>.
@@ -165,45 +165,43 @@
             in a draining container <m>V</m> (liters) at various times <m>t</m> (seconds).
             Approximate how much water was in the container after 35 seconds.
             </p>
-            <sidebyside>
-                <image>
-                    <description>
-                    Data points at (0, 6.4), (20, 4.8), (40, 3.6), (60, 2.7).
-                    </description>
-                    <latex-image>
-                    <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
-                    <![CDATA[\tikzset{%
-                    }
-                    \begin{tikzpicture}
-                    \begin{axis}[
-                        xmin=-10,xmax=70,ymin=0,ymax=8,
-                        xtick={
-                            0, 20, 40, 60
-                            },
-                        ytick={0, 2, 4, 6, 8},
-                        xlabel={$t$ (seconds)},
-                        ylabel={$V$ (liters)},
-                    ]
+            <image>
+                <description>
+                Data points at (0, 6.4), (20, 4.8), (40, 3.6), (60, 2.7).
+                </description>
+                <latex-image>
+                <!-- CDATA prevents certain LaTeX code from being interpreted as xml -->
+                <![CDATA[\tikzset{%
+                }
+                \begin{tikzpicture}
+                \begin{axis}[
+                    xmin=-10,xmax=70,ymin=0,ymax=8,
+                    xtick={
+                        0, 20, 40, 60
+                        },
+                    ytick={0, 2, 4, 6, 8},
+                    xlabel={$t$ (seconds)},
+                    ylabel={$V$ (liters)},
+                ]
 
-                    \addplot[red, only marks] table {
-                        0 6.4
-                        20 4.8
-                        40 3.6
-                        60 2.7
-                    }
-                    node [pos=0,above] {(0, 6.4)}
-                    node [pos=0.33, above] {(20, 4.8)}
-                    node [pos=0.67, above] {(40, 3.6)}
-                    node [pos=1, above] {(60, 2.7)};
-                    \end{axis}
-                    \end{tikzpicture}]]>
-                    </latex-image>
-                </image>
-            </sidebyside>
+                \addplot[red, only marks] table {
+                    0 6.4
+                    20 4.8
+                    40 3.6
+                    60 2.7
+                }
+                node [pos=0,above] {(0, 6.4)}
+                node [pos=0.33, above] {(20, 4.8)}
+                node [pos=0.67, above] {(40, 3.6)}
+                node [pos=1, above] {(60, 2.7)};
+                \end{axis}
+                \end{tikzpicture}]]>
+                </latex-image>
+            </image>
             </statement>
             <solution>
                 <p>
-                The data are given at times <m>t \in \{0, 20, 40, 60\}</m>. 
+                The data are given at times <m>t \in \{0, 20, 40, 60\}</m>.
                 Notice that although the change in time is always <m>\Delta t = 20</m>
                 for consecutive points, the change in volume for consecutive points
                 is different with values -1.6, -1.2, and -0.9. So a single line can not
@@ -211,7 +209,7 @@
                 </p>
                 <p>
                 Interpolation is to consider a line only between the two points surrounding
-                the point of interest. The time of interest <m>t=35</m> is between the 
+                the point of interest. The time of interest <m>t=35</m> is between the
                 times <m>t=20</m> and <m>t=40</m>.
                 So we will use the points at those times, <m>(20, 4.8)</m> and <m>(40, 3.6)</m>,
                 to define our approximating model for all times <m>t \in [20,40]</m>.
@@ -219,7 +217,7 @@
                 <me> \frac{\Delta V}{\Delta t} = \frac{3.6-4.8}{40-20} = \frac{-1.2}{20} = -0.06. </me>
                 </p>
                 <p>
-                Knowing the rate of change and either end-point, we can get an equation 
+                Knowing the rate of change and either end-point, we can get an equation
                 for the line.
                 If we use the point <m>(20, 4.8)</m>, then the point<ndash />slope
                 equation of the line is given by
@@ -231,22 +229,22 @@
             </solution>
         </example>
 	</subsection>
-	
+
 	<!-- Testing for Linearity -->
 	<subsection>
 		<title>Testing for Linearity</title>
-		
+
 		<p>
 		Given some data involving two variables, we want to decide if those data follow a linear relation.
 		We do this by testing whether the statement in the definition is satisfied.
 		</p>
-		
+
 		<example>
 			<p>
 			Consider the simple dataset consisting of four points illustrated in the table.
 			Determine if <m>y</m> is a linear function of <m>x</m>.
 			</p>
-			
+
             <table xml:id="table-test-linear-ex-1">
                 <tabular top="major" halign="center">
                     <row bottom="minor">
@@ -261,7 +259,7 @@
                 </tabular>
                 <caption>Dataset to illustrate testing if data are linear.</caption>
             </table>
-            
+
             <p>
             To test whether the definition of a linear function is satisfied, we need to
             check the slope between any two points. This corresponds to computing six different slopes,
@@ -300,21 +298,21 @@
                 </tabular>
                 <caption>Dataset to illustrate testing if data are linear.</caption>
             </table>
-            
+
             <p>
             Notice that the computed values for the slope between points are <em>not</em> always the same value.
             So these data do <em>not</em> satisfy a linear relation.
             However, notice that those pairings that do not include <m>i=2</m> all result in slopes <m>m=-0.20</m>.
             It is the second point <m>i=2</m> that makes these data fail to be linear.
             </p>
-            
+
             <p>
             The graphical visualization of the data reinforces why the data are not linear.
             It is possible to draw a line going through the points <m>i=1,3,4</m>, but that line
             fails to go through the point <m>i=2</m>.
             </p>
-            
-            <sidebyside>
+
+            <figure>
               <caption>Plot illustrating data from Table<nbsp /><xref ref="table-test-linear-ex-1" />
               with the line passing through points 1, 3 and 4, but not 2.</caption>
               <image>
@@ -330,23 +328,23 @@
                 \draw ($ (\sx*-0.1,\sy*0.54) $) -- ($ (\sx*1.1, \sy*0.3) $);
                 \draw ($ (\sx*0,\sy*0.55) $) -- ($ (\sx*0, \sy*0.25) $);
                 \draw ($ (\sx*-0.1,\sy*0.3) $) -- ($ (\sx*1.1, \sy*0.3) $);
-          
+
                 \foreach \x in {0.2, 0.4, 0.6, 0.8, 1.0}
                   \draw (\sx*\x cm,\sy*0.31) -- (\sx*\x cm,\sy*0.29cm) node[anchor=north,fill=white] {$\x$};
 
                 \foreach \y in {0.35, 0.4, 0.45, 0.5}
                   \draw (\sx*0.02, \sy*\y ) -- (\sx*-0.02, \sy*\y) node[anchor=east, fill=white] {$\y$};
-          
+
                 \foreach \x/\y in { 0.2/0.48, 0.45/0.45, 0.6/0.4, 0.8/0.36 }
                   \fill (\sx*\x, \sy*\y) circle (2pt);
 
                 \end{tikzpicture}]]>
                 </latex-image>
               </image>
-            </sidebyside>
+            </figure>
 
 		</example>
-		
+
 		<p>
 		When checking a collection of points to determine if they are <term>collinear</term> (on the same line),
 		we do not need to check all of the pairs of points. It is enough to choose one point, and then compare the slopes between
@@ -354,12 +352,12 @@
 		Alternatively, it is also acceptable to compute the slope for each consecutive pair of points.
 		This is a consequence of the following theorem.
 		</p>
-		
+
 		<theorem>
 			<statement>
 				<p>
 				Given three points <m>(x_1,y_1)</m>, <m>(x_2,y_2)</m> and <m>(x_3,y_3)</m> with distinct <m>x</m> values,
-				if we define the slopes <m>\displaystyle m_{i,j} = \frac{y_j-y_i}{x_j-x_i}</m>, then 
+				if we define the slopes <m>\displaystyle m_{i,j} = \frac{y_j-y_i}{x_j-x_i}</m>, then
 				<me>m_{2,3} = \frac{x_3-x_1}{x_3-x_2} \cdot m_{1,3} - \frac{x_2-x_1}{x_3-x_2} \cdot m_{1,2}.</me>
 				In particular, if <m>m_{1,3}=m_{1,2}=m</m>, then <m>m_{2,3}=m</m>.
 				</p>
@@ -383,21 +381,21 @@
 			</p>
 			</proof>
 		</theorem>
-		
+
 		<p>
 		So in the previous example, we really only needed to compute <m>m_{1,2}</m>, <m>m_{1,3}</m> and <m>m_{1,4}</m>.
 		Because <m>m_{1,3}=m_{1,4}</m> we know that the points 1, 3 and 4 were collinear. But because <m>m_{1,2}</m> was
 		different, we knew immediately that the point 2 falls off of the line.
 		</p>
-		
+
 		<example>
 			<title>Testing for Proportionality and Linearity</title>
-			
+
 			<p>Consider two variables <m>x</m> and <m>y</m> that are measured under four
 			different states, as recorded in the following table. Determine if these data
 			are consistent with a proportional or linear model.
 			</p>
-			
+
             <table xml:id="table-test-linear-ex-2">
                 <tabular top="major" align="center">
                     <row bottom="minor" >
@@ -412,9 +410,9 @@
                 </tabular>
                 <caption>Second dataset to illustrate testing if data are linear.</caption>
             </table>
-            
+
             <p>
-            For a real application, you would not compute values by hand; 
+            For a real application, you would not compute values by hand;
             you would use a computational tool, such as a calculator or spreadsheet,
             which can perform many calculations at essentially one time.
             </p>
@@ -432,28 +430,28 @@
             compute the ratio of changes <m>(y_j-y_i)/(x_j-x_i)</m> for consecutive points
             and observe if that is constant.
             A completed spreadsheet is shown, once showing formulas that you would type and
-            another showing the numeric results. (Technically, you only type a formula for the 
+            another showing the numeric results. (Technically, you only type a formula for the
             first entry; then you copy and paste the result in the other cells and it will
             adjust the references appropriately.)
             </p>
-            <sidebyside>
+            <figure>
                 <caption>Automatic calculation of ratio and slope based on data in a table using a spreadsheet.</caption>
                 <tabular>
                 <row>
                 <cell>
                 <image width="80%" source="images/lin_model_spreadsheet_formulas.png">
-                    <description>Image showing a spreadsheet table with data and formulas used to compute 
+                    <description>Image showing a spreadsheet table with data and formulas used to compute
                     ratio and slope.</description>
                 </image>
                 </cell></row>
                 <row><cell>
                 <image width="80%" source="images/lin_model_spreadsheet_results.png">
-                    <description>Image showing a spreadsheet table with data and values of  
+                    <description>Image showing a spreadsheet table with data and values of
                     ratio and slope computed using formulas.</description>
                 </image>
                 </cell></row>
                 </tabular>
-            </sidebyside>
+            </figure>
             <p>
             Because the ratio of variables was changing, we know that <m>y</m> is not proportional to <m>x</m>.
             However, because the ratio of change for the variables is constant, we know
